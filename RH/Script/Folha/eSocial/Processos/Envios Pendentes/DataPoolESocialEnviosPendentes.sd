@@ -1,0 +1,36 @@
+﻿{Script de DataPool para  o Processo de eSocial - Envios Pendentes
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+
+var
+  FiltroEstab, FiltroDataIni,
+  FiltroHoraIni, FiltroDataFin,
+  FiltroHoraFin, FiltroEvteSocial,
+  
+  FiltroConsEstab, FiltroConsDataIni,
+  FiltroConsHoraIni, FiltroConsDataFin,
+  FiltroConsHoraFin, FiltroConsAmbiente,
+  FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
+
+procedure LeDataPoolEnviosPendentes(nomeDriver);
+begin         
+  FiltroEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;
+									
+procedure LeDataPoolConsEnviosPendentes(nomeDriver);
+begin         
+  FiltroConsEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroConsDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;

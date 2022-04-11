@@ -1,0 +1,29 @@
+﻿uses
+  CommonsAll,
+  ExeTelaLogin,
+  ObjTelaGerente,
+  VarConsts;
+{Script para acessar o módulo na tela de login
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 23/03/2018}
+  
+
+var
+  Viasoft3C_XE: OleVariant;  
+  
+procedure SairModuloViasoft3c();
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+  Viasoft3C_XE.VCLObject('VsMenu').Window('TdxDockControl', '', 3).ClickItem('Menu Gerente|Configuração|Sair');
+end;
+  
+procedure TestarModuloFolha(tipoBanco, nomeConexao, versaoExes:String);
+begin
+  MapTelaGerente();
+  if Sys.WaitProcess(_ModuloGerente).Exists then
+    Sys.Process(_ModuloGerente).Terminate;  
+  FormMenuBarras.ClickItem('Menu Gerente|Barras|Sistemas Contábeis|Folha de Pagamento');
+  AcessaTelaLogin(_ModuloGerente, '', tipoBanco, nomeConexao);
+  SairModuloFiscal(versaoExes);
+end;

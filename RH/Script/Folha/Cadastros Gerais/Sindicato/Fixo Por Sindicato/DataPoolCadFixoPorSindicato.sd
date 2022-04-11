@@ -1,0 +1,55 @@
+﻿{Script de DataPool do Cadastro de Fixo Por Sindicato
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:15/06/2021}
+ 
+var
+  { DDTs }
+  DDTDadosGeraisFixoS, DDTPeriodicidadeMes, DDTPeriodicidadeMesAno, DDTParametros,
+  
+  { Dados Gerais } 
+  FixoSDPSindicato, FixoSDPEvento,
+  
+  { Tab Periodicidade: Por Mês }
+  FixoSMesDPMes,
+  
+  { Tab Periodicidade: Por Mês/Ano }
+  FixoSMesAnoDPMes, FixoSMesAnoDPAno,
+  
+  { Tab Parâmetros }
+  FixoSParamsDPValorInfo, FixoSParamsDPInforme, FixoSParamsDPInforme2,
+  FixoSParamsDPValorTarefa, FixoSParamsDPProporcional, FixoSParamsDPDiasUteis,
+  FixoSParamsDPDiasFaltas, FixoSParamsDPAvosInforme, FixoSParamsDPAvosDireito,
+  FixoSParamsDPReferencia, FixoSParamsDPBaseProp: OleVariant;
+
+procedure LoadDPDadosGeraisFixoS();
+begin
+  FixoSDPSindicato := DDTDadosGeraisFixoS.Value('IDSINDICATO');
+  FixoSDPEvento    := DDTDadosGeraisFixoS.Value('IDEVENTO');
+end;
+
+procedure LoadDPTabPeriodicidadeMesFixoS();
+begin
+  FixoSMesDPMes := DDTPeriodicidadeMes.Value('MES');
+end;
+
+procedure LoadDPTabPeriodicidadeMesAnoFixoS();
+begin
+  FixoSMesAnoDPMes := DDTPeriodicidadeMesAno.Value('MES');
+  FixoSMesAnoDPAno := DDTPeriodicidadeMesAno.Value('ANO');
+end;
+
+procedure LoadDPTabParametrosFixoS();
+begin
+  FixoSParamsDPValorInfo    := DDTParametros.Value('VALOR INFO');
+  FixoSParamsDPInforme      := DDTParametros.Value('INFORME');
+  FixoSParamsDPInforme2     := DDTParametros.Value('INFORME2');
+  FixoSParamsDPValorTarefa  := DDTParametros.Value('VALOR TAREFA');
+  FixoSParamsDPProporcional := DDTParametros.Value('PROPORCIONAL');
+  FixoSParamsDPDiasUteis    := DDTParametros.Value('DIAS UTEIS');
+  FixoSParamsDPDiasFaltas   := DDTParametros.Value('DIAS FALTAS');
+  FixoSParamsDPAvosInforme  := DDTParametros.Value('AVOS INFORME');
+  FixoSParamsDPAvosDireito  := DDTParametros.Value('AVOS DIREITO');
+  FixoSParamsDPReferencia   := DDTParametros.Value('REFERENCIA');
+  FixoSParamsDPBaseProp     := DDTParametros.Value('BASE PROP');
+end;

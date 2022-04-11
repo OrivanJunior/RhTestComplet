@@ -1,0 +1,272 @@
+﻿{Script para executar o Processo de DARF
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 23/06/2021}
+
+uses
+  DataPoolDARF, ObjDARF, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaDARF();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'D.A.R.F'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormDARFWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDARFWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormDARFWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormDARFWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormDARFWhEstabSelec.ClickButton;
+    VerificaInsere(FormDARFWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormDARFWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraLocal();
+begin
+  if (FormDARFWhLocalTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormDARFWhLocalEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDARFWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormDARFWhLocalSelec.ClickButton;
+    VerificaInsere(FormDARFWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormDARFWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormDARFWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormDARFWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDARFWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormDARFWhEmpreSelec.ClickButton;
+    VerificaInsere(FormDARFWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormDARFWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormDARFWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormDARFWhProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDARFWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormDARFWhProcSelec.ClickButton;
+    VerificaInsere(FormDARFWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormDARFWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormDARFWhPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormDARFWhPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDARFWhPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormDARFWhPrestSelec.ClickButton;
+    VerificaInsere(FormDARFWhPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormDARFWhPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormDARFWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whData.whData10.Click();
+    
+  PreencheDatas(FormDARFWhDataDtIni, FiltroDataIni); 
+  PreencheDatas(FormDARFWHDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormDARFWhGerarSobre.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.wh_Emitir10.Click();
+    
+  VerificaInsere(FormDARFWhDARFCent, FiltroDARFCent); 
+  VerificaInsere(FormDARFWhEstabCent, FiltroEstabCent);
+  VerificaInsere(FormDARFWhRipoDARF, FiltroRipoDARF);
+  PreencheDatas(FormDARFWhDataVenc, FiltroDataVenc);
+  VerificaInsere(FormDARFWhGerarSobre, FiltroGerarSobre);
+  
+  if (FiltroGerarSobre = 'E') then
+  begin
+    if (FiltroMensal = 'S') then
+	    FormDARFWhMensal.Checked := true;
+    if (FiltroMensal = 'N') then 
+      FormDARFWhMensal.Checked := false;
+      
+    if (FiltroSobFerias = 'S') then
+      FormDARFWhSobFerias.Checked := true;
+    if (FiltroSobFerias = 'N') then
+      FormDARFWhSobFerias.Checked := false;
+      
+    if (FiltroSob13 = 'S') then
+      FormDARFWhSob13.Checked := true;
+    if (FiltroSob13 = 'N') then
+      FormDARFWhSob13.Checked := false;
+        
+    if (FiltroSobPLR = 'S') then
+      FormDARFWhSobPLR.Checked := true;
+    if (FiltroSobPLR = 'N') then
+      FormDARFWhSobPLR.Checked := false;
+  end;   
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo concluído com Sucesso!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo concluído com Sucesso!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaDARF(pathData);
+var
+  DDTDarf: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := true;
+  
+  AcessaDARF();
+
+  MapDARF();
+
+  DDTDarf := CarregaDDT(pathData, 'Filtro');
+
+  LeDataPoolDARF(DDTDarf.Name);
+  
+  if (FiltroGerarSobre = 'E') then
+  begin
+    FiltraEstab();
+  
+    FiltraLocal();
+    
+    FiltraEmpregados();
+    
+    FiltraProcessamentos();
+  end
+  else
+  begin
+    FiltraEstab();
+  
+    FiltraLocal();
+    
+    FiltraProcessamentos();
+    
+    FiltraPrestadores();
+  end;
+
+  FiltraData();
+
+  FiltraProcessamentos();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while MensagemInativa do
+  begin      
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 5000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();     
+      
+      btnSalvar.Click();
+
+      FechaMensagemProcessoConcluido();
+      
+      ActFechar(FormDARF);
+      
+      MensagemInativa := false;
+    end
+    else
+    if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Nenhum registro encontrado');
+      
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      
+      ActFechar(FormDARF);
+      
+      MensagemInativa := False
+    end;
+  end;  
+  DDT.CloseDriver(DDTDarf.Name);
+end;

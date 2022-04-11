@@ -1,0 +1,121 @@
+﻿
+uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadControleProc,
+  ObjCadControleProc,
+  VarConsts;
+
+procedure FiltraControleProc();
+begin 
+  MapFiltroCadControleProc();
+  FiltroConsFormCBSelCons.Keys('[Enter]');
+  FiltroConsFormCBCodigo.SelectItem('(Ignorar)');
+  
+  btnOkFiltroConsForm.ClickButton;
+end;
+  
+procedure PreencheControleProcessamento();
+begin
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
+  begin  
+    PageProc.ActivePageIndex := 1;
+    
+    VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+    VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+    VerificaInsere(ESocialEBEvtAqProd, ESocialDPEvtAqProd);
+    VerificaInsere(ESocialEBInfoComProd, ESocialDPInfoComProd);
+    VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+    VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+    VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+  end;  
+end;
+
+procedure CadastraControleProcessamento(pathData);
+var
+  DDTCadControle: OleVariant;
+begin  
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Cadastro de Controle');
+
+  DDTCadControle := CarregaDDT(pathData, _Cadastrar);
+  
+  FiltraControleProc();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  LoadDPProcessamento(DDTCadControle.Name);
+    
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhProcesso');
+    
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', ProcDPDtCtrl);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapFormProcessamento();
+      
+    PreencheControleProcessamento();
+  
+    Aliases.Folha.FRhProcesso.BSalvar.Click();
+      
+    ActFechar(FormCadControleProc);
+      
+    DDTCadControle.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  
+  DDT.CloseDriver(DDTCadControle.Name);  
+end;
+
+procedure ExcluiControleProcessamento(pathData);
+var
+  DDTCadControle: OleVariant;
+begin  
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Cadastro de Controle');
+
+  DDTCadControle := CarregaDDT(pathData, _Excluir);
+  
+  FiltraControleProc();
+
+  MapGridConsulta(_ModuloFolha);
+  
+  LoadDPProcessamento(DDTCadControle.Name);
+    
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  ValidaFormAberto(_ModuloFolha, 'FRhProcesso');
+    
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', ProcDPDtCtrl);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+//    ActConsulta(FormTelaConsultaForm);
+//  
+//    MapFormProcessamento();
+      
+    //ActExcluir(_ModuloFolha, 'FRhProcesso');
+    //BtnExcluirProc.Click();
+    
+    Aliases.Folha.FBRowseCds.BExcluir.Click();  
+    
+    Aliases.Folha.dlgConsultaProcessamentosControle.btnSim.Click();
+    //Aliases.Folha.dlgProcessoControle.btnSim.Click();
+    
+    Aliases.Folha.TMessageForm.Yes.Click();
+    
+    Aliases.Folha.JanelaResp.BotaoDoResp_1.Keys('[Enter]');
+      
+    //ActFechar(FormCadControleProc);
+      
+    DDTCadControle.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  
+  DDT.CloseDriver(DDTCadControle.Name)
+end;

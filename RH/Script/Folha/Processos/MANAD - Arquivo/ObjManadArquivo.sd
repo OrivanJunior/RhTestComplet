@@ -1,0 +1,44 @@
+﻿{Script de DataPool do Processo de Manad - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 05/07/2021}
+ 
+var
+  FormManadArquivo, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  ManadArquivoWhEstabEspec, ManadArquivoWhEstabEspecCampo,
+  ManadArquivoWhEstabTodosEmp, ManadArquivoWhEstabTodosEmpCampo,
+  ManadArquivoWhEstabTodos, ManadArquivoWhEstabSelec,
+  ManadArquivoWhEstabSelecCampo, 
+  
+  ManadArquivoWhDataIni, ManadArquivoWhDataFin, 
+  
+  ManadArquivoWhDadosFinalidade, ManadArquivoWhDadosLocalGrav: OleVariant;
+  
+procedure MapManadArquivo();
+begin
+  FormManadArquivo                 := Aliases.Folha.FRhProcManad;
+  
+  btnSair                          := Aliases.Folha.FRhProcManad.BSair;
+  btnExecutar                      := Aliases.Folha.FRhProcManad.bExecutar;
+  btnSalvar                        := Aliases.Folha.FRhProcManad.tbSalvar;
+  btnRelatorio                     := Aliases.Folha.FRhProcManad.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  ManadArquivoWhEstabEspec         := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  ManadArquivoWhEstabEspecCampo    := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  ManadArquivoWhEstabTodosEmp      := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  ManadArquivoWhEstabTodosEmpCampo := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  ManadArquivoWhEstabTodos         := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  ManadArquivoWhEstabSelec         := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  ManadArquivoWhEstabSelecCampo    := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Datas }
+  ManadArquivoWhDataIni            := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  ManadArquivoWhDataFin            := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Dados Adicionais }
+  ManadArquivoWhDadosFinalidade    := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDados.EB_Finalidade;
+  ManadArquivoWhDadosLocalGrav     := Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+end;

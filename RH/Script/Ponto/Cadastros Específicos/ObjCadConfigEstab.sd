@@ -1,0 +1,103 @@
+﻿{Script para mapear o Cadastro da Configuração do Estabelecimento
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 30/08/2021}
+
+var
+  ConfEstabForm, ConfEstabPage,
+  
+  ConfEstabEBCei, ConfEstabEBCpf,
+  ConfEstabEBIdResp, ConfEstabEBCargo, 
+  ConfEstabEBPisResp, ConfEstabEBEmail,
+  ConfEstabEBConfEmail, ConfEstabEBGrupo,
+  ConfEstabEBConfNela,
+  
+  ConfEstabEBHorarioPadrao, ConfEstabEBFechaUltDia,
+  ConfEstabEBDiaFecha, ConfEstabEBTipoControle,
+  ConfEstabEBAvRetEmpPonto, ConfEstabEBBuscaEstabAFD,
+  ConfEstabEBCartManConfHr, ConfEstabEBConsDiaTrab,
+  ConfEstabEBCodEstabFolha, ConfEstabEBHrExtIndInt,
+  ConfEstabEBHoraIniPro, ConfEstabEBEveHrAviso,
+  
+  EveExpIncBtn, EveExpSaveBtn,
+  EveExpProcBtn, EveExpConsBtn,
+  EveExpDesfBtn, EveExpExcBtn,
+  EveExpGrid,
+  
+  RepEstabIncBtn, RepEstabSaveBtn,
+  RepEstabProcBtn, RepEstabConsBtn,
+  RepEstabDesfBtn, RepEstabExcBtn, 
+  RepEstabGrid,
+  
+  ConfEstabEBVencCNH, ConfEstabEBDiasVencCNH,
+  ConfEstabEBBcoHrsComp, ConfEstabEBDiasBHComp,
+  ConfEstabEBVencBcoHrs,ConfEstabEBDiasVencBH: OleVariant;
+
+procedure MapConfigEstab();
+begin
+  ConfEstabForm            := Aliases.Ponto.FRhFilial;
+  ConfEstabPage            := Aliases.Ponto.FRhFilial.Page;
+end;
+
+procedure MapDadosCadastrais();
+begin
+  ConfEstabEBCei           := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
+  ConfEstabEBCpf           := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_CPF;
+  ConfEstabEBIdResp        := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDPESRESP;
+  ConfEstabEBCargo         := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_CARGO;
+  ConfEstabEBPisResp       := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_PISRESP;
+  ConfEstabEBEmail         := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_EMAIL;
+  ConfEstabEBConfEmail     := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCONFIGMAIL;
+  ConfEstabEBGrupo         := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDGRUPO;
+  ConfEstabEBConfNela      := Aliases.Ponto.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+end;
+
+procedure MapConfGeraisPonto();
+begin
+  ConfEstabEBHorarioPadrao := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_HORARIOPADRAOPONTO;
+  ConfEstabEBFechaUltDia   := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_FECHAULTDIAMES;
+  ConfEstabEBDiaFecha      := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_DIAFECHA;
+  ConfEstabEBTipoControle  := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_TIPOCONTROLEPONTO;
+  ConfEstabEBAvRetEmpPonto := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_AVRETEMPPONTO;
+  ConfEstabEBBuscaEstabAFD := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_IGNESTABIMPAFD;
+  ConfEstabEBCartManConfHr := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_CARTMANCONFHORARIO;
+  ConfEstabEBConsDiaTrab   := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_CONSULTDIATRAB;
+  ConfEstabEBCodEstabFolha := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_CODESTABFOLHA;
+  ConfEstabEBHrExtIndInt   := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_HREXTINDINT;
+  ConfEstabEBHoraIniPro    := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.gbGerais.EB_HORAINIPRORROGA;
+  ConfEstabEBEveHrAviso    := Aliases.Ponto.FRhFilial.Page.tsPonto.ScrollBox5.ScrollBox6.GroupBox2.EB_EVEHRSOBREAVISO;
+end;
+
+procedure MapEventosExportacao();
+begin
+  EveExpIncBtn             := Aliases.Ponto.FRhFilial.bIncEve;
+  EveExpSaveBtn            := Aliases.Ponto.FRhFilial.bSalvarEve;
+  EveExpProcBtn            := Aliases.Ponto.FRhFilial.ToolbarButton978;
+  EveExpConsBtn            := Aliases.Ponto.FRhFilial.ToolbarButton979;
+  EveExpDesfBtn            := Aliases.Ponto.FRhFilial.bCancEve;
+  EveExpExcBtn             := Aliases.Ponto.FRhFilial.bExcEve;
+			          
+  EveExpGrid               := Aliases.Ponto.FRhFilial.Page.tsEvExpPonto.gRhExpEvePonto;
+end;
+
+procedure MapRepEstab();
+begin
+  RepEstabIncBtn           := Aliases.Ponto.FRhFilial.bIncRep;
+  RepEstabSaveBtn          := Aliases.Ponto.FRhFilial.bSalvarRep;
+  RepEstabProcBtn          := Aliases.Ponto.FRhFilial.ToolbarButton976;
+  RepEstabConsBtn          := Aliases.Ponto.FRhFilial.ToolbarButton977;
+  RepEstabDesfBtn          := Aliases.Ponto.FRhFilial.bCancRep;
+  RepEstabExcBtn           := Aliases.Ponto.FRhFilial.bExcRep;
+			          
+  RepEstabGrid             := Aliases.Ponto.FRhFilial.Page.tsReps.gRhRep;
+end;
+
+procedure MapListagemPendencias();
+begin
+  ConfEstabEBVencCNH       := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_LVENCCNH_PONTO;
+  ConfEstabEBDiasVencCNH   := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_DLVENCCNH_PONTO;
+  ConfEstabEBBcoHrsComp    := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_LBANHORCOMP;
+  ConfEstabEBDiasBHComp    := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_DLBANHORCOMP;
+  ConfEstabEBVencBcoHrs    := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_LBANHOR;
+  ConfEstabEBDiasVencBH    := Aliases.Ponto.FRhFilial.Page.tsPendencias.Panel4.pnListPendPonto.EB_DLBANHOR;
+end;

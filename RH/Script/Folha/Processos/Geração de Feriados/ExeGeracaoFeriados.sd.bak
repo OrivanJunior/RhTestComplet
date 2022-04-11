@@ -1,0 +1,49 @@
+﻿uses
+  CommonsAll,
+  DataPoolGeracaoFeriados,
+  ObjGeracaoFeriados,
+  VarConsts;
+{Script para executar a Geração de Feriados
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 11/05/2021}
+ 
+procedure PreencheDadosGeracaoFeriados();
+begin
+  VerificaConsultaF3Insere(_ModuloFolha, GeracaoFeriadosEBEstab, GeracaoFeriadosDPEstab);
+  VerificaInsere(GeracaoFeriadosEBAno, GeracaoFeriadosDPAno);
+end;  
+
+procedure ValidaMsgConcluido();
+begin
+  btnExecutar.click();
+  if Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 5000).exists then
+    Aliases.Folha.Window('#32770', 'Processo Concluído ! ', 1).Window('Button', 'OK', 1).click();
+    
+  btnSalvar.click();
+  
+  if Aliases.Folha.WaitWindow('#32770', 'Processo concluído com Sucesso!', 1, 5000).exists then
+    Aliases.Folha.Window('#32770', 'Processo concluído com Sucesso!', 1).Window('Button', 'OK', 1).click();
+    
+  ActFechar(GeracaoFeriadosForm);  
+end;
+
+procedure ExecutaGeracaoFeriados(pathData);
+var
+  DDTFeriados: OleVariant;
+begin  
+  AcessaItem(_ModuloFolha, 'Processos', 'Gerar Feriados Nacionais');
+  
+  MapTelaGeracaoFeriados();
+  
+  DDTFeriados := CarregaDDT(pathData, 'Gerar');
+  
+  LeDataPoolGeracaoFeriados(DDTFeriados.Name);
+  
+  PreencheDadosGeracaoFeriados(); 
+  
+  ValidaMsgConcluido();
+  
+  DDT.CloseDriver(DDTFeriados.Name);
+end;  
+

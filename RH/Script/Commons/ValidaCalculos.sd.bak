@@ -1,0 +1,144 @@
+﻿Const
+//  strConexaoFBBase = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO_BASE.FDB;'; 
+//  strConexaoFBAtual = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO.FDB;'; 
+  strConexaoFBBase = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2_BASE.FDB;'; 
+  strConexaoFBAtual = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2.FDB;';
+
+procedure criarTabelaDeConsulta(tabela);
+begin
+  if Project.Variables.VariableExists(tabela) then
+  begin
+    Project.Variables.RemoveVariable(tabela);
+  end;
+  Project.Variables.AddVariable(tabela, 'Table');
+end;
+
+procedure buscaBancoBase(consulta, conexao:string);
+var
+  Qry, str, i , linha: OleVariant;
+begin
+  // Create a query
+  Qry := ADO.CreateADOQuery();
+
+  // Specify the connection string   
+  Qry.ConnectionString := conexao;
+  
+  Qry.SQL := consulta; 
+  
+  // Execute the query
+  Qry.Open;
+  
+  // Process results and insert data into the tempQry to use in other function
+  criarTabelaDeConsulta('retornoConsultaBase');
+  
+  Qry.First;
+  
+  // Process to write the header
+  for i:= 0 to Qry.FieldCount-1 do
+  begin
+    Project.Variables.retornoConsultaBase.AddColumn(Qry.Field[i].FieldName);
+  end;
+  
+  linha := 0;
+  
+  // Process to write the rows
+  while not aqConvert.VarToBool(Qry.EOF) do
+  begin
+    Inc(Project.Variables.retornoConsultaBase.RowCount);
+    for i:= 0 to Qry.FieldCount-1 do
+      begin
+      //Log.Message(VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value));
+      Project.Variables.retornoConsultaBase.Item(i,linha) := VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value) ;
+    end;
+    Inc(linha);
+    Qry.Next;
+  end;
+  //log.Message(Project.Variables.retornoConsulta);
+  // Closes the query and file
+  Qry.Close;
+end;
+
+procedure buscaBancoAtual(consulta, conexao:string);
+var
+  Qry, str, i , linha: OleVariant;
+begin
+  // Create a query
+  Qry := ADO.CreateADOQuery();
+
+  // Specify the connection string   
+  Qry.ConnectionString := conexao;
+  
+  Qry.SQL := consulta; 
+  
+  // Execute the query
+  Qry.Open;
+  
+  // Process results and insert data into the tempQry to use in other function
+  criarTabelaDeConsulta('retornoConsultaAtual');
+  
+  Qry.First;
+  
+  // Process to write the header
+  for i:= 0 to Qry.FieldCount-1 do
+  begin
+    Project.Variables.retornoConsultaAtual.AddColumn(Qry.Field[i].FieldName);
+  end;
+  
+  linha := 0;
+  
+  // Process to write the rows
+  while not aqConvert.VarToBool(Qry.EOF) do
+  begin
+    Inc(Project.Variables.retornoConsultaAtual.RowCount);
+    for i:= 0 to Qry.FieldCount-1 do
+      begin
+      //Log.Message(VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value));
+      Project.Variables.retornoConsultaAtual.Item(i,linha) := VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value) ;
+    end;
+    Inc(linha);
+    Qry.Next;
+  end;
+  //log.Message(Project.Variables.retornoConsulta);
+  // Closes the query and file
+  Qry.Close;
+end;
+
+procedure VerificaCalculos(consulta);
+var 
+  idEventoBase, valueEventoBase, empEventoBase, dataEventoBase,
+  idEventoAtual, valueEventoAtual, empEventoAtual, dataEventoAtual,
+  i ,j, k, l :OleVariant;
+begin
+  //tabela.Reset();
+  //j := 0;
+  // Iterate through rows+
+  
+  buscaBancoBase(consulta, strConexaoFBBase);
+  buscaBancoAtual(consulta, strConexaoFBAtual);
+
+  for j := 0 to Project.Variables.retornoConsultaAtual.RowCount-1 do
+  begin
+    for i := 0 to Project.Variables.retornoConsultaBase.RowCount-1 do
+    begin
+      idEventoAtual    := Project.Variables.retornoConsultaAtual.Item[0,j]; 
+      valueEventoAtual := Project.Variables.retornoConsultaAtual.Item[1,j];
+      empEventoAtual   := Project.Variables.retornoConsultaAtual.Item[2,j]; 
+      dataEventoAtual  := Project.Variables.retornoConsultaAtual.Item[3,j];
+
+      idEventoBase     := Project.Variables.retornoConsultaBase.Item[0,i]; 
+      valueEventoBase  := Project.Variables.retornoConsultaBase.Item[1,i]; 
+      empEventoBase    := Project.Variables.retornoConsultaBase.Item[2,i]; 
+      dataEventoBase   := Project.Variables.retornoConsultaBase.Item[3,i];
+  
+      if idEventoBase = idEventoAtual then
+      begin
+        if (valueEventoBase <> valueEventoAtual) then
+        begin
+          Log.Warning('O evento ('        + VarToStr(idEventoBase)  + ') de Valor(' + VarToStr(valueEventoBase)  + ') - ' + 
+                      'Empregado('        + VarToStr(empEventoBase) + ') - Data('   + VarToStr(dataEventoBase)   + ') - ' + 
+                      'difere do evento ('+ VarToStr(idEventoAtual) + ') de Valor(' + VarToStr(valueEventoAtual) + ') encontrado no banco reprocessado');           
+        end
+      end;
+    end;
+  end;
+end;

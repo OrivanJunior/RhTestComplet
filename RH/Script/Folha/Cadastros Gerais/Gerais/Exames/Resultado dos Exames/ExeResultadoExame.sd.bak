@@ -1,0 +1,115 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolResultadoExame,
+  ObjResultadoExame,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de ResultadoExame
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTResultadoExames: OleVariant;
+
+procedure AcessaCadResultadoExame();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Exames', 'Cadastro de Resultados');
+end;
+
+procedure InsereDadosResultadoExame();
+begin
+  VerificaInsere(FormCadResultadoExameIdResult, FormCadResultadoExameDPIdResult);
+  VerificaInsere(FormCadResultadoExameDescricao, FormCadResultadoExameDPDescricao);
+  VerificaInsere(FormCadResultadoExameResultado, FormCadResultadoExameDPResultado);
+end;
+
+procedure ExeCadastraResultadoExame(pathData);
+begin
+  AcessaCadResultadoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTResultadoExames := CarregaDDT(pathData, _Cadastrar);
+  
+  DDTResultadoExames := CarregaDDT(DDTResultadoExames.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRESULTEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadResultadoExameDPIdResult);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadResultadoExame();
+     
+    if (FormCadResultadoExame.Exists) then
+    begin
+      InsereDadosResultadoExame();
+      
+      ActSalvar(FormCadResultadoExame);
+      ActFechar(FormCadResultadoExame);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTResultadoExames.Name);
+end;
+
+procedure ExeAlteraResultadoExame(pathData);
+begin
+  AcessaCadResultadoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTResultadoExames := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadResultadoExame(DDTResultadoExames.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRESULTEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadResultadoExameDPIdResult);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadResultadoExame();   
+     
+    if (FormCadResultadoExame.Exists) then
+    begin
+      InsereDadosResultadoExame();
+      
+      ActSalvar(FormCadResultadoExame);
+      ActFechar(FormCadResultadoExame);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTResultadoExames.Name);
+end;
+
+procedure ExeExcluirResultadoExame(pathData);
+begin
+  AcessaCadResultadoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTResultadoExames := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadResultadoExame(DDTResultadoExames.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRESULTEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadResultadoExameDPIdResult);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHRESULTEXAME');
+    ActFechar(FormCadResultadoExame);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTResultadoExames.Name);
+end;

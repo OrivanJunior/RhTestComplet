@@ -1,0 +1,142 @@
+﻿{Script de mapeamento o Processo de Sefip
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+var
+  FormExportFinanceiroCons, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormExportFinanceiroConsWhEstabEspec, FormExportFinanceiroConsWhEstabEspecCampo,
+  FormExportFinanceiroConsWhEstabTodosEmp, FormExportFinanceiroConsWhEstabTodosEmpCampo,
+  FormExportFinanceiroConsWhEstabTodos, FormExportFinanceiroConsWhEstabSelec,
+  FormExportFinanceiroConsWhEstabSelecCampo, 
+      
+  FormExportFinanceiroConsWhMatricTodos, FormExportFinanceiroConsWhMatricEspec,
+  FormExportFinanceiroConsWhMatricEspecCampo, FormExportFinanceiroConsWhMatricSelec,
+  FormExportFinanceiroConsWhMatricSelecCampo, 
+  
+  FormExportFinanceiroConsWhLocaisTodos, FormExportFinanceiroConsWhLocaisEspec, 
+  FormExportFinanceiroConsWhLocaisEspecCampo, FormExportFinanceiroConsWhLocaisSelec, 
+  FormExportFinanceiroConsWhLocaisSelecCampo,
+  
+  FormExportFinanceiroConsWhDataIni, FormExportFinanceiroConsWhDataFin,
+  
+  FormExportFinanceiroConsWhProcTodos, FormExportFinanceiroConsWhProcEspec, 
+  FormExportFinanceiroConsWhProcEspecCampo, FormExportFinanceiroConsWhProcSelec, 
+  FormExportFinanceiroConsWhProcSelecCampo,
+
+  FormExportFinanceiroConsWhPrestTodos, FormExportFinanceiroConsWhPrestEspec,
+  FormExportFinanceiroConsWhPrestEspecCampo, FormExportFinanceiroConsWhPrestSelec,
+  FormExportFinanceiroConsWhPrestSelecCampo,
+  
+  FormExportFinanceiroConsWhRPATodos, FormExportFinanceiroConsWhRPAEspec,
+  FormExportFinanceiroConsWhRPAEspecCampo, FormExportFinanceiroConsWhRPASelec,
+  FormExportFinanceiroConsWhRPASelecCampo,
+  
+  FormExportFinanceiroConsWhVinculosTodos, FormExportFinanceiroConsWhVinculosEspec,
+  FormExportFinanceiroConsWhVinculosEspecCampo, FormExportFinanceiroConsWhVinculosSelec,
+  FormExportFinanceiroConsWhVinculosSelecCampo,
+  
+  FormExportFinanceiroConsWhDataEmissao, FormExportFinanceiroConsWhDataVenc,
+  FormExportFinanceiroConsWhCodPort, FormExportFinanceiroConsWhCodMoeda,
+  FormExportFinanceiroConsWhCodSitua, FormExportFinanceiroConsWhSufixo,
+  FormExportFinanceiroConsWhHistorico, FormExportFinanceiroConsWhLocalGrav,
+  FormExportFinanceiroConsWhGeraValUni, FormExportFinanceiroConsWhSobreDarf,
+  FormExportFinanceiroConsWhSobreGPS, FormExportFinanceiroConsWhSobreFat,
+  FormExportFinanceiroConsWhSobreGPSFun, FormExportFinanceiroConsWhNomeEmpregado,
+  FormExportFinanceiroConsWhSobreFGTS, FormExportFinanceiroConsWhSobreGPS13, 
+  FormExportFinanceiroConsWhGPSFat13, FormExportFinanceiroConsWhGerarValResc,
+  FormExportFinanceiroConsWhNomePrest, FormExportFinanceiroConsWhSobreRPA, 
+  FormExportFinanceiroConsWhAnoGPS13,  FormExportFinanceiroConsWhAnoGPSFat13, 
+  FormExportFinanceiroConsWhSobreEventos, FormExportFinanceiroConsWhDupConsolid: OleVariant;
+  
+procedure MapExportFinanceiroCons();
+begin
+  FormExportFinanceiroCons                     := Aliases.Folha.FRhProcExportFinanceiroMat;
+  
+  btnSair                                      := Aliases.Folha.FRhProcExportFinanceiroMat.BSair;
+  btnExecutar                                  := Aliases.Folha.FRhProcExportFinanceiroMat.bExecutar;
+  btnSalvar                                    := Aliases.Folha.FRhProcExportFinanceiroMat.tbSalvar;
+  btnRelatorio                                 := Aliases.Folha.FRhProcExportFinanceiroMat.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormExportFinanceiroConsWhEstabEspec         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormExportFinanceiroConsWhEstabEspecCampo    := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormExportFinanceiroConsWhEstabTodosEmp      := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormExportFinanceiroConsWhEstabTodosEmpCampo := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormExportFinanceiroConsWhEstabTodos         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormExportFinanceiroConsWhEstabSelec         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormExportFinanceiroConsWhEstabSelecCampo    := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  FormExportFinanceiroConsWhMatricTodos        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula30;
+  FormExportFinanceiroConsWhMatricEspec        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula20;
+  FormExportFinanceiroConsWhMatricEspecCampo   := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula50;
+  FormExportFinanceiroConsWhMatricSelec        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula40;
+  FormExportFinanceiroConsWhMatricSelecCampo   := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula80;
+  
+  { Filtro de Locais }
+  FormExportFinanceiroConsWhLocaisTodos        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormExportFinanceiroConsWhLocaisEspec        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormExportFinanceiroConsWhLocaisEspecCampo   := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormExportFinanceiroConsWhLocaisSelec        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormExportFinanceiroConsWhLocaisSelecCampo   := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Referência }
+  FormExportFinanceiroConsWhDataIni            := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormExportFinanceiroConsWhDataFin            := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Filtro de Processamentos }
+  FormExportFinanceiroConsWhProcTodos          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormExportFinanceiroConsWhProcEspec          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormExportFinanceiroConsWhProcEspecCampo     := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormExportFinanceiroConsWhProcSelec          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormExportFinanceiroConsWhProcSelecCampo     := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Filtro de Prestador }
+  FormExportFinanceiroConsWhPrestTodos         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whPrestador.WhPrestador30;
+  FormExportFinanceiroConsWhPrestEspec         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador20;
+  FormExportFinanceiroConsWhPrestEspecCampo    := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador50;
+  FormExportFinanceiroConsWhPrestSelec         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador40;
+  FormExportFinanceiroConsWhPrestSelecCampo    := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador80;
+  
+  { Filtro de RPA }
+  FormExportFinanceiroConsWhRPATodos           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whRPA.WhRPA30;
+  FormExportFinanceiroConsWhRPAEspec           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whRPA.whRPA20;
+  FormExportFinanceiroConsWhRPAEspecCampo      := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whRPA.whRPA50;
+  FormExportFinanceiroConsWhRPASelec           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whRPA.whRPA40;
+  FormExportFinanceiroConsWhRPASelecCampo      := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whRPA.whRPA80;
+      
+  { Filtro de Vinculos }
+  FormExportFinanceiroConsWhVinculosTodos       := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos30;
+  FormExportFinanceiroConsWhVinculosEspec       := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos20;
+  FormExportFinanceiroConsWhVinculosEspecCampo  := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos50;
+  FormExportFinanceiroConsWhVinculosSelec       := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos40;
+  FormExportFinanceiroConsWhVinculosSelecCampo  := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos80;
+  
+  { Dados Adicionais }
+  FormExportFinanceiroConsWhDataEmissao        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_DtEmissao;
+  FormExportFinanceiroConsWhDataVenc           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_DtVcto;
+  FormExportFinanceiroConsWhCodPort            := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_Portador;
+  FormExportFinanceiroConsWhCodMoeda           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_Moeda;
+  FormExportFinanceiroConsWhCodSitua           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_Situacao;
+  FormExportFinanceiroConsWhSufixo             := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_SUFIXO;
+  FormExportFinanceiroConsWhHistorico          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_Hist;
+  FormExportFinanceiroConsWhLocalGrav          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormExportFinanceiroConsWhGeraValUni         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_GERAUNIF;
+  FormExportFinanceiroConsWhSobreDarf          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraDarf;
+  FormExportFinanceiroConsWhSobreGPS           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraGPS;
+  FormExportFinanceiroConsWhSobreFat           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_GPSFAT;
+  FormExportFinanceiroConsWhSobreGPSFun        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraGpsFunrural;
+  FormExportFinanceiroConsWhNomeEmpregado      := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_NOMEEMP;
+  FormExportFinanceiroConsWhSobreFGTS          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraFGTS;
+  FormExportFinanceiroConsWhSobreGPS13         := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_GPSFAT;
+  FormExportFinanceiroConsWhGPSFat13           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_GPSFAT13;
+  FormExportFinanceiroConsWhGerarValResc       := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_GERARRESCISAO;
+  FormExportFinanceiroConsWhNomePrest          := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_NOMEPREST;
+  FormExportFinanceiroConsWhSobreRPA           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraRPA;
+  FormExportFinanceiroConsWhAnoGPS13           := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_ANOGPS13;
+  FormExportFinanceiroConsWhAnoGPSFat13        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.EB_ANOGPSFAT13;
+  FormExportFinanceiroConsWhSobreEventos       := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbGeraEventos;
+  FormExportFinanceiroConsWhDupConsolid        := Aliases.Folha.FRhProcExportFinanceiroMat.pg.tsSelecao.SB_Selecao.whDados.cbDupConsolidada;
+end;

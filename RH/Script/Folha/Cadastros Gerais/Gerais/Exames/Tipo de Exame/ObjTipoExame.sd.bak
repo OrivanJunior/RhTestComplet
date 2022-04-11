@@ -1,0 +1,19 @@
+﻿{Script de mapeamento tela de cadastro de TipoExame
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadTipoExame,
+  FormCadTipoExameIdTpExame, 
+  FormCadTipoExameDescricao,
+  FormCadTipoExameCodExame: OleVariant;
+
+procedure MapTelaCadTipoExame();
+begin  
+  FormCadTipoExame          := Aliases.Folha.FFormPadraoRHTIPOEXAME;
+     
+  FormCadTipoExameIdTpExame := Aliases.Folha.FFormPadraoRHTIPOEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDTPEXAME;        
+  FormCadTipoExameDescricao := Aliases.Folha.FFormPadraoRHTIPOEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DESCRICAO;   
+  FormCadTipoExameCodExame  := Aliases.Folha.FFormPadraoRHTIPOEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CODEXAME;   
+end;

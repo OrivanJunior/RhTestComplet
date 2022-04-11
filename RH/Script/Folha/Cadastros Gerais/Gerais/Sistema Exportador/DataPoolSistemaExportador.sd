@@ -1,0 +1,16 @@
+﻿{Script para criar DataPool da tela de cadastro de SistemaExportador
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadSistemaExportadorDPIdSistemaExp, 
+  FormCadSistemaExportadorDPSoftware,
+  FormCadSistemaExportadorDPFabricante: OleVariant;
+
+procedure LeDataPoolCadSistemaExportador(nomeDriver);
+begin
+  FormCadSistemaExportadorDPIdSistemaExp := DDT.DriverByName(nomeDriver).Value('IDSISTEMAEXP'); 
+  FormCadSistemaExportadorDPSoftware     := DDT.DriverByName(nomeDriver).Value('SOFTWARE');      
+  FormCadSistemaExportadorDPFabricante   := DDT.DriverByName(nomeDriver).Value('FABRICANTE');       
+end;

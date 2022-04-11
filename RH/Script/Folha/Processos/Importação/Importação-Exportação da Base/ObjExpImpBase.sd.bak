@@ -1,0 +1,39 @@
+﻿uses
+  VarConsts;
+{Script de mapeamento a Importação/Exportação da Base de Eventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormExpImpBase, FormExpImpBasePageControl,
+  FormExpImpBaseBExportar, FormExpImpBaseDiretorioExp, 
+  FormExpImpBaseTsImp, FormExpImpBaseBDownload,
+  FormExpImpBaseBImportar, FormExpImpBaseDiretorioImp, 
+  FormExpImpBaseSair, FormExpImpBaseExecutar: OleVariant;
+ 
+procedure MapTelaExpImpBase();
+begin
+  FormExpImpBase                      := Aliases.Folha.FRhExpImpBase;
+  FormExpImpBasePageControl           := Aliases.Folha.FRhExpImpBase.pageControl;
+  FormExpImpBasePageControl.zTabIndex := 0;
+  
+  //Aba Importação
+  FormExpImpBaseBDownload    := Aliases.Folha.FRhExpImpBase.pageControl.tsImp.gbBxInternet.bDownload;
+  
+  FormExpImpBaseBImportar    := Aliases.Folha.FRhExpImpBase.pageControl.tsImp.pnImp.bImportar;
+  FormExpImpBaseDiretorioImp := Aliases.Folha.FRhExpImpBase.pageControl.tsImp.pnImp.EB_DIRETORIOIMP;
+  
+  //Aba Exportação
+  FormExpImpBasePageControl.zTabIndex := 1;
+  
+  FormExpImpBaseBExportar    := Aliases.Folha.FRhExpImpBase.pageControl.tsExp.Panel2.bExportar;
+  FormExpImpBaseDiretorioExp := Aliases.Folha.FRhExpImpBase.pageControl.tsExp.Panel2.EB_DIRETORIOEXP;
+  
+  //Botões
+  FormExpImpBaseSair         := Aliases.Folha.FRhExpImpBase.BSair;
+  FormExpImpBaseExecutar     := Aliases.Folha.FRhExpImpBase.bExecutar;  
+  
+  FormExpImpBasePageControl.zTabIndex := 0;
+end;
+

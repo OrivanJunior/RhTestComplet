@@ -1,0 +1,276 @@
+﻿uses
+  DataPoolESocialExclusao, ObjESocialExclusao, CommonsAll, VarConsts, conexaoBanco;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+var 
+  DDTExclusao: OleVariant;  
+
+procedure AcessaESocialExclusao();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Exclusão'); 
+end;
+
+procedure PreencheIntervaloDatas();
+begin
+  if (FormExclusaoWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormExclusaoWhDataDtIni, FiltroDataDtIni); 
+  
+  PreencheDatas(FormExclusaoWhDataDtFin, FiltroDataDtFin); 
+  
+  if (FiltroDescPeriodo = 'S') then
+    FormExclusaoWhDescPeriodo.Checked := True;
+end;
+
+procedure PreencheAdmissaoPreliminar();
+begin
+  PreencheIntervaloDatas();
+  
+  if (FormExclusaoWhAdPreliminarTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whAdPreliminar.whAdPreliminar10.Click();
+    
+  if (FiltroAdPreliminarTipo = _Especifico) then
+  begin
+    FormExclusaoWhAdPreliminarEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExclusaoWhAdPreliminarEspecCampo, FiltroAdPreliminarValor);
+    Log.Checkpoint('Selecionado AdPreliminar - Específico, com valor: ' + FiltroAdPreliminarValor);
+  end
+  else if (FiltroAdPreliminarTipo = _Selecionados) then
+  begin
+    FormExclusaoWhAdPreliminarSelec.ClickButton;
+    VerificaInsere(FormExclusaoWhAdPreliminarSelec, FiltroAdPreliminarValor);
+    Log.Checkpoint('Selecionado AdPreliminar - Selecionados, com valor: ' + FiltroAdPreliminarValor);
+  end
+  else if (FiltroAdPreliminarTipo = _Todos) then
+  begin
+    FormExclusaoWhAdPreliminarTodos.ClickButton;
+    Log.Checkpoint('Selecionado Admissão Preliminar - Todos');
+  end;
+end;
+
+procedure SelecionaEmpregados();
+begin
+  if (Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.Exists) then
+  begin
+    if (FormExclusaoWhEmpregadosTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados10.Click();
+    
+    if (FiltroEmpregadoTipo = _Especifico) then
+    begin
+      FormExclusaoWhEmpregadosEspec.ClickButton;
+      VerificaInsere(FormExclusaoWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Selecionados) then
+    begin
+      FormExclusaoWhEmpregadosSelec.ClickButton;
+      VerificaInsere(FormExclusaoWhEmpregadosSelec, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Todos) then
+    begin
+      FormExclusaoWhEmpregadosTodos.ClickButton;
+      Log.Checkpoint('Selecionado Empregados - Todos');
+    end;
+  end;
+end;
+
+procedure PreencheEmpregados();
+begin
+  VerificaInsere(FormExclusaoEventoExcluirEmp, FiltroEventoExcluirEmp);
+  
+  if FiltroEventoExcluirEmp = 'S-2190' then
+  begin
+    PreencheAdmissaoPreliminar()
+  end
+  else
+  begin
+    SelecionaEmpregados();
+    
+    if FormExclusaoWhPeriodoApuracaoEmp.Visible then
+    begin
+      FormExclusaoWhPeriodoApuracaoEmp.SetText(FiltroPeriodoApuracaoEmp);
+      FormExclusaoWhPeriodoApuracaoEmp.Keys('[Enter]');
+    end;
+  end;
+end;
+
+procedure PreencheProdutorRural();
+begin
+  VerificaInsere(FormExclusaoWhEventoExcluirPr, FiltroEventoExcluirPr);
+  PreencheDatas(FormExclusaoWhPeriodoApuracaoPr, FiltroPeriodoApuracaoPr);
+end;
+
+procedure SelecionaPrestadores();
+begin
+  if (Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.Exists) then
+  begin
+    if (FormExclusaoWhPrestadoresTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialExclusao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores10.Click();
+    
+    if (FiltroPrestadorTipo = _Especifico) then
+    begin
+      FormExclusaoWhPrestadoresEspec.ClickButton;
+      VerificaConsultaF3Insere(_ModuloFolha, FormExclusaoWhPrestadoresEspecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Selecionados) then
+    begin
+      FormExclusaoWhPrestadoresSelec.ClickButton;
+      VerificaInsere(FormExclusaoWhPrestadoresSelecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Todos) then
+    begin
+      FormExclusaoWhPrestadoresTodos.ClickButton;
+      Log.Checkpoint('Selecionado Prestador - Todos');
+    end;
+  end;
+end;
+
+procedure PreenchePrestadores();
+begin
+  SelecionaPrestadores();
+
+  VerificaInsere(FormExclusaoWhEventoExcluirPs, FiltroEventoExcluirPs);
+
+  PreencheDatas(FormExclusaoWhPeriodoApuracaoPs, FiltroPeriodoApuracaoPs);
+end;
+
+procedure PreencheTrabalhadorAvulso();
+begin
+  VerificaInsere(FormExclusaoEventoExcluirAv, FiltroEventoExcluirAv);
+  PreencheDatas(FormExclusaoWhPeriodoApuracaoAv, FiltroPeriodoApuracaoAv);
+end;
+
+procedure PreencheOutros();
+begin
+  VerificaInsere(FormExclusaoEventoExcluirOut, FiltroEventoExcluirOut);
+  PreencheDatas(FormExclusaoWhPeriodoApuracaoOut, FiltroPeriodoApuracaoOut);
+end;
+
+procedure EnviaExclusao();
+var
+  MensagemInativa: boolean;
+begin
+  BtnEnviarExclusao.Click();
+    
+  MensagemInativa := True;
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.dlgProcessoConclu_do3.Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();     
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      MensagemInativa := false;
+    end
+  end;
+end;
+
+procedure PreencheHistorico(pathData);
+begin
+  PageESocialExclusao.ActivePageIndex := 1;
+
+  MapESocialHistExclusao();
+
+  DDTExclusao := CarregaDDT(pathData, 'Historico');
+  
+  LeDataPoolHistExclusao(DDTExclusao.Name);
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormHistEstab, FiltroHistEstab);
+  PreencheDatas(FormHistDataIni, FiltroHistDataIni);
+  VerificaInsere(FormHistHoraIni, FiltroHistHoraIni);
+  PreencheDatas(FormHistDataFin, FiltroHistDataFin);
+  VerificaInsere(FormHistHoraFin, FiltroHistHoraFin);
+  VerificaInsere(FormHistEvteSocial, FiltroHistEvteSocial);
+  
+  BtnFiltrar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure PreencheConsulta(pathData);
+var
+  DDTConsulta;
+begin
+  PageESocialExclusao.ActivePageIndex := 2;
+
+  MapESocialConsExclusao();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;  
+end;
+
+procedure ExecutaESocialExclusao(pathData, VersaoeSocial);
+begin
+  AcessaESocialExclusao();
+  
+  MapESocialExclusao();
+  
+  DDTExclusao := CarregaDDT(pathData, 'Envio');
+  
+  while not (DDTExclusao.EOF) do
+  begin
+    LeDataPoolExclusao(DDTExclusao.Name);
+    
+    if VersaoeSocial = '1.0' then
+      PageVersao.ActivePageIndex := 1;
+      
+    VerificaInsere(FormExclusaoModoExclusao, FiltroModoExclusao);
+  
+    if FiltroModoExclusao = 'Empregado' then
+      PreencheEmpregados()
+    else if FiltroModoExclusao = 'Produtor' then  
+    begin
+      if VersaoeSocial = '2.5' then
+        PreencheProdutorRural()
+    end
+    else if FiltroModoExclusao = 'Prestador' then  
+      PreenchePrestadores()
+    else if FiltroModoExclusao = 'Trabalhadores' then  
+      PreencheTrabalhadorAvulso()
+    else if FiltroModoExclusao = 'Outros' then  
+      PreencheOutros();
+
+    EnviaExclusao();
+      
+    DDTExclusao.Next();
+  end;
+  PreencheHistorico(pathData);
+  
+  ActFechar(FormESocialExclusao);
+  
+  DDT.CloseDriver(DDTExclusao.Name);
+end;

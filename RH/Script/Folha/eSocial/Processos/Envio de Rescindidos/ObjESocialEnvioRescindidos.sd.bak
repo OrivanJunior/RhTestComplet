@@ -1,0 +1,67 @@
+﻿{Script de mapeamento o Processo de eSocial - Envio de Rescindidos
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialEnvioRescindidos,
+  PageESocialEnvioRescindidos,  
+  
+  BtnEnviarRescindidos,
+  
+  FormEnvioRescindidosRBS2200, FormEnvioRescindidosRBS2300,
+
+  FormEnvioRescindidosWhEmpregadosTodos, FormEnvioRescindidosWhEmpregadosEspec,
+  FormEnvioRescindidosWhEmpregadosEspecCampo, FormEnvioRescindidosWhEmpregadosSelec,
+  FormEnvioRescindidosWhEmpregadosSelecCampo, 
+  
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialEnvioRescindidos();
+begin
+  FormESocialEnvioRescindidos                  := Aliases.Folha.FRhProceSocialEnvioRescindidos;
+  PageESocialEnvioRescindidos                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao;
+  
+  BtnEnviarRescindidos                         := Aliases.Folha.FRhProceSocialEnvioRescindidos.btEnviarSST;
+  
+  FormEnvioRescindidosRBS2200                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.gbEventosSST.rbS2200;
+  FormEnvioRescindidosRBS2300                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.gbEventosSST.rbS2300;
+  
+  FormEnvioRescindidosWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.whEmpregados30;
+  FormEnvioRescindidosWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.WhEmpregados20;
+  FormEnvioRescindidosWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.whEmpregados50;
+  FormEnvioRescindidosWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.whEmpregados40;
+  FormEnvioRescindidosWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.whEmpregados80;
+end;
+
+procedure MapESocialConsEnvioRescindidos();
+begin
+  FormConsEstab                := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni              := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni              := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin              := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin              := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente             := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento           := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial           := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                                    := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.bSelOcs;
+  BtnDesTodos                                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.bDesmOcs;
+  BtnConsSel                                   := Aliases.Folha.FRhProceSocialEnvioRescindidos.btConsTodosSel;
+  BtnEnvTodosSel                               := Aliases.Folha.FRhProceSocialEnvioRescindidos.btEnvTodosSel;
+  BtnExtTodosSel                               := Aliases.Folha.FRhProceSocialEnvioRescindidos.btExcTodosSel;
+  BtnSalvarXML                                 := Aliases.Folha.FRhProceSocialEnvioRescindidos.btSalvarXML;
+  BtnVerXML                                    := Aliases.Folha.FRhProceSocialEnvioRescindidos.btVerXML;
+  BtnVerRetorno                                := Aliases.Folha.FRhProceSocialEnvioRescindidos.btVisualizarRetorno;
+  BtnVizualizar                                := Aliases.Folha.FRhProceSocialEnvioRescindidos.btVisualizarOc;
+  CbMostrarProtocolos                          := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                                  := Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

@@ -1,0 +1,117 @@
+﻿uses
+  VarConsts;
+{Script para mapear o Cadastro de Fixo Geral
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 01/06/2021}
+ 
+var
+  Folha,  
+  
+  { Filtro }
+  FiltroConsForm, FiltroConsFormCBSelCons, FiltroConsFormCBCodigo, btnOkFiltroConsForm, 
+  btnVazioFiltroConsForm, btnCancelFiltroConsForm: OleVariant;
+  
+  { Consulta }
+  FixoGeralConsForm, FixoGeralConsGrid, FixoGeralConsGridSite: OleVariant;
+  
+  { Form Geral }
+  FixoGeralFormCad, FixoGeralFormTab, FixoGeralPnCab, FixoGeralEBEstab,
+  FixoGeralEBEvento, FixoGeralFormPage: OleVariant;
+  
+  {Tab Periodicidade: Por Mês}
+  TsFixoGeralMes, SbFixoGeralMes, FixoGeralMesGrid, BtnIncFixoGeralMes, BtnAllFixoGeralMes, 
+  BtnDesfFixoGeralMes, BtnSaveFixoGeralMes, BtnExcFixoGeralMes: OleVariant;
+  
+  {Tab Periodicidade: Por Mês/Ano}
+  TsFixoGeralMesAno, SbFixoGeralMesAno, FixoGeralMesAnoGrid, BtnIncFixoGeralMesAno,
+  BtnAllFixoGeralMesAno, BtnDesfFixoGeralMesAno, BtnSaveFixoGeralMesAno,
+  BtnExcFixoGeralMesAno: OleVariant;
+  
+  { Tab Parâmetros }
+  TsParametros, ParamsEBValorInfo, ParamsEBInforme, ParamsEBValorTarefa, ParamsEBInforme2, 
+  ParamsEBProporcional, ParamsEBDiasUteis, ParamsEBDiasFaltas, ParamsEBAvosInforme,
+  ParamsEBAvosDireito, ParamsEBReferencia, ParamsEBBaseProp: OleVariant;
+  
+procedure MapFiltroFixoGeral();
+begin  
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBCodigo  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+ 
+procedure MapTelaCadastroFixoGeral();
+begin  
+  FixoGeralFormCad   := Aliases.Folha.FRhFixoG;
+  FixoGeralFormPage  := Aliases.Folha.FRhFixoG.Page.TabNormal.pg;
+end; 
+
+procedure MapDadosGeraisFixoGeral();
+begin
+  FixoGeralEBEstab   := Aliases.Folha.FRhFixoG.Page.TabNormal.pnCab.EB_ESTAB;
+  FixoGeralEBEvento  := Aliases.Folha.FRhFixoG.Page.TabNormal.pnCab.EB_IDEVENTO;
+end;
+
+procedure MapTabPeriodicidadeMesFixoG();
+begin
+  FixoGeralMesGrid    := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsRhFixoGMes.sbRhFixoGMes.gMes;  
+  
+  BtnIncFixoGeralMes  := Aliases.Folha.FRhFixoG.bIncRhFixoGMes;
+  BtnAllFixoGeralMes  := Aliases.Folha.FRhFixoG.bIncTRhFixoGMes;
+  BtnDesfFixoGeralMes := Aliases.Folha.FRhFixoG.bDesfRhFixoGMes;
+  BtnSaveFixoGeralMes := Aliases.Folha.FRhFixoG.bPostRhFixoGMes;
+  BtnExcFixoGeralMes  := Aliases.Folha.FRhFixoG.bExcRhFixoGMes;
+end;
+
+procedure MapTabPeriodicidadeMesAnoFixoG();
+begin
+  FixoGeralMesAnoGrid    := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno;  
+  
+  BtnIncFixoGeralMesAno  := Aliases.Folha.FRhFixoG.bIncRhFixoGMesAno;
+  BtnAllFixoGeralMesAno  := Aliases.Folha.FRhFixoG.bIncTRhFixoGMesAno;
+  BtnDesfFixoGeralMesAno := Aliases.Folha.FRhFixoG.bDesfRhFixoGMesAno;
+  BtnSaveFixoGeralMesAno := Aliases.Folha.FRhFixoG.bPostRhFixoGMesAno;
+  BtnExcFixoGeralMesAno  := Aliases.Folha.FRhFixoG.bExcRhFixoGMesAno;
+end;
+
+procedure MapTabParametrosFixoG();
+begin
+  Log.Checkpoint('Verificando quais campos estão ativados');
+  TsParametros := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_;
+  
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_VALORINFORMADO.Exists) then
+    ParamsEBValorInfo    := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_VALORINFORMADO;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME.Exists) then
+    ParamsEBInforme      := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_VALORTAREFA.Exists) then
+    ParamsEBValorTarefa  := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_VALORTAREFA;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME2.Exists) then
+    ParamsEBInforme2     := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME2;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_PROPORCIONAL.Exists) then
+    ParamsEBProporcional := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_PROPORCIONAL;
+  
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_DIASUTEIS.Exists) then
+    ParamsEBDiasUteis    := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_DIASUTEIS;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_DIASFALTAS.Exists) then
+    ParamsEBDiasFaltas   := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_DIASFALTAS;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_AVOSINFORME.Exists) then
+    ParamsEBAvosInforme  := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_AVOSINFORME;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_AVOSDIREITO.Exists) then
+    ParamsEBAvosDireito  := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_AVOSDIREITO;
+  
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_REFERENCIA.Exists) then
+    ParamsEBReferencia   := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_REFERENCIA;
+    
+  //if (Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_PROPBASEHORAS.Exists) then
+    ParamsEBBaseProp     := Aliases.Folha.FRhFixoG.Page.TabNormal.pg.tsParams.TScrollBox_.EB_PROPBASEHORAS;
+end;

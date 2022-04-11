@@ -1,0 +1,55 @@
+﻿{Script de DataPool do Processo de CAGED - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 24/06/2021}
+ 
+var
+  FormCagedArquivo, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  CagedArquivoWhEstabEspec, CagedArquivoWhEstabEspecCampo,
+  CagedArquivoWhEstabTodosEmp, CagedArquivoWhEstabTodosEmpCampo,
+  CagedArquivoWhEstabTodos, CagedArquivoWhEstabSelec,
+  CagedArquivoWhEstabSelecCampo, 
+  
+  CagedArquivoWhLocaisTodos, CagedArquivoWhLocaisEspec, 
+  CagedArquivoWhLocaisEspecCampo, CagedArquivoWhLocaisSelec, 
+  CagedArquivoWhLocaisSelecCampo,
+  
+  CagedArquivoWhEmpreTodos, CagedArquivoWhEmpreEspec,
+  CagedArquivoWhEmpreEspecCampo, CagedArquivoWhEmpreSelec,
+  CagedArquivoWhEmpreSelecCampo, 
+  
+  CagedArquivoWhDadosMesComp, CagedArquivoWhDadosCTPScomCPF,
+  CagedArquivoWhDadosLocalGrav: OleVariant;
+  
+procedure MapCagedArquivo();
+begin
+  FormCagedArquivo                 := Aliases.Folha.FRhProcCaged;
+  
+  btnSair                          := Aliases.Folha.FRhProcCaged.BSair;
+  btnExecutar                      := Aliases.Folha.FRhProcCaged.bExecutar;
+  btnSalvar                        := Aliases.Folha.FRhProcCaged.tbSalvar;
+  btnRelatorio                     := Aliases.Folha.FRhProcCaged.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  CagedArquivoWhEstabEspec         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  CagedArquivoWhEstabEspecCampo    := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  CagedArquivoWhEstabTodosEmp      := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  CagedArquivoWhEstabTodosEmpCampo := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  CagedArquivoWhEstabTodos         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  CagedArquivoWhEstabSelec         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  CagedArquivoWhEstabSelecCampo    := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  CagedArquivoWhEmpreTodos         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  CagedArquivoWhEmpreEspec         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  CagedArquivoWhEmpreEspecCampo    := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  CagedArquivoWhEmpreSelec         := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  CagedArquivoWhEmpreSelecCampo    := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Dados Adicionais }
+  CagedArquivoWhDadosMesComp       := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whDados.EB_Competencia;
+  CagedArquivoWhDadosCTPScomCPF    := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whDados.EB_CTPS;
+  CagedArquivoWhDadosLocalGrav     := Aliases.Folha.FRhProcCaged.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+end;

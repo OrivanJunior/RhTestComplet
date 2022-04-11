@@ -1,0 +1,132 @@
+﻿{Script para mapear o Cadastro da Conf. do Cartão Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 25/08/2021}
+ 
+var
+  ConfCartaoForm, ConfCartaoPage,
+  
+  { Informações Normais }
+  ConfCartaoEBCodConfig, ConfCartaoEBDescricao, 
+  ConfCartaoEBHrExtAPartir, ConfCartaoEBHrFalAPartir,
+  ConfCartaoEBHrNormSabPri, ConfCartaoEBHrNormSabSeg,
+  ConfCartaoEBHrNormDomPri, ConfCartaoEBHrNormDomSeg,
+  ConfCartaoEBToleAlmLivre,
+  
+  { Ponto }
+  ConfCartaoEBFixaTol, ConfCartaoEBTipoHrAtraso,
+  ConfCartaoEBHrAtraso,
+  
+  ConfCartaoEBConsDescRSR, ConfCartaoEBLimFalDia,
+  ConfCartaoEBDescFerDSR, ConfCartaoEBTipoHrDescRSR,
+                         
+  ConfCartaoEBInterParaDesc, ConfCartaoEBJornIntHrExt,
+  
+  ConfCartaoEBIniHrNoturna, ConfCartaoEBFimHrNoturna,
+  
+  { Configurações de Horas Extras }
+  ConfHrExtraIncBtn, ConfHrExtraSaveBtn,
+  ConfHrExtraDesfBtn, ConfHrExtraExcBtn,
+  ConfHrExtraGrid,
+  
+  ConfCfeHorarioIncBtn, ConfCfeHorarioSaveBtn,
+  ConfCfeHorarioIncAllBtn, ConfCfeHorarioDesfBtn,
+  ConfCfeHorarioExcBtn, ConfCfeHorarioGrid,
+  
+  ConfCompEBTipoCompensa, ConfCompEBCompFaltaInj,
+  ConfCompEBGridComp,
+
+  ConfCartaoEBHrNormDiu, ConfCartaoEBHrNormNot,
+  ConfCartaoEBHrDiuTrab, ConfCartaoEBHrNotTrab,
+  ConfCartaoEBHrFaltInj, ConfCartaoEBHrFaltJust,
+  ConfCartaoEBEveHrAtraso, ConfCartaoEBHrDescRSR,
+  ConfCartaoEBAdcNotNorm,ConfCartaoEBAdcNotTrab,
+  ConfCartaoEBRSRCfeEsc, ConfCartaoEBHrExIntDiu,
+  ConfCartaoEBHrExIntNot, ConfCartaoEBHrIntrajor,
+  ConfCartaoEBHrInterjor, ConfCartaoEBPernoite: OleVariant;
+
+procedure MapConfCartaoPonto();
+begin
+  ConfCartaoForm            := Aliases.Ponto.FRhConfPonto;
+  ConfCartaoPage            := Aliases.Ponto.FRhConfPonto.Page; 
+end;
+
+procedure MapInfosNormais();
+begin  
+  { Informações Normais }
+  ConfCartaoEBCodConfig     := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_IDCONF;
+  ConfCartaoEBDescricao     := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
+  ConfCartaoEBHrExtAPartir  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HREXAPARTIR;
+  ConfCartaoEBHrFalAPartir  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HRFALAPARTIR;
+  ConfCartaoEBHrNormSabPri  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HRNORMALSAB;
+  ConfCartaoEBHrNormSabSeg  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HRNORMALSAB2;
+  ConfCartaoEBHrNormDomPri  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HRNORMALDOM;
+  ConfCartaoEBHrNormDomSeg  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_HRNORMALDOM2;
+  ConfCartaoEBToleAlmLivre  := Aliases.Ponto.FRhConfPonto.Page.TabNormal.ScrollBox1.EB_TOLERANCIAALMOCOLIVRE;
+end;
+
+procedure MapInfosPonto();
+begin 
+  { Ponto }
+  ConfCartaoEBFixaTol       := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbCalculos.EB_FIXATOL;
+  ConfCartaoEBTipoHrAtraso  := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbCalculos.EB_TIPOHRATRASO;
+  ConfCartaoEBHrAtraso      := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbCalculos.EB_HRATRASO;
+  
+  ConfCartaoEBConsDescRSR   := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.GroupBox1.EB_CONSDESCRSR;
+  ConfCartaoEBLimFalDia     := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.GroupBox1.EB_LIMFALDIADSRPONTO;
+  ConfCartaoEBDescFerDSR    := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.GroupBox1.EB_DESCFERDSR;
+  ConfCartaoEBTipoHrDescRSR := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.GroupBox1.EB_TIPOHRDESCRSR;
+  
+  ConfCartaoEBInterParaDesc := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbJor12x36.EB_CONSFALTA12X36;
+  ConfCartaoEBJornIntHrExt  := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbJor12x36.EB_CONJORINTFER12X36;
+  
+  ConfCartaoEBIniHrNoturna  := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbHoraNoturna.EB_INIHRNOTPONTO;
+  ConfCartaoEBFimHrNoturna  := Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbHoraNoturna.EB_FINHRNOTPONTO;
+end;
+
+procedure MapConfHrExtra();
+begin
+  { Configurações de Horas Extras }
+  ConfHrExtraIncBtn        := Aliases.Ponto.FRhConfPonto.bIncRhConfHrExt;
+  ConfHrExtraSaveBtn       := Aliases.Ponto.FRhConfPonto.bSavRhConfHrExt;
+  ConfHrExtraDesfBtn       := Aliases.Ponto.FRhConfPonto.bDesfRhConfHrExt;
+  ConfHrExtraExcBtn        := Aliases.Ponto.FRhConfPonto.bExcRhConfHrExt;
+  ConfHrExtraGrid          := Aliases.Ponto.FRhConfPonto.Page.tsConfExtra.Panel1.gRhConfHrExt;
+  
+  { Configuração Conforme Horário }
+  ConfCfeHorarioIncBtn     := Aliases.Ponto.FRhConfPonto.bIncRhConfHrExtDet;
+  ConfCfeHorarioSaveBtn    := Aliases.Ponto.FRhConfPonto.bSavRhConfHrExtDet;
+  ConfCfeHorarioIncAllBtn  := Aliases.Ponto.FRhConfPonto.bIncAllD;
+  ConfCfeHorarioDesfBtn    := Aliases.Ponto.FRhConfPonto.bDesfRhConfHrExtDet;
+  ConfCfeHorarioExcBtn     := Aliases.Ponto.FRhConfPonto.bExcRhConfHrExtDet;
+  ConfCfeHorarioGrid       := Aliases.Ponto.FRhConfPonto.Page.tsConfExtra.pgCfmeHorario.tsRhRaisEve.sbRHExpDet.gRhConfHrExtDet;
+end;
+
+procedure MapConfComp();
+begin
+  { Configurações de Compensação }
+  ConfCompEBTipoCompensa   := Aliases.Ponto.FRhConfPonto.Page.TS_Compensacao.ScrollBox2.VsGroupBox1.EB_TIPOCOMPENSACAO;
+  ConfCompEBCompFaltaInj   := Aliases.Ponto.FRhConfPonto.Page.TS_Compensacao.ScrollBox2.VsGroupBox1.EB_COMFTINJ;
+  ConfCompEBGridComp       := Aliases.Ponto.FRhConfPonto.Page.TS_Compensacao.ScrollBox2.VsGroupBox2.gRhCompensacaoDet;
+end;
+
+procedure MapEventos();
+begin
+  { Integrar Eventos }
+  ConfCartaoEBHrNormDiu    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRNORD;
+  ConfCartaoEBHrNormNot    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRNORN;
+  ConfCartaoEBHrDiuTrab    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRNORDTRAB;
+  ConfCartaoEBHrNotTrab    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRNORNTRAB;
+  ConfCartaoEBHrFaltInj    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRFALD;
+  ConfCartaoEBHrFaltJust   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRFALJUST;
+  ConfCartaoEBEveHrAtraso  := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRATRASO;
+  ConfCartaoEBHrDescRSR    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRDESCRSR;
+  ConfCartaoEBAdcNotNorm   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEADNOT;
+  ConfCartaoEBAdcNotTrab   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEADNOTTRAB;
+  ConfCartaoEBRSRCfeEsc    := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVERSRESCALA;
+  ConfCartaoEBHrExIntDiu   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHREXTINTREFDIU;
+  ConfCartaoEBHrExIntNot   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHREXTINTREFNOT;
+  ConfCartaoEBHrIntrajor   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRINTRAJOR;
+  ConfCartaoEBHrInterjor   := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEHRINTERJOR;
+  ConfCartaoEBPernoite     := Aliases.Ponto.FRhConfPonto.Page.TabEventos.sbEventos.EB_EVEPERNOITE;
+end;

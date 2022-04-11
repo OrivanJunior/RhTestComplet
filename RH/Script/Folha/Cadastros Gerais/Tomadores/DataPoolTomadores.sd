@@ -1,0 +1,25 @@
+﻿{Script para criar DataPool da tela de cadastro de Tomadores
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadTomadoresDPCodTomador, FormCadTomadoresDPRazaoSoc, FormCadTomadoresDPTipoIns,
+  FormCadTomadoresDPInscricao, FormCadTomadoresDPIdTpLogadouro, FormCadTomadoresDPEndereco,
+  FormCadTomadoresDPBairro, FormCadTomadoresDPCidade, FormCadTomadoresDPCEP,
+  FormCadTomadoresDPCodRais, FormCadTomadoresDPCodPgtoGPS: OleVariant;
+
+procedure LeDataPoolCadTomadores(nomeDriver);
+begin
+  FormCadTomadoresDPCodTomador    := DDT.DriverByName(nomeDriver).Value('CODTOMADOR');
+  FormCadTomadoresDPRazaoSoc      := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+  FormCadTomadoresDPTipoIns       := DDT.DriverByName(nomeDriver).Value('TIPOINSC');
+  FormCadTomadoresDPInscricao     := DDT.DriverByName(nomeDriver).Value('INSCRICAO');
+  FormCadTomadoresDPIdTpLogadouro := DDT.DriverByName(nomeDriver).Value('IDTPLOGADOURO');
+  FormCadTomadoresDPEndereco      := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+  FormCadTomadoresDPBairro        := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+  FormCadTomadoresDPCidade        := DDT.DriverByName(nomeDriver).Value('CIDADE');
+  FormCadTomadoresDPCEP           := DDT.DriverByName(nomeDriver).Value('CEP');
+  FormCadTomadoresDPCodRais       := DDT.DriverByName(nomeDriver).Value('CODRAIS');
+  FormCadTomadoresDPCodPgtoGPS    := DDT.DriverByName(nomeDriver).Value('CODPGTOGPS');
+end;

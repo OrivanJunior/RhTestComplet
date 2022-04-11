@@ -1,0 +1,118 @@
+﻿uses
+  ObjTrocaFeriado, DataPoolTrocaFeriado, CommonsAll, CommonsObj, VarConsts;
+
+procedure PreencheDados();
+begin
+  VerificaConsultaF3Insere(_ModuloPonto, TrocaFeriadoEBEstab, TrocaFeriadoDPEstab);
+  VerificaConsultaF3Insere(_ModuloPonto, TrocaFeriadoEBEmpregado, TrocaFeriadoDPEmpregado);
+  PreencheDatas(TrocaFeriadoEBDataFer, TrocaFeriadoDPDataFer);
+  PreencheDatas(TrocaFeriadoEBDataTroca, TrocaFeriadoDPDataTroca);
+end;
+
+procedure CadastraTrocaFeriados(pathData);
+var
+  DDTTrocaFeriado: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Trocas de Feriados');
+  
+  DDTTrocaFeriado := CarregaDDT(pathData, _Cadastrar);
+  
+  while not (DDTTrocaFeriado.EOF) do
+  begin
+    MapGridConsulta(_ModuloPonto);
+  
+    LeDataPoolTrocaFeriados(DDTTrocaFeriado.Name);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhTrocaFeriado');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Empregado', TrocaFeriadoDPEmpregado);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+    
+      MapTrocaFeriados();
+      
+      PreencheDados();
+      
+      ActSalvar(TrocaFeriadoForm);
+      
+      ActFechar(TrocaFeriadoForm)    
+    end; 
+    DDTTrocaFeriado.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTrocaFeriado.Name);
+end;
+
+procedure AlteraTrocaFeriados(pathData);
+var
+  DDTTrocaFeriado: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Trocas de Feriados');
+  
+  DDTTrocaFeriado := CarregaDDT(pathData, _Alterar);
+  
+  while not (DDTTrocaFeriado.EOF) do
+  begin
+    MapGridConsulta(_ModuloPonto);
+  
+    LeDataPoolTrocaFeriados(DDTTrocaFeriado.Name);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhTrocaFeriado');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Empregado', TrocaFeriadoDPEmpregado);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+    
+      MapTrocaFeriados();
+      
+      PreencheDatas(TrocaFeriadoEBDataTroca, TrocaFeriadoDPDataTroca);
+      
+      ActSalvar(TrocaFeriadoForm);
+      
+      ActFechar(TrocaFeriadoForm)    
+    end; 
+    DDTTrocaFeriado.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTrocaFeriado.Name);
+end;
+
+procedure ExcluiTrocaFeriados(pathData);
+var
+  DDTTrocaFeriado: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Trocas de Feriados');
+  
+  DDTTrocaFeriado := CarregaDDT(pathData, _Excluir);
+  
+  while not (DDTTrocaFeriado.EOF) do
+  begin
+    MapGridConsulta(_ModuloPonto);
+  
+    LeDataPoolTrocaFeriados(DDTTrocaFeriado.Name);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhTrocaFeriado');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Empregado', TrocaFeriadoDPEmpregado);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      ActExcluir(_ModuloPonto, 'FRhTrocaFeriado');
+      
+      if (Aliases.Ponto.FVsErrorDlg.Exists) then
+        Aliases.Ponto.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+        
+      ActFechar(TrocaFeriadoForm)    
+    end; 
+    DDTTrocaFeriado.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTrocaFeriado.Name);
+end;

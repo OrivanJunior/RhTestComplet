@@ -1,0 +1,20 @@
+﻿{Script para mapear tela de cadastro de HomologEventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadHomologEventos,
+  
+  FormCadHomologEventosCampo, FormCadHomologEventosNivel,
+  FormCadHomologEventosIdEvento, FormCadHomologEventosOperacao: OleVariant;
+
+procedure MapTelaCadHomologEventos();
+begin
+  FormCadHomologEventos         := Aliases.Folha.FFormPadraoRHTRCTHOMOLOG;
+     
+  FormCadHomologEventosCampo    := Aliases.Folha.FFormPadraoRHTRCTHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CAMPO;
+  FormCadHomologEventosNivel    := Aliases.Folha.FFormPadraoRHTRCTHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NIVEL;
+  FormCadHomologEventosIdEvento := Aliases.Folha.FFormPadraoRHTRCTHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDEVENTO;
+  FormCadHomologEventosOperacao := Aliases.Folha.FFormPadraoRHTRCTHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_OPERACAO;
+end;

@@ -1,0 +1,80 @@
+﻿{Script de mapeamento a Importação/Exportação da Base de Eventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadPrestadores,
+  
+  { Informações do Prestador }  
+  FormCadPrestadoresCodPreserv, 
+  FormCadPrestadoresIdPess, 
+  FormCadPrestadoresVinculo,
+  FormCadPrestadoresFuncao, 
+  FormCadPrestadoresPis, 
+  FormCadPrestadoresRecolheIss,
+  FormCadPrestadoresPercAliqIss,
+
+  { Dados para o pagamento }    
+  FormCadPrestadoresAgencia, 
+  FormCadPrestadoresContaBanco, 
+  FormCadPrestadoresDigitoConta,
+  
+  { Dados para a exportação }        
+  FormCadPrestadoresFornecFin, 
+  FormCadPrestadoresAnalitFin, 
+  FormCadPrestadoresCCFin,
+  FormCadPrestadoresSituacaoFin, 
+  FormCadPrestadoresFornecFinDesc, 
+  FormCadPrestadoresAnaliticaFinDesc,
+  FormCadPrestadoresCCFinDesc, 
+  FormCadPrestadoresSituacaoFinDesc,
+  
+  { Filtro de Prestadores }
+  FiltroConsForm,
+  FiltroConsFormCBSelCons,
+  FiltroConsFormCBNome,
+  FiltroConsFormCBCodigo,
+  btnOkFiltroConsForm,
+  btnVazioFiltroConsForm,
+  btnCancelFiltroConsForm: OleVariant;
+    
+procedure MapCadPrestadores();
+begin
+  FormCadPrestadores            := Aliases.Folha.FRhPreserv;
+  
+  { Informações do Prestador }  
+  FormCadPrestadoresCodPreserv  := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_CODPRESERV;
+  FormCadPrestadoresIdPess      := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_NOMEPESSOA;
+  FormCadPrestadoresVinculo     := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_VINCULO;
+  FormCadPrestadoresFuncao      := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_FUNCAO;
+  FormCadPrestadoresPis         := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_PIS;
+  FormCadPrestadoresRecolheIss  := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_RECOLHEISS;
+  FormCadPrestadoresPercAliqIss := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbInfoPrest.EB_PERCALIQISS;
+  
+  { Dados para o pagamento }  
+  FormCadPrestadoresAgencia     := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosPagto.EB_AGENCIA;
+  FormCadPrestadoresContaBanco  := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosPagto.EB_CONTABANCO;
+  FormCadPrestadoresDigitoConta := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosPagto.EB_DIGITOCONTA;
+  
+  { Dados para a exportação }  
+  FormCadPrestadoresFornecFin        := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_FORNECFIN;
+  FormCadPrestadoresAnalitFin        := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_ANALITFIN;
+  FormCadPrestadoresCCFin            := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_CCFIN;
+  FormCadPrestadoresSituacaoFin      := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_SITUACAOFIN;
+  FormCadPrestadoresFornecFinDesc    := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_FORNECFINDESC;
+  FormCadPrestadoresAnaliticaFinDesc := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_ANALITICAFINDESC;
+  FormCadPrestadoresCCFinDesc        := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_CCFINDESC;
+  FormCadPrestadoresSituacaoFinDesc  := Aliases.Folha.FRhPreserv.ScrollBox1.VsPageControl1.TabPrest.ScrollBox2.ScrollBox3.gbDadosExportacao.EB_SITUACAOFINDESC;
+end;
+
+procedure MapFiltroCadPrestadores();
+begin
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBCodigo  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  FiltroConsFormCBNome    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;

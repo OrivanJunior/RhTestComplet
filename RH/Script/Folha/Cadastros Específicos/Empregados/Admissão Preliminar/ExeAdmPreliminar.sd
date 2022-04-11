@@ -1,0 +1,63 @@
+﻿uses
+  DataPoolAdmPreliminar, ObjAdmPreliminar, VarConsts, CommonsAll, CommonsObj, FuncEmpregado;
+
+procedure PreencheDados();
+begin
+  VerificaInsere(AdmPreliminarEBCodigo, AdmPreliminarDPCodigo);
+  VerificaInsere(AdmPreliminarEBCPF, AdmPreliminarDPCPF);
+  VerificaInsere(AdmPreliminarEBNome, AdmPreliminarDPNome);
+  PreencheDatas(AdmPreliminarEBDataNasc, AdmPreliminarDPDataNasc);
+  PreencheDatas(AdmPreliminarEBDataAdm, AdmPreliminarDPDataAdm);
+  VerificaConsultaF3Insere(_ModuloFolha, AdmPreliminarEBVinculo, AdmPreliminarDPVinculo);
+  VerificaConsultaF3Insere(_ModuloFolha, AdmPreliminarEBFuncao, AdmPreliminarDPFuncao);
+  VerificaConsultaF3Insere(_ModuloFolha, AdmPreliminarEBCategoria, AdmPreliminarDPCategoria);
+  VerificaInsere(AdmPreliminarEBSalario, AdmPreliminarDPSalario);
+  VerificaInsere(AdmPreliminarEBDataTermino, AdmPreliminarDPDataTermino);  
+  VerificaInsere(AdmPreliminarEBTipoContrato, AdmPreliminarDPTipoContrato);  
+end;
+
+procedure ExecutaCadAdmPreliminar(pathData, pathCadEmpregado);
+var
+  DDTAdmPreliminar;
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Admissão Preliminar');
+  
+  MapCadAdmPreliminar();
+  
+  DDTAdmPreliminar := CarregaDDT(pathData, 'Gerais');
+  
+  while not(DDTAdmPreliminar.Eof) do
+  begin
+    LeDataPoolAdmPreliminar(DDTAdmPreliminar.Name);
+
+    MapGridConsulta(_ModuloFolha);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRHADPRELIMINAR');
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', '', AdmPreliminarDPCPF);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      
+      if AdmPreliminarForm.Exists then
+      begin
+        PreencheDados();
+      
+        AdmPreliminarForm.BSalvar.Click();
+        
+        FechaTelaEnviaESocial(_ModuloFolha);
+        
+        AdmPreliminarShEfetivar.Click();
+        
+        InsereEmpregado(pathCadEmpregado);
+                
+        ActFechar(AdmPreliminarForm);
+      end;
+    end;
+    DDTAdmPreliminar.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  
+  DDT.CloseDriver(DDTAdmPreliminar.Name);
+end;

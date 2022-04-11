@@ -1,0 +1,149 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolPrestadores,
+  ObjPrestadores,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Prestadores
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTPrestador: OleVariant;
+
+procedure AcessaCadPrestadores();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Prestadores de Serviço');
+end;
+
+procedure EscolheFiltrosCadPrestadores();
+begin
+  MapFiltroCadPrestadores();
+  
+  FiltroConsFormCBSelCons.SelectFirst;
+  FiltroConsFormCBSelCons.Keys('[Enter]');
+  FiltroConsFormCBCodigo.SelectItem('(Ignorar)');
+  btnOkFiltroConsForm.ClickButton;
+end;
+
+procedure InsereDadosPrestadores();
+begin
+  VerificaInsere(FormCadPrestadoresCodPreserv, FormCadPrestadoresDPCodPreserv);
+  VerificaInsere(FormCadPrestadoresIdPess, FormCadPrestadoresDPIdPess);
+  VerificaInsere(FormCadPrestadoresVinculo, FormCadPrestadoresDPVinculo);
+  FormCadPrestadoresVinculo.Keys('[Enter]');
+  VerificaInsere(FormCadPrestadoresFuncao, FormCadPrestadoresDPFuncao);
+  VerificaInsere(FormCadPrestadoresPis, FormCadPrestadoresDPPis);
+  VerificaInsere(FormCadPrestadoresRecolheIss, FormCadPrestadoresDPRecolheIss);
+  VerificaInsere(FormCadPrestadoresPercAliqIss, FormCadPrestadoresDPPercAliqIss);
+  
+  VerificaInsere(FormCadPrestadoresAgencia, FormCadPrestadoresDPAgencia);
+  VerificaInsere(FormCadPrestadoresContaBanco, FormCadPrestadoresDPContaBanco);
+  VerificaInsere(FormCadPrestadoresDigitoConta, FormCadPrestadoresDPDigitoConta);
+  
+  VerificaInsere(FormCadPrestadoresFornecFin, FormCadPrestadoresDPFornecFin);
+  VerificaInsere(FormCadPrestadoresAnalitFin, FormCadPrestadoresDPAnalitFin);
+  VerificaInsere(FormCadPrestadoresCCFin, FormCadPrestadoresDPCCFin);
+  VerificaInsere(FormCadPrestadoresSituacaoFin, FormCadPrestadoresDPSituacaoFin);
+  VerificaInsere(FormCadPrestadoresFornecFinDesc, FormCadPrestadoresDPFornecFinDesc);
+  VerificaInsere(FormCadPrestadoresAnaliticaFinDesc, FormCadPrestadoresDPAnaliticaFinDesc);
+  VerificaInsere(FormCadPrestadoresCCFinDesc, FormCadPrestadoresDPCCFinDesc);
+  VerificaInsere(FormCadPrestadoresSituacaoFinDesc, FormCadPrestadoresDPSituacaoFinDesc);
+end;
+
+procedure ExeCadastraPrestadores(pathData);
+begin 
+  AcessaCadPrestadores();
+  
+  EscolheFiltrosCadPrestadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTPrestador := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadPrestadores(DDTPrestador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPreserv');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Prest Serv', FormCadPrestadoresDPCodPreserv);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapCadPrestadores();
+     
+    if (FormCadPrestadores.Exists) then
+    begin
+      InsereDadosPrestadores();
+      
+      ActSalvar(FormCadPrestadores);
+      ActFechar(FormCadPrestadores);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraPrestadores(pathData);
+begin  
+  AcessaCadPrestadores();
+  
+  EscolheFiltrosCadPrestadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTPrestador := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadPrestadores(DDTPrestador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPreserv');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Prest Serv', FormCadPrestadoresDPCodPreserv);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapCadPrestadores();
+     
+    if (FormCadPrestadores.Exists) then
+    begin
+      InsereDadosPrestadores();
+      
+      ActSalvar(FormCadPrestadores);
+      ActFechar(FormCadPrestadores);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirPrestadores(pathData);
+begin
+  AcessaCadPrestadores();
+  
+  EscolheFiltrosCadPrestadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTPrestador := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadPrestadores(DDTPrestador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPreServ');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Prest Serv', FormCadPrestadoresDPCodPreserv);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+    
+    if (FormCadPrestadores.Exists) then
+    begin
+      ActExcluir(_ModuloFolha, 'FRhPreServ');
+      ActFechar(FormCadPrestadores);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

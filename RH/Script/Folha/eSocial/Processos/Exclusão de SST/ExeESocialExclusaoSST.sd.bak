@@ -1,0 +1,150 @@
+﻿uses
+  DataPoolESocialExclusaoSST, ObjESocialExclusaoSST, CommonsAll, VarConsts, conexaoBanco;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  
+procedure AcessaESocialExclusaoSST();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Exclusão de SST'); 
+end;
+
+procedure PreencheEmpregados();
+begin
+  if (Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.Exists) then
+  begin
+    if (FormExclusaoSSTWhEmpregadosTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados10.Click();
+    
+    if (FiltroEmpregadoTipo = _Especifico) then
+    begin
+      FormExclusaoSSTWhEmpregadosEspec.ClickButton;
+      VerificaInsere(FormExclusaoSSTWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Selecionados) then
+    begin
+      FormExclusaoSSTWhEmpregadosSelec.ClickButton;
+      VerificaInsere(FormExclusaoSSTWhEmpregadosSelec, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Todos) then
+    begin
+      FormExclusaoSSTWhEmpregadosTodos.ClickButton;
+      Log.Checkpoint('Selecionado Empregados - Todos');
+    end;
+  end;
+end;
+
+procedure PreencheEvento();
+begin
+  VerificaInsere(FormExclusaoSSTEventoExcluirEmp, FiltroEventoExcluirEmp);
+end;
+
+procedure EnviaExclusaoSST();
+begin
+  BtnEnviarExclusaoSST.Click();
+    
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído', 1, 2000).Exists) then
+    Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();
+end;
+
+procedure ConsultaEventosExcluidos(pathData);
+begin
+  PageESocialExclusaoSST.ActivePageIndex := 1;
+
+  MapESocialHistExclusaoSST();
+  
+  LoadDataPoolExclusaoSST(pathData, 'Historico');
+  
+  LeDataPoolHistExclusaoSST();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormHistEstab, FiltroHistEstab);
+  PreencheDatas(FormHistDataIni, FiltroHistDataIni);
+  VerificaInsere(FormHistHoraIni, FiltroHistHoraIni);
+  PreencheDatas(FormHistDataFin, FiltroHistDataFin);
+  VerificaInsere(FormHistHoraFin, FiltroHistHoraFin);
+  VerificaInsere(FormHistEvteSocial, FiltroHistEvteSocial);
+  
+  BtnFiltrar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ConsultaEventosProcessados(pathData);
+begin
+  PageESocialExclusaoSST.ActivePageIndex := 2;
+
+  MapESocialConsExclusaoSST();
+  
+  LoadDataPoolExclusaoSST(pathData, 'Consulta');
+  
+  LeDataPoolConsExclusaoSST();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+  
+
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialExclusaoSST(pathData);
+var 
+  consultaFB, consultaORA: string;
+begin
+  AcessaESocialExclusaoSST();
+  
+  MapESocialExclusaoSST();
+  
+  LoadDataPoolExclusaoSST(pathData, 'Envio');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LeDataPoolExclusaoSST;
+
+    PreencheEmpregados();
+    
+    PreencheEvento();
+
+    EnviaExclusaoSST();
+      
+    DDT.CurrentDriver.Next();
+  end; 
+  ConsultaEventosExcluidos(pathData);
+    
+  LoadDataPoolExclusaoSST(pathData, 'Consulta');
+  
+  LeDataPoolConsExclusaoSST();
+  
+  ConsultaEventosProcessados(pathData);
+  
+  consultaFB  := 'SELECT SEQUENCIAL, CDRESPOSTA FROM RHPROTESOCIAL WHERE DATAHORAENV BETWEEN ''' + FiltroConsDataIni + 
+                 ' 00:00:00''' + ' AND ''' + FiltroConsDataFin + ' 23:59:00''';
+                 
+  consultaORA := 'SELECT SEQUENCIAL, CDRESPOSTA FROM RHPROTESOCIAL WHERE DATAHORAENV BETWEEN TO_TIMESTAMP(''' + FiltroConsDataIni + 
+                 ' 00:00:00'', '' DD/MM/YYYY HH24:MI:SS'')' + ' AND TO_TIMESTAMP(''' + FiltroConsDataFin + ' 23:59:59'', '' DD/MM/YYYY HH24:MI:SS'')';
+                 
+  VerificaEventosESocial(consultaFB, consultaORA);
+  ActFechar(FormESocialExclusaoSST);
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

@@ -1,0 +1,118 @@
+﻿Const
+  strConexaoOrcTeste = 'Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DW301)(PORT=13521)))(CONNECT_DATA=(SID=ORCL)(SERVER=DEDICATED)));User Id=VIASOFTRH;Password=VIASOFTRH';
+  strConexaoOrcOK = 'Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=GTU_APP)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DW301)(PORT=14521)))(CONNECT_DATA=(SID=ORCL)(SERVER=DEDICATED)));User Id=VIASOFTRH;Password=VIASOFTRH';
+  strConexaoFbTeste = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\COOPERCAMPOS_TESTE.FDB';
+  //strConexaoFbOk = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\VSDBRHTESTE.FDB; 
+  strConexaoFbOk = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\COOPERCAMPOS.FDB';
+
+procedure criarTabelaDeConsulta(tabela);
+begin
+  if Project.Variables.VariableExists(tabela) then
+  begin
+    Project.Variables.RemoveVariable(tabela);
+  end;
+  Project.Variables.AddVariable(tabela, 'Table');
+end;
+
+function buscaBancoConsulta(consulta, conexao:string);
+var
+  Qry, str: OleVariant;
+begin
+  Qry := ADO.CreateADOQuery();
+  
+  Qry.ConnectionString := conexao;
+  
+  Qry.SQL := consulta; 
+
+  Qry.Open;
+  
+  result := Qry;
+end;
+
+procedure IncluiValoresColuna(Qry, nomeTabela);
+var
+  i: OleVariant;
+begin
+  for i := 0 to Qry.FieldCount-1 do
+  begin
+    Project.Variables.VariableByName[nomeTabela].AddColumn(Qry.Field[i].FieldName)
+  end;
+end;
+
+procedure IncluiValoresTabela(Qry, nomeTabela);
+var
+  i, linha: OleVariant;
+begin  
+  Qry.First;
+  
+  linha := 0;
+   
+  if Qry.RecordCount = 0 then
+  begin
+    Inc(Project.Variables.VariableByName[nomeTabela].RowCount);
+    
+    linha := Project.Variables.VariableByName[nomeTabela].RowCount-1;
+    
+    for i:= 0 to Qry.FieldCount-1 do
+    begin
+      Project.Variables.VariableByName[nomeTabela].Item(i,linha) := '0';
+    end;
+  end
+  else
+  begin
+    while not aqConvert.VarToBool(Qry.EOF) do
+    begin
+      Inc(Project.Variables.VariableByName[nomeTabela].RowCount);
+    
+      for i:= 0 to Qry.FieldCount-1 do
+      begin
+        Project.Variables.VariableByName[nomeTabela].Item(i,linha) := VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value);
+      end;
+      Inc(linha);
+      Qry.Next;
+    end;
+  end;
+  Qry.Close;
+end;
+
+procedure buscaBancoAtual(consultaFB, consultaORA, conexao :string);
+var
+  Qry, str, i , linha: OleVariant;
+begin
+  Qry := ADO.CreateADOQuery();
+
+  Qry.ConnectionString := conexao;
+  
+  if aqString.ToUpper(Project.Variables.tipoBanco) = 'ORACLE' then
+  begin
+    Qry.SQL := consultaORA;
+  end
+  else   
+    Qry.SQL := consultaFB;
+    
+  Qry.Open;
+
+  criarTabelaDeConsulta('retornoConsulta');
+  
+  Qry.First;
+  str := '';
+
+  for i:= 0 to Qry.FieldCount-1 do
+  begin
+    Project.Variables.retornoConsulta.AddColumn(Qry.Field[i].FieldName);
+  end;
+  
+  linha := 0;
+
+  while not aqConvert.VarToBool(Qry.EOF) do
+  begin
+    Inc(Project.Variables.retornoConsulta.RowCount);
+    for i:= 0 to Qry.FieldCount-1 do
+      begin
+      Project.Variables.retornoConsulta.Item(i,linha) := VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value) ;
+    end;
+    Inc(linha);
+    Qry.Next;
+  end;
+  Qry.Close;
+end;

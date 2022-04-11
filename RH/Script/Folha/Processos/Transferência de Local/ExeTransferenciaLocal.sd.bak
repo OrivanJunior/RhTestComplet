@@ -1,0 +1,227 @@
+﻿{Script para executar a Transferência de Local
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 22/06/2021}
+uses
+  CommonsAll, 
+  CommonsObj, VarConsts,
+  DataPoolTransferenciaLocal, 
+  ObjTransferenciaLocal;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaTransferenciaLocal();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Transferência de Local'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    TransfLocalWhEstabEspec.ClickButton;
+    VerificaInsere(TransfLocalWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimento Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    TransfLocalWhEstabTodosEmp.ClickButton;
+    VerificaInsere(TransfLocalWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    TransfLocalWhEstabSelec.ClickButton;
+    VerificaInsere(TransfLocalWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    TransfLocalWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Todos');
+  end;
+end;
+
+procedure FiltraSituacao();
+begin
+  if (TransfLocalWhSituacaoTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    TransfLocalWhSituacaoEspec.ClickButton;
+    VerificaInsere(TransfLocalWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    TransfLocalWhSituacaoSelec.ClickButton;
+    VerificaInsere(TransfLocalWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    TransfLocalWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (TransfLocalWhEmpreEspec.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    TransfLocalWhEmpreEspec.ClickButton;
+    VerificaInsere(TransfLocalWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    TransfLocalWhEmpreSelec.ClickButton;
+    VerificaInsere(TransfLocalWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    TransfLocalWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraLocalAtual();
+begin
+  if (TransfLocalWhLocalAtualTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual10.Click();
+    
+  if (FiltroLocalAtualTipo = _Especifico) then
+  begin
+    TransfLocalWhLocalAtualEspec.ClickButton;
+    VerificaInsere(TransfLocalWhLocalAtualEspecCampo, FiltroLocalAtualValor);
+    Log.Checkpoint('Selecionado Local Atual Específico, com valor: ' + FiltroLocalAtualValor);
+  end
+  else if (FiltroLocalAtualTipo = _Selecionados) then
+  begin
+    TransfLocalWhLocalAtualSelec.ClickButton;
+    VerificaInsere(TransfLocalWhLocalAtualSelecCampo, FiltroLocalAtualValor);
+  end
+  else if (FiltroLocalAtualTipo = _Todos) then
+  begin
+    TransfLocalWhLocalAtualTodos.ClickButton;
+  end;
+end;
+
+procedure FiltraLocalNovo();
+begin
+  if (TransfLocalWhLocalNovoTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo10.Click();
+    
+  if (FiltroLocalNovoTipo = _Especifico) then
+  begin
+    TransfLocalWhLocalNovoEspec.ClickButton;
+    VerificaInsere(TransfLocalWhLocalNovoEspecCampo, FiltroLocalNovoValor);
+    Log.Checkpoint('Selecionado Local Novo Específico, com valor: ' + FiltroLocalNovoValor);
+  end
+  else if (FiltroLocalNovoTipo = _Selecionados) then
+  begin
+    TransfLocalWhLocalNovoSelec.ClickButton;
+    VerificaInsere(TransfLocalWhLocalNovoSelecCampo, FiltroLocalNovoValor);
+  end
+  else if (FiltroLocalNovoTipo = _Todos) then
+  begin
+    TransfLocalWhLocalNovoTodos.ClickButton;
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (TransfLocalWhGerarSobre.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(TransfLocalWhGerarSobre, FiltroGerarSobre);
+  VerificaInsere(TransfLocalWhAtTransf, FiltroAtTransf);
+  VerificaInsere(TransfLocalWhAtEmpAdm, FiltroAAtEmpAdm);
+  PreencheDatas(TransfLocalWhDataTransf, FiltroDataTransf);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído ! ', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure FechaMensagemProcessoConcluido2();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaTransferenciaLocal(pathData);
+begin
+  AcessaTransferenciaLocal();
+  
+  MapTransferenciaLocal();
+
+  LeDataPoolTransferenciaLocal(pathData);
+  
+  DadosAdicionais();
+  
+  if (FiltroGerarSobre = 'E') then
+  begin
+    FiltraEstab();
+  
+    FiltraSituacao();
+    
+    FiltraEmpregados();
+    
+    FiltraLocalNovo();
+  end
+  else
+  begin
+    FiltraEstab();
+  
+    FiltraSituacao(); 
+    
+    FiltraLocalAtual(); 
+    
+    FiltraLocalNovo();
+  end;
+
+  btnExecutar.Click();
+
+  if (Aliases.Folha.FVsErrorDlg.Visible) then
+  begin
+    Log.Warning('Nenhum registro encontrado');
+    Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    ActFechar(FormTransfLocal);
+  end
+  else
+  begin
+    FechaMensagemProcessoConcluido();
+  
+    btnSalvar.Click();
+
+    FechaMensagemProcessoConcluido2();
+  
+    ActFechar(FormTransfLocal);
+  end;
+end;

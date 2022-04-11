@@ -1,0 +1,43 @@
+﻿{Script de DataPool do Processo de RAIS Sistema
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 25/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroAnoBase, FiltroIdPessoa,
+  FiltroRetifica, FiltroDtRetificacao,
+  FiltroCREA, FiltroEncerra,
+  FiltroDtEncerra, FiltroTpPonto,
+  FiltroCaminho, FiltroVRlrContemp,
+  FiltroProjAviso, FiltroServicoProprio,
+  FiltroRefeicaoConvenio, FiltroAdmCozinhas,
+  FiltroCestaAlimentos, FiltroRefeicoesTransp,
+  FiltroAliConvenio: OleVariant;
+
+procedure LeDataPoolRaisArquivo(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo        := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor       := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+   
+  { Filtro Dados Adicionais }
+  FiltroAnoBase          := DDT.DriverByName(nomeDriver).Value('ANOBASE');
+  FiltroIdPessoa         := DDT.DriverByName(nomeDriver).Value('IDPESSOA');
+  FiltroRetifica         := DDT.DriverByName(nomeDriver).Value('RETIFICA');
+  FiltroDtRetificacao    := DDT.DriverByName(nomeDriver).Value('DTRETIFICACAO');
+  FiltroCREA             := DDT.DriverByName(nomeDriver).Value('CREA');
+  FiltroEncerra          := DDT.DriverByName(nomeDriver).Value('ENCERRA');
+  FiltroDtEncerra        := DDT.DriverByName(nomeDriver).Value('DTENCERRA');
+  FiltroTpPonto          := DDT.DriverByName(nomeDriver).Value('TPPONTO');
+  FiltroCaminho          := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+  FiltroVRlrContemp      := DDT.DriverByName(nomeDriver).Value('VLRCONTEMP');
+  FiltroProjAviso        := DDT.DriverByName(nomeDriver).Value('PROJAVISO');
+  FiltroServicoProprio   := DDT.DriverByName(nomeDriver).Value('SERVICOPROPRIO');
+  FiltroRefeicaoConvenio := DDT.DriverByName(nomeDriver).Value('REFEICAOCONV');
+  FiltroAdmCozinhas      := DDT.DriverByName(nomeDriver).Value('ADMCOZINHAS');
+  FiltroCestaAlimentos   := DDT.DriverByName(nomeDriver).Value('CESTAALIMENTOS');
+  FiltroRefeicoesTransp  := DDT.DriverByName(nomeDriver).Value('REFEICOESTRANSP');
+  FiltroAliConvenio      := DDT.DriverByName(nomeDriver).Value('ALICONVENIO');
+end;

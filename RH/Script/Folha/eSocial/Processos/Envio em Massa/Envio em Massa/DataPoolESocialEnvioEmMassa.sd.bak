@@ -1,0 +1,37 @@
+﻿{Script de DataPool para  o Processo de eSocial - Envio em Massa
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 06/07/2021}
+
+var				
+  FiltroPeriodo, FiltroEstab, 
+  
+  FiltroEstabValor, FiltroTodosEstab,
+  
+  FiltroEmpresa, FiltroEmpresaValor, 
+  
+  FiltroTodosEmpresa, FormEnvioEmMassaDPS1200, 
+  
+  FormEnvioEmMassaDPS1210: OleVariant;
+
+  
+procedure LoadDataPoolEnvioEmMassa(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;
+  
+procedure LeDataPoolEnvioEmMassa();
+begin  
+  FiltroPeriodo                := DDT.DriverByName(nomeDriver).Value('PERIODO');			 								
+					
+  FiltroEstab                  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroEstabValor             := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+  FiltroTodosEstab             := DDT.DriverByName(nomeDriver).Value('TODOS_ESTAB');
+    
+  FiltroEmpresa                := DDT.DriverByName(nomeDriver).Value('EMPRESA');
+  FiltroEmpresaValor           := DDT.DriverByName(nomeDriver).Value('EMPRESA_VALOR');
+  FiltroTodosEmpresa           := DDT.DriverByName(nomeDriver).Value('TODOS_EMPRESA');
+    
+  FormEnvioEmMassaDPS1200      := DDT.DriverByName(nomeDriver).Value('S-1200');	
+  FormEnvioEmMassaDPS1210      := DDT.DriverByName(nomeDriver).Value('S-1210');
+end;                                      

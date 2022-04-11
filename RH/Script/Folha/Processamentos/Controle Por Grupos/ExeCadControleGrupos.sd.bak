@@ -1,0 +1,151 @@
+﻿{Script para executar o Cadastro de Controle de Processsamento por Grupo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+uses
+  DataPoolCadControleGrupos, ObjCadControleGrupos, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure SelecionaControle();
+begin
+  VerificaInsere(CadControleTipoControle, FiltroTipoContole);
+  VerificaInsere(CadControleFiltrarPor, FiltroFiltarPor);
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    CadControleWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, CadControleWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    CadControleWhEstabTodosEmp.ClickButton;
+    VerificaInsere(CadControleWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    CadControleWhEstabSelec.ClickButton;
+    VerificaInsere(CadControleWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    CadControleWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;  
+end;
+
+procedure FiltraGrupo();
+begin
+  if (FiltroGrupoTipo = _Especifico) then
+  begin
+    CadControleWhGrupoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, CadControleWhGrupoEspecCampo, FiltroGrupoValor);
+    Log.Checkpoint('Selecionado Grupos - Específico, com valor: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _TodosEmpresa) then
+  begin
+    CadControleWhGrupoTodosEmp.ClickButton;
+    VerificaInsere(CadControleWhGrupoTodosEmpCampo, FiltroGrupoValor);  
+    Log.Checkpoint('Selecionado Grupos - Todos da Empresa: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _Selecionados) then
+  begin
+    CadControleWhGrupoSelec.ClickButton;
+    VerificaInsere(CadControleWhGrupoSelecCampo, FiltroGrupoValor);
+    Log.Checkpoint('Selecionado Grupos - Selecionados, com valor: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _Todos) then
+  begin
+    CadControleWhGrupoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Grupos - Todos');
+  end;  
+end;
+
+procedure PreencheDadosAbrirControle();
+begin
+  if (CadControleProcesso.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.pnCab10.Click();
+    
+  VerificaInsere(CadControleProcesso, FiltroProcesso);
+  PreencheDatas(CadControleDataCtrl, FiltroDataCtrl);
+  PreencheDatas(CadControleDataIRRF, FiltroDataIRRF);
+  VerificaInsere(CadControleVlrArred, FiltroVlrArred);
+end;
+
+procedure PreencheDadosFecharControle();
+begin
+  VerificaInsere(CadControleProcesso, FiltroProcesso);
+  PreencheDatas(CadControleDataCtrl, FiltroDataCtrl);
+  
+  if (ESocialEBEvtRemun.VisibleOnScreen) then
+  begin     
+    VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+    VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+    VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+    VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+    VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+  end;  
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin  
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+  end;
+end;
+
+procedure ExecutaCadControle(pathData);
+begin 
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Controle por Grupos');
+
+  MapCadControle();
+
+  LeDataPoolCadControleGrupo(pathData, _Cadastrar);
+
+  SelecionaControle();
+  
+  if FiltroTipoContole = 'A' then
+  begin
+    if FiltroFiltarPor = 'E' then
+      FiltraEstab()
+    else
+      FiltraGrupo();
+    PreencheDadosAbrirControle();
+  end
+  else
+  begin
+    if FiltroFiltarPor = 'E' then
+      FiltraEstab()
+    else
+      FiltraGrupo();
+    PreencheDadosFecharControle();
+  end;
+
+  btnExecutar.Click();
+  
+  if (Aliases.Folha.dlgAten_o2.Exists) then
+    Aliases.Folha.dlgAten_o2.btnN_o.Click();
+  
+  Delay(2000);
+  
+  FechaMensagemProcessoConcluido();
+  
+  btnSalvar.Click();
+  
+  FechaMensagemProcessoConcluido();
+  
+  ActFechar(FormCadControle);
+end;

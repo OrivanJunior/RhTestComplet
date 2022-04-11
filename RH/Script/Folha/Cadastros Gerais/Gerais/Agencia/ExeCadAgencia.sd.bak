@@ -1,0 +1,58 @@
+﻿uses
+  CommonsAll,
+  DataPoolAgencia,
+  ObjAgencia,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Agencia
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant;
+  
+procedure AcessaCadAgencia();
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  Modulo.WaitVLCObject('VsMenu', 2000);
+  Modulo.VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|Cadastros Gerais|Gerais|Agências');
+  Delay(1000);
+end;
+
+procedure InsereDadosAgencia();
+begin
+  VerificaInsere(FormCadAgenciaIdAgencia, FormCadAgenciaDPIdAgencia);
+  VerificaInsere(FormCadAgenciaIdBanco, FormCadAgenciaDPIdBanco);
+  VerificaInsere(FormCadAgenciaAgencia, FormCadAgenciaDPAgencia);
+  VerificaInsere(FormCadAgenciaDigito, FormCadAgenciaDPDigito);
+  VerificaInsere(FormCadAgenciaNome, FormCadAgenciaDPNome);
+end;
+
+procedure ExeCadastraAgencia();
+begin
+  AcessaCadAgencia();
+  
+  MapGridCadAgencia();
+  LeDataPoolCadAgencia(_Cadastrar);
+  
+  if (CadAgenciaConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Id', FormCadAgenciaDPIdAgencia);
+  if (CadAgenciaConsGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(CadAgenciaConsForm);
+    
+    MapTelaCadAgencia();
+     
+    if (FormCadAgencia.Exists) then
+    begin
+      InsereDadosAgencia();
+      
+      FormCadAgencia.ActSalvarExecute(FormCadAgencia);
+      ActFechar(FormCadAgencia);
+    end;
+  end;
+  ActFechar(CadAgenciaConsForm); 
+end;

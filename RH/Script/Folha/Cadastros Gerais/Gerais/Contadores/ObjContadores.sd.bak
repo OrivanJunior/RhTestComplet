@@ -1,0 +1,21 @@
+﻿{Script de mapeamento tela de cadastro de Contadores
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var 
+  FormCadContadores,
+  FormCadContadoresIdContador, 
+  FormCadContadoresIdPess,
+  FormCadContadoresTitulo, 
+  FormCadContadoresCrc: OleVariant;
+  
+procedure MapTelaCadContadores();
+begin
+  FormCadContadores           := Aliases.Folha.FFormPadraoRHCONTADOR;
+  
+  FormCadContadoresIdContador := Aliases.Folha.FFormPadraoRHCONTADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDCONTADOR;
+  FormCadContadoresIdPess     := Aliases.Folha.FFormPadraoRHCONTADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDPESS;         
+  FormCadContadoresTitulo     := Aliases.Folha.FFormPadraoRHCONTADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TITULO;    
+  FormCadContadoresCrc        := Aliases.Folha.FFormPadraoRHCONTADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CRC;    
+end;

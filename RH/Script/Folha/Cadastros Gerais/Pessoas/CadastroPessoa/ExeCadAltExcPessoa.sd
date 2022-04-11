@@ -1,0 +1,122 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadPessoa,
+  ObjCadPessoa,
+  VarConsts, 
+  FuncPessoa;
+{ Script para executar o Cadastro, Alteração e Exclusão de Pessoas
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant;  
+
+procedure ExeCadastraPessoa(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Pessoas');
+  EscolheFiltrosCadPessoa();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  leDataPoolCadPessoa(pathData, 'Gerais');
+
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LoadDPPessoaDadosGerais();
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CPF', DadosGeraisDPCpf);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      
+      MapTelaCadPessoa();
+      
+      if (FormCadPessoa.Exists) then
+      begin
+        InsereDadosDadosPessoaisObrigatorios(pathData);
+      
+        InsereDadosEnderecoContatoObrigatorios(pathData);
+      
+        InsereDadosDocumentosObrigatorios(pathData); 
+      
+        FormCadPessoa.BSalvar.Click();
+        
+        FechaTelaAtencao();
+        ActFechar(FormCadPessoa);
+      end;
+    end;
+    DDT.CurrentDriver.Next;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraPessoa(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Pessoas');
+  EscolheFiltrosCadPessoa();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  leDataPoolCadPessoa(pathData, 'Gerais');
+  
+  LoadDPPessoaDadosGerais();
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+    
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CPF', DadosGeraisDPCpf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadPessoa();
+     
+    if (FormCadPessoa.Exists) then
+    begin
+      InsereDadosDadosPessoaisComplementares(pathData);
+      
+      InsereDadosEnderecoContatoComplementares(pathData);
+      
+      InsereDadosDocumentosComplementares(pathData); 
+      
+      InsereDadosDependentes(pathData);
+      
+      FormCadPessoa.BSalvar.Click();
+      
+      if (Aliases.Folha.FRhPendeSocial.Exists) then
+        FechaTelaESocial();
+        
+      ActFechar(FormCadPessoa);
+    end; 
+  end;
+  Delay(1000);
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluiPessoa(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Pessoas');
+  EscolheFiltrosCadPessoa();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  leDataPoolCadPessoa(pathData, 'Gerais');
+  
+  LoadDPPessoaDadosGerais;
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CPF', DadosGeraisDPCpf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FRhPessoa');
+    ActFechar(FormCadPessoa);
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;

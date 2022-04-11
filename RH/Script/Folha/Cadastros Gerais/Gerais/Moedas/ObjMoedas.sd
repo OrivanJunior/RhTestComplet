@@ -1,0 +1,53 @@
+﻿{Script para mapear tela de cadastro de Moedas
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var 
+  FormCadMoedas, PageMoedas,
+  
+  FormCadMoedasIdMoeda, FormCadMoedasSimbolo, FormCadMoedasNomeSing,
+  FormCadMoedasNomePlural, FormCadMoedasCentSing, FormCadMoedasCentPlural,
+  FormCadMoedasTipoMoeda, FormCadMoedasSexoMoeda : OleVariant;
+  
+  FormCadMoedasGRhMoedaVal, FormCadMoedasTcxGridSite,
+  FormCadMoedasbIncMoedaVal, FormCadMoedasbSaveMoedaVal,
+  FormCadMoedasbUndoMoedaVal, FormCadMoedasbExcMoedaVal,
+  
+  //Cedulas
+  FormCadMoedasGRhCedMoeda,
+  FormCadMoedasbIncCedMoeda, FormCadMoedasbSaveCedMoeda,
+  FormCadMoedasUndoCedMoeda, FormCadMoedasExcCedMoeda: OleVariant;
+
+procedure MapTelaCadMoedas();
+begin
+  FormCadMoedas           := Aliases.Folha.FRhMoeda;
+     
+  FormCadMoedasIdMoeda    := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_IDMOEDA;
+  FormCadMoedasSimbolo    := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_SIMBOLO;        
+  FormCadMoedasNomeSing   := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_NOMESING;   
+  FormCadMoedasNomePlural := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_NOMEPLURAL;   
+  FormCadMoedasCentSing   := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_CENTSING;   
+  FormCadMoedasCentPlural := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_CENTPLURAL;   
+  FormCadMoedasTipoMoeda  := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_TIPOMOEDA;   
+  FormCadMoedasSexoMoeda  := Aliases.Folha.FRhMoeda.Page.TabNormal.Panel7.EB_SEXOMOEDA;
+  PageMoedas              := Aliases.Folha.FRhMoeda.Page.TabNormal.pgMoedas;
+  
+  PageMoedas.zTabIndex := 0;
+  //Valores
+  FormCadMoedasGRhMoedaVal   := Aliases.Folha.FRhMoeda.Page.TabNormal.pgMoedas.tsValores.sbSituacoes.gRhMoedaVal;
+  
+  FormCadMoedasbIncMoedaVal  := Aliases.Folha.FRhMoeda.bIncMoedaVal;
+  FormCadMoedasbSaveMoedaVal := Aliases.Folha.FRhMoeda.bSaveMoedaVal;
+  FormCadMoedasbUndoMoedaVal := Aliases.Folha.FRhMoeda.bUndoMoedaVal;
+  FormCadMoedasbExcMoedaVal  := Aliases.Folha.FRhMoeda.bExcMoedaVal;
+  
+  //Cédulas Valores
+  PageMoedas.zTabIndex := 1;
+  FormCadMoedasGRhCedMoeda   := Aliases.Folha.FRhMoeda.Page.TabNormal.pgMoedas.tsCedulas.gRhCedMoeda;
+  
+  FormCadMoedasbIncCedMoeda  := Aliases.Folha.FRhMoeda.bIncCedMoeda;
+  FormCadMoedasbSaveCedMoeda := Aliases.Folha.FRhMoeda.bSaveCedMoeda;
+  FormCadMoedasUndoCedMoeda  := Aliases.Folha.FRhMoeda.bUndoCedMoeda;
+  FormCadMoedasExcCedMoeda   := Aliases.Folha.FRhMoeda.bExcCedMoeda;
+end;

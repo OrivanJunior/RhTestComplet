@@ -1,0 +1,25 @@
+﻿{Script de DataPool do Processo de Manad - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 05/07/2021}  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroFinalidade, FiltroLocalGrav: OleVariant;
+
+procedure LeDataPoolManadArquivo(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Empregados }
+  FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+  FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+  
+  { Dados Adicionais }
+  FiltroFinalidade := DDT.DriverByName(nomeDriver).Value('FINALIDADE');
+  FiltroLocalGrav  := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+end;

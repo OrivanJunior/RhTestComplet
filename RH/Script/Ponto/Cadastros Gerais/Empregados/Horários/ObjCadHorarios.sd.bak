@@ -1,0 +1,73 @@
+﻿{Script para mapear o Cadastro de Horários
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}
+
+var
+  CadHorarioForm, CadHorarioPage, BtnSalvar,
+  CadHorarioEBIdHorario, CadHorarioEBDescricao,
+  CadHorarioEBIdConfig, CadHorarioEBRegJorEmp,
+  CadHorarioEBTpJornada, CadHorarioEBDescTpJor,
+  CadHorarioEBJorDiaHrs, CadHorarioEBJorDiaNot,
+  CadHorarioEBJorSemHrs, CadHorarioEBJorMenHrs,
+  CadHorarioEBEnt1, CadHorarioEBEnt2,
+  CadHorarioEBEnt1Sab, CadHorarioEBEnt2Sab,
+  CadHorarioEBTolEnt1, CadHorarioEBTolEnt2,
+  CadHorarioEBControle, CadHorarioEBJorDiaDiu,
+  CadHorarioEBJorDiaRSR, CadHorarioEBJorQuiHrs,
+  CadHorarioEBIntAlmoco, CadHorarioEBSai1,
+  CadHorarioEBSai2, CadHorarioEBTolSai1,
+  CadHorarioEBTolSai2, CadHorarioEBDiaComp,
+  CadHorarioEBTolImpAFD,
+  
+  DetHorarioBtnInc, DetHorarioBtnSave,
+  DetHorarioBtnIncAll, DetHorarioBtnDesf,
+  DetHorarioBtnExc, DetHorarioGrid: OleVariant;
+
+procedure MapCadHorarios();
+begin
+  CadHorarioForm        := Aliases.Ponto.FRhHorario;
+  CadHorarioPage        := Aliases.Ponto.FRhHorario.Page;
+  BtnSalvar             := Aliases.Ponto.FRhHorario.BSalvar;
+end;
+
+procedure MapInfosNormais();
+begin
+  CadHorarioEBIdHorario := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO;
+  CadHorarioEBDescricao := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO;
+  CadHorarioEBIdConfig  := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_IDCONF;
+  CadHorarioEBRegJorEmp := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
+  CadHorarioEBTpJornada := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
+  CadHorarioEBDescTpJor := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_DSCTPJORN;
+  CadHorarioEBJorDiaHrs := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIAHORAS;
+  CadHorarioEBJorDiaNot := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIANOT;
+  CadHorarioEBJorSemHrs := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JSEMANAL;
+  CadHorarioEBJorMenHrs := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JMENSAL;
+  CadHorarioEBEnt1      := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1;
+  CadHorarioEBEnt2      := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2;
+  CadHorarioEBEnt1Sab   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1SAB;
+  CadHorarioEBEnt2Sab   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2SAB;
+  CadHorarioEBTolEnt1   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO;
+  CadHorarioEBTolEnt2   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO2;
+  CadHorarioEBControle  := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
+  CadHorarioEBJorDiaDiu := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIADIU;
+  CadHorarioEBJorDiaRSR := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIARSR;
+  CadHorarioEBJorQuiHrs := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_JQUINZENAL;
+  CadHorarioEBIntAlmoco := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_INTERVALO;
+  CadHorarioEBSai1      := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1;
+  CadHorarioEBSai2      := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2;
+  CadHorarioEBTolSai1   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO;
+  CadHorarioEBTolSai2   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO2;
+  CadHorarioEBDiaComp   := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP;
+  CadHorarioEBTolImpAFD := Aliases.Ponto.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD;
+end;
+
+procedure MapDetalhesHorario();
+begin
+  DetHorarioBtnInc    := Aliases.Ponto.FRhHorario.bInc;
+  DetHorarioBtnSave   := Aliases.Ponto.FRhHorario.bSave;
+  DetHorarioBtnIncAll := Aliases.Ponto.FRhHorario.bIncAll;
+  DetHorarioBtnDesf   := Aliases.Ponto.FRhHorario.bDesf;
+  DetHorarioBtnExc    := Aliases.Ponto.FRhHorario.bExc; 
+  DetHorarioGrid      := Aliases.Ponto.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet; 
+end;

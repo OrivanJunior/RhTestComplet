@@ -1,0 +1,16 @@
+﻿{Script para criar DataPool da tela de cadastro de Tipo de Exame
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var  
+  FormCadTipoExameDPIdTpExame, 
+  FormCadTipoExameDPDescricao, 
+  FormCadTipoExameDPCodExame: OleVariant;
+
+procedure LeDataPoolCadTipoExame(pathData, tab);
+begin
+  FormCadTipoExameDPIdTpExame := DDT.DriverByName(nomeDriver).Value('IDTPEXAME');
+  FormCadTipoExameDPDescricao := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  FormCadTipoExameDPCodExame  := DDT.DriverByName(nomeDriver).Value('CODEXAME');
+end;

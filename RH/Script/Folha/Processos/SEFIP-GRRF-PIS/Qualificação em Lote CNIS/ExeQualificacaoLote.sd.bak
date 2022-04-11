@@ -1,0 +1,188 @@
+﻿{Script para executar o Processo de Qualificação em Lote
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 06/07/2021}
+
+uses
+  DataPoolQualificacaoLote, ObjQualificacaoLote, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaQualificacaoLote();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'SEFIP/GRRF/PIS', 'Qualificação em Lote CNIS'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormQualificacaoLoteWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormQualificacaoLoteWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormQualificacaoLoteWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormQualificacaoLoteWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormQualificacaoLoteWhEstabSelec.ClickButton;
+    VerificaInsere(FormQualificacaoLoteWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormQualificacaoLoteWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraLocal();
+begin
+  if (FormQualificacaoLoteWhLocalTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormQualificacaoLoteWhLocalEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormQualificacaoLoteWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormQualificacaoLoteWhLocalSelec.ClickButton;
+    VerificaInsere(FormQualificacaoLoteWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormQualificacaoLoteWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraSituacao();
+begin
+  if (FormQualificacaoLoteWhSituacaoTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    FormQualificacaoLoteWhSituacaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormQualificacaoLoteWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    FormQualificacaoLoteWhSituacaoSelec.ClickButton;
+    VerificaInsere(FormQualificacaoLoteWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    FormQualificacaoLoteWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormQualificacaoLoteWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormQualificacaoLoteWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormQualificacaoLoteWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormQualificacaoLoteWhEmpreSelec.ClickButton;
+    VerificaInsere(FormQualificacaoLoteWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormQualificacaoLoteWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormQualificacaoLoteWhLocalGravacao.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormQualificacaoLoteWhLocalGravacao, FiltroLocalGravacao); 
+  PreencheDatas(FormQualificacaoLoteWhDataGeracao, FiltroDataGeracao);
+  VerificaInsere(FormQualificacaoLoteWhSeqDia, FiltroSeqDia);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaQualificacaoLote(pathData);
+var 
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaQualificacaoLote();
+
+  MapQualificacaoLote();
+
+  LeDataPoolQualificacaoLote(pathData);
+  
+  FiltraEstab();
+  
+  FiltraLocal();
+  
+  FiltraSituacao();
+  
+  FiltraEmpregados();
+  
+  DadosAdicionais();
+  
+  btnExecutar.Click();
+
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+      ActFechar(FormQualificacaoLote);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormQualificacaoLote);
+      MensagemInativa := false;
+    end
+  end;  
+  ValidaArquivos('C:\TEMP\QUALIFICAÇÃO EM LOTE\QUALIFICACAO_LOTE_MODELO.S00', 
+                 'C:\TEMP\QUALIFICAÇÃO EM LOTE\QUALIFICACAO_LOTE_MODELO_ORACLE.S00', 
+                 'C:\TEMP\QUALIFICAÇÃO EM LOTE\CADASTRONIS.D210101.S00');
+end;

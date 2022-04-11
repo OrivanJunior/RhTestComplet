@@ -1,0 +1,125 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadEstab,
+  ObjCadEstab,
+  VarConsts;
+{Script para executar o cadastro de estabelecimento do Viasoft3c
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 23/03/2018}
+
+ 
+var
+  Viasoft3C_XE: OleVariant;
+  
+procedure AcessaCadastroEstab();
+begin
+  AcessaItem3c(_ModuloGerente, 'Configuração', 'Empresas/Filiais', 'Cadastro de Estabelecimentos');
+end;
+
+procedure FechaTelaAtencaoEstab();
+var
+  TelaAtencao, BtnSim, BtnNao: OleVariant;
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+
+  if (Viasoft3C_XE.WaitWindow('#32770', 'Bloquear?', 1, 2000).Exists) then
+  begin 
+    TelaAtencao := Viasoft3C_XE.Window('#32770', 'Bloquear?', 1);
+    
+    BtnSim := TelaAtencao.Window('Button', '&Sim', 1);
+    BtnNao := TelaAtencao.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+end;
+
+procedure PreencheInformacoesCadEstab(pathData);
+begin
+  MapCadEstab();
+  
+  VerificaInsere(CadEstabEstab, CadEstabDPEstab);
+  VerificaConsultaF3Insere(_ModuloGerente, CadEstabEmpresa, CadEstabDPEmpresa);
+  VerificaInsere(CadEstabFilial, CadEstabDPFilial);  
+  if Assigned(CadEstabDPCNPJ) then
+  begin
+    CadEstabCNPJ.Click();
+    CadEstabCNPJ.Keys(FazConsultaCPFCNPJ(_ModuloGerente, CadEstabDPCNPJ));
+  end;
+  VerificaInsere(CadEstabRazSoc, CadEstabDPRazSoc);
+  VerificaInsere(CadEstabReduzid, CadEstabDPReduzid);  
+  VerificaInsere(CadEstabInscEst, CadEstabDPInscEst);  
+  VerificaInsere(CadEstabInscMun, CadEstabDPInscMun);
+  VerificaConsultaF3Insere(_ModuloGerente, CadEstabCNAE, CadEstabDPCodAtvEco);  
+  VerificaInsere(CadEstabTipoEnd, CadEstabDPTipoEnd);  
+  VerificaInsere(CadEstabEnderec, CadEstabDPEnderec);
+  VerificaInsere(CadEstabNumEnd, CadEstabDPNumEnd);
+  VerificaInsere(CadEstabCompEnd, CadEstabDPCompEnd);
+  VerificaInsere(CadEstabBairro, CadEstabDPBairro);
+  VerificaConsultaF3Insere(_ModuloGerente, CadEstabCidade, CadEstabDPCidade);
+  if Assigned(CadEstabDPCEP) then
+  begin
+    CadEstabCEP.Keys('[F3]');    
+    CadEstabCEP.Keys(FazConsultaCEP(_ModuloGerente, CadEstabDPCEP));
+  end;
+  VerificaInsere(CadEstabTelefon, CadEstabDPTelefon);
+  VerificaInsere(CadEstabFAX, CadEstabDPFAX);
+  VerificaInsere(CadEstabEmail, CadEstabDPEmail);
+  VerificaInsere(CadEstabInativa, CadEstabDPInativa);
+  VerificaInsere(CadEstabNire, CadEstabDPNire);
+end;
+
+procedure ExecutaCadastroEstab(pathData);
+begin
+  AcessaCadastroEstab();
+  
+  MapGridConsulta3c();
+  
+  LeDataPoolCadEstab(pathData, _Cadastrar);   
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloGerente, 'FFormPadraoFILIAL');
+      
+  FiltraGrid(_ModuloGerente, 'FBRowseCds', 'BGrid', 'Estab.', CadEstabDPEstab);  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    PreencheInformacoesCadEstab(pathData);
+
+    CadEstabForm.BSalvar.Click();
+    
+    FechaTelaAtencaoEstab(); 
+    
+    ActFechar(CadEstabForm); 
+  end;  
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExecutaAlteracaoEstab(pathData);
+begin
+  AcessaCadastroEstab();
+ 
+  MapGridConsulta3c();
+    
+  LeDataPoolCadEstab(pathData, _Alterar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloGerente, 'FFormPadraoCds');  
+    
+  FiltraGrid(_ModuloGerente, 'FBRowseCds', 'BGrid', 'Estab.', CadEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapCadEstab();
+    
+    PreencheInformacoesCadEstab(pathData);
+     
+    CadEstabForm.BSalvar.Click();
+    
+    ActFechar(CadEstabForm); 
+  end;   
+  ActFechar(FormTelaConsultaForm);  
+end;

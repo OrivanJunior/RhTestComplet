@@ -1,0 +1,168 @@
+﻿uses
+  VarConsts;
+
+{Script de mapeamento o Processamento de Rescisao
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 08/06/20201}
+
+var
+  Folha,
+  
+  FormProcRescisao, BtnSaveRescisao, PageProcRescisao,
+  BtnSairRescisao, BtnExecRescisao, BtnRelSedDesemp,
+  BtnRelTRRescisao, BtnRelMRescisao, BtnCalcRescisao,
+  BtnExpRescisao, BtnRelRescisao, BtnTabRescisao, 
+  BtnAdvRescisao, 
+  
+  { Datas }
+  ProcRescisaoEBDtProc, ProcRescisaoEBDtPgto, ProcRescisaoEBSimula,
+  
+  { Tab Empregados }
+  TsEmpregados, GridEmpregado, GridSiteEmpre,
+  BtnIncEmpre, BtnIncAllEmpre, BtnExcEmpre,
+  BtnExcAllEmpre, BtnSaveEmpre, BtnDesfEmpre,
+  BtnCadHistSit, BtnProcEmpre, BtnConsEmpre, 
+  BtnIncluirCtrlProc,
+  
+  { Form Situações }
+  BtnSairSituacao, BtnSaveSituacao, SituaEBEstab,
+  SituaEBEmpregado, SituaEBData, SituaEBSituaAtual,
+  SituaEBCausa, SituaEBDataAviso, SituaEBFGTSemGRRF,
+  SituaEBDissidio, SituaEBDtDissidio, SituaEBVlDissidio,
+  SituaEBRepVaga, SituaEBIndCumpAv, SituaEBIndPensao,
+  SituaEBVlPensao, SituaEBPerPensao, TelaEnvESocial,
+  
+  { Form Situações }
+  BtnSairHistSitua, BtnHelpHistSitua, BtnSaveHistSitua,
+  BtnDesfHistSitua, BtnRelHistSitua, HistSituaEBEstab,
+  HistSituaEBEmpregado, HistSituaEBData, HistSituaEBSituaAtual, 
+  HistSituaEBCausa, HistSituaEBDataAviso, HistSituaEBFGTSemGRRF, 
+  HistSituaEBDissidio, HistSituaEBDtDissidio, HistSituaEBVlDissidio,
+  HistSituaEBRepVaga, HistSituaEBIndPensao, HistSituaEBVlPensao, 
+  HistSituaEBPerPensao, HistSituaEBFGTSAntAtr, HistSituaEBRescFechada,
+  HistSituaEBDataProjAv, HistSituaEBDiasAtesta, HistSituaEBDiasAviso,
+  HistSituaEBCodMedico, HistSituaEBCodCID, HistSituaEBCNPJEmp,
+  HistSituaEBNrCertObito, HistSituaEBDataRetorno, HistSituaEBMesmoMtv,
+  HistSituaEBTipoAcidTra, HistSituaEBInfoAfast, HistSituaEBIndCumpAv,
+  HistSituaEBDataInc, HistSituaEBTipoRein, HistSituaEBNrProcJud,
+  HistSituaEBNrLeiAnis, HistSituaEBDataEfeRet, HistSituaEBDataIniEfe,
+  HistSituaEBIndPag, HistSituaEBNrCAT, HistSituaEBTpInscSuc,
+  HistSituaEBCodFerCol, HistSituaEBCodMotComp, HistSituaEBDiasAvCump,
+  HistSituaEBDiasAvInd,
+  
+  { Tab Movimento }
+  TsMovimento, GridMovimento, GridSiteMov,
+  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  
+procedure MapFormProcessamentoRescisao();
+begin
+  Folha          :=  Sys.Process(_ModuloFolha);
+  
+  FormProcRescisao := Aliases.Folha.FRhProcRescisao;
+  BtnSairRescisao  := Aliases.Folha.FRhProcRescisao.BSair;
+  BtnExecRescisao  := Aliases.Folha.FRhProcRescisao.bExecutar;
+  BtnSaveRescisao  := Aliases.Folha.FRhProcRescisao.tbSalvar;
+  BtnRelSedDesemp  := Aliases.Folha.FRhProcRescisao.tbRelSeguroDesemprego;
+  BtnRelTRRescisao := Aliases.Folha.FRhProcRescisao.tbRelatorio;
+  BtnRelMRescisao  := Aliases.Folha.FRhProcRescisao.tbRelMedias;
+  BtnCalcRescisao  := Aliases.Folha.FRhProcRescisao.tbCalculos;
+  BtnAdvRescisao   := Aliases.Folha.FRhProcRescisao.tbInconsistencias;
+  BtnExpRescisao   := Aliases.Folha.FRhProcRescisao.tbProcExpFin;
+  BtnTabRescisao   := Aliases.Folha.FRhProcRescisao.tbbNotes;
+
+  PageProcRescisao := Aliases.Folha.FRhProcRescisao.pg;
+
+  ProcRescisaoEBDtProc := Aliases.Folha.FRhProcRescisao.pnPeriodo.EB_DATA;
+  ProcRescisaoEBDtPgto := Aliases.Folha.FRhProcRescisao.pnPeriodo.EB_DATAPAGTO;
+  ProcRescisaoEBSimula := Aliases.Folha.FRhProcRescisao.pnPeriodo.EB_SIMULARESC;
+  BtnIncluirCtrlProc   := Aliases.Folha.FRhProcRescisao.pnPeriodo.bIncluirControle;
+  
+  BtnIncEmpre    := Aliases.Folha.FRhProcRescisao.bEmpreInc;
+  BtnIncAllEmpre := Aliases.Folha.FRhProcRescisao.bEmpreIncAll;
+  BtnExcEmpre    := Aliases.Folha.FRhProcRescisao.bEmpreExc;
+  BtnExcAllEmpre := Aliases.Folha.FRhProcRescisao.btnExcAllEmp;
+  BtnSaveEmpre   := Aliases.Folha.FRhProcRescisao.bEmpreSalvar;
+  BtnDesfEmpre   := Aliases.Folha.FRhProcRescisao.bEmpreDesf;
+  BtnProcEmpre   := Aliases.Folha.FRhProcRescisao.bEmpreProc;
+  BtnCadHistSit  := Aliases.Folha.FRhProcRescisao.bCadSituacao;
+  BtnConsEmpre   := Aliases.Folha.FRhProcRescisao.bEmpreCons;  
+  GridEmpregado  := Aliases.Folha.FRhProcRescisao.pg.tsEmpregados.grp1.gEmpregado;
+
+  BtnIncMov     := Aliases.Folha.FRhProcRescisao.bMovInc;
+  BtnRecMov     := Aliases.Folha.FRhProcRescisao.bMovRec;
+  BtnExcMov     := Aliases.Folha.FRhProcRescisao.bMovExc;
+end; 
+
+procedure MapFormSituacoes();
+begin
+  BtnSairSituacao   := Aliases.Folha.FRhHistSitResc.BSair;
+  BtnSaveSituacao   := Aliases.Folha.FRhHistSitResc.BSalvar;
+  
+  SituaEBEstab      := Aliases.Folha.FFormPadraoCds.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+  SituaEBEmpregado  := Aliases.Folha.FFormPadraoCds.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEMPREGADO;
+  SituaEBData       := Aliases.Folha.FRhHistSitResc.pnl1.EB_DATA;
+  SituaEBSituaAtual := Aliases.Folha.FRhHistSitResc.pnl1.EB_SITUACAO;
+  SituaEBCausa      := Aliases.Folha.FRhHistSitResc.pnl1.EB_CAUSA;
+  SituaEBDataAviso  := Aliases.Folha.FRhHistSitResc.pnl1.EB_DATAAVISO;
+  SituaEBFGTSemGRRF := Aliases.Folha.FRhHistSitResc.pnl1.EB_FGTS_GRRF;
+  SituaEBDissidio   := Aliases.Folha.FRhHistSitResc.pnl1.EB_DISSIDIO;
+  SituaEBDtDissidio := Aliases.Folha.FRhHistSitResc.pnl1.EB_DTDISSIDIO;
+  SituaEBVlDissidio := Aliases.Folha.FRhHistSitResc.pnl1.EB_VLRDISSDIO;
+  SituaEBRepVaga    := Aliases.Folha.FRhHistSitResc.pnl1.EB_REPVAGA;
+  SituaEBIndCumpAv  := Aliases.Folha.FRhHistSitResc.pnl1.EB_INDCUMPAVISO;
+  SituaEBIndPensao  := Aliases.Folha.FRhHistSitResc.pnl1.EB_INDPENSAO;
+  SituaEBVlPensao   := Aliases.Folha.FRhHistSitResc.pnl1.EB_VLRPENSAO;
+  SituaEBPerPensao  := Aliases.Folha.FRhHistSitResc.pnl1.EB_PERCPENSAO;
+end;
+
+procedure MapFormHistSituacao();
+begin
+  BtnSairHistSitua       := Aliases.Folha.FFormPadraoRHHISTSIT.BSairRap;
+  BtnHelpHistSitua       := Aliases.Folha.FFormPadraoRHHISTSIT.BHelpRap;
+  BtnSaveHistSitua       := Aliases.Folha.FFormPadraoRHHISTSIT.BSalvarRap;
+  BtnDesfHistSitua       := Aliases.Folha.FFormPadraoRHHISTSIT.BDesfazerRap;
+  BtnRelHistSitua        := Aliases.Folha.FFormPadraoRHHISTSIT.BImprimirRap;
+  
+  HistSituaEBEstab       := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB;
+  HistSituaEBEmpregado   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDEMPREGADO;
+  HistSituaEBData        := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA;
+  HistSituaEBSituaAtual  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDSITUACAO;
+  HistSituaEBCausa       := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDCAUSA;
+  HistSituaEBDataAviso   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATAAVISO;
+  HistSituaEBFGTSemGRRF  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FGTSEMGRFC;
+  HistSituaEBDissidio    := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DISSIDIO;
+  HistSituaEBDtDissidio  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTDISSIDIO;
+  HistSituaEBVlDissidio  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_VLRDISSIDIO;
+  HistSituaEBRepVaga     := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_REPVAGA;
+  HistSituaEBIndPensao   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INDPENSAO;
+  HistSituaEBVlPensao    := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_VLRPENSAO;
+  HistSituaEBPerPensao   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_PERCPENSAO;
+  HistSituaEBFGTSAntAtr  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FGTSEMATRASO;
+  HistSituaEBRescFechada := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RESCFECHADA;
+  HistSituaEBDataProjAv  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTPROJAVISO;
+  HistSituaEBDiasAtesta  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASATESTADO;
+  HistSituaEBDiasAviso   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASAVISO;
+  HistSituaEBCodMedico   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDMEDICO;
+  HistSituaEBCodCID      := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CODCID;
+  HistSituaEBCNPJEmp     := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CNPJEMPSUCESS;
+  HistSituaEBNrCertObito := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NROCERTOBITO;
+  HistSituaEBDataRetorno := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTRETORNO;
+  HistSituaEBMesmoMtv    := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INFOMESMOMTV;
+  HistSituaEBTipoAcidTra := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TPACIDTRANSITO;
+  HistSituaEBInfoAfast   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_OBSINIFAST;
+  HistSituaEBIndCumpAv   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INDCUMPAVISO;
+  HistSituaEBDataInc     := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTINC;
+  HistSituaEBTipoRein    := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TPREINT;
+  HistSituaEBNrProcJud   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NRPROCJUD;
+  HistSituaEBNrLeiAnis   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NRLEIANISTIA;
+  HistSituaEBDataEfeRet  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTEFETRETORNO;
+  HistSituaEBDataIniEfe  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DTEFEITO;
+  HistSituaEBIndPag      := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INDPAGTOJUIZO;
+  HistSituaEBNrCAT       := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NUMEROCAT;
+  HistSituaEBTpInscSuc   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TPINSCEMPSUCESS;
+  HistSituaEBCodFerCol   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDFERCOL;
+  HistSituaEBCodMotComp  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDMOTIVOCOMP;
+  HistSituaEBDiasAvCump  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASAVISOCUMPRIDO;
+  HistSituaEBDiasAvInd   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASAVISOINDENIZADO;
+end;

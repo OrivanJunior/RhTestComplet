@@ -1,0 +1,32 @@
+﻿{Script de mapeamento o Processo de eSocial - Envio em Massa
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialEnvioEmMassa, 
+  
+  FormEnvioEmMassaPageEstabs, FormEnvioEmMassaPerRef,
+
+  FormEnvioEmMassaRBEstab, FormEnvioEmMassaRBEmpresa,
+  FormEnvioEmMassaCBTodos, FormEnvioEmMassaGridEstabs,
+
+  FormEnvioEmMassaCBS1200, FormEnvioEmMassaCBS1210: OleVariant;
+
+  
+procedure MapESocialEnvioEmMassa();
+begin
+  FormESocialEnvioEmMassa        := Aliases.Folha.FRhWizardeSocial;
+  
+  
+  FormEnvioEmMassaPerRef         := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.grpPeriodo.dRef;
+  FormEnvioEmMassaPageEstabs     := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.rbEstabs;
+  FormEnvioEmMassaRBEstab        := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.rbEstabs;
+  FormEnvioEmMassaRBEmpresa      := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.rbEmpresas;
+  FormEnvioEmMassaCBTodos        := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.cbSelTodos;
+  
+  FormEnvioEmMassaGridEstabs     := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEstabs.gEstabs;
+  
+  FormEnvioEmMassaCBS1200        := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEventos.chkS1200;
+  FormEnvioEmMassaCBS1210        := Aliases.Folha.FRhWizardeSocial.WizardControl.pgEventos.chkS1210;
+end;

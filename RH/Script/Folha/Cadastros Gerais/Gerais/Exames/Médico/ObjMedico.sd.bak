@@ -1,0 +1,43 @@
+﻿{Script de mapeamento tela de cadastro de Medico
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadMedico,
+  FormCadMedicoIdMedico, 
+  FormCadMedicoNome, 
+  FormCadMedicoRegistro,
+  FormCadMedicoIdOrgao, 
+  FormCadMedicoUfCrm, 
+  FormCadMedicoPis,
+  FormCadMedicoEndereco, 
+  FormCadMedicoNroEnd, 
+  FormCadMedicoBairro,
+  FormCadMedicoCidade, 
+  FormCadMedicoCEP, 
+  FormCadMedicoTelefone,
+  FormCadMedicoCelular, 
+  FormCadMedicoEmail: OleVariant;
+
+procedure MapTelaCadMedico();
+begin
+  FormCadMedico         := Aliases.Folha.FFormPadraoRHMEDICO;
+     
+  FormCadMedicoIdMedico := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDMEDICO;         
+  FormCadMedicoNome     := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NOME;    
+  FormCadMedicoRegistro := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_REGISTRO;    
+  FormCadMedicoIdOrgao  := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDORGAO;         
+  FormCadMedicoUfCrm    := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_UFCRM;    
+  FormCadMedicoPis      := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_PIS;
+  FormCadMedicoEndereco := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ENDERECO;         
+  FormCadMedicoNroEnd   := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NROEND;    
+  FormCadMedicoBairro   := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_BAIRRO;
+  FormCadMedicoCidade   := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CIDADE;       
+  FormCadMedicoCEP      := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CEP;
+  FormCadMedicoTelefone := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TELEFONE;
+  FormCadMedicoCelular  := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CELULAR;         
+  FormCadMedicoEmail    := Aliases.Folha.FFormPadraoRHMEDICO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_EMAIL;    
+end;

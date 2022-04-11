@@ -1,0 +1,23 @@
+﻿{Script para mapear tela de cadastro de Agencia
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadAgencia,
+                         
+  FormCadAgenciaIdAgencia, FormCadAgenciaIdBanco, FormCadAgenciaAgencia,
+  FormCadAgenciaDigito, FormCadAgenciaNome: OleVariant;
+
+procedure MapTelaCadAgencia();
+begin
+  FormCadAgencia           := Aliases.Folha.FFormPadraoRHAGENCIA;
+  
+  FormCadAgenciaIdAgencia  := Aliases.Folha.FFormPadraoRHAGENCIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox_.EB_IDAGENCIA;
+  FormCadAgenciaIdBanco    := Aliases.Folha.FFormPadraoRHAGENCIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox_.EB_IDBANCO;
+  FormCadAgenciaAgencia    := Aliases.Folha.FFormPadraoRHAGENCIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox_.EB_AGENCIA;
+  FormCadAgenciaDigito     := Aliases.Folha.FFormPadraoRHAGENCIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox_.EB_DIGITO;
+  FormCadAgenciaNome       := Aliases.Folha.FFormPadraoRHAGENCIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox_.EB_NOME;
+end;

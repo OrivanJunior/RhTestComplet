@@ -1,0 +1,92 @@
+﻿uses
+  CommonsAll,
+  DataPoolTelaLogin,
+  ObjTelaLogin,
+  VarConsts;
+{Script para acessar os módulos atraves da tela de login
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 11/01/2018}
+ 
+  
+procedure AcessaLogin(sModulo; cadastraSenha; tipoBanco, versaoExes, nomeServidor, nomeConexao, login:string; senha:string='');
+begin
+  MapTelaLogin(sModulo);
+  
+  if (aqString.ToUpper(LoginServidor.Text) <> nomeServidor) then
+    LoginServidor.Keys(nomeServidor);
+  
+  if (aqString.ToUpper(LoginConexao.Text) <> aqString.ToUpper(nomeConexao))then
+  begin
+    LoginConexao.Click;
+    LoginConexao.SetText(nomeConexao);
+    //LoginConexao.SelectItem(nomeConexao);  
+  end;
+  
+  if (aqString.ToUpper(LoginUserID.Text) <> aqString.ToUpper(login))then
+    LoginUserID.Keys(login);
+  
+  if cadastraSenha = 'N' then
+  begin
+    if login = 'VIASOFT' then 
+      LoginSenha.Keys(GeraSenha(tipoBanco))
+    else if login = 'VIAFISRHATUEVE' then 
+      LoginSenha.Keys(senha)
+    else
+    begin
+      LoginSenha.Keys(senha);
+    end;
+    LoginOk.Click();
+  end
+  else
+  begin
+    LoginAlteraSenha.Click();
+    MapCadastraSenha(sModulo);
+    CadSenhaFormNovaSenha.Keys('123'); 
+    CadSenhaFormConfirma.Keys('123');
+    CadSenhaFormPnBtnConf.Click;
+    CadSenhaFormPnBtnExit.Click;
+  end;
+  Delay(5000);
+end;
+
+procedure AcessaTelaLogin(sModulo, sTeste, tipoBanco, nomeConexao: string);
+begin
+  MapTelaLogin(sModulo);
+
+  if (sTeste <> '_Teste') then  
+    LeDataPoolTelaLogin(sModulo)
+  else
+    LeDataPoolTelaLogin(sModulo + sTeste);  
+  
+  LoginServidor.Keys(LoginDPServidor);
+  LoginConexao.Click;
+  LoginConexao.Keys(nomeConexao);
+  //LoginConexao.SelectItem(nomeConexao);
+  LoginUserID.Keys(LoginDPUsuario);
+  
+  if (sTeste <> '_Teste') then  
+    begin
+    if (LoginDPUsuario = 'VIASOFT' ) then 
+      LoginSenha.Keys(GeraSenha(tipoBanco))
+    else
+      LoginSenha.Keys(LoginDPSenha);
+      
+    LoginOk.Click();   
+  end
+  else
+    begin  
+      LoginAlteraSenha.Click();
+      MapCadastraSenha(sModulo);
+      CadSenhaFormNovaSenha.Keys('123'); 
+      CadSenhaFormConfirma.Keys('123');
+      CadSenhaFormPnBtnConf.Click;
+      CadSenhaFormPnBtnExit.Click;   
+    end;
+    
+  if Sys.Process(sModulo).WaitVCLObject('JanelaResp', 500).Exists then
+    Sys.Process(sModulo).VCLObject('JanelaResp').VCLObject('BotaoDoResp_2').Click
+  else
+    Log.Message('Do Nothing');
+end;
+

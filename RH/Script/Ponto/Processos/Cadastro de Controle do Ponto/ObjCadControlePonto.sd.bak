@@ -1,0 +1,46 @@
+﻿{Script de mapeamento o Cadastro de Controle de Processamento do Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data:27/08/2021}
+
+var
+  FiltroConsForm, FiltroConsFormCBSelCons,
+  FiltroConsFormCBMes, FiltroConsFormCBAno,
+  FiltroConsFormCBAberto, FiltroConsFormEBMes,
+  FiltroConsFormEBAno, FiltroConsFormEBAberto,
+  btnOkFiltroConsForm, btnVazioFiltroConsForm,
+  btnCancelFiltroConsForm,
+  
+  FormCadControlePonto,
+  ProcEBEstab, ProcEBMesApur,
+  ProcEBAnoApur, ProcEBDataIni,
+  ProcEBDataFin, ProcEBNroDias,
+  ProcEBEmAberto: OleVariant;
+
+procedure MapFiltroCadControlePonto();
+begin
+  FiltroConsForm          := Aliases.Ponto.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Ponto.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBMes     := Aliases.Ponto.FFiltroConsultaCDS.PanComp.cb2;
+  FiltroConsFormCBAno     := Aliases.Ponto.FFiltroConsultaCDS.PanComp.cb3;
+  FiltroConsFormCBAberto  := Aliases.Ponto.FFiltroConsultaCDS.PanComp.cb4;
+  FiltroConsFormEBMes     := Aliases.Ponto.FFiltroConsultaCDS.PanComp.Item;
+  FiltroConsFormEBAno     := Aliases.Ponto.FFiltroConsultaCDS.PanComp.Item2;
+  FiltroConsFormEBAberto  := Aliases.Ponto.FFiltroConsultaCDS.PanComp.Item3;
+  btnOkFiltroConsForm     := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;  
+
+procedure MapCadControlePonto();
+begin
+  FormCadControlePonto := Aliases.Ponto.FRhProcessoPonto;
+  ProcEBEstab          := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
+  ProcEBMesApur        := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_MES;
+  ProcEBAnoApur        := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+  ProcEBDataIni        := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_DATAINI;
+  ProcEBDataFin        := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_DATAFIN;
+  ProcEBNroDias        := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_NRODIAS;
+  ProcEBEmAberto       := Aliases.Ponto.FRhProcessoPonto.Page.TabNormal.pnCab.ScrollBox1.EB_EMABERTO;
+end;  
+

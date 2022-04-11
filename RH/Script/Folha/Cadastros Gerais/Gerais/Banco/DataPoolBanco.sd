@@ -1,0 +1,16 @@
+﻿{Script para criar DataPool da tela de cadastro de Banco
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadBancoDPIdBanco, FormCadBancoDPNome, 
+  FormCadBancoDPIdLayCheque, FormCadBancoDPIdBancoComp: OleVariant;
+
+procedure LeDataPoolCadBanco(nomeDriver);
+begin
+  FormCadBancoDPIdBanco     := DDT.DriverByName(nomeDriver).Value('IDBANCO');
+  FormCadBancoDPNome        := DDT.DriverByName(nomeDriver).Value('NOME');
+  FormCadBancoDPIdLayCheque := DDT.DriverByName(nomeDriver).Value('IDLAYCHEQUE');
+  FormCadBancoDPIDBancoComp := DDT.DriverByName(nomeDriver).Value('IDBANCOCOMP'); 
+end;

@@ -1,0 +1,68 @@
+﻿{Script de DataPool do Cadastro de Horários
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}
+
+var
+  CadHorarioDPIdHorario, CadHorarioDPDescricao,
+  CadHorarioDPIdConfig, CadHorarioDPRegJorEmp,
+  CadHorarioDPTpJornada, CadHorarioDPDescTpJor,
+  CadHorarioDPJorDiaHrs, CadHorarioDPJorDiaNot,
+  CadHorarioDPJorSemHrs, CadHorarioDPJorMenHrs,
+  CadHorarioDPEnt1, CadHorarioDPEnt2,
+  CadHorarioDPEnt1Sab, CadHorarioDPEnt2Sab,
+  CadHorarioDPTolEnt1, CadHorarioDPTolEnt2,
+  CadHorarioDPControle, CadHorarioDPJorDiaDiu,
+  CadHorarioDPJorDiaRSR, CadHorarioDPJorQuiHrs,
+  CadHorarioDPIntAlmoco, CadHorarioDPSai1,
+  CadHorarioDPSai2, CadHorarioDPTolSai1,
+  CadHorarioDPTolSai2, CadHorarioDPDiaComp,
+  CadHorarioDPTolImpAFD,
+  
+  DetHorarioDPDia, DetHorarioDPEnt1,
+  DetHorarioDPSai1, DetHorarioDPEnt2,
+  DetHorarioDPSai2, DetHorarioDPTolEnt1,
+  DetHorarioDPTolSai1, DetHorarioDPTolEnt2,
+  DetHorarioDPTolSai2, DetHorarioDPInterv: OleVariant;
+
+procedure LeDataPoolCadHorarios(nomeDriver);
+begin
+  CadHorarioDPIdHorario := DDT.DriverByName(nomeDriver).Value('IDHORARIO');
+  CadHorarioDPDescricao := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  CadHorarioDPIdConfig  := DDT.DriverByName(nomeDriver).Value('IDCONF');
+  CadHorarioDPRegJorEmp := DDT.DriverByName(nomeDriver).Value('REGJOREMP');
+  CadHorarioDPTpJornada := DDT.DriverByName(nomeDriver).Value('TPJORNADA');
+  CadHorarioDPDescTpJor := DDT.DriverByName(nomeDriver).Value('DSCTPJORN');
+  CadHorarioDPJorDiaHrs := DDT.DriverByName(nomeDriver).Value('JDIAHORAS');
+  CadHorarioDPJorDiaNot := DDT.DriverByName(nomeDriver).Value('JDIARIANOT');
+  CadHorarioDPJorSemHrs := DDT.DriverByName(nomeDriver).Value('JSEMANAL');
+  CadHorarioDPJorMenHrs := DDT.DriverByName(nomeDriver).Value('JMENSAL');
+  CadHorarioDPEnt1      := DDT.DriverByName(nomeDriver).Value('ENT1');
+  CadHorarioDPEnt2      := DDT.DriverByName(nomeDriver).Value('ENT2');
+  CadHorarioDPEnt1Sab   := DDT.DriverByName(nomeDriver).Value('ENT1SAB');
+  CadHorarioDPEnt2Sab   := DDT.DriverByName(nomeDriver).Value('ENT2SAB');
+  CadHorarioDPTolEnt1   := DDT.DriverByName(nomeDriver).Value('TOLEXTRAPONTO');
+  CadHorarioDPTolEnt2   := DDT.DriverByName(nomeDriver).Value('TOLEXTRAPONTO2');
+  CadHorarioDPControle  := DDT.DriverByName(nomeDriver).Value('CONTROLE');
+  CadHorarioDPJorDiaDiu := DDT.DriverByName(nomeDriver).Value('JDIARIADIU');
+  CadHorarioDPJorDiaRSR := DDT.DriverByName(nomeDriver).Value('JDIARIARSR');
+  CadHorarioDPJorQuiHrs := DDT.DriverByName(nomeDriver).Value('JQUINZENAL');
+  CadHorarioDPIntAlmoco := DDT.DriverByName(nomeDriver).Value('INTERVALO');
+  CadHorarioDPSai1      := DDT.DriverByName(nomeDriver).Value('SAI1');
+  CadHorarioDPSai2      := DDT.DriverByName(nomeDriver).Value('SAI2');
+  CadHorarioDPTolSai1   := DDT.DriverByName(nomeDriver).Value('TOLFALTAPONTO');
+  CadHorarioDPTolSai2   := DDT.DriverByName(nomeDriver).Value('TOLFALTAPONTO2');
+  CadHorarioDPDiaComp   := DDT.DriverByName(nomeDriver).Value('DIACOMP');
+  CadHorarioDPTolImpAFD := DDT.DriverByName(nomeDriver).Value('TOLIMPAFD');
+  
+  DetHorarioDPDia       := DDT.DriverByName(nomeDriver).Value('DIA');
+  DetHorarioDPEnt1      := DDT.DriverByName(nomeDriver).Value('DTENT1');
+  DetHorarioDPSai1      := DDT.DriverByName(nomeDriver).Value('DTSAI1');
+  DetHorarioDPEnt2      := DDT.DriverByName(nomeDriver).Value('DTENT2');
+  DetHorarioDPSai2      := DDT.DriverByName(nomeDriver).Value('DTSAI2');
+  DetHorarioDPTolEnt1   := DDT.DriverByName(nomeDriver).Value('DTTOLENT1');
+  DetHorarioDPTolSai1   := DDT.DriverByName(nomeDriver).Value('DTTOLSAI1');
+  DetHorarioDPTolEnt2   := DDT.DriverByName(nomeDriver).Value('DTTOLENT2');
+  DetHorarioDPTolSai2   := DDT.DriverByName(nomeDriver).Value('DTTOLSAI2');
+  DetHorarioDPInterv    := DDT.DriverByName(nomeDriver).Value('DTINTERVALO');
+end;

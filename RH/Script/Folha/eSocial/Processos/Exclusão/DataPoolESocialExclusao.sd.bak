@@ -1,0 +1,86 @@
+﻿{Script de DataPool para  o Processo de eSocial - Exclusão
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+
+var
+  FiltroModoExclusao,
+  
+  FiltroEventoExcluirEmp, 
+  FiltroPeriodoApuracaoEmp, 
+        
+  FiltroDataDtIni, FiltroDataDtFin,
+  FiltroDescPeriodo,
+  
+  FiltroEventoExcluirPr, 
+  FiltroPeriodoApuracaoPr, 
+  
+  FiltroEventoExcluirPs,
+  FiltroPeriodoApuracaoPs, 
+          
+  FiltroEventoExcluirAv, 
+  FiltroPeriodoApuracaoAv, 
+          
+  FiltroEventoExcluirOut, 
+  FiltroPeriodoApuracaoOut,
+
+  FiltroEmpregadoTipo, 
+  FiltroEmpregadoValor,
+
+  FiltroPrestadorTipo, 
+  FiltroPrestadorValor, 
+  
+  FiltroAdPreliminarTipo, 
+  FiltroAdPreliminarValor: OleVariant;
+
+procedure LeDataPoolExclusao(nomeDriver);
+begin							
+  FiltroModoExclusao     := DDT.DriverByName(nomeDriver).Value('MODO_EXCLUSAO'); 		 										
+  					
+  FiltroEventoExcluirEmp  := DDT.DriverByName(nomeDriver).Value('EVENTO_EMPREGADO');
+  FiltroEventoExcluirPr   := DDT.DriverByName(nomeDriver).Value('EVENTO_PROD_RURAL');
+  FiltroEventoExcluirPs   := DDT.DriverByName(nomeDriver).Value('EVENTO_PRESTADOR');
+  FiltroEventoExcluirAv   := DDT.DriverByName(nomeDriver).Value('EVENTO_AVULSO');
+  FiltroEventoExcluirOut  := DDT.DriverByName(nomeDriver).Value('EVENTO_OUTROS');
+    
+  FiltroPeriodoApuracaoEmp  := DDT.DriverByName(nomeDriver).Value('PERIODO_EMPREGADO');
+  FiltroPeriodoApuracaoPr   := DDT.DriverByName(nomeDriver).Value('PERIODO_PROD_RURAL');
+  FiltroPeriodoApuracaoPs   := DDT.DriverByName(nomeDriver).Value('PERIODO_PRESTADOR');
+  FiltroPeriodoApuracaoAv   := DDT.DriverByName(nomeDriver).Value('PERIODO_AVULSO');
+  FiltroPeriodoApuracaoOut  := DDT.DriverByName(nomeDriver).Value('PERIODO_OUTROS');
+    						
+  FiltroEmpregadoTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor      := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
+    
+  FiltroAdPreliminarTipo    := DDT.DriverByName(nomeDriver).Value('TIPO_AD_PRE');
+  FiltroAdPreliminarValor   := DDT.DriverByName(nomeDriver).Value('AD_PRE_VALOR');
+  
+  FiltroDataDtIni           := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+  FiltroDataDtFin           := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+  FiltroDescPeriodo         := DDT.DriverByName(nomeDriver).Value('DESC_PERIODO');
+  
+  FiltroPrestadorTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_PRESTADOR');
+  FiltroPrestadorValor      := DDT.DriverByName(nomeDriver).Value('PRESTADOR_VALOR');
+end;                                      
+
+procedure LeDataPoolHistExclusao(nomeDriver);
+begin         
+  FiltroHistEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroHistDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroHistHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroHistDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroHistHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroHistEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;
+									
+procedure LeDataPoolConsExclusao;
+begin         
+  FiltroConsEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroConsDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;

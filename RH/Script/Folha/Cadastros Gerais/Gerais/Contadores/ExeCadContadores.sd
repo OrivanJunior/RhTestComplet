@@ -1,0 +1,115 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolContadores,
+  ObjContadores,
+  VarConsts;
+  
+{ Script para executar a cadastrar da tela de cadastro de Contadores
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+var
+  DDTContadores;
+
+procedure AcessaCadContadores();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Contadores');
+end;
+
+procedure InsereDadosContadores();
+begin
+  VerificaInsere(FormCadContadoresIdContador, FormCadContadoresDPIdContador);
+  VerificaInsere(FormCadContadoresIdPess, FormCadContadoresDPIdPess);
+  VerificaInsere(FormCadContadoresTitulo, FormCadContadoresDPTitulo);
+  VerificaInsere(FormCadContadoresCrc, FormCadContadoresDPCrc);  
+end;
+
+procedure ExeCadastraContadores(pathData);
+begin
+  AcessaCadContadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTContadores := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadContadores(DDTContadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONTADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Contador', FormCadContadoresDPIdContador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadContadores();
+     
+    if (FormCadContadores.Exists) then
+    begin
+      InsereDadosContadores();
+      
+      ActSalvar(FormCadContadores);
+      ActFechar(FormCadContadores);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTContadores.Name);
+end;
+
+procedure ExeAlteraContadores(pathData);
+begin
+  AcessaCadContadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTContadores := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadContadores(DDTContadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONTADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Contador', FormCadContadoresDPIdContador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadContadores();   
+     
+    if (FormCadContadores.Exists) then
+    begin
+      InsereDadosContadores();
+      
+      ActSalvar(FormCadContadores);
+      ActFechar(FormCadContadores);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTContadores.Name);
+end;
+
+procedure ExeExcluirContadores(pathData);
+begin
+  AcessaCadContadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTContadores := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadContadores(DDTContadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONTADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Contador', FormCadContadoresDPIdContador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHCONTADOR');
+    ActFechar(FormCadContadores);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTContadores.Name);
+end;

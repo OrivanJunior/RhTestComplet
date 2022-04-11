@@ -1,0 +1,112 @@
+﻿uses
+  DataPoolESocialEventosSST, ObjESocialEventosSST, CommonsAll, VarConsts, conexaoBanco;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  
+procedure AcessaESocialEnvioSST();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Eventos de SST'); 
+end;
+  
+procedure PreencheEvento();
+begin
+  if (FormEnvioSSTDPS2210 = 'S') then
+  	FormEnvioSSTRBS2210.ClickButton()   
+  else if (FormEnvioSSTDPS2220 = 'S') then
+  	FormEnvioSSTRBS2220.ClickButton()
+  else if (FormEnvioSSTDPS2240 = 'S') then
+  	FormEnvioSSTRBS2240.ClickButton()
+end;
+
+procedure PreencheEmpregados();
+begin
+  if (FormEnvioSSTWhEmpregadosTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpregadoTipo = _Especifico) then
+  begin
+    FormEnvioSSTWhEmpregadosEspec.ClickButton;
+    VerificaInsere(FormEnvioSSTWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Selecionados) then
+  begin
+    FormEnvioSSTWhEmpregadosSelec.ClickButton;
+    VerificaInsere(FormEnvioSSTWhEmpregadosSelec, FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Todos) then
+  begin
+    FormEnvioSSTWhEmpregadosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+  PreencheDatas(FormEnvioSSTWhMesAnoComp, FiltroMesAnoComp)
+end;
+
+procedure PreencheConsulta(pathData);
+begin
+  PageESocialEnvioSST.ActivePageIndex := 1;
+
+  MapESocialConsEnvioSST();
+    
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+  
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialEnvioSST(pathData);
+var 
+  consultaFB, consultaORA: string;
+begin
+  AcessaESocialEnvioSST();
+  
+  MapESocialEnvioSST();
+  
+  LoadDataPoolEnvioSST(pathData, 'Envio');
+  
+  while not(DDT.CurrentDriver.EOF) do
+  begin
+   LeDataPoolEnvioSST();
+    
+    PreencheEvento();
+  
+    PreencheEmpregados();
+
+    BtnEnviarSST.Click();
+    
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+    end;
+    
+    DDT.CurrentDriver.Next;
+  end;
+  LoadDataPoolEnvioSST(pathData, 'Consulta');
+  
+  LeDataPoolConsEnvioSST();
+  
+  PreencheConsulta(pathData);
+  
+  VerificaEventosESocial(FiltroConsDataIni, FiltroConsDataFin, FiltroConsAmbiente);
+  
+  ActFechar(FormESocialEnvioSST);
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

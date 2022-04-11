@@ -1,0 +1,125 @@
+﻿{Script para executar o Processo de RAIS Arquivo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+uses
+  DataPoolRaisArquivo, ObjRaisArquivo, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaRaisArquivo();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'RAIS', 'Arquivo'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormRaisArquivoWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRaisArquivoWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormRaisArquivoWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormRaisArquivoWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormRaisArquivoWhEstabSelec.ClickButton;
+    VerificaInsere(FormRaisArquivoWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormRaisArquivoWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormRaisArquivoWhAnoBase.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormRaisArquivoWhAnoBase, FiltroAnoBase);
+  VerificaInsere(FormRaisArquivoWhIdPessoa, FiltroIdPessoa);
+  VerificaInsere(FormRaisArquivoWhRetifica, FiltroRetifica);
+  PreencheDatas(FormRaisArquivoWhDtRetificacao, FiltroDtRetificacao);
+  VerificaInsere(FormRaisArquivoWhCREA, FiltroCREA);
+  VerificaInsere(FormRaisArquivoWhEncerra, FiltroEncerra);
+  PreencheDatas(FormRaisArquivoWhDtEncerra, FiltroDtEncerra);
+  VerificaInsere(FormRaisArquivoWhTpPonto, FiltroTpPonto);
+  VerificaInsere(FormRaisArquivoWhCaminho, FiltroCaminho);
+  VerificaInsere(FormRaisArquivoWhVRlrContemp, FiltroVRlrContemp);
+  VerificaInsere(FormRaisArquivoWhProjAviso, FiltroProjAviso);
+  VerificaInsere(FormRaisArquivoWhServicoProprio, FiltroServicoProprio);
+  VerificaInsere(FormRaisArquivoWhRefeicaoConvenio, FiltroRefeicaoConvenio);
+  VerificaInsere(FormRaisArquivoWhAdmCozinhas, FiltroAdmCozinhas);
+  VerificaInsere(FormRaisArquivoWhCestaAlimentos, FiltroCestaAlimentos);
+  VerificaInsere(FormRaisArquivoWhRefeicoesTransp, FiltroRefeicoesTransp);
+  VerificaInsere(FormRaisArquivoWhAliConvenio, FiltroAliConvenio);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaRaisArquivo(pathData);
+var 
+  DDTRaisArquivo: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaRaisArquivo();
+
+  MapRaisArquivo();
+
+  DDTRaisArquivo := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolRaisArquivo(DDTRaisArquivo.Name);
+
+  FiltraEstab();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+ 
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Nenhum registro encontrado');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormRaisArquivo);
+      MensagemInativa := false;
+    end
+    else
+    begin
+      FechaMensagemProcessoConcluido();
+  
+      ActFechar(FormRaisArquivo);
+      MensagemInativa := false;
+    end;
+  end;
+  ValidaArquivos('C:\TEMP\RAIS\RAIS ARQUIVO\RAIS_MODELO.DEC', 'C:\TEMP\RAIS\RAIS ARQUIVO\RAIS_MODELO_ORACLE.DEC', 'C:\TEMP\RAIS\RAIS ARQUIVO\RAIS21.DEC');
+  DDT.CloseDriver(DDTRaisArquivo.Name);
+end;

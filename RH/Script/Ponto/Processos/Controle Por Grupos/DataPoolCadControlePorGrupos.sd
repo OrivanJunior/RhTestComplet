@@ -1,0 +1,17 @@
+﻿{Script de DataPool do Cadastro de Controle de Processsamento por Grupos
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}  
+var
+  FiltroGrupoTipo, FiltroGrupoValor,
+  FiltroPeriodo: OleVariant;
+
+procedure LeDataPoolCadControleGrupo(nomeDriver);
+begin 
+  { Filtro Grupos }
+  FiltroGrupoTipo       := DDT.DriverByName(nomeDriver).Value('TIPOGRUPO');
+  FiltroGrupoValor      := DDT.DriverByName(nomeDriver).Value('GRUPOVALOR');
+    
+  { Dados Controle }
+  FiltroPeriodo         := DDT.DriverByName(nomeDriver).Value('PERIODO');
+end;

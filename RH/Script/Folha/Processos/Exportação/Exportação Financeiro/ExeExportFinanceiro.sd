@@ -1,0 +1,311 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolExportFinanceiro,
+  ObjExportFinanceiro,
+  VarConsts;
+{Script para executar o Processo de Exportação Financeira
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 13/07/2021}
+
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaExportFinanceiro();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Exportação', 'Exportação Financeira'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormExportFinanceiroWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhEstabSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormExportFinanceiroWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhEmpreSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraLocais();
+begin
+  if (FormExportFinanceiroWhLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whLocais.whLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhLocaisEspec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhLocaisSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhLocaisSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormExportFinanceiroWhDataIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormExportFinanceiroWhDataIni, FiltroDataIni); 
+  PreencheDatas(FormExportFinanceiroWHDataFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormExportFinanceiroWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhProcSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormExportFinanceiroWhPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhPrestSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FiltraRPA();
+begin
+  if (FormExportFinanceiroWhRPATodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whRPA.whRPA10.Click();
+    
+  if (FiltroRPATipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhRPAEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhRPAEspecCampo, FiltroRPAValor);
+    Log.Checkpoint('Selecionado RPAador - Específico, com valor: ' + FiltroRPAValor);
+  end
+  else if (FiltroRPATipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhRPASelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhRPASelecCampo, FiltroRPAValor);
+    Log.Checkpoint('Selecionado RPAador - Selecionados, com valor: ' + FiltroRPAValor);
+  end
+  else if (FiltroRPATipo = _Todos) then
+  begin
+    FormExportFinanceiroWhRPATodos.ClickButton;
+    Log.Checkpoint('Selecionado RPAador - Todos');
+  end;
+end;
+
+procedure FiltraVinculos();
+begin
+  if (FormExportFinanceiroWhVinculosTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whVinculos.whVinculos10.Click();
+    
+  if (FiltroVinculoTipo = _Especifico) then
+  begin
+    FormExportFinanceiroWhVinculosEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExportFinanceiroWhVinculosEspecCampo, FiltroVinculoValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroVinculoValor);
+  end
+  else if (FiltroVinculoTipo = _Selecionados) then
+  begin
+    FormExportFinanceiroWhVinculosSelec.ClickButton;
+    VerificaInsere(FormExportFinanceiroWhVinculosSelecCampo, FiltroVinculoValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroVinculoValor);
+  end
+  else if (FiltroVinculoTipo = _Todos) then
+  begin
+    FormExportFinanceiroWhVinculosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormExportFinanceiroWhDataEmissao.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExportFinanceiro.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  PreencheDatas(FormExportFinanceiroWhDataEmissao, FiltroDataEmissao);
+  PreencheDatas(FormExportFinanceiroWhDataVenc, FiltroDataVenc);
+  VerificaInsere(FormExportFinanceiroWhCodPort, FiltroCodPort);
+  VerificaInsere(FormExportFinanceiroWhCodMoeda, FiltroCodMoeda);
+  VerificaInsere(FormExportFinanceiroWhCodSitua, FiltroCodSitua);
+  VerificaInsere(FormExportFinanceiroWhSufixo, FiltroSufixo);
+  VerificaInsere(FormExportFinanceiroWhHistorico, FiltroHistorico);
+  VerificaInsere(FormExportFinanceiroWhLocalGrav, FiltroLocalGrav);
+  VerificaInsere(FormExportFinanceiroWhGeraValUni, FiltroGeraValUni);
+  VerificaInsere(FormExportFinanceiroWhSobreDarf, FiltroSobreDarf);
+  VerificaInsere(FormExportFinanceiroWhSobreGPS, FiltroSobreGPS);
+  VerificaInsere(FormExportFinanceiroWhSobreFat, FiltroSobreFat);
+  VerificaInsere(FormExportFinanceiroWhSobreGPSFun, FiltroSobreGPSFun);
+  VerificaInsere(FormExportFinanceiroWhNomeEmpregado, FiltroNomeEmpregado);
+  VerificaInsere(FormExportFinanceiroWhValBanco, FiltroValBanco);
+  VerificaInsere(FormExportFinanceiroWhSobreFGTS, FiltroSobreFGTS);
+  VerificaInsere(FormExportFinanceiroWhSobreGPS13, FiltroSobreGPS13);
+  VerificaInsere(FormExportFinanceiroWhGPSFat13, FiltroGPSFat13);
+  VerificaInsere(FormExportFinanceiroWhGerarValResc, FiltroGerarValResc);
+  VerificaInsere(FormExportFinanceiroWhNomePrest, FiltroNomePrest);
+  VerificaInsere(FormExportFinanceiroWhSobreRPA, FiltroSobreRPA);
+  VerificaInsere(FormExportFinanceiroWhAnoGPS13, FiltroAnoGPS13);
+  VerificaInsere(FormExportFinanceiroWhAnoGPSFat13, FiltroAnoGPSFat13);
+  VerificaInsere(FormExportFinanceiroWhSobreEventos, FiltroSobreEventos);
+  VerificaInsere(FormExportFinanceiroWhDupConsolid, FiltroDupConsolid);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaExportFinanceiro(pathData);
+var 
+  DDTExpFin: OleVariant; 
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaExportFinanceiro();
+
+  DDTExpFin := CarregaDDT(pathData, 'Filtro');
+   
+  MapExportFinanceiro();
+
+  LeDataPoolExportFinanceiro(DDTExpFin.Name);
+
+  FiltraEstab();
+  
+  FiltraEmpregados();
+  
+  FiltraLocais();
+
+  FiltraData();
+  
+  FiltraProcessamentos();
+  
+  FiltraPrestadores();
+  
+  FiltraRPA();
+  
+  FiltraVinculos();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+
+      btnSalvar.Click();     
+    
+      ActFechar(FormExportFinanceiro);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormExportFinanceiro);
+      MensagemInativa := false;
+    end
+  end; 
+
+  ValidaArquivos('C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA\EXP_FIN_MODELO.bin', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA\EXP_FIN_MODELO_ORACLE.bin', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA\ExpFin20210101.bin');
+  DDT.CloseDriver(DDTExpFin.Name);
+end;

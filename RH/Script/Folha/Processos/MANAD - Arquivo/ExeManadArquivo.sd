@@ -1,0 +1,119 @@
+﻿{Script para executar o Processo de Manad - Arquivo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+uses
+  DataPoolManadArquivo, ObjManadArquivo, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaManadArquivo();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'MANAD - Arquivo'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ManadArquivoWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ManadArquivoWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ManadArquivoWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ManadArquivoWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ManadArquivoWhEstabSelec.ClickButton;
+    VerificaInsere(ManadArquivoWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ManadArquivoWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;  
+end;
+
+procedure FiltraData();
+begin
+  if (ManadArquivoWhDataIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(ManadArquivoWhDataIni, FiltroDataIni); 
+  PreencheDatas(ManadArquivoWHDataFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ManadArquivoWhDadosFinalidade.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(ManadArquivoWhDadosFinalidade, FiltroFinalidade);
+  VerificaInsere(ManadArquivoWhDadosLocalGrav, FiltroLocalGrav);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin  
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+  end;
+end;
+
+procedure ExecutaManadArquivo(pathData);
+var 
+  DDTManad: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaManadArquivo();
+
+  MapManadArquivo();
+
+  DDTManad := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolManadArquivo(DDTManad.Name);
+
+  FiltraEstab();
+  
+  FiltraData();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+      ActFechar(FormManadArquivo);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormManadArquivo);
+      MensagemInativa := false;
+    end
+  end;
+  ValidaArquivos('C:\TEMP\MANAD\MANAD_MODELO.txt', 'C:\TEMP\MANAD\MANAD_MODELO_ORACLE.txt', 'C:\TEMP\MANAD\MANADFOLHA.txt');
+  DDT.CloseDriver(DDTManad.Name);
+end;

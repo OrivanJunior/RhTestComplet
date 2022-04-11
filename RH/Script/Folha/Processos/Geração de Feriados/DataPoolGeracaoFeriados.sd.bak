@@ -1,0 +1,18 @@
+﻿{Script de DataPool da Geração de Feriados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:11/05/2021}
+ 
+var
+  GeracaoFeriadosDPEstab,
+  GeracaoFeriadosDPAno : OleVariant;
+
+procedure LeDataPoolGeracaoFeriados(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab); 
+    GeracaoFeriadosDPEstab := DDT.DriverByName(nomeDriver).Value('ESTAB');
+    GeracaoFeriadosDPAno   := DDT.DriverByName(nomeDriver).Value('ANO');
+
+  DDT.CurrentDriver.Next();
+  DDT.CloseDriver(DDT.CurrentDriver.Name);  
+end;

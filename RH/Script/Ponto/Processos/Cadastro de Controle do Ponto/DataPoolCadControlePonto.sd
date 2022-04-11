@@ -1,0 +1,22 @@
+﻿{Script de DataPool do Cadastro de Controle de Processamento do Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data:27/08/2021}
+ 
+var 
+  { Form Processamento }
+  ProcDPEstab, ProcDPMesApur,
+  ProcDPAnoApur, ProcDPDataIni,
+  ProcDPDataFin, ProcDPNroDias,
+  ProcDPAberto: OleVariant;
+
+procedure LeDataPoolCadControlePonto(nomeDriver);
+begin
+  ProcDPEstab   := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ProcDPMesApur := DDT.DriverByName(nomeDriver).Value('MESAPUR');
+  ProcDPAnoApur := DDT.DriverByName(nomeDriver).Value('ANOAPUR');
+  ProcDPDataIni := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  ProcDPDataFin := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+  ProcDPNroDias := DDT.DriverByName(nomeDriver).Value('NRODIAS');
+  ProcDPAberto  := DDT.DriverByName(nomeDriver).Value('EMABERTO');
+end;

@@ -1,0 +1,112 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolEntidadePrev,
+  ObjEntidadePrev,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de EntidadePrev
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTEntidadePrev: OleVariant; 
+
+procedure AcessaCadEntidadePrev();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais' , 'Entidade de Previdência Privada');
+end;
+
+procedure InsereDadosEntidadePrev();
+begin
+  VerificaInsere(FormCadEntidadePrevIdentidadeInfpc, FormCadEntidadePrevDPIdentidadeInfpc);
+  VerificaInsere(FormCadEntidadePrevCNPJ, FormCadEntidadePrevDPCNPJ);
+  VerificaInsere(FormCadEntidadePrevRazaoSoc, FormCadEntidadePrevDPRazaoSoc);
+end;
+
+procedure ExeCadastraEntidadePrev(pathData);
+begin
+  AcessaCadEntidadePrev();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTEntidadePrev := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadEntidadePrev(DDTEntidadePrev.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEntidadeINFPC');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ da Entidad', FormCadEntidadePrevDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadEntidadePrev();
+     
+    if (FormCadEntidadePrev.Exists) then
+    begin
+      InsereDadosEntidadePrev();
+      
+      ActSalvar(FormCadEntidadePrev);
+      ActFechar(FormCadEntidadePrev);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraEntidadePrev(pathData);
+begin
+  AcessaCadEntidadePrev();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTEntidadePrev := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadEntidadePrev(DDTEntidadePrev.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEntidadeINFPC');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ da Entidad', FormCadEntidadePrevDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadEntidadePrev();   
+     
+    if (FormCadEntidadePrev.Exists) then
+    begin
+      InsereDadosEntidadePrev();
+      
+      ActSalvar(FormCadEntidadePrev);
+      ActFechar(FormCadEntidadePrev);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirEntidadePrev(pathData);
+begin
+  AcessaCadEntidadePrev();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTEntidadePrev := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadEntidadePrev(DDTEntidadePrev.Name);
+
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEntidadeINFPC');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ da Entidad', FormCadEntidadePrevDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FRhEntidadeINFPC');
+    ActFechar(FormCadEntidadePrev);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

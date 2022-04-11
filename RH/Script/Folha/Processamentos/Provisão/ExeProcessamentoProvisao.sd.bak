@@ -1,0 +1,153 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcessamentoProvisao,
+  ObjProcessamentoProvisao,
+  VarConsts;
+ 
+{Script para executar o Processamento de Provisão
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 10/06/20201}
+ 
+procedure PreencheDatasProcProvisao(pathData);
+begin
+  leDataPoolProcProcisao(pathData, 'Datas');
+  
+  LoadDPDatas();
+
+  MapPanelProcessamentoProvisao();
+  
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  PreencheDatas(ProcProvisaoEBDtProc, ProvisaoDPDataProc); 
+end;
+
+procedure PreencheControleProcessamento(pathData);
+begin
+  BtnIncluirCtrlProc.Click();
+  
+  MapFormProcessamento();
+  
+  leDataPoolProcProcisao(pathData, 'Processamento');
+  
+  LoadDPProcessamento();
+  
+  Log.Checkpoint('Inserindo Controle de Processamento');
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  BtnSalvarProc.Click();
+end;
+
+procedure PreencheEmpregadoProcProvisao(pathData);
+var 
+  i: integer;
+begin
+  i := 0;
+  PageProcProvisao.ActivePageIndex := 0;
+  
+  MapTabEmpregadosProcProvisao();
+  
+  leDataPoolProcProcisao(pathData, 'Empregado');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LoadDPEmpregado();
+  
+    BtnIncEmpre.Click();
+  
+    Log.Checkpoint('Preenchendo empregados');
+  
+    VerificaClickPreencheGrid(GridEmpregado, 0, 'Empregado', ProvisaoDPEmpregado);
+    VerificaClickColuna(GridEmpregado, 0, 'Nome Empregado');
+    BtnSaveEmpre.Click();
+    i := i+1;
+    DDT.CurrentDriver.Next;
+  end;
+end;
+
+procedure PreencheMovimentoProcProvisao(pathData);
+begin
+  PageProcProvisao.ActivePageIndex := 1;
+  
+  MapTabMovimentoProcProvisao();
+  
+  leDataPoolProcProcisao(pathData, 'Movimento');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LoadDPMovimento();
+  
+    BtnIncMov.Click();
+  
+    MapFormMovimento();
+  
+    Log.Checkpoint('Preenchendo dados do movimento');
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
+    PreencheDatas(CadMovEBData, CadMovDPData);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEmpreg, CadMovDPIdEmpreg);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEvento, CadMovDPIdEvento);
+    CadMovEBIdEvento.Keys('[Enter]');
+  
+    MapParamsMovimento();
+  
+    leDataPoolProcProcisao(pathData, 'Parametros');
+  
+    LoadDPParamsMovimento();
+  
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
+    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+    VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
+    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+    VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
+    VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
+  
+    CadMovBtnSave.Click();
+    DDT.CurrentDriver.Next;
+  end;
+end;
+
+procedure ExecutaProcessamentoProvisao(pathData);
+var
+  TelaConfirma, BtnOk;
+begin
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Provisão');
+  
+  MapFormProcessamentoProvisao();
+  
+  PreencheDatasProcProvisao(pathData);
+  
+  PreencheControleProcessamento(pathData);
+  
+  PreencheEmpregadoProcProvisao(pathData);  
+  
+  //PreencheMovimentoProcProvisao(pathData);
+  
+  Log.Checkpoint('Executando processamento Provisão');
+  
+  ActExecutar(FormProcProvisao);
+  
+  BtnSaveProvisao.Click();
+  
+  if (Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+  begin
+    TelaConfirma := Folha.Window('#32770', 'Confirmação!', 1);
+    
+    BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+      
+    btnOk.Click();
+  end;
+  ActFechar(FormProcProvisao);
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

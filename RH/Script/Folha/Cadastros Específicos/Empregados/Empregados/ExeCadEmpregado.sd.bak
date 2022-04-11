@@ -1,0 +1,37 @@
+﻿uses
+  VarConsts, FuncEmpregado, CommonsAll, DataPoolCadEmpregado;
+
+{Script para executar o Cadastro de Empregados
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 25/05/2021}
+ 
+procedure ExecutaCadEmpregado(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
+  
+  FiltraEmpregado();
+  
+  CadastraEmpregado(pathData);
+
+  //fecha
+end;
+
+procedure ExecutaAltEmpregado(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
+  
+  FiltraEmpregado();
+  
+  AlteraEmpregado(pathData);
+end;
+
+procedure ExecutaExcEmpregado(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
+  
+  FiltraEmpregado();
+  
+  ExcluiEmpregado(pathData);
+end;
+

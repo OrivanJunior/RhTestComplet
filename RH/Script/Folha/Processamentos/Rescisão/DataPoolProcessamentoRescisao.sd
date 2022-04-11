@@ -1,0 +1,169 @@
+﻿{Script de DataPool do Processamento de Rescisao
+ Autor: Camila Braatz da Rocha 
+ Data:08/06/2021}
+ 
+var
+  { Datas }
+  RescisaoDPDataProc, RescisaoDPDataPgto, RescisaoDPSimula,
+  
+  { Empregado }
+  RescisaoDPEmpregado, RescisaoDPCalcAdDecimo,
+  
+  { Form Situação }
+  SituaDPEstab, SituaDPEmpregado, SituaDPData, 
+  SituaDPSituaAtual, SituaDPCausa, SituaDPDataAviso,
+  SituaDPFGTSemGRRF, SituaDPDissidio, SituaDPDtDissidio,
+  SituaDPVlDissidio, SituaDPRepVaga, SituaDPIndCumpAv,
+  SituaDPIndPensao, SituaDPVlPensao, SituaDPPerPensao,
+  
+  { Form Situação }
+  HistSituaDPEstab, HistSituaDPEmpregado, HistSituaDPData,
+  HistSituaDPSituaAtual, HistSituaDPCausa, HistSituaDPDataAviso,
+  HistSituaDPFGTSemGRRF, HistSituaDPDissidio, HistSituaDPDtDissidio,
+  HistSituaDPVlDissidio, HistSituaDPRepVaga, HistSituaDPIndPensao,
+  HistSituaDPVlPensao, HistSituaDPPerPensao, HistSituaDPFGTSAntAtr,
+  HistSituaDPRescFechada, HistSituaDPDataProjAv, HistSituaDPDiasAtesta,
+  HistSituaDPDiasAviso, HistSituaDPCodMedico, HistSituaDPCodCID,
+  HistSituaDPCNPJEmp, HistSituaDPNrCertObito, HistSituaDPDataRetorno,
+  HistSituaDPMesmoMtv, HistSituaDPTipoAcidTra, HistSituaDPInfoAfast, 
+  HistSituaDPIndCumpAv, HistSituaDPDataInc, HistSituaDPTipoRein,
+  HistSituaDPNrProcJud, HistSituaDPNrLeiAnis, HistSituaDPDataEfeRet,
+  HistSituaDPDataIniEfe, HistSituaDPIndPag, HistSituaDPNrCAT,
+  HistSituaDPTpInscSuc, HistSituaDPCodFerCol, HistSituaDPCodMotComp,
+  HistSituaDPDiasAvCump, HistSituaDPDiasAvInd,
+  
+  { Movimento }
+  CadMovDPEstab, CadMovDPIdProc, CadMovDPData,
+  CadMovDPIdEmpreg, CadMovDPIdEvento,
+    
+  { Tab Parâmetros }
+  CadMovParamsDPValorInfo, CadMovParamsDPInforme,
+  CadMovParamsDPInforme2, CadMovParamsDPValorTarefa,
+  CadMovParamsDPProporcional, CadMovParamsDPDiasUteis,
+  CadMovParamsDPDiasFaltas, CadMovParamsDPAvosInforme,
+  CadMovParamsDPAvosDireito, CadMovParamsDPReferencia,
+  CadMovParamsDPBaseProp,
+  
+  { Form Processamento }
+  ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
+  ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
+  ESocialDPInfoPgtos,
+  ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+
+procedure LoadDPDatas(nomeDriver);
+begin
+  RescisaoDPDataProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
+  RescisaoDPDataPgto := DDT.DriverByName(nomeDriver).Value('DATA PGTO');
+  RescisaoDPSimula   := DDT.DriverByName(nomeDriver).Value('SIMULA RESC');
+end;
+
+procedure LoadDPEmpregado(nomeDriver);
+begin
+  RescisaoDPEmpregado    := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+end;
+
+procedure LoadDPSituacao(nomeDriver);
+begin
+  SituaDPEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  SituaDPEmpregado  := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+  SituaDPData       := DDT.DriverByName(nomeDriver).Value('DATA');
+  SituaDPSituaAtual := DDT.DriverByName(nomeDriver).Value('SITUACAO');
+  SituaDPCausa      := DDT.DriverByName(nomeDriver).Value('CAUSA');
+  SituaDPDataAviso  := DDT.DriverByName(nomeDriver).Value('DATA AVISO');
+  SituaDPFGTSemGRRF := DDT.DriverByName(nomeDriver).Value('FGTS EM GRRF');
+  SituaDPDissidio   := DDT.DriverByName(nomeDriver).Value('DISSIDIO');
+  SituaDPDtDissidio := DDT.DriverByName(nomeDriver).Value('DATA DISSIDIO');
+  SituaDPVlDissidio := DDT.DriverByName(nomeDriver).Value('VALOR DISSIDIO');
+  SituaDPRepVaga    := DDT.DriverByName(nomeDriver).Value('REPOR VAGA');
+  SituaDPIndCumpAv  := DDT.DriverByName(nomeDriver).Value('IND CUMP AVISO');
+  SituaDPIndPensao  := DDT.DriverByName(nomeDriver).Value('IND PENSAO');
+  SituaDPVlPensao   := DDT.DriverByName(nomeDriver).Value('VALOR PENSAO');
+  SituaDPPerPensao  := DDT.DriverByName(nomeDriver).Value('PERC PENSAO');
+end;
+
+procedure LoadDPHistSituacao(nomeDriver);
+begin
+  HistSituaDPEstab       := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  HistSituaDPEmpregado   := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  HistSituaDPData        := DDT.DriverByName(nomeDriver).Value('DATA');
+  HistSituaDPSituaAtual  := DDT.DriverByName(nomeDriver).Value('IDSITUACAO');
+  HistSituaDPCausa       := DDT.DriverByName(nomeDriver).Value('IDCAUSA');
+  HistSituaDPDataAviso   := DDT.DriverByName(nomeDriver).Value('DATAAVISO');
+  HistSituaDPFGTSemGRRF  := DDT.DriverByName(nomeDriver).Value('FGTSEMGRFC');
+  HistSituaDPDissidio    := DDT.DriverByName(nomeDriver).Value('DISSIDIO');
+  HistSituaDPDtDissidio  := DDT.DriverByName(nomeDriver).Value('DTDISSIDIO');
+  HistSituaDPVlDissidio  := DDT.DriverByName(nomeDriver).Value('VLRDISSIDIO');
+  HistSituaDPRepVaga     := DDT.DriverByName(nomeDriver).Value('REPVAGA');
+  HistSituaDPIndPensao   := DDT.DriverByName(nomeDriver).Value('INDPENSAO');
+  HistSituaDPVlPensao    := DDT.DriverByName(nomeDriver).Value('VLRPENSAO');
+  HistSituaDPPerPensao   := DDT.DriverByName(nomeDriver).Value('PERCPENSAO');
+  HistSituaDPFGTSAntAtr  := DDT.DriverByName(nomeDriver).Value('FGTSEMATRASO');      
+  HistSituaDPRescFechada := DDT.DriverByName(nomeDriver).Value('RESCFECHADA');       
+  HistSituaDPDataProjAv  := DDT.DriverByName(nomeDriver).Value('DTPROJAVISO');       
+  HistSituaDPDiasAtesta  := DDT.DriverByName(nomeDriver).Value('DIASATESTADO');      
+  HistSituaDPDiasAviso   := DDT.DriverByName(nomeDriver).Value('DIASAVISO');         
+  HistSituaDPCodMedico   := DDT.DriverByName(nomeDriver).Value('IDMEDICO2');         
+  HistSituaDPCodCID      := DDT.DriverByName(nomeDriver).Value('CODCID');            
+  HistSituaDPCNPJEmp     := DDT.DriverByName(nomeDriver).Value('CNPJEMPSUCESS');
+  HistSituaDPNrCertObito := DDT.DriverByName(nomeDriver).Value('NROCERTOBITO');   
+  HistSituaDPDataRetorno := DDT.DriverByName(nomeDriver).Value('DTRETORNO');
+  HistSituaDPMesmoMtv    := DDT.DriverByName(nomeDriver).Value('INFOMESMOMTV');
+  HistSituaDPTipoAcidTra := DDT.DriverByName(nomeDriver).Value('TPACIDTRANSITO');
+  HistSituaDPInfoAfast   := DDT.DriverByName(nomeDriver).Value('OBSINIFAST');
+  HistSituaDPIndCumpAv   := DDT.DriverByName(nomeDriver).Value('INDCUMPAVISO');
+  HistSituaDPDataInc     := DDT.DriverByName(nomeDriver).Value('DTINC');
+  HistSituaDPTipoRein    := DDT.DriverByName(nomeDriver).Value('TPREINT');
+  HistSituaDPNrProcJud   := DDT.DriverByName(nomeDriver).Value('NRPROCJUD');
+  HistSituaDPNrLeiAnis   := DDT.DriverByName(nomeDriver).Value('NRLEIANISTIA');
+  HistSituaDPDataEfeRet  := DDT.DriverByName(nomeDriver).Value('DTEFETRETORNO');
+  HistSituaDPDataIniEfe  := DDT.DriverByName(nomeDriver).Value('DTEFEITO');
+  HistSituaDPIndPag      := DDT.DriverByName(nomeDriver).Value('INDPAGTOJUIZO');
+  HistSituaDPNrCAT       := DDT.DriverByName(nomeDriver).Value('NUMEROCAT');
+  HistSituaDPTpInscSuc   := DDT.DriverByName(nomeDriver).Value('TPINSCEMPSUCESS');
+  HistSituaDPCodFerCol   := DDT.DriverByName(nomeDriver).Value('IDFERCOL');
+  HistSituaDPCodMotComp  := DDT.DriverByName(nomeDriver).Value('IDMOTIVOCOMP');
+  HistSituaDPDiasAvCump  := DDT.DriverByName(nomeDriver).Value('DIASAVISOCUMPRIDO');
+  HistSituaDPDiasAvInd   := DDT.DriverByName(nomeDriver).Value('DIASAVISOINDENIZADO');
+end;
+
+procedure LoadDPMovimento(nomeDriver);
+begin
+  CadMovDPEstab    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  CadMovDPIdProc   := DDT.DriverByName(nomeDriver).Value('PROCESSO');
+  CadMovDPData     := DDT.DriverByName(nomeDriver).Value('DATA CONTROLE'); 
+  CadMovDPIdEmpreg := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+  CadMovDPIdEvento := DDT.DriverByName(nomeDriver).Value('EVENTO');
+end;
+
+procedure LoadDPParamsMovimento(nomeDriver);
+begin
+  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALOR INFO');
+  CadMovParamsDPInforme      := DDT.DriverByName(nomeDriver).Value('INFORME');
+  CadMovParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
+  CadMovParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');
+  CadMovParamsDPProporcional := DDT.DriverByName(nomeDriver).Value('PROPORCIONAL');
+  CadMovParamsDPDiasUteis    := DDT.DriverByName(nomeDriver).Value('DIAS UTEIS');
+  CadMovParamsDPDiasFaltas   := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
+  CadMovParamsDPAvosInforme  := DDT.DriverByName(nomeDriver).Value('AVOS INFORME');
+  CadMovParamsDPAvosDireito  := DDT.DriverByName(nomeDriver).Value('AVOS DIREITO');
+  CadMovParamsDPReferencia   := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+  CadMovParamsDPBaseProp     := DDT.DriverByName(nomeDriver).Value('BASE PROP');
+end;
+
+procedure LoadDPProcessamento(nomeDriver);
+begin
+  ProcDPEstab           := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ProcDPIdProc          := DDT.DriverByName(nomeDriver).Value('IDPROC');
+  ProcDPDtCtrl          := DDT.DriverByName(nomeDriver).Value('DATACTRL');
+  ProcDPDtPagIRRF       := DDT.DriverByName(nomeDriver).Value('DATAPAGIRRF');
+  ProcDPVlrArred        := DDT.DriverByName(nomeDriver).Value('VALORARRED');
+  ProcDPAberto          := DDT.DriverByName(nomeDriver).Value('EMABERTO');
+
+  ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
+  ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
+  
+  
+  ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
+  ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
+  ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');
+end;

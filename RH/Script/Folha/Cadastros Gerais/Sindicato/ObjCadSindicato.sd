@@ -1,0 +1,122 @@
+﻿{Script para mapear a Importação/Exportação da Base de Eventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadSindicato, FormCadSindicatoPage,
+  
+  {Informações Cadastrais}
+  FormCadSindicatoIdSind, FormCadSindicatoDescricao, FormCadSindicatoEndereco,
+  FormCadSindicatoBairro, FormCadSindicatoCidade, FormCadSindicatoCEP,
+  FormCadSindicatoCNPJ: OleVariant;
+
+  { Dados da Entidade }
+  FormCadSindicatoGbSindicato, FormCadSindicatoCodEntidade: OleVariant;
+  
+  { Conf Gerais }
+  FormCadSindicatoGbConfGerais, FormCadSindicatoMesDatabase, FormCadSindicatoMesDesc,
+  FormCadSindicatoIdTipo: OleVariant;
+  
+  { Conf Ferias }
+  FormCadSindicatoGbConfFerias, FormCadSindicatoPercAdcFerias, FormCadSindicatoDescFerias: OleVariant;
+    
+  { Conf Rescisão }
+  FormCadSindicatoGbConfResc, FormCadSindicatoRescHomo, FormCadSindicatoDias,
+  FormCadSindicatoEstabApFerias, FormCadSindicatoDiasEstabilidade, FormCadSindicatoIndenizaTrab,
+  FormCadSindicatoMesesIndeniza, FormCadSindicatoIdEventoIndeniza: OleVariant;
+  
+  { Aba Histórico de Reajuste Salarial }
+  BtnIncReajSal, BtnConsReajSal, BtnDesfReajSal, BtnExcReajSal,
+  
+  ReajSalEBInstRemPerAnt, ReajSalEBDataConv, ReajSalEBDescInstRemPer,
+  ReajSalEBCompPagDifSal, ReajSalEBNroProcCarac,
+  ReajSalBtnSair, ReajSalBtnSave,
+  
+  { Aba Fixo Por Sindicato }
+  BtnIncFixo, BtnEditFixo, BtnSaveFixo,
+  
+  //Dados Acessórios
+  
+  { Aba Salário Por Função }
+  SalFuncGrid, SalFuncBtnInc, SalFuncBtnDesf, SalFuncBtnExc: OleVariant;
+    
+procedure MapFormCadSindicato();
+begin
+  FormCadSindicato          := Aliases.Folha.FRhSindicato;
+  FormCadSindicatoPage      := Aliases.Folha.FRhSindicato.Page;
+end;  
+
+procedure MapInfosCadastrais();
+begin
+  { Informações Cadastrais }
+  FormCadSindicatoIdSind    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_IDSIND;
+  FormCadSindicatoDescricao := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_DESCRICAO;
+  FormCadSindicatoEndereco  := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_ENDERECO;
+  FormCadSindicatoBairro    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_BAIRRO;
+  FormCadSindicatoCidade    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_CIDADE;
+  FormCadSindicatoCEP       := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_CEP;
+  FormCadSindicatoCNPJ      := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbInfoCadastrais.EB_CNPJ;
+  
+  { Dados do Sindicato }
+  FormCadSindicatoCodEntidade := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbSindicato.EB_CODENTIDADE;
+  
+  { Conf. Gerais}
+  FormCadSindicatoMesDatabase  := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfGerais.EB_MESDATABASE;
+  FormCadSindicatoMesDesc      := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfGerais.EB_MESDESC;
+  FormCadSindicatoIdTipo       := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfGerais.EB_IDTIPO;
+  
+  { Conf. Ferias }
+  FormCadSindicatoPercAdcFerias := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfFerias.EB_PERCADCFERIAS;
+  FormCadSindicatoDescFerias    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfFerias.EB_DESCFERIAS;
+  
+  { Conf. Rescisão }
+  FormCadSindicatoRescHomo         := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_RESCHOMO;
+  FormCadSindicatoDias             := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_DIAS;
+  FormCadSindicatoEstabApFerias    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_ESTABAPFERIAS;
+  FormCadSindicatoDiasEstabilidade := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_DIASESTABILIDADE;
+  FormCadSindicatoIndenizaTrab     := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_INDENIZATRAB;
+  FormCadSindicatoMesesIndeniza    := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_MESESINDENIZA;
+  FormCadSindicatoIdEventoIndeniza := Aliases.Folha.FRhSindicato.Page.TabNormal.pnCab.ScrollBox2.gbConf.gbConfResc.EB_IDEVENTOINDENIZA;
+end;
+
+procedure MapTabHistReajusteSalarial();
+begin
+  { Aba Histórico de Reajuste Salarial }
+  BtnIncReajSal  := Aliases.Folha.FRhSindicato.bIncHistReajuste;
+  BtnConsReajSal := Aliases.Folha.FRhSindicato.bConsulHistReajuste;
+  BtnDesfReajSal := Aliases.Folha.FRhSindicato.bDesfHistReajuste;
+  BtnExcReajSal  := Aliases.Folha.FRhSindicato.bExcHistReajuste;
+end;
+
+procedure MapFormHistReajSalarial();
+begin
+  ReajSalEBInstRemPerAnt  := Aliases.Folha.FRhHistReajusteSalarial.pnPrinc.sbHistReajuste.gbeSocial.EB_INSTREMRELPERANT;
+  ReajSalEBDataConv       := Aliases.Folha.FRhHistReajusteSalarial.pnPrinc.sbHistReajuste.gbeSocial.EB_DATAACORDO;
+  ReajSalEBDescInstRemPer := Aliases.Folha.FRhHistReajusteSalarial.pnPrinc.sbHistReajuste.gbeSocial.EB_DESCINSTRUMENTO;
+  ReajSalEBCompPagDifSal  := Aliases.Folha.FRhHistReajusteSalarial.pnPrinc.sbHistReajuste.gbeSocial.EB_COMPPGTODIFSALARIAL;
+  ReajSalEBNroProcCarac   := Aliases.Folha.FRhHistReajusteSalarial.pnPrinc.sbHistReajuste.gbSEFIP.EB_NUMPROCESSOCARA;
+  
+  ReajSalBtnSair := Aliases.Folha.FRhHistReajusteSalarial.BSair;
+  ReajSalBtnSave := Aliases.Folha.FRhHistReajusteSalarial.tbSalvar;
+end;
+
+procedure MapTabFixoSindicato();
+begin
+  { Fixo Sindicato }
+  BtnIncFixo   := Aliases.Folha.FRhSindicato.bIncFixo;
+  BtnEditFixo  := Aliases.Folha.FRhSindicato.bEditFixo;
+  BtnSaveFixo  := Aliases.Folha.FRhSindicato.bSaveFixo;
+end;
+
+procedure MapTabSalarioPorFuncao();
+begin
+  { Aba Salário por Função }
+  SalFuncGrid    := Aliases.Folha.FRhSindicato.Page.tabSalFuncao.ScrollBox4.gSalFuncao;
+  SalFuncBtnInc  := Aliases.Folha.FRhSindicato.bIncSalFuncao;
+  SalFuncBtnDesf := Aliases.Folha.FRhSindicato.bDesfSalFuncao;
+
+  SalFuncBtnExc  := Aliases.Folha.FRhSindicato.bExcSalFuncao;
+end;

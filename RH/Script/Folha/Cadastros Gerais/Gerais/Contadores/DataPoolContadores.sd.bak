@@ -1,0 +1,16 @@
+﻿{Script para criar DataPool da tela de cadastro de Contadores
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var  
+  FormCadContadoresDPIdContador, FormCadContadoresDPIdPess, 
+  FormCadContadoresDPTitulo, FormCadContadoresDPCrc: OleVariant;
+
+procedure LeDataPoolCadContadores(pathData, tab);
+begin
+  FormCadContadoresDPIdContador := DDT.DriverByName(nomeDriver).Value('IDCONTADOR');
+  FormCadContadoresDPIdPess     := DDT.DriverByName(nomeDriver).Value('IDPESS');
+  FormCadContadoresDPTitulo     := DDT.DriverByName(nomeDriver).Value('TITULO');
+  FormCadContadoresDPCrc        := DDT.DriverByName(nomeDriver).Value('CRC');
+end;

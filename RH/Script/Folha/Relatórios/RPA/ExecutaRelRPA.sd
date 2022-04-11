@@ -1,0 +1,15 @@
+﻿uses 
+  CommonsAll, CommonsObj, ObjRelRpa, FuncRelRpa;
+  
+procedure ExecutaRelatorioRPA(pathData);
+begin
+  AcessaRelatorioRPA();
+  
+  MapRelatorioRPA();
+  
+  FiltraRelatorioRPA(pathData);
+  
+  ImprimeRelatorioRPA(); 
+  
+  FechaRelatorioEForm();
+end;

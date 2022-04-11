@@ -1,0 +1,44 @@
+﻿{Script para mapear a Configuração de Plugins
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 31/08/2021}
+
+var
+  Modulo,
+  ConfPluginsForm,
+  ConfPluginsPage,
+  ConfPluginsSair,
+  ConfPluginsSalvar,
+  ConfPluginsGrid,
+  ConfPluginsGridSite,
+  ConfPluginsCBGrid,
+  ConfPluginsBtnSelAll,
+  ConfPluginsBtnDesAll: OleVariant;
+
+procedure MapConfPlugins(sModulo);
+begin
+  if sModulo = 'Ponto' then
+  begin
+    ConfPluginsForm      := Aliases.Ponto.FRhProcVsPlugin;
+    ConfPluginsPage      := Aliases.Ponto.FRhProcVsPlugin.page;
+    ConfPluginsSair      := Aliases.Ponto.FRhProcVsPlugin.BSair;
+    ConfPluginsSalvar    := Aliases.Ponto.FRhProcVsPlugin.tbSalvar;
+    ConfPluginsGrid      := Aliases.Ponto.FRhProcVsPlugin.page.tsPlugins.gVsPlugin;
+    ConfPluginsGridSite  := Aliases.Ponto.FRhProcVsPlugin.page.tsPlugins.gVsPlugin.TcxGridSite;
+    ConfPluginsCBGrid    := Aliases.Ponto.FRhProcVsPlugin.page.tsPlugins.gVsPlugin.TcxGridSite.TcxCheckBox;
+    ConfPluginsBtnSelAll := Aliases.Ponto.FRhProcVsPlugin.page.tsPlugins.dkRHEveIncide.tbSgItens.btSelAll;
+    ConfPluginsBtnDesAll := Aliases.Ponto.FRhProcVsPlugin.page.tsPlugins.dkRHEveIncide.tbSgItens.btDesAll;
+  end
+  else if sModulo = 'Folha' then
+  begin
+    ConfPluginsForm      := Aliases.Folha.FRhProcVsPlugin;
+    ConfPluginsPage      := Aliases.Folha.FRhProcVsPlugin.page;
+    ConfPluginsSair      := Aliases.Folha.FRhProcVsPlugin.BSair;
+    ConfPluginsSalvar    := Aliases.Folha.FRhProcVsPlugin.tbSalvar;
+    ConfPluginsGrid      := Aliases.Folha.FRhProcVsPlugin.page.tsPlugins.gVsPlugin;
+    ConfPluginsGridSite  := Aliases.Folha.FRhProcVsPlugin.page.tsPlugins.gVsPlugin.TcxGridSite;
+    ConfPluginsCBGrid    := Aliases.Folha.FRhProcVsPlugin.page.tsPlugins.gVsPlugin.TcxGridSite.TcxCheckBox;
+    ConfPluginsBtnSelAll := Aliases.Folha.FRhProcVsPlugin.page.tsPlugins.dkRHEveIncide.tbSgItens.btSelAll;
+    ConfPluginsBtnDesAll := Aliases.Folha.FRhProcVsPlugin.page.tsPlugins.dkRHEveIncide.tbSgItens.btDesAll;  
+  end;
+end;

@@ -1,0 +1,95 @@
+﻿uses
+  ObjCartaoPonto, DataPoolCartaoPonto, CommonsAll, CommonsObj, VarConsts, ObjConfPlugins, ExeConfPlugins;
+
+procedure PreencheDados();
+var
+  DDTFiltros: OleVariant;
+begin
+  VerificaInsere(CartaoPontoEBEstab, CartaoPontoDPEstab);
+  CartaoPontoEBEmpregado.Clear;
+  CartaoPontoEBEmpregado.Keys(CartaoPontoDPNomeEmpregado);
+  CartaoPontoEBEmpregado.Keys('[Down][Enter]');
+  PreencheDatas(CartaoPontoEBMesAno, CartaoPontoDPMesAno);
+  
+  CartaoPontoBtnExecutar.Click();
+end;
+
+procedure PreencheIncAltManual(Posicao, Campo, Dado);
+begin
+  if Assigned(Dado) then
+  begin
+    CartaoPontoGrid.ClickCell(Posicao, Campo, 0);
+    EscolheMetodoDeInsercao(CartaoPontoGrid, Dado);
+    CartaoPontoGrid.Keys('[Enter]');
+    
+    //VerificaClickPreencheGrid(CartaoPontoGrid, Posicao, Campo, Dado);
+    if (Aliases.Ponto.FRhInsJustificativa.Visible) then
+    begin      
+      MapJustificativa();
+      VerificaInsere(CampoJustificativa, CartaoPontoDPJustificativa);
+      BtnOkJustificativa.Click();
+    end;
+  end;
+end;
+
+procedure PreencheInclusaoManual(pathData);
+var
+  DDTIncManual: OleVariant;
+  Posicao, plugin, idEmpregado: Integer;
+begin
+  DDTIncManual := CarregaDDT(pathData, 'Inclusão Manual');
+  
+  while not(DDTIncManual.EOF) do
+  begin
+    LeDataPoolIncManual(DDTIncManual.Name);
+    
+    if CartaoPontoDPIdEmpregado = CartaoPontoDPEmpregado then
+    begin
+      Posicao := CartaoPontoGrid.FindRow('Data', CartaoPontoDPData);
+    
+      PreencheIncAltManual(Posicao, 'Entrada 1', CartaoPontoDPEntrada1);
+      PreencheIncAltManual(Posicao, 'Saída 1', CartaoPontoDPSaida1);
+      PreencheIncAltManual(Posicao, 'Entrada 2', CartaoPontoDPEntrada2);
+      PreencheIncAltManual(Posicao, 'Saída 2', CartaoPontoDPSaida2);
+      PreencheIncAltManual(Posicao, 'Entrada 3', CartaoPontoDPEntrada3);
+      PreencheIncAltManual(Posicao, 'Saída 3', CartaoPontoDPSaida3);
+    
+//      if CartaoPontoDPPernoite = 'S' then
+//        ClickColuna(CartaoPontoGrid, Posicao, 'Pernoite');
+//      if CartaoPontoDPCompensado = 'S' then
+//        ClickColuna(CartaoPontoGrid, Posicao, 'Compensado');
+        
+      DDTIncManual.Next;
+    end
+    else
+      DDTIncManual.Next;
+  end;  
+  DDT.CloseDriver(DDTIncManual.Name);
+end;
+
+procedure ExecutaCartaoPonto(pathData);
+var
+  DDTFiltros: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Cartão Ponto');
+  
+  DDTFiltros := CarregaDDT(pathData, 'Filtros');
+  
+  while not (DDTFiltros.EOF) do
+  begin
+    LeDataPoolFiltros(DDTFiltros.Name);
+    
+    MapCartaoPonto();
+      
+    PreencheDados();
+    
+    PreencheInclusaoManual(pathData);
+      
+    ActExecutar(CartaoPontoForm);
+        
+    DDTFiltros.Next;
+  end;
+  ActFechar(CartaoPontoForm);
+  
+  DDT.CloseDriver(DDTFiltros.Name);
+end;

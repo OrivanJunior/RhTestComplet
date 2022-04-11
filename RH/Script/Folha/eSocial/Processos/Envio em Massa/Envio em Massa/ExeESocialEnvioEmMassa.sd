@@ -1,0 +1,82 @@
+﻿uses
+  DataPoolESocialEnvioEmMassa, ObjESocialEnvioEmMassa, CommonsAll, VarConsts;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaEsocialEnvioEmMassa();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Envio em Massa', 'Envio em Massa'); 
+end;
+
+procedure SelecionaEmpresaEstab();
+begin
+  if FiltroEstab = 'S' then
+  begin
+    FormEnvioEmMassaRBEstab.ClickButton();
+    PreencheCheckbox(FormEnvioEmMassaCBTodos, FiltroTodosEstab);
+    
+    while not (DDT.CurrentDriver.EOF) do
+    begin
+      FiltraGrid2(FormEnvioEmMassaGridEstabs, FiltroEstabValor, 'Estab');
+      if (FormEnvioEmMassaGridEstabs.ActiveView.ViewData.RowCount = 1) then
+        ClickColuna(FormEnvioEmMassaGridEstabs, 0, '#');
+      DDT.CurrentDriver.Next();
+    end;
+  end 
+  else if FiltroEmpresa = 'S' then
+  begin
+    FormEnvioEmMassaRBEmpresa.ClickButton();
+    PreencheCheckbox(FormEnvioEmMassaCBTodos, FiltroTodosEmpresa);
+    while not (DDT.CurrentDriver.EOF) do
+    begin
+      FiltraGrid2(FormEnvioEmMassaGridEstabs, FiltroEmpresaValor, 'Empresa');
+      if (FormEnvioEmMassaGridEstabs.ActiveView.ViewData.RowCount = 1) then
+        ClickColuna(FormEnvioEmMassaGridEstabs, 0, '#');
+      DDT.CurrentDriver.Next();
+    end;
+  end;
+end;
+
+procedure SelecionaEventos();
+begin
+  PreencheCheckbox(FormEnvioEmMassaCBS1200, FormEnvioEmMassaDPS1200);
+  PreencheCheckbox(FormEnvioEmMassaCBS1210, FormEnvioEmMassaDPS1210);
+end;
+
+procedure ExecutaEsocialEnvioEmMassa(pathData);
+var 
+  DDTEnvioEmMassa: OleVariant;
+begin
+  AcessaEsocialEnvioEmMassa();
+  
+  MapESocialEnvioEmMassa();
+  
+  DDTEnvioEmMassa := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolEnvioEmMassa(DDTEnvioEmMassa.Name);
+  
+  FormESocialEnvioEmMassa.Keys('A');
+  
+  VerificaInsere(FormEnvioEmMassaPerRef, FiltroPeriodo);
+  
+  SelecionaEmpresaEstab();
+  
+  FormEnvioEmMassaPageEstabs.Click();
+  
+  FormESocialEnvioEmMassa.Keys('A');
+  
+  SelecionaEventos();
+  
+  FormESocialEnvioEmMassa.Keys('A');
+  
+  FormESocialEnvioEmMassa.Keys('E');
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+    Aliases.Folha.dlgAten_o2.btnOK.Click();
+    
+  DDT.CloseDriver(DDTEnvioEmMassa.Name);
+end;

@@ -1,0 +1,23 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DatapoolRPA,
+  FuncRPA,
+  ObjRPA,
+  VarConsts;
+  
+procedure executaExcluirRPA(pathData);
+begin
+  AcessaCadastroRPA();
+
+  mapFiltroConsultaRPA();
+  
+  leDataPoolRPA(pathData, _Excluir);
+  loadDataPoolRPA();
+  
+  EscolheFiltroConsultaRPA();
+  
+  DeletaDadosRPA();
+  
+  FechaGridConsulta();  
+end;

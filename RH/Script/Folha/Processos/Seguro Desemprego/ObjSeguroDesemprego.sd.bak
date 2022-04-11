@@ -1,0 +1,76 @@
+﻿{Script de mapeamento o Processo de Seguro Desemprego
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+var
+  FormSeguroDesemprego, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormSeguroDesempregoWhEstabEspec, FormSeguroDesempregoWhEstabEspecCampo,
+  FormSeguroDesempregoWhEstabTodosEmp, FormSeguroDesempregoWhEstabTodosEmpCampo,
+  FormSeguroDesempregoWhEstabTodos, FormSeguroDesempregoWhEstabSelec,
+  FormSeguroDesempregoWhEstabSelecCampo, 
+  
+  FormSeguroDesempregoWhLocaisTodos, FormSeguroDesempregoWhLocaisEspec, 
+  FormSeguroDesempregoWhLocaisEspecCampo, FormSeguroDesempregoWhLocaisSelec, 
+  FormSeguroDesempregoWhLocaisSelecCampo,
+  
+  FormSeguroDesempregoWhEmpreTodos, FormSeguroDesempregoWhEmpreEspec,
+  FormSeguroDesempregoWhEmpreEspecCampo, FormSeguroDesempregoWhEmpreSelec,
+  FormSeguroDesempregoWhEmpreSelecCampo, 
+  
+  FormSeguroDesempregoWhProcTodos, FormSeguroDesempregoWhProcEspec, 
+  FormSeguroDesempregoWhProcEspecCampo, FormSeguroDesempregoWhProcSelec, 
+  FormSeguroDesempregoWhProcSelecCampo,
+  
+  FormSeguroDesempregoWhLocaisGrav, FormSeguroDesempregoWhReferencia,
+  FormSeguroDesempregoWhUltimosSalarios, FormSeguroDesempregoWhAnteSalario,
+  FormSeguroDesempregoWhPenuSalario, FormSeguroDesempregoWhUltiSalario: OleVariant;
+  
+procedure MapSeguroDesemprego();
+begin
+  FormSeguroDesemprego                     := Aliases.Folha.FRhProcSeguroDesemprego;
+  
+  btnSair                                  := Aliases.Folha.FRhProcSeguroDesemprego.BSair;
+  btnExecutar                              := Aliases.Folha.FRhProcSeguroDesemprego.bExecutar;
+  btnSalvar                                := Aliases.Folha.FRhProcSeguroDesemprego.tbSalvar;
+  btnRelatorio                             := Aliases.Folha.FRhProcSeguroDesemprego.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormSeguroDesempregoWhEstabEspec         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormSeguroDesempregoWhEstabEspecCampo    := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormSeguroDesempregoWhEstabTodosEmp      := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormSeguroDesempregoWhEstabTodosEmpCampo := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormSeguroDesempregoWhEstabTodos         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormSeguroDesempregoWhEstabSelec         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormSeguroDesempregoWhEstabSelecCampo    := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Locais }
+  FormSeguroDesempregoWhLocaisTodos        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormSeguroDesempregoWhLocaisEspec        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormSeguroDesempregoWhLocaisEspecCampo   := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormSeguroDesempregoWhLocaisSelec        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormSeguroDesempregoWhLocaisSelecCampo   := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Empregados }
+  FormSeguroDesempregoWhEmpreTodos         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormSeguroDesempregoWhEmpreEspec         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormSeguroDesempregoWhEmpreEspecCampo    := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormSeguroDesempregoWhEmpreSelec         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormSeguroDesempregoWhEmpreSelecCampo    := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Processamentoss }
+  FormSeguroDesempregoWhProcTodos          := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormSeguroDesempregoWhProcEspec          := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormSeguroDesempregoWhProcEspecCampo     := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormSeguroDesempregoWhProcSelec          := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormSeguroDesempregoWhProcSelecCampo     := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Dados Adicionais }
+  FormSeguroDesempregoWhLocaisGrav         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormSeguroDesempregoWhReferencia         := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_Data;
+  FormSeguroDesempregoWhUltimosSalarios    := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_INFSAL;
+  FormSeguroDesempregoWhAnteSalario        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_ANTSAL;
+  FormSeguroDesempregoWhPenuSalario        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_PENULSAL;
+  FormSeguroDesempregoWhUltiSalario        := Aliases.Folha.FRhProcSeguroDesemprego.pg.tsSelecao.SB_Selecao.whDados.EB_ULTISAL;
+end;

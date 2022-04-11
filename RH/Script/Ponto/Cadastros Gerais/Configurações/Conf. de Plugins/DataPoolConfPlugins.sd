@@ -1,0 +1,17 @@
+﻿{Script de DataPool da Configuração de Plugins
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 31/08/2021}
+
+
+var
+  ConfPluginsDPEstab,
+  ConfPluginsDPPlugin,
+  ConfPluginsDPOperacao: OleVariant;
+
+procedure LeDataPoolConfPlugins(nomeDriver);
+begin
+  ConfPluginsDPEstab    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ConfPluginsDPPlugin   := DDT.DriverByName(nomeDriver).Value('PLUGIN');
+  ConfPluginsDPOperacao := DDT.DriverByName(nomeDriver).Value('OPERACAO');
+end;

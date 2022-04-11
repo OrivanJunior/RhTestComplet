@@ -1,0 +1,398 @@
+﻿uses
+  DataPoolESocialCargaInicial, ObjESocialCargaInicial, CommonsAll, VarConsts, conexaoBanco, ExeValidaEventos;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  
+procedure AcessaESocialCargaInicial();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Carga Inicial'); 
+end;
+  
+procedure PreencheModoLancancamento();
+begin
+  VerificaInsere(FormCargaInicialModoLanc, FiltroCargaInicialDPModoLanc)
+end;
+
+procedure PreencheS1005();
+begin
+  if (FormCargaInicialwhEstabTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEstabelecimentos.whEstabelecimentos10.Click();
+    
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormCargaInicialwhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialwhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estab - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormCargaInicialwhEstabSelec.ClickButton;
+    VerificaInsere(FormCargaInicialwhEstabSelec, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estab - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormCargaInicialwhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estab - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheS1010();
+begin
+  if (FormCargaInicialWhEventosTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEventos.whEventos10.Click();
+    
+  if (FiltroEventoTipo = _Especifico) then
+  begin
+    FormCargaInicialWhEventosEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhEventosEspecCampo, FiltroEventoValor);
+    Log.Checkpoint('Selecionado Eventos - Específico, com valor: ' + FiltroEventoValor);
+  end
+  else if (FiltroEventoTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhEventosSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhEventosSelec, FiltroEventoValor);
+    Log.Checkpoint('Selecionado Eventos - Selecionados, com valor: ' + FiltroEventoValor);
+  end
+  else if (FiltroEventoTipo = _Todos) then
+  begin
+    FormCargaInicialWhEventosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Eventos - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheS1020();
+begin
+  if (FormCargaInicialWhLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whLocais.whLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormCargaInicialWhLocaisEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhLocaisSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhLocaisSelec, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormCargaInicialWhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheS1030eS1040();
+begin
+  if (FormCargaInicialWhFuncoesTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whFuncoes.whFuncoes10.Click();
+    
+  if (FiltroFuncaoTipo = _Especifico) then
+  begin
+    FormCargaInicialWhFuncoesEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhFuncoesEspecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funcoes - Específico, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhFuncoesSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhFuncoesSelec, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funcoes - Selecionados, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Todos) then
+  begin
+    FormCargaInicialWhFuncoesTodos.ClickButton;
+    Log.Checkpoint('Selecionado Funcoes - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheS1050();
+begin
+  if (FormCargaInicialWhHorariosTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whHorarios.whHorarios10.Click();
+    
+  if (FiltroHorariosTipo = _Especifico) then
+  begin
+    FormCargaInicialWhHorariosEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhHorariosEspecCampo, FiltroHorariosValor);
+    Log.Checkpoint('Selecionado Horarios - Específico, com valor: ' + FiltroHorariosValor);
+  end
+  else if (FiltroHorariosTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhHorariosSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhHorariosSelec, FiltroHorariosValor);
+    Log.Checkpoint('Selecionado Horarios - Selecionados, com valor: ' + FiltroHorariosValor);
+  end
+  else if (FiltroHorariosTipo = _Todos) then
+  begin
+    FormCargaInicialWhHorariosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Horarios - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheS1070();
+begin
+  if (FormCargaInicialWhProcJudicTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whProcessosJudiciais.whProcessosJudiciais10.Click();
+    
+  if (FiltroProcJudicTipo = _Especifico) then
+  begin
+    FormCargaInicialWhProcJudicEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhProcJudicEspecCampo, FiltroProcJudicValor);
+    Log.Checkpoint('Selecionado ProcJudic - Específico, com valor: ' + FiltroProcJudicValor);
+  end
+  else if (FiltroProcJudicTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhProcJudicSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhProcJudicSelec, FiltroProcJudicValor);
+    Log.Checkpoint('Selecionado ProcJudic - Selecionados, com valor: ' + FiltroProcJudicValor);
+  end
+  else if (FiltroProcJudicTipo = _Todos) then
+  begin
+    FormCargaInicialWhProcJudicTodos.ClickButton;
+    Log.Checkpoint('Selecionado ProcJudic - Todos');
+  end;
+  PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+end;
+
+procedure PreencheEmpregados();
+begin
+  if (FormCargaInicialWhEmpregadosTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpregadoTipo = _Especifico) then
+  begin
+    FormCargaInicialWhEmpregadosEspec.ClickButton;
+    VerificaInsere(FormCargaInicialWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhEmpregadosSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhEmpregadosSelec, FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Todos) then
+  begin
+    FormCargaInicialWhEmpregadosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure PreencheIntervaloDatas();
+begin
+  if (FormCargaInicialWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormCargaInicialWhDataDtIni, FiltroDataDtIni); 
+  
+  PreencheDatas(FormCargaInicialWhDataDtFin, FiltroDataDtFin); 
+  
+  if (FiltroDescPeriodo = 'S') then
+    FormCargaInicialWhDescPeriodo.Checked := True;
+end;
+
+procedure PreencheS2190();
+begin
+  if (FormCargaInicialWhAdPreliminarTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whAdPreliminar.whAdPreliminar10.Click();
+    
+  if (FiltroAdPreliminarTipo = _Especifico) then
+  begin
+    FormCargaInicialWhAdPreliminarEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormCargaInicialWhAdPreliminarEspecCampo, FiltroAdPreliminarValor);
+    Log.Checkpoint('Selecionado AdPreliminar - Específico, com valor: ' + FiltroAdPreliminarValor);
+  end
+  else if (FiltroAdPreliminarTipo = _Selecionados) then
+  begin
+    FormCargaInicialWhAdPreliminarSelec.ClickButton;
+    VerificaInsere(FormCargaInicialWhAdPreliminarSelec, FiltroAdPreliminarValor);
+    Log.Checkpoint('Selecionado AdPreliminar - Selecionados, com valor: ' + FiltroAdPreliminarValor);
+  end
+  else if (FiltroAdPreliminarTipo = _Todos) then
+  begin
+    FormCargaInicialWhAdPreliminarTodos.ClickButton;
+    Log.Checkpoint('Selecionado Admissão Preliminar - Todos');
+  end;
+  PreencheIntervaloDatas();
+end;
+
+procedure PreencheEventos();
+begin
+  if (FormCargaInicialDPS1000 = 'S') then
+  begin
+  	FormCargaInicialRBS1000.ClickButton();
+    PreencheDatas(FormCargaInicialIniValid, FiltroDataIniValid);
+  end
+  else if (FormCargaInicialDPS1005 = 'S') then
+  begin
+    FormCargaInicialRBS1005.ClickButton();
+    PreencheS1005()
+  end	
+  else if (FormCargaInicialDPS1010 = 'S') then
+  begin
+    FormCargaInicialRBS1010.ClickButton();
+    PreencheS1010()
+  end
+  else if (FormCargaInicialDPS1020 = 'S') then
+  begin
+    FormCargaInicialRBS1020.ClickButton();
+    PreencheS1020()
+  end
+  else if (FormCargaInicialDPS1030 = 'S') then
+  begin
+    FormCargaInicialRBS1030.ClickButton();
+    PreencheS1030eS1040()
+  end
+  else if (FormCargaInicialDPS1040 = 'S') then
+  begin
+    FormCargaInicialRBS1040.ClickButton();
+    PreencheS1030eS1040()
+  end
+  else if (FormCargaInicialDPS1050 = 'S') then
+  begin
+    FormCargaInicialRBS1050.ClickButton();
+    PreencheS1050()
+  end
+  else if (FormCargaInicialDPS1070 = 'S') then
+  begin
+    FormCargaInicialRBS1070.ClickButton();
+    PreencheS1070()
+  end
+  else if (FormCargaInicialDPS2190 = 'S') then
+  begin
+    FormCargaInicialRBS2190.ClickButton();
+    PreencheS2190()
+  end
+  else if (FormCargaInicialDPS2200 = 'S') then
+  begin
+    FormCargaInicialRBS2200.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2230 = 'S') then
+  begin
+    FormCargaInicialRBS2230.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2250 = 'S') then
+  begin
+    FormCargaInicialRBS2250.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2298 = 'S') then
+  begin
+    FormCargaInicialRBS2298.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2299 = 'S') then
+  begin
+    FormCargaInicialRBS2299.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2300 = 'S') then
+  begin
+    FormCargaInicialRBS2300.ClickButton();
+    PreencheEmpregados()
+  end
+  else if (FormCargaInicialDPS2399 = 'S') then
+  begin
+    FormCargaInicialRBS2399.ClickButton();
+    PreencheEmpregados()
+  end
+end;
+
+procedure PreencheConsulta(pathData, pathDataCons);
+begin
+  PageESocialCargaInicial.ActivePageIndex := 1;
+
+  MapESocialConsCargaInicial();
+  
+  DDTConsulta := CarregaDDT(pathDataCons, 'Consulta');
+  
+  begin
+    LeDataPoolConsulta(DDTConsulta.Name);
+
+    VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+    PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+    VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+    PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+    VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+    VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+    VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+    VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+    
+    DDTConsulta.Next;
+  end;
+  
+  BtnBuscar.Click();
+  
+  DDT.CloseDriver(DDTConsulta.Name);
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialCargaInicial(pathData, pathDataCons);
+var 
+  DDTCargaInicial: OleVariant;
+  consultaFB, consultaORA: string;
+  MensagemInativa: boolean;
+begin              
+  AcessaESocialCargaInicial();
+  
+  MapESocialCargaInicial();
+  
+  DDTCargaInicial := CarregaDDT(pathData, 'Envio');
+  
+  while not(DDTCargaInicial.EOF) do
+  begin
+    MensagemInativa := True;
+    
+    LeDataPoolCargaInicial(DDTCargaInicial.Name);
+    
+    PageESocialCargaInicial.ActivePageIndex := 0;
+                    
+    PreencheModoLancancamento();
+    
+    PreencheEventos();
+
+    BtnEnviarCargaInicial.Click();
+    
+    while (MensagemInativa) do
+    begin
+      Delay(5000);
+      if (Aliases.Folha.dlgProcessoConclu_do3.Exists) then
+      begin
+        Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();     
+      
+        MensagemInativa := false;
+      end
+      else if (Aliases.Folha.FVsErrorDlg.Visible) then
+      begin
+        Log.Warning('Erro, verifique as informações');
+        Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+        MensagemInativa := false;
+      end
+    end;
+    DDTCargaInicial.Next;
+  end;
+  PreencheConsulta(pathData, pathDataCons);
+  DDT.CloseDriver(DDTCargaInicial.Name);
+end;

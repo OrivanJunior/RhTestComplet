@@ -1,0 +1,85 @@
+﻿{Script para criar o DataPool do Processamento de Provisão
+ Autor: Camila Braatz da Rocha 
+ Data:10/06/2021}
+ 
+var
+  { Datas }
+  ProvisaoDPDataProc, ProvisaoDPDataPgto,
+  
+  { Empregado }
+  ProvisaoDPEmpregado, ProvisaoDPCalcAdDecimo,
+  
+  { Movimento }
+  CadMovDPEstab, CadMovDPIdProc, CadMovDPData,
+  CadMovDPIdEmpreg, CadMovDPIdEvento,
+    
+  { Tab Parâmetros }
+  CadMovParamsDPValorInfo, CadMovParamsDPInforme,
+  CadMovParamsDPInforme2, CadMovParamsDPValorTarefa,
+  CadMovParamsDPProporcional, CadMovParamsDPDiasUteis,
+  CadMovParamsDPDiasFaltas, CadMovParamsDPAvosInforme,
+  CadMovParamsDPAvosDireito, CadMovParamsDPReferencia,
+  CadMovParamsDPBaseProp,
+  
+  { Form Processamento }
+  ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
+  ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
+  ESocialDPInfoPgtos, ESocialDPInfoComProd, ESocialDPEvtAqProd,
+  ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+
+procedure LoadDPDatas();
+begin
+  ProvisaoDPDataProc := DDT.CurrentDriver.Value('DATA PROC');
+end;
+
+procedure LoadDPEmpregado();
+begin
+  ProvisaoDPEmpregado    := DDT.CurrentDriver.Value('IDEMPREGADO');
+end;
+
+procedure LoadDPMovimento();
+begin
+  CadMovDPEstab    := DDT.CurrentDriver.Value('ESTAB');
+  CadMovDPIdProc   := DDT.CurrentDriver.Value('PROCESSO');
+  CadMovDPData     := DDT.CurrentDriver.Value('DATA CONTROLE'); 
+  CadMovDPIdEmpreg := DDT.CurrentDriver.Value('EMPREGADO');
+  CadMovDPIdEvento := DDT.CurrentDriver.Value('EVENTO');
+end;
+
+procedure LoadDPParamsMovimento();
+begin
+  CadMovParamsDPValorInfo    := DDT.CurrentDriver.Value('VALOR INFO');
+  CadMovParamsDPInforme      := DDT.CurrentDriver.Value('INFORME');
+  CadMovParamsDPInforme2     := DDT.CurrentDriver.Value('INFORME2');
+  CadMovParamsDPValorTarefa  := DDT.CurrentDriver.Value('VALOR TAREFA');
+  CadMovParamsDPProporcional := DDT.CurrentDriver.Value('PROPORCIONAL');
+  CadMovParamsDPDiasUteis    := DDT.CurrentDriver.Value('DIAS UTEIS');
+  CadMovParamsDPDiasFaltas   := DDT.CurrentDriver.Value('DIAS FALTAS');
+  CadMovParamsDPAvosInforme  := DDT.CurrentDriver.Value('AVOS INFORME');
+  CadMovParamsDPAvosDireito  := DDT.CurrentDriver.Value('AVOS DIREITO');
+  CadMovParamsDPReferencia   := DDT.CurrentDriver.Value('REFERENCIA');
+  CadMovParamsDPBaseProp     := DDT.CurrentDriver.Value('BASE PROP');
+end;
+
+procedure LoadDPProcessamento();
+begin
+  ProcDPEstab           := DDT.CurrentDriver.Value('ESTAB');
+  ProcDPIdProc          := DDT.CurrentDriver.Value('IDPROC');
+  ProcDPDtCtrl          := DDT.CurrentDriver.Value('DATACTRL');
+  ProcDPDtPagIRRF       := DDT.CurrentDriver.Value('DATAPAGIRRF');
+  ProcDPVlrArred        := DDT.CurrentDriver.Value('VALORARRED');
+  ProcDPAberto          := DDT.CurrentDriver.Value('EMABERTO');
+
+  ESocialDPEvtRemun     := DDT.CurrentDriver.Value('S1200');
+  ESocialDPInfoPgtos    := DDT.CurrentDriver.Value('S1210');
+  ESocialDPInfoComProd  := DDT.CurrentDriver.Value('S1250');
+  ESocialDPEvtAqProd    := DDT.CurrentDriver.Value('S1260');
+  ESocialDPContrataVnp  := DDT.CurrentDriver.Value('S1270');
+  ESocialDPEvtInfoCompl := DDT.CurrentDriver.Value('S1280');
+  ESocialDPSitESocial   := DDT.CurrentDriver.Value('SITUAPROC');
+end;
+
+procedure leDataPoolProcProcisao(pathData, tab: string);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;

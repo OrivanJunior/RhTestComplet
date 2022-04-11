@@ -1,0 +1,404 @@
+﻿{Script para mapear o Cadastro de Empregados
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 25/05/2020}  
+
+var
+  {Filtro Empregados}
+  FiltroConsForm, FiltroConsFormCBSelCons, FiltroConsFormCBCodigo, btnOkFiltroConsForm, 
+  btnVazioFiltroConsForm, btnCancelFiltroConsForm,
+  
+  FormCadEmpregado, PageCadEmpregado,
+  
+  { Dados Gerais}
+  DadosGeraisEstab, DadosGeraisIdEmp, DadosGeraisIdPess,
+  DadosGeraisMatriculaESocial, DadosGeraisMatricula,        
+  
+  { Dados Pessoais }
+  DadosPessoaisIdTpAdm, DadosPessoaisIdSind, 
+  DadosPessoaisIdVinc, DadosPessoaisTipoContrato, 
+  DadosPessoaisClausulaAssec, DadosPessoaisObjDet,
+  DadosPessoaisIdTurno, DadosPessoaisIdCateg, 
+  DadosPessoaisIdTabAnuenio, DadosPessoaisDtAdmissao, 
+  DadosPessoaisPis, DadosPessoaisRepouso, 
+  DadosPessoaisRepousoCfeEscala, DadosPessoaisRg,
+  
+  { Outras Configurações }
+  OutrasConfigIncQdHora, OutrasConfigObsQdHora, 
+  OutrasConfigSincNela,
+
+  { Ponto }
+  PontoUsaCartao, PontoCodigo, PontoAlmocoLivre, 
+  PontoInterPreAss, PontoHoraNucleo,
+  
+  { Jornada 12x36 }
+  Jornada12x36IncBtn, Jornada12x36SaveBtn, Jornada12x36DesfBtn,
+  Jornada12x36ExcBtn, Jornada12x36MesAno, Jornada12x36Grid,
+  
+  {  Benefícios }
+  PageBeneficios, 
+  
+  { Conv. Plano de Saúde Titular }
+  ConvenioTilularGrid, ConvTitIncBtn, ConvTitSaveBtn, 
+  ConvTitProcBtn, ConvTitDesfBtn, ConvTitExtBtn, ConvTitHelpBtn,
+  
+  { Conv. Plano de Saúde Dependente }
+  ConvenioDependenteGrid, ConvDepIncBtn, ConvDepSaveBtn, 
+  ConvDepProcBtn, ConvDepDesfBtn, ConvDepExtBtn, ConvDepHelpBtn,
+  
+  { Vale Alimentação }
+  ValeAlimentacaoGrid, ValeIncBtn, ValeSaveBtn, 
+  ValeDesfBtn, ValeExtBtn,
+  
+  { Férias }
+  PageFerias,
+  
+  { Períodos Aquisitivos }
+  FeriasPerAquisGrid, PerAquisIncBtn, PerAquisSaveBtn,
+   PerAquisDesfBtn, PerAquisExcBtn,
+  
+  { Programação Férias }
+  ProgFeriasGrid, ProgFerIncBtn, ProgFerSaveBtn, 
+  ProgFerDesfBtn, ProgFerExcBtn,
+  
+  { Períodos de Férias }
+  PeriodoFeriasGrid, PerFerIncBtn, PerFerSaveBtn, 
+  PerFerDesfBtn, PerFerExcBtn,
+    
+  FormPerFerias, PerFerEBDiasFaltas, PerFerEBDiasGozo, PerFerEBDataIni, 
+  PerFerEBPossuiAbo, PerFerEBAbonarNo, PerFerEBDiasAbo, 
+  PerFeriasSaveBtn, PerFeriasNotBtn, PerFeriasSairBtn: OleVariant;
+  
+  { MP - Prorrogação do pgto adicional de férias }
+  FeriasMPGrid, FeriasMPIncBtn, FeriasMPSaveBtn, 
+  FeriasMPDesfBtn, FeriasMPExcBtn: OleVariant;
+  
+  { Dados Históricos }
+  PageDadosHistoricos, TsAvisoPrevio, TsAdvertencias,
+  TsEstabilidade, TsSucessao, TsProcessos, TsCIPA,
+  TsExpFinanceiro, TsObservacoes,
+  
+  { Funções }  
+  FuncoesGrid, FuncIncBtn, FuncSaveBtn, FuncProcuraBtn, 
+  FuncConsBtn, FuncDesfBtn, FuncExcBtn, 
+  
+  { Situações }
+  SituacoesGrid, SituaIncBtn, SituaSaveBtn, SituaProcuraBtn, 
+  SituaConsBtn, SituaDesfBtn, SituaExcBtn,  
+  
+  { Informações adicionais }  
+  FormInfosAdicionais,  BtnSair, BtnSalvar,
+  InfAdcCodCID, InfAdcIdMedAt, InfAdcNrCertObito, InfAdcTpAcidTran,
+  InfAdcInfoMesmoMtv, InfAdcDataTermAfast, InfAdcInfoAfast, InfAdcTpInscSuc,
+  InfAdcCNPJouCPFEmp, InfAdcNrCAT, InfAdcNotComp,
+   
+  { Locais }
+  LocaisGrid, LocaisIncBtn, LocaisSaveBtn, LocaisProcuraBtn,
+  LocaisConsBtn, LocaisDesfBtn, LocaisExcBtn,
+  
+  { Horários }
+  HorariosGrid, HoraIncBtn, HoraSaveBtn, HoraProcuraBtn, 
+  HoraConsBtn, HoraDesfBtn, HoraExcBtn,
+  
+  { Avisos/ Advertências/ Suspensões }
+  AdverteGrid, AdverteIncBtn, AdverteSaveBtn, 
+  AdverteDesfBtn, AdverteExcBtn, FormMotivoAdvert,
+  MmoMotivoAdvert, BtnOkMotivAdvert,
+
+  { Observações }
+  ObsGrid, ObsIncBtn, ObsSaveBtn, ObsDesfBtn, ObsExcBtn, FormObserva, 
+  ObsData, ObsObservacao, BtnSaveObs, BtnSairObs,
+  
+  { Mensagem Kit Admissional }
+  TelaAtencao, BtnNo, BtnYes: OleVariant;
+  
+procedure MapFormGeral();
+begin
+  FormCadEmpregado := Aliases.Ponto.FRhEmpregado;
+  PageCadEmpregado := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg;
+end;
+
+procedure MapFiltroEmpregados();
+begin
+  FiltroConsForm          := Aliases.Ponto.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Ponto.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBCodigo  := Aliases.Ponto.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Ponto.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+
+procedure MapDadosGerais();
+begin
+  DadosGeraisEstab            := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pnCab.EB_ESTAB;
+  DadosGeraisIdPess           := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pnCab.EB_IDPESS;
+  DadosGeraisIdEmp            := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+  DadosGeraisMatriculaESocial := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pnCab.EB_MATRICULAESOCIAL;
+  DadosGeraisMatricula        := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pnCab.EB_MATRICULA;
+end;    
+
+procedure MapDadosPessoais();
+begin
+  DadosPessoaisIdTpAdm          := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDTPADM;
+  DadosPessoaisIdSind           := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDSIND;
+  DadosPessoaisIdVinc           := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDVINC;
+  DadosPessoaisTipoContrato     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_TIPOCONTRATO;
+  DadosPessoaisClausulaAssec    := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_CLAUSULAASSEC;
+  DadosPessoaisObjDet           := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_OBJDET;
+  DadosPessoaisIdTurno          := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDTURNO;
+  DadosPessoaisIdCateg          := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDCATEG;
+  DadosPessoaisIdTabAnuenio     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_IDTABANUENIO;
+  DadosPessoaisDtAdmissao       := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_DTADMISSAO;
+  DadosPessoaisPis              := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_PIS;
+  DadosPessoaisRepouso          := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_REPOUSO;
+  DadosPessoaisRepousoCfeEscala := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosPessoais.sbDadosPessoais.EB_REPOUSOCFMEESCALA;
+end;
+
+procedure MapOutrasConfig();
+begin
+  OutrasConfigIncQdHora 	     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsOutrasConf.sbOutrasConf.EB_INCQUADHORA;
+  OutrasConfigObsQdHora 	     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsOutrasConf.sbOutrasConf.EB_OBSQUADHORA;
+  OutrasConfigSincNela 		     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsOutrasConf.sbOutrasConf.EB_SINCNELA;
+end;
+
+procedure MapPonto();
+begin  
+  PontoUsaCartao   := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsPonto.ScrollBox16.EB_UTIPE;
+  PontoCodigo      := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsPonto.ScrollBox16.EB_CODIGOPE;
+  PontoAlmocoLivre := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsPonto.ScrollBox16.EB_UTIALMOCOLIVRE;
+  PontoInterPreAss := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsPonto.ScrollBox16.EB_UTIPREASS;
+  PontoHoraNucleo  := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsPonto.ScrollBox16.EB_UTIHORNUCLEO;  
+end;
+
+procedure MapJornada12x36();
+begin
+  Jornada12x36IncBtn  := Aliases.Ponto.FRhEmpregado.bJor12x36Inc;
+  Jornada12x36SaveBtn := Aliases.Ponto.FRhEmpregado.bJor12x36Save;
+  Jornada12x36DesfBtn := Aliases.Ponto.FRhEmpregado.bJor12x36Desf;
+  Jornada12x36ExcBtn  := Aliases.Ponto.FRhEmpregado.bJor12x36Exc;
+  
+  Jornada12x36MesAno := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsHistJor12x36.Panel19.EB_MESANO;
+  Jornada12x36Grid   := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsHistJor12x36.Panel25.gHistJor12x36;
+end;
+
+procedure MapPageBeneficios();
+begin
+  PageBeneficios := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsBeneficios.pgBeneficio;
+end;
+
+procedure MapBenefConvenioTitular();
+begin
+  ConvTitIncBtn  := Aliases.Ponto.FRhEmpregado.BincConv;
+  ConvTitSaveBtn := Aliases.Ponto.FRhEmpregado.bSalvConv;
+  ConvTitProcBtn := Aliases.Ponto.FRhEmpregado.ToolbarButton976;
+  ConvTitDesfBtn := Aliases.Ponto.FRhEmpregado.bDesfConv;
+  ConvTitExtBtn  := Aliases.Ponto.FRhEmpregado.bExcConv;
+  ConvTitHelpBtn := Aliases.Ponto.FRhEmpregado.BAjudaTitular;
+  
+  ConvenioTilularGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsBeneficios.pgBeneficio.ts_convenioTitular.ScrollBox3.gConvenio;
+end;
+
+procedure MapBenefConvenioDependente();
+begin
+  ConvDepIncBtn  := Aliases.Ponto.FRhEmpregado.BIncConvDep;
+  ConvDepSaveBtn := Aliases.Ponto.FRhEmpregado.BSalvConvDep;
+  ConvDepProcBtn := Aliases.Ponto.FRhEmpregado.ToolbarButton9711;
+  ConvDepDesfBtn := Aliases.Ponto.FRhEmpregado.BDesfConvDep;
+  ConvDepExtBtn  := Aliases.Ponto.FRhEmpregado.bExcConvDep;
+  ConvDepHelpBtn := Aliases.Ponto.FRhEmpregado.bAjudaDep;
+  
+  ConvenioDependenteGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsBeneficios.pgBeneficio.Ts_ConvenioDep.ScrollBox11.gConvenioDep;
+end;
+
+procedure MapBenefValeAlimentacao();
+begin
+  ValeIncBtn  := Aliases.Ponto.FRhEmpregado.bValeAlimentInc;
+  ValeSaveBtn := Aliases.Ponto.FRhEmpregado.bValeAlimentSave;
+  ValeDesfBtn := Aliases.Ponto.FRhEmpregado.bValeAlimentDesf;
+  ValeExtBtn  := Aliases.Ponto.FRhEmpregado.bValeAlimentExc; 
+  
+  ValeAlimentacaoGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsBeneficios.pgBeneficio.tsValeAliment.ScrollBox20.gHistValeAliment;
+end;
+
+procedure MapPageFerias();
+begin
+  PageFerias := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsFerias.pgFerias;
+end;
+
+procedure MapFeriasPeriodosAquisitivos();
+begin
+  PerAquisIncBtn  := Aliases.Ponto.FRhEmpregado.bPerAquisitInc;
+  PerAquisSaveBtn := Aliases.Ponto.FRhEmpregado.bPerAquisitSave;
+  PerAquisDesfBtn := Aliases.Ponto.FRhEmpregado.bPerAquisitDesf;
+  PerAquisExcBtn  := Aliases.Ponto.FRhEmpregado.bPerAquisitExc;
+  
+  FeriasPerAquisGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsFerias.pgFerias.tsPerAquisit.sbPerAquisit.gPerAquisit;
+end;
+
+procedure MapFeriasProgramacao();
+begin
+  ProgFerIncBtn  := Aliases.Ponto.FRhEmpregado.bProgFerInc;
+  ProgFerSaveBtn := Aliases.Ponto.FRhEmpregado.bProgFerSave;
+  ProgFerDesfBtn := Aliases.Ponto.FRhEmpregado.bProgFerDesf;
+  ProgFerExcBtn  := Aliases.Ponto.FRhEmpregado.bProgFerExc;
+  
+  ProgFeriasGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsFerias.pgFerias.tsProgFer.ScrollBox4.gProgFer;
+end;
+
+procedure MapFeriasPeriodoCons();
+begin
+  PerFerIncBtn  := Aliases.Ponto.FRhEmpregado.bFeriasInc;
+  PerFerSaveBtn := Aliases.Ponto.FRhEmpregado.bFeriasSave;
+  PerFerDesfBtn := Aliases.Ponto.FRhEmpregado.bFeriasDesf;
+  PerFerExcBtn  := Aliases.Ponto.FRhEmpregado.bFeriasExc;
+  
+  PeriodoFeriasGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsFerias.pgFerias.tsRhFerias.ScrollBox1.gFerias;
+end;
+
+procedure MapFeriasPeriodo();
+begin
+  FormPerFerias      := Aliases.Ponto.FRhFerias;
+
+  PerFerEBDiasFaltas := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbFerias.EB_DIASFALTAS;
+  PerFerEBDiasGozo   := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DIASGOZO;
+  PerFerEBDataIni    := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DATAGOZINI;
+  PerFerEBPossuiAbo  := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_POSSUIABONO;
+  PerFerEBAbonarNo   := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_ABONARNO;
+  PerFerEBDiasAbo    := Aliases.Ponto.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_DIASABONO;  
+  
+  PerFeriasSaveBtn  := Aliases.Ponto.FRhFerias.tbSalvar;
+  PerFeriasNotBtn   := Aliases.Ponto.FRhFerias.tbbNotes;
+  PerFeriasSairBtn  := Aliases.Ponto.FRhFerias.BSair;
+end;
+
+procedure MapFeriasMP();
+begin
+  FeriasMPIncBtn  := Aliases.Ponto.FRhEmpregado.bRhHistAdcFeriasInc;
+  FeriasMPSaveBtn := Aliases.Ponto.FRhEmpregado.bRhHistAdcFeriasSave;
+  FeriasMPDesfBtn := Aliases.Ponto.FRhEmpregado.bRhHistAdcFeriasDesf;
+  FeriasMPExcBtn  := Aliases.Ponto.FRhEmpregado.bRhHistAdcFeriasExc;
+  
+  FeriasMPGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsFerias.pgFerias.tsRhHistAdcFerias.ScrollBox24.gRhHistAdcFerias;
+end;
+
+procedure MapPageDadosHist();
+begin
+  PageDadosHistoricos := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos;
+end;
+
+procedure MapHistFuncoes();
+begin
+  FuncIncBtn      := Aliases.Ponto.FRhEmpregado.bFuncaoInc;
+  FuncSaveBtn     := Aliases.Ponto.FRhEmpregado.bFuncSave;
+  FuncProcuraBtn  := Aliases.Ponto.FRhEmpregado.bFuncProcurar;
+  FuncConsBtn     := Aliases.Ponto.FRhEmpregado.bFuncConsultar;
+  FuncDesfBtn     := Aliases.Ponto.FRhEmpregado.bFuncaoDesf;
+  FuncExcBtn      := Aliases.Ponto.FRhEmpregado.bFuncaoExc;    
+  
+  FuncoesGrid   := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.TsFuncoes.sbFuncoes.gFuncoes;
+end;
+
+procedure MapTelaInfosAdicionaisSitua();
+begin
+  FormInfosAdicionais := Aliases.Ponto.FRhInfoAdicionais;
+  	   
+  InfAdcCodCID        := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_CODCID;
+  InfAdcIdMedAt       := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_IDMEDICO;
+  InfAdcNrCertObito   := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_NROCERTOBITO;
+  InfAdcTpAcidTran    := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_TPACIDTRANSITO;
+  InfAdcInfoMesmoMtv  := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_INFOMESMOMTV;
+  InfAdcDataTermAfast := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_DTRETORNO;
+  InfAdcInfoAfast     := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_OBSINIFAST;
+  InfAdcTpInscSuc     := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_TPINSCEMPSUCESS;
+  InfAdcCNPJouCPFEmp  := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_CNPJEMPSUCESS;
+  InfAdcNrCAT         := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_NUMEROCAT;
+  InfAdcNotComp       := Aliases.Ponto.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_IDMOTIVOCOMP;
+  
+  BtnSalvar := Aliases.Ponto.FRhInfoAdicionais.tbSalvar;
+  BtnSair   := Aliases.Ponto.FRhInfoAdicionais.BSair;
+  
+end;
+
+procedure MapHistSituacoes();
+begin 
+  SituaIncBtn     := Aliases.Ponto.FRhEmpregado.bSituaInc;
+  SituaSaveBtn    := Aliases.Ponto.FRhEmpregado.bSituaSave;
+  SituaProcuraBtn := Aliases.Ponto.FRhEmpregado.bSituaProcura;
+  SituaConsBtn    := Aliases.Ponto.FRhEmpregado.bSituaConsulta;
+  SituaDesfBtn    := Aliases.Ponto.FRhEmpregado.bSituaDesf;
+  SituaExcBtn     := Aliases.Ponto.FRhEmpregado.bSituaExc;
+  
+  SituacoesGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes;
+end;
+
+procedure MapHistLocais();
+begin
+  LocaisIncBtn     := Aliases.Ponto.FRhEmpregado.bLocalInc;
+  LocaisSaveBtn    := Aliases.Ponto.FRhEmpregado.bLocalSave;
+  LocaisProcuraBtn := Aliases.Ponto.FRhEmpregado.bLocalProc;
+  LocaisConsBtn    := Aliases.Ponto.FRhEmpregado.bLocalCons;
+  LocaisDesfBtn    := Aliases.Ponto.FRhEmpregado.bLocalDesf;
+  LocaisExcBtn     := Aliases.Ponto.FRhEmpregado.bLocalExc;
+  
+  LocaisGrid  := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsLocais.ScrollBox2.gLocais;
+end;
+
+procedure MapHistHorarios();
+begin 
+  HoraIncBtn     := Aliases.Ponto.FRhEmpregado.bHorariosInc;
+  HoraSaveBtn    := Aliases.Ponto.FRhEmpregado.bHorariosSave;
+  HoraProcuraBtn := Aliases.Ponto.FRhEmpregado.bHorariosProc;
+  HoraConsBtn    := Aliases.Ponto.FRhEmpregado.bHorariosCons;
+  HoraDesfBtn    := Aliases.Ponto.FRhEmpregado.bHorariosDesf;
+  HoraExcBtn     := Aliases.Ponto.FRhEmpregado.bHorariosExc;
+  
+  HorariosGrid := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsHorarios.sbHorarios.gHorarios;
+end;
+
+procedure MapHistAdvertencias();
+begin
+  AdverteIncBtn    := Aliases.Ponto.FRhEmpregado.bAdverteInc;
+  AdverteSaveBtn   := Aliases.Ponto.FRhEmpregado.bAdverteSave;
+  AdverteDesfBtn   := Aliases.Ponto.FRhEmpregado.bAdverteDesf;
+  AdverteExcBtn    := Aliases.Ponto.FRhEmpregado.bAdverteExc;    
+  
+  AdverteGrid      := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsAdverte.sbAdverte.gAdverte;
+end;
+
+procedure MapMotivoAdverte();
+begin
+  FormMotivoAdvert := Aliases.Ponto.FrhMotivoAdvert;
+  MmoMotivoAdvert  := Aliases.Ponto.FrhMotivoAdvert.pnl1.mmoMotivo;
+  BtnOkMotivAdvert := Aliases.Ponto.FrhMotivoAdvert.pnl1.EB_Ok;
+end;
+
+procedure MapDadosHistObservacoes();
+begin
+  ObsIncBtn   := Aliases.Ponto.FRhEmpregado.bObsInc;
+  ObsSaveBtn  := Aliases.Ponto.FRhEmpregado.bObsSave;
+  ObsDesfBtn  := Aliases.Ponto.FRhEmpregado.bObsDesf;
+  ObsExcBtn   := Aliases.Ponto.FRhEmpregado.bObsExc; 
+  
+  ObsGrid     := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsObs.ScrollBox17.gHistObs;
+end;
+
+procedure MapFormDadosHistObservacoes();
+begin
+  FormObserva   := Aliases.Ponto.FRhEmpregadoObs;
+  
+  ObsData       := Aliases.Ponto.FRhEmpregadoObs.ScrollBox1.EB_DATA;
+  ObsObservacao := Aliases.Ponto.FRhEmpregadoObs.ScrollBox1.EB_OBS;
+  
+  BtnSaveObs    := Aliases.Ponto.FRhEmpregadoObs.tbSalvar;
+  BtnSairObs    := Aliases.Ponto.FRhEmpregadoObs.BSair;
+end;
+
+procedure MapDadosHistExpContabil();
+begin
+  ExpCtbIncBtn  := Aliases.Ponto.FRhEmpregado.btnIncluirExpCont;
+  ExpCtbSaveBtn := Aliases.Ponto.FRhEmpregado.btnSaveExpCont;
+  ExpCtbDesfBtn := Aliases.Ponto.FRhEmpregado.btnCancelExpCont;
+  ExpCtbExcBtn  := Aliases.Ponto.FRhEmpregado.btnDeleteExpCont;
+
+  ExpCtbGrid    := Aliases.Ponto.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
+end;

@@ -1,0 +1,101 @@
+﻿uses
+  CommonsAll,
+  DataPoolCadUsuario,
+  ObjCadUsuario,
+  ObjTelaGerente,
+  VarConsts;
+{Script para executar o cadastro de usuarios do Viasoft3c
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 16/03/2018}
+
+ 
+var
+  Viasoft3C_XE: OleVariant;
+  
+procedure AcessaCadastroUsuario();
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+  Viasoft3C_XE.VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu Gerente|Configuração|Usuários|Cadastro de usuários');
+  Delay(1000);
+end;
+
+procedure InsereDadosCadUsuarios();
+begin
+  if Assigned(CadUserDPUserId) then
+    EscolheMetodoDeInsercao(CadUserUserId, CadUserDPUserId);
+  if Assigned(CadUserDPFullName) then
+    EscolheMetodoDeInsercao(CadUserFullName, CadUserDPFullName);
+  if Assigned(CadUserDPEmail) then
+    EscolheMetodoDeInsercao(CadUserEmail, CadUserDPEmail);
+  if Assigned(CadUserDPGrupo) then
+    EscolheMetodoDeInsercao(CadUserGrupo, CadUserDPGrupo);
+  if Assigned(CadUserDPTipo) then
+    EscolheMetodoDeInsercao(CadUserTipo, CadUserDPTipo);
+  if Assigned(CadUserDPValidade) then
+    EscolheMetodoDeInsercao(CadUserValidade, CadUserDPValidade);
+  if Assigned(CadUserDPMudarSenha) then
+    EscolheMetodoDeInsercao(CadUserMudarSenha, CadUserDPMudarSenha);
+  if Assigned(CadUserDPAudita) then
+    EscolheMetodoDeInsercao(CadUserAudita, CadUserDPAudita);
+  if Assigned(CadUserDPAutUserWin) then
+    EscolheMetodoDeInsercao(CadUserAutUserWin, CadUserDPAutUserWin);
+end;
+
+procedure RedefinirSenha();
+begin
+  CadUserAutUserWin.Keys('~[NumMinus]');
+  CadUserAutUserWin.PopupMenu.Click('[14]');
+  
+  MapRedefinirSenha();
+  
+  if (CadMudaSenForm.Exists) then
+  begin
+    CadMudaSenhaENovaSenha.Keys('123');
+    CadMudaSenhaEConfirmacao.Keys('123');
+    
+    CadMudaSenhaConfirmar.Click();
+    CadMudaSenhaFechar.Click();
+  end;
+end;
+
+procedure ExecutaCadUsuario();
+begin
+  MapTelaGerente();
+  FormTela.Maximize;
+  
+  AcessaCadastroUsuario();
+  
+  MapGridCadUsuarios();
+  InicializaDataPool(_Cadastrar);
+  
+  if (CadUserConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloGerente, 'FFormPadraoCds');
+    
+  while (not (DDT.CurrentDriver.EOF)) do
+  begin
+    LeDataPoolCadUsuario();   
+    FiltraGrid(_ModuloGerente, 'FBRowseCds', 'BGrid', 'Usuário', CadUserDPUserId);
+    if (CadUserConsGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(CadUserConsForm);
+      MapCadUsuarios();
+    
+      InsereDadosCadUsuarios();  
+    
+      ActSalvar(CadUserFormCad);  
+    
+      RedefinirSenha(); 
+    end;
+    
+    DDT.CurrentDriver.Next();
+  end; 
+ 
+  if Assigned(CadUserFormCad) then
+    ActFechar(CadUserFormCad); 
+    
+  if Assigned(CadUserConsForm) then
+    ActFechar(CadUserConsForm);   
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name)
+end;

@@ -1,0 +1,68 @@
+﻿var
+  CadHorarioDPIdHorario, CadHorarioDPDescricao,
+  CadHorarioDPIdConfig, CadHorarioDPRegJorEmp,
+  CadHorarioDPTpJornada, CadHorarioDPDescTpJor,
+  CadHorarioDPJorDiaHrs, CadHorarioDPJorDiaNot,
+  CadHorarioDPJorSemHrs, CadHorarioDPJorMenHrs,
+  CadHorarioDPEnt1, CadHorarioDPEnt2,
+  CadHorarioDPEnt1Sab, CadHorarioDPEnt2Sab,
+  CadHorarioDPTolEnt1, CadHorarioDPTolEnt2,
+  CadHorarioDPControle, CadHorarioDPJorDiaDiu,
+  CadHorarioDPJorDiaRSR, CadHorarioDPJorQuiHrs,
+  CadHorarioDPIntAlmoco, CadHorarioDPSai1,
+  CadHorarioDPSai2, CadHorarioDPTolSai1,
+  CadHorarioDPTolSai2, CadHorarioDPDiaComp,
+  CadHorarioDPTolImpAFD,
+  
+  DetHorarioDPDia, DetHorarioDPEnt1,
+  DetHorarioDPSai1, DetHorarioDPEnt2,
+  DetHorarioDPSai2, DetHorarioDPTolEnt1,
+  DetHorarioDPTolSai1, DetHorarioDPTolEnt2,
+  DetHorarioDPTolSai2, DetHorarioDPInterv: OleVariant;
+
+procedure LoadDPCadHorarios(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;
+
+procedure LeDataPoolCadHorarios();
+begin
+  CadHorarioDPIdHorario := DDT.CurrentDriver.Value('IDHORARIO');
+  CadHorarioDPDescricao := DDT.CurrentDriver.Value('DESCRICAO');
+  CadHorarioDPIdConfig  := DDT.CurrentDriver.Value('IDCONF');
+  CadHorarioDPRegJorEmp := DDT.CurrentDriver.Value('REGJOREMP');
+  CadHorarioDPTpJornada := DDT.CurrentDriver.Value('TPJORNADA');
+  CadHorarioDPDescTpJor := DDT.CurrentDriver.Value('DSCTPJORN');
+  CadHorarioDPJorDiaHrs := DDT.CurrentDriver.Value('JDIAHORAS');
+  CadHorarioDPJorDiaNot := DDT.CurrentDriver.Value('JDIARIANOT');
+  CadHorarioDPJorSemHrs := DDT.CurrentDriver.Value('JSEMANAL');
+  CadHorarioDPJorMenHrs := DDT.CurrentDriver.Value('JMENSAL');
+  CadHorarioDPEnt1      := DDT.CurrentDriver.Value('ENT1');
+  CadHorarioDPEnt2      := DDT.CurrentDriver.Value('ENT2');
+  CadHorarioDPEnt1Sab   := DDT.CurrentDriver.Value('ENT1SAB');
+  CadHorarioDPEnt2Sab   := DDT.CurrentDriver.Value('ENT2SAB');
+  CadHorarioDPTolEnt1   := DDT.CurrentDriver.Value('TOLEXTRAPONTO');
+  CadHorarioDPTolEnt2   := DDT.CurrentDriver.Value('TOLEXTRAPONTO2');
+  CadHorarioDPControle  := DDT.CurrentDriver.Value('CONTROLE');
+  CadHorarioDPJorDiaDiu := DDT.CurrentDriver.Value('JDIARIADIU');
+  CadHorarioDPJorDiaRSR := DDT.CurrentDriver.Value('JDIARIARSR');
+  CadHorarioDPJorQuiHrs := DDT.CurrentDriver.Value('JQUINZENAL');
+  CadHorarioDPIntAlmoco := DDT.CurrentDriver.Value('INTERVALO');
+  CadHorarioDPSai1      := DDT.CurrentDriver.Value('SAI1');
+  CadHorarioDPSai2      := DDT.CurrentDriver.Value('SAI2');
+  CadHorarioDPTolSai1   := DDT.CurrentDriver.Value('TOLFALTAPONTO');
+  CadHorarioDPTolSai2   := DDT.CurrentDriver.Value('TOLFALTAPONTO2');
+  CadHorarioDPDiaComp   := DDT.CurrentDriver.Value('DIACOMP');
+  CadHorarioDPTolImpAFD := DDT.CurrentDriver.Value('TOLIMPAFD');
+  
+  DetHorarioDPDia       := DDT.CurrentDriver.Value('DIA');
+  DetHorarioDPEnt1      := DDT.CurrentDriver.Value('DTENT1');
+  DetHorarioDPSai1      := DDT.CurrentDriver.Value('DTSAI1');
+  DetHorarioDPEnt2      := DDT.CurrentDriver.Value('DTENT2');
+  DetHorarioDPSai2      := DDT.CurrentDriver.Value('DTSAI2');
+  DetHorarioDPTolEnt1   := DDT.CurrentDriver.Value('DTTOLENT1');
+  DetHorarioDPTolSai1   := DDT.CurrentDriver.Value('DTTOLSAI1');
+  DetHorarioDPTolEnt2   := DDT.CurrentDriver.Value('DTTOLENT2');
+  DetHorarioDPTolSai2   := DDT.CurrentDriver.Value('DTTOLSAI2');
+  DetHorarioDPInterv    := DDT.CurrentDriver.Value('DTINTERVALO');
+end;

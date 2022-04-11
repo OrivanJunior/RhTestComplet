@@ -1,0 +1,32 @@
+﻿var
+  AdmPreliminarForm,
+  AdmPreliminarEBCodigo,
+  AdmPreliminarEBCPF,
+  AdmPreliminarEBNome,
+  AdmPreliminarEBDataNasc,
+  AdmPreliminarEBDataAdm,
+  AdmPreliminarEBMateSocial,
+  AdmPreliminarEBVinculo,
+  AdmPreliminarEBFuncao,
+  AdmPreliminarEBCategoria,
+  AdmPreliminarEBSalario,
+  AdmPreliminarEBDataTermino,
+  AdmPreliminarEBTipoContrato: OleVariant;
+
+
+procedure MapCadAdmPreliminar();
+begin
+  AdmPreliminarForm           := Aliases.Folha.FRHADPRELIMINAR;
+  AdmPreliminarEBCodigo       := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_ID;
+  AdmPreliminarEBCPF          := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_CPF;
+  AdmPreliminarEBNome         := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_NOME;
+  AdmPreliminarEBDataNasc     := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_DTNASCIM;
+  AdmPreliminarEBDataAdm      := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_DTADMISSAO;
+  AdmPreliminarEBMateSocial   := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_MATRICULA;
+  AdmPreliminarEBVinculo      := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_VINCULO;
+  AdmPreliminarEBFuncao       := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_FUNCAO;
+  AdmPreliminarEBCategoria    := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_CATEGORIA;
+  AdmPreliminarEBSalario      := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_SALARIO;
+  AdmPreliminarEBDataTermino  := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_DATATERMINO;
+  AdmPreliminarEBTipoContrato  := Aliases.Folha.FRHADPRELIMINAR.Page.TabNormal.ScrollBox1.EB_TIPODECONTRATO;
+end;

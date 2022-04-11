@@ -1,0 +1,52 @@
+﻿{Script para criar o DataPool do Processo de GRRF Elerônica
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 05/07/2021}
+ 
+var
+  FormGRRFEletronica, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  GRRFEletronicaWhEstabEspec, GRRFEletronicaWhEstabEspecCampo,
+  GRRFEletronicaWhEstabTodosEmp, GRRFEletronicaWhEstabTodosEmpCampo,
+  GRRFEletronicaWhEstabTodos, GRRFEletronicaWhEstabSelec,
+  GRRFEletronicaWhEstabSelecCampo, 
+  
+  GRRFEletronicaWhEmpreTodos, GRRFEletronicaWhEmpreEspec,
+  GRRFEletronicaWhEmpreEspecCampo, GRRFEletronicaWhEmpreSelec,
+  GRRFEletronicaWhEmpreSelecCampo, 
+  
+  GRRFEletronicaWhDadosMesResc, GRRFEletronicaWhDadosDataRec,
+  GRRFEletronicaWhDadosLocalGrav, GRRFEletronicaWhDadosTipoGRRF: OleVariant;
+  
+procedure MapGRRFEletronica();
+begin
+  FormGRRFEletronica                 := Aliases.Folha.FRhProcGrrf;
+  
+  btnSair                            := Aliases.Folha.FRhProcGrrf.BSair;
+  btnExecutar                        := Aliases.Folha.FRhProcGrrf.bExecutar;
+  btnSalvar                          := Aliases.Folha.FRhProcGrrf.tbSalvar;
+  btnRelatorio                       := Aliases.Folha.FRhProcGrrf.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  GRRFEletronicaWhEstabEspec         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  GRRFEletronicaWhEstabEspecCampo    := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  GRRFEletronicaWhEstabTodosEmp      := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  GRRFEletronicaWhEstabTodosEmpCampo := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  GRRFEletronicaWhEstabTodos         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  GRRFEletronicaWhEstabSelec         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  GRRFEletronicaWhEstabSelecCampo    := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  GRRFEletronicaWhEmpreTodos         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  GRRFEletronicaWhEmpreEspec         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  GRRFEletronicaWhEmpreEspecCampo    := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  GRRFEletronicaWhEmpreSelec         := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  GRRFEletronicaWhEmpreSelecCampo    := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Dados Adicionais }
+  GRRFEletronicaWhDadosMesResc       := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whDados.EB_DataRescisao;
+  GRRFEletronicaWhDadosDataRec       := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whDados.EB_DataRecolhimento;
+  GRRFEletronicaWhDadosLocalGrav     := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  GRRFEletronicaWhDadosTipoGRRF      := Aliases.Folha.FRhProcGrrf.pg.tsSelecao.SB_Selecao.whDados.EB_TIPOGRRF;
+end;

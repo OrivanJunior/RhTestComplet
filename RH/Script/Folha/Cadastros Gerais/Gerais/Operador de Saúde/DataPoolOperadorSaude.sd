@@ -1,0 +1,20 @@
+﻿{Script para criar DataPool da tela de cadastro de Moedas
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadOperadorSaudeDPIdOpSaude, FormCadOperadorSaudeDPTipoOperadora, FormCadOperadorSaudeDPRegAns,
+  FormCadOperadorSaudeDPCNPJ, FormCadOperadorSaudeDPNomeEmp, FormCadOperadorSaudeDPIdEvento,
+  FormCadOperadorSaudeDPModalidade, FormCadOperadorSaudeDPDescMod: OleVariant;
+
+procedure LeDataPoolCadOperadorSaude(nomeDriver);
+begin
+  FormCadOperadorSaudeDPIdOpSaude     := DDT.DriverByName(nomeDriver).Value('IDOPSAUDE');
+  FormCadOperadorSaudeDPTipoOperadora := DDT.DriverByName(nomeDriver).Value('TIPOOPERADORA');
+  FormCadOperadorSaudeDPRegAns        := DDT.DriverByName(nomeDriver).Value('REGANS');
+  FormCadOperadorSaudeDPCNPJ          := DDT.DriverByName(nomeDriver).Value('CNPJ');
+  FormCadOperadorSaudeDPNomeEmp       := DDT.DriverByName(nomeDriver).Value('NOMEEMP');
+  FormCadOperadorSaudeDPIdEvento      := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+  FormCadOperadorSaudeDPModalidade    := DDT.DriverByName(nomeDriver).Value('MODALIDADE');
+end;

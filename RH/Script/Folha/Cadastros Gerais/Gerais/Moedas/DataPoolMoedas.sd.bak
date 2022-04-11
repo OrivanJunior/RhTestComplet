@@ -1,0 +1,31 @@
+﻿{Script para criar DataPool da tela de cadastro de Moedas
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var 
+  FormCadMoedasDPIdMoeda, FormCadMoedasDPSimbolo, FormCadMoedasDPNomeSing,
+  FormCadMoedasDPNomePlural, FormCadMoedasDPCentSing, FormCadMoedasDPCentPlural,
+  FormCadMoedasDPTipoMoeda, FormCadMoedasDPSexoMoeda: OleVariant;
+  
+  FormCadMoedasValDPData, FormCadMoedasValDPValor,
+  
+  FormCadMoedasCedDPValor: OleVariant;
+
+procedure LeDataPoolCadMoedas(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+    
+    FormCadMoedasDPIdMoeda    := DDT.DriverByName(nomeDriver).Value('IDMOEDA');     
+    FormCadMoedasDPSimbolo    := DDT.DriverByName(nomeDriver).Value('SIMBOLO');          
+    FormCadMoedasDPNomeSing   := DDT.DriverByName(nomeDriver).Value('NOMESING');      
+    FormCadMoedasDPNomePlural := DDT.DriverByName(nomeDriver).Value('NOMEPLURAL');
+    FormCadMoedasDPCentSing   := DDT.DriverByName(nomeDriver).Value('CENTSING');         
+    FormCadMoedasDPCentPlural := DDT.DriverByName(nomeDriver).Value('CENTPLURAL');         
+    FormCadMoedasDPTipoMoeda  := DDT.DriverByName(nomeDriver).Value('TIPOMOEDA');             
+    FormCadMoedasDPSexoMoeda  := DDT.DriverByName(nomeDriver).Value('SEXOMOEDA');  
+    FormCadMoedasValDPData    := DDT.DriverByName(nomeDriver).Value('DATA');     
+    FormCadMoedasValDPValor   := DDT.DriverByName(nomeDriver).Value('VALOR');  
+    FormCadMoedasCedDPValor   := DDT.DriverByName(nomeDriver).Value('CEDVALOR');
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

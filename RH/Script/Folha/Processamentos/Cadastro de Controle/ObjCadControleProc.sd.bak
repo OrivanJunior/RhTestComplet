@@ -1,0 +1,39 @@
+﻿{Script de mapeamento o Cadastro de Controle de Processamento
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data:23/08/2021}
+
+var
+  {Filtro Controle Processamento}
+  FiltroConsForm, FiltroConsFormCBSelCons,
+  FiltroConsFormCBNome, FiltroConsFormCBCodigo,
+  FiltroConsFormCBProc, FiltroConsFormCBData,
+  btnOkFiltroConsForm, btnVazioFiltroConsForm,
+  btnCancelFiltroConsForm,
+  
+  {Form Processamento}
+  FormCadControleProc, PageProc, 
+  ProcEBEstab, ProcEBIdProc, 
+  ProcEBDtCtrl, ProcEBDtPagIRRF, 
+  ProcEBVlrArred, ProcEBAberto,
+  ESocialEBEvtRemun, ESocialEBEvtAqProd, 
+  ESocialEBInfoPgtos, ESocialEBInfoComProd, 
+  ESocialEBContrataVnp, ESocialEBEvtInfoCompl, 
+  ESocialEBSitESocial, BtnSairProc, 
+  BtnAjudaProc, BtnSalvarProc, 
+  BtnDesfProc, BtnImprimeProc,
+  BtnExcluirProc: OleVariant;
+
+procedure MapFiltroCadControleProc();
+begin
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBNome    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  FiltroConsFormCBCodigo  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  FiltroConsFormCBProc    := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item;
+  FiltroConsFormCBData    := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item3;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;  
+

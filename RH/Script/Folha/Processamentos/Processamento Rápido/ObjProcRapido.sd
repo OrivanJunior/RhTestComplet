@@ -1,0 +1,67 @@
+﻿{Script de DataPool do Processo de CAGED - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 16/07/2021}
+ 
+var
+  FormProcRapido, 
+  
+  btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  ProcRapidoWhEstabEspec, ProcRapidoWhEstabEspecCampo,
+  ProcRapidoWhEstabTodosEmp, ProcRapidoWhEstabTodosEmpCampo,
+  ProcRapidoWhEstabTodos, ProcRapidoWhEstabSelec,
+  ProcRapidoWhEstabSelecCampo, 
+  
+  ProcRapidoWhLocalTodos, ProcRapidoWhLocalEspec, 
+  ProcRapidoWhLocalEspecCampo, ProcRapidoWhLocalSelec, 
+  ProcRapidoWhLocalSelecCampo,
+  
+  ProcRapidoWhEmpreTodos, ProcRapidoWhEmpreEspec,
+  ProcRapidoWhEmpreEspecCampo, ProcRapidoWhEmpreSelec,
+  ProcRapidoWhEmpreSelecCampo, 
+  
+  ProcRapidoWhDadosDataProc, ProcRapidoWhDadosDataPagto,
+  ProcRapidoWhDadosProcessamento, ProcRapidoWhDadosProcConsiderar, 
+  ProcRapidoWhDadosSalvarTestes: OleVariant;
+  
+procedure MapProcRapido();
+begin
+  FormProcRapido                  := Aliases.Folha.FRhProcRapido;
+  
+  btnSair                         := Aliases.Folha.FRhProcRapido.BSair;
+  btnExecutar                     := Aliases.Folha.FRhProcRapido.bExecutar;
+  btnSalvar                       := Aliases.Folha.FRhProcRapido.tbSalvar;
+  btnRelatorio                    := Aliases.Folha.FRhProcRapido.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  ProcRapidoWhEstabEspec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  ProcRapidoWhEstabEspecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  ProcRapidoWhEstabTodosEmp       := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  ProcRapidoWhEstabTodosEmpCampo  := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  ProcRapidoWhEstabTodos          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  ProcRapidoWhEstabSelec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  ProcRapidoWhEstabSelecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  ProcRapidoWhEmpreTodos          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  ProcRapidoWhEmpreEspec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  ProcRapidoWhEmpreEspecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  ProcRapidoWhEmpreSelec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  ProcRapidoWhEmpreSelecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Filtro de Local }
+  ProcRapidoWhLocalTodos          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  ProcRapidoWhLocalEspec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  ProcRapidoWhLocalEspecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  ProcRapidoWhLocalSelec          := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  ProcRapidoWhLocalSelecCampo     := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;
+  
+  { Dados Adicionais }
+  ProcRapidoWhDadosDataProc       := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.EB_Data;
+  ProcRapidoWhDadosDataPagto      := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.EB_DATAPAGTO;
+  ProcRapidoWhDadosProcessamento  := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.EB_IDPROCESSO;
+  ProcRapidoWhDadosProcConsiderar := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.EB_PROCESSAMENTOS;
+  ProcRapidoWhDadosSalvarTestes   := Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.cbSalvarTestes;
+end;

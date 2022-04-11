@@ -1,0 +1,20 @@
+﻿{Script para criar DataPool da tela de cadastro de ResultadoExame
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var  
+  FormCadResultadoExameDPIdResult, 
+  FormCadResultadoExameDPDescricao, 
+  FormCadResultadoExameDPResultado: OleVariant;
+
+procedure LeDataPoolCadResultadoExame(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    FormCadResultadoExameDPIdResult  := DDT.DriverByName(nomeDriver).Value('IDRESULT');
+    FormCadResultadoExameDPDescricao := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+    FormCadResultadoExameDPResultado := DDT.DriverByName(nomeDriver).Value('RESULTADO');
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

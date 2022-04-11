@@ -1,0 +1,265 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolExpFinUnisystem,
+  ObjExpFinUnisystem,
+  VarConsts;
+{Script para executar o Processo de Exportação Financeira Unisystem
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 14/07/2021}
+
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaExpFinUnisystem();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Exportação', 'Exportação Financeira Unisystem'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExpFinUnisystemWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormExpFinUnisystemWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhEstabSelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormExpFinUnisystemWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExpFinUnisystemWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhEmpreSelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraLocais();
+begin
+  if (FormExpFinUnisystemWhLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhLocaisEspec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhLocaisSelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhLocaisSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormExpFinUnisystemWhDataIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormExpFinUnisystemWhDataIni, FiltroDataIni); 
+  PreencheDatas(FormExpFinUnisystemWHDataFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormExpFinUnisystemWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExpFinUnisystemWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhProcSelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormExpFinUnisystemWhPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExpFinUnisystemWhPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhPrestSelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FiltraRPA();
+begin
+  if (FormExpFinUnisystemWhRPATodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.whRPA10.Click();
+    
+  if (FiltroRPATipo = _Especifico) then
+  begin
+    FormExpFinUnisystemWhRPAEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormExpFinUnisystemWhRPAEspecCampo, FiltroRPAValor);
+    Log.Checkpoint('Selecionado RPAador - Específico, com valor: ' + FiltroRPAValor);
+  end
+  else if (FiltroRPATipo = _Selecionados) then
+  begin
+    FormExpFinUnisystemWhRPASelec.ClickButton;
+    VerificaInsere(FormExpFinUnisystemWhRPASelecCampo, FiltroRPAValor);
+    Log.Checkpoint('Selecionado RPAador - Selecionados, com valor: ' + FiltroRPAValor);
+  end
+  else if (FiltroRPATipo = _Todos) then
+  begin
+    FormExpFinUnisystemWhRPATodos.ClickButton;
+    Log.Checkpoint('Selecionado RPAador - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormExpFinUnisystemWhDataLancto.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  PreencheDatas(FormExpFinUnisystemWhDataLancto, FiltroDataLancto);
+  PreencheDatas(FormExpFinUnisystemWhDataVenc, FiltroDataVenc);
+  VerificaInsere(FormExpFinUnisystemWhCodSafra, FiltroCodSafra);
+  VerificaInsere(FormExpFinUnisystemWhTipoDoc, FiltroTipoDoc);
+  VerificaInsere(FormExpFinUnisystemWhTipoLancto, FiltroTipoLancto);
+  VerificaInsere(FormExpFinUnisystemWhSufixo, FiltroSufixo);
+  VerificaInsere(FormExpFinUnisystemWhHistorico, FiltroHistorico);
+  VerificaInsere(FormExpFinUnisystemWhLocalGrav, FiltroLocalGrav);
+  VerificaInsere(FormExpFinUnisystemWhSobreDarf, FiltroSobreDarf);
+  VerificaInsere(FormExpFinUnisystemWhSobreFGTS, FiltroSobreFGTS);
+  VerificaInsere(FormExpFinUnisystemWhSobreGPSFun, FiltroSobreGPSFun);
+  VerificaInsere(FormExpFinUnisystemWhSobreGPS, FiltroSobreGPS);
+  VerificaInsere(FormExpFinUnisystemWhSobreGPS13, FiltroSobreGPS13);
+  VerificaInsere(FormExpFinUnisystemWhSobreGPSFat, FiltroSobreGPSFat);
+  VerificaInsere(FormExpFinUnisystemWhSobreRPA, FiltroSobreRPA);
+  VerificaInsere(FormExpFinUnisystemWhAnoGPS13, FiltroAnoGPS13);
+  VerificaInsere(FormExpFinUnisystemWhGerarValResc, FiltroGerarValResc);
+end;
+
+procedure ExecutaExpFinUnisystem(pathData);
+var 
+  DDTExpFinUnisystem: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaExpFinUnisystem();
+
+  MapExpFinUnisystem();
+
+  DDTExpFinUnisystem := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolExpFinUnisystem(pathData);
+
+  FiltraEstab();
+  
+  FiltraEmpregados();
+  
+  FiltraLocais();
+
+  FiltraData();
+  
+  FiltraProcessamentos();
+  
+  FiltraPrestadores();
+  
+  FiltraRPA();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+
+      btnSalvar.Click();
+      
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();      
+    
+      ActFechar(FormExpFinUnisystem);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormExpFinUnisystem);
+      MensagemInativa := false;
+    end
+  end;     
+  ValidaArquivos('C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA UNISYSTEM\EXP_UNISYSTEM_MODELO.txt', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA UNISYSTEM\EXP_UNISYSTEM_MODELO_ORACLE.txt', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO FINANCEIRA UNISYSTEM\EXPFIN_012021.txt');
+  DDT.CloseDriver(DDTExpFinUnisystem.Name);
+end;

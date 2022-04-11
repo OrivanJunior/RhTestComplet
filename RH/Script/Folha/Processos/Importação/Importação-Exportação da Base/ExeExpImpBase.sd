@@ -1,0 +1,48 @@
+﻿uses
+  CommonsAll,
+  ObjExpImpBase,
+  VarConsts;
+{Script para executar a Importação da base de eventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2021}
+ 
+
+var
+  Modulo: OleVariant;
+
+procedure AcessaExpImpBase();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Importação', 'Importação/Exportação da Base');
+end;
+      
+procedure ExeImportacaoBase(pathDestino);
+begin
+  AcessaExpImpBase();
+  log.Checkpoint('Acessando a tela de Importação/Exportação da Base');
+
+  if (Aliases.Folha.VsMenu.Enabled) then 
+  begin
+    MapTelaExpImpBase();
+      
+    if (FormExpImpBase.Exists) then
+    begin
+      log.Checkpoint('Acessando a Aba de Importação');
+      FormExpImpBasePageControl.ActivePageIndex := 0;
+      
+      log.Checkpoint('Setando diretório onde estão os arquivos: '+ pathDestino);
+      FormExpImpBaseDiretorioImp.Keys(pathDestino);
+      
+      log.Checkpoint('Realizando o download dos arquivos');
+      FormExpImpBaseBDownload.Click();
+      
+      log.Checkpoint('Executando processo de Importação');
+      FormExpImpBaseExecutar.Click();
+      
+      Aliases.Folha.WaitVCLObject('FRhExpImpBase', 20000);
+    end;
+    
+    log.Checkpoint('Saindo da tela de Importação/Exportação da Base');
+    FormExpImpBaseSair.Click();  
+  end;  
+end;

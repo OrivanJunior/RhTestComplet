@@ -1,0 +1,182 @@
+﻿{Script de mapeamento o Processo de Alteração em Massa
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 03/09/2021}
+
+var
+  AltEmMassaForm, AltEmMassaWhEstabEspec,
+  AltEmMassaBtnExecutar,
+
+  AltEmMassaWhLocaisTodos, AltEmMassaWhLocaisEspec,
+  AltEmMassaWhLocaisEspecCampo, AltEmMassaWhLocaisSelec,
+  AltEmMassaWhLocaisSelecCampo,
+
+  AltEmMassaWhEmpreTodos, AltEmMassaWhEmpreEspec,
+  AltEmMassaWhEmpreEspecCampo, AltEmMassaWhEmpreSelec,
+  AltEmMassaWhEmpreSelecCampo,
+
+  AltEmMassaCBOpcao, AltEmMassaCBAlterarPara,
+
+  AltEmMassaEBMesAno, AltEmMassaCBRemoverBat,
+  AltEmMassaCBVoltaDataAFD,
+
+  AltEmMassaCBRemMov, AltEmMassaEBProcesso,
+  AltEmMassaEBDataCtrl,
+
+  AltEmMassaEBDataAlt, AltEmMassaEBHoraAlt,
+  AltEmMassaCKHoraAcres, AltEmMassaEBHoraAcres,
+  AltEmMassaCBOperacao, AltEmMassaCBColMarc,
+  AltEmMassaEBMotDesc, AltEmMassaEBMotInc,
+
+  AltEmMassaEBDataHorario, AltEmMassaEBHorario,
+  AltEmMassaCBIncDtAdmHor, AltEmMassaCBEmpSemHor,
+
+  AltEmMassaEBDataLocal, AltEmMassaEBLocal,
+  AltEmMassaCBIncDtAdmLoc, AltEmMassaCBEmpSemLocal,
+
+  AltEmMassaEBMesAnoCon,
+
+  AltEmMassaEBDataInc, AltEmMassaEBHoraInc,
+  AltEmMassaEBMotivoInc,
+
+  AltEmMassaEBMesAnoBH, AltEmMassaEBTipoLanc,
+
+  AltEmMassaEBDataIniJust, AltEmMassaEBDataFinJust,
+  AltEmMassaEBTurnoJust, AltEmMassaEBJustificativa,
+
+  AltEmMassaEBDataFeriado, AltEmMassaEBDataTrocaFer,
+
+  AltEmMassaEBDtIniEscala, AltEmMassaEBDtFinEscala,
+  AltEmMassaEBHrEscala, AltEmMassaCBSobreporEsc: OleVariant;        
+
+procedure MapAlteracaoEmMassa();
+begin
+  AltEmMassaForm                 := Aliases.Ponto.FRhProcAlteracaoEmMassa;
+  AltEmMassaBtnExecutar          := Aliases.Ponto.FRhProcAlteracaoEmMassa.bExecutar;
+    { Filtro de Estabelecimento }
+  AltEmMassaWhEstabEspec         := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  
+  { Filtro de Locais }
+  AltEmMassaWhLocaisTodos        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  AltEmMassaWhLocaisEspec        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  AltEmMassaWhLocaisEspecCampo   := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  AltEmMassaWhLocaisSelec        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  AltEmMassaWhLocaisSelecCampo   := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Empregados }
+  AltEmMassaWhEmpreTodos         := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  AltEmMassaWhEmpreEspec         := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  AltEmMassaWhEmpreEspecCampo    := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  AltEmMassaWhEmpreSelec         := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  AltEmMassaWhEmpreSelecCampo    := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Dados Adicionais }
+  AltEmMassaCBOpcao              := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Panel1.CB_OPCAO;
+  AltEmMassaCBAlterarPara        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Panel1.EB_GERARPARA;
+end;
+
+procedure MapRemoverBatidas();
+begin
+  { Remover Batidas }
+  AltEmMassaEBMesAno             := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.EB_MESANO;
+  AltEmMassaCBRemoverBat         := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.cbRemoverBatidas;
+  AltEmMassaCBVoltaDataAFD       := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.cbVoltaDataEfetiva;
+end;
+
+procedure MapRemoverCalculos();
+begin
+  { Remover Cálculos }
+  AltEmMassaEBMesAno             := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.EB_MESANO;
+  AltEmMassaCBRemMov             := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.gbExcMov.cbRemMov;
+  AltEmMassaEBProcesso           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.gbExcMov.EB_PROCESSO;
+  AltEmMassaEBDataCtrl           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBatCalc.Panel5.gbExcMov.EB_DATACONTROLE;
+end;
+
+procedure MapAlteracaoBatidas();
+begin
+  { Alteração de Batidas }       
+  AltEmMassaEBDataAlt            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.EB_DATAALT;
+  AltEmMassaEBHoraAlt            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.EB_HORAALT;
+  AltEmMassaCKHoraAcres          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.CK_HRACRES;
+  AltEmMassaEBHoraAcres          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.EB_HRACRES;
+  AltEmMassaCBOperacao           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.CB_OPERACAO;
+  AltEmMassaCBColMarc            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.CB_COLMARC;
+  AltEmMassaEBMotDesc            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.EB_MOTDESC;
+  AltEmMassaEBMotInc             := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcAlt.Panel2.EB_MOTINC;
+end;
+
+procedure MapIncHorarioEmpregados();
+begin
+  { Incluir horário nos empregados }
+  AltEmMassaEBDataHorario        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncHorario.Panel3.EB_DATAHORARIO;
+  AltEmMassaEBHorario            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncHorario.Panel3.EB_HORARIO;
+  AltEmMassaCBIncDtAdmHor        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncHorario.Panel3.cbIncDtAdmHor;
+  AltEmMassaCBEmpSemHor          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncHorario.Panel3.cbEmpSemHorario;
+end;
+
+procedure MapIncLocalEmpregados();
+begin
+  { Incluir local nos empregados }
+  AltEmMassaEBDataLocal          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncLocal.Panel4.EB_DATALOCAL;
+  AltEmMassaEBLocal              := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncLocal.Panel4.EB_LOCAL;
+  AltEmMassaCBIncDtAdmLoc        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncLocal.Panel4.cbIncDtAdmLoc;
+  AltEmMassaCBEmpSemLocal        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncLocal.Panel4.cbEmpSemLocal;
+end;
+
+procedure MapRemoverEscalas();
+begin
+  { Remover Escalas }            
+  AltEmMassaEBMesAnoCon          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcControle.Panel8.EB_MESANOCON;
+end;
+
+procedure MapIncBatidaManual();
+begin
+  { Incluir Batida Manual }      
+  AltEmMassaEBDataInc            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncBatidas.Panel7.EB_DATAINC;
+  AltEmMassaEBHoraInc            := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncBatidas.Panel7.EB_HORAINC;
+  AltEmMassaEBMotivoInc          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcIncBatidas.Panel7.EB_MOTIVOINC;
+end;
+
+procedure MapRemoverLancamentosBH();
+begin
+  { Remover Lançamentos Manuais do BH }
+  AltEmMassaEBMesAnoBH           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBancoHoras.pnl1.EB_MESANOBH;
+  AltEmMassaEBTipoLanc           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBancoHoras.pnl1.EB_TIPOLANCEXCMANUALBH;
+end;
+
+procedure MapRemoverLancamentosBHAnt();
+begin
+  { Remover Lançamentos do B.H Anterior }
+  AltEmMassaEBTipoLanc           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcBancoHoras.pnl1.EB_TIPOLANCEXCMANUALBH;
+end;
+
+procedure MapRemoverIntervalosAFD();
+begin
+  { Remover Intervalos Pré-Assinalados do AFD e Cartão Ponto }
+  Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsOpcControle.Panel8.EB_MESANOCON;
+end;
+
+procedure MapIncJustificativa();
+begin
+  { Incluir Justificativa}       
+  AltEmMassaEBDataIniJust        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsIncluirJustificativa.Panel9.EB_DATAINIJUSTIFICATIVA;
+  AltEmMassaEBDataFinJust        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsIncluirJustificativa.Panel9.EB_DATAFINJUSTIFICATIVA;
+  AltEmMassaEBTurnoJust          := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsIncluirJustificativa.Panel9.EB_TURNOJUSTIFICATIVA;
+  AltEmMassaEBJustificativa      := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsIncluirJustificativa.Panel9.EB_JUSTIFICATIVA;
+end;
+
+procedure MapTrocaDeFeriado();
+begin
+  { Incluir Troca de Feriado }
+  AltEmMassaEBDataFeriado        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsTrocaFeriado.Panel10.EB_DATAFERIADO;
+  AltEmMassaEBDataTrocaFer       := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsTrocaFeriado.Panel10.EB_DATATROCAFER;
+end;
+
+procedure MapGerarEscalas();
+begin
+  { Gerar escalas }              
+  AltEmMassaEBDtIniEscala        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsGerarEscalas.Panel11.EB_DTINIESCALA;
+  AltEmMassaEBDtFinEscala        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsGerarEscalas.Panel11.EB_DTFINESCALA;
+  AltEmMassaEBHrEscala           := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsGerarEscalas.Panel11.EB_IDHORARIOESCALA;
+  AltEmMassaCBSobreporEsc        := Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.VsGroupBox1.Page.tsGerarEscalas.Panel11.chSobreporEscalas;
+end;

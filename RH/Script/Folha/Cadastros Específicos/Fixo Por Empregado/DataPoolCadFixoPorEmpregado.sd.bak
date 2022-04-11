@@ -1,0 +1,53 @@
+﻿{Script de DataPool do Cadastro de Fixo Geral
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:01/06/2021}
+ 
+var
+  { Dados Gerais } 
+  FixoEDPEstab, FixoEDPEmpregado, FixoEDPEvento,
+  
+  { Tab Periodicidade: Por Mês }
+  FixoEMesDPMes,
+  
+  { Tab Periodicidade: Por Mês/Ano }
+  FixoEMesAnoDPMes, FixoEMesAnoDPAno,
+  
+  { Tab Parâmetros }
+  FixoEParamsDPValorInfo, FixoEParamsDPInforme, FixoEParamsDPInforme2,
+  FixoEParamsDPValorTarefa, FixoEParamsDPProporcional, FixoEParamsDPDiasUteis,
+  FixoEParamsDPDiasFaltas, FixoEParamsDPAvosInforme, FixoEParamsDPAvosDireito,
+  FixoEParamsDPReferencia, FixoEParamsDPBaseProp: OleVariant;
+
+procedure LoadDPDadosGeraisFixoE(nomeDriver);
+begin
+  FixoEDPEstab     := DriverByName(nomeDriver).Value('ESTAB');
+  FixoEDPEmpregado := DriverByName(nomeDriver).Value('IDEMPREGADO');
+  FixoEDPEvento    := DriverByName(nomeDriver).Value('IDEVENTO');
+end;
+
+procedure LoadDPTabPeriodicidadeMesFixoE(nomeDriver);
+begin
+  FixoEMesDPMes := DriverByName(nomeDriver).Value('MES');
+end;
+
+procedure LoadDPTabPeriodicidadeMesAnoFixoE(nomeDriver);
+begin
+  FixoEMesAnoDPMes := DriverByName(nomeDriver).Value('MES');
+  FixoEMesAnoDPAno := DriverByName(nomeDriver).Value('ANO');
+end;
+
+procedure LoadDPTabParametrosFixoE(nomeDriver);
+begin
+  FixoEParamsDPValorInfo    := DriverByName(nomeDriver).Value('VALOR INFO');
+  FixoEParamsDPInforme      := DriverByName(nomeDriver).Value('INFORME');
+  FixoEParamsDPInforme2     := DriverByName(nomeDriver).Value('INFORME2');
+  FixoEParamsDPValorTarefa  := DriverByName(nomeDriver).Value('VALOR TAREFA');
+  FixoEParamsDPProporcional := DriverByName(nomeDriver).Value('PROPORCIONAL');
+  FixoEParamsDPDiasUteis    := DriverByName(nomeDriver).Value('DIAS UTEIS');
+  FixoEParamsDPDiasFaltas   := DriverByName(nomeDriver).Value('DIAS FALTAS');
+  FixoEParamsDPAvosInforme  := DriverByName(nomeDriver).Value('AVOS INFORME');
+  FixoEParamsDPAvosDireito  := DriverByName(nomeDriver).Value('AVOS DIREITO');
+  FixoEParamsDPReferencia   := DriverByName(nomeDriver).Value('REFERENCIA');
+  FixoEParamsDPBaseProp     := DriverByName(nomeDriver).Value('BASE PROP');
+end;

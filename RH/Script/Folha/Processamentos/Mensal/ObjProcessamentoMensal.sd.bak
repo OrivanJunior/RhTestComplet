@@ -1,0 +1,62 @@
+﻿uses
+  VarConsts;
+
+{Script de mapeamento o Processamento Mensal
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 02/06/2021}
+
+var
+  Folha,
+  
+  FormProcMensal, PnlProcMensal, PageProcMensal, BtnSalvarCalc,
+  
+  { Datas }
+  ProcMensalEBDtProc, ProcMensalEBDtPgto,
+  
+  { Tab Empregados }
+  TsEmpregados, GridEmpregado, GridSiteEmpre,
+  BtnIncEmpre, BtnIncAllEmpre, BtnExcEmpre,
+  BtnExcAllEmpre, BtnSaveEmpre, BtnDesfEmpre,
+  BtnProcEmpre, BtnConsEmpre, BtnIncluirCtrl,
+  
+  { Tab Movimento }
+  TsMovimento, GridMovimento, GridSiteMov,
+  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  
+procedure MapFormProcessamentoMensal();
+begin
+  Folha          :=  Sys.Process(_ModuloFolha);
+  
+  FormProcMensal := Aliases.Folha.FRhProcMensal;
+  PnlProcMensal  := Aliases.Folha.FRhProcMensal.pnPeriodo;
+  BtnSalvarCalc  := Aliases.Folha.FRhProcMensal.tbSalvar;
+  PageProcMensal := Aliases.Folha.FRhProcMensal.pg;
+  BtnIncluirCtrl := Aliases.Folha.FRhProcMensal.pnPeriodo.bIncluirControle;
+end; 
+ 
+procedure MapPanelProcessamentoMensal();
+begin
+  ProcMensalEBDtProc := Aliases.Folha.FRhProcMensal.pnPeriodo.EB_DATA;
+  ProcMensalEBDtPgto := Aliases.Folha.FRhProcMensal.pnPeriodo.EB_DATAPAGTO;
+end;
+
+procedure MapTabEmpregadosProcMensal();
+begin
+  BtnIncEmpre    := Aliases.Folha.FRhProcMensal.bEmpreInc;
+  BtnIncAllEmpre := Aliases.Folha.FRhProcMensal.bEmpreIncAll;
+  BtnExcEmpre    := Aliases.Folha.FRhProcMensal.bEmpreExc;
+  BtnExcAllEmpre := Aliases.Folha.FRhProcMensal.btnExcAllEmp;
+  BtnSaveEmpre   := Aliases.Folha.FRhProcMensal.bEmpreSalvar;
+  BtnDesfEmpre   := Aliases.Folha.FRhProcMensal.bEmpreDesf;
+  BtnProcEmpre   := Aliases.Folha.FRhProcMensal.bEmpreProc;
+  BtnConsEmpre   := Aliases.Folha.FRhProcMensal.bEmpreCons;  
+  GridEmpregado  := Aliases.Folha.FRhProcMensal.pg.tsEmpregados.grp1.gEmpregado;
+end;
+
+procedure MapTabMovimentoProcMensal();
+begin
+  BtnIncMov     := Aliases.Folha.FRhProcMensal.bMovInc;
+  BtnRecMov     := Aliases.Folha.FRhProcMensal.bMovRec;
+  BtnExcMov     := Aliases.Folha.FRhProcMensal.bMovExc;
+end;

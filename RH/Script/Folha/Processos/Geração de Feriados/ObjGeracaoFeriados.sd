@@ -1,0 +1,23 @@
+﻿uses
+  VarConsts;
+{Script para mapear a Geração de Feriados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 11/05/2021}
+ 
+var
+  GeracaoFeriadosForm, 
+  GeracaoFeriadosEBAno,
+  GeracaoFeriadosEBEstab,
+  btnExecutar, 
+  btnSalvar: OleVariant;
+ 
+procedure MapTelaGeracaoFeriados();
+begin  
+  GeracaoFeriadosForm    := Aliases.Folha.FRhProcFeriadosNacionais;
+  GeracaoFeriadosEBEstab := Aliases.Folha.FRhProcFeriadosNacionais.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  GeracaoFeriadosEBAno   := Aliases.Folha.FRhProcFeriadosNacionais.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_Ano;
+  
+  btnExecutar            := Aliases.Folha.FRhProcFeriadosNacionais.bExecutar;
+  btnSalvar              := Aliases.Folha.FRhProcFeriadosNacionais.tbSalvar;
+end;

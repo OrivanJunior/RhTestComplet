@@ -1,0 +1,56 @@
+﻿uses
+  ConexaoBanco;
+
+//  Const
+//  strConexaoFBBase = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO_BASE.FDB;'; 
+//  strConexaoFBAtual = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO.FDB;'; 
+//  strConexaoFBBase = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2_BASE.FDB;'; 
+//  strConexaoFBAtual = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2.FDB;';
+  
+procedure VerificaCalculos(consulta, strConexaoFBBase, strConexaoFBAtual);
+var 
+  idEventoBase, valueEventoBase, empEventoBase, dataEventoBase,
+  estabEventoBase, idEventoAtual, valueEventoAtual, empEventoAtual, 
+  dataEventoAtual, estabEventoAtual, i ,j, k, l, Qry1, Qry2:OleVariant;
+begin
+  Qry1 := buscaBancoConsulta(consulta, strConexaoFBAtual);
+  Qry2 := buscaBancoConsulta(consulta, strConexaoFBBase);
+
+  Qry1.First;
+  
+  while not Qry1.EOF do
+  begin
+    idEventoAtual     := Qry1.FieldByName('IDEVENTO').Value;
+    valueEventoAtual  := Qry1.FieldByName('VALOR').Value;
+    empEventoAtual    := Qry1.FieldByName('IDEMPREGADO').Value;
+    dataEventoAtual   := Qry1.FieldByName('DATA').Value;
+    estabEventoAtual  := Qry1.FieldByName('ESTAB').Value;
+  
+    Qry2.First;
+    while not Qry2.EOF do
+    begin
+      idEventoBase     := Qry2.FieldByName('IDEVENTO').Value;
+      valueEventoBase  := Qry2.FieldByName('VALOR').Value;
+      empEventoBase    := Qry2.FieldByName('IDEMPREGADO').Value;
+      dataEventoBase   := Qry2.FieldByName('DATA').Value;
+      estabEventoBase  := Qry2.FieldByName('ESTAB').Value;
+    
+      if (estabEventoBase = estabEventoAtual) and (empEventoBase = empEventoAtual) and (dataEventoBase = dataEventoAtual) and (idEventoBase = idEventoAtual) then
+      begin
+        if (valueEventoBase <> valueEventoAtual) then
+        begin
+          Log.Warning('O evento ('  + VarToStr(idEventoBase)     + ') de Valor(' + VarToStr(valueEventoBase)     + ') - ' + 
+                      'Empregado('  + VarToStr(empEventoBase)    + ') - Data('   + VarToStr(dataEventoBase)      + ') - ' +
+                      'Estab('      + VarToStr(estabEventoAtual) + ') difere do evento (' + VarToStr(idEventoAtual) + ')' +  
+                      'de Valor('   + VarToStr(valueEventoAtual) + ') encontrado no banco reprocessado');           
+        end;
+        break;
+      end;
+      Qry2.Next;
+    end;
+    Qry1.Next;
+  end;
+end;
+
+
+

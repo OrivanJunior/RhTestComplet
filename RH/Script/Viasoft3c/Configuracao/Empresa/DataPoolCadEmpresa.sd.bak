@@ -1,0 +1,18 @@
+﻿{Script para criar DataPool da tela de cadastro de empresa
+ Módulo: Viasoft_RO
+ Autor: Camila Braatz da Rocha
+ Data: 16/06/2021}
+ 
+var
+  CadEmpresaDPEmpresa, CadEmpresaDPRazaoSoc, CadEmpresaDPReduzido, CadEmpresaDPInativa: OleVariant;
+  
+procedure LeDataPoolCadEmpresa(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+    CadEmpresaDPEmpresa  := DriverByName(nomeDriver).Value('EMPRESA');
+    CadEmpresaDPRazaoSoc := DriverByName(nomeDriver).Value('RAZAOSOC');
+    CadEmpresaDPReduzido := DriverByName(nomeDriver).Value('REDUZIDO');
+    CadEmpresaDPInativa  := DriverByName(nomeDriver).Value('INATIVA');
+  DDT.CurrentDriver.Next();
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

@@ -1,0 +1,51 @@
+﻿{Script de DataPool do Cadastro de Fixo Geral
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:01/06/2021}
+ 
+var
+  { Dados Gerais } 
+  FixoGDPEstab, FixoGDPEvento,
+  
+  { Tab Periodicidade: Por Mês }
+  FixoGMesDPMes,
+  
+  { Tab Periodicidade: Por Mês/Ano }
+  FixoGMesAnoDPMes, FixoGMesAnoDPAno,
+  
+  { Tab Parâmetros }
+  FixoGParamsDPValorInfo, FixoGParamsDPInforme, FixoGParamsDPInforme2, FixoGParamsDPValorTarefa, FixoGParamsDPProporcional, FixoGParamsDPDiasUteis,
+  FixoGParamsDPDiasFaltas, FixoGParamsDPAvosInforme, FixoGParamsDPAvosDireito, FixoGParamsDPReferencia,
+  FixoGParamsDPBaseProp: OleVariant;
+
+procedure LoadDPDadosGeraisFixoG(nomeDriver);
+begin
+  FixoGDPEstab  := DriverByName(nomeDriver).Value('ESTAB');
+  FixoGDPEvento := DriverByName(nomeDriver).Value('IDEVENTO');
+end;
+
+procedure LoadDPTabPeriodicidadeMesFixoG(nomeDriver);
+begin
+  FixoGMesDPMes := DriverByName(nomeDriver).Value('MES');
+end;
+
+procedure LoadDPTabPeriodicidadeMesAnoFixoG(nomeDriver);
+begin
+  FixoGMesAnoDPMes := DriverByName(nomeDriver).Value('MES');
+  FixoGMesAnoDPAno := DriverByName(nomeDriver).Value('ANO');
+end;
+
+procedure LoadDPTabParametrosFixoG(nomeDriver);
+begin
+  FixoGParamsDPValorInfo    := DriverByName(nomeDriver).Value('VALOR INFO');
+  FixoGParamsDPInforme      := DriverByName(nomeDriver).Value('INFORME');
+  FixoGParamsDPInforme2     := DriverByName(nomeDriver).Value('INFORME2');
+  FixoGParamsDPValorTarefa  := DriverByName(nomeDriver).Value('VALOR TAREFA');
+  FixoGParamsDPProporcional := DriverByName(nomeDriver).Value('PROPORCIONAL');
+  FixoGParamsDPDiasUteis    := DriverByName(nomeDriver).Value('DIAS UTEIS');
+  FixoGParamsDPDiasFaltas   := DriverByName(nomeDriver).Value('DIAS FALTAS');
+  FixoGParamsDPAvosInforme  := DriverByName(nomeDriver).Value('AVOS INFORME');
+  FixoGParamsDPAvosDireito  := DriverByName(nomeDriver).Value('AVOS DIREITO');
+  FixoGParamsDPReferencia   := DriverByName(nomeDriver).Value('REFERENCIA');
+  FixoGParamsDPBaseProp     := DriverByName(nomeDriver).Value('BASE PROP');
+end;

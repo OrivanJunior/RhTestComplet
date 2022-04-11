@@ -1,0 +1,130 @@
+﻿{Script para mapear o Processo de eSocial - Retificação
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+
+var
+  FormESocialRetificacao,
+  PageESocialRetificacao,
+  
+  BtnEnviarRetificacao,
+                                        
+  FormRetificacaoModoRetificacao,
+                                        
+  FormRetificacaoWhEmpregadosTodos,
+  FormRetificacaoWhEmpregadosEspec,
+  FormRetificacaoWhEmpregadosEspecCampo,
+  FormRetificacaoWhEmpregadosSelec,
+  FormRetificacaoWhEmpregadosSelecCampo,
+                                        
+  FormRetificacaoEventoRetificarEmp,
+  FormRetificacaoWhPeriodoApuracaoEmp,
+                                        
+  FormRetificacaoWhEventoRetificarPr,
+  FormRetificacaoWhPeriodoApuracaoPr,
+                                        
+  FormRetificacaoWhPrestadoresTodos,
+  FormRetificacaoWhPrestadoresEspec,
+  FormRetificacaoWhPrestadoresEspecCampo,
+  FormRetificacaoWhPrestadoresSelec,
+  FormRetificacaoWhPrestadoresSelecCampo,
+                                        
+  FormRetificacaoWhEventoRetificarPs,
+  FormRetificacaoWhPeriodoApuracaoPs,
+                                        
+  FormRetificacaoEventoRetificarAv,
+  FormRetificacaoWhPeriodoApuracaoAv,
+                                        
+  FormRetificacaoEventoRetificarOut,
+  FormRetificacaoWhPeriodoApuracaoOut,
+  
+  FormHistEstab, FormHistDataIni,
+  FormHistHoraIni, FormHistDataFin,
+  FormHistHoraFin, FormHistEvteSocial,
+  BtnFiltrar, BtnVerExcXML,
+  BtnSalvarExcXML, GridExcEventos,
+
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialRetificacao();
+begin
+  FormESocialRetificacao                  := Aliases.Folha.FRhProceSocialRetificacao;
+  PageESocialRetificacao                  := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao;
+  
+  BtnEnviarRetificacao                    := Aliases.Folha.FRhProceSocialRetificacao.btEnviarRetificacao;
+  
+  FormRetificacaoModoRetificacao          := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.pgVersao.tsVersao2_5.sbVersao2_5.GroupBox8.EB_MODOEXC;
+  
+  FormRetificacaoWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados30;
+  FormRetificacaoWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.WhEmpregados.WhEmpregados20;
+  FormRetificacaoWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados50;
+  FormRetificacaoWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados40;
+  FormRetificacaoWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados80;
+
+  FormRetificacaoEventoRetificarEmp       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcEmp.EB_EVENTOEMP;
+  FormRetificacaoWhPeriodoApuracaoEmp     := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcEmp.EB_PERAPUREMP;
+  
+  FormRetificacaoWhEventoRetificarPr      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcPR.EB_EVENTOPR;
+  FormRetificacaoWhPeriodoApuracaoPr      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcPR.EB_PERAPURPR;
+  
+  FormRetificacaoWhPrestadoresTodos       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores30;
+  FormRetificacaoWhPrestadoresEspec       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.WhPrestadores.WhPrestadores20;
+  FormRetificacaoWhPrestadoresEspecCampo  := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores50;
+  FormRetificacaoWhPrestadoresSelec       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores40;
+  FormRetificacaoWhPrestadoresSelecCampo  := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores80;
+  
+  FormRetificacaoWhEventoRetificarPs      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcPS.EB_EVENTOPS;  
+  FormRetificacaoWhPeriodoApuracaoPs      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcPS.EB_PERAPURPS;
+  
+  FormRetificacaoEventoRetificarAv        := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcAV.EB_EVENTOAV;
+  FormRetificacaoWhPeriodoApuracaoAv      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcAV.EB_PERAPURAV;
+  
+  FormRetificacaoEventoRetificarOut       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcOutros.EB_EVENTOOUT;
+  FormRetificacaoWhPeriodoApuracaoOut     := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.gbExcOutros.EB_PERAPUROUT;
+end;
+
+procedure MapESocialHistRetificacao();
+begin
+  FormHistEstab                        := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_ESTAB_PESQUISA;
+  FormHistDataIni                      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_DATAHORAINIEXC;
+  FormHistHoraIni                      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.TVsHora_;
+  FormHistDataFin                      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_DATAHORAFINEXC;
+  FormHistHoraFin                      := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.TVsHora_2;
+  FormHistEvteSocial                   := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_EVENTOESOCIAL_PESQUISA;
+  BtnFiltrar                           := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.Panel4.btFiltrar;
+  BtnVerExcXML                         := Aliases.Folha.FRhProceSocialRetificacao.btVerExcXML;
+  BtnSalvarExcXML                      := Aliases.Folha.FRhProceSocialRetificacao.btSalvarExcXML;
+  GridExcEventos                       := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsHistorico.GroupBox3.gRhProteSocialExc;
+end;
+
+procedure MapESocialConsRetificacao();
+begin
+  FormConsEstab                 := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni               := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni               := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin               := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin               := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente              := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento            := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial            := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                     := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                   := Aliases.Folha.FRhProceSocialRetificacao.bSelOcs;
+  BtnDesTodos                   := Aliases.Folha.FRhProceSocialRetificacao.bDesmOcs;
+  BtnConsSel                    := Aliases.Folha.FRhProceSocialRetificacao.btConsTodosSel;
+  BtnEnvTodosSel                := Aliases.Folha.FRhProceSocialRetificacao.btEnvTodosSel;
+  BtnExtTodosSel                := Aliases.Folha.FRhProceSocialRetificacao.btExcTodosSel;
+  BtnSalvarXML                  := Aliases.Folha.FRhProceSocialRetificacao.btSalvarXML;
+  BtnVerXML                     := Aliases.Folha.FRhProceSocialRetificacao.btVerXML;
+  BtnVerRetorno                 := Aliases.Folha.FRhProceSocialRetificacao.btVisualizarRetorno;
+  BtnVizualizar                 := Aliases.Folha.FRhProceSocialRetificacao.btVisualizarOc;
+  CbMostrarProtocolos           := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                   := Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

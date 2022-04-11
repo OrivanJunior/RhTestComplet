@@ -1,0 +1,89 @@
+﻿{Script para executar a Transferência de Empregados
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 22/06/2021}
+uses
+  CommonsAll,
+  CommonsObj,
+  VarConsts,
+  DataPoolTransferenciaEmpregados, 
+  ObjTransferenciaEmpregados;
+ 
+procedure AcessaTransferenciaEmpregados();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Transferência de Empregados'); 
+end;
+
+procedure PreencheDados(pathData);
+var
+  DDTTransferencia: OleVariant;
+begin
+  DDTTransferencia := CarregaDDT(pathData, 'Dados');
+  
+  LoadDataPoolTransferencia(DDTTransferencia.Name);
+  
+  if (TransfEmpEBEstabDest.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfEmpregados.pg.tsProcesso.VsGroupBox1.VsGroupBox110.Click();
+    
+  VerificaConsultaF3Insere(_ModuloFolha, TransfEmpEBEstabDest, TransfEmpDPEstabDestino);
+  
+  if (TransfEmpGrid.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcTransfEmpregados.pg.tsProcesso.VsGroupBox2.VsGroupBox210.Click();
+    
+  if (TransfEmpGrid.ActiveView.ViewData.RowCount <= 0) then   
+    btnIncEmp.Click();
+    
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Empregado', TransfEmpDPIdEmpregado);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Situação de Saída', TransfEmpDPSituaSaida);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Tipo de Admissão', TransfEmpDPTipoAdm);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Local de Destino', TransfEmpDPLocalDestino);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Tabela Anuênio', TransfEmpDPTabAnuenio);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Data de Entrada', TransfEmpDPDataEntrada);
+  VerificaClickPreencheGrid(TransfEmpGrid, 0, 'Manter o Mesmo Código?', TransfEmpDPManterId);
+  
+  btnSaveEmp.Click();
+  
+  DDT.CloseDriver(DDTTransferencia.Name); 
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaTransferenciaEmpregados(pathData);
+begin
+  AcessaTransferenciaEmpregados();
+  
+  MapTransferenciaEmpregados();
+
+  PreencheDados(pathData);
+
+  btnExecutar.Click();
+  
+  if (Aliases.Folha.FVsErrorDlg.Visible) then
+  begin
+    Log.Warning('Existem erros, verifique os dados informados');
+    Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    ActFechar(FormTransfEmpregados);
+  end
+  else if (Aliases.Folha.FRhProcTransfEmpregados.pg.ActivePageIndex = 1) then
+  begin
+    Log.Warning('Existem Inconsistências');
+    ActFechar(FormTransfEmpregados);
+  end
+  else
+  begin
+    FechaMensagemProcessoConcluido();
+  
+    ActFechar(FormTransfEmpregados);
+  end;
+end;

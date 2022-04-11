@@ -1,0 +1,86 @@
+﻿uses
+  ConexaoBanco, CommonsAll;
+
+var
+  FiltroConsEstab, FiltroConsDataIni,
+  FiltroConsHoraIni, FiltroConsDataFin,
+  FiltroConsHoraFin, FiltroConsAmbiente,
+  FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
+  
+const
+  conexao = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\COOPERCAMPOS.FDB';
+  
+function RetornaDescricao(Codigo);
+begin
+  case Codigo of
+    101: Result := '101 - Aguardando Processamento';
+    201: Result := '201 - Processado';
+    202: Result := '202 - Processado Com Advertências';
+    301: Result := '301 - Erro de Servidor';
+    401: Result := '401 - Erro de Preenchimento';
+    402: Result := '402 - Schema Inválido';
+    403: Result := '403 - Versão do Schema Não Permitida';
+    404: Result := '404 - Erro de Certificado';
+    405: Result := '405 - Lote Nulo ou Vazio';
+    406: Result := '406 - Evento Não Pertence ao Grupo Especificado no Lote de Eventos';
+    407: Result := '407 - A Regra de Precedência na Transmissão de Eventos Não Foi Seguida';
+    408: Result := '408 - Erro na Integração Com o Sistema CNPJ/CPF';
+    409: Result := '409 - Erro na Integração Com o Sistema de Procuração Eletrônica da RFB';
+    411: Result := '411 - Assinante Inválido';
+    501: Result := '501 - Erro de Preenchimento';
+    502: Result := '502 - Schema Inválido';
+    503: Result := '503 - Versão do Schema Não Permitida';
+    504: Result := '504 - Erro de Certificado';
+    505: Result := '505 - Consulta Nula ou Vazia';
+    999: Result := '999 - Sem Registros';
+  else
+    Result := '';
+  end;
+end;
+
+procedure VerificaEventosESocial();
+var 
+  valueResposta, valueSequencial, valueEvento, descricao, i ,j, 
+  consultaFB, consultaORA, DataIni, DataFin, Ambiente:OleVariant;
+begin          
+  DataIni  := PrimeiroDiaMesAtual('.');
+  DataFin  := GetDataAtual('.');
+  Ambiente := 'H';
+  
+  consultaFB  := 'SELECT SEQUENCIAL, CDRESPOSTA, EVENTO FROM RHPROTESOCIAL WHERE DATAHORAENV BETWEEN ''' + DataIni + 
+                 ' 00:00:00''' + ' AND ''' + DataFin + ' 23:59:59'' AND AMBIENTE = ''' + Ambiente + '''';
+                 
+  consultaORA := 'SELECT SEQUENCIAL, CDRESPOSTA, EVENTO FROM RHPROTESOCIAL WHERE DATAHORAENV BETWEEN TO_TIMESTAMP(''' + DataIni + 
+                 ' 00:00:00'', '' DD/MM/YYYY HH24:MI:SS'')' + ' AND TO_TIMESTAMP(''' + DataFin + ' 23:59:59'', '' DD/MM/YYYY HH24:MI:SS'' )' + 
+                 'AND AMBIENTE = ''' + Ambiente + '''';
+                    
+  buscaBancoAtual(consultaFB, consultaORA, conexao);
+  
+  for i := 0 to Project.Variables.retornoConsulta.RowCount-1 do
+  begin
+    for j := 0 to Project.Variables.retornoConsulta.ColumnCount-1 do
+    begin
+      valueSequencial := Project.Variables.retornoConsulta.Item[0,i];
+      valueResposta   := Project.Variables.retornoConsulta.Item[1,i];
+      valueEvento     := Project.Variables.retornoConsulta.Item[2,i];
+    end;
+    
+    descricao := RetornaDescricao(valueResposta);
+    if (valueResposta <> 201) and (valueResposta <> 202) then
+    begin
+      Log.Warning('O evento S-' + VarToStr(valueEvento) +', de sequencial ('+ VarToStr(valueSequencial) +') não foi enviado. Código Resposta: ' + descricao)
+    end;
+  end;
+end;
+
+procedure LeDataPoolConsulta(nomeDriver);
+begin
+  FiltroConsEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroConsDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;

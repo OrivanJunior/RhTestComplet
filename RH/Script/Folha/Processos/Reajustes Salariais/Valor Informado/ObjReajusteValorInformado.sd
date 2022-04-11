@@ -1,0 +1,84 @@
+﻿{Script para mapear o Processo de Reajuste Salarial por Valor Informado
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+var
+  FormReajusteVlrInform, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  ReajusteVlrInformWhEstabEspec, ReajusteVlrInformWhEstabEspecCampo,
+  ReajusteVlrInformWhEstabTodosEmp, ReajusteVlrInformWhEstabTodosEmpCampo,
+  ReajusteVlrInformWhEstabTodos, ReajusteVlrInformWhEstabSelec,
+  ReajusteVlrInformWhEstabSelecCampo, 
+  
+  ReajusteVlrInformWhLocal10, ReajusteVlrInformWhLocalTodos, 
+  ReajusteVlrInformWhLocalEspec, ReajusteVlrInformWhLocalEspecCampo, 
+  ReajusteVlrInformWhLocalSelec, ReajusteVlrInformWhLocalSelecCampo,
+  
+  ReajusteVlrInformWhEmpre10, ReajusteVlrInformWhEmpreTodos, 
+  ReajusteVlrInformWhEmpreEspec, ReajusteVlrInformWhEmpreEspecCampo, 
+  ReajusteVlrInformWhEmpreSelec, ReajusteVlrInformWhEmpreSelecCampo, 
+  
+  ReajusteVlrInformWhSituacao10, ReajusteVlrInformWhSituacaoTodos, 
+  ReajusteVlrInformWhSituacaoEspec, ReajusteVlrInformWhSituacaoEspecCampo, 
+  ReajusteVlrInformWhSituacaoSelec, ReajusteVlrInformWhSituacaoSelecCampo,
+   
+  ReajusteVlrInformWhDados10, ReajusteVlrInformWhMotivo, 
+  ReajusteVlrInformWhMoeda, ReajusteVlrInformWhDataReaj, 
+  ReajusteVlrInformWhRetroativo, ReajusteVlrInformWhDtRetroativa, 
+  ReajusteVlrInformWhVlrPadrao, ReajusteVlrInformWhVlrAdc, 
+  ReajusteVlrInformWhTempoEmpresa, ReajusteVlrInformWhInfosAdc: OleVariant;
+  
+procedure MapReajusteValorInformado();
+begin
+  FormReajusteVlrInform := Aliases.Folha.FRhProcReajusteVlrInform;
+  
+  btnSair          := Aliases.Folha.FRhProcReajusteVlrInform.BSair;
+  btnExecutar      := Aliases.Folha.FRhProcReajusteVlrInform.bExecutar;
+  btnSalvar        := Aliases.Folha.FRhProcReajusteVlrInform.tbSalvar;
+  btnRelatorio     := Aliases.Folha.FRhProcReajusteVlrInform.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  ReajusteVlrInformWhEstabEspec         := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  ReajusteVlrInformWhEstabEspecCampo    := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  ReajusteVlrInformWhEstabTodosEmp      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  ReajusteVlrInformWhEstabTodosEmpCampo := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  ReajusteVlrInformWhEstabTodos         := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  ReajusteVlrInformWhEstabSelec         := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  ReajusteVlrInformWhEstabSelecCampo    := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Local }
+  ReajusteVlrInformWhLocal10         := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal10;
+  ReajusteVlrInformWhLocalTodos      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  ReajusteVlrInformWhLocalEspec      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  ReajusteVlrInformWhLocalEspecCampo := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  ReajusteVlrInformWhLocalSelec      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  ReajusteVlrInformWhLocalSelecCampo := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;
+  
+  { Filtro de Empregado }
+  ReajusteVlrInformWhEmpre10         := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10;
+  ReajusteVlrInformWhEmpreTodos      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  ReajusteVlrInformWhEmpreEspec      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  ReajusteVlrInformWhEmpreEspecCampo := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  ReajusteVlrInformWhEmpreSelec      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  ReajusteVlrInformWhEmpreSelecCampo := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Filtro de Situações }
+  ReajusteVlrInformWhSituacao10           := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao10;
+  ReajusteVlrInformWhSituacaoTodos        := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao30;
+  ReajusteVlrInformWhSituacaoEspec        := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  ReajusteVlrInformWhSituacaoEspecCampo   := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  ReajusteVlrInformWhSituacaoSelec        := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  ReajusteVlrInformWhSituacaoSelecCampo   := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;  
+  
+  { Dados Adicionais }
+  ReajusteVlrInformWhDados10      := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.whDados10;
+  ReajusteVlrInformWhMotivo       := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_IDMOTIVO;
+  ReajusteVlrInformWhMoeda        := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_IDMOEDA;
+  ReajusteVlrInformWhDataReaj     := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_DataReaj;
+  ReajusteVlrInformWhRetroativo   := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_Retroativo;
+  ReajusteVlrInformWhDtRetroativa := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_DataRet;
+  ReajusteVlrInformWhVlrPadrao    := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_VALOR;
+  ReajusteVlrInformWhVlrAdc       := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_VLRACRES;
+  ReajusteVlrInformWhTempoEmpresa := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.EB_MESEMPRESA;
+  ReajusteVlrInformWhInfosAdc     := Aliases.Folha.FRhProcReajusteVlrInform.pg.tsSelecao.SB_Selecao.whDados.memInfoAdicional;
+end;

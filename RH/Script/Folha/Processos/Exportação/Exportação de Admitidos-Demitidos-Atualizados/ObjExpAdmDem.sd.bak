@@ -1,0 +1,44 @@
+﻿{Script para criar o DataPool do Processo de Exportação de Admitidos/Demitidos/Atualizados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 13/07/2021}
+ 
+var
+  FormExpAdmDem, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  ExpAdmDemWhEstabEspec, ExpAdmDemWhEstabEspecCampo,
+  ExpAdmDemWhEstabTodosEmp, ExpAdmDemWhEstabTodosEmpCampo,
+  ExpAdmDemWhEstabTodos, ExpAdmDemWhEstabSelec,
+  ExpAdmDemWhEstabSelecCampo, 
+  
+  ExpAdmDemWhDataIni, ExpAdmDemWhDataFin, 
+  
+  ExpAdmDemWhDadosTipo, ExpAdmDemWhDadosLocalGrav: OleVariant;
+  
+procedure MapExpAdmDem();
+begin
+  FormExpAdmDem                 := Aliases.Folha.FRhProcExpAdmDem;
+  
+  btnSair                       := Aliases.Folha.FRhProcExpAdmDem.BSair;
+  btnExecutar                   := Aliases.Folha.FRhProcExpAdmDem.bExecutar;
+  btnSalvar                     := Aliases.Folha.FRhProcExpAdmDem.tbSalvar;
+  btnRelatorio                  := Aliases.Folha.FRhProcExpAdmDem.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  ExpAdmDemWhEstabEspec         := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  ExpAdmDemWhEstabEspecCampo    := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  ExpAdmDemWhEstabTodosEmp      := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  ExpAdmDemWhEstabTodosEmpCampo := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  ExpAdmDemWhEstabTodos         := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  ExpAdmDemWhEstabSelec         := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  ExpAdmDemWhEstabSelecCampo    := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Datas }
+  ExpAdmDemWhDataIni            := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  ExpAdmDemWhDataFin            := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Dados Adicionais }
+  ExpAdmDemWhDadosLocalGrav     := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  ExpAdmDemWhDadosTipo          := Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whDados.EB_TIPO;
+end;

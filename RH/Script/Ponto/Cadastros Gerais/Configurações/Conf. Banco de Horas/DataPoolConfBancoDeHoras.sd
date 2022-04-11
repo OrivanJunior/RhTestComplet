@@ -1,0 +1,55 @@
+﻿{Script de DataPool do Cadastro da Conf. do Banco de Horas
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 13/09/2021}
+
+var
+  ConfBcoHorasDPIdBhConf, ConfBcoHorasDPDescricao,
+  ConfBcoHorasDPTipo, ConfBcoHorasDPLimQuit,
+  ConfBcoHorasDPLimComp, ConfBcoHorasDPDebFaltas,
+  ConfBcoHorasDPDebAtrasos, ConfBcoHorasDPTransfSaldoDeb,
+  ConfBcoHorasDPTransfSaldoCred, ConfBcoHorasDPJor12x36,
+
+  ConfDiarioDPConsiderar, ConfDiarioDPLimiteHr,
+  ConfDiarioDPLimitePerc, ConfDiarioDPPercTrocaHr,
+  ConfDiarioDPEvento, ConfDiarioDPEventoQuit,
+
+  ConfMensalDPConsiderar, ConfMensalDPLimiteHr,  
+  ConfMensalDPLimitePerc, ConfMensalDPPercTroca, 
+  ConfMensalDPEvento, ConfMensalDPEventoQuit: OleVariant;
+
+procedure LeDataPoolInfosGerais(nomeDriver);
+begin
+  ConfBcoHorasDPIdBhConf        := DDT.DriverByName(nomeDriver).Value('IDBHCONF');
+  ConfBcoHorasDPDescricao       := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  ConfBcoHorasDPTipo            := DDT.DriverByName(nomeDriver).Value('TIPO');
+  ConfBcoHorasDPLimQuit         := DDT.DriverByName(nomeDriver).Value('LIMQUIT');
+  ConfBcoHorasDPLimComp         := DDT.DriverByName(nomeDriver).Value('LIMCOMP');
+  ConfBcoHorasDPDebFaltas       := DDT.DriverByName(nomeDriver).Value('DEBFALTAS');
+  ConfBcoHorasDPDebAtrasos      := DDT.DriverByName(nomeDriver).Value('DEBATRASOS');
+  ConfBcoHorasDPTransfSaldoDeb  := DDT.DriverByName(nomeDriver).Value('TRANSFSALDODEB');
+  ConfBcoHorasDPTransfSaldoCred := DDT.DriverByName(nomeDriver).Value('TRANSFSALDOCRED');
+  ConfBcoHorasDPJor12x36        := DDT.DriverByName(nomeDriver).Value('JOR12X36');
+end;
+
+procedure LeDataPoolConfDiaria(nomeDriver);
+begin
+  ConfBcoHorasDPIdBhConf        := DDT.DriverByName(nomeDriver).Value('IDBHCONF');
+  ConfDiarioDPConsiderar        := DDT.DriverByName(nomeDriver).Value('CONSIDERAR');
+  ConfDiarioDPLimiteHr          := DDT.DriverByName(nomeDriver).Value('LIMITEHORA');
+  ConfDiarioDPLimitePerc        := DDT.DriverByName(nomeDriver).Value('LIMITEPERC');
+  ConfDiarioDPPercTrocaHr       := DDT.DriverByName(nomeDriver).Value('PERCTROCAHORA');
+  ConfDiarioDPEvento            := DDT.DriverByName(nomeDriver).Value('EVENTO');
+  ConfDiarioDPEventoQuit        := DDT.DriverByName(nomeDriver).Value('EVENTOQUIT');
+end;
+
+procedure LeDataPoolConfMensal(nomeDriver);
+begin
+  ConfBcoHorasDPIdBhConf        := DDT.DriverByName(nomeDriver).Value('IDBHCONF');
+  ConfMensalDPConsiderar        := DDT.DriverByName(nomeDriver).Value('CONSIDERAR');
+  ConfMensalDPLimiteHr          := DDT.DriverByName(nomeDriver).Value('LIMITEHORA');
+  ConfMensalDPLimitePerc        := DDT.DriverByName(nomeDriver).Value('LIMITEPERC');
+  ConfMensalDPPercTroca         := DDT.DriverByName(nomeDriver).Value('PERCTROCAHORA');
+  ConfMensalDPEvento            := DDT.DriverByName(nomeDriver).Value('EVENTO');
+  ConfMensalDPEventoQuit        := DDT.DriverByName(nomeDriver).Value('EVENTOQUIT');
+end;

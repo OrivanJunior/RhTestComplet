@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="units">
+			<Prp name="unit 0" type="S" value="{C6F52484-9537-4D89-A9AD-B9A3E6CC3538}"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Incomplete keyboard input."/>
+			<Prp name="date" type="D" value="44628.5954715972"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="remarks" type="S" value="One or more keystrokes specified by the &quot;[Space]&quot; string could not be simulated.&lt;br /&gt;&lt;br /&gt;Possible causes of the problem:&lt;br /&gt;* The string syntax is invalid.&lt;br /&gt;* The string includes characters that cannot be inputted using the keyboard layouts installed on the computer.&lt;br /&gt;* The string includes East Asian language characters, but no appropriate IMEs are installed.&lt;br /&gt;* Advanced text services are not applied to the application.&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Sys.Process('Folha').VCLObject('FSelUsu').VCLObject('cxGroupBox1').VCLObject('dxLayoutControl').VCLObject('ESenha')&lt;html&gt;&lt;body&gt;&lt;code&gt;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;aqa-help://4241&quot;&gt;Learn more about the problem and possible solutions&lt;/a&gt;"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="line no" type="I" value="27"/>
+			<Prp name="as html" type="B" value="-1"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="stack"/>
+		<Prp name="status" type="I" value="1"/>
+	</Node>
+</Nodes>

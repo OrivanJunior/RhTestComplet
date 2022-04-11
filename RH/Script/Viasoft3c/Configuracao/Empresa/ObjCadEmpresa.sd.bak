@@ -1,0 +1,21 @@
+﻿{Script de mapeamento a tela de cadastro de empresa
+ Módulo: Viasoft_RO
+ Autor: Camila Braatz da Rocha
+ Data: 16/06/2021}
+ 
+var
+  CadEmpresaForm,
+  CadEmpresaEmpresa, 
+  CadEmpresaRazaoSoc, 
+  CadEmpresaReduzido, 
+  CadEmpresaInativa: OleVariant;
+  
+procedure MapCadEmpresa();
+begin
+  CadEmpresaForm     := Aliases.Viasoft3c_XE.FFormPadraoEMPRESA;
+  CadEmpresaEmpresa  := Aliases.Viasoft3c_XE.FFormPadraoEMPRESA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_EMPRESA;
+  CadEmpresaRazaoSoc := Aliases.Viasoft3c_XE.FFormPadraoEMPRESA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RAZAOSOC;
+  CadEmpresaReduzido := Aliases.Viasoft3c_XE.FFormPadraoEMPRESA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_REDUZIDO;
+  CadEmpresaInativa  := Aliases.Viasoft3c_XE.FFormPadraoEMPRESA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INATIVA;
+end;
+

@@ -1,0 +1,26 @@
+﻿{Script para criar DataPool da tela de cadastro de Instituicoes
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadInstituicoesDPIdInstituicao, 
+  FormCadInstituicoesDPCNPJ, 
+  FormCadInstituicoesDPRazaoSoc,
+  FormCadInstituicoesDPEndereco, 
+  FormCadInstituicoesDPNumero, 
+  FormCadInstituicoesDPBairro,
+  FormCadInstituicoesDPCEP, 
+  FormCadInstituicoesDPCidade: OleVariant;
+
+procedure LeDataPoolCadInstituicoes(nomeDriver);
+begin 
+  FormCadInstituicoesDPIdInstituicao := DDT.DriverByName(nomeDriver).Value('IDINSTITUICAO');
+  FormCadInstituicoesDPCNPJ          := DDT.DriverByName(nomeDriver).Value('CNPJ');
+  FormCadInstituicoesDPRazaoSoc      := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+  FormCadInstituicoesDPEndereco      := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+  FormCadInstituicoesDPNumero        := DDT.DriverByName(nomeDriver).Value('NUMERO');
+  FormCadInstituicoesDPBairro        := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+  FormCadInstituicoesDPCEP           := DDT.DriverByName(nomeDriver).Value('CEP');
+  FormCadInstituicoesDPCidade        := DDT.DriverByName(nomeDriver).Value('CIDADE'); 
+end;

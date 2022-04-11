@@ -1,0 +1,30 @@
+﻿{Script para criar DataPool da tela de cadastro de cidades
+ Módulo: Viasoft_RO
+ Autor: Rafael Colla
+ Data: 19/03/2018}
+ 
+uses VarConsts;
+ 
+var
+  CadCidDPNome, CadCidDPUF, CadCidDPDDD, CadCidDPOficial, CadCidDPCEP,
+  CadCidDPPais, CadCidDPIBGE, CadCidDPCodCidANP, CadCidDPCidFiltro,
+  CadCidDPCEPAltera, CadCidDPDDDAltera : OleVariant;
+  
+procedure LeDataPoolCadCidade(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+    
+    CadCidDPNome      := DDT.DriverByName(nomeDriver).Value('NOME');
+    CadCidDPUF        := DDT.DriverByName(nomeDriver).Value('UF');
+    CadCidDPDDD       := DDT.DriverByName(nomeDriver).Value('DDD');
+    CadCidDPOficial   := DDT.DriverByName(nomeDriver).Value('OFICIAL');
+    CadCidDPCEP       := DDT.DriverByName(nomeDriver).Value('CEP');
+    CadCidDPPais      := DDT.DriverByName(nomeDriver).Value('PAIS');
+    CadCidDPIBGE      := DDT.DriverByName(nomeDriver).Value('IBGE');
+    CadCidDPCodCidANP := DDT.DriverByName(nomeDriver).Value('CODCIDANP');
+    CadCidDPCidFiltro := DDT.DriverByName(nomeDriver).Value('CIDADEFILT');
+    CadCidDPCEPAltera := DDT.DriverByName(nomeDriver).Value('CEPALT');    
+    
+    DDT.CurrentDriver.Next();
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

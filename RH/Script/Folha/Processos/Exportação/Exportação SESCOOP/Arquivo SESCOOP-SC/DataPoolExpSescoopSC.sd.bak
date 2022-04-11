@@ -1,0 +1,43 @@
+﻿{Script de DataPool do Exportação SESCOOP/SC
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 15/07/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroMesAno, FiltroLocalGrav, 
+  FiltroTelefone: OleVariant;
+
+procedure LeDataPoolExpSescoopSC(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo     := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor    := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+        
+    { Filtro Locais }
+    FiltroLocalTipo     := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+    FiltroLocalValor    := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+
+    { Filtro Situações }
+    FiltroSituacaoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+    FiltroSituacaoValor := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+      
+    { Filtro Empregados }
+    FiltroEmpreTipo     := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+    FiltroEmpreValor    := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+     
+    { Filtro Dados Adicionais }
+    FiltroMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+    FiltroLocalGrav     := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+    FiltroTelefone      := DDT.DriverByName(nomeDriver).Value('TELEFONE');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

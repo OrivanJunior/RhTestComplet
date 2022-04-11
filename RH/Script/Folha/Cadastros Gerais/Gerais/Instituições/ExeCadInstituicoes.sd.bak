@@ -1,0 +1,111 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolInstituicoes,
+  ObjInstituicoes,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Instituicoes
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTInstituicoes: OleVariant;
+
+procedure AcessaCadInstituicoes();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Instituições');
+end;
+
+procedure InsereDadosInstituicoes();
+begin
+  VerificaInsere(FormCadInstituicoesIdInstituicao, FormCadInstituicoesDPIdInstituicao);
+  VerificaInsere(FormCadInstituicoesCNPJ, FormCadInstituicoesDPCNPJ);
+  VerificaInsere(FormCadInstituicoesRazaoSoc, FormCadInstituicoesDPRazaoSoc);
+  
+  if Assigned(FormCadInstituicoesDPCEP) and (FormCadInstituicoesDPCEP > 0) then
+  begin
+    FormCadInstituicoesCEP.Keys('[F3]');    
+    FormCadInstituicoesCEP.Keys(FazConsultaCEP(_ModuloFolha, FormCadInstituicoesDPCEP));
+  end;
+  
+  VerificaInsere(FormCadInstituicoesNumero, FormCadInstituicoesDPNumero);
+end;
+
+procedure ExeCadastraInstituicoes(pathData);
+begin
+  AcessaCadInstituicoes();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadInstituicoes(pathData, _Cadastrar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINSTITUICAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadInstituicoesDPIdInstituicao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadInstituicoes();
+     
+    if (FormCadInstituicoes.Exists) then
+    begin
+      InsereDadosInstituicoes();
+      
+      ActSalvar(FormCadInstituicoes);
+      ActFechar(FormCadInstituicoes);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraInstituicoes(pathData);
+begin
+  AcessaCadInstituicoes();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadInstituicoes(pathData, _Alterar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINSTITUICAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadInstituicoesDPIdInstituicao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadInstituicoes();   
+     
+    if (FormCadInstituicoes.Exists) then
+    begin
+      InsereDadosInstituicoes();
+      
+      ActSalvar(FormCadInstituicoes);
+      ActFechar(FormCadInstituicoes);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirInstituicoes(pathData);
+begin
+  AcessaCadInstituicoes();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadInstituicoes(pathData, _Excluir);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINSTITUICAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadInstituicoesDPIdInstituicao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHINSTITUICAO');
+    ActFechar(FormCadInstituicoes);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

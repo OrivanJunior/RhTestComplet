@@ -1,0 +1,63 @@
+﻿{Script de DataPool do Processo de Geração de Escalas
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 17/09/2021}
+  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroFuncaoTipo, FiltroFuncaoValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroMesAno, FiltroIncControle,
+  
+  FiltroEmpregadoEscala, FiltroGerarEscalaEmp, 
+  FiltroHorarioIncluir, FiltroHorarioEscala,
+  FiltroHorarioDataIni, FiltroHorarioDataFin: OleVariant;
+
+procedure LeDataPoolProcGerarEscalas(nomeDriver);
+begin 
+  { Filtro Estab }
+  FiltroEstabTipo      := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor     := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Funções }
+  FiltroFuncaoTipo     := DDT.DriverByName(nomeDriver).Value('TIPOFUNCAO');
+  FiltroFuncaoValor    := DDT.DriverByName(nomeDriver).Value('FUNCAOVALOR');      
+    
+  { Filtro Locais }
+  FiltroLocalTipo      := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor     := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');  
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo      := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor     := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+
+  { Filtro Situações }
+  FiltroSituacaoTipo   := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+  FiltroSituacaoValor  := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+        
+  { Filtro Dados Adicionais }
+  FiltroMesAno         := DDT.DriverByName(nomeDriver).Value('MESANO');
+  FiltroIncControle    := DDT.DriverByName(nomeDriver).Value('INCCONTROLE');
+end;
+
+procedure LeDataPoolEmpregadoEscalas(nomeDriver);
+begin
+  FiltroEmpregadoEscala := DDT.DriverByName(nomeDriver).Value('EMPREGADOESCALA');
+  FiltroGerarEscalaEmp  := DDT.DriverByName(nomeDriver).Value('GERARESCALAEMP'); 
+  
+end;
+
+procedure LeDataPoolHorariosEscalas(nomeDriver);
+begin
+  FiltroHorarioIncluir := DDT.DriverByName(nomeDriver).Value('INCHORARIO');
+  FiltroHorarioEscala  := DDT.DriverByName(nomeDriver).Value('HORARIOESCALA');
+  FiltroHorarioDataIni := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroHorarioDataFin := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+end;

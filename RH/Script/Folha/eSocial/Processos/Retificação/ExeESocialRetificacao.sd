@@ -1,0 +1,176 @@
+﻿uses
+  DataPoolESocialRetificacao, ObjESocialRetificacao, CommonsAll, VarConsts, conexaoBanco, ExeValidaEventos;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+var 
+  DDTRetificacao: OleVariant; 
+  
+procedure AcessaESocialRetificacao();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Retificação'); 
+end;
+
+procedure SelecionaEmpregados();
+begin
+  if (Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.Exists) then
+  begin
+    if (FormRetificacaoWhEmpregadosTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados10.Click();
+    
+    if (FiltroEmpregadoTipo = _Especifico) then
+    begin
+      FormRetificacaoWhEmpregadosEspec.ClickButton;
+      VerificaInsere(FormRetificacaoWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Selecionados) then
+    begin
+      FormRetificacaoWhEmpregadosSelec.ClickButton;
+      VerificaInsere(FormRetificacaoWhEmpregadosSelec, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Todos) then
+    begin
+      FormRetificacaoWhEmpregadosTodos.ClickButton;
+      Log.Checkpoint('Selecionado Empregados - Todos');
+    end;
+  end;
+end;
+
+procedure PreencheEmpregados();
+begin
+  SelecionaEmpregados();
+  
+  VerificaInsere(FormRetificacaoEventoRetificarEmp, FiltroEventoRetificarEmp);
+  
+  PreencheDatas(FormRetificacaoWhPeriodoApuracaoEmp, FiltroPeriodoApuracaoEmp);
+end;
+
+procedure PreencheProdutorRural();
+begin
+  VerificaInsere(FormRetificacaoWhEventoRetificarPr, FiltroEventoRetificarPr);
+  PreencheDatas(FormRetificacaoWhPeriodoApuracaoPr, FiltroPeriodoApuracaoPr);
+end;
+
+procedure SelecionaPrestadores();
+begin
+  if (Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.Exists) then
+  begin
+    if (FormRetificacaoWhPrestadoresTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialRetificacao.pgPadrao.tsPrincipal.ScrollBox1.whPrestadores.whPrestadores10.Click();
+    
+    if (FiltroPrestadorTipo = _Especifico) then
+    begin
+      FormRetificacaoWhPrestadoresEspec.ClickButton;
+      VerificaConsultaF3Insere(_ModuloFolha, FormRetificacaoWhPrestadoresEspecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Selecionados) then
+    begin
+      FormRetificacaoWhPrestadoresSelec.ClickButton;
+      VerificaInsere(FormRetificacaoWhPrestadoresSelecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Todos) then
+    begin
+      FormRetificacaoWhPrestadoresTodos.ClickButton;
+      Log.Checkpoint('Selecionado Prestador - Todos');
+    end;
+  end;
+end;
+
+procedure PreenchePrestadores();
+begin
+  SelecionaPrestadores();
+
+  VerificaInsere(FormRetificacaoWhEventoRetificarPs, FiltroEventoRetificarPs);
+
+  PreencheDatas(FormRetificacaoWhPeriodoApuracaoPs, FiltroPeriodoApuracaoPs);
+end;
+
+procedure PreencheTrabalhadorAvulso();
+begin
+  VerificaInsere(FormRetificacaoEventoRetificarAv, FiltroEventoRetificarAv);
+  PreencheDatas(FormRetificacaoWhPeriodoApuracaoAv, FiltroPeriodoApuracaoAv);
+end;
+
+procedure PreencheOutros();
+begin
+  VerificaInsere(FormRetificacaoEventoRetificarOut, FiltroEventoRetificarOut);
+  PreencheDatas(FormRetificacaoWhPeriodoApuracaoOut, FiltroPeriodoApuracaoOut);
+end;
+
+procedure EnviaRetificacao();
+begin
+  BtnEnviarRetificacao.Click();
+    
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído', 1, 80000).Exists) then
+    Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();
+end;
+
+procedure PreencheHistorico(pathData);
+begin
+  PageESocialRetificacao.ActivePageIndex := 1;
+
+  MapESocialHistRetificacao();
+  
+  DDTRetificacao := CarregaDDT(pathData, 'Historico');
+  
+  LeDataPoolHistRetificacao(DDTRetificacao.Name);
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormHistEstab, FiltroHistEstab);
+  PreencheDatas(FormHistDataIni, FiltroHistDataIni);
+  VerificaInsere(FormHistHoraIni, FiltroHistHoraIni);
+  PreencheDatas(FormHistDataFin, FiltroHistDataFin);
+  VerificaInsere(FormHistHoraFin, FiltroHistHoraFin);
+  VerificaInsere(FormHistEvteSocial, FiltroHistEvteSocial);
+  
+  BtnFiltrar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialRetificacao(pathData, pathDataCons);
+begin
+  AcessaESocialRetificacao();
+  
+  MapESocialRetificacao();
+  
+  DDTRetificacao := CarregaDDT(pathData, 'Envio');
+  
+  while not (DDTRetificacao.EOF) do
+  begin
+    LeDataPoolRetificacao(DDTRetificacao.Name);
+    
+    VerificaInsere(FormRetificacaoModoRetificacao, FiltroModoRetificacao);
+  
+    if FiltroModoRetificacao = 'Empregado' then
+      PreencheEmpregados()
+    else if FiltroModoRetificacao = 'Produtor' then  
+      PreencheProdutorRural()
+    else if FiltroModoRetificacao = 'Prestador' then  
+      PreenchePrestadores()
+    else if FiltroModoRetificacao = 'Trabalhadores' then  
+      PreencheTrabalhadorAvulso()
+    else if FiltroModoRetificacao = 'Outros' then  
+      PreencheOutros();
+
+    EnviaRetificacao();
+      
+    DDTRetificacao.Next();
+  end;
+  PreencheHistorico(pathData);
+  
+  ActFechar(FormESocialRetificacao);
+  
+  DDT.CloseDriver(DDTRetificacao.Name);
+end;

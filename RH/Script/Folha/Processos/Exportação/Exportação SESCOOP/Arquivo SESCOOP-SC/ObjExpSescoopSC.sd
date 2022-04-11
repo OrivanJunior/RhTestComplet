@@ -1,0 +1,72 @@
+﻿{Script para mapear o Processo de Exportação SESCOOP/SC
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 15/07/2021}
+
+var
+  FormExpSescoopSC, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormExpSescoopSCWhEstabEspec, FormExpSescoopSCWhEstabEspecCampo,
+  FormExpSescoopSCWhEstabTodosEmp, FormExpSescoopSCWhEstabTodosEmpCampo,
+  FormExpSescoopSCWhEstabTodos, FormExpSescoopSCWhEstabSelec,
+  FormExpSescoopSCWhEstabSelecCampo, 
+
+  FormExpSescoopSCWhLocaisTodos, FormExpSescoopSCWhLocaisEspec, 
+  FormExpSescoopSCWhLocaisEspecCampo, FormExpSescoopSCWhLocaisSelec, 
+  FormExpSescoopSCWhLocaisSelecCampo,
+
+  FormExpSescoopSCWhSituacaoTodos, FormExpSescoopSCWhSituacaoEspec,
+  FormExpSescoopSCWhSituacaoEspecCampo, FormExpSescoopSCWhSituacaoSelec,
+  FormExpSescoopSCWhSituacaoSelecCampo,
+
+  FormExpSescoopSCWhEmpreTodos, FormExpSescoopSCWhEmpreEspec,
+  FormExpSescoopSCWhEmpreEspecCampo, FormExpSescoopSCWhEmpreSelec,
+  FormExpSescoopSCWhEmpreSelecCampo, 
+  
+  FormExpSescoopSCWhMesAno, FormExpSescoopSCWhLocalGrav, 
+  FormExpSescoopSCWhTelefone: OleVariant;
+  
+procedure MapExpSescoopSC();
+begin
+  FormExpSescoopSC                      := Aliases.Folha.FRhProcExpSescoopSC;
+  
+  btnSair                               := Aliases.Folha.FRhProcExpSescoopSC.BSair;
+  btnExecutar                           := Aliases.Folha.FRhProcExpSescoopSC.bExecutar;
+  btnSalvar                             := Aliases.Folha.FRhProcExpSescoopSC.tbSalvar;
+  btnRelatorio                          := Aliases.Folha.FRhProcExpSescoopSC.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormExpSescoopSCWhEstabEspec          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormExpSescoopSCWhEstabEspecCampo     := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormExpSescoopSCWhEstabTodosEmp       := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormExpSescoopSCWhEstabTodosEmpCampo  := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormExpSescoopSCWhEstabTodos          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormExpSescoopSCWhEstabSelec          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormExpSescoopSCWhEstabSelecCampo     := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Locais }
+  FormExpSescoopSCWhLocaisTodos         := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormExpSescoopSCWhLocaisEspec         := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormExpSescoopSCWhLocaisEspecCampo    := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormExpSescoopSCWhLocaisSelec         := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormExpSescoopSCWhLocaisSelecCampo    := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Situacao }
+  FormExpSescoopSCWhSituacaoTodos       := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whSituacao.WhSituacao30;
+  FormExpSescoopSCWhSituacaoEspec       := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  FormExpSescoopSCWhSituacaoEspecCampo  := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  FormExpSescoopSCWhSituacaoSelec       := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  FormExpSescoopSCWhSituacaoSelecCampo  := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;
+  
+  { Filtro de Empregados }
+  FormExpSescoopSCWhEmpreTodos          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormExpSescoopSCWhEmpreEspec          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormExpSescoopSCWhEmpreEspecCampo     := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormExpSescoopSCWhEmpreSelec          := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormExpSescoopSCWhEmpreSelecCampo     := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+   
+  { Dados Adicionais }
+  FormExpSescoopSCWhMesAno              := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whDados.EB_Data;
+  FormExpSescoopSCWhLocalGrav           := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormExpSescoopSCWhTelefone            := Aliases.Folha.FRhProcExpSescoopSC.pg.tsSelecao.SB_Selecao.whDados.EB_TELEFONE;
+end;

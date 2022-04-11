@@ -1,0 +1,214 @@
+﻿{Script para executar o Processo de DIRF - Arquivo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 28/06/2021}
+
+uses
+  DataPoolDIRFArquivo, ObjDIRFArquivo, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaDIRFArquivo();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'DIRF / Rendimentos', 'DIRF - Arquivo'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FormDIRFWhEstabEspec.VisibleOnScreen = false) then
+  begin
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.MouseWheel(4);
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+  end;
+  
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormDIRFWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDIRFWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormDIRFWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormDIRFWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormDIRFWhEstabSelec.ClickButton;
+    VerificaInsere(FormDIRFWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormDIRFWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormDIRFWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormDIRFWhProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormDIRFWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormDIRFWhProcSelec.ClickButton;
+    VerificaInsere(FormDIRFWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormDIRFWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormDIRFWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormDIRFWhEmpreEspec.ClickButton;
+    VerificaInsere(FormDIRFWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormDIRFWhEmpreSelec.ClickButton;
+    VerificaInsere(FormDIRFWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormDIRFWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormDIRFWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormDIRFWhDataDtIni, FiltroDataIni); 
+  PreencheDatas(FormDIRFWHDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormDIRFWhAnoCal.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormDIRFWhAnoCal, FiltroDadosAnoCal);
+  VerificaInsere(FormDIRFWhLocalGrav, FiltroDadosLocalGrav);
+  VerificaInsere(FormDIRFWhNomeResp, FiltroDadosNomeResp);
+  VerificaInsere(FormDIRFWhCpfResp, FiltroDadosCpfResp);
+  VerificaInsere(FormDIRFWhEmailResp, FiltroDadosEmailResp);
+  VerificaInsere(FormDIRFWhTelResp, FiltroDadosTelResp);
+  VerificaInsere(FormDIRFWhRamal, FiltroDadosRamal);
+  VerificaInsere(FormDIRFWhFax, FiltroDadosFax);
+
+  VerificaInsere(FormDIRFWhGeraPLR, FiltroDadosGeraPLR);
+  VerificaInsere(FormDIRFWhGeraPrest, FiltroDadosGeraPrest);
+  VerificaInsere(FormDIRFWhTodosPrest, FiltroDadosTodosPrest);
+  VerificaInsere(FormDIRFWhIndDecRend, FiltroDadosIndDecRend);
+  VerificaInsere(FormDIRFWhInsSitEsp, FiltroDadosInsSitEsp);
+  PreencheDatas(FormDIRFWhDataEvento, FiltroDadosDataEvento);
+  VerificaInsere(FormDIRFWhDecSocOst, FiltroDadosDecSocOst);
+  VerificaInsere(FormDIRFWhNroUltEnt, FiltroDadosNroUltEnt);
+  VerificaInsere(FormDIRFWhTipoDecl, FiltroDadosTipoDecl);
+
+  VerificaInsere(FormDIRFWhNatDecl, FiltroDadosNatDecl);
+  VerificaInsere(FormDIRFWhIndDecInst, FiltroDadosIndDecInst);
+  VerificaInsere(FormDIRFWhIndFundPub, FiltroDadosIndFundPub);
+  VerificaInsere(FormDIRFWhIndEntUni, FiltroDadosIndEntUni);
+  VerificaInsere(FormDIRFWhIndDeclDep, FiltroDadosIndDeclDep);
+
+  VerificaInsere(FormDIRFWhIndTitServ, FiltroDadosIndTitServ);
+  VerificaInsere(FormDIRFWhNomeInvent, FiltroDadosNomeInvent);
+  VerificaInsere(FormDIRFWhCPFInvent, FiltroDadosCPFInvent);
+  VerificaInsere(FormDIRFWhIndDecFal, FiltroDadosIndDecFal);
+  PreencheDatas(FormDIRFWhDataObito, FiltroDadosDataObito);
+  VerificaInsere(FormDIRFWhSituaEp, FiltroDadosSituaEp);
+  VerificaInsere(FormDIRFWhTipoEvento, FiltroDadosTipoEvento); 
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaDIRFArquivo(pathData);
+var 
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaDIRFArquivo();
+
+  MapDIRFArquivo();
+
+  LeDataPoolDIRFArquivo(pathData);
+
+  FiltraEstab();
+    
+  FiltraProcessamentos();
+  
+  FiltraEmpregados();
+
+  FiltraData();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+      ActFechar(FormDIRF);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormDIRF);
+      MensagemInativa := false;
+    end
+  end;  
+  if (Project.Variables.tipoBanco = 'ORACLE') then
+  begin
+    ComparaArquivos('C:\TEMP\DIRF\DIRF_MODELO_ORACLE.txt', 'C:\TEMP\DIRF\IR001001.txt');
+  end
+  else
+  begin
+    ComparaArquivos('C:\TEMP\DIRF\DIRF_MODELO.txt', 'C:\TEMP\DIRF\IR000001.txt');
+  end;  
+end;

@@ -1,0 +1,402 @@
+﻿uses
+  ObjAlteracaoEmMassa, DataPoolAlteracaoEmMassa, CommonsAll, CommonsObj, VarConsts;
+
+Const
+_Todos = 'TO';
+_TodosEmpresa = 'TE';
+_Selecionados = 'SC';
+_Especifico = 'ES';
+  
+procedure FiltraEstabelecimentos();
+begin
+  VerificaConsultaF3Insere(_ModuloPonto, AltEmMassaWhEstabEspec, FiltroEstabValor);
+end;  
+
+procedure FiltraLocais();
+begin
+  if (AltEmMassaWhLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whLocais.whLocais10.Click();
+    
+  if (FiltroLocaisTipo = _Especifico) then
+  begin
+    AltEmMassaWhLocaisEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloPonto, AltEmMassaWhLocaisEspecCampo, FiltroLocaisValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocaisValor);
+  end
+  else if (FiltroLocaisTipo = _Selecionados) then
+  begin
+    AltEmMassaWhLocaisSelec.ClickButton;
+    VerificaInsere(AltEmMassaWhLocaisSelecCampo, FiltroLocaisValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocaisValor);
+  end
+  else if (FiltroLocaisTipo = _Todos) then
+  begin
+    AltEmMassaWhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (AltEmMassaWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Ponto.FRhProcAlteracaoEmMassa.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    AltEmMassaWhEmpreEspec.ClickButton;
+    VerificaInsere(AltEmMassaWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    AltEmMassaWhEmpreSelec.ClickButton;
+    VerificaInsere(AltEmMassaWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    AltEmMassaWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  AltEmMassaCBOpcao.SelectItem(AltEmMassaDPOpcao);
+  VerificaInsere(AltEmMassaCBAlterarPara, AltEmMassaDPAlterarPara);
+end;
+
+procedure InformacoesGerais(DDTAlteracaoEmMassa);
+begin
+  AcessaItem(_ModuloPonto, 'Processos', 'Alteração em Massa');
+  
+  MapAlteracaoEmMassa();
+  
+  LeDataPoolAlteracaoEmMassa(DDTAlteracaoEmMassa);
+  
+  FiltraEstabelecimentos();
+  
+  FiltraEmpregados();
+  
+  FiltraLocais();
+  
+  DadosAdicionais();
+end;
+
+procedure Executar(MensagemInativa);
+begin
+  AltEmMassaBtnExecutar.Click();
+      
+  if (Aliases.Ponto.dlgAten_o.Exists) then
+    Aliases.Ponto.dlgAten_o.btnSim.Click();
+  
+  if (Aliases.Ponto.FBRespRH.Exists) then
+    Aliases.Ponto.FBRespRH.Panel2.btOK.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(2000);
+    if (Aliases.Ponto.dlgProcessoConclu_do2.Exists) then
+    begin
+      Aliases.Ponto.dlgProcessoConclu_do2.btnOK.Click();     
+      
+      ActFechar(AltEmMassaForm);
+      
+      MensagemInativa := false;
+    end;
+  end; 
+end;
+
+procedure RemoverBatidas(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Batidas');
+
+  LeDataPoolRemoverBatidas(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverBatidas();
+  
+  PreencheDatas(AltEmMassaEBMesAno, AltEmMassaDPMesAno);         
+  PreencheCheckbox(AltEmMassaCBRemoverBat, AltEmMassaDPRemoverBat);
+  PreencheCheckbox(AltEmMassaCBVoltaDataAFD, AltEmMassaDPVoltaDataAFD);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure RemoverCalculos(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Cálculos');
+
+  LeDataPoolRemoverCalculos(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverCalculos();
+  
+  PreencheDatas(AltEmMassaEBMesAno, AltEmMassaDPMesAno);         
+  PreencheCheckbox(AltEmMassaCBRemMov, AltEmMassaDPRemMov); 
+  VerificaInsere(AltEmMassaEBProcesso, AltEmMassaDPProcesso);
+  PreencheDatas(AltEmMassaEBDataCtrl, AltEmMassaDPDataCtrl);
+  
+  Executar(MensagemInativa); 
+end;
+
+procedure AlterarBatidas(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Alteração de Batidas');
+
+  LeDataPoolAlteracaoBatidas(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapAlteracaoBatidas();
+  
+  PreencheDatas(AltEmMassaEBDataAlt, AltEmMassaDPDataAlt);
+  VerificaInsere(AltEmMassaEBHoraAlt, AltEmMassaDPHoraAlt);
+  VerificaInsere(AltEmMassaCKHoraAcres, AltEmMassaDPAcresHora);
+  VerificaInsere(AltEmMassaEBHoraAcres, AltEmMassaDPHoraAcres);
+  VerificaInsere(AltEmMassaCBOperacao, AltEmMassaDPOperacao);
+  VerificaInsere(AltEmMassaCBColMarc, AltEmMassaDPColMarc);
+  VerificaInsere(AltEmMassaEBMotDesc, AltEmMassaDPMotDesc);
+  VerificaInsere(AltEmMassaEBMotInc, AltEmMassaDPMotInc);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure IncluirHorarios(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Incluir Horário nos Empregados');
+
+  LeDataPoolIncHorarioEmpregados(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapIncHorarioEmpregados();
+  
+  PreencheDatas(AltEmMassaEBDataHorario, AltEmMassaDPDataHorario);
+  VerificaInsere(AltEmMassaEBHorario, AltEmMassaDPHorario);
+  PreencheCheckbox(AltEmMassaCBIncDtAdmHor, AltEmMassaDPIncDtAdmHor);
+  PreencheCheckbox(AltEmMassaCBEmpSemHor, AltEmMassaDPEmpSemHor);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure IncluirLocal(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Incluir Local nos Empregados');
+
+  LeDataPoolIncLocalEmpregados(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapIncLocalEmpregados();
+  
+  PreencheDatas(AltEmMassaEBDataLocal, AltEmMassaDPDataLocal);
+  VerificaConsultaF3Insere(_ModuloPonto, AltEmMassaEBLocal, AltEmMassaDPLocal);
+  VerificaInsere(AltEmMassaCBIncDtAdmLoc, AltEmMassaDPIncDtAdmLoc);
+  PreencheCheckbox(AltEmMassaCBEmpSemLocal, AltEmMassaDPEmpSemLocal);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure RemoverEscalas(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Escalas');
+
+  LeDataPoolRemoverEscalas(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverEscalas();
+  
+  PreencheDatas(AltEmMassaEBMesAnoCon, AltEmMassaDPMesAno);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure IncluirBatidaManual(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Incluir Batida Manual');
+
+  LeDataPoolIncBatidaManual(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapIncBatidaManual();
+  
+  PreencheDatas(AltEmMassaEBDataInc, AltEmMassaDPDataInc);
+  VerificaInsere(AltEmMassaEBHoraInc, AltEmMassaDPHoraInc);
+  VerificaInsere(AltEmMassaEBMotivoInc, AltEmMassaDPMotivoInc);  
+  
+  Executar(MensagemInativa);
+end;
+
+procedure RemoverLancamentosBH(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Lançamentos BH');
+
+  LeDataPoolRemoverLancamentosBH(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverLancamentosBH();
+  
+  PreencheDatas(AltEmMassaEBMesAnoBH, AltEmMassaDPMesAno);
+  VerificaInsere(AltEmMassaEBTipoLanc, AltEmMassaDPTipoLanc);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure RemoverLancamentosBHAnterior(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Lançamentos BH Ant');
+
+  LeDataPoolRemoverLancamentosBHAnt(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverLancamentosBHAnt();
+  
+  VerificaInsere(AltEmMassaEBTipoLanc, AltEmMassaDPTipoLanc);
+  
+  AltEmMassaBtnExecutar.Click();
+      
+  if (Aliases.Ponto.dlgAten_o.Exists) then
+    Aliases.Ponto.dlgAten_o.btnSim.Click();
+  
+  if (Aliases.Ponto.FBRespRH.Exists) then
+    Aliases.Ponto.FBRespRH.Panel2.btOK.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(2000);
+    if (Aliases.Ponto.dlgAten_o.Exists) then
+    begin
+      Aliases.Ponto.dlgAten_o.btnOK.Click();     
+      
+      ActFechar(AltEmMassaForm);
+      
+      MensagemInativa := false;
+    end;
+  end; 
+end;
+
+procedure RemoverIntervalosAFD(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Remover Intervalos AFD');
+
+  LeDataPoolRemoverIntervalosAFD(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapRemoverIntervalosAFD();
+  
+  PreencheDatas(AltEmMassaEBMesAnoCon, AltEmMassaDPMesAno);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure IncluirJustificativa(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Incluir Justificativa');
+
+  LeDataPoolIncJustificativa(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapIncJustificativa();
+
+  PreencheDatas(AltEmMassaEBDataIniJust, AltEmMassaDPDataIni);
+  PreencheDatas(AltEmMassaEBDataFinJust, AltEmMassaDPDataFin);
+  VerificaInsere(AltEmMassaEBTurnoJust, AltEmMassaDPTurnoJust);
+  VerificaInsere(AltEmMassaEBJustificativa, AltEmMassaDPJustificativa);  
+  
+  Executar(MensagemInativa);
+end;
+
+procedure IncluirTrocaFeriado(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Incluir Troca de Feriado');
+
+  LeDataPoolTrocaDeFeriado(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapTrocaDeFeriado();
+  
+  VerificaInsere(AltEmMassaEBDataFeriado, AltEmMassaDPDataFeriado);
+  PreencheDatas(AltEmMassaEBDataTrocaFer, AltEmMassaDPDataTrocaFer);
+  
+  Executar(MensagemInativa);
+end;
+
+procedure GerarEscalas(pathData);
+var 
+  MensagemInativa, DDTAlteracaoEmMassa: OleVariant;
+begin
+  MensagemInativa := True;
+  
+  DDTAlteracaoEmMassa := CarregaDDT(pathData, 'Gerar Escalas');
+
+  LeDataPoolGerarEscalas(DDTAlteracaoEmMassa.Name);
+  
+  InformacoesGerais(DDTAlteracaoEmMassa.Name); 
+  
+  MapGerarEscalas();
+  
+  PreencheDatas(AltEmMassaEBDtIniEscala, AltEmMassaDPDataIni);
+  PreencheDatas(AltEmMassaEBDtFinEscala, AltEmMassaDPDataFin);
+  VerificaConsultaF3Insere(_ModuloPonto, AltEmMassaEBHrEscala, AltEmMassaDPHrEscala);
+  PreencheCheckbox(AltEmMassaCBSobreporEsc, AltEmMassaDPSobreporEsc);  
+  
+  Executar(MensagemInativa);
+end;

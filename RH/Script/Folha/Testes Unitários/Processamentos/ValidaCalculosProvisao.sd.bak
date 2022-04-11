@@ -1,0 +1,177 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcRapido,
+  ExeProcessamentoRescisao,
+  ExeProcRapido,
+  ObjProcessamentoRescisao,
+  ObjProcRapido,
+  SelecaoEstab,
+  ValidaCalculos,
+  VarConsts,
+  ConexaoBanco;
+
+Const
+  strConexaoFBProvisao = 'DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\BALLAGRO.FDB;';
+  pathData = 'C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\Provisão.xls';
+
+var 
+  EventoProvisao, EventoRef, DDTProvisao, DDTEventos, DDTEventosProvisao: OleVariant;
+  
+function CriaTabelaProvisao(estab, idEmpregado, idProcesso, data);
+var 
+  consulta, Qry: OleVariant;
+begin    
+  aqString.QuoteSymbol := #39;
+    
+  consulta := 'SELECT IDEVENTO, VALOR, DATA, IDEMPREGADO, ESTAB FROM RHCALCULO WHERE IDEMPREGADO = ' + 
+               VarToStr(idEmpregado) + ' AND IDPROCESSO = ' + VarToStr(idProcesso) + ' AND DATA = ' + aqString.Quote(data);
+                        
+  Qry := buscaBancoConsulta(consulta, strConexaoFBProvisao);
+    
+  result := Qry;
+end;
+
+procedure LeDataPoolProcProvisao(nomeDriver);
+begin
+  EventoProvisao := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+  EventoRef      := DDT.DriverByName(nomeDriver).Value('IDEVENTOREF');
+end;
+  
+procedure ValoresEventosProvisao();
+var 
+  Qry,nomeTabela: OleVariant;
+begin 
+  nomeTabela := 'RetornoValoresProvisao';
+
+  criarTabelaDeConsulta(nomeTabela);
+  
+  LeDataPoolProcRapido(DDTProvisao.Name);
+    
+  Qry := CriaTabelaProvisao(FiltroEstabValor, FiltroEmpregadoValor, FiltroProcessamento, FiltroDataProc);
+      
+  IncluiValoresColuna(Qry, nomeTabela);
+    
+  IncluiValoresTabela(Qry, nomeTabela);
+end;
+
+procedure ValoresEventosRef(tab);
+var 
+  Qry, nomeTabela: OleVariant;
+begin
+  nomeTabela := 'RetornoValoresEventos';
+  
+  criarTabelaDeConsulta(nomeTabela);
+
+  LeDataPoolProcRapido(DDTEventos.Name);
+    
+  Qry := CriaTabelaProvisao(FiltroEstabValor, FiltroEmpregadoValor, FiltroProcessamento, FiltroDataProc);
+
+  IncluiValoresColuna(Qry, nomeTabela);
+    
+  IncluiValoresTabela(Qry, nomeTabela);
+end;
+
+procedure FechaDDTs();
+begin
+  if Assigned(DDTEventos) then
+    DDT.CloseDriver(DDTEventos.Name);
+  if Assigned(DDTProvisao) then
+    DDT.CloseDriver(DDTProvisao.Name);
+  if Assigned(DDTEventosProvisao) then
+    DDT.CloseDriver(DDTEventosProvisao.Name);
+end;
+
+function VerificaEventosAbono(evento, valorEvento): double;
+var
+  valor;
+begin
+  valor := 0;
+  
+  if evento = 500 then
+  begin
+    valor := valor + valorEvento;
+  end;
+  if evento = 501 then
+  begin
+    valor := valor + valorEvento;
+  end;
+  if evento = 502 then
+  begin
+    valor := valor + valorEvento;
+  end;
+  if evento = 505 then
+  begin
+    valor := valor + valorEvento;
+  end;
+  result := valor;
+end;
+
+procedure ComparaCalculosProvisao(tab);
+var 
+  idEventoRef, idEventoProvisao,
+  valueEventoProvisao, dataEventoProvisao,
+  empEventoProvisao, estabEventoProvisao, 
+  valueEventoRef, dataEventoRef, 
+  empEventoRef, estabEventoRef,
+  i ,j, k: OleVariant;
+begin
+  DDTProvisao := CarregaDDT(pathData, 'Provisão');
+
+  DDTEventos := CarregaDDT(pathData, tab);
+  
+  DDTEventosProvisao := CarregaDDT(pathData, 'Eventos');
+  
+  while not DDTEventos.EOF do
+  begin
+    DDTEventosProvisao.First;
+    
+    ValoresEventosProvisao();
+    
+    ValoresEventosRef(tab);
+    
+    while not DDTEventosProvisao.EOF do
+    begin
+      LeDataPoolProcProvisao(DDTEventosProvisao.Name);
+
+      for j := 0 to Project.Variables.RetornoValoresEventos.RowCount-1 do
+      begin
+        idEventoRef          := Project.Variables.RetornoValoresEventos.Item[0,j];
+        valueEventoRef       := Project.Variables.RetornoValoresEventos.Item[1,j];
+        dataEventoRef        := Project.Variables.RetornoValoresEventos.Item[2,j];
+        empEventoRef         := Project.Variables.RetornoValoresEventos.Item[3,j]; 
+        estabEventoRef       := Project.Variables.RetornoValoresEventos.Item[4,j];
+        
+        if FiltroProcessamento = '2' then
+          valueEventoRef := VerificaEventosAbono(idEventoRef, valueEventoRef);
+        
+        if (EventoRef = idEventoRef) then
+        begin
+          for i := 0 to Project.Variables.RetornoValoresProvisao.RowCount-1 do
+          begin      
+            idEventoProvisao     := Project.Variables.RetornoValoresProvisao.Item[0,i]; 
+            valueEventoProvisao  := Project.Variables.RetornoValoresProvisao.Item[1,i]; 
+            dataEventoProvisao   := Project.Variables.RetornoValoresProvisao.Item[2,i];
+            empEventoProvisao    := Project.Variables.RetornoValoresProvisao.Item[3,i]; 
+            estabEventoProvisao  := Project.Variables.RetornoValoresProvisao.Item[4,i]; 
+            
+            if (EventoProvisao = idEventoProvisao) and (EventoRef = idEventoRef) and (empEventoRef = empEventoProvisao) and (estabEventoRef = estabEventoProvisao) then
+            begin
+              if (valueEventoProvisao <> valueEventoRef) then
+              begin
+                Log.Warning('O evento('          + VarToStr(idEventoProvisao)    + ') de Provisão de Valor(' + VarToStr(valueEventoProvisao) + ') - ' + 
+                            'Empregado('         + VarToStr(empEventoRef)        + ') - Estab('              + VarToStr(estabEventoRef)      + ') - ' +
+                            'Data('              + VarToStr(dataEventoProvisao)  + ') - difere do evento('   + VarToStr(idEventoRef)         + ') - ' +
+                            'Data('              + VarToStr(dataEventoRef)       + ') de Valor('             + VarToStr(valueEventoRef)      + ')');           
+              end;
+            end;
+          end;
+        end;
+      end;
+      DDTEventosProvisao.Next;
+    end;
+    DDTEventos.Next;
+    DDTProvisao.Next;
+  end;
+  FechaDDTs();
+end;

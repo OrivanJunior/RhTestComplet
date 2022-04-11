@@ -1,0 +1,30 @@
+﻿{Script para mapear a Configuração de Plugins
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 31/08/2021}
+
+var
+  Modulo,
+  ConfPluginsForm,
+  ConfPluginsPage,
+  ConfPluginsSair,
+  ConfPluginsSalvar,
+  ConfPluginsGrid,
+  ConfPluginsGridSite,
+  ConfPluginsCBGrid,
+  ConfPluginsBtnSelAll,
+  ConfPluginsBtnDesAll: OleVariant;
+
+procedure MapConfPlugins(sModulo);
+begin
+  Modulo               := Sys.Process(sModulo);
+  ConfPluginsForm      := Modulo.VCLObject('FRhProcVsPlugin');
+  ConfPluginsPage      := ConfPluginsForm.VCLObject('page');
+  ConfPluginsSair      := ConfPluginsForm.VCLObject('BSair');
+  ConfPluginsSalvar    := ConfPluginsForm.VCLObject('tbSalvar');
+  ConfPluginsGrid      := ConfPluginsPage.VCLObject('tsPlugins').VCLObject('gVsPlugin');
+  ConfPluginsGridSite  := ConfPluginsGrid.Window('TcxGridSite', '', 1);
+  ConfPluginsCBGrid    := ConfPluginsGridSite.Window('TcxCheckBox', '', 1);
+  ConfPluginsBtnSelAll := ConfPluginsPage.VCLObject('tsPlugins').VCLObject('dkRHEveIncide').VCLObject('tbSgItens').VCLObject('btSelAll');
+  ConfPluginsBtnDesAll := ConfPluginsPage.VCLObject('tsPlugins').VCLObject('dkRHEveIncide').VCLObject('tbSgItens').VCLObject('btDesAll');
+end;

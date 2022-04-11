@@ -1,0 +1,21 @@
+﻿{Script de DataPool do Processo de Troca de Feriado
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 01/09/2021}
+
+var
+  TrocaFeriadoDPEstab, TrocaFeriadoDPEmpregado,
+  TrocaFeriadoDPDataFer, TrocaFeriadoDPDataTroca: OleVariant;
+
+procedure LoadDPTrocaFeriados(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab)
+end;
+
+procedure LeDataPoolTrocaFeriados();
+begin
+  TrocaFeriadoDPEstab     := DDT.CurrentDriver.Value('ESTAB');
+  TrocaFeriadoDPEmpregado := DDT.CurrentDriver.Value('IDEMPREGADO');
+  TrocaFeriadoDPDataFer   := DDT.CurrentDriver.Value('DATAFER');
+  TrocaFeriadoDPDataTroca := DDT.CurrentDriver.Value('DATATROCA');
+end;

@@ -1,0 +1,48 @@
+﻿{Script de DataPool do Processo de Qualificação Cadastral - Remessa
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 24/06/2021}
+   
+var
+  FiltroEstabTipo,  FiltroEstabValor,
+
+  FiltroEmpreTipo, FiltroEmpreValor,
+
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+
+  FiltroLocalTipo, FiltroLocalValor,
+
+  FiltroLocalGravacao, FiltroGerarDadosPrest,
+
+  FiltroPrestTipo, FiltroPrestValor: OleVariant;
+
+procedure LeDataPoolRemessa(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo       := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor      := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo       := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+    FiltroEmpreValor      := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');    
+    
+    { Filtro Situações }
+    FiltroSituacaoTipo    := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+    FiltroSituacaoValor   := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+    
+    { Filtro Locais }
+    FiltroLocalTipo       := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+    FiltroLocalValor      := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');    
+    
+    { Filtro Dados Adicionais }
+    FiltroLocalGravacao   := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+    FiltroGerarDadosPrest := DDT.DriverByName(nomeDriver).Value('GERARDADOSPREST');
+    
+    { Filtro de Prestador }
+    FiltroPrestTipo       := DDT.DriverByName(nomeDriver).Value('TIPOPREST');
+    FiltroPrestValor      := DDT.DriverByName(nomeDriver).Value('PRESTVALOR');
+    
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

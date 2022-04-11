@@ -1,0 +1,114 @@
+﻿{Script para mapear o Processo de DIRF - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 28/06/2021}
+
+var
+  FormDIRF, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormDIRFWhEstabEspec, FormDIRFWhEstabEspecCampo,
+  FormDIRFWhEstabTodosEmp, FormDIRFWhEstabTodosEmpCampo,
+  FormDIRFWhEstabTodos, FormDIRFWhEstabSelec,
+  FormDIRFWhEstabSelecCampo, 
+  
+  FormDIRFWhEmpreTodos, FormDIRFWhEmpreEspec,
+  FormDIRFWhEmpreEspecCampo, FormDIRFWhEmpreSelec,
+  FormDIRFWhEmpreSelecCampo, 
+  
+  FormDIRFWhDataDtIni, FormDIRFWhDataDtFin,
+  
+  FormDIRFWhProcTodos, FormDIRFWhProcEspec, 
+  FormDIRFWhProcEspecCampo, FormDIRFWhProcSelec, 
+  FormDIRFWhProcSelecCampo,
+   
+  FormDIRFWhAnoCal, FormDIRFWhLocalGrav,
+  FormDIRFWhNomeResp, FormDIRFWhCpfResp,
+  FormDIRFWhEmailResp, FormDIRFWhTelResp,
+  FormDIRFWhRamal, FormDIRFWhFax,
+
+  FormDIRFWhGeraPLR, FormDIRFWhGeraPrest,
+  FormDIRFWhTodosPrest, FormDIRFWhIndDecRend,
+  FormDIRFWhInsSitEsp, FormDIRFWhDataEvento,
+  FormDIRFWhDecSocOst, FormDIRFWhNroUltEnt,
+  FormDIRFWhTipoDecl,
+
+  FormDIRFWhNatDecl, FormDIRFWhIndDecInst,
+  FormDIRFWhIndFundPub, FormDIRFWhIndEntUni,
+  FormDIRFWhIndDeclDep, 
+
+  FormDIRFWhIndTitServ, FormDIRFWhNomeInvent,
+  FormDIRFWhCPFInvent, FormDIRFWhIndDecFal,
+  FormDIRFWhDataObito, FormDIRFWhSituaEp,
+  FormDIRFWhTipoEvento: OleVariant;
+  
+procedure MapDIRFArquivo();
+begin
+  FormDIRF                     := Aliases.Folha.FRhProcDIRF2011;
+  
+  btnSair                      := Aliases.Folha.FRhProcDIRF2011.BSair;
+  btnExecutar                  := Aliases.Folha.FRhProcDIRF2011.bExecutar;
+  btnSalvar                    := Aliases.Folha.FRhProcDIRF2011.tbSalvar;
+  btnRelatorio                 := Aliases.Folha.FRhProcDIRF2011.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  
+  FormDIRFWhEstabEspec         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormDIRFWhEstabEspecCampo    := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormDIRFWhEstabTodosEmp      := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormDIRFWhEstabTodosEmpCampo := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormDIRFWhEstabTodos         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormDIRFWhEstabSelec         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormDIRFWhEstabSelecCampo    := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+  { Filtro de Processamentoss }
+  FormDIRFWhProcTodos          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormDIRFWhProcEspec          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormDIRFWhProcEspecCampo     := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormDIRFWhProcSelec          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormDIRFWhProcSelecCampo     := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+      
+  { Filtro de Empregados }
+  FormDIRFWhEmpreTodos         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormDIRFWhEmpreEspec         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormDIRFWhEmpreEspecCampo    := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormDIRFWhEmpreSelec         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormDIRFWhEmpreSelecCampo    := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Datas }
+  FormDIRFWhDataDtIni          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormDIRFWhDataDtFin          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Dados Adicionais }
+  FormDIRFWhAnoCal             := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Ano;
+  FormDIRFWhLocalGrav          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Caminho;
+  FormDIRFWhNomeResp           := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Nome;
+  FormDIRFWhCpfResp            := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_CPF;
+  FormDIRFWhEmailResp          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Email;
+  FormDIRFWhTelResp            := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Telefone;
+  FormDIRFWhRamal              := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Ramal;
+  FormDIRFWhFax                := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox1.EB_Fax;
+					          
+  FormDIRFWhGeraPLR            := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_GERAPLR;
+  FormDIRFWhGeraPrest          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_GerarPrest;
+  FormDIRFWhTodosPrest         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.cb_GerarTodos;
+  FormDIRFWhIndDecRend         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_INDRENDEXT;
+  FormDIRFWhInsSitEsp          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_INDSITUACAOESP;
+  FormDIRFWhDataEvento         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_DATAEVENTO;
+  FormDIRFWhDecSocOst          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_SOCIO;
+  FormDIRFWhNroUltEnt          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_UltRecibo;
+  FormDIRFWhTipoDecl           := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.GroupBox2.EB_TIPO;
+					          
+  FormDIRFWhNatDecl            := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PJ.EB_NATDECLARANTE;
+  FormDIRFWhIndDecInst         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PJ.EB_INDADMCLUBE;
+  FormDIRFWhIndFundPub         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PJ.EB_IND_FUND_PB_PV;
+  FormDIRFWhIndEntUni          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PJ.EB_IND_ENT;
+  FormDIRFWhIndDeclDep         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PJ.EB_INDDEPDECJUD;
+					          
+  FormDIRFWhIndTitServ         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_INDTITSERVEREG;
+  FormDIRFWhNomeInvent         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_INVENTARIANTE;
+  FormDIRFWhCPFInvent          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_CPF_INVENTARIANTE;
+  FormDIRFWhIndDecFal          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_FALECIDO;
+  FormDIRFWhDataObito          := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_DATA_OBITO;
+  FormDIRFWhSituaEp            := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_ESPOLIO;
+  FormDIRFWhTipoEvento         := Aliases.Folha.FRhProcDIRF2011.pg.tsSelecao.SB_Selecao.whDados.Gb_PF.EB_TIPOEVENTO;
+end;

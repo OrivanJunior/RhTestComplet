@@ -1,0 +1,27 @@
+﻿var
+  AdmPreliminarDPCodigo,
+  AdmPreliminarDPCPF,
+  AdmPreliminarDPNome,
+  AdmPreliminarDPDataNasc,
+  AdmPreliminarDPDataAdm,
+  AdmPreliminarDPMateSocial,
+  AdmPreliminarDPVinculo,
+  AdmPreliminarDPFuncao,
+  AdmPreliminarDPCategoria,
+  AdmPreliminarDPSalario,
+  AdmPreliminarDPDataTermino: OleVariant;
+
+procedure LeDataPoolAdmPreliminar(nomeDriver);
+begin
+  AdmPreliminarDPCodigo      := DDT.DriverByName(nomeDriver).Value('CODIGO');
+  AdmPreliminarDPCPF         := DDT.DriverByName(nomeDriver).Value('CPF');
+  AdmPreliminarDPNome        := DDT.DriverByName(nomeDriver).Value('NOME');
+  AdmPreliminarDPDataNasc    := DDT.DriverByName(nomeDriver).Value('DATANASC');
+  AdmPreliminarDPDataAdm     := DDT.DriverByName(nomeDriver).Value('DATAADM');
+  AdmPreliminarDPMateSocial  := DDT.DriverByName(nomeDriver).Value('MATESOCIAL');
+  AdmPreliminarDPVinculo     := DDT.DriverByName(nomeDriver).Value('VINCULO');
+  AdmPreliminarDPFuncao      := DDT.DriverByName(nomeDriver).Value('FUNCAO');
+  AdmPreliminarDPCategoria   := DDT.DriverByName(nomeDriver).Value('CATEGORIA');
+  AdmPreliminarDPSalario     := DDT.DriverByName(nomeDriver).Value('SALARIO');
+  AdmPreliminarDPDataTermino := DDT.DriverByName(nomeDriver).Value('DATATERMINO');
+end;

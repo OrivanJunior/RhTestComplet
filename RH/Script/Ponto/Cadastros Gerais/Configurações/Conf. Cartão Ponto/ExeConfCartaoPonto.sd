@@ -1,0 +1,243 @@
+﻿uses
+  ObjConfCartaoPonto, DataPoolConfCartaoPonto, CommonsAll, CommonsObj, VarConsts;
+
+procedure PreencheInfosNormais(pathData);
+begin
+  ConfCartaoPage.ActivePageIndex := 0;
+  
+  MapInfosNormais();
+  
+  VerificaInsere(ConfCartaoEBCodConfig, ConfCartaoDPCodConfig);
+  VerificaInsere(ConfCartaoEBDescricao, ConfCartaoDPDescricao);
+  VerificaInsere(ConfCartaoEBHrExtAPartir, ConfCartaoDPHrExtAPartir);
+  VerificaInsere(ConfCartaoEBHrFalAPartir, ConfCartaoDPHrFalAPartir);
+  VerificaInsere(ConfCartaoEBHrNormSabPri, ConfCartaoDPHrNormSabPri);
+  VerificaInsere(ConfCartaoEBHrNormSabSeg, ConfCartaoDPHrNormSabSeg);
+  VerificaInsere(ConfCartaoEBHrNormDomPri, ConfCartaoDPHrNormDomPri);
+  VerificaInsere(ConfCartaoEBHrNormDomSeg, ConfCartaoDPHrNormDomSeg);
+  if (ConfCartaoEBToleAlmLivre.Visible) then
+  begin
+    VerificaInsere(ConfCartaoEBToleAlmLivre, ConfCartaoDPToleAlmLivre);
+  end;
+end;
+
+procedure PreencheInfosPonto(pathData);
+begin
+  ConfCartaoPage.ActivePageIndex := 1;
+
+  MapInfosPonto();
+  
+  VerificaInsere(ConfCartaoEBFixaTol, ConfCartaoDPFixaTol);
+  VerificaInsere(ConfCartaoEBTipoHrAtraso, ConfCartaoDPTipoHrAtraso);
+  VerificaInsere(ConfCartaoEBHrAtraso, ConfCartaoDPHrAtraso);
+			  
+  VerificaInsere(ConfCartaoEBConsDescRSR, ConfCartaoDPConsDescRSR);
+  VerificaInsere(ConfCartaoEBLimFalDia, ConfCartaoDPLimFalDia);
+  VerificaInsere(ConfCartaoEBDescFerDSR, ConfCartaoDPDescFerDSR);
+  VerificaInsere(ConfCartaoEBTipoHrDescRSR, ConfCartaoDPTipoHrDescRSR);
+
+  if (Aliases.Ponto.FRhConfPonto.Page.TabPonto.pnPrinc.gbJor12x36.Visible) then
+  begin
+    VerificaInsere(ConfCartaoEBInterParaDesc, ConfCartaoDPInterParaDesc);
+    VerificaInsere(ConfCartaoEBJornIntHrExt, ConfCartaoDPJornIntHrExt);
+  end;
+  
+  VerificaInsere(ConfCartaoEBIniHrNoturna, ConfCartaoDPIniHrNoturna);
+  VerificaInsere(ConfCartaoEBFimHrNoturna, ConfCartaoDPFimHrNoturna);
+end;
+
+procedure PreencheConfigHrExtra(pathData);
+begin
+  ConfCartaoPage.ActivePageIndex := 2;
+  
+  MapConfHrExtra();
+  
+  ConfHrExtraIncBtn.Click();
+  VerificaClickPreencheGrid(ConfHrExtraGrid, 0, 'Dias a Considerar', ConfHrExtraDPDiasCons);
+  VerificaClickPreencheGrid(ConfHrExtraGrid, 0, 'Hr. Inicial', ConfHrExtraDPHrInicial);
+  VerificaClickPreencheGrid(ConfHrExtraGrid, 0, 'Hr. Final', ConfHrExtraDPHrFinal);
+  VerificaClickPreencheGrid(ConfHrExtraGrid, 0, 'Evento Diu.', ConfHrExtraDPEveDiurno);
+  VerificaClickPreencheGrid(ConfHrExtraGrid, 0, 'Evento Not.', ConfHrExtraDPEveNoturno);
+  ConfHrExtraSaveBtn.Click();
+  
+  if (ConfHrExtraDPDiasCons = 'Conforme Horário') then
+  begin
+    ConfCfeHorarioIncBtn.Click();
+    VerificaClickPreencheGrid(ConfCfeHorarioGrid, 0, 'Dia', ConfCfeHorarioDPDia);
+    VerificaClickPreencheGrid(ConfCfeHorarioGrid, 0, 'Horário Limite', ConfCfeHorarioDPHrLimite);
+    VerificaClickPreencheGrid(ConfCfeHorarioGrid, 0, 'Evento Diu.', ConfCfeHorarioDPEveDiurno);
+    VerificaClickPreencheGrid(ConfCfeHorarioGrid, 0, 'Evento Not.', ConfCfeHorarioDPEveNot);
+    ConfCfeHorarioSaveBtn.Click();
+  end;
+end;
+
+procedure PreencheConfigCompensacao(pathData);
+begin
+  
+  ConfCartaoPage.ActivePageIndex := 3;
+  
+  MapConfComp();
+  
+  VerificaInsere(ConfCompEBTipoCompensa, ConfCompDPTipoCompensa);
+  if ConfCompDPTipoCompensa = '3' then
+  begin
+    VerificaInsere(ConfCompEBCompFaltaInj, ConfCompDPCompFaltaInj);
+    VerificaClickPreencheGrid(ConfCompEBGridComp, 0, 'Compensa?', ConfCompDPCompensa);
+  end;
+end;
+
+procedure PreencheEventos(pathData);
+begin
+  ConfCartaoPage.ActivePageIndex := 4;
+  
+  MapEventos();
+  
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrNormDiu, ConfCartaoDPHrNormDiu);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrNormNot, ConfCartaoDPHrNormNot);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrDiuTrab, ConfCartaoDPHrDiuTrab);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrNotTrab, ConfCartaoDPHrNotTrab);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrFaltInj, ConfCartaoDPHrFaltInj);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrFaltJust, ConfCartaoDPHrFaltJust);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBEveHrAtraso, ConfCartaoDPEveHrAtraso);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrDescRSR, ConfCartaoDPEveHrDescRSR);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBAdcNotNorm, ConfCartaoDPAdcNotNorm);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBAdcNotTrab, ConfCartaoDPAdcNotTrab);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBRSRCfeEsc, ConfCartaoDPRSRCfeEsc);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrExIntDiu, ConfCartaoDPHrExIntDiu);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrExIntNot, ConfCartaoDPHrExIntNot);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrIntrajor, ConfCartaoDPHrIntrajor);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBHrInterjor, ConfCartaoDPHrInterjor);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfCartaoEBPernoite, ConfCartaoDPPernoite);
+end;
+
+procedure CadastraConfCartaoPonto(pathData);
+var
+  DDTConfCartaoPonto: OleVariant;
+begin
+  DDTConfCartaoPonto := CarregaDDT(pathData, _Cadastrar);
+  
+  while not (DDTConfCartaoPonto.EOF) do
+  begin
+    LeDataPoolConfCartaoPonto(DDTConfCartaoPonto.Name);
+    
+    AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Cartão Ponto');
+
+    MapGridConsulta(_ModuloPonto);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhConfPonto');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Cod Conf', ConfCartaoDPCodConfig);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      
+      if (Aliases.Ponto.FRhConfPonto.Exists) then
+      begin
+        MapConfCartaoPonto();
+      
+        PreencheInfosNormais(pathData);
+      
+        PreencheInfosPonto(pathData);
+      
+        PreencheConfigHrExtra(pathData);
+      
+        PreencheConfigCompensacao(pathData);
+      
+        PreencheEventos(pathData);
+      
+        ActSalvar(ConfCartaoForm);
+        
+        ActFechar(ConfCartaoForm);
+      end;
+    end;  
+    DDTConfCartaoPonto.Next;  
+    ActFechar(FormTelaConsultaForm);
+  end; 
+  DDT.CloseDriver(DDTConfCartaoPonto.Name);
+end;
+
+procedure AlteraConfCartaoPonto(pathData);
+var
+  DDTConfCartaoPonto: OleVariant;
+begin
+  DDTConfCartaoPonto := CarregaDDT(pathData, _Alterar);
+  
+  while not (DDTConfCartaoPonto.EOF) do
+  begin
+    LeDataPoolConfCartaoPonto(DDTConfCartaoPonto.Name);
+    
+    AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Cartão Ponto');
+
+    MapGridConsulta(_ModuloPonto);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhConfPonto');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Cod Conf', ConfCartaoDPCodConfig);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      if (Aliases.Ponto.FRhConfPonto.Exists) then
+      begin
+        MapConfCartaoPonto();
+      
+        PreencheInfosNormais(pathData);
+      
+        PreencheInfosPonto(pathData);
+      
+        PreencheConfigHrExtra(pathData);
+      
+        PreencheConfigCompensacao(pathData);
+      
+        PreencheEventos(pathData);
+      
+        ActSalvar(ConfCartaoForm);
+        
+        ActFechar(ConfCartaoForm);
+      end;
+    end;    
+    DDTConfCartaoPonto.Next;  
+    ActFechar(FormTelaConsultaForm);
+  end; 
+  DDT.CloseDriver(DDTConfCartaoPonto.Name);
+end;
+
+procedure ExcluiConfCartaoPonto(pathData);
+var
+  DDTConfCartaoPonto: OleVariant;
+begin
+  DDTConfCartaoPonto := CarregaDDT(pathData, _Excluir);
+  
+  while not (DDTConfCartaoPonto.EOF) do
+  begin
+    LeDataPoolConfCartaoPonto(DDTConfCartaoPonto.Name);
+    
+    AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Cartão Ponto');
+
+    MapGridConsulta(_ModuloPonto);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhConfPonto');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Cod Conf', ConfCartaoDPCodConfig);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      if (Aliases.Ponto.FRhConfPonto.Exists) then
+      begin
+        Aliases.Ponto.FRhConfPonto.BExcluir.Click();
+        
+        if (Aliases.Ponto.dlgConfigura_oDeCart_oPonto.Exists) then
+          Aliases.Ponto.dlgConfigura_oDeCart_oPonto.btnSim.Click();
+        Delay(2000); 
+        ActFechar(ConfCartaoForm);
+      end;
+    end;    
+    DDTConfCartaoPonto.Next;  
+    ActFechar(FormTelaConsultaForm);
+  end; 
+  DDT.CloseDriver(DDTConfCartaoPonto.Name);
+end;

@@ -1,0 +1,195 @@
+﻿uses
+  VarConsts;
+{Script para mapear tela de cadastro de Pessoa
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadPessoa, FormCadPessoaPage,
+  
+  //Tela de Filtro
+  FiltroConsForm, FiltroConsFormCBSelCons, FiltroConsFormCBNome,
+  FiltroConsFormCBCodigo, btnOkFiltroConsForm, btnVazioFiltroConsForm, 
+  btnCancelFiltroConsForm,
+  
+  //Dados Pessoais
+  FormCadPessoaIdPess, FormCadPessoaNome, FormCadPessoaNomeSocial,
+  FormCadPessoaIdEstCivil, FormCadPessoaIdInstrucao, FormCadPessoaIdNacional,
+  FormCadPessoaNomePai, FormCadPessoaNomeMae, FormCadPessoaNomeConjuge,
+  FormCadPessoaSexo, FormCadPessoaIdGenero, FormCadPessoaRacaCor,
+  FormCadPessoaCodNatural, FormCadPessoaDtNascim, FormCadPessoaTipoSanguineo,
+  FormCadPessoaApelido,
+  
+  //Informações de Deficiência
+  FormCadPessoaDefFisica, FormCadPessoaDefVisual,
+  FormCadPessoaDefAutiditiva, FormCadPessoaDefMental, FormCadPessoaDefIntelectual,
+  FormCadPessoaReabilitado, FormCadPessoaCotaPessDef, FormCadPessoaObsDef,
+  
+  //Estrangeiro
+  FormCadPessoaDtChegadaPais, FormCadPessoaCasadoBrasileiro,
+  FormCadPessoaFilhosComBras, FormCadPessoaIdClasTrabEst, 
+  
+  //Endereço/Contato
+  FormCadPessoaTipoEndereco, FormCadPessoaIdTpLogadouro, FormCadPessoaEndereco,
+  FormCadPessoaNroEnd, FormCadPessoaBairro, FormCadPessoaComplemento, 
+  FormCadPessoaCidade, FormCadPessoaCEP, FormCadPessoaEmail, 
+  FormCadPessoaEmailAlt, FormCadPessoaDdCelular, FormCadPessoaCelular, 
+  FormCadPessoaDddTelefone, FormCadPessoaTelefone, FormCadPessoaNroCaixaPostal,
+  FormCadPessoaCEPCaixaPostal, FormCadPessoaResideExterior, FormCadPessoaResidenciaPropria,
+  FormCadPessoaResidenciaFGTS,             
+  
+  //Documentos
+  FormCadPessoaCpf, FormCadPessoaDocMilitar, FormCadPessoaSecaoElei, FormCadPessoaTituloElei,
+  FormCadPessoaZonaElei, FormCadPessoaRg, FormCadPessoaDtRg, FormCadPessoaComplementoRG,
+  FormCadPessoaIdOrgaoRg, FormCadPessoaCidadeRG, FormCadPessoaUfRg, FormCadPessoaCartHabi,
+  FormCadPessoaCateHabi, FormCadPessoaDtPriHab, FormCadPessoaUfExpCNH, FormCadPessoaDtExpCNH,
+  FormCadPessoaDtVencCNH, FormCadPessoaCertCivil, FormCadPessoaLivroCert, FormCadPessoaFolhaCert,
+  FormCadPessoaCartorioCert, FormCadPessoaCodCidCert, FormCadPessoaDataEmisCert, 
+  FormCadPessoaMatriculaCert, FormCadPessoaNroPassaporte, FormCadPessoaDtEmisPassaporte, 
+  FormCadPessoaDtValPassaporte, FormCadPessoaIdOrgaoPass, FormCadPessoaCodCidPass, 
+  FormCadPessoaNroNaturalizao, FormCadPessoaDtNaturalizao, FormCadPessoaNroRic,
+  FormCadPessoaDtEmisRic, FormCadPessoaCodCidRic,FormCadPessoaIdOrgaoRic, FormCadPessoaNroRegOrgao,
+  FormCadPessoaIdOrgaoRO, FormCadPessoaDtExpDocumento, FormCadPessoaDtValDocumento,
+  FormCadPessoaCodRne, FormCadPessoaDtExpRne, FormCadPessoaOrgaoRne, FormCadPessoaNroCartaoSUS, 
+  
+  { Dependentes }
+  FormCadPessoaGRhDepIRRF, FormCadPessoaBIncDepIRRF, FormCadPessoaBProcDepIRRF, 
+  FormCadPessoaBConsulDepIRRF, FormCadPessoaBDesfDepIRRF, FormCadPessoaBExcDepIRRF: OleVariant;
+
+procedure MapTelaCadPessoaDadosPessoais();
+begin
+  { Dados Pessoais }
+  FormCadPessoaIdPess         := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_IDPESS;
+  FormCadPessoaNome           := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_NOME;
+  FormCadPessoaNomeSocial     := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_NOMESOCIAL;
+  FormCadPessoaIdEstCivil     := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_IDESTCIVIL;
+  FormCadPessoaIdInstrucao    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_IDINSTRUCAO;
+  FormCadPessoaIdNacional     := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_IDNACIONAL;
+  FormCadPessoaNomePai        := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_NOMEPAI;
+  FormCadPessoaNomeMae        := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_NOMEMAE;
+  FormCadPessoaNomeConjuge    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_NOMECONJUGE;
+  FormCadPessoaSexo           := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_SEXO;
+  FormCadPessoaIdGenero       := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_IDGENERO;
+  FormCadPessoaRacaCor        := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_RACACOR;
+  FormCadPessoaCodNatural     := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_CIDNATURAL;
+  FormCadPessoaDtNascim       := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_DTNASCIM;
+  FormCadPessoaTipoSanguineo  := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_TIPOSANGUINEO;
+  FormCadPessoaApelido        := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_APELIDO;
+  
+  { Informações de Deficiência }
+  FormCadPessoaDefFisica      := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_DEFFISICA;
+  FormCadPessoaDefVisual      := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_DEFVISUAL;
+  FormCadPessoaDefAutiditiva  := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_DEFAUDITIVA;
+  FormCadPessoaDefMental      := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_DEFMENTAL;
+  FormCadPessoaDefIntelectual := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_DEFINTELECTUAL;
+  FormCadPessoaReabilitado    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_REABILITADO;
+  FormCadPessoaCotaPessDef    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_COTAPESSDEF;
+  FormCadPessoaObsDef         := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.EB_GRPDEF.EB_OBSDEF;
+  
+  { Estrangeiro }
+  FormCadPessoaDtChegadaPais    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.VsGroupBox1.EB_DTCHEGADAPAIS;
+  FormCadPessoaCasadoBrasileiro := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.VsGroupBox1.EB_CASADOBRASILEIRO;
+  FormCadPessoaFilhosComBras    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.VsGroupBox1.EB_FILHOSCOMBRAS;
+  FormCadPessoaIdClasTrabEst    := Aliases.Folha.FRhPessoa.Page.TabNormal.pnCab.ScrollBox4.VsGroupBox1.EB_IDCLASTRABEST;
+end;
+    
+procedure MapTelaCadPessoaEndereco();
+begin
+  { Endereço/Contato }
+  FormCadPessoaTipoEndereco      := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_TIPOENDERECO;
+  FormCadPessoaIdTpLogadouro     := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_IDTPLOGADOURO;
+  FormCadPessoaEndereco          := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_ENDERECO;
+  FormCadPessoaNroEnd            := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_NROEND;
+  FormCadPessoaBairro            := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_BAIRRO;
+  FormCadPessoaComplemento       := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_COMPLEMENTO;
+  FormCadPessoaCidade            := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_CIDADE;
+  FormCadPessoaCEP               := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_CEP;
+  FormCadPessoaEmail             := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_EMAIL;
+  FormCadPessoaEmailAlt          := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_EMAILALT;
+  FormCadPessoaDdCelular         := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_DDCELULAR;
+  FormCadPessoaCelular           := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_CELULAR;
+  FormCadPessoaDddTelefone       := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_DDDTELEFONE;
+  FormCadPessoaTelefone          := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_TELEFONE;
+  FormCadPessoaNroCaixaPostal    := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_NROCAIXAPOSTAL;
+  FormCadPessoaCEPCaixaPostal    := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_CEPCAIXAPOST;
+  FormCadPessoaResideExterior    := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_RESIDEEXTERIOR; 
+  FormCadPessoaResidenciaPropria := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_RESIDENCIAPROPRIA;
+  FormCadPessoaResidenciaFGTS    := Aliases.Folha.FRhPessoa.Page.TabSheet1.Panel1.ScrollBox3.EB_RESIDENCIAFGTS;  
+end;
+
+procedure MapTelaCadPessoaDocumentos();
+begin
+  { Documentos }
+  FormCadPessoaCpf              := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CPF;
+  FormCadPessoaDocMilitar       := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DOCMILITAR;
+  FormCadPessoaSecaoElei        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_SECAOELEI;
+  FormCadPessoaTituloElei       := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_TITUELEI;
+  FormCadPessoaZonaElei         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_ZONAELEI;
+  FormCadPessoaRg               := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_RG;
+  FormCadPessoaDtRg				      := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DATARG;
+  FormCadPessoaComplementoRG    := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_COMPLEMENTORG;
+  FormCadPessoaIdOrgaoRg        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_IDORGAORG;
+  FormCadPessoaCidadeRG         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CIDADERG;
+  FormCadPessoaUfRg             := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_UFRG;
+  FormCadPessoaCartHabi         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CARTHABI;
+  FormCadPessoaCateHabi         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CATEHABI;
+  FormCadPessoaDtPriHab         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTPRIHAB;
+  FormCadPessoaUfExpCNH         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_UFEXPCNH;
+  FormCadPessoaDtExpCNH         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTEXPCNH;
+  FormCadPessoaDtVencCNH        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTVENCCNH;
+  FormCadPessoaCertCivil        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CERTCIVIL;
+  FormCadPessoaLivroCert        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_LIVROCERT;
+  FormCadPessoaFolhaCert        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_FOLHACERT;
+  FormCadPessoaCartorioCert     := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CARTORIOCERT;
+  FormCadPessoaCodCidCert       := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CODCIDCERT;
+  FormCadPessoaDataEmisCert     := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DATAEMISCERT;
+  FormCadPessoaMatriculaCert    := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_MATRICULACERT;
+  FormCadPessoaNroPassaporte    := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_NROPASAPORTE;
+  FormCadPessoaDtEmisPassaporte := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTAEMISPASSAPORTE;
+  FormCadPessoaDtValPassaporte  := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTAVALPASSAPORTE;
+  FormCadPessoaIdOrgaoPass      := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_IDORGAOPASS;
+  FormCadPessoaCodCidPass       := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CODCIDPASS;
+  FormCadPessoaNroNaturalizao   := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_NRONATURALIZACAO;
+  FormCadPessoaDtNaturalizao    := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTANATURALIZACAO;
+  FormCadPessoaNroRic           := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_NRORIC;
+  FormCadPessoaDtEmisRic        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTAEMISRIC;
+  FormCadPessoaCodCidRic        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CODCIDRIC;
+  FormCadPessoaIdOrgaoRic       := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_IDORGAORIC;
+  FormCadPessoaNroRegOrgao      := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_NROREGORGAO;
+  FormCadPessoaIdOrgaoRO        := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_IDORGAORO;
+  FormCadPessoaDtExpDocumento   := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTEXPDOCUMENTO;
+  FormCadPessoaDtValDocumento   := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTVALDOCUMENTO;
+  FormCadPessoaCodRne           := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_CODRNE;
+  FormCadPessoaDtExpRne         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_DTEXPRNE;
+  FormCadPessoaOrgaoRne         := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_IDORGAORNE;
+  FormCadPessoaNroCartaoSUS     := Aliases.Folha.FRhPessoa.Page.TabSheet2.Panel2.ScrollBox2.EB_NROCARTAOSUS;  
+end;
+
+procedure MapTelaCadPessoaDependentes();
+begin
+  FormCadPessoaGRhDepIRRF     := Aliases.Folha.FRhPessoa.Page.tsDependentes.gRhDepIRRF;
+  
+  FormCadPessoaBIncDepIRRF    := Aliases.Folha.FRhPessoa.bIncDepIRRF;
+  FormCadPessoaBProcDepIRRF   := Aliases.Folha.FRhPessoa.bProcDepIRRF;
+  FormCadPessoaBConsulDepIRRF := Aliases.Folha.FRhPessoa.bConsulDepIRRF;
+  FormCadPessoaBDesfDepIRRF   := Aliases.Folha.FRhPessoa.bDesfDepIRRF;
+  FormCadPessoaBExcDepIRRF    := Aliases.Folha.FRhPessoa.bExcDepIRRF;
+end;
+
+procedure MapTelaCadPessoa();
+begin
+  FormCadPessoa     := Aliases.Folha.FRhPessoa;
+  FormCadPessoaPage := Aliases.Folha.FRhPessoa.Page; 
+end;
+
+procedure MapFiltroCadPessoa();
+begin
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBNome    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  FiltroConsFormCBCodigo  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;

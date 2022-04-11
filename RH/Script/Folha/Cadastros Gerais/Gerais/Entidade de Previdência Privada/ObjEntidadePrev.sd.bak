@@ -1,0 +1,19 @@
+﻿{Script de mapeamento tela de cadastro de EntidadePrev
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadEntidadePrev,
+  FormCadEntidadePrevIdentidadeInfpc, 
+  FormCadEntidadePrevCNPJ, 
+  FormCadEntidadePrevRazaoSoc: OleVariant;
+
+procedure MapTelaCadEntidadePrev();
+begin
+  FormCadEntidadePrev                := Aliases.Folha.FRhEntidadeINFPC;
+     
+  FormCadEntidadePrevIdentidadeInfpc := Aliases.Folha.FRhEntidadeINFPC.pnlPrincipal.EB_IDENTIDADEINFPC;
+  FormCadEntidadePrevCNPJ            := Aliases.Folha.FRhEntidadeINFPC.pnlPrincipal.EB_CNPJ;
+  FormCadEntidadePrevRazaoSoc        := Aliases.Folha.FRhEntidadeINFPC.pnlPrincipal.EB_RAZAOSOC;
+end;

@@ -1,0 +1,174 @@
+﻿{Script para mapear o Processo de eSocial - Carga Inicial
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 28/06/2021}
+
+var
+  FormESocialCargaInicial,
+  
+  BtnEnviarCargaInicial, BtnZerarBaseHomolog,
+
+  FormCargaInicialModoLanc, PageESocialCargaInicial,
+
+  FormCargaInicialRBS1000, FormCargaInicialRBS1005,
+  FormCargaInicialRBS1010, FormCargaInicialRBS1020,
+  FormCargaInicialRBS1030, FormCargaInicialRBS1040,
+  FormCargaInicialRBS1050, FormCargaInicialRBS1070,
+
+  FormCargaInicialRBS2190, FormCargaInicialRBS2200,
+  FormCargaInicialRBS2230, FormCargaInicialRBS2250,
+  FormCargaInicialRBS2298, FormCargaInicialRBS2299,
+  FormCargaInicialRBS2300, FormCargaInicialRBS2399,
+
+  FormCargaInicialIniValid,
+
+  FormCargaInicialWhEstabTodos, FormCargaInicialWhEstabEspec,
+  FormCargaInicialWhEstabEspecCampo, FormCargaInicialWhEstabSelec,
+  FormCargaInicialWhEstabSelecCampo,
+
+  FormCargaInicialWhEventosTodos, FormCargaInicialWhEventosEspec,
+  FormCargaInicialWhEventosEspecCampo, FormCargaInicialWhEventosSelec,
+  FormCargaInicialWhEventosSelecCampo,
+
+  FormCargaInicialWhLocaisTodos, FormCargaInicialWhLocaisEspec,
+  FormCargaInicialWhLocaisEspecCampo, FormCargaInicialWhLocaisSelec,
+  FormCargaInicialWhLocaisSelecCampo,
+
+  FormCargaInicialWhFuncoesTodos, FormCargaInicialWhFuncoesEspec,
+  FormCargaInicialWhFuncoesEspecCampo, FormCargaInicialWhFuncoesSelec,
+  FormCargaInicialWhFuncoesSelecCampo,
+
+  FormCargaInicialWhHorariosTodos, FormCargaInicialWhHorariosEspec,
+  FormCargaInicialWhHorariosEspecCampo,FormCargaInicialWhHorariosSelec,
+  FormCargaInicialWhHorariosSelecCampo,
+
+  FormCargaInicialWhProcJudicTodos, FormCargaInicialWhProcJudicEspec,
+  FormCargaInicialWhProcJudicEspecCampo, FormCargaInicialWhProcJudicSelec,
+  FormCargaInicialWhProcJudicSelecCampo,
+
+  FormCargaInicialWhDataDtIni, FormCargaInicialWhDataDtFin,
+  FormCargaInicialWhDescPeriodo,
+
+  FormCargaInicialWhAdPreliminarTodos, FormCargaInicialWhAdPreliminarEspec,
+  FormCargaInicialWhAdPreliminarEspecCampo, FormCargaInicialWhAdPreliminarSelec,
+  FormCargaInicialWhAdPreliminarSelecCampo,
+
+  FormCargaInicialWhEmpregadosTodos, FormCargaInicialWhEmpregadosEspec,
+  FormCargaInicialWhEmpregadosEspecCampo, FormCargaInicialWhEmpregadosSelec,
+  FormCargaInicialWhEmpregadosSelecCampo, 
+  
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialCargaInicial();
+begin
+  FormESocialCargaInicial                  := Aliases.Folha.FRhProceSocialCargaInicial;
+  PageESocialCargaInicial                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao;
+  BtnEnviarCargaInicial                    := Aliases.Folha.FRhProceSocialCargaInicial.btEnviarCargaInicial;
+  BtnZerarBaseHomolog                      := Aliases.Folha.FRhProceSocialCargaInicial.btZerarBase;
+  
+  FormCargaInicialModoLanc                 := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.GroupBox4.EB_MODOLANC;
+  
+  FormCargaInicialRBS1000                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1000;
+  FormCargaInicialRBS1005                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1005;
+  FormCargaInicialRBS1010                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1010;
+  FormCargaInicialRBS1020                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1020;
+  FormCargaInicialRBS1030                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1030;
+  FormCargaInicialRBS1040                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1040;
+  FormCargaInicialRBS1050                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1050;
+  FormCargaInicialRBS1070                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS1070;
+  
+  FormCargaInicialRBS2190                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2190;
+  FormCargaInicialRBS2200                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2200;
+  FormCargaInicialRBS2230                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2230;
+  FormCargaInicialRBS2250                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2250;
+  FormCargaInicialRBS2298                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2298;
+  FormCargaInicialRBS2299                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2299;
+  FormCargaInicialRBS2300                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2300;
+  FormCargaInicialRBS2399                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.gbEventosCargaInicial.pgVersao.tsVersao2_5.sbVersao2_5.rbS2399;
+  
+  FormCargaInicialIniValid                 := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whIniValid.EB_INIVALID;
+  
+  FormCargaInicialWhEstabTodos             := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEstabelecimentos.whEstabelecimentos30;
+  FormCargaInicialWhEstabEspec             := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhEstabelecimentos.WhEstabelecimentos20;
+  FormCargaInicialWhEstabEspecCampo        := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEstabelecimentos.whEstabelecimentos50;
+  FormCargaInicialWhEstabSelec             := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEstabelecimentos.whEstabelecimentos40;
+  FormCargaInicialWhEstabSelecCampo        := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEstabelecimentos.whEstabelecimentos80;
+  
+  FormCargaInicialWhEventosTodos           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEventos.whEventos30;
+  FormCargaInicialWhEventosEspec           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhEventos.WhEventos20;
+  FormCargaInicialWhEventosEspecCampo      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEventos.whEventos50;
+  FormCargaInicialWhEventosSelec           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEventos.whEventos40;
+  FormCargaInicialWhEventosSelecCampo      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEventos.whEventos80;
+
+  FormCargaInicialWhLocaisTodos            := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whLocais.whLocais30;
+  FormCargaInicialWhLocaisEspec            := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhLocais.WhLocais20;
+  FormCargaInicialWhLocaisEspecCampo       := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whLocais.whLocais50;
+  FormCargaInicialWhLocaisSelec            := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whLocais.whLocais40;
+  FormCargaInicialWhLocaisSelecCampo       := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whLocais.whLocais80;  
+  
+  FormCargaInicialWhFuncoesTodos           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whFuncoes.whFuncoes30;
+  FormCargaInicialWhFuncoesEspec           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhFuncoes.WhFuncoes20;
+  FormCargaInicialWhFuncoesEspecCampo      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whFuncoes.whFuncoes50;
+  FormCargaInicialWhFuncoesSelec           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whFuncoes.whFuncoes40;
+  FormCargaInicialWhFuncoesSelecCampo      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whFuncoes.whFuncoes80;
+  
+  FormCargaInicialWhHorariosTodos          := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whHorarios.whHorarios30;
+  FormCargaInicialWhHorariosEspec          := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhHorarios.WhHorarios20;
+  FormCargaInicialWhHorariosEspecCampo     := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whHorarios.whHorarios50;
+  FormCargaInicialWhHorariosSelec          := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whHorarios.whHorarios40;
+  FormCargaInicialWhHorariosSelecCampo     := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whHorarios.whHorarios80;
+
+  FormCargaInicialWhProcJudicTodos         := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whProcessosJudiciais.whProcessosJudiciais30;
+  FormCargaInicialWhProcJudicEspec         := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhProcessosJudiciais.WhProcessosJudiciais20;
+  FormCargaInicialWhProcJudicEspecCampo    := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whProcessosJudiciais.whProcessosJudiciais50;
+  FormCargaInicialWhProcJudicSelec         := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whProcessosJudiciais.whProcessosJudiciais40;
+  FormCargaInicialWhProcJudicSelecCampo    := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whProcessosJudiciais.whProcessosJudiciais80;
+  
+  FormCargaInicialWhDataDtIni              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whDatas.whDatas20;
+  FormCargaInicialWhDataDtFin              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whDatas.whDatas30;
+  FormCargaInicialWhDescPeriodo            := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whDatas.whDatas40;
+  
+  FormCargaInicialWhAdPreliminarTodos      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whAdPreliminar.whAdPreliminar30;
+  FormCargaInicialWhAdPreliminarEspec      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhAdPreliminar.WhAdPreliminar20;
+  FormCargaInicialWhAdPreliminarEspecCampo := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whAdPreliminar.whAdPreliminar50;
+  FormCargaInicialWhAdPreliminarSelec      := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whAdPreliminar.whAdPreliminar40;
+  FormCargaInicialWhAdPreliminarSelecCampo := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whAdPreliminar.whAdPreliminar80;
+  
+  FormCargaInicialWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEmpregados.whEmpregados30;
+  FormCargaInicialWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.WhEmpregados.WhEmpregados20;
+  FormCargaInicialWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEmpregados.whEmpregados50;
+  FormCargaInicialWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEmpregados.whEmpregados40;
+  FormCargaInicialWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsPrincipal.SB_Selecao.whEmpregados.whEmpregados80;
+end;
+
+procedure MapESocialConsCargaInicial();
+begin
+  FormConsEstab                := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin              := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente             := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial           := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                    := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                  := Aliases.Folha.FRhProceSocialCargaInicial.bSelOcs;
+  BtnDesTodos                  := Aliases.Folha.FRhProceSocialCargaInicial.bDesmOcs;
+  BtnConsSel                   := Aliases.Folha.FRhProceSocialCargaInicial.btConsTodosSel;
+  BtnEnvTodosSel               := Aliases.Folha.FRhProceSocialCargaInicial.btEnvTodosSel;
+  BtnExtTodosSel               := Aliases.Folha.FRhProceSocialCargaInicial.btExcTodosSel;
+  BtnSalvarXML                 := Aliases.Folha.FRhProceSocialCargaInicial.btSalvarXML;
+  BtnVerXML                    := Aliases.Folha.FRhProceSocialCargaInicial.btVerXML;
+  BtnVerRetorno                := Aliases.Folha.FRhProceSocialCargaInicial.btVisualizarRetorno;
+  BtnVizualizar                := Aliases.Folha.FRhProceSocialCargaInicial.btVisualizarOc;
+  CbMostrarProtocolos          := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                  := Aliases.Folha.FRhProceSocialCargaInicial.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

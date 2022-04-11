@@ -1,0 +1,93 @@
+﻿{Script de mapeamento o Processo de Sefip
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+var
+  FormProcSefip, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormProcSefipWhEstabEspec, FormProcSefipWhEstabEspecCampo,
+  FormProcSefipWhEstabTodosEmp, FormProcSefipWhEstabTodosEmpCampo,
+  FormProcSefipWhEstabTodos, FormProcSefipWhEstabSelec,
+  FormProcSefipWhEstabSelecCampo, 
+  
+  FormProcSefipWhPrestTodos, FormProcSefipWhPrestEspec,
+  FormProcSefipWhPrestEspecCampo, FormProcSefipWhPrestSelec,
+  FormProcSefipWhPrestSelecCampo,
+    
+  FormProcSefipWhEmpreTodos, FormProcSefipWhEmpreEspec,
+  FormProcSefipWhEmpreEspecCampo, FormProcSefipWhEmpreSelec,
+  FormProcSefipWhEmpreSelecCampo, 
+  
+  FormProcSefipWhProcTodos, FormProcSefipWhProcEspec, 
+  FormProcSefipWhProcEspecCampo, FormProcSefipWhProcSelec, 
+  FormProcSefipWhProcSelecCampo,
+  
+  FormProcSefipWhVinculoTodos, FormProcSefipWhVinculoEspec,
+  FormProcSefipWhVinculoEspecCampo, FormProcSefipWhVinculoSelec,
+  FormProcSefipWhVinculoSelecCampo,
+  
+  FormProcSefipWhMesRec, FormProcSefipWhAnoRec,
+  FormProcSefipWhCodRec, FormProcSefipWhModalidade, 
+  FormProcSefipWhRecFGTS, FormProcSefipWhDataFGTS, 
+  FormProcSefipWhRecINSS, FormProcSefipWhDataINSS, 
+  FormProcSefipWhCNAEPrep, FormProcSefipWhLocalGrav: OleVariant;
+  
+procedure MapProcSefip();
+begin
+  FormProcSefip                     := Aliases.Folha.FRhProcSefip;
+  
+  btnSair                           := Aliases.Folha.FRhProcSefip.BSair;
+  btnExecutar                       := Aliases.Folha.FRhProcSefip.bExecutar;
+  btnSalvar                         := Aliases.Folha.FRhProcSefip.tbSalvar;
+  btnRelatorio                      := Aliases.Folha.FRhProcSefip.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormProcSefipWhEstabEspec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormProcSefipWhEstabEspecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormProcSefipWhEstabTodosEmp      := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormProcSefipWhEstabTodosEmpCampo := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormProcSefipWhEstabTodos         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormProcSefipWhEstabSelec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormProcSefipWhEstabSelecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregado }
+  FormProcSefipWhEmpreTodos         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  FormProcSefipWhEmpreEspec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  FormProcSefipWhEmpreEspecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  FormProcSefipWhEmpreSelec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  FormProcSefipWhEmpreSelecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Filtro de Prestador }
+  FormProcSefipWhPrestTodos         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.WhPrestador30;
+  FormProcSefipWhPrestEspec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador20;
+  FormProcSefipWhPrestEspecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador50;
+  FormProcSefipWhPrestSelec         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador40;
+  FormProcSefipWhPrestSelecCampo    := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador80;
+
+  { Filtro de Processamentos }
+  FormProcSefipWhProcTodos          := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento30;
+  FormProcSefipWhProcEspec          := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento20;
+  FormProcSefipWhProcEspecCampo     := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento50;
+  FormProcSefipWhProcSelec          := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento40;
+  FormProcSefipWhProcSelecCampo     := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento80;
+      
+  { Filtro de Vinculo }
+  FormProcSefipWhVinculoTodos       := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo30;
+  FormProcSefipWhVinculoEspec       := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo20;
+  FormProcSefipWhVinculoEspecCampo  := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo50;
+  FormProcSefipWhVinculoSelec       := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo40;
+  FormProcSefipWhVinculoSelecCampo  := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo80;
+  
+  { Dados Adicionais }
+  FormProcSefipWhMesRec             := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_MesRec;
+  FormProcSefipWhAnoRec             := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_AnoRec;
+  FormProcSefipWhCodRec             := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_CODREC;
+  FormProcSefipWhModalidade         := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_Modalidade;
+  FormProcSefipWhRecFGTS            := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_IndFgts;
+  FormProcSefipWhDataFGTS           := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_Datafgts;
+  FormProcSefipWhRecINSS            := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_IndInss;
+  FormProcSefipWhDataINSS           := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_DataInss;
+  FormProcSefipWhCNAEPrep           := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_CNAE;
+  FormProcSefipWhLocalGrav          := Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+end;

@@ -1,0 +1,147 @@
+﻿{Script para executar o Processo de PIS em Lote
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 06/07/2021}
+uses
+  DataPoolPisLote, ObjPisLote, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaProcPisLote();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'SEFIP/GRRF/PIS', 'PIS Em Lote'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    PisLoteWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, PisLoteWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    PisLoteWhEstabTodosEmp.ClickButton;
+    VerificaInsere(PisLoteWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    PisLoteWhEstabSelec.ClickButton;
+    VerificaInsere(PisLoteWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    PisLoteWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;  
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (PisLoteWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    PisLoteWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, PisLoteWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    PisLoteWhEmpreSelec.ClickButton;
+    VerificaInsere(PisLoteWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    PisLoteWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (PisLoteWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(PisLoteWhDataDtIni, FiltroDataIni); 
+  PreencheDatas(PisLoteWHDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure DadosAdicionais();
+begin
+  if (PisLoteWhDadosLocalGrav.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(PisLoteWhDadosLocalGrav, FiltroLocalGrav);
+  VerificaInsere(PisLoteWhDadosTipoArquivo, FiltroTipoArquivo);
+  PreencheDatas(PisLoteWhDadosDataGeracao, FiltroDataGeracao);
+  VerificaInsere(PisLoteWhDadosEmpSemPis, FiltroEmpSemPis);
+  VerificaInsere(PisLoteWhDadosRetifica, FiltroRetifica);
+  VerificaInsere(PisLoteWhDadosSeqDia, FiltroSeqDia);  
+end;
+
+procedure FechaMensagemProcessoConcluido();
+begin  
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+  end;
+end;
+
+procedure ExecutaPisLote(pathData);
+var 
+  DDTPisLote: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaProcPisLote();
+
+  MapPisLote();
+  
+  DDTPisLote := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolPisLote(DDTPisLote.Name);
+
+  FiltraEstab();
+
+  FiltraEmpregados();
+  
+  FiltraData();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+      ActFechar(FormPisLote);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormPisLote);
+      MensagemInativa := false;
+    end
+  end;  
+  ValidaArquivos('C:\TEMP\PIS EM LOTE\PIS_LOTE_MODELO.S00', 'C:\TEMP\PIS EM LOTE\PIS_LOTE_MODELO_ORACLE.S00', 'C:\TEMP\PIS EM LOTE\CADASTRONIS.D210101.S00');
+  DDT.CloseDriver(DDTPisLote.Name);
+end;

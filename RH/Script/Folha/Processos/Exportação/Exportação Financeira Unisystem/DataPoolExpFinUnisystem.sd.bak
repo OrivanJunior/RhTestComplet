@@ -1,0 +1,79 @@
+﻿{Script de DataPool do Processo de Exportação Financeira Unisystem
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 14/07/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroPrestTipo, FiltroPrestValor,
+  
+  FiltroRPATipo, FiltroRPAValor,
+  
+  FiltroDataLancto, FiltroDataVenc,
+  FiltroCodSafra, FiltroTipoDoc,
+  FiltroTipoLancto, FiltroSufixo,
+  FiltroHistorico, FiltroLocalGrav,
+  FiltroSobreDarf, FiltroSobreFGTS,
+  FiltroSobreGPSFun, FiltroSobreGPS,
+  FiltroSobreGPS13, FiltroSobreGPSFat,
+  FiltroSobreRPA, FiltroAnoGPS13,
+  FiltroGerarValResc: OleVariant;
+
+procedure LeDataPoolExpFinUnisystem(pathData);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo     := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor    := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+        
+  { Filtro Empregados }
+  FiltroEmpreTipo     := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor    := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+        
+  { Filtro Locais }
+  FiltroLocalTipo     := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor    := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+  { Filtro Referência }
+  FiltroDataIni       := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin       := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo      := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor     := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+    
+  { Filtro de Prestador }
+  FiltroPrestTipo     := DDT.DriverByName(nomeDriver).Value('TIPOPREST');
+  FiltroPrestValor    := DDT.DriverByName(nomeDriver).Value('PRESTVALOR');
+    
+  { Filtro de RPA }
+  FiltroRPATipo       := DDT.DriverByName(nomeDriver).Value('TIPORPA');
+  FiltroRPAValor      := DDT.DriverByName(nomeDriver).Value('RPAVALOR');   
+    
+  { Filtro Dados Adicionais }
+  FiltroDataLancto    := DDT.DriverByName(nomeDriver).Value('DATALANCTO');
+  FiltroDataVenc      := DDT.DriverByName(nomeDriver).Value('DATAVENC');
+  FiltroCodSafra      := DDT.DriverByName(nomeDriver).Value('CODSAFRA');
+  FiltroTipoDoc       := DDT.DriverByName(nomeDriver).Value('TIPODOC');
+  FiltroTipoLancto    := DDT.DriverByName(nomeDriver).Value('TIPOLANCTO');
+  FiltroSufixo        := DDT.DriverByName(nomeDriver).Value('SUFIXO');
+  FiltroHistorico     := DDT.DriverByName(nomeDriver).Value('HISTORICO');
+  FiltroLocalGrav     := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+  FiltroSobreDarf     := DDT.DriverByName(nomeDriver).Value('SOBREDARF');
+  FiltroSobreFGTS     := DDT.DriverByName(nomeDriver).Value('SOBREFGTS');
+  FiltroSobreGPSFun   := DDT.DriverByName(nomeDriver).Value('SOBREGPSFUN');
+  FiltroSobreGPS      := DDT.DriverByName(nomeDriver).Value('SOBREGPS');
+  FiltroSobreGPS13    := DDT.DriverByName(nomeDriver).Value('SOBREGPS13');
+  FiltroSobreGPSFat   := DDT.DriverByName(nomeDriver).Value('SOBREGPSFAT');
+  FiltroSobreRPA      := DDT.DriverByName(nomeDriver).Value('SOBRERPA');
+  FiltroAnoGPS13      := DDT.DriverByName(nomeDriver).Value('ANOGPS13');
+  FiltroGerarValResc  := DDT.DriverByName(nomeDriver).Value('GERARVALRESC');
+end;

@@ -1,0 +1,109 @@
+﻿uses
+  DataPoolESocialEnvioRescindidos, ObjESocialEnvioRescindidos, CommonsAll, VarConsts, conexaoBanco, ExeValidaEventos;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+
+var
+  DDTEnvioRescindidos:OleVariant; 
+  
+procedure AcessaESocialEnvioRescindidos();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Envio de Rescindidos'); 
+end;
+
+procedure PreencheEmpregados();
+begin
+  if (Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.Exists) then
+  begin
+    if (FormEnvioRescindidosWhEmpregadosTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialEnvioRescindidos.pgPadrao.tsPrincipal.whEmpregados.whEmpregados10.Click();
+    
+    if (FiltroEmpregadoTipo = _Especifico) then
+    begin
+      FormEnvioRescindidosWhEmpregadosEspec.ClickButton;
+      VerificaInsere(FormEnvioRescindidosWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Selecionados) then
+    begin
+      FormEnvioRescindidosWhEmpregadosSelec.ClickButton;
+      VerificaInsere(FormEnvioRescindidosWhEmpregadosSelec, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Todos) then
+    begin
+      FormEnvioRescindidosWhEmpregadosTodos.ClickButton;
+      Log.Checkpoint('Selecionado Empregados - Todos');
+    end;
+  end;
+end;
+
+procedure PreencheEventos();
+begin
+  if (FormEnvioRescindidosDPS2200 = 'S') then
+  begin
+  	FormEnvioRescindidosRBS2200.ClickButton();
+    PreencheEmpregados();
+  end
+  else if (FormEnvioRescindidosDPS2300 = 'S') then
+  begin
+  	FormEnvioRescindidosRBS2300.ClickButton();
+    PreencheEmpregados();
+  end;
+end;
+
+procedure PreencheConsulta(pathData);
+begin
+  PageESocialEnvioRescindidos.ActivePageIndex := 1;
+
+  MapESocialConsEnvioRescindidos();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+  
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;  
+end;
+
+procedure ExecutaESocialEnvioRescindidos(pathData, pathDataCons);
+begin
+  AcessaESocialEnvioRescindidos();
+  
+  MapESocialEnvioRescindidos();
+  
+  DDTEnvioRescindidos := CarregaDDT(pathData, 'Envio');
+  
+  while not(DDTEnvioRescindidos.EOF) do
+  begin
+    LeDataPoolEnvioRescindidos(DDTEnvioRescindidos.Name);
+  
+    PreencheEventos();
+    
+    BtnEnviarRescindidos.Click();
+    
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 80000).Exists)  then
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+    
+    DDTEnvioRescindidos.Next;
+  end;
+  PreencheConsulta(pathDataCons);
+
+  ActFechar(FormESocialEnvioRescindidos);
+  
+  DDT.CloseDriver(DDTEnvioRescindidos.Name);
+end;

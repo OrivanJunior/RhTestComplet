@@ -1,0 +1,47 @@
+﻿{Script de DataPool do Processo de Seguro Desemprego
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 25/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocaisTipo, FiltroLocaisValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroLocalGrav, FiltroReferencia,
+  FiltroUltimosSalarios, FiltroAnteSalario,
+  FiltroPenuSalario, FiltroUltiSalario: OleVariant;
+
+procedure LeDataPoolSeguroDesemprego(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo       := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor      := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+    { Filtro Locais }
+    FiltroLocaisTipo       := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+    FiltroLocaisValor      := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo       := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+    FiltroEmpreValor      := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+    { Filtro Processamentos }
+    FiltroProcTipo        := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+    FiltroProcValor       := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+
+    { Filtro Dados Adicionais }
+    FiltroLocalGrav       := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+    FiltroReferencia      := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+    FiltroUltimosSalarios := DDT.DriverByName(nomeDriver).Value('ULTIMOSSALARIOS');
+    FiltroAnteSalario     := DDT.DriverByName(nomeDriver).Value('ANTESALARIO');
+    FiltroPenuSalario     := DDT.DriverByName(nomeDriver).Value('PENUSALARIO');
+    FiltroUltiSalario     := DDT.DriverByName(nomeDriver).Value('ULTISALARIO');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

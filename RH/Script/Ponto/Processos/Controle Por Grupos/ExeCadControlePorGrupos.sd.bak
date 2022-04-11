@@ -1,0 +1,84 @@
+﻿{Script para executar o Cadastro de Controle de Processsamento por Grupo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+uses
+  DataPoolCadControlePorGrupos, ObjCadControlePorGrupos, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+
+procedure FiltraGrupo();
+begin
+  if (FiltroGrupoTipo = _Especifico) then
+  begin
+    CadControleWhGruposEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloPonto, CadControleWhGrupoEspecCampo, FiltroGrupoValor);
+    Log.Checkpoint('Selecionado Grupos - Específico, com valor: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _TodosEmpresa) then
+  begin
+    CadControleWhGruposTodosEmp.ClickButton;
+    VerificaInsere(CadControleWhGrupoTodosEmpCampo, FiltroGrupoValor);  
+    Log.Checkpoint('Selecionado Grupos - Todos da Empresa: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _Selecionados) then
+  begin
+    CadControleWhGruposSelec.ClickButton;
+    VerificaInsere(CadControleWhGrupoSelecCampo, FiltroGrupoValor);
+    Log.Checkpoint('Selecionado Grupos - Selecionados, com valor: ' + FiltroGrupoValor);
+  end
+  else if (FiltroGrupoTipo = _Todos) then
+  begin
+    CadControleWhGruposTodos.ClickButton;
+    Log.Checkpoint('Selecionado Grupos - Todos');
+  end;  
+end;
+
+procedure PreencheDadosControle();
+begin
+  if (CadControlePeriodo.VisibleOnScreen = false) then
+    Aliases.Ponto.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.pnCab10.Click();
+    
+  PreencheDatas(CadControlePeriodo, FiltroPeriodo);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+begin  
+  if (Aliases.Ponto.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    Aliases.Ponto.dlgProcessoConclu_do.btnOK.Click();
+  end;
+end;
+
+procedure ExecutaCadControlePorGrupos(pathData);
+var
+  DDTCadControleGrupo: OleVariant;
+begin 
+  AcessaItem(_ModuloPonto, 'Processos', 'Controle por Grupos');
+
+  MapCadControlePorGrupos();
+
+  DDTCadControleGrupo := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadControleGrupo();
+  
+  FiltraGrupo();
+
+  PreencheDadosControle();
+
+  btnExecutar.Click();
+  
+  Delay(5000);
+  
+  btnSalvar.Click();
+  
+  FechaMensagemProcessoConcluido();
+  
+  ActFechar(FormCadControle);
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

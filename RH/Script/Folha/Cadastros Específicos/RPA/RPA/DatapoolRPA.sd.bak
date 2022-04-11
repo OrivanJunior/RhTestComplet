@@ -1,0 +1,31 @@
+﻿uses
+  VarConsts;
+  
+var
+  FormRhRpaDPEstab, FormRhRpaDPIdRpa, FormRhRpaDPData, FormRhRpaDPIdLocal,
+  FormRhRpaDPDataIrrf, FormRhRpaDPDataInss, FormRhRpaDPIdPreserv, FormRhRpaDPDescricao,
+  FormRhRpaDPVlrServico, FormRhRpaDPVlrDescontos, FormRhRpaDPInssOutra, FormRhRpaDPInssEmpresa,
+  FormRhRpaDPImportada, FormRhRpaDPNroRpa, FormRhRpaDPDtVenc, FormRhRpaDPIdEdmDev,
+  FormRhRpaDPTipoServico: OleVariant;
+
+procedure loadDataPoolRPA(nomeDriver);
+begin
+  { Informações do Prestador }
+  FormRhRpaDPEstab        := DriverByName(nomeDriver).Value('ESTAB');
+  FormRhRpaDPIdRpa        := DriverByName(nomeDriver).Value('IDRPA');
+  FormRhRpaDPData         := DriverByName(nomeDriver).Value('DATA');
+  FormRhRpaDPIdLocal      := DriverByName(nomeDriver).Value('IDLOCAL');
+  FormRhRpaDPDataIrrf     := DriverByName(nomeDriver).Value('DATAIRRF');
+  FormRhRpaDPDataInss     := DriverByName(nomeDriver).Value('DATAINSS');
+  FormRhRpaDPIdPreserv    := DriverByName(nomeDriver).Value('IDPRESERV');
+  FormRhRpaDPDescricao    := DriverByName(nomeDriver).Value('DESCRICAO');
+  FormRhRpaDPVlrServico   := DriverByName(nomeDriver).Value('VLRSERVICO');
+  FormRhRpaDPVlrDescontos := DriverByName(nomeDriver).Value('VLRDESCONTOS');
+  FormRhRpaDPInssOutra    := DriverByName(nomeDriver).Value('INSSOUTRA');
+  FormRhRpaDPInssEmpresa  := DriverByName(nomeDriver).Value('INSSEMPRESA');  
+  FormRhRpaDPImportada    := DriverByName(nomeDriver).Value('IMPORTADA');
+  FormRhRpaDPNroRpa       := DriverByName(nomeDriver).Value('NRORPA');
+  FormRhRpaDPDtVenc       := DriverByName(nomeDriver).Value('DTVENC');
+  FormRhRpaDPIdEdmDev     := DriverByName(nomeDriver).Value('IDEDMDEV');
+  FormRhRpaDPTipoServico  := DriverByName(nomeDriver).Value('TIPOSERVICO');
+end;

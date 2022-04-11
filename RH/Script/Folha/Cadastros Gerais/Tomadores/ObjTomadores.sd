@@ -1,0 +1,35 @@
+﻿{Script para mapear tela de cadastro de Tomadores
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadTomadores,
+  FormCadTomadoresCodTomador, 
+  FormCadTomadoresRazaoSoc, 
+  FormCadTomadoresTipoIns,
+  FormCadTomadoresInscricao, 
+  FormCadTomadoresIdTpLogadouro, 
+  FormCadTomadoresEndereco,
+  FormCadTomadoresBairro, 
+  FormCadTomadoresCidade, 
+  FormCadTomadoresCEP,
+  FormCadTomadoresCodRais, 
+  FormCadTomadoresCodPgtoGPS: OleVariant;
+
+procedure MapTelaCadTomadores();
+begin
+  FormCadTomadores              := Aliases.Folha.FFormPadraoRHTOMADOR;
+     
+  FormCadTomadoresCodTomador    := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CODTOMADOR;
+  FormCadTomadoresRazaoSoc      := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RAZAOSOC;
+  FormCadTomadoresTipoIns       := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TIPOINSC;
+  FormCadTomadoresInscricao     := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INSCRICAO;
+  FormCadTomadoresIdTpLogadouro := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDTPLOGADOURO;
+  FormCadTomadoresEndereco      := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ENDERECO;
+  FormCadTomadoresBairro        := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_BAIRRO;
+  FormCadTomadoresCidade        := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CIDADE;
+  FormCadTomadoresCEP           := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CEP;
+  FormCadTomadoresCodRais       := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CODRAIS;  
+  FormCadTomadoresCodPgtoGPS    := Aliases.Folha.FFormPadraoRHTOMADOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CODPGTOGPS;
+end;

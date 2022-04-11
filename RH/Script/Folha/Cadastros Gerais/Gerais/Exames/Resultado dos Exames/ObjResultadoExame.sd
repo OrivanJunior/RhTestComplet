@@ -1,0 +1,21 @@
+﻿{Script para mapear tela de cadastro de Resultado dos Exames
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadResultadoExame,
+  FormCadResultadoExameIdResult, 
+  FormCadResultadoExameDescricao,
+  FormCadResultadoExameResultado: OleVariant;
+
+procedure MapTelaCadResultadoExame();
+begin
+  FormCadResultadoExame          := Aliases.Folha.FFormPadraoRHRESULTEXAME;
+     
+  FormCadResultadoExameIdResult  := Aliases.Folha.FFormPadraoRHRESULTEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDRESULT;         
+  FormCadResultadoExameDescricao := Aliases.Folha.FFormPadraoRHRESULTEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DESCRICAO;    
+  FormCadResultadoExameResultado := Aliases.Folha.FFormPadraoRHRESULTEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RESULTADO;    
+end;

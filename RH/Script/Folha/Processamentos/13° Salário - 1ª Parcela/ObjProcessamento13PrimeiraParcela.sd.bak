@@ -1,0 +1,73 @@
+﻿uses
+  VarConsts;
+
+{Script de mapeamento o Processamento de 13° Salário - 1° Parcela
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 09/06/20201}
+
+var
+  Folha,
+  
+  FormProc13Pri, BtnSave13Pri, PageProc13Pri,
+  BtnSair13Pri, BtnExec13Pri, BtnRel13Pri, 
+  BtnRelPg13Pri, BtnRelM13Pri, BtnAdv13Pri, 
+  
+  { Datas }
+  Proc13PriEBDtProc, Proc13PriEBDtPgto,
+  
+  { Tab Empregados }
+  TsEmpregados, GridEmpregado, GridSiteEmpre,
+  BtnIncEmpre, BtnIncAllEmpre, BtnExcEmpre,
+  BtnExcAllEmpre, BtnSaveEmpre, BtnDesfEmpre,
+  BtnCad13Pri, BtnProcEmpre, BtnConsEmpre, 
+  BtnIncluirCtrlProc,
+  
+  { Tab Movimento }
+  TsMovimento, GridMovimento, GridSiteMov,
+  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  
+procedure MapFormProcessamento13PrimeiraParcela();
+begin
+  Folha         :=  Sys.Process(_ModuloFolha);
+  
+  FormProc13Pri := Aliases.Folha.FRhProc13oSalario1aParcela;
+  BtnSair13Pri  := Aliases.Folha.FRhProc13oSalario1aParcela.BSair;
+  BtnExec13Pri  := Aliases.Folha.FRhProc13oSalario1aParcela.bExecutar;
+  BtnSave13Pri  := Aliases.Folha.FRhProc13oSalario1aParcela.tbSalvar;
+  BtnRel13Pri   := Aliases.Folha.FRhProc13oSalario1aParcela.tbRelatorio;
+  BtnRelPg13Pri := Aliases.Folha.FRhProc13oSalario1aParcela.tbRelPag;
+  BtnRelM13Pri  := Aliases.Folha.FRhProc13oSalario1aParcela.tbRelMedias;
+  BtnAdv13Pri   := Aliases.Folha.FRhProc13oSalario1aParcela.tbInconsistencias;
+  
+  PageProc13Pri := Aliases.Folha.FRhProc13oSalario1aParcela.pg;
+  
+end; 
+ 
+procedure MapPanelProcessamento13PrimeiraParcela();
+begin
+  Proc13PriEBDtProc  := Aliases.Folha.FRhProc13oSalario1aParcela.pnPeriodo.EB_DATA;
+  Proc13PriEBDtPgto  := Aliases.Folha.FRhProc13oSalario1aParcela.pnPeriodo.EB_DATAPAGTO;
+  BtnIncluirCtrlProc := Aliases.Folha.FRhProc13oSalario1aParcela.pnPeriodo.bIncluirControle;
+end;
+
+procedure MapTabEmpregadosProc13PrimeiraParcela();
+begin
+  BtnIncEmpre    := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreInc;
+  BtnIncAllEmpre := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreIncAll;
+  BtnExcEmpre    := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreExc;
+  BtnExcAllEmpre := Aliases.Folha.FRhProc13oSalario1aParcela.btnExcAllEmp;
+  BtnSaveEmpre   := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreSalvar;
+  BtnDesfEmpre   := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreDesf;
+  BtnProcEmpre   := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreProc;
+  BtnConsEmpre   := Aliases.Folha.FRhProc13oSalario1aParcela.bEmpreCons;  
+  GridEmpregado  := Aliases.Folha.FRhProc13oSalario1aParcela.pg.tsEmpregados.grp1.gEmpregado;
+end;
+
+procedure MapTabMovimentoProc13PrimeiraParcela();
+begin
+  BtnIncMov     := Aliases.Folha.FRhProc13oSalario1aParcela.bMovInc;
+  BtnRecMov     := Aliases.Folha.FRhProc13oSalario1aParcela.bMovRec;
+  BtnExcMov     := Aliases.Folha.FRhProc13oSalario1aParcela.bMovExc;
+end;
+

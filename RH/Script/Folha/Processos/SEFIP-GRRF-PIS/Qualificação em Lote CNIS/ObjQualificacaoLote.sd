@@ -1,0 +1,72 @@
+﻿{Script para mapear o Processo de Qualificação em Lote
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 06/07/2021}
+
+var
+  FormQualificacaoLote, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormQualificacaoLoteWhEstabEspec, FormQualificacaoLoteWhEstabEspecCampo,
+  FormQualificacaoLoteWhEstabTodosEmp, FormQualificacaoLoteWhEstabTodosEmpCampo,
+  FormQualificacaoLoteWhEstabTodos, FormQualificacaoLoteWhEstabSelec,
+  FormQualificacaoLoteWhEstabSelecCampo, 
+  
+  FormQualificacaoLoteWhLocalTodos, FormQualificacaoLoteWhLocalEspec, 
+  FormQualificacaoLoteWhLocalEspecCampo, FormQualificacaoLoteWhLocalSelec, 
+  FormQualificacaoLoteWhLocalSelecCampo,
+  
+  FormQualificacaoLoteWhEmpreTodos, FormQualificacaoLoteWhEmpreEspec,
+  FormQualificacaoLoteWhEmpreEspecCampo, FormQualificacaoLoteWhEmpreSelec,
+  FormQualificacaoLoteWhEmpreSelecCampo, 
+  
+  FormQualificacaoLoteWhSituacaoTodos, FormQualificacaoLoteWhSituacaoEspec,
+  FormQualificacaoLoteWhSituacaoEspecCampo, FormQualificacaoLoteWhSituacaoSelec,
+  FormQualificacaoLoteWhSituacaoSelecCampo,
+
+  FormQualificacaoLoteWhLocalGravacao, FormQualificacaoLoteWhDataGeracao,
+  FormQualificacaoLoteWhSeqDia: OleVariant;
+  
+procedure MapQualificacaoLote();
+begin
+  FormQualificacaoLote                     := Aliases.Folha.FRhProcQualifLote;
+  
+  btnSair                                  := Aliases.Folha.FRhProcQualifLote.BSair;
+  btnExecutar                              := Aliases.Folha.FRhProcQualifLote.bExecutar;
+  btnSalvar                                := Aliases.Folha.FRhProcQualifLote.tbSalvar;
+  btnRelatorio                             := Aliases.Folha.FRhProcQualifLote.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormQualificacaoLoteWhEstabEspec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormQualificacaoLoteWhEstabEspecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormQualificacaoLoteWhEstabTodosEmp      := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormQualificacaoLoteWhEstabTodosEmpCampo := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormQualificacaoLoteWhEstabTodos         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormQualificacaoLoteWhEstabSelec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormQualificacaoLoteWhEstabSelecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+  { Filtro de Local }
+  FormQualificacaoLoteWhLocalTodos         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  FormQualificacaoLoteWhLocalEspec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  FormQualificacaoLoteWhLocalEspecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  FormQualificacaoLoteWhLocalSelec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  FormQualificacaoLoteWhLocalSelecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;  
+  
+  { Filtro de Situações }
+  FormQualificacaoLoteWhSituacaoTodos      := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao30;
+  FormQualificacaoLoteWhSituacaoEspec      := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  FormQualificacaoLoteWhSituacaoEspecCampo := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  FormQualificacaoLoteWhSituacaoSelec      := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  FormQualificacaoLoteWhSituacaoSelecCampo := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;
+  
+  { Filtro de Empregados }
+  FormQualificacaoLoteWhEmpreTodos         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  FormQualificacaoLoteWhEmpreEspec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  FormQualificacaoLoteWhEmpreEspecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  FormQualificacaoLoteWhEmpreSelec         := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  FormQualificacaoLoteWhEmpreSelecCampo    := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Dados Adicionais }
+  FormQualificacaoLoteWhLocalGravacao      := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormQualificacaoLoteWhDataGeracao        := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whDados.EB_DATAGERACAO;
+  FormQualificacaoLoteWhSeqDia             := Aliases.Folha.FRhProcQualifLote.pg.tsSelecao.SB_Selecao.whDados.eb_versao;
+end;

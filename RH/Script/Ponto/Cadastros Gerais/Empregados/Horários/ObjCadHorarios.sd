@@ -1,0 +1,73 @@
+﻿{Script para mapear o Cadastro de Horários
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}
+
+var
+  CadHorarioForm, CadHorarioPage, BtnSalvar,
+  CadHorarioEBIdHorario, CadHorarioEBDescricao,
+  CadHorarioEBIdConfig, CadHorarioEBRegJorEmp,
+  CadHorarioEBTpJornada, CadHorarioEBDescTpJor,
+  CadHorarioEBJorDiaHrs, CadHorarioEBJorDiaNot,
+  CadHorarioEBJorSemHrs, CadHorarioEBJorMenHrs,
+  CadHorarioEBEnt1, CadHorarioEBEnt2,
+  CadHorarioEBEnt1Sab, CadHorarioEBEnt2Sab,
+  CadHorarioEBTolEnt1, CadHorarioEBTolEnt2,
+  CadHorarioEBControle, CadHorarioEBJorDiaDiu,
+  CadHorarioEBJorDiaRSR, CadHorarioEBJorQuiHrs,
+  CadHorarioEBIntAlmoco, CadHorarioEBSai1,
+  CadHorarioEBSai2, CadHorarioEBTolSai1,
+  CadHorarioEBTolSai2, CadHorarioEBDiaComp,
+  CadHorarioEBTolImpAFD,
+  
+  DetHorarioBtnInc, DetHorarioBtnSave,
+  DetHorarioBtnIncAll, DetHorarioBtnDesf,
+  DetHorarioBtnExc, DetHorarioGrid: OleVariant;
+
+procedure MapCadHorarios(Modulo);
+begin
+  CadHorarioForm        := Sys.Process(Modulo).FRhHorario;
+  CadHorarioPage        := Sys.Process(Modulo).FRhHorario.Page;
+  BtnSalvar             := Sys.Process(Modulo).FRhHorario.BSalvar;
+end;
+
+procedure MapInfosNormais(Modulo);
+begin
+  CadHorarioEBIdHorario := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO;
+  CadHorarioEBDescricao := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO;
+  CadHorarioEBIdConfig  := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_IDCONF;
+  CadHorarioEBRegJorEmp := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
+  CadHorarioEBTpJornada := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
+  CadHorarioEBDescTpJor := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_DSCTPJORN;
+  CadHorarioEBJorDiaHrs := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JDIAHORAS;
+  CadHorarioEBJorDiaNot := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIANOT;
+  CadHorarioEBJorSemHrs := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JSEMANAL;
+  CadHorarioEBJorMenHrs := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JMENSAL;
+  CadHorarioEBEnt1      := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1;
+  CadHorarioEBEnt2      := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2;
+  CadHorarioEBEnt1Sab   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1SAB;
+  CadHorarioEBEnt2Sab   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2SAB;
+  CadHorarioEBTolEnt1   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO;
+  CadHorarioEBTolEnt2   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO2;
+  CadHorarioEBControle  := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
+  CadHorarioEBJorDiaDiu := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIADIU;
+  CadHorarioEBJorDiaRSR := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIARSR;
+  CadHorarioEBJorQuiHrs := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_JQUINZENAL;
+  CadHorarioEBIntAlmoco := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_INTERVALO;
+  CadHorarioEBSai1      := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1;
+  CadHorarioEBSai2      := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2;
+  CadHorarioEBTolSai1   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO;
+  CadHorarioEBTolSai2   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO2;
+  CadHorarioEBDiaComp   := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP;
+  CadHorarioEBTolImpAFD := Sys.Process(Modulo).FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD;
+end;
+
+procedure MapDetalhesHorario(Modulo);
+begin
+  DetHorarioBtnInc    := Sys.Process(Modulo).FRhHorario.bInc;
+  DetHorarioBtnSave   := Sys.Process(Modulo).FRhHorario.bSave;
+  DetHorarioBtnIncAll := Sys.Process(Modulo).FRhHorario.bIncAll;
+  DetHorarioBtnDesf   := Sys.Process(Modulo).FRhHorario.bDesf;
+  DetHorarioBtnExc    := Sys.Process(Modulo).FRhHorario.bExc; 
+  DetHorarioGrid      := Sys.Process(Modulo).FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet; 
+end;

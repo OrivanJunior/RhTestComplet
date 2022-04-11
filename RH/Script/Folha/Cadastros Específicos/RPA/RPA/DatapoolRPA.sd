@@ -1,0 +1,31 @@
+﻿uses
+  VarConsts;
+  
+var
+  FormRhRpaDPEstab, FormRhRpaDPIdRpa, FormRhRpaDPData, FormRhRpaDPIdLocal,
+  FormRhRpaDPDataIrrf, FormRhRpaDPDataInss, FormRhRpaDPIdPreserv, FormRhRpaDPDescricao,
+  FormRhRpaDPVlrServico, FormRhRpaDPVlrDescontos, FormRhRpaDPInssOutra, FormRhRpaDPInssEmpresa,
+  FormRhRpaDPImportada, FormRhRpaDPNroRpa, FormRhRpaDPDtVenc, FormRhRpaDPIdEdmDev,
+  FormRhRpaDPTipoServico: OleVariant;
+
+procedure loadDataPoolRPA(nomeDriver);
+begin
+  { Informações do Prestador }
+  FormRhRpaDPEstab        := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FormRhRpaDPIdRpa        := DDT.DriverByName(nomeDriver).Value('IDRPA');
+  FormRhRpaDPData         := DDT.DriverByName(nomeDriver).Value('DATA');
+  FormRhRpaDPIdLocal      := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+  FormRhRpaDPDataIrrf     := DDT.DriverByName(nomeDriver).Value('DATAIRRF');
+  FormRhRpaDPDataInss     := DDT.DriverByName(nomeDriver).Value('DATAINSS');
+  FormRhRpaDPIdPreserv    := DDT.DriverByName(nomeDriver).Value('IDPRESERV');
+  FormRhRpaDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  FormRhRpaDPVlrServico   := DDT.DriverByName(nomeDriver).Value('VLRSERVICO');
+  FormRhRpaDPVlrDescontos := DDT.DriverByName(nomeDriver).Value('VLRDESCONTOS');
+  FormRhRpaDPInssOutra    := DDT.DriverByName(nomeDriver).Value('INSSOUTRA');
+  FormRhRpaDPInssEmpresa  := DDT.DriverByName(nomeDriver).Value('INSSEMPRESA');  
+  FormRhRpaDPImportada    := DDT.DriverByName(nomeDriver).Value('IMPORTADA');
+  FormRhRpaDPNroRpa       := DDT.DriverByName(nomeDriver).Value('NRORPA');
+  FormRhRpaDPDtVenc       := DDT.DriverByName(nomeDriver).Value('DTVENC');
+  FormRhRpaDPIdEdmDev     := DDT.DriverByName(nomeDriver).Value('IDEDMDEV');
+  FormRhRpaDPTipoServico  := DDT.DriverByName(nomeDriver).Value('TIPOSERVICO');
+end;

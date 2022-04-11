@@ -1,0 +1,223 @@
+﻿{Script para executar o Processo de Qualificação Cadastral - Remessa
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+
+uses
+  DataPoolRemessa, ObjRemessa, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaRemessa();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Qualificação Cadastral', 'Remessa'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormRemessaWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRemessaWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormRemessaWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormRemessaWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormRemessaWhEstabSelec.ClickButton;
+    VerificaInsere(FormRemessaWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormRemessaWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormRemessaWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormRemessaWhEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRemessaWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormRemessaWhEmpreSelec.ClickButton;
+    VerificaInsere(FormRemessaWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormRemessaWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraSituacao();
+begin
+  if (FormRemessaWhSituacaoTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    FormRemessaWhSituacaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRemessaWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    FormRemessaWhSituacaoSelec.ClickButton;
+    VerificaInsere(FormRemessaWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    FormRemessaWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+end;
+
+procedure FiltraLocal();
+begin
+  if (FormRemessaWhLocalTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormRemessaWhLocalEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRemessaWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormRemessaWhLocalSelec.ClickButton;
+    VerificaInsere(FormRemessaWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormRemessaWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormRemessaWhLocalGravacao.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormRemessaWhLocalGravacao, FiltroLocalGravacao); 
+  VerificaInsere(FormRemessaWhGerarDadosPrest, FiltroGerarDadosPrest);
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormRemessaWhPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormRemessaWhPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRemessaWhPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormRemessaWhPrestSelec.ClickButton;
+    VerificaInsere(FormRemessaWhPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormRemessaWhPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaRemessa(pathData);
+var 
+  DDTRemessa: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaRemessa();
+
+  MapRemessa();
+
+  DDTRemessa := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolRemessa(DDTRemessa.Name);
+  
+  FiltraEstab();
+  
+  FiltraEmpregados();
+  
+  FiltraSituacao();
+  
+  FiltraLocal();
+  
+  DadosAdicionais();
+  
+  if (FiltroGerarDadosPrest = 'S') then
+    FiltraPrestadores();
+  
+  btnExecutar.Click();
+  
+  while (MensagemInativa) do
+  begin
+    Delay(5000);
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+      ActFechar(FormRemessa);
+      
+      MensagemInativa := false;
+    end
+    else if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Erro, verifique as informações');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormRemessa);
+      MensagemInativa := false;
+    end
+  end;
+  if (Project.Variables.tipoBanco = 'ORACLE') then
+  begin
+    ComparaArquivos('C:\TEMP\QUALIFICAÇÃO CADASTRAL\QUALIFICACAO_MODELO_ORACLE.txt', 'C:\TEMP\QUALIFICAÇÃO CADASTRAL\Qualificacao001001.txt');
+  end
+  else
+  begin
+    ComparaArquivos('C:\TEMP\QUALIFICAÇÃO CADASTRAL\QUALIFICACAO_MODELO.txt', 'C:\TEMP\QUALIFICAÇÃO CADASTRAL\Qualificacao000001.txt');
+  end;   
+  DDT.CloseDriver(DDTRemessa.Name);
+end;

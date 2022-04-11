@@ -1,0 +1,184 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcessamentoMensal,
+  ObjProcessamentoMensal,
+  VarConsts;
+  
+  
+procedure PreencheDatasProcMensal(pathData);
+var
+  DDTDatas: OleVariant;
+begin
+  DDTDatas := CarregaDDT(pathData, 'Datas');
+  
+  LoadDPDatas(DDTDatas.Name);
+
+  MapPanelProcessamentoMensal();
+  
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  PreencheDatas(ProcMensalEBDtProc, MensalDPDataProc); 
+  PreencheDatas(ProcMensalEBDtPgto, MensalDPDataPgto);
+end;
+
+procedure PreencheControleProcessamento(pathData);
+var
+  DDTProcessamento: OleVariant;
+begin
+  BtnIncluirCtrl.Click();
+  
+  MapFormProcessamento();
+  
+  DDTProcessamento := CarregaDDT(pathData, 'Processamento');
+  
+  LoadDPProcessamento(DDTProcessamento.Name);
+  
+  Log.Checkpoint('Inserindo Controle de Processamento');
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
+  begin  
+    PageProc.ActivePageIndex := 1;
+    
+    VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+    VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+    VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+    VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+    VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+  end;  
+  Aliases.Folha.FRhProcesso.BSalvarRap.Click();
+  
+  if Aliases.Folha.FRhProcesso.Exists then
+    Aliases.Folha.FRhProcesso.BSairRap.Click();
+  
+  DDT.CloseDriver(DDTProcessamento.Name);
+end;
+
+procedure PreencheEmpregadoProcMensal(pathData);
+var 
+  DDTEmpregados: OleVariant;
+  i: integer;
+begin
+  i:= 0;
+  PageProcMensal.ActivePageIndex := 0;
+  
+  MapTabEmpregadosProcMensal();
+  
+  BtnIncEmpre.Click();
+  
+  DDTEmpregados := CarregaDDT(pathData, 'Empregado');
+  
+  while not (DDTEmpregados.EOF) do
+  begin
+    LoadDPEmpregado(DDTEmpregados.Name);
+    
+    Log.Checkpoint('Preenchendo empregados');
+  
+    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', MensalDPEmpregado);  
+  
+    ClickColuna(GridEmpregado, i, 'Nome Empregado');
+  
+    GridEmpregado.Keys('[Enter]');
+    GridEmpregado.Keys('[Enter]');
+    
+    Inc(i);
+    DDTEmpregados.Next;
+  end;
+  DDT.CloseDriver(DDTEmpregados.Name);
+end;
+
+procedure PreencheMovimentoProcMensal(pathData);
+var
+  DDTMovimento: OleVariant;
+begin
+  PageProcMensal.ActivePageIndex := 1;
+  
+  MapTabMovimentoProcMensal();
+  
+  DDTMovimento := CarregaDDT(pathData, 'Movimento');
+  
+  while not (DDTMovimento.EOF) do
+  begin
+    LoadDPMovimento(DDTMovimento.Name);
+    
+    BtnIncMov.Click();
+  
+    MapFormMovimento();
+  
+    Log.Checkpoint('Preenchendo dados do movimento');
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
+    PreencheDatas(CadMovEBData, CadMovDPData);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEmpreg, CadMovDPIdEmpreg);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEvento, CadMovDPIdEvento);
+    CadMovEBIdEvento.Keys('[Enter]');
+  
+    MapParamsMovimento();
+  
+    LoadDPParamsMovimento(DDTMovimento.Name);
+    
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
+    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+    VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
+    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+    VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
+    VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
+  
+    CadMovBtnSave.Click();
+    
+    if Aliases.Folha.FVsErrorDlg.Exists then
+    begin
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      CadMovBtnSair.Click();
+      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
+        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
+    end;
+    
+    DDTMovimento.Next;
+  end;
+  DDT.CloseDriver(DDTMovimento.Name);
+end;
+
+procedure ExecutaProcessamentoMensal(pathData);
+var
+  TelaConfirma, BtnOk;
+begin  
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Mensal');
+  
+  MapFormProcessamentoMensal();
+  
+  PreencheDatasProcMensal(pathData);
+  
+  PreencheControleProcessamento(pathData);
+  
+  PreencheEmpregadoProcMensal(pathData);  
+  
+  PreencheMovimentoProcMensal(pathData);
+  
+  Log.Checkpoint('Executando processamento mensal');
+  
+  ActExecutar(FormProcMensal);
+  
+  BtnSalvarCalc.Click();
+    
+  if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+  begin
+    TelaConfirma := Aliases.Folha.Window('#32770', 'Confirmação!', 1);
+      
+    BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+        
+    btnOk.Click();
+  end;
+  ActFechar(FormProcMensal); 
+end;

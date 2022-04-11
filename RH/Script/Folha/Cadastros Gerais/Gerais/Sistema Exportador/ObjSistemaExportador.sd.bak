@@ -1,0 +1,22 @@
+﻿{Script de mapeamento tela de cadastro de SistemaExportador
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadSistemaExportador,
+  
+  FormCadSistemaExportadorIdSistemaExp, 
+  FormCadSistemaExportadorSoftware,
+  FormCadSistemaExportadorFabricante: OleVariant;
+
+procedure MapTelaCadSistemaExportador();
+begin
+  FormCadSistemaExportador             := Aliases.Folha.FFormPadraoRHSISTEMAEXP;
+     
+  FormCadSistemaExportadorIdSistemaExp := Aliases.Folha.FFormPadraoRHSISTEMAEXP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDSISTEMAEXP;
+  FormCadSistemaExportadorSoftware     := Aliases.Folha.FFormPadraoRHSISTEMAEXP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_SOFTWARE;
+  FormCadSistemaExportadorFabricante   := Aliases.Folha.FFormPadraoRHSISTEMAEXP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FABRICANTE;
+end;

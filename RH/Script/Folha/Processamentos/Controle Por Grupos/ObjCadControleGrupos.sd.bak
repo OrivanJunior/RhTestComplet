@@ -1,0 +1,68 @@
+﻿{Script de mapeamento o Cadastro de Controle de Processsamento por Grupo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}
+ 
+var
+  FormCadControle, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  CadControleTipoControle, CadControleFiltrarPor,
+  
+  CadControleWhEstabEspec, CadControleWhEstabEspecCampo,
+  CadControleWhEstabTodosEmp, CadControleWhEstabTodosEmpCampo,
+  CadControleWhEstabTodos, CadControleWhEstabSelec,
+  CadControleWhEstabSelecCampo, 
+  
+  CadControlewhGruposEspec, CadControlewhGruposEspecCampo,
+  CadControlewhGruposTodosEmp, CadControlewhGruposTodosEmpCampo,
+  CadControlewhGruposTodos, CadControlewhGruposSelec,
+  CadControlewhGruposSelecCampo, 
+  
+  CadControleProcesso, CadControleDataCtrl,
+  CadControleDataIRRF, CadControleVlrArred, 
+  ESocialEBEvtRemun, ESocialEBInfoPgtos, 
+  ESocialEBContrataVnp, ESocialEBEvtInfoCompl, 
+  ESocialEBEvtInfoPriComp, ESocialEBSitESocial: OleVariant;
+  
+procedure MapCadControle();
+begin
+  FormCadControle                  := Aliases.Folha.FRhProcControlePorGrupo;
+  
+  btnSair                          := Aliases.Folha.FRhProcControlePorGrupo.BSair;
+  btnExecutar                      := Aliases.Folha.FRhProcControlePorGrupo.bExecutar;
+  btnSalvar                        := Aliases.Folha.FRhProcControlePorGrupo.tbSalvar;
+  btnRelatorio                     := Aliases.Folha.FRhProcControlePorGrupo.tbRelatorio;
+  
+  CadControleTipoControle          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbControleProc.EB_CONTROLEPROC;
+  CadControleFiltrarPor            := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbControleProc.EB_FILTRAR;
+  
+  { Filtro de Estabelecimento }
+  CadControleWhEstabEspec          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  CadControleWhEstabEspecCampo     := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  CadControleWhEstabTodosEmp       := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  CadControleWhEstabTodosEmpCampo  := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  CadControleWhEstabTodos          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  CadControleWhEstabSelec          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  CadControleWhEstabSelecCampo     := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Grupo de Empresas }
+  CadControlewhGruposEspec          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos20;
+  CadControlewhGruposEspecCampo     := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos50;
+  CadControlewhGruposTodos          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos30;
+  CadControlewhGruposSelec          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos40;
+  CadControlewhGruposSelecCampo     := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos80;
+  
+  { Dados do Controle }
+  CadControleProcesso              := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.EB_IDPROCESSO ;
+  CadControleDataCtrl              := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.EB_DATA;
+  CadControleDataIRRF              := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.EB_COMPIRRF;
+  CadControleVlrArred              := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.EB_VLRARRED;
+  
+  ESocialEBEvtRemun                := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_EVTREMUN;
+  ESocialEBInfoPgtos               := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_EVTPGTOS;
+  ESocialEBContrataVnp             := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_EVTCONTRATAVNP;
+  ESocialEBEvtInfoCompl            := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_EVTINFOCOMPLPER;
+  ESocialEBEvtInfoPriComp          := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_COMPSEMMOVTO;
+  ESocialEBSitESocial              := Aliases.Folha.FRhProcControlePorGrupo.pg.tsSelecao.SB_Selecao.gbESocial.EB_SITPROCESOCIAL;
+end;

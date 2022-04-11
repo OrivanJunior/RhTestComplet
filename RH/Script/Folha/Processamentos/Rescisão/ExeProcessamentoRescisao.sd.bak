@@ -1,0 +1,261 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcessamentoRescisao,
+  ObjProcessamentoRescisao,
+  VarConsts;
+ 
+{Script para executar o Processamento de Rescisao
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 08/06/20201}
+ 
+procedure PreencheDatasProcRescisao(pathData);
+var
+  DDTDatas: OleVariant;
+begin
+  DDTDatas := CarregaDDT(pathData, 'Datas');
+  
+  LoadDPDatas(DDTDatas.Name);
+  
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  PreencheDatas(ProcRescisaoEBDtProc, RescisaoDPDataProc); 
+  PreencheDatas(ProcRescisaoEBDtPgto, RescisaoDPDataPgto);
+  VerificaInsere(ProcRescisaoEBSimula, RescisaoDPSimula);
+end;
+
+procedure PreencheControleProcessamento(pathData);
+var
+  DDTProcessamento: OleVariant;
+begin
+  BtnIncluirCtrlProc.Click();
+  
+  MapFormProcessamento();
+  
+  DDTProcessamento := CarregaDDT(pathData, 'Processamento');
+  
+  LoadDPProcessamento(DDTProcessamento.Name);
+  
+  Log.Checkpoint('Inserindo Controle de Processamento');
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
+    Aliases.Folha.FRhProcesso.BSalvarRap.Click();
+  
+  if Aliases.Folha.FRhProcesso.Exists then
+    Aliases.Folha.FRhProcesso.BSairRap.Click();
+  
+  DDT.CloseDriver(DDTProcessamento.Name);
+end;
+
+procedure PreencheEmpregadoProcRescisao(pathData);
+var 
+  DDTEmpregados: OleVariant;
+  TelaAviso, BtnSim, BtnNao;
+  i : integer;
+begin
+  i := 0;
+  PageProcRescisao.ActivePageIndex := 0;
+  
+  DDTEmpregados := CarregaDDT(pathData, 'Empregado');
+  
+  LoadDPEmpregado(DDTEmpregados.Name);
+  
+  BtnIncEmpre.Click();
+  
+  Log.Checkpoint('Preenchendo empregados');
+  
+  VerificaClickPreencheGrid(GridEmpregado, 0, 'Empregado', RescisaoDPEmpregado);
+  
+  GridEmpregado.Click();
+  
+  BtnSaveEmpre.Click;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTEmpregados.Name);
+end;
+
+procedure PreencheSituacao(pathData);
+var 
+  DDTSituacao: OleVariant;
+begin
+  MapFormSituacoes();
+  
+  DDTSituacao := CarregaDDT(pathData, 'Situacoes');
+  
+  LoadDPSituacao(DDTSituacao.Name);
+  
+  VerificaInsere(SituaEBEstab, SituaDPEstab);
+  VerificaInsere(SituaEBEmpregado, SituaDPEmpregado);
+  PreencheDatas(SituaEBData, SituaDPData);
+  VerificaInsere(SituaEBSituaAtual, SituaDPSituaAtual);
+  VerificaInsere(SituaEBCausa, SituaDPCausa);
+  PreencheDatas(SituaEBDataAviso, SituaDPDataAviso);
+  VerificaInsere(SituaEBFGTSemGRRF, SituaDPFGTSemGRRF);
+  VerificaInsere(SituaEBDissidio, SituaDPDissidio);
+  PreencheDatas(SituaEBDtDissidio, SituaDPDtDissidio);
+  VerificaInsere(SituaEBVlDissidio, SituaDPVlDissidio);
+  VerificaInsere(SituaEBRepVaga, SituaDPRepVaga);
+  VerificaInsere(SituaEBIndCumpAv, SituaDPIndCumpAv);
+  VerificaInsere(SituaEBIndPensao, SituaDPIndPensao);
+  VerificaInsere(SituaEBVlPensao, SituaDPVlPensao);
+  VerificaInsere(SituaEBPerPensao, SituaDPPerPensao);
+
+  BtnSaveSituacao.Click();
+  
+  DDT.CloseDriver(DDTSituacao.Name);
+end;
+
+procedure PreencheHistSituacao(pathData);
+var 
+  DDTSituacao: OleVariant;
+begin
+  BtnCadHistSit.Click();
+  
+  MapFormHistSituacao();
+  
+  DDTSituacao := CarregaDDT(pathData, 'Hist Situacao');
+  
+  LoadDPHistSituacao(DDTSituacao.Name);
+    
+  VerificaConsultaF3Insere(_ModuloFolha, HistSituaEBEstab, HistSituaDPEstab);
+  VerificaConsultaF3Insere(_ModuloFolha, HistSituaEBEmpregado, HistSituaDPEmpregado);
+  PreencheDatas(HistSituaEBData, HistSituaDPData);
+
+  VerificaConsultaF3Insere(_ModuloFolha, HistSituaEBSituaAtual, HistSituaDPSituaAtual);
+  VerificaConsultaF3Insere(_ModuloFolha, HistSituaEBCausa, HistSituaDPCausa);
+  PreencheDatas(HistSituaEBDataAviso, HistSituaDPDataAviso);
+  VerificaInsere(HistSituaEBFGTSemGRRF, HistSituaDPFGTSemGRRF);
+  VerificaInsere(HistSituaEBDissidio, HistSituaDPDissidio);
+  PreencheDatas(HistSituaEBDtDissidio, HistSituaDPDtDissidio);
+  VerificaInsere(HistSituaEBVlDissidio, HistSituaDPVlDissidio);
+  VerificaInsere(HistSituaEBRepVaga, HistSituaDPRepVaga);
+  VerificaInsere(HistSituaEBIndPensao, HistSituaDPIndPensao);
+  VerificaInsere(HistSituaEBVlPensao, HistSituaDPVlPensao);
+  VerificaInsere(HistSituaEBPerPensao, HistSituaDPPerPensao);
+  VerificaInsere(HistSituaEBFGTSAntAtr, HistSituaDPFGTSAntAtr);
+  VerificaInsere(HistSituaEBRescFechada, HistSituaDPRescFechada);
+  PreencheDatas(HistSituaEBDataProjAv, HistSituaDPDataProjAv);
+  VerificaInsere(HistSituaEBDiasAtesta, HistSituaDPDiasAtesta);
+  VerificaInsere(HistSituaEBDiasAviso, HistSituaDPDiasAviso);
+  VerificaInsere(HistSituaEBCodMedico, HistSituaDPCodMedico);
+  VerificaInsere(HistSituaEBCodCID, HistSituaDPCodCID);
+  VerificaInsere(HistSituaEBCNPJEmp, HistSituaDPCNPJEmp);
+  VerificaInsere(HistSituaEBNrCertObito, HistSituaDPNrCertObito);
+  PreencheDatas(HistSituaEBDataRetorno, HistSituaDPDataRetorno);
+  VerificaInsere(HistSituaEBMesmoMtv, HistSituaDPMesmoMtv);
+  VerificaInsere(HistSituaEBTipoAcidTra, HistSituaDPTipoAcidTra);
+  VerificaInsere(HistSituaEBInfoAfast, HistSituaDPInfoAfast);
+  VerificaInsere(HistSituaEBIndCumpAv, HistSituaDPIndCumpAv);
+  PreencheDatas(HistSituaEBDataInc, HistSituaDPDataInc);
+  VerificaInsere(HistSituaEBTipoRein, HistSituaDPTipoRein);
+  VerificaInsere(HistSituaEBNrProcJud, HistSituaDPNrProcJud);
+  VerificaInsere(HistSituaEBNrLeiAnis, HistSituaDPNrLeiAnis);
+  PreencheDatas(HistSituaEBDataEfeRet, HistSituaDPDataEfeRet);
+  PreencheDatas(HistSituaEBDataIniEfe, HistSituaDPDataIniEfe);
+  VerificaInsere(HistSituaEBIndPag, HistSituaDPIndPag);
+  VerificaInsere(HistSituaEBNrCAT, HistSituaDPNrCAT);
+  VerificaInsere(HistSituaEBTpInscSuc, HistSituaDPTpInscSuc);
+  VerificaInsere(HistSituaEBCodFerCol, HistSituaDPCodFerCol);
+  VerificaConsultaF3Insere(_ModuloFolha, HistSituaEBCodMotComp, HistSituaDPCodMotComp);
+  VerificaInsere(HistSituaEBDiasAvCump, HistSituaDPDiasAvCump);
+  VerificaInsere(HistSituaEBDiasAvInd, HistSituaDPDiasAvInd);
+  
+  BtnSaveHistSitua.Click();
+  
+  FechaTelaESocial(_ModuloFolha);
+  
+  DDT.CloseDriver(DDTSituacao.Name);
+end;
+
+procedure PreencheMovimentoProcRescisao(pathData);
+var
+  DDTMovimento: OleVariant;
+begin
+  PageProcRescisao.ActivePageIndex := 1;
+  
+  DDTMovimento := CarregaDDT(pathData, 'Movimento');
+  
+  LoadDPMovimento(DDTMovimento.Name);
+  
+  BtnIncMov.Click();
+  
+  MapFormMovimento();
+  
+  Log.Checkpoint('Preenchendo dados do movimento');
+  VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
+  VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
+  PreencheDatas(CadMovEBData, CadMovDPData);
+  VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEmpreg, CadMovDPIdEmpreg);
+  VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEvento, CadMovDPIdEvento);
+  CadMovEBIdEvento.Keys('[Enter]');
+  
+  MapParamsMovimento();
+  
+  LoadDPParamsMovimento(DDTMovimento.Name);
+  
+  Log.Checkpoint('Preenchendo parâmetros do movimento');
+  VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+  VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
+  VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+  VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+  VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+  VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+  VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+  VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+  VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+  VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
+  VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
+  
+  CadMovBtnSave.Click();
+  
+  DDT.CloseDriver(DDTMovimento.Name);
+end;
+
+procedure ExecutaProcessamentoRescisao(pathData);
+var
+  TelaConfirma, BtnOk;
+begin
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Rescisão');
+  
+  MapFormProcessamentoRescisao();
+  
+  PreencheDatasProcRescisao(pathData);
+  
+  //PreencheControleProcessamento(pathData);
+
+  PreencheEmpregadoProcRescisao(pathData);  
+  
+  PreencheHistSituacao(pathData);
+  
+  //PreencheMovimentoProcRescisao(pathData);
+  
+  Log.Checkpoint('Executando processamento de Rescisão');
+  
+  ActExecutar(FormProcRescisao);
+  
+  BtnSaveRescisao.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+  begin
+    TelaConfirma := Aliases.Folha.Window('#32770', 'Confirmação!', 1);
+    
+    BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+      
+    btnOk.Click();
+  end;
+  ActFechar(FormProcRescisao);
+end;

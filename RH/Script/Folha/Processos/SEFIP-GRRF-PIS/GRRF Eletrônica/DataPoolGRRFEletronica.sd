@@ -1,0 +1,28 @@
+﻿{Script de DataPool do Processo de GRRF Elerônica
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 05/07/2021}  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroMesResc, FiltroDataRec, 
+  FiltroLocalGrav, FiltroTipoGRRF: OleVariant;
+
+procedure LeDataPoolGRRFEletronica(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
+  
+  { Dados Adicionais }
+  FiltroMesResc    := DDT.DriverByName(nomeDriver).Value('MES_RESC');
+  FiltroDataRec    := DDT.DriverByName(nomeDriver).Value('DATA_REC');
+  FiltroLocalGrav  := DDT.DriverByName(nomeDriver).Value('LOCAL_GRAV');
+  FiltroTipoGRRF   := DDT.DriverByName(nomeDriver).Value('TIPO_GRRF');
+end;

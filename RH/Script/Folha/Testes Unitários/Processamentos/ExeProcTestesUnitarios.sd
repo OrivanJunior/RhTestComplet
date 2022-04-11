@@ -1,0 +1,133 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcRapido,
+  ExeProcessamentoRescisao,
+  ExeProcRapido,
+  ObjProcessamentoRescisao,
+  ObjProcRapido,
+  SelecaoEstab,
+  ValidaCalculos,
+  ValidaCalculosProvisao,
+  VarConsts;
+ 
+{Script para executar os Processamentos de Testes Unitários
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 19/07/2021}
+
+//const
+  //pathData = 'C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls';
+  //pathData = 'C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosVsdbRh.xls';
+  //pathData = 'C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\Provisão.xls';
+  
+procedure ValidaEventosValores(pathData, tab, strConexaoFBBase, strConexaoFBAtual);
+var 
+  DDTEventos : OleVariant;
+  consulta: string;
+begin
+  DDTEventos := CarregaDDT(pathData, tab);
+  
+  while not(DDTEventos.EOF) do
+  begin
+    LeDataPoolProcRapido(DDTEventos.Name);
+    aqString.QuoteSymbol := #39;
+  
+//    consulta  := 'SELECT IDEVENTO, VALOR, IDEMPREGADO, DATA, ESTAB FROM RHCALCULO WHERE ESTAB = '+ FiltroEstabValor + ' AND IDPROCESSO = ' + FiltroProcessamento +
+//                 ' AND IDEMPREGADO = ' + FiltroEmpregadoValor + ' AND DATA = ' + aqString.Quote(FiltroDataProc) + ' ORDER BY ESTAB,IDEMPREGADO,DATA,IDEVENTO';
+
+    consulta := 'SELECT IDEVENTO, VALOR, IDEMPREGADO, DATA, ESTAB FROM RHCALCULO WHERE ESTAB = ' +  FiltroEstabValor + ' AND (' + aqString.Quote(',') + 
+                '|| ' + aqString.Quote(FiltroEmpregadoValor) + ' || ' + aqString.Quote(',') + ' LIKE ' + aqString.Quote('%,') + '|| IDEMPREGADO || '  + 
+                aqString.Quote(',%') + ') AND IDPROCESSO = ' + FiltroProcessamento + ' AND DATA = ' + aqString.Quote(FiltroDataProc) + ' ORDER BY ESTAB,IDEMPREGADO,DATA,IDEVENTO';
+    
+    VerificaCalculos(consulta, strConexaoFBBase, strConexaoFBAtual);
+    DDTEventos.Next;
+  end;
+  DDT.CloseDriver(DDTEventos.Name);
+end;
+
+procedure ExecutaProcessamentosTestesUnitarios(pathData, tab);
+begin  
+  ExecutaProcRapido(pathData, tab);
+end;
+
+procedure ExecutaProcessamentoRescisao(pathData, tab);
+var
+  TelaConfirma, BtnOk, DDTRescisao,
+  TelaAviso, BtnSim, BtnNao, Estab;
+begin  
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Rescisão');
+  
+  MapFormProcessamentoRescisao();
+  
+  DDTRescisao := CarregaDDT(pathData, tab);
+  
+  Estab := 0;
+  
+  while not(DDTRescisao.EOF) do
+  begin
+    LeDataPoolProcRapido(DDTRescisao.Name);
+    
+    if Estab <> FiltroEstabValor then
+    begin
+      if (Aliases.Folha.FRhProcRescisao.Exists) then
+        Aliases.Folha.FRhProcRescisao.BSair.Click();
+      
+      ExecutaSelecaoEstab(_ModuloFolha, FiltroEstabValor);
+      
+      AcessaItem(_ModuloFolha, 'Processamentos', 'Rescisão');
+
+      MapFormProcessamentoRescisao();
+    end;
+    PreencheDatas(ProcRescisaoEBDtProc, FiltroDataProc);
+    
+    if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+    begin
+      Aliases.Folha.dlgAten_o2.btnSim.Click();
+    end;
+     
+    PreencheDatas(ProcRescisaoEBDtPgto, FiltroDataPgto);
+    
+    PageProcRescisao.ActivePageIndex := 0;
+    
+    GridEmpregado.SetFocus;
+  
+    BtnIncEmpre.Click();
+  
+    VerificaClickPreencheGrid(GridEmpregado, 0, 'Empregado', FiltroEmpregadoValor);
+  
+    GridEmpregado.Click();
+  
+    BtnSaveEmpre.Click;
+  
+    if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+    begin
+      TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+      BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+      BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+      BtnNao.Click();
+    end;
+    ActExecutar(FormProcRescisao);
+  
+    BtnSaveRescisao.Click();
+    
+    if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+    begin
+      TelaConfirma := Aliases.Folha.Window('#32770', 'Confirmação!', 1);
+    
+      BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+      
+      btnOk.Click();
+    end;
+    
+    FechaTelaESocial(_ModuloFolha);
+    
+    Estab := FiltroEstabValor;
+    
+    DDTRescisao.Next;
+  end;
+  ActFechar(FormProcRescisao);
+  DDT.CloseDriver(DDTRescisao.Name);
+end;

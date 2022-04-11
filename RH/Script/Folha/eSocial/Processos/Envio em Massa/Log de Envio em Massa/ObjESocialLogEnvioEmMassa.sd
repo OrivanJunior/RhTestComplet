@@ -1,0 +1,53 @@
+﻿{Script para mapear o Processo de Log de Envio em Massa
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialLogEnvioEmMassa,
+  PageESocialLogEnvioEmMassa,
+  
+  BtnAtualizar, GridLogEnvios,
+  
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialLogEnvioEmMassa();
+begin
+  FormESocialLogEnvioEmMassa       := Aliases.Folha.FRhProceSocialLogEnvioEmMassa;
+  PageESocialLogEnvioEmMassa       := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao;
+  
+  BtnAtualizar                     := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btAtualizar;
+  GridLogEnvios                    := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsPrincipal.pnPrincipal.gLog;
+end;
+
+procedure MapESocialConsLogEnvioEmMassa();
+begin
+  FormConsEstab       := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni     := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni     := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin     := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin     := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente    := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento  := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial  := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar           := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos         := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.bSelOcs;
+  BtnDesTodos         := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.bDesmOcs;
+  BtnConsSel          := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btConsTodosSel;
+  BtnEnvTodosSel      := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btEnvTodosSel;
+  BtnExtTodosSel      := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btExcTodosSel;
+  BtnSalvarXML        := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btSalvarXML;
+  BtnVerXML           := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btVerXML;
+  BtnVerRetorno       := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btVisualizarRetorno;
+  BtnVizualizar       := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.btVisualizarOc;
+  CbMostrarProtocolos := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos         := Aliases.Folha.FRhProceSocialLogEnvioEmMassa.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

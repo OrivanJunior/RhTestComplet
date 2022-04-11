@@ -1,0 +1,91 @@
+﻿{Script de mapeamento a Transferência de Local
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 22/06/2021}
+
+var
+  FormTransfLocal, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  TransfLocalWhEstabEspec, TransfLocalWhEstabEspecCampo,
+  TransfLocalWhEstabTodosEmp, TransfLocalWhEstabTodosEmpCampo,
+  TransfLocalWhEstabTodos, TransfLocalWhEstabSelec,
+  TransfLocalWhEstabSelecCampo, 
+  
+  TransfLocalWhSituacaoTodos, TransfLocalWhSituacaoEspec,
+  TransfLocalWhSituacaoEspecCampo, TransfLocalWhSituacaoSelec,
+  TransfLocalWhSituacaoSelecCampo,
+  
+  TransfLocalWhLocalAtualTodos, TransfLocalWhLocalAtualEspec, 
+  TransfLocalWhLocalAtualEspecCampo, TransfLocalWhLocalAtualSelec, 
+  TransfLocalWhLocalAtualSelecCampo,
+  
+  TransfLocalWhLocalNovoTodos, TransfLocalWhLocalNovoEspec,
+  TransfLocalWhLocalNovoEspecCampo, TransfLocalWhLocalNovoSelec,
+  TransfLocalWhLocalNovoSelecCampo,
+  
+  TransfLocalWhEmpreTodos, TransfLocalWhEmpreEspec,
+  TransfLocalWhEmpreEspecCampo, TransfLocalWhEmpreSelec,
+  TransfLocalWhEmpreSelecCampo, 
+  
+  TransfLocalWhDataDtIni, TransfLocalWhDataDtFin,
+  
+  TransfLocalWhProcTodos, TransfLocalWhProcEspec, 
+  TransfLocalWhProcEspecCampo, TransfLocalWhProcSelec, 
+  TransfLocalWhProcSelecCampo,
+   
+  TransfLocalWhGerarSobre, TransfLocalWhAtTransf,
+  TransfLocalWhAtEmpAdm, TransfLocalWhDataTransf: OleVariant;
+  
+procedure MapTransferenciaLocal();
+begin
+  FormTransfLocal                   := Aliases.Folha.FRhProcTransfLocal;
+  
+  btnSair                           := Aliases.Folha.FRhProcTransfLocal.BSair;
+  btnExecutar                       := Aliases.Folha.FRhProcTransfLocal.bExecutar;
+  btnSalvar                         := Aliases.Folha.FRhProcTransfLocal.tbSalvar;
+  btnRelatorio                      := Aliases.Folha.FRhProcTransfLocal.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  
+  TransfLocalWhEstabEspec           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  TransfLocalWhEstabEspecCampo      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  TransfLocalWhEstabTodosEmp        := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  TransfLocalWhEstabTodosEmpCampo   := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  TransfLocalWhEstabTodos           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  TransfLocalWhEstabSelec           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  TransfLocalWhEstabSelecCampo      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+								    
+  { Filtro de Situações }           
+  TransfLocalWhSituacaoTodos        := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao30;
+  TransfLocalWhSituacaoEspec        := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  TransfLocalWhSituacaoEspecCampo   := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  TransfLocalWhSituacaoSelec        := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  TransfLocalWhSituacaoSelecCampo   := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;
+    
+  { Filtro de Empregados }
+  TransfLocalWhEmpreTodos           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  TransfLocalWhEmpreEspec           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  TransfLocalWhEmpreEspecCampo      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  TransfLocalWhEmpreSelec           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  TransfLocalWhEmpreSelecCampo      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Filtro de Local Atual }
+  TransfLocalWhLocalAtualTodos      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual30;
+  TransfLocalWhLocalAtualEspec      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual20;
+  TransfLocalWhLocalAtualEspecCampo := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual50;
+  TransfLocalWhLocalAtualSelec      := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual40;
+  TransfLocalWhLocalAtualSelecCampo := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalAtual.whLocalAtual80;
+  
+  { Filtro de Local Novo }
+  TransfLocalWhLocalNovoTodos       := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo30;
+  TransfLocalWhLocalNovoEspec       := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo20;
+  TransfLocalWhLocalNovoEspecCampo  := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo50;
+  TransfLocalWhLocalNovoSelec       := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo40;
+  TransfLocalWhLocalNovoSelecCampo  := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whLocalNovo.whLocalNovo80;
+
+  { Dados Adicionais }
+  TransfLocalWhGerarSobre           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whDados.EB_GERAR;
+  TransfLocalWhAtTransf             := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whDados.EB_ATTransf;
+  TransfLocalWhAtEmpAdm             := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whDados.EB_ALTEMPADM;
+  TransfLocalWhDataTransf           := Aliases.Folha.FRhProcTransfLocal.pg.tsSelecao.SB_Selecao.whDados.EB_DtTransf;
+end;

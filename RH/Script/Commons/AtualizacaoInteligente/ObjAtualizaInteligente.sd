@@ -1,0 +1,25 @@
+﻿uses
+  VarConsts;
+{Script para mapear a atualizacao inteligente dos módulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 03/04/2018}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormAtInteligente, FormAtIntDgListar, FormAtIntGrid, FormAtIntPnBtns,
+  FormAtIntChkTodas, FormAtIntBtnAt, FormAtIntBtnSair : OleVariant;
+ 
+procedure MapTelaAtualizaInteligente();
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  
+  FormAtInteligente := Modulo.VCLObject('FSincTabelasListar');
+  FormAtIntDgListar := FormAtInteligente.VCLObject('dgListaTabelasAtualizar');
+  FormAtIntGrid     := FormAtIntDgListar.Window('TcxGridSite', '', 1);
+  FormAtIntPnBtns   := FormAtInteligente.VCLObject('pnBots');
+  FormAtIntChkTodas := FormAtIntPnBtns.VCLObject('chkTodas');
+  FormAtIntBtnAt    := FormAtIntPnBtns.VCLObject('btnAtualizar');
+  FormAtIntBtnSair  := FormAtIntPnBtns.VCLObject('btnSair');
+end;

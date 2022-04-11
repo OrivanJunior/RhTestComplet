@@ -1,0 +1,279 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolReajustePercentual,
+  ObjReajustePercentual,
+  VarConsts;
+{Script para executar o Processo de Reajuste Salarial por Percentual
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 22/06/2021}
+
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaReajustePercentual();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Reaj. Salariais', 'Percentual'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ReajustePercWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ReajustePercWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ReajustePercWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ReajustePercWhEstabSelec.ClickButton;
+    VerificaInsere(ReajustePercWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ReajustePercWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraFuncoes();
+begin
+  if (ReajustePercWhFuncaoTodos.VisibleOnScreen = false) then
+    ReajustePercWhFuncao10.Click();
+    
+  if (FiltroFuncaoTipo = _Especifico) then
+  begin
+    ReajustePercWhFuncaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhFuncaoEspecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Específico, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Selecionados) then
+  begin
+    ReajustePercWhFuncaoSelec.ClickButton;
+    VerificaInsere(ReajustePercWhFuncaoSelecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Selecionados, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Todos) then
+  begin
+    ReajustePercWhFuncaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Funções - Todos');
+  end;
+  ReajustePercWhFuncao10.Click();
+end;
+
+procedure FiltraLocais();
+begin
+  if (ReajustePercWhLocalTodos.VisibleOnScreen = false) then
+    ReajustePercWhLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    ReajustePercWhLocalEspec.ClickButton;
+    VerificaInsere(ReajustePercWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    ReajustePercWhLocalSelec.ClickButton;
+    VerificaInsere(ReajustePercWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    ReajustePercWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+  ReajustePercWhLocal10.Click();
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (ReajustePercWhEmpreTodos.VisibleOnScreen = false) then
+    ReajustePercWhEmpre10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    ReajustePercWhEmpreEspec.ClickButton;
+    //VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhEmpreEspecCampo, FiltroEmpreValor);
+    VerificaInsere(ReajustePercWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    ReajustePercWhEmpreSelec.ClickButton;
+    VerificaInsere(ReajustePercWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    ReajustePercWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+  ReajustePercWhEmpre10.Click();
+end;
+
+procedure FiltraSituacao();
+begin
+  if (ReajustePercWhSituacaoTodos.VisibleOnScreen = false) then
+    ReajustePercWhSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    ReajustePercWhSituacaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    ReajustePercWhSituacaoSelec.ClickButton;
+    VerificaInsere(ReajustePercWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    ReajustePercWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ReajustePercWhSituacao10.Click();
+end;
+
+procedure FiltraSindicato();
+begin
+  if (ReajustePercWhSindicatosTodos.VisibleOnScreen = false) then
+    ReajustePercWhSindicatos10.Click();
+    
+  if (FiltroSindicatosTipo = _Especifico) then
+  begin
+    ReajustePercWhSindicatosEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhSindicatosEspecCampo, FiltroSindicatosValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSindicatosValor);
+  end
+  else if (FiltroSindicatosTipo = _Selecionados) then
+  begin
+    ReajustePercWhSindicatosSelec.ClickButton;
+    VerificaInsere(ReajustePercWhSindicatosSelecCampo, FiltroSindicatosValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSindicatosValor);
+  end
+  else if (FiltroSindicatosTipo = _Todos) then
+  begin
+    ReajustePercWhSindicatosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ReajustePercWhSindicatos10.Click();
+end;
+
+procedure FiltraMotivo();
+begin
+  if (ReajustePercWhMotivoTodos.VisibleOnScreen = false) then
+    ReajustePercWhMotivo10.Click();
+    
+  if (FiltroMotivoTipo = _Especifico) then
+  begin
+    ReajustePercWhMotivoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercWhMotivoEspecCampo, FiltroMotivoValor);
+    Log.Checkpoint('Selecionado Motivo - Específico, com valor: ' + FiltroMotivoValor);
+  end
+  else if (FiltroMotivoTipo = _Selecionados) then
+  begin
+    ReajustePercWhMotivoSelec.ClickButton;
+    VerificaInsere(ReajustePercWhMotivoSelecCampo, FiltroMotivoValor);
+    Log.Checkpoint('Selecionado Motivo - Selecionados, com valor: ' + FiltroMotivoValor);
+  end
+  else if (FiltroMotivoTipo = _Todos) then
+  begin
+    ReajustePercWhMotivoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Motivo - Todos');
+  end;
+  ReajustePercWhMotivo10.Click();
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ReajustePercWhMotivo.VisibleOnScreen = false) then
+    ReajustePercWhDados10.Click();
+    
+  VerificaInsere(ReajustePercWhMotivo, FiltroMotivo);
+  VerificaInsere(ReajustePercWhMoeda, FiltroMoeda);
+  PreencheDatas(ReajustePercWhDataReaj, FiltroDataReaj);
+  VerificaInsere(ReajustePercWhRetroativo, FiltroRetroativo);
+  PreencheDatas(ReajustePercWhDtRetroativa, FiltroDtRetroativa);
+  VerificaInsere(ReajustePercWhPercReaj, FiltroPercReaj);
+  VerificaInsere(ReajustePercWhValAcerto, FiltroValAcerto);
+  VerificaInsere(ReajustePercWhValMinReaj, FiltroValMinReaj);
+  VerificaInsere(ReajustePercWhInfosAdc, FiltroInfosAdc);
+  ReajustePercWhDados10.Click();
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaReajustePercentual(pathData);
+var 
+  DDTReajuste: OleVariant;
+begin
+  AcessaReajustePercentual();
+
+  MapReajustePercentual();
+  
+  DDTReajuste := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolReajustePercentual(DDTReajuste.Name);
+
+  FiltraEstab();
+
+  FiltraFuncoes();
+
+  FiltraLocais();
+  
+  FiltraEmpregados();
+
+  FiltraSituacao();
+  
+  FiltraSindicato();
+  
+  FiltraMotivo();
+
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  if (Aliases.Folha.FVsErrorDlg.Visible) then
+  begin
+    Log.Warning('Há erros no processo');
+    Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    ActFechar(FormReajustePerc);
+  end
+  else
+  begin
+    FechaMensagemProcessoConcluido();
+  
+    btnSalvar.Click();
+
+    FechaMensagemProcessoConcluido();
+  
+    ActFechar(FormReajustePerc)
+  end;
+  DDT.CloseDriver(DDTReajuste.Name);
+end;

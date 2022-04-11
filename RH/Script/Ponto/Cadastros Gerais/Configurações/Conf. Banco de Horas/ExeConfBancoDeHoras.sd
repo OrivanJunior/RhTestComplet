@@ -1,0 +1,255 @@
+﻿uses
+  DataPoolConfBancoDeHoras, ObjConfBancoDeHoras, VarConsts, CommonsAll, CommonsObj;
+  
+procedure PreencheInfosGerais();
+begin
+  VerificaInsere(ConfBcoHorasEBIdBhConf, ConfBcoHorasDPIdBhConf);
+  VerificaInsere(ConfBcoHorasEBDescricao, ConfBcoHorasDPDescricao);
+  VerificaInsere(ConfBcoHorasEBTipo, ConfBcoHorasDPTipo);
+  VerificaInsere(ConfBcoHorasEBLimQuit, ConfBcoHorasDPLimQuit);
+  VerificaInsere(ConfBcoHorasEBLimComp, ConfBcoHorasDPLimComp);
+  VerificaInsere(ConfBcoHorasEBDebFaltas, ConfBcoHorasDPDebFaltas);
+  VerificaInsere(ConfBcoHorasEBDebAtrasos, ConfBcoHorasDPDebAtrasos);
+  VerificaInsere(ConfBcoHorasEBTransfSaldoDeb, ConfBcoHorasDPTransfSaldoDeb);
+  VerificaInsere(ConfBcoHorasEBTransfSaldoCred, ConfBcoHorasDPTransfSaldoCred);
+  
+  if (ConfBcoHorasEBJor12x36.Visible) then
+    VerificaInsere(ConfBcoHorasEBJor12x36, ConfBcoHorasDPJor12x36);
+end;
+
+procedure PreencheConfigDiaria(pathData);
+var 
+  i, CodigoBH: integer;
+  DDTConfDiaria: OleVariant;
+begin
+  i := 0;
+  
+  ConfBcoHorasPage.ActivePageIndex := 0;
+  
+  DDTConfDiaria := DDT.ExcelDriver(pathData, 'Conf Diária');
+  
+  while not (DDTConfDiaria.EOF) do
+  begin
+    LeDataPoolConfDiaria(DDTConfDiaria.Name);
+    
+    CodigoBH := ConfBcoHorasDPIdBhConf;
+    
+    ConfBcoHorasBtnIncDia.Click();
+  
+    ClickColuna(ConfBcoHorasGridDia, i, 'Considerar');
+  
+    ConfBcoHorasComboDia.ClickItem(ConfDiarioDPConsiderar);
+  
+    VerificaClickPreencheGrid(ConfBcoHorasGridDia, i, 'Limite (Horas)', ConfDiarioDPLimiteHr);
+    VerificaClickPreencheGrid(ConfBcoHorasGridDia, i, 'Limite (Perc.)', ConfDiarioDPLimitePerc);
+    VerificaClickPreencheGrid(ConfBcoHorasGridDia, i, 'Percentual de Troca das Horas do B.H', ConfDiarioDPPercTrocaHr);
+    VerificaClickPreencheGrid(ConfBcoHorasGridDia, i, 'Evento', ConfDiarioDPEvento);
+    VerificaClickPreencheGrid(ConfBcoHorasGridDia, i, 'Evento de Quitação/Exportação', ConfDiarioDPEventoQuit);
+    ConfBcoHorasBtnSaveDia.Click();
+    
+    Inc(i);
+    
+    DDTConfDiaria.Next;
+    
+    if ConfBcoHorasDPIdBhConf <> CodigoBH then
+      break;
+  end;
+  DDT.CloseDriver(DDTConfDiaria.Name);
+end;
+
+procedure PreencheConfigMensal(pathData);
+var 
+  i, CodigoBH: integer;
+  DDTConfMensal: OleVariant;
+begin 
+  i := 0;
+  
+  ConfBcoHorasPage.ActivePageIndex := 1;
+  
+  DDTConfMensal := DDT.ExcelDriver(pathData, 'Conf Mensal');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LeDataPoolConfDiaria(DDTConfMensal.Name);
+    
+    CodigoBH := ConfBcoHorasDPIdBhConf;
+    
+    ConfBcoHorasBtnIncMen.Click();
+  
+    ClickColuna(ConfBcoHorasGridMen, i, 'Considerar');
+  
+    ConfBcoHorasComboMen.ClickItem(ConfMensalDPConsiderar);
+  
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Limite (Horas)', ConfMensalDPLimiteHr);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Limite (Perc.)', ConfMensalDPLimitePerc);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Percentual de Troca das Horas do B.H', ConfMensalDPPercTroca);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Evento', ConfMensalDPEvento);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Evento de Quitação/Exportação', ConfMensalDPEventoQuit);
+    ConfBcoHorasBtnSaveMen.Click();
+    
+    Inc(i);
+    
+    DDTConfMensal.Next;
+    
+    if ConfBcoHorasDPIdBhConf <> CodigoBH then
+      break;
+  end;
+  DDT.CloseDriver(DDTConfMensal.Name);
+end;
+
+procedure PreencheConfigDiariaMensal(pathData);
+var 
+  i, CodigoBH: integer;
+  DDTConfMensal: OleVariant;
+begin
+  i := 0;
+  
+  PreencheConfigDiaria(pathData);
+  
+  ConfBcoHorasPage.ActivePageIndex := 1;
+  
+  DDTConfMensal := DDT.ExcelDriver(pathData, 'Conf Mensal');
+  
+  while not (DDTConfMensal.EOF) do
+  begin
+    LeDataPoolConfMensal(DDTConfMensal.Name);
+    
+    CodigoBH := ConfBcoHorasDPIdBhConf;
+    
+    ConfBcoHorasBtnIncMen.Click();
+  
+    ClickColuna(ConfBcoHorasGridMen, i, 'Considerar');
+  
+    ConfBcoHorasComboMen.ClickItem(ConfMensalDPConsiderar);
+  
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Limite (Horas)', ConfMensalDPLimiteHr);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Percentual de Troca das Horas do B.H', ConfMensalDPPercTroca);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Evento', ConfMensalDPEvento);
+    VerificaClickPreencheGrid(ConfBcoHorasGridMen, i, 'Evento de Quitação/Exportação', ConfMensalDPEventoQuit);
+    ConfBcoHorasBtnSaveMen.Click();
+    
+    Inc(i);
+    DDTConfMensal.Next;
+    
+    if ConfBcoHorasDPIdBhConf <> CodigoBH then
+      break;
+  end;
+  DDT.CloseDriver(DDTConfMensal.Name);
+end;
+
+procedure PreencheTipoConfig(pathData);
+begin
+  case ConfBcoHorasDPTipo of
+    '1': PreencheConfigDiaria(pathData);
+    '2': PreencheConfigMensal(pathData);
+    '3': PreencheConfigDiariaMensal(pathData);
+  end;
+end;
+
+procedure CadastraConfBancoHoras(pathData);
+var
+  DDTInfosGerais: OleVariant;
+begin
+  DDTInfosGerais := CarregaDDT(pathData, 'Infos Gerais');
+  
+  while not (DDTInfosGerais.EOF) do
+  begin
+    LeDataPoolInfosGerais(DDTInfosGerais.Name);
+    
+    AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Banco de Horas');
+
+    MapGridConsulta(_ModuloPonto);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhBhConf');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Código', ConfBcoHorasDPIdBhConf);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      
+      if (Aliases.Ponto.FRhBhConf.Exists) then
+      begin
+        MapConfBancoHoras();
+      
+        PreencheInfosGerais();
+      
+        PreencheTipoConfig(pathData);
+      
+        ActSalvar(ConfBcoHorasForm);
+        
+        ActFechar(ConfBcoHorasForm);
+      end;
+    end;
+    DDTInfosGerais.Next;
+    ActFechar(FormTelaConsultaForm);
+  end; 
+  DDT.CloseDriver(DDTInfosGerais.Name);
+end;
+
+procedure AlteraConfBancoHoras(pathData);
+var
+  DDTInfosGerais: OleVariant;
+begin
+  DDTInfosGerais := CarregaDDT(pathData, _Alterar);
+  
+  while not (DDTInfosGerais.EOF) do
+  begin
+    LeDataPoolInfosGerais(DDTInfosGerais.Name);
+    
+    AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Banco de Horas');
+
+    MapGridConsulta(_ModuloPonto);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloPonto, 'FRhBhConf');
+      
+    FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Código', ConfBcoHorasDPIdBhConf);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      if (Aliases.Ponto.FRhBhConf.Exists) then
+      begin
+        MapConfBancoHoras();
+
+        PreencheInfosGerais();
+
+        ActSalvar(ConfBcoHorasForm);
+
+        ActFechar(ConfBcoHorasForm);
+      end;
+    end;
+    DDTInfosGerais.Next;
+    ActFechar(FormTelaConsultaForm);
+  end; 
+  DDT.CloseDriver(DDTInfosGerais.Name);
+end;
+
+procedure ExcluiConfBancoHoras(codigo);
+begin 
+  AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Configurações', 'Conf. Banco de Horas');
+
+  MapGridConsulta(_ModuloPonto);
+    
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhBhConf');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Código', codigo);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+      
+    if (Aliases.Ponto.FRhBhConf.Exists) then
+    begin
+    ActExcluir(_ModuloPonto, 'FRhBhConf');
+//      Aliases.Ponto.FRhBhConf.BExcluir.Click();
+//        
+//      if (Aliases.Ponto.dlgConfigura_oDoBancoDeHoras.Exists) then
+//        Aliases.Ponto.dlgConfigura_oDoBancoDeHoras.btnSim.Click();
+//      Delay(5000); 
+      Aliases.Ponto.FRhBhConf.BSair.Click;
+    end;
+  end;    
+  ActFechar(FormTelaConsultaForm); 
+end;

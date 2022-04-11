@@ -1,0 +1,102 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadControlePonto,
+  ObjCadControlePonto,
+  VarConsts;
+  
+procedure FiltraControleProc();
+begin 
+  MapFiltroCadControlePonto();
+  FiltroConsFormCBSelCons.Keys('[Enter]');
+  FiltroConsFormCBMes.SelectItem('(Ignorar)');
+  FiltroConsFormCBAno.SelectItem('(Ignorar)');
+  FiltroConsFormCBAberto.SelectItem('(Ignorar)');
+  
+  btnOkFiltroConsForm.ClickButton;
+end;
+
+procedure PreencheControleProcessamento(pathData);
+begin
+  VerificaConsultaF3Insere(_ModuloPonto, ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBMesApur, ProcDPMesApur);
+  VerificaInsere(ProcEBAnoApur, ProcDPAnoApur);
+  PreencheDatas(ProcEBDataIni, ProcDPDataIni);
+  PreencheDatas(ProcEBDataFin, ProcDPDataFin);
+  VerificaInsere(ProcEBNroDias, ProcDPNroDias);
+  VerificaInsere(ProcEBEmAberto, ProcDPAberto);
+end;
+
+procedure CadastraControleProcessamento(pathData);
+var
+  DDTCadControlePonto: OleVariant;
+begin  
+  AcessaItem(_ModuloPonto, 'Processos', 'Cadastro de Controle do Ponto');
+
+  DDTCadControlePonto := CarregaDDT(pathData, _Cadastrar);
+
+  FiltraControleProc();
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  LeDataPoolCadControlePonto();
+    
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhProcessoPonto');
+    
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Data Inicial', ProcDPDataIni);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadControlePonto();
+      
+    PreencheControleProcessamento(pathData);
+  
+    Aliases.Ponto.FRhProcessoPonto.BSalvar.Click();
+      
+    ActFechar(FormCadControlePonto);
+      
+    DDT.CurrentDriver.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name);  
+end;
+
+procedure ExcluiControleProcessamento(pathData);
+var
+  DDTCadControlePonto: OleVariant;
+begin  
+  AcessaItem(_ModuloPonto, 'Processos', 'Cadastro de Controle do Ponto');
+
+  DDTCadControlePonto := CarregaDDT(pathData, _Excluir);
+  
+  FiltraControleProc();
+
+  MapGridConsulta(_ModuloPonto);
+  
+  LeDataPoolCadControlePonto();
+    
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhProcessoPonto');
+    
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Data Inicial', ProcDPDataIni);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadControlePonto();
+      
+    ActExcluir(_ModuloPonto, 'FRhProcessoPonto');
+    
+    Aliases.Ponto.JanelaResp.BotaoDoResp_1.Click();
+      
+    ActFechar(FormCadControlePonto);
+      
+    DDT.CurrentDriver.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name)
+end;

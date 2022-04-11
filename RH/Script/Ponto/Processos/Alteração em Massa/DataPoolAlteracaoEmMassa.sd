@@ -1,0 +1,165 @@
+﻿{Script de DataPool do Processo de Alteração em Massa
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 03/09/2021}
+
+var
+  FiltroEstabValor,
+
+  FiltroLocaisTipo, FiltroLocaisValor,
+
+  FiltroEmpreTipo, FiltroEmpreValor,
+
+  AltEmMassaDPOpcao, AltEmMassaDPAlterarPara,
+  
+  AltEmMassaDPMesAno, AltEmMassaDPRemoverBat,
+  AltEmMassaDPVoltaDataAFD,
+
+  AltEmMassaDPRemMov, AltEmMassaDPProcesso,
+  AltEmMassaDPDataCtrl,
+
+  AltEmMassaDPDataAlt, AltEmMassaDPHoraAlt,
+  AltEmMassaDPAcresHora, AltEmMassaDPHoraAcres,
+  AltEmMassaDPOperacao, AltEmMassaDPColMarc,
+  AltEmMassaDPMotDesc, AltEmMassaDPMotInc,
+
+  AltEmMassaDPDataHorario, AltEmMassaDPHorario,
+  AltEmMassaDPIncDtAdmHor, AltEmMassaDPEmpSemHor,
+
+  AltEmMassaDPDataLocal, AltEmMassaDPLocal,
+  AltEmMassaDPIncDtAdmLoc, AltEmMassaDPEmpSemLocal,
+
+  AltEmMassaDPDataInc, AltEmMassaDPHoraInc,
+  AltEmMassaDPMotivoInc,
+
+  AltEmMassaDPMesAnoBH, AltEmMassaDPTipoLanc,
+
+  AltEmMassaDPTurnoJust, AltEmMassaDPJustificativa,
+
+  AltEmMassaDPDataFeriado, AltEmMassaDPDataTrocaFer,
+
+  AltEmMassaDPDataIni, AltEmMassaDPDataFin,
+  AltEmMassaDPHrEscala, AltEmMassaDPSobreporEsc: OleVariant;
+
+procedure LeDataPoolAlteracaoEmMassa(nomeDriver);
+begin
+  FiltroEstabValor          := DDT.DriverByName(nomeDriver).Value('ESTAB');
+    
+  { Filtro Locais }
+  FiltroLocaisTipo          := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocaisValor         := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo           := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor          := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+
+  AltEmMassaDPOpcao         := DDT.DriverByName(nomeDriver).Value('OPCAO');
+  AltEmMassaDPAlterarPara   := DDT.DriverByName(nomeDriver).Value('ALTERARPARA');
+
+end;
+
+procedure LeDataPoolRemoverBatidas(nomeDriver);
+begin
+  { Remover Batidas }
+  AltEmMassaDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+  AltEmMassaDPRemoverBat    := DDT.DriverByName(nomeDriver).Value('REMOVERBAT');
+  AltEmMassaDPVoltaDataAFD  := DDT.DriverByName(nomeDriver).Value('VOLTADATAAFD');
+end;
+
+procedure LeDataPoolRemoverCalculos(nomeDriver);
+begin
+  { Remover Cálculos } 
+  AltEmMassaDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');          
+  AltEmMassaDPRemMov        := DDT.DriverByName(nomeDriver).Value('REMMOV');
+  AltEmMassaDPProcesso      := DDT.DriverByName(nomeDriver).Value('PROCESSO');
+  AltEmMassaDPDataCtrl      := DDT.DriverByName(nomeDriver).Value('DATACONTROLE');
+end;
+
+procedure LeDataPoolAlteracaoBatidas(nomeDriver);
+begin
+  { Alteração de Batidas }       
+  AltEmMassaDPDataAlt       := DDT.DriverByName(nomeDriver).Value('DATAALT');
+  AltEmMassaDPHoraAlt       := DDT.DriverByName(nomeDriver).Value('HORAALT');
+  AltEmMassaDPAcresHora     := DDT.DriverByName(nomeDriver).Value('ACRESHR');
+  AltEmMassaDPHoraAcres     := DDT.DriverByName(nomeDriver).Value('HRACRES');
+  AltEmMassaDPOperacao      := DDT.DriverByName(nomeDriver).Value('OPERACAO');
+  AltEmMassaDPColMarc       := DDT.DriverByName(nomeDriver).Value('COLMARC');
+  AltEmMassaDPMotDesc       := DDT.DriverByName(nomeDriver).Value('MOTDESC');
+  AltEmMassaDPMotInc        := DDT.DriverByName(nomeDriver).Value('MOTINC');
+end;
+
+procedure LeDataPoolIncHorarioEmpregados(nomeDriver);
+begin
+  { Incluir horário nos empregados }
+  AltEmMassaDPDataHorario   := DDT.DriverByName(nomeDriver).Value('DATAHORARIO');
+  AltEmMassaDPHorario       := DDT.DriverByName(nomeDriver).Value('HORARIO');
+  AltEmMassaDPIncDtAdmHor   := DDT.DriverByName(nomeDriver).Value('INCDTADMHOR');
+  AltEmMassaDPEmpSemHor     := DDT.DriverByName(nomeDriver).Value('EMPSEMHOR');
+end;
+
+procedure LeDataPoolIncLocalEmpregados(nomeDriver);
+begin
+  { Incluir local nos empregados }
+  AltEmMassaDPDataLocal     := DDT.DriverByName(nomeDriver).Value('DATALOCAL');
+  AltEmMassaDPLocal         := DDT.DriverByName(nomeDriver).Value('LOCAL');
+  AltEmMassaDPIncDtAdmLoc   := DDT.DriverByName(nomeDriver).Value('INCDTADMLOC');
+  AltEmMassaDPEmpSemLocal   := DDT.DriverByName(nomeDriver).Value('EMPSEMLOC');
+end;
+
+procedure LeDataPoolRemoverEscalas(nomeDriver);
+begin
+  { Remover Escalas }       
+  AltEmMassaDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+end;
+
+procedure LeDataPoolIncBatidaManual(nomeDriver);
+begin
+  { Incluir Batida Manual }      
+  AltEmMassaDPDataInc       := DDT.DriverByName(nomeDriver).Value('DATAINC');
+  AltEmMassaDPHoraInc       := DDT.DriverByName(nomeDriver).Value('HORAINC');
+  AltEmMassaDPMotivoInc     := DDT.DriverByName(nomeDriver).Value('MOTIVOINC');
+end;
+
+procedure LeDataPoolRemoverLancamentosBH(nomeDriver);
+begin
+  { Remover Lançamentos Manuais do BH }
+  AltEmMassaDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+  AltEmMassaDPTipoLanc      := DDT.DriverByName(nomeDriver).Value('TIPOLANCBH');
+end;
+
+procedure LeDataPoolRemoverLancamentosBHAnt(nomeDriver);
+begin
+  { Remover Lançamentos do B.H Anterior }
+  AltEmMassaDPTipoLanc      := DDT.DriverByName(nomeDriver).Value('TIPOLANCBH');
+end;
+
+procedure LeDataPoolRemoverIntervalosAFD(nomeDriver);
+begin
+  { Remover Intervalos Pré-Assinalados do AFD e Cartão Ponto }
+  AltEmMassaDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+end;
+
+procedure LeDataPoolIncJustificativa(nomeDriver);
+begin
+  { Incluir Justificativa }       
+  AltEmMassaDPDataIni       := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  AltEmMassaDPDataFin       := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+  AltEmMassaDPTurnoJust     := DDT.DriverByName(nomeDriver).Value('TURNOJUSTIFICATIVA');
+  AltEmMassaDPJustificativa := DDT.DriverByName(nomeDriver).Value('JUSTIFICATIVA');
+end;
+
+procedure LeDataPoolTrocaDeFeriado(nomeDriver);
+begin
+  { Incluir Troca de Feriado }
+  AltEmMassaDPDataFeriado   := DDT.DriverByName(nomeDriver).Value('DATAFERIADO');
+  AltEmMassaDPDataTrocaFer  := DDT.DriverByName(nomeDriver).Value('DATATROCAFER');
+end;
+
+procedure LeDataPoolGerarEscalas(nomeDriver);
+begin
+  { Gerar escalas }         
+  AltEmMassaDPDataIni       := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  AltEmMassaDPDataFin       := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+  AltEmMassaDPHrEscala      := DDT.DriverByName(nomeDriver).Value('IDHORARIOESCALA');
+  AltEmMassaDPSobreporEsc   := DDT.DriverByName(nomeDriver).Value('SOBREPORESC');
+end;

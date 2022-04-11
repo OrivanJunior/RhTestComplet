@@ -1,0 +1,53 @@
+﻿{Script de DataPool do Cadastro de Fixo Geral
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:01/06/2021}
+ 
+var
+  { Dados Gerais } 
+  FixoEDPEstab, FixoEDPEmpregado, FixoEDPEvento,
+  
+  { Tab Periodicidade: Por Mês }
+  FixoEMesDPMes,
+  
+  { Tab Periodicidade: Por Mês/Ano }
+  FixoEMesAnoDPMes, FixoEMesAnoDPAno,
+  
+  { Tab Parâmetros }
+  FixoEParamsDPValorInfo, FixoEParamsDPInforme, FixoEParamsDPInforme2,
+  FixoEParamsDPValorTarefa, FixoEParamsDPProporcional, FixoEParamsDPDiasUteis,
+  FixoEParamsDPDiasFaltas, FixoEParamsDPAvosInforme, FixoEParamsDPAvosDireito,
+  FixoEParamsDPReferencia, FixoEParamsDPBaseProp: OleVariant;
+
+procedure LoadDPDadosGeraisFixoE(nomeDriver);
+begin
+  FixoEDPEstab     := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FixoEDPEmpregado := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  FixoEDPEvento    := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+end;
+
+procedure LoadDPTabPeriodicidadeMesFixoE(nomeDriver);
+begin
+  FixoEMesDPMes := DDT.DriverByName(nomeDriver).Value('MES');
+end;
+
+procedure LoadDPTabPeriodicidadeMesAnoFixoE(nomeDriver);
+begin
+  FixoEMesAnoDPMes := DDT.DriverByName(nomeDriver).Value('MES');
+  FixoEMesAnoDPAno := DDT.DriverByName(nomeDriver).Value('ANO');
+end;
+
+procedure LoadDPTabParametrosFixoE(nomeDriver);
+begin
+  FixoEParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALOR INFO');
+  FixoEParamsDPInforme      := DDT.DriverByName(nomeDriver).Value('INFORME');
+  FixoEParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
+  FixoEParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');
+  FixoEParamsDPProporcional := DDT.DriverByName(nomeDriver).Value('PROPORCIONAL');
+  FixoEParamsDPDiasUteis    := DDT.DriverByName(nomeDriver).Value('DIAS UTEIS');
+  FixoEParamsDPDiasFaltas   := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
+  FixoEParamsDPAvosInforme  := DDT.DriverByName(nomeDriver).Value('AVOS INFORME');
+  FixoEParamsDPAvosDireito  := DDT.DriverByName(nomeDriver).Value('AVOS DIREITO');
+  FixoEParamsDPReferencia   := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+  FixoEParamsDPBaseProp     := DDT.DriverByName(nomeDriver).Value('BASE PROP');
+end;

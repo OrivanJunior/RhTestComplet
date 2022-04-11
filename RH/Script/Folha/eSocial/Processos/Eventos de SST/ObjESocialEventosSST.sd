@@ -1,0 +1,88 @@
+﻿{Script para mapear o Processo de eSocial - Eventos de SST
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialEnvioSST,
+  PageESocialEnvioSST,
+  
+  BtnEnviarSST, FormEnvioSSTModoLanc,
+
+  FormEnvioSSTRBS2210, 
+  FormEnvioSSTRBS2220,
+  FormEnvioSSTRBS2240, 
+  
+  FormEnvioSSTWhEmpregadosTodos, 
+  FormEnvioSSTWhEmpregadosEspec,
+  FormEnvioSSTWhEmpregadosEspecCampo, 
+  FormEnvioSSTWhEmpregadosSelec,
+  FormEnvioSSTWhEmpregadosSelecCampo, 
+  
+  FormEnvioSSTWhPrestadoresTodos, 
+  FormEnvioSSTWhPrestadoresEspec,
+  FormEnvioSSTWhPrestadoresEspecCampo, 
+  FormEnvioSSTWhPrestadoresSelec,
+  FormEnvioSSTWhPrestadoresSelecCampo,
+
+  FormEnvioSSTWhMesAnoComp,
+  
+  FormConsEstab, 
+  FormConsDataIni,
+  FormConsHoraIni, 
+  FormConsDataFin,
+  FormConsHoraFin, 
+  FormConsAmbiente,
+  FormConsTipoEvento, 
+  FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, 
+  BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, 
+  BtnSalvarXML, BtnVerXML, 
+  BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialEnvioSST();
+begin
+  FormESocialEnvioSST                  := Aliases.Folha.FRhProceSocialEnvioSST;
+  PageESocialEnvioSST                  := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao;
+  
+  BtnEnviarSST                         := Aliases.Folha.FRhProceSocialEnvioSST.btEnviarSST;
+  
+  FormEnvioSSTRBS2210                  := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.gbEventosSST.rbS2210;
+  FormEnvioSSTRBS2220                  := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.gbEventosSST.rbS2220;
+  FormEnvioSSTRBS2240                  := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.gbEventosSST.rbS2240;
+
+  FormEnvioSSTWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados30;
+  FormEnvioSSTWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.WhEmpregados.WhEmpregados20;
+  FormEnvioSSTWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados50;
+  FormEnvioSSTWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados40;
+  FormEnvioSSTWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados80;
+
+  FormEnvioSSTWhMesAnoComp             := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsPrincipal.ScrollBox1.gbComp.EB_MESANOCOMP;
+end;
+
+procedure MapESocialConsEnvioSST();
+begin
+  FormConsEstab                := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni              := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni              := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin              := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin              := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente             := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento           := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial           := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                    := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                  := Aliases.Folha.FRhProceSocialEnvioSST.bSelOcs;
+  BtnDesTodos                  := Aliases.Folha.FRhProceSocialEnvioSST.bDesmOcs;
+  BtnConsSel                   := Aliases.Folha.FRhProceSocialEnvioSST.btConsTodosSel;
+  BtnEnvTodosSel               := Aliases.Folha.FRhProceSocialEnvioSST.btEnvTodosSel;
+  BtnExtTodosSel               := Aliases.Folha.FRhProceSocialEnvioSST.btExcTodosSel;
+  BtnSalvarXML                 := Aliases.Folha.FRhProceSocialEnvioSST.btSalvarXML;
+  BtnVerXML                    := Aliases.Folha.FRhProceSocialEnvioSST.btVerXML;
+  BtnVerRetorno                := Aliases.Folha.FRhProceSocialEnvioSST.btVisualizarRetorno;
+  BtnVizualizar                := Aliases.Folha.FRhProceSocialEnvioSST.btVisualizarOc;
+  CbMostrarProtocolos          := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                  := Aliases.Folha.FRhProceSocialEnvioSST.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

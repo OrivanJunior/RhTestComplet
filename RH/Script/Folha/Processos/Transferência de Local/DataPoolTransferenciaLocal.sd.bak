@@ -1,0 +1,50 @@
+﻿{Script de DataPool da Transferência de Local
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 22/06/2021}
+ 
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroLocalAtualTipo, FiltroLocalAtualValor,
+  
+  FiltroLocalNovoTipo, FiltroLocalNovoValor,
+  
+  FiltroGerarSobre, FiltroAtTransf,
+  FiltroAAtEmpAdm, FiltroDataTransf: OleVariant;
+
+procedure LeDataPoolTransferenciaLocal(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+
+    { Filtro Situações }
+    FiltroSituacaoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+    FiltroSituacaoValor := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+    FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+        
+    { Filtro Local Atual }
+    FiltroLocalAtualTipo  := DDT.DriverByName(nomeDriver).Value('TIPOLOCALATUAL');
+    FiltroLocalAtualValor := DDT.DriverByName(nomeDriver).Value('LOCALATUALVALOR');
+    
+    { Filtro Local Novo }
+    FiltroLocalNovoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOLOCALNOVO');
+    FiltroLocalNovoValor := DDT.DriverByName(nomeDriver).Value('LOCALNOVOVALOR');
+    
+    { Filtro Dados Adicionais }
+    FiltroGerarSobre := DDT.DriverByName(nomeDriver).Value('GERARSOBRE');
+    FiltroAtTransf   := DDT.DriverByName(nomeDriver).Value('ATTRANSF');
+    FiltroAAtEmpAdm  := DDT.DriverByName(nomeDriver).Value('ATEMPADM');
+    FiltroDataTransf := DDT.DriverByName(nomeDriver).Value('DATATRANSF');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

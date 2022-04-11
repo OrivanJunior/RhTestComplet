@@ -1,0 +1,107 @@
+﻿{Script para executar o Processo de RAIS Arquivo
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+uses
+  DataPoolRaisGenerico, ObjRaisGenerico, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaRaisGenerico();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'RAIS', 'RAIS Genérico'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormRaisGenericoWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRaisGenericoWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormRaisGenericoWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormRaisGenericoWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormRaisGenericoWhEstabSelec.ClickButton;
+    VerificaInsere(FormRaisGenericoWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormRaisGenericoWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormRaisGenericoWhAnoBase.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormRaisGenericoWhAnoBase, FiltroAnoBase);
+  VerificaInsere(FormRaisGenericoWhIdPessoa, FiltroIdPessoa);
+  VerificaInsere(FormRaisGenericoWhRetifica, FiltroRetifica);
+  PreencheDatas(FormRaisGenericoWhDtRetificacao, FiltroDtRetificacao);
+  VerificaInsere(FormRaisGenericoWhCREA, FiltroCREA);
+  VerificaInsere(FormRaisGenericoWhEncerra, FiltroEncerra);
+  PreencheDatas(FormRaisGenericoWhDtEncerra, FiltroDtEncerra);
+  VerificaInsere(FormRaisGenericoWhCaminho, FiltroCaminho);
+  VerificaInsere(FormRaisGenericoWhProjAviso, FiltroProjAviso);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaRaisGenerico(pathData);
+begin
+  AcessaRaisGenerico();
+
+  MapRaisGenerico();
+
+  LeDataPoolRaisGenerico(pathData);
+
+  FiltraEstab();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while not(Aliases.Folha.dlgProcessoConclu_do2.Exists) do
+  begin
+    if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Nenhum registro encontrado');
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      ActFechar(FormRaisGenerico);
+      break;
+    end;
+    Delay(20000);
+  end;
+  
+  FechaMensagemProcessoConcluido();
+  
+  ActFechar(FormRaisGenerico);
+
+  ValidaArquivos('C:\TEMP\RAIS\RAIS GENÉRICO\RAIS_GENERICO_MODELO.DEC', 'C:\TEMP\RAIS\RAIS GENÉRICO\RAIS_GENERICO_MODELO_ORACLE.DEC', 'C:\TEMP\RAIS\RAIS GENÉRICO\RAIS21.DEC');
+end;

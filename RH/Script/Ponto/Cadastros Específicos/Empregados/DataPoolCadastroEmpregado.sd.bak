@@ -1,0 +1,257 @@
+﻿{Script de DataPool do Cadastro de Empregados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 25/05/2020}  
+  
+var
+  { Dados Gerais }
+  DadosGeraisDPEstab, DadosGeraisDPIdEmp, DadosGeraisDPIdPess,
+  DadosGeraisDPMatricula: OleVariant;
+  
+  { Dados Pessoais }
+  DadosPessoaisDPIdTpAdm, DadosPessoaisDPIdSind, DadosPessoaisDPIdVinc, 
+  DadosPessoaisDPTipoContrato, DadosPessoaisDPClausulaAssec,
+  DadosPessoaisDPObjDet, DadosPessoaisDPIdTurno, DadosPessoaisDPIdCateg,
+  DadosPessoaisDPIdTabAnuenio, DadosPessoaisDPDtAdmissao,
+  DadosPessoaisDPPis, DadosPessoaisDPPisAlt, DadosPessoaisDPRepouso, 
+  DadosPessoaisDPCpf, DadosPessoaisDPRepousoCfeEscala, DadosPessoaisDPRg: OleVariant;
+  
+  { Outras Configurações }
+  OutrasConfigDPIncQdHora, OutrasConfigDPObsQdHora, OutrasConfigDPSincNela: OleVariant;
+  
+  { Ponto }
+  PontoDPUsaCartao, PontoDPCodigo, PontoDPAlmocoLivre, PontoDPInterPreAss, 
+  PontoDPHoraNucleo: OleVariant;
+  
+  { Conv. Plano de Saúde Titular }
+  ConvTitDPInicio, ConvTitDPCodMod, ConvTitDPFim: OleVariant;
+  
+  { Conv. Plano de Saúde Dependente }
+  ConvDepDPRelDep, ConvDepDPInicio, ConvDepDPCodMod, ConvDepDPFim: OleVariant;
+  
+  { Vale Alimentação }
+  BenefValeDPData, BenefValeDPRecValeAli, BenefValeDPRecValeRef: OleVariant;
+  
+  { Férias }
+  
+  { Períodos Aquisitivos }
+  PerAquisirDPPeriodo, PerAquisirDPDataIni, PerAquisirDPDataFin, PerAquisirDPDiasDir, 
+  PerAquisirDPDiasGoz, PerAquisirDPDiasAbo, PerAquisirDPDiasDesc, PerAquisirDPDiasRest,
+   PerAquisirDPMotEncer: OleVariant;
+  
+  { Programação de Férias }
+  ProgramDPOrdem, ProgramDPPerAq, ProgramDPDiasDesc, ProgramDPDiasGozo, ProgramDPDataIni, 
+  ProgramDPDataFin, ProgramDPDiasAbo, ProgramDPDataAboIni, ProgramDPDataAboFin, 
+  ProgramDPAboInic, ProgramDPJaEfetiv, ProgramDPFeriasCanc: OleVariant;
+  
+  { Períodos de Férias }
+  PerFeriasDPDiasFalta, PerFeriasDPDiasGozo, PerFeriasDPDtGozoIni, PerFeriasDPDtGozoFin,
+  PerFeriasDPPossuiAbo, PerFeriasDPDiasAbono: OleVariant; 
+  
+  { MP - Prorrogação do pgto adicional de férias }
+  FeriasMpDPIdFer, FeriasMpDPProc, FeriasMpDPDtProc: OleVariant;
+  
+  { Dados Históricos }
+  
+  { Funções }
+  HistDPFuncData, HistDPFuncao, HistDPFuncDesc, HistDPFuncDescComp: OleVariant;
+  
+  { Situações }
+  SituaDPData, DPSituacao, SituaDPCausa, SituaDPDiasAt, SituaDPMaisInfo, SituaDPDtAviso,
+  SituaDPIndCump, SituaDPDiasCump, SituaDPDiasAvisoInd, SituaDPDtProjAv, SituaDPFGTSEmGRRF,
+  SituaDPIndPensao, SituaDPVlrPensao, SituaDPPercPensao, SituaDPDissidio, SituaDPDtDissid,
+  SituaDPVlrDissid, SituaDPRepVaga, SituaDPFGTSEmAtr, SituaDPRescFech: OleVariant;
+  
+  { Locais }
+  LocaisDPData, LocaisDPLocal, LocaisDPDescComp: OleVariant;
+  
+  { Horários }
+  HoraDPData, HoraDPHorario: OleVariant;
+  
+  { Avisos/ Advertências/ Suspensões }
+  AdverteDPCod, AdverteDPData, AdverteDPTipo, AdverteDPDtIni, AdverteDPDtFin,
+  AdverteDPMotiv, AdverteDPEve, AdverteDPDtCtrl: OleVariant;
+  
+  { Observações }
+  ObsDPData, ObsDPObservacao,
+  
+  { Exportação Contábil }
+  ExpCtbDPSeq, ExpCtbDPEstab, ExpCtbDPLocal, ExpCtbDPAtiv, ExpCtbDPPerc: OleVariant;
+
+procedure loadDPDadosGerais(nomeDriver);
+begin
+  DadosGeraisDPEstab     := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  DadosGeraisDPIdEmp     := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  DadosGeraisDPIdPess    := DDT.DriverByName(nomeDriver).Value('IDPESS');
+  DadosGeraisDPMatricula := DDT.DriverByName(nomeDriver).Value('MATRICULA');
+end;
+
+procedure loadDPDadosPessoais(nomeDriver);
+begin
+  DadosPessoaisDPIdTpAdm          := DDT.DriverByName(nomeDriver).Value('IDTPADM');
+  DadosPessoaisDPIdSind           := DDT.DriverByName(nomeDriver).Value('IDSIND');
+  DadosPessoaisDPIdVinc           := DDT.DriverByName(nomeDriver).Value('IDVINC');
+  DadosPessoaisDPTipoContrato     := DDT.DriverByName(nomeDriver).Value('TIPOCONTRATO');
+  DadosPessoaisDPClausulaAssec    := DDT.DriverByName(nomeDriver).Value('CLAUSULAASSEC');
+  DadosPessoaisDPObjDet           := DDT.DriverByName(nomeDriver).Value('OBJDET');
+  DadosPessoaisDPIdTurno          := DDT.DriverByName(nomeDriver).Value('IDTURNO');
+  DadosPessoaisDPIdCateg          := DDT.DriverByName(nomeDriver).Value('IDCATEG');
+  DadosPessoaisDPIdTabAnuenio     := DDT.DriverByName(nomeDriver).Value('IDTABANUENIO');
+  DadosPessoaisDPDtAdmissao       := DDT.DriverByName(nomeDriver).Value('DTADMISSAO');
+  DadosPessoaisDPPis              := DDT.DriverByName(nomeDriver).Value('PIS');
+  DadosPessoaisDPPisAlt           := DDT.DriverByName(nomeDriver).Value('PISALT');
+  DadosPessoaisDPRepouso          := DDT.DriverByName(nomeDriver).Value('REPOUSO');
+  DadosPessoaisDPRepousoCfeEscala := DDT.DriverByName(nomeDriver).Value('REPOUSOCFMEESCALA');
+end;
+
+procedure loadDPOutrasConfig(nomeDriver);
+begin
+  OutrasConfigDPIncQdHora 	     := DDT.DriverByName(nomeDriver).Value('INCQUADHORA');
+  OutrasConfigDPObsQdHora 	     := DDT.DriverByName(nomeDriver).Value('OBSQUADHORA');
+  OutrasConfigDPSincNela 		     := DDT.DriverByName(nomeDriver).Value('SINCNELA');
+end;
+
+procedure loadDPPonto(nomeDriver);
+begin
+  PontoDPUsaCartao   := DDT.DriverByName(nomeDriver).Value('USA CARTAO');
+  PontoDPCodigo      := DDT.DriverByName(nomeDriver).Value('CODIGO PONTO');
+  PontoDPInterPreAss := DDT.DriverByName(nomeDriver).Value('INTERVALO PRE ASS');
+end;
+
+procedure loadDPBenefConvTitular(nomeDriver);
+begin
+  ConvTitDPInicio := DDT.DriverByName(nomeDriver).Value('MES ANO INICIO');
+  ConvTitDPCodMod := DDT.DriverByName(nomeDriver).Value('COD MODALIDADE');
+  ConvTitDPFim    := DDT.DriverByName(nomeDriver).Value('MES ANO FIM');
+end;
+
+procedure loadDPBenefConvDependente(nomeDriver);
+begin
+  ConvDepDPRelDep := DDT.DriverByName(nomeDriver).Value('REL DEPENDENTE');
+  ConvDepDPInicio := DDT.DriverByName(nomeDriver).Value('MES ANO INICIO');
+  ConvDepDPCodMod := DDT.DriverByName(nomeDriver).Value('COD MODALIDADE');
+  ConvDepDPFim    := DDT.DriverByName(nomeDriver).Value('MES ANO FIM');
+end;
+
+procedure loadDPBenefValeAlimentacao(nomeDriver);
+begin
+  BenefValeDPData       := DDT.DriverByName(nomeDriver).Value('DATA');
+  BenefValeDPRecValeAli := DDT.DriverByName(nomeDriver).Value('REC VALE ALIMENTACAO');
+  BenefValeDPRecValeRef := DDT.DriverByName(nomeDriver).Value('REC VALE REFEICAO');
+end;
+
+procedure loadDPFeriasPeriodoAquisitivo(nomeDriver);
+begin
+  PerAquisirDPPeriodo  := DDT.DriverByName(nomeDriver).Value('PERIODO');
+  PerAquisirDPDataIni  := DDT.DriverByName(nomeDriver).Value('DATA INI');
+  PerAquisirDPDataFin  := DDT.DriverByName(nomeDriver).Value('DATA FIN');
+  PerAquisirDPDiasDir  := DDT.DriverByName(nomeDriver).Value('DIAS DIREITO');
+  PerAquisirDPDiasGoz  := DDT.DriverByName(nomeDriver).Value('DIAS GOZADOS');
+  PerAquisirDPDiasAbo  := DDT.DriverByName(nomeDriver).Value('DIAS ABONADOS');
+  PerAquisirDPDiasDesc := DDT.DriverByName(nomeDriver).Value('DIAS DESC');
+  PerAquisirDPDiasRest := DDT.DriverByName(nomeDriver).Value('DIAS REST');
+end;
+
+procedure loadDPFeriasProgramacao(nomeDriver);
+begin
+  ProgramDPOrdem      := DDT.DriverByName(nomeDriver).Value('ORDEM');
+  ProgramDPPerAq      := DDT.DriverByName(nomeDriver).Value('PERIODO AQUIS');
+  ProgramDPDiasDesc   := DDT.DriverByName(nomeDriver).Value('DIAS DESC');
+  ProgramDPDiasDesc   := DDT.DriverByName(nomeDriver).Value('DIAS GOZO');
+  ProgramDPDataIni    := DDT.DriverByName(nomeDriver).Value('DATA INI');
+  ProgramDPDataFin    := DDT.DriverByName(nomeDriver).Value('DATA FIN');
+  ProgramDPDiasAbo    := DDT.DriverByName(nomeDriver).Value('DIAS ABONO');
+  ProgramDPAboInic    := DDT.DriverByName(nomeDriver).Value('ABONAR INI');
+  ProgramDPAboInic    := DDT.DriverByName(nomeDriver).Value('DATA ABONO INI');
+  ProgramDPAboInic    := DDT.DriverByName(nomeDriver).Value('DATA ABONO FIN');
+  ProgramDPJaEfetiv   := DDT.DriverByName(nomeDriver).Value('JA EFETIVADA');
+  ProgramDPFeriasCanc := DDT.DriverByName(nomeDriver).Value('FERIAS CANC');
+end;
+
+procedure loadDPFeriasPeriodo(nomeDriver);
+begin
+  PerFeriasDPDiasFalta := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
+  PerFeriasDPDiasGozo  := DDT.DriverByName(nomeDriver).Value('DIAS GOZO');
+  PerFeriasDPDtGozoIni := DDT.DriverByName(nomeDriver).Value('DATA GOZO INI');
+  PerFeriasDPDtGozoFin := DDT.DriverByName(nomeDriver).Value('POSSUI ABONO');
+  PerFeriasDPPossuiAbo := DDT.DriverByName(nomeDriver).Value('ABONAR NO');
+  PerFeriasDPDiasAbono := DDT.DriverByName(nomeDriver).Value('DIAS ABONO');  
+end;
+
+procedure loadDPFeriasMP(nomeDriver);
+begin
+  FeriasMpDPIdFer  := DDT.DriverByName(nomeDriver).Value('ID FERIAS');
+  FeriasMpDPProc   := DDT.DriverByName(nomeDriver).Value('PROCESSAMENTO');
+  FeriasMpDPDtProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
+end;
+
+procedure loadDPDadosHistFuncoes(nomeDriver);
+begin
+  HistDPFuncData     := DDT.DriverByName(nomeDriver).Value('DATA');
+  HistDPFuncao       := DDT.DriverByName(nomeDriver).Value('FUNCAO');
+  HistDPFuncDescComp := DDT.DriverByName(nomeDriver).Value('DESCRICAO COMP');  
+end;
+
+procedure loadDPDadosHistSituacoes(nomeDriver);
+begin
+  SituaDPData         := DDT.DriverByName(nomeDriver).Value('DATA');
+  DPSituacao          := DDT.DriverByName(nomeDriver).Value('SITUACAO');
+  SituaDPCausa        := DDT.DriverByName(nomeDriver).Value('CAUSA'); 
+  SituaDPDiasAt       := DDT.DriverByName(nomeDriver).Value('DIAS ATESTADO'); 
+  SituaDPMaisInfo     := DDT.DriverByName(nomeDriver).Value('MAIS INFOS'); 
+  SituaDPDtAviso      := DDT.DriverByName(nomeDriver).Value('DATA AVISO'); 
+  SituaDPIndCump      := DDT.DriverByName(nomeDriver).Value('IND CUMP AVISO'); 
+  SituaDPDiasCump     := DDT.DriverByName(nomeDriver).Value('DIAS CUMPRIDOS'); 
+  SituaDPDiasAvisoInd := DDT.DriverByName(nomeDriver).Value('DIAS AVISO IND'); 
+  SituaDPDtProjAv     := DDT.DriverByName(nomeDriver).Value('DATA PROJECAO'); 
+  SituaDPFGTSEmGRRF   := DDT.DriverByName(nomeDriver).Value('FGTS EM GRRF'); 
+  SituaDPIndPensao    := DDT.DriverByName(nomeDriver).Value('INDICATIVO PENSAO'); 
+  SituaDPVlrPensao    := DDT.DriverByName(nomeDriver).Value('VALOR PENSAO'); 
+  SituaDPPercPensao   := DDT.DriverByName(nomeDriver).Value('PERCENTUAL PENSAO'); 
+  SituaDPDissidio     := DDT.DriverByName(nomeDriver).Value('DISSIDIO'); 
+  SituaDPDtDissid     := DDT.DriverByName(nomeDriver).Value('DATA DISSIDIO'); 
+  SituaDPVlrDissid    := DDT.DriverByName(nomeDriver).Value('VALOR DISSIDIO'); 
+  SituaDPRepVaga      := DDT.DriverByName(nomeDriver).Value('REPOR VAGA'); 
+  SituaDPFGTSEmAtr    := DDT.DriverByName(nomeDriver).Value('FGTS EM ATRASO'); 
+  SituaDPRescFech     := DDT.DriverByName(nomeDriver).Value('RESCISAO FECHADA'); 
+end;
+
+procedure loadDPDadosHistLocais(nomeDriver);
+begin
+  LocaisDPData     := DDT.DriverByName(nomeDriver).Value('DATA');
+  LocaisDPLocal    := DDT.DriverByName(nomeDriver).Value('LOCAL');
+  LocaisDPDescComp := DDT.DriverByName(nomeDriver).Value('DESCRICAO COMP');
+end;
+
+procedure loadDPDadosHistHorarios(nomeDriver);
+begin
+  HoraDPData    := DDT.DriverByName(nomeDriver).Value('DATA');
+  HoraDPHorario := DDT.DriverByName(nomeDriver).Value('HORARIO');
+end;
+
+procedure loadDPDadosHistAdverte(nomeDriver);
+begin
+  AdverteDPCod    := DDT.DriverByName(nomeDriver).Value('CODIGO');
+  AdverteDPData   := DDT.DriverByName(nomeDriver).Value('DATA');
+  AdverteDPTipo   := DDT.DriverByName(nomeDriver).Value('TIPO');
+  AdverteDPDtIni  := DDT.DriverByName(nomeDriver).Value('DATA INI');
+  AdverteDPDtFin  := DDT.DriverByName(nomeDriver).Value('DATA FIN');
+  AdverteDPMotiv  := DDT.DriverByName(nomeDriver).Value('MOTIVO');
+  AdverteDPEve    := DDT.DriverByName(nomeDriver).Value('EVENTO');
+  AdverteDPDtCtrl := DDT.DriverByName(nomeDriver).Value('DATA CTRL');
+end;
+
+procedure loadDPDadosHistObservacoes(nomeDriver);
+begin
+  ObsDPData       := DDT.DriverByName(nomeDriver).Value('DATA');
+  ObsDPObservacao := DDT.DriverByName(nomeDriver).Value('OBSERVACAO');
+end;
+
+procedure loadDPDadosHistExpContabil(nomeDriver);
+begin
+  ExpCtbDPSeq   := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
+  ExpCtbDPEstab := DDT.DriverByName(nomeDriver).Value('IDESTAB');
+  ExpCtbDPLocal := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+  ExpCtbDPAtiv  := DDT.DriverByName(nomeDriver).Value('ATIVIDADE');
+  ExpCtbDPPerc  := DDT.DriverByName(nomeDriver).Value('PERCENTUAL');
+end;

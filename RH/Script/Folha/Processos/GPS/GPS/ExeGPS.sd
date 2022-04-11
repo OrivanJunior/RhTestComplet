@@ -1,0 +1,215 @@
+﻿{Script para executar o Processo de GPS
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 22/06/2021}
+
+uses
+  DataPoolGPS, ObjGPS, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaGPS();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'GPS', 'GPS'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormGPSWhEstabEspec.ClickButton;
+    VerificaInsere(FormGPSWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormGPSWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormGPSWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormGPSWhEstabSelec.ClickButton;
+    VerificaInsere(FormGPSWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormGPSWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraLocais();
+begin
+  if (FormGPSWhLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    FormGPSWhLocaisEspec.ClickButton;
+    VerificaInsere(FormGPSWhLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    FormGPSWhLocaisSelec.ClickButton;
+    VerificaInsere(FormGPSWhLocaisSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    FormGPSWhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormGPSWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormGPSWhEmpreEspec.ClickButton;
+    VerificaInsere(FormGPSWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormGPSWhEmpreSelec.ClickButton;
+    VerificaInsere(FormGPSWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormGPSWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormGPSWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(FormGPSWhDataDtIni, FiltroDataIni); 
+  PreencheDatas(FormGPSWHDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormGPSWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormGPSWhProcEspec.ClickButton;
+    VerificaInsere(FormGPSWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormGPSWhProcSelec.ClickButton;
+    VerificaInsere(FormGPSWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormGPSWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormGPSWhDadosMesGuias.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormGPSWhDadosMesGuias, FiltroMesGuias);
+  VerificaInsere(FormGPSWhDadosAnoGuias, FiltroAnoGuias);
+  PreencheDatas(FormGPSWhDadosDataVenc, FiltroDataVenc);
+  VerificaInsere(FormGPSWhDadosDescGuia, FiltroDescGuia);
+  VerificaInsere(FormGPSWhDadosVerValMin, FiltroVerValMin );
+  VerificaInsere(FormGPSWhDadosVerNRec, FiltroVerNRec);
+  VerificaInsere(FormGPSWhDadosExcGer, FiltroExcGer);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaGPS(pathData);
+var 
+  DDTGPS: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaGPS();
+
+  MapGPS();
+  
+  DDTGPS := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolGPS(DDTGPS.Name);
+
+  FiltraEstab();
+
+  FiltraLocais();
+
+  FiltraEmpregados();
+
+  FiltraData();
+
+  FiltraProcessamentos();
+
+  DadosAdicionais();
+
+  btnExecutar.Click();
+
+  if Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists then
+      Aliases.Folha.Window('#32770', 'Atenção!', 1).btnOK.Click;
+      
+  while MensagemInativa do
+  begin      
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+      
+      btnSalvar.Click();
+
+      FechaMensagemProcessoConcluido();
+      
+      ActFechar(FormGPS);
+      
+      MensagemInativa := false;
+    end
+    else
+    if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Nenhum registro encontrado');
+      
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      
+      ActFechar(FormGPS);
+      
+      MensagemInativa := False
+    end;
+  end;  
+  DDT.CloseDriver(DDTGPS.Name);
+end;

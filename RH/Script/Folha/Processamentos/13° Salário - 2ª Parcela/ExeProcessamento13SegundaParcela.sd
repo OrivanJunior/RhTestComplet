@@ -1,0 +1,183 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcessamento13SegundaParcela,
+  ObjProcessamento13SegundaParcela,
+  VarConsts;
+  
+  
+procedure PreencheDatasProc13SegundaParcela(pathData);
+var
+  DDTDatas: OleVariant;
+begin
+  DDTDatas := CarregaDDT(pathData, 'Datas');
+  
+  LoadDPDatas(DDTDatas.Name);
+
+  MapPanelProcessamento13SegundaParcela();
+  
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  PreencheDatas(Proc13SegEBDtProc, Proc13SegDPDataProc); 
+  PreencheDatas(Proc13SegEBDtPgto, Proc13SegDPDataPgto);
+end;
+
+procedure PreencheControleProcessamento(pathData);
+var
+  DDTProcessamento: OleVariant;
+begin
+  BtnIncluirCtrlProc.Click();
+  
+  MapFormProcessamento();
+  
+  DDTProcessamento := CarregaDDT(pathData, 'Processamento');
+  
+  LoadDPProcessamento(DDTProcessamento.Name);
+  
+  Log.Checkpoint('Inserindo Controle de Processamento');
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  PageProc.ActivePageIndex := 1;
+  
+  VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+  VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+  VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+  VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+  VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+  
+  if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
+    Aliases.Folha.FRhProcesso.BSalvarRap.Click();
+  
+  if Aliases.Folha.FRhProcesso.Exists then
+    Aliases.Folha.FRhProcesso.BSairRap.Click();
+  
+  DDT.CloseDriver(DDTProcessamento.Name);
+end;
+
+procedure PreencheEmpregadoProc13SegundaParcela(pathData);
+var 
+  DDTEmpregados: OleVariant;
+  i: integer;
+begin
+  i := 0;
+  PageProc13Seg.ActivePageIndex := 0;
+  
+  MapTabEmpregadosProc13SegundaParcela();
+  
+  DDTEmpregados := CarregaDDT(pathData, 'Empregado');
+  
+  while not (DDTEmpregados.EOF) do
+  begin
+    LoadDPEmpregado(DDTEmpregados.Name);
+  
+    BtnIncEmpre.Click();
+  
+    Log.Checkpoint('Preenchendo empregados');
+  
+    VerificaClickPreencheGrid(GridEmpregado, 0, 'Empregado', Proc13SegDPEmpregado);  
+  
+    ClickColuna(GridEmpregado, 0, 'Nome Empregado');
+  
+    BtnSaveEmpre.Click();
+    Inc(i);
+    DDTEmpregados.Next;
+  end;
+  DDT.CloseDriver(DDTEmpregados.Name);
+end;
+
+procedure PreencheMovimentoProc13SegundaParcela(pathData);
+var
+  DDTMovimento: OleVariant;
+begin
+  PageProc13Seg.ActivePageIndex := 1;
+  
+  MapTabMovimentoProc13SegundaParcela();
+  
+  DDTMovimento := CarregaDDT(pathData, 'Movimento');
+  
+  while not (DDTMovimento.EOF) do
+  begin
+    LoadDPMovimento(DDTMovimento.Name);
+  
+    BtnIncMov.Click();
+  
+    MapFormMovimento();
+  
+    Log.Checkpoint('Preenchendo dados do movimento');
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
+    PreencheDatas(CadMovEBData, CadMovDPData);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEmpreg, CadMovDPIdEmpreg);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEvento, CadMovDPIdEvento);
+    CadMovEBIdEvento.Keys('[Enter]');
+  
+    MapParamsMovimento();
+  
+    LoadDPParamsMovimento(DDTMovimento.Name);
+  
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
+    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+    VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
+    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+    VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
+    VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
+  
+    CadMovBtnSave.Click();
+    DDTMovimento.Next;
+  end;
+  DDT.CloseDriver(DDTMovimento.Name);
+end;
+
+procedure ExecutaProcessamento13SegundaParcela(pathData);
+var
+  TelaConfirma, BtnOk;
+begin
+  Delay(2000);
+  AcessaItem(_ModuloFolha, 'Processamentos', '13º - 2ª Parcela');
+  
+  MapFormProcessamento13SegundaParcela();
+  
+  PreencheDatasProc13SegundaParcela(pathData);
+  
+  PreencheControleProcessamento(pathData);
+  
+  PreencheEmpregadoProc13SegundaParcela(pathData);  
+  
+  //PreencheMovimentoProc13SegundaParcela(pathData);
+  
+  Log.Checkpoint('Executando processamento de 13º - 2ª Parcela');
+  
+  ActExecutar(FormProc13Seg);
+  
+  BtnSave13Seg.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Atenção!', 1);
+    
+    BtnSim := TelaAtencao.Window('Button', '&Sim', 1);
+    BtnNao := TelaAtencao.Window('Button', '&Nao', 2);
+      
+    BtnSim.Click();
+  end;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+  begin
+    TelaConfirma := Aliases.Folha.Window('#32770', 'Confirmação!', 1);
+    
+    BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+      
+    btnOk.Click();
+  end;
+  ActFechar(FormProc13Seg);
+end;

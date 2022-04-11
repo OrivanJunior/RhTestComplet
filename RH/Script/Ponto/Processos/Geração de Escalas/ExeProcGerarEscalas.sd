@@ -1,0 +1,293 @@
+﻿{Script para executar o Processo de Geração de Escalas
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 17/09/2021}
+
+uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcGerarEscalas,
+  ObjProcGerarEscalas,
+  VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaProcGerarEscalas();
+begin
+  AcessaItem(_ModuloPonto, 'Processos', 'Gerar Escalas'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ProcEscalasWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloPonto, ProcEscalasWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ProcEscalasWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ProcEscalasWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ProcEscalasWhEstabSelec.ClickButton;
+    VerificaInsere(ProcEscalasWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ProcEscalasWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraFuncoes();
+begin
+  if (ProcEscalaswhFuncoesTodos.VisibleOnScreen = false) then
+    ProcEscalaswhFuncoes10.Click();
+    
+  if (FiltroFuncaoTipo = _Especifico) then
+  begin
+    ProcEscalaswhFuncoesEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloPonto, ProcEscalaswhFuncoesEspecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Específico, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Selecionados) then
+  begin
+    ProcEscalaswhFuncoesSelec.ClickButton;
+    VerificaInsere(ProcEscalaswhFuncoesSelecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Selecionados, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Todos) then
+  begin
+    ProcEscalaswhFuncoesTodos.ClickButton;
+    Log.Checkpoint('Selecionado Funções - Todos');
+  end;
+  ProcEscalaswhFuncoes10.Click();
+end;
+
+procedure FiltraLocais();
+begin
+  if (ProcEscalaswhLocaisTodos.VisibleOnScreen = false) then
+    ProcEscalaswhLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    ProcEscalaswhLocaisEspec.ClickButton;
+    VerificaInsere(ProcEscalaswhLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    ProcEscalaswhLocaisSelec.ClickButton;
+    VerificaInsere(ProcEscalaswhLocaisSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    ProcEscalaswhLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+  ProcEscalaswhLocais10.Click();
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (ProcEscalasWhEmpreTodos.VisibleOnScreen = false) then
+    ProcEscalasWhEmpre10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    ProcEscalasWhEmpreEspec.ClickButton;
+    //VerificaConsultaF3Insere(_ModuloPonto, ProcEscalasWhEmpreEspecCampo, FiltroEmpreValor);
+    VerificaInsere(ProcEscalasWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    ProcEscalasWhEmpreSelec.ClickButton;
+    VerificaInsere(ProcEscalasWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    ProcEscalasWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+  ProcEscalasWhEmpre10.Click();
+end;
+
+procedure FiltraSituacao();
+begin
+  if (ProcEscalaswhSituacoesTodos.VisibleOnScreen = false) then
+    ProcEscalaswhSituacoes10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    ProcEscalaswhSituacoesEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloPonto, ProcEscalaswhSituacoesEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    ProcEscalaswhSituacoesSelec.ClickButton;
+    VerificaInsere(ProcEscalaswhSituacoesSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    ProcEscalaswhSituacoesTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ProcEscalaswhSituacoes10.Click();
+end;
+
+procedure FiltraPeriodo();
+begin
+  if (ProcEscalasMesAno.VisibleOnScreen = false) then
+    ProcEscalasPeriodo10.Click();
+    
+  PreencheDatas(ProcEscalasMesAno, FiltroMesAno);
+  
+  if FiltroIncControle = 'S' then
+    ProcEscalasIncControlePonto.Click();
+
+  ProcEscalasPeriodo10.Click();
+end;
+
+procedure FiltraEmpregadosEscala(pathData);
+var 
+  Posicao, DDTEmpregadosEscalas: OleVariant;
+begin
+  DDTEmpregadosEscalas := CarregaDDT(pathData, 'Empregados');
+  
+  LeDataPoolEmpregadoEscalas(DDTEmpregadosEscalas.Name);
+  
+  if FiltroEmpregadoEscala = _Todos then
+  begin
+    ProcEscalasSelAllEmpregados.Click();
+  end
+  else
+  begin
+    while not (DDTEmpregadosEscalas.EOF) do
+    begin
+      LeDataPoolEmpregadoEscalas(DDTEmpregadosEscalas.Name);
+    
+      Posicao := ProcEscalasGridEmpregados.FindRow('Empregado', FiltroEmpregadoEscala);
+  
+      ProcEscalasGridEmpregados.ClickCell(Posicao, 'Gerar');
+  
+      if FiltroGerarEscalaEmp = 'S' then
+      begin
+        ProcEscalasGridEmpregados.TcxGridSite_.TcxCheckBox.Checked := True
+      end
+      else
+      begin
+        ProcEscalasGridEmpregados.TcxGridSite_.TcxCheckBox.Checked := False; 
+      end;
+      
+      DDTEmpregadosEscalas.Next;
+    end;
+  end;
+end;
+
+procedure FiltraHorariosEscala(pathData);
+var 
+  Posicao, DDTHorariosEscalas, i, PosicaoHorarioNovo: OleVariant;
+begin
+  PosicaoHorarioNovo := ProcEscalasGridHorarios.ActiveView.ViewData.RowCount + 1;
+  
+  DDTHorariosEscalas := CarregaDDT(pathData, 'Horários');
+  
+  while not (DDTHorariosEscalas.EOF) do 
+  begin
+    LeDataPoolHorariosEscalas(DDTHorariosEscalas.Name);
+  
+    if FiltroHorarioIncluir = 'S' then
+    begin
+      ProcEscalasBtnIncHorario.Click();
+      VerificaClickPreencheGrid(ProcEscalasGridHorarios, PosicaoHorarioNovo, 'Horário', FiltroHorarioEscala)
+    end
+    else
+    begin
+      Posicao := ProcEscalasGridHorarios.FindRow('Horário', FiltroHorarioEscala);
+        
+      ProcEscalasGridHorarios.ClickCell(Posicao, 'Horário');
+      
+      PreencheDatas(ProcEscalasDataIniHora, FiltroHorarioDataIni);
+      PreencheDatas(ProcEscalasDataFinHora, FiltroHorarioDataFin);
+      
+      ProcEscalasGerarHorarios.Click();
+    end;
+    DDTHorariosEscalas.Next;
+  end;
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Ponto.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Ponto.Window('#32770', 'Atenção...', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaProcGerarEscalas(pathData, tab);
+var
+  DDTProcGerarEscalas: OleVariant;
+begin
+  AcessaProcGerarEscalas();
+
+  MapProcGerarEscalas();
+
+  DDTProcGerarEscalas := CarregaDDT(pathData, tab);
+  
+  while not (DDTProcGerarEscalas.EOF) do
+  begin  
+    LeDataPoolProcGerarEscalas(DDTProcGerarEscalas.Name);
+
+    FiltraEstab();
+
+    FiltraFuncoes();
+
+    FiltraLocais();
+  
+    FiltraEmpregados();
+
+    FiltraSituacao();
+  
+    FiltraPeriodo();
+
+    btnExecutar.Click();
+  
+    if (Aliases.Ponto.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Há erros no processo');
+      Aliases.Ponto.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    end
+    else
+    begin
+      FiltraEmpregadosEscala(pathData);
+      
+      FiltraHorariosEscala(pathData);
+      
+      btnSalvar.Click();
+
+      FechaMensagemProcessoConcluido();     
+    end;
+    DDTProcGerarEscalas.Next;
+  end;
+  ActFechar(FormProcEscalas);
+  DDT.CloseDriver(DDTProcGerarEscalas.Name);
+end;

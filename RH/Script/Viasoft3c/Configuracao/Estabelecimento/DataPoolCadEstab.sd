@@ -1,0 +1,46 @@
+﻿uses
+  VarConsts;
+{Script para criar DataPool da tela de cadastro de estabelecimento
+ Módulo: Viasoft_RO
+ Autor: Rafael Colla
+ Data: 23/03/2018}
+ 
+var
+  CadEstabDPEstab, CadEstabDPEmpresa, CadEstabDPFilial, CadEstabDPCNPJ,
+  CadEstabDPRazSoc, CadEstabDPReduzid, CadEstabDPInscEst, CadEstabDPInscMun,
+  CadEstabDPInscSuf, CadEstabDPTipoEnd, CadEstabDPEnderec, CadEstabDPNumEnd,
+  CadEstabDPCompEnd, CadEstabDPBairro, CadEstabDPCidade, CadEstabDPCEP,
+  CadEstabDPCxPost, CadEstabDPTelefon, CadEstabDPFAX, CadEstabDPEmail,
+  CadEstabDPInativa, CadEstabDPNire,  CadEstabDPCodAtvEco : OleVariant;
+  
+procedure LeDataPoolCadEstab(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    CadEstabDPEstab     := DDT.DriverByName(nomeDriver).Value('ESTAB');
+    CadEstabDPEmpresa   := DDT.DriverByName(nomeDriver).Value('EMPRESA');
+    CadEstabDPFilial    := DDT.DriverByName(nomeDriver).Value('FILIAL');
+    CadEstabDPCNPJ      := DDT.DriverByName(nomeDriver).Value('CNPJ');
+    CadEstabDPRazSoc    := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+    CadEstabDPReduzid   := DDT.DriverByName(nomeDriver).Value('REDUZIDO');
+    CadEstabDPInscEst   := DDT.DriverByName(nomeDriver).Value('INSCEST');
+    CadEstabDPInscMun   := DDT.DriverByName(nomeDriver).Value('INSCMUN');
+    CadEstabDPInscSuf   := DDT.DriverByName(nomeDriver).Value('INSCSUF');
+    CadEstabDPTipoEnd   := DDT.DriverByName(nomeDriver).Value('TIPOEND');
+    CadEstabDPEnderec   := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+    CadEstabDPNumEnd    := DDT.DriverByName(nomeDriver).Value('NUMEEND');
+    CadEstabDPCompEnd   := DDT.DriverByName(nomeDriver).Value('COMPEND');
+    CadEstabDPBairro    := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+    CadEstabDPCidade    := DDT.DriverByName(nomeDriver).Value('CIDADE');
+    CadEstabDPCEP       := DDT.DriverByName(nomeDriver).Value('CEP');
+    CadEstabDPCxPost    := DDT.DriverByName(nomeDriver).Value('CAIXAPOSTAL');
+    CadEstabDPTelefon   := DDT.DriverByName(nomeDriver).Value('TELEFONE');
+    CadEstabDPFAX       := DDT.DriverByName(nomeDriver).Value('FAX');
+    CadEstabDPEmail     := DDT.DriverByName(nomeDriver).Value('EMAIL');
+    CadEstabDPInativa   := DDT.DriverByName(nomeDriver).Value('INATIVA');
+    CadEstabDPNire      := DDT.DriverByName(nomeDriver).Value('NIRE'); 
+    CadEstabDPCodAtvEco := DDT.DriverByName(nomeDriver).Value('CODATVECO');   
+    
+    DDT.CurrentDriver.Next();
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

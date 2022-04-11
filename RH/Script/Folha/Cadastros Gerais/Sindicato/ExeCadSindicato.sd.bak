@@ -1,0 +1,199 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  ExeCadFixoPorSindicato,
+  DataPoolCadSindicato,
+  ObjCadSindicato,
+  VarConsts;
+{Script para executar o cadastro de Sindicato
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTCadSindicato, DDTHistReajuste, DDTDadosPessoais: OleVariant;  
+
+procedure AcessaCadSindicato();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Sindicatos');
+end;
+
+procedure InsereDadosCadastrais(pathData);
+begin
+  FormCadSindicatoPage.ActivePageIndex := 0;
+  
+  MapInfosCadastrais();
+  
+  { Informações Cadastrais }
+  VerificaInsere(FormCadSindicatoIdSind, FormCadSindicatoDPIdSind);
+  VerificaInsere(FormCadSindicatoDescricao, FormCadSindicatoDPDescricao);
+  VerificaInsere(FormCadSindicatoEndereco, FormCadSindicatoDPEndereco);
+  VerificaInsere(FormCadSindicatoBairro, FormCadSindicatoDPBairro);
+  VerificaInsere(FormCadSindicatoCidade, FormCadSindicatoDPCidade);
+  VerificaInsere(FormCadSindicatoCEP, FormCadSindicatoDPCEP);
+  VerificaInsere(FormCadSindicatoCNPJ, FormCadSindicatoDPCNPJ);
+  
+  { Dados do Sindicato }  
+  VerificaInsere(FormCadSindicatoCodEntidade, FormCadSindicatoDPCodEntidade);
+    
+  { Conf Gerais }
+  VerificaInsere(FormCadSindicatoMesDatabase, FormCadSindicatoDPMesDatabase);
+  VerificaInsere(FormCadSindicatoMesDesc, FormCadSindicatoDPMesDesc);
+  VerificaInsere(FormCadSindicatoIdTipo, FormCadSindicatoDPIdTipo);
+      
+  { Conf. Férias }  
+  VerificaInsere(FormCadSindicatoPercAdcFerias, FormCadSindicatoDPPercAdcFerias);
+  VerificaInsere(FormCadSindicatoDescFerias, FormCadSindicatoDPDescFerias);
+    
+  { Conf. Rescisão }  
+  VerificaInsere(FormCadSindicatoRescHomo, FormCadSindicatoDPRescHomo);
+  VerificaInsere(FormCadSindicatoDias, FormCadSindicatoDPDias);
+  VerificaInsere(FormCadSindicatoEstabApFerias, FormCadSindicatoDPEstabApFerias);
+  VerificaInsere(FormCadSindicatoDiasEstabilidade, FormCadSindicatoDPDiasEstabilidade);
+  VerificaInsere(FormCadSindicatoIndenizaTrab, FormCadSindicatoDPIndenizaTrab);
+  VerificaInsere(FormCadSindicatoMesesIndeniza, FormCadSindicatoDPMesesIndeniza);
+  
+  VerificaInsere(FormCadSindicatoIdEventoIndeniza, FormCadSindicatoDPIdEventoIndeniza);
+end;
+
+procedure InsereDadosHistReajusteSalarial(pathData);
+begin
+  FormCadSindicatoPage.ActivePageIndex := 1;
+  
+  MapTabHistReajusteSalarial();
+  
+  BtnIncReajSal.Click();
+  
+  DDTHistReajuste := CarregaDDT(pathData, 'Hist Reajuste Salarial');
+  
+  if (Aliases.Folha.FRhHistReajusteSalarial.Exists) then
+  begin
+    LeDataPoolHistReajusteSalarial(DDTHistReajuste.Name);
+    
+    MapFormHistReajSalarial();
+    
+    VerificaInsere(ReajSalEBInstRemPerAnt,  ReajSalDPInstRemPerAnt);
+    PreencheDatas(ReajSalEBDataConv, ReajSalDPDataConv);
+    VerificaInsere(ReajSalEBDescInstRemPer, ReajSalDPDescInstRemPer);
+    PreencheDatas(ReajSalEBCompPagDifSal, ReajSalDPCompPagDifSal);
+    VerificaInsere(ReajSalEBNroProcCarac, ReajSalDPNroProcCarac);
+    
+    ReajSalBtnSave.Click();
+  end;
+end;
+    
+procedure FechaDDTs();
+begin
+  if Assigned(DDTCadSindicato) then 
+    DDT.CloseDriver(DDTCadSindicato.Name);
+  if Assigned(DDTDadosPessoais) then
+    DDT.CloseDriver(DDTDadosPessoais.Name);
+  if Assigned(DDTHistReajuste) then
+    DDT.CloseDriver(DDTHistReajuste.Name);
+end;  
+
+procedure ExeCadastraSindicato(pathData);
+begin  
+  AcessaCadSindicato();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhSindicato');
+  
+  DDTCadSindicato := CarregaDDT(pathData, 'Dados Cadastrais');
+  
+  while not(DDTCadSindicato.EOF) do
+  begin
+    LeDataPoolDadosCadastrais(DDTCadSindicato.Name);
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sindicato', FormCadSindicatoDPIdSind);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+     
+      if (Aliases.Folha.FRhSindicato.Exists) then
+      begin
+        MapFormCadSindicato();
+      
+        InsereDadosCadastrais(pathData);
+      
+        ActSalvar(FormCadSindicato);
+        ActFechar(FormCadSindicato);
+        DDTDadosPessoais.Next;
+      end;
+    end;
+    DDTCadSindicato.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  FechaDDTs;
+end;
+
+procedure ExeAlteraSindicato(pathData);
+begin  
+  AcessaCadSindicato();
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhSindicato');
+  
+  DDTCadSindicato := CarregaDDT(pathData, 'Alteracao');
+  
+  while not(DDTCadSindicato.EOF) do
+  begin
+    LeDataPoolDadosCadastrais(DDTCadSindicato.Name);
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sindicato', FormCadSindicatoDPIdSind);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+     
+      if (Aliases.Folha.FRhSindicato.Exists) then
+      begin
+        MapFormCadSindicato();
+        
+        InsereDadosHistReajusteSalarial(pathData);
+        //InsereDadosAcessorios();
+        //InsereDadosSalarioPorFuncao();
+        ActSalvar(FormCadSindicato);
+        ActFechar(FormCadSindicato);
+      end;
+    end;
+    DDTHistReajuste.Next;
+    DDTCadSindicato.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  FechaDDTs;
+end;
+
+procedure ExeExcluirSindicato(pathData);
+begin  
+  AcessaCadSindicato();
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhSindicato');
+  
+  DDTCadSindicato := CarregaDDT(pathData, 'Exclusao');
+  
+  while not(DDTCadSindicato.EOF) do
+  begin
+    LeDataPoolDadosCadastrais(DDTCadSindicato.Name);
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sindicato', FormCadSindicatoDPIdSind);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+    
+      if (Aliases.Folha.FRhSindicato.Exists) then
+      begin    
+        ActExcluir(_ModuloFolha, 'FRhSindicato');
+        ActFechar(FormCadSindicato);
+      end; 
+    end;
+    DDTCadSindicato.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  FechaDDTs;
+end;

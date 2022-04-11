@@ -1,0 +1,98 @@
+﻿{Script de DataPool para  o Processo de eSocial - Carga Inicial
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FiltroEnvioSSTDPModoLanc,
+
+  FormEnvioSSTDPS1000, FormEnvioSSTDPS1005,
+  FormEnvioSSTDPS1010, FormEnvioSSTDPS1020,
+  FormEnvioSSTDPS1030, FormEnvioSSTDPS1040,
+  FormEnvioSSTDPS1050, FormEnvioSSTDPS1070,
+
+  FormEnvioSSTDPS2210,
+  FormEnvioSSTDPS2220, FormEnvioSSTDPS2240,
+
+  FiltroDataIniValid,
+
+  FiltroEstabTipo, FiltroEstabValor,
+
+  FiltroEventoTipo, FiltroEventoValor,
+
+  FiltroLocalTipo, FiltroLocalValor,
+
+  FiltroFuncaoTipo, FiltroFuncaoValor,
+
+  FiltroHorariosTipo, FiltroHorariosValor,
+
+  FiltroProcJudicTipo, FiltroProcJudicValor,
+
+  FiltroDataDtIni, FiltroDataDtFin,
+  FiltroDescPeriodo,
+
+  FiltroAdPreliminarTipo, FiltroAdPreliminarValor,
+
+  FiltroEmpregadoTipo,FiltroEmpregadoValor, 
+  
+  FiltroEnvioSSTConsEstab, FiltroEnvioSSTConsDataIni,
+  FiltroEnvioSSTConsHoraIni, FiltroEnvioSSTConsDataFin,
+  FiltroEnvioSSTConsHoraFin, FiltroEnvioSSTConsAmbiente,
+  FiltroEnvioSSTConsTipoEvento, FiltroEnvioSSTConsEvteSocial: OleVariant;
+
+  
+procedure LoadDataPoolEnvioSST(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);	
+end;
+  
+procedure LeDataPoolEnvioSST();
+begin									 									
+  FiltroEnvioSSTDPModoLanc   := DDT.CurrentDriver.Value('MODO_LANCTO');
+
+  FormEnvioSSTDPS2210        := DDT.CurrentDriver.Value('S-2210');
+  FormEnvioSSTDPS2220        := DDT.CurrentDriver.Value('S-2220');
+  FormEnvioSSTDPS2240        := DDT.CurrentDriver.Value('S-2240');
+								
+  FiltroDataIniValid             := DDT.CurrentDriver.Value('ANO_MES_VALIDADE');
+								
+  FiltroEstabTipo                := DDT.CurrentDriver.Value('TIPO_ESTAB');
+  FiltroEstabValor               := DDT.CurrentDriver.Value('ESTAB_VALOR');
+						
+  FiltroEventoTipo               := DDT.CurrentDriver.Value('TIPO_EVENTO');
+  FiltroEventoValor              := DDT.CurrentDriver.Value('EVENTO_VALOR');
+						
+  FiltroLocalTipo                := DDT.CurrentDriver.Value('TIPO_LOCAL');
+  FiltroLocalValor               := DDT.CurrentDriver.Value('LOCAL_VALOR');
+
+  FiltroFuncaoTipo               := DDT.CurrentDriver.Value('TIPO_FUNCAO');
+  FiltroFuncaoValor              := DDT.CurrentDriver.Value('FUNCAO_VALOR');
+    
+  FiltroHorariosTipo             := DDT.CurrentDriver.Value('TIPO_HORARIO');
+  FiltroHorariosValor            := DDT.CurrentDriver.Value('HORARIO_VALOR');
+
+  FiltroProcJudicTipo            := DDT.CurrentDriver.Value('TIPO_PROC_JUDIC');
+  FiltroProcJudicValor           := DDT.CurrentDriver.Value('PROC_JUDIC_VALOR');
+							    
+  FiltroDataDtIni                := DDT.CurrentDriver.Value('DATA_INI');
+  FiltroDataDtFin                := DDT.CurrentDriver.Value('DATA_FIN');
+  FiltroDescPeriodo              := DDT.CurrentDriver.Value('DESC_PERIODO');
+							    
+  FiltroAdPreliminarTipo         := DDT.CurrentDriver.Value('TIPO_AD_PRE');
+  FiltroAdPreliminarValor        := DDT.CurrentDriver.Value('AD_PRE_VALOR');
+							    
+  FiltroEmpregadoTipo            := DDT.CurrentDriver.Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor           := DDT.CurrentDriver.Value('EMPREGADO_VALOR');
+end;                                      
+										
+procedure LeDataPoolConsEnvioSST();
+begin         
+  FiltroEnvioSSTConsEstab      := DDT.CurrentDriver.Value('ESTAB');
+  FiltroEnvioSSTConsDataIni    := DDT.CurrentDriver.Value('DATA_INI_ENV');
+  FiltroEnvioSSTConsHoraIni    := DDT.CurrentDriver.Value('HORA_INI_ENV');
+  FiltroEnvioSSTConsDataFin    := DDT.CurrentDriver.Value('DATA_FIN_ENV');
+  FiltroEnvioSSTConsHoraFin    := DDT.CurrentDriver.Value('HORA_FIN_ENV');
+  FiltroEnvioSSTConsAmbiente   := DDT.CurrentDriver.Value('AMBIENTE');
+  FiltroEnvioSSTConsTipoEvento := DDT.CurrentDriver.Value('TIPO_EVENTO');
+  FiltroEnvioSSTConsEvteSocial := DDT.CurrentDriver.Value('EVENTO_ESOCIAL');
+end;

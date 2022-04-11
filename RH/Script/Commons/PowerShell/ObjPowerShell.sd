@@ -1,0 +1,9 @@
+﻿uses
+  VarConsts;
+var
+PowerShell, PowerShellWindow: OleVariant;
+procedure MapPowerShell();
+begin
+  PowerShell := Sys.Process('powershell');
+  PowerShellWindow := PowerShell.Window('ConsoleWindowClass', 'Administrador: Windows PowerShell', 1);
+end;

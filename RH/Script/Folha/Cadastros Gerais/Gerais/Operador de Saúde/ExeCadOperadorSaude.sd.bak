@@ -1,0 +1,108 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolOperadorSaude,
+  ObjOperadorSaude,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de OperadorSaude
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant;
+
+procedure AcessaCadOperadorSaude();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Oper. Plano Saúde');
+end;
+
+procedure InsereDadosOperadorSaude();
+begin
+  VerificaInsere(FormCadOperadorSaudeIdOpSaude, FormCadOperadorSaudeDPIdOpSaude);
+  VerificaInsere(FormCadOperadorSaudeTipoOperadora, FormCadOperadorSaudeDPTipoOperadora);
+  VerificaInsere(FormCadOperadorSaudeRegAns, FormCadOperadorSaudeDPRegAns);
+  VerificaInsere(FormCadOperadorSaudeCNPJ, FormCadOperadorSaudeDPCNPJ);
+  VerificaInsere(FormCadOperadorSaudeNomeEmp, FormCadOperadorSaudeDPNomeEmp);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadOperadorSaudeIdEvento, FormCadOperadorSaudeDPIdEvento);
+  FormCadOperadorSaudeIdEvento.Keys('[Enter]');
+  VerificaClickPreencheGrid(FormCadOperadorSaudeGridMod, 0, 'Desc. Modalidade', FormCadOperadorSaudeDPModalidade);
+end;
+
+procedure ExeCadastraOperadorSaude(pathData);
+begin
+  AcessaCadOperadorSaude();
+  
+  MapGridConsulta();
+  LeDataPoolCadOperadorSaude(pathData, _Cadastrar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhOpSaude');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ', FormCadOperadorSaudeDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadOperadorSaude();
+     
+    if (FormCadOperadorSaude.Exists) then
+    begin
+      InsereDadosOperadorSaude();
+      
+      FormCadOperadorSaude.ActSalvarExecute(FormCadOperadorSaude);
+      ActFechar(FormCadOperadorSaude);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraOperadorSaude(pathData);
+begin
+  AcessaCadOperadorSaude();
+  
+  MapGridConsulta();
+  LeDataPoolCadOperadorSaude(pathData, _Alterar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhOpSaude');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ', FormCadOperadorSaudeDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadOperadorSaude();   
+     
+    if (FormCadOperadorSaude.Exists) then
+    begin
+      InsereDadosOperadorSaude();
+      
+      ActSalvar(FormCadOperadorSaude);
+      ActFechar(FormCadOperadorSaude);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirOperadorSaude(pathData);
+begin
+  AcessaCadOperadorSaude();
+  
+  MapGridConsulta();
+  LeDataPoolCadOperadorSaude(pathData, _Excluir);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhOpSaude');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNPJ', FormCadOperadorSaudeDPCNPJ);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FRhOpSaude');
+    ActFechar(FormCadOperadorSaude);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

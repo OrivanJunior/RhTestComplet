@@ -1,0 +1,88 @@
+﻿{Script para mapear o Processo de eSocial - Exclusão de SST
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialExclusaoSST,
+  PageESocialExclusaoSST,
+  
+  BtnEnviarExclusaoSST,
+  
+  FormExclusaoSSTWhEmpregadosTodos, 
+  FormExclusaoSSTWhEmpregadosEspec,
+  FormExclusaoSSTWhEmpregadosEspecCampo, 
+  FormExclusaoSSTWhEmpregadosSelec,
+  FormExclusaoSSTWhEmpregadosSelecCampo, 
+  
+  FormExclusaoSSTEventoExcluirEmp,
+   
+  FormHistEstab, FormHistDataIni,
+  FormHistHoraIni, FormHistDataFin,
+  FormHistHoraFin, FormHistEvteSocial,
+  BtnFiltrar, BtnVerExcXML,
+  BtnSalvarExcXML, GridExcEventos,
+
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialExclusaoSST();
+begin
+  FormESocialExclusaoSST                  := Aliases.Folha.FRhProceSocialExclusaoSST;
+  PageESocialExclusaoSST                  := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao;
+  
+  BtnEnviarExclusaoSST                    := Aliases.Folha.FRhProceSocialExclusaoSST.btEnviarS3000;
+  
+  FormExclusaoSSTWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados30;
+  FormExclusaoSSTWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.WhEmpregados.WhEmpregados20;
+  FormExclusaoSSTWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados50;
+  FormExclusaoSSTWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados40;
+  FormExclusaoSSTWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.whEmpregados.whEmpregados80;
+
+  FormExclusaoSSTEventoExcluirEmp         := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsPrincipal.ScrollBox1.gbExcEmp.EB_EVENTOEMP;
+end;
+
+procedure MapESocialHistExclusaoSST();
+begin
+  FormHistEstab                        := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_ESTAB_PESQUISA;
+  FormHistDataIni                      := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_DATAHORAINIEXC;
+  FormHistHoraIni                      := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.TVsHora_;
+  FormHistDataFin                      := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_DATAHORAFINEXC;
+  FormHistHoraFin                      := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.TVsHora_2;
+  FormHistEvteSocial                   := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.EB_EVENTOESOCIAL_PESQUISA;
+  BtnFiltrar                              := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.Panel4.btFiltrar;
+  BtnVerExcXML                            := Aliases.Folha.FRhProceSocialExclusaoSST.btVerExcXML;
+  BtnSalvarExcXML                         := Aliases.Folha.FRhProceSocialExclusaoSST.btSalvarExcXML;
+  GridExcEventos                          := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsHistorico.GroupBox3.gRhProteSocialExc;
+end;
+
+procedure MapESocialConsExclusaoSST();
+begin
+  FormConsEstab                := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni              := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni              := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin              := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin              := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente             := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento           := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial           := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                    := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                  := Aliases.Folha.FRhProceSocialExclusaoSST.bSelOcs;
+  BtnDesTodos                  := Aliases.Folha.FRhProceSocialExclusaoSST.bDesmOcs;
+  BtnConsSel                   := Aliases.Folha.FRhProceSocialExclusaoSST.btConsTodosSel;
+  BtnEnvTodosSel               := Aliases.Folha.FRhProceSocialExclusaoSST.btEnvTodosSel;
+  BtnExtTodosSel               := Aliases.Folha.FRhProceSocialExclusaoSST.btExcTodosSel;
+  BtnSalvarXML                 := Aliases.Folha.FRhProceSocialExclusaoSST.btSalvarXML;
+  BtnVerXML                    := Aliases.Folha.FRhProceSocialExclusaoSST.btVerXML;
+  BtnVerRetorno                := Aliases.Folha.FRhProceSocialExclusaoSST.btVisualizarRetorno;
+  BtnVizualizar                := Aliases.Folha.FRhProceSocialExclusaoSST.btVisualizarOc;
+  CbMostrarProtocolos          := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                  := Aliases.Folha.FRhProceSocialExclusaoSST.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

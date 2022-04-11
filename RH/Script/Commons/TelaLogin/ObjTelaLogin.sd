@@ -1,0 +1,45 @@
+﻿uses
+  VarConsts;
+{Script para mapear a tela de login dos módulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 11/01/2018}
+ 
+var
+  oSistema, oEstab : OleVariant;
+
+  LoginForm, LoginCxGroupBox, LoginPnLayoutControl, LoginServidor, LoginConexao, 
+  LoginUserID, LoginSenha, LoginAlteraSenha, LoginOk, LoginSair: OleVariant; 
+  
+  CadSenhaFormSenha, CadSenhaFormNovaSenha, CadSenhaFormConfirma, 
+  CadSenhaFormPnBtnConf, CadSenhaFormPnBtnExit: OleVariant; 
+
+procedure MapTelaLogin(sModulo : string);
+begin
+  oSistema             := Sys.Process(sModulo);
+  
+  LoginForm            := oSistema.VCLObject('FSelUsu');
+  LoginCxGroupBox      := LoginForm.VCLObject('cxGroupBox1');
+  LoginPnLayoutControl := LoginCxGroupBox.VCLObject('dxLayoutControl');
+  LoginServidor        := LoginPnLayoutControl.VCLObject('cbServidor');
+  LoginConexao         := LoginPnLayoutControl.VCLObject('cbConexao');
+  LoginUserID          := LoginPnLayoutControl.VCLObject('EUserID');
+  LoginSenha           := LoginPnLayoutControl.VCLObject('ESenha');
+  LoginAlteraSenha     := LoginPnLayoutControl.VCLObject('lbAlterarSenha');  
+  LoginOk              := LoginPnLayoutControl.VCLObject('bbOk');
+  LoginSair            := LoginPnLayoutControl.VCLObject('BBSair'); 
+end;
+
+procedure MapCadastraSenha(sModulo : string);
+begin
+  oSistema              := Sys.Process(sModulo);
+  
+  //alteração no nome do componente que agora tem mais um nome que .VCLObject('pnPrincipal') 
+  CadSenhaFormSenha     := oSistema.VCLObject('FMudaSen');
+  CadSenhaFormNovaSenha := CadSenhaFormSenha.VCLObject('pnPrincipal').VCLObject('ENovaSenha');
+  CadSenhaFormConfirma  := CadSenhaFormSenha.VCLObject('pnPrincipal').VCLObject('EConfirmacao');
+  //alteração no nome do botão que agora é btnConfirmar
+  CadSenhaFormPnBtnConf := CadSenhaFormSenha.VCLObject('btnConfirmar');
+  CadSenhaFormPnBtnExit := CadSenhaFormSenha.VCLObject('btnFechar');
+end;
+

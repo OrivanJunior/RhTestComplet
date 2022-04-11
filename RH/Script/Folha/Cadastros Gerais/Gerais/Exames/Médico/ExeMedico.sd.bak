@@ -1,0 +1,125 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolMedico,
+  ObjMedico,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Medico
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTMedico: OleVariant;  
+
+procedure AcessaCadMedico();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Exames', 'Médico/Odontólogo do Trabalho');
+end;
+
+procedure InsereDadosMedico();
+begin
+  VerificaInsere(FormCadMedicoIdMedico, FormCadMedicoDPIdMedico);
+  VerificaInsere(FormCadMedicoNome, FormCadMedicoDPNome);
+  VerificaInsere(FormCadMedicoRegistro, FormCadMedicoDPRegistro);
+  VerificaInsere(FormCadMedicoIdOrgao, FormCadMedicoDPIdOrgao);
+  VerificaInsere(FormCadMedicoUfCrm, FormCadMedicoDPUfCrm);
+  VerificaInsere(FormCadMedicoPis, FormCadMedicoDPPis);
+  
+  if Assigned(FormCadMedicoDPCep) and (FormCadMedicoDPCep > 0) then
+  begin
+    FormCadMedicoCEP.Keys('[F3]');    
+    FormCadMedicoCEP.Keys(FazConsultaCEP(_ModuloFolha, FormCadMedicoDPCep));
+  end;
+  
+  VerificaInsere(FormCadMedicoNroEnd, FormCadMedicoDPNroEnd);
+  VerificaInsere(FormCadMedicoTelefone, FormCadMedicoDPTelefone);
+  VerificaInsere(FormCadMedicoCelular, FormCadMedicoDPCelular);
+  VerificaInsere(FormCadMedicoEmail, FormCadMedicoDPEmail);
+end;
+
+procedure ExeCadastraMedico(pathData);
+begin
+  AcessaCadMedico();
+  
+  MapGridConsulta(_ModuloFolha);
+  DDTMedico := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadMedico(DDTMedico.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMEDICO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadMedicoDPIdMedico);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadMedico();
+     
+    if (FormCadMedico.Exists) then
+    begin
+      InsereDadosMedico();
+      
+      ActSalvar(FormCadMedico);
+      ActFechar(FormCadMedico);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraMedico(pathData);
+begin
+  AcessaCadMedico();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTMedico := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadMedico(DDTMedico.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMEDICO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadMedicoDPIdMedico);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadMedico();   
+     
+    if (FormCadMedico.Exists) then
+    begin
+      InsereDadosMedico();
+      
+      ActSalvar(FormCadMedico);
+      ActFechar(FormCadMedico);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirMedico(pathData);
+begin
+  AcessaCadMedico();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTMedico := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadMedico(DDTMedico.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMEDICO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadMedicoDPIdMedico);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHMEDICO');
+    ActFechar(FormCadMedico);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

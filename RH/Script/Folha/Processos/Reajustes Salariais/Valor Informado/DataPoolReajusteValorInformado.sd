@@ -1,0 +1,55 @@
+﻿{Script de DataPool do Processo de Reajuste Salarial por Valor Informado
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 24/06/2021}
+  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroFuncaoTipo, FiltroFuncaoValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroSindicatosTipo, FiltroSindicatosValor,
+  
+  FiltroMotivoTipo, FiltroMotivoValor,
+  
+  FiltroDadosMotivo, FiltroDadosMoeda,
+  FiltroDadosDataReaj, FiltroDadosRetroativo,
+  FiltroDadosDtRetroativa, FiltroDadosVlrPadrao,
+  FiltroDadosVlrAdc, FiltroDadosTempoEmp,
+  FiltroDadosInfosAdc: OleVariant;
+
+procedure LeDataPoolReajusteValorInformado(nomeDriver);
+begin  
+  { Filtro Estab }
+  FiltroEstabTipo      := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor     := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');     
+    
+  { Filtro Locais }
+  FiltroLocalTipo      := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor     := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');  
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo      := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor     := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+
+  { Filtro Situações }
+  FiltroSituacaoTipo      := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+  FiltroSituacaoValor     := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+        
+  { Filtro Dados Adicionais }
+  FiltroDadosMotivo         := DDT.DriverByName(nomeDriver).Value('IDMOTIVO');
+  FiltroDadosMoeda          := DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+  FiltroDadosDataReaj       := DDT.DriverByName(nomeDriver).Value('DATAREAJUSTE');
+  FiltroDadosRetroativo     := DDT.DriverByName(nomeDriver).Value('RETROATIVO');
+  FiltroDadosDtRetroativa   := DDT.DriverByName(nomeDriver).Value('DTRETROATIVA');
+  FiltroDadosVlrPadrao      := DDT.DriverByName(nomeDriver).Value('VLRPADRAO');
+  FiltroDadosVlrAdc         := DDT.DriverByName(nomeDriver).Value('VLRADC');
+  FiltroDadosTempoEmp       := DDT.DriverByName(nomeDriver).Value('TEMPOEMP');
+  FiltroDadosInfosAdc       := DDT.DriverByName(nomeDriver).Value('INFOSADC');
+end;

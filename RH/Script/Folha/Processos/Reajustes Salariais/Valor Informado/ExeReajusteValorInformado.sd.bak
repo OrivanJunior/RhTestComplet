@@ -1,0 +1,209 @@
+﻿{Script para executar o Processo de Reajuste Salarial por Valor Informado
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+
+uses
+  DataPoolReajusteValorInformado, ObjReajusteValorInformado, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaReajusteValorInformado();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Reaj. Salariais', 'Valor Informado'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ReajusteVlrInformWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajusteVlrInformWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ReajusteVlrInformWhEstabTodosEmp.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajusteVlrInformWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ReajusteVlrInformWhEstabSelec.ClickButton;
+    VerificaInsere(ReajusteVlrInformWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ReajusteVlrInformWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraLocais();
+begin
+  if (ReajusteVlrInformWhLocalTodos.VisibleOnScreen = false) then
+    ReajusteVlrInformWhLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    ReajusteVlrInformWhLocalEspec.ClickButton;
+    VerificaInsere(ReajusteVlrInformWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    ReajusteVlrInformWhLocalSelec.ClickButton;
+    VerificaInsere(ReajusteVlrInformWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    ReajusteVlrInformWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+  ReajusteVlrInformWhLocal10.Click();
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (ReajusteVlrInformWhEmpreTodos.VisibleOnScreen = false) then
+    ReajusteVlrInformWhEmpre10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    ReajusteVlrInformWhEmpreEspec.ClickButton;
+    //VerificaConsultaF3Insere(_ModuloFolha, ReajusteVlrInformWhEmpreEspecCampo, FiltroEmpreValor);
+    VerificaInsere(ReajusteVlrInformWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    ReajusteVlrInformWhEmpreSelec.ClickButton;
+    VerificaInsere(ReajusteVlrInformWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    ReajusteVlrInformWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+  ReajusteVlrInformWhEmpre10.Click();
+end;
+
+procedure FiltraSituacao();
+begin
+  if (ReajusteVlrInformWhSituacaoTodos.VisibleOnScreen = false) then
+    ReajusteVlrInformWhSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    ReajusteVlrInformWhSituacaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajusteVlrInformWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    ReajusteVlrInformWhSituacaoSelec.ClickButton;
+    VerificaInsere(ReajusteVlrInformWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    ReajusteVlrInformWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ReajusteVlrInformWhSituacao10.Click();
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ReajusteVlrInformWhMotivo.VisibleOnScreen = false) then
+    ReajusteVlrInformWhDados10.Click();
+    
+  VerificaInsere(ReajusteVlrInformWhMotivo, FiltroDadosMotivo);
+  VerificaInsere(ReajusteVlrInformWhMoeda, FiltroDadosMoeda);
+  PreencheDatas(ReajusteVlrInformWhDataReaj, FiltroDadosDataReaj);
+  VerificaInsere(ReajusteVlrInformWhRetroativo, FiltroDadosRetroativo);
+  PreencheDatas(ReajusteVlrInformWhDtRetroativa, FiltroDadosDtRetroativa);
+  VerificaInsere(ReajusteVlrInformWhVlrPadrao, FiltroDadosVlrPadrao);
+  VerificaInsere(ReajusteVlrInformWhVlrAdc, FiltroDadosVlrAdc);
+  VerificaInsere(ReajusteVlrInformWhTempoEmpresa, FiltroDadosTempoEmp);
+  VerificaInsere(ReajusteVlrInformWhInfosAdc, FiltroDadosInfosAdc);
+  ReajusteVlrInformWhDados10.Click();
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();
+  end;
+end;
+
+procedure FechaMensagemProcessoConcluido2();
+var 
+  TelaAtencao, TelaMensagem, BtnOk, BtnOk2: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaMensagem := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaMensagem.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Atenção!', 1);
+    BtnOk2      := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk2.Click();  
+  end;
+end;
+
+procedure ExecutaReajusteValorInformado(pathData);
+begin
+  AcessaReajusteValorInformado();
+
+  MapReajusteValorInformado();
+
+  LeDataPoolReajusteValorInformado(pathData);
+
+  FiltraEstab();
+
+  FiltraLocais();
+  
+  FiltraEmpregados();
+
+  FiltraSituacao();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  if (Aliases.Folha.FVsErrorDlg.Visible) then
+  begin
+    Log.Warning('Há erros no processo');
+    Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    ActFechar(FormReajusteVlrInform);
+  end
+  else
+  begin
+    FechaMensagemProcessoConcluido();
+  
+    btnSalvar.Click();
+
+    FechaMensagemProcessoConcluido();
+  
+    ActFechar(FormReajusteVlrInform)
+  end;
+end;

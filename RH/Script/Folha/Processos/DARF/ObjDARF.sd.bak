@@ -1,0 +1,99 @@
+﻿{Script de mapeamento o Processo de DARF
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 23/06/2021}
+
+var
+  FormDARF, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormDARFWhEstabEspec, FormDARFWhEstabEspecCampo,
+  FormDARFWhEstabTodosEmp, FormDARFWhEstabTodosEmpCampo,
+  FormDARFWhEstabTodos, FormDARFWhEstabSelec,
+  FormDARFWhEstabSelecCampo, 
+  
+  FormDARFWhLocalTodos, FormDARFWhLocalEspec, 
+  FormDARFWhLocalEspecCampo, FormDARFWhLocalSelec, 
+  FormDARFWhLocalSelecCampo,
+  
+  FormDARFWhEmpreTodos, FormDARFWhEmpreEspec,
+  FormDARFWhEmpreEspecCampo, FormDARFWhEmpreSelec,
+  FormDARFWhEmpreSelecCampo, 
+  
+  FormDARFWhDataDtIni, FormDARFWhDataDtFin,
+  
+  FormDARFWhProcTodos, FormDARFWhProcEspec, 
+  FormDARFWhProcEspecCampo, FormDARFWhProcSelec, 
+  FormDARFWhProcSelecCampo,
+  
+  FormDARFWhPrestTodos, FormDARFWhPrestEspec,
+  FormDARFWhPrestEspecCampo, FormDARFWhPrestSelec,
+  FormDARFWhPrestSelecCampo,
+   
+  FormDARFWhDARFCent, FormDARFWhEstabCent,
+  FormDARFWhRipoDARF, FormDARFWhDataVenc,
+  FormDARFWhGerarSobre, FormDARFWhMensal,
+  FormDARFWhSobFerias,FormDARFWhSob13,
+  FormDARFWhSobPLR : OleVariant;
+  
+procedure MapDARF();
+begin
+  FormDARF      := Aliases.Folha.FRhProcDARF;
+  
+  btnSair      := Aliases.Folha.FRhProcDARF.BSair;
+  btnExecutar  := Aliases.Folha.FRhProcDARF.bExecutar;
+  btnSalvar    := Aliases.Folha.FRhProcDARF.tbSalvar;
+  btnRelatorio := Aliases.Folha.FRhProcDARF.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  
+  FormDARFWhEstabEspec         := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormDARFWhEstabEspecCampo    := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormDARFWhEstabTodosEmp      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormDARFWhEstabTodosEmpCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormDARFWhEstabTodos         := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormDARFWhEstabSelec         := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormDARFWhEstabSelecCampo    := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Local }
+  FormDARFWhLocalTodos      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  FormDARFWhLocalEspec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  FormDARFWhLocalEspecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  FormDARFWhLocalSelec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  FormDARFWhLocalSelecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;
+  
+  { Filtro de Empregados }
+  FormDARFWhEmpreTodos      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormDARFWhEmpreEspec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormDARFWhEmpreEspecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormDARFWhEmpreSelec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormDARFWhEmpreSelecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Processamentos }
+  FormDARFWhProcTodos      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento30;
+  FormDARFWhProcEspec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento20;
+  FormDARFWhProcEspecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento50;
+  FormDARFWhProcSelec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento40;
+  FormDARFWhProcSelecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento80;
+  
+  { Filtro de Prestador }
+  FormDARFWhPrestTodos      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.WhPrestador30;
+  FormDARFWhPrestEspec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador20;
+  FormDARFWhPrestEspecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador50;
+  FormDARFWhPrestSelec      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador40;
+  FormDARFWhPrestSelecCampo := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador80;
+  
+  { Filtro de Datas }
+  FormDARFWhDataDtIni := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whData.whData20;
+  FormDARFWhDataDtFin := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whData.whData30;
+  
+  { Dados Adicionais }
+  FormDARFWhDARFCent   := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_DARFCENT;
+  FormDARFWhEstabCent  := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_ESTAB;
+  FormDARFWhRipoDARF   := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_TPDARF;
+  FormDARFWhDataVenc   := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_DTVENCIMENTO;
+  FormDARFWhGerarSobre := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.EB_GerarSobre;
+  FormDARFWhMensal     := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.gbIRRFEmp.cbMensal;
+  FormDARFWhSobFerias  := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.gbIRRFEmp.cbFerias;
+  FormDARFWhSob13      := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.gbIRRFEmp.cb13o;
+  FormDARFWhSobPLR     := Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.wh_Emitir.gbIRRFEmp.cbPLR;
+end;

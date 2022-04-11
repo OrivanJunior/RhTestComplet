@@ -1,0 +1,147 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadFeriados,
+  ObjCadFeriados,
+  VarConsts;
+  
+{Script para executar o Cadastro de Feriados
+Módulo: Folha
+Autor: Camila Braatz da Rocha
+Data: 12/05/2021}
+ 
+procedure FiltroCadastroFeriados();
+begin
+  MapFiltroCadastroFeriados();
+  
+  FiltroConsFormCBSelCons.Keys('Feriado por Ano[Enter]');
+  FiltroConsFormCBEstab.SelectItem('(Ignorar)');
+  FiltroConsFormCBAno.SelectItem('(Ignorar)');
+  btnOkFiltroConsForm.ClickButton;
+end;
+
+procedure PreencheDadosCadastroFeriados();
+begin
+  PreencheDatas(CadastroFeriadosEBData, CadastroFeriadosDPData);
+  VerificaInsere(CadastroFeriadosEBDesc, CadastroFeriadosDPDesc);
+  VerificaInsere(CadastroFeriadosEBGeraRSR, CadastroFeriadosDPGeraRSR);
+end;  
+
+procedure CadastraFeriados(pathData);
+var
+  DDTFeriados;
+begin
+  DDTFeriados := CarregaDDT(pathData, _Cadastrar);
+
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Feriados');
+  
+  Delay(1000);
+  
+  FiltroCadastroFeriados();
+  
+  while not(DDTFeriados.EOF) do
+  begin
+    LeDataPoolCadastroFeriados(DDTFeriados.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(Modulo, 'FRhFeriado');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data Feriado', CadastroFeriadosDPData);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+  
+      MapTelaCadastroFeriados();
+  
+      if (CadastroFeriadosFormCad.Exists) then
+      begin
+        PreencheDadosCadastroFeriados(); 
+  
+        ActSalvar(CadastroFeriadosFormCad);
+        ActFechar(CadastroFeriadosFormCad);
+        
+        DDTFeriados.Next;
+      end;
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFeriados.Name);
+end;  
+
+procedure AlteraFeriados(pathData);
+var
+  DDTFeriados;
+begin
+  DDTFeriados := CarregaDDT(pathData, _Alterar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Feriados');
+  
+  FiltroCadastroFeriados();
+  
+  while not(DDTFeriados.EOF) do
+  begin
+    LeDataPoolCadastroFeriados(DDTFeriados.Name);  
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFeriado');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data Feriado', CadastroFeriadosDPData);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+    
+      MapTelaCadastroFeriados();
+    
+      if (CadastroFeriadosFormCad.Exists) then
+      begin
+        PreencheDadosCadastroFeriados(); 
+    
+        ActSalvar(CadastroFeriadosFormCad);
+        ActFechar(CadastroFeriadosFormCad);
+        
+        DDTFeriados.Next;
+      end;
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFeriados.Name);
+end;  
+
+procedure ExcluirFeriados(pathData);
+var
+  DDTFeriados;
+begin
+  DDTFeriados := CarregaDDT(pathData, _Excluir);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Feriados');
+  
+  Delay(1000);
+  
+  FiltroCadastroFeriados();
+  
+  while not(DDTFeriados.EOF) do
+  begin
+    LeDataPoolCadastroFeriados(DDTFeriados.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFeriado');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data Feriado', CadastroFeriadosDPData);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      //ActConsulta(FormTelaConsultaForm);
+    
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+      DDTFeriados.Next;
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFeriados.Name);
+end;  

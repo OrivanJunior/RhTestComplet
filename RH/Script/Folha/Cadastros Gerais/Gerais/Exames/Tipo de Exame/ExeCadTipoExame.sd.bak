@@ -1,0 +1,103 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolTipoExame,
+  ObjTipoExame,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de TipoExame
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTTipoExames: OleVariant;
+
+procedure AcessaCadTipoExame();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Exames', 'Cadastro de Tipos de Exames');
+end;
+
+procedure InsereDadosTipoExame();
+begin
+  VerificaInsere(FormCadTipoExameIdTpExame, FormCadTipoExameDPIdTpExame);
+  VerificaInsere(FormCadTipoExameDescricao, FormCadTipoExameDPDescricao);
+  VerificaInsere(FormCadTipoExameCodExame, FormCadTipoExameDPCodExame);
+end;
+
+procedure ExeCadastraTipoExame(pathData);
+begin
+  AcessaCadTipoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadTipoExame(pathData, _Cadastrar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTIPOEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadTipoExameDPIdTpExame);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadTipoExame();
+     
+    if (FormCadTipoExame.Exists) then
+    begin
+      InsereDadosTipoExame();
+      
+      ActSalvar(FormCadTipoExame);
+      ActFechar(FormCadTipoExame);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;
+
+procedure ExeAlteraTipoExame(pathData);
+begin
+  AcessaCadTipoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadTipoExame(pathData, _Alterar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTIPOEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadTipoExameDPIdTpExame);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadTipoExame();   
+     
+    if (FormCadTipoExame.Exists) then
+    begin
+      InsereDadosTipoExame();
+      
+      ActSalvar(FormCadTipoExame);
+      ActFechar(FormCadTipoExame);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure ExeExcluirTipoExame(pathData);
+begin
+  AcessaCadTipoExame();
+  
+  MapGridConsulta(_ModuloFolha);
+  LeDataPoolCadTipoExame(pathData, _Excluir);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTIPOEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadTipoExameDPIdTpExame);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHTIPOEXAME');
+    ActFechar(FormCadTipoExame);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+end;

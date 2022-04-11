@@ -1,0 +1,39 @@
+﻿{Script de mapeamento tela de cadastro de Moedas
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadOperadorSaude,
+  FormCadOperadorSaudeIdOpSaude, 
+  FormCadOperadorSaudeTipoOperadora, 
+  FormCadOperadorSaudeRegAns,
+  FormCadOperadorSaudeCNPJ, 
+  FormCadOperadorSaudeNomeEmp, 
+  FormCadOperadorSaudeIdEvento,
+  FormCadOperadorSaudePage, 
+  FormCadOperadorSaudeGridMod,
+  FormCadOperadorSaudeBIncEmp, 
+  FormCadOperadorSaudeBSaveEmp,
+  FormCadOperadorSaudeBDesfEmp, 
+  FormCadOperadorSaudeBExcEmp: OleVariant;
+
+procedure MapTelaCadOperadorSaude();
+begin
+  FormCadOperadorSaude              := Aliases.Folha.FRhOpSaude;
+     
+  FormCadOperadorSaudeIdOpSaude     := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_IDOPSAUDE;
+  FormCadOperadorSaudeTipoOperadora := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_TIPOOPERADORA;         
+  FormCadOperadorSaudeRegAns        := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_REGANS;    
+  FormCadOperadorSaudeCNPJ          := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_CNPJ;    
+  FormCadOperadorSaudeNomeEmp       := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_NOMEEMP;    
+  FormCadOperadorSaudeIdEvento      := Aliases.Folha.FRhOpSaude.Page.TabNormal.pnl1.EB_IDEVENTO;   
+   
+  FormCadOperadorSaudePage          := Aliases.Folha.FRhOpSaude.Page.TabNormal.pg;
+  FormCadOperadorSaudeGridMod       := Aliases.Folha.FRhOpSaude.Page.TabNormal.pg.tsRhFerColEmp.sbRHFerColEmp.gModalidades;
+    
+  FormCadOperadorSaudeBIncEmp       := Aliases.Folha.FRhOpSaude.bIncEmp;
+  FormCadOperadorSaudeBSaveEmp      := Aliases.Folha.FRhOpSaude.bSaveEmp;
+  FormCadOperadorSaudeBDesfEmp      := Aliases.Folha.FRhOpSaude.bDesfEmp;
+  FormCadoperadorSaudeBExcEmp       := Aliases.Folha.FRhOpSaude.bExcEmp;
+end;

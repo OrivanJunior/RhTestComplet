@@ -1,0 +1,13 @@
+﻿{Script para criar DataPool da tela de cadastro de CnaeFiscal
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadCnaeFiscalDPIdCnae, FormCadCnaeFiscalDPDescricao: OleVariant;
+  
+procedure LeDataPoolCadCnaeFiscal(nomeDriver);
+begin  
+  FormCadCnaeFiscalDPIdCnae    := DDT.DriverByName(nomeDriver).Value('IDCNAE');
+  FormCadCnaeFiscalDPDescricao := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

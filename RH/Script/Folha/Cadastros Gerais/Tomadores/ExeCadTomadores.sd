@@ -1,0 +1,122 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolTomadores,
+  ObjTomadores,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Tomadores
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+var
+  DDTTomadores: OleVariant;
+
+procedure AcessaCadTomadores();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Tomadores');
+end;
+
+procedure InsereDadosTomadores();
+begin
+  VerificaInsere(FormCadTomadoresCodTomador, FormCadTomadoresDPCodTomador);
+  VerificaInsere(FormCadTomadoresRazaoSoc, FormCadTomadoresDPRazaoSoc);
+  VerificaInsere(FormCadTomadoresTipoIns, FormCadTomadoresDPTipoIns);
+  VerificaInsere(FormCadTomadoresInscricao, FormCadTomadoresDPInscricao);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadTomadoresIdTpLogadouro, FormCadTomadoresDPIdTpLogadouro);
+  VerificaInsere(FormCadTomadoresEndereco, FormCadTomadoresDPEndereco);
+  VerificaInsere(FormCadTomadoresBairro, FormCadTomadoresDPBairro);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadTomadoresCidade, FormCadTomadoresDPCidade);
+  VerificaInsere(FormCadTomadoresCEP, FormCadTomadoresDPCEP);
+  VerificaInsere(FormCadTomadoresCodRais, FormCadTomadoresDPCodRais);
+  VerificaInsere(FormCadTomadoresCodPgtoGPS, FormCadTomadoresDPCodPgtoGPS);  
+end;
+
+procedure ExeCadastraTomadores(pathData);
+begin
+  AcessaCadTomadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTTomadores := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadTomadores(DDTTomadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTOMADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Tomador', FormCadTomadoresDPCodTomador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadTomadores();
+     
+    if (FormCadTomadores.Exists) then
+    begin
+      InsereDadosTomadores();
+      
+      ActSalvar(FormCadTomadores);
+      ActFechar(FormCadTomadores);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTomadores.Name);
+end;
+
+procedure ExeAlteraTomadores(pathData);
+begin
+  AcessaCadTomadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTTomadores := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadTomadores(DDTTomadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTOMADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Tomador', FormCadTomadoresDPCodTomador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadTomadores();   
+     
+    if (FormCadTomadores.Exists) then
+    begin
+      InsereDadosTomadores();
+      
+      ActSalvar(FormCadTomadores);
+      ActFechar(FormCadTomadores);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTomadores.Name);
+end;
+
+procedure ExeExcluirTomadores(pathData);
+begin
+  AcessaCadTomadores();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTTomadores := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadTomadores(DDTTomadores.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTOMADOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Tomador', FormCadTomadoresDPCodTomador);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHTOMADOR');
+    ActFechar(FormCadTomadores);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTomadores.Name);
+end;

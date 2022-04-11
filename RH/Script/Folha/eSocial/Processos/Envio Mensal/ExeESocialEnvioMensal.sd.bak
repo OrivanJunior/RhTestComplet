@@ -1,0 +1,195 @@
+﻿ uses
+  DataPoolESocialEnvioMensal, ObjESocialEnvioMensal, CommonsAll, VarConsts, conexaoBanco, ExeValidaEventos;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+var
+  DDTEnvioMensal: OleVariant;
+    
+procedure AcessaESocialEnvioMensal();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Envio Mensal'); 
+end;
+
+procedure PreencheEmpregados();
+begin
+  if (Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.Exists) then
+  begin
+    if (FormEnvioMensalWhEmpregadosTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.whEmpregados10.Click();
+    
+    if (FiltroEmpregadoTipo = _Especifico) then
+    begin
+      FormEnvioMensalWhEmpregadosEspec.ClickButton;
+      VerificaInsere(FormEnvioMensalWhEmpregadosEspecCampo, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregado - Específico, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Selecionados) then
+    begin
+      FormEnvioMensalWhEmpregadosSelec.ClickButton;
+      VerificaInsere(FormEnvioMensalWhEmpregadosSelec, FiltroEmpregadoValor);
+      Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+    end
+    else if (FiltroEmpregadoTipo = _Todos) then
+    begin
+      FormEnvioMensalWhEmpregadosTodos.ClickButton;
+      Log.Checkpoint('Selecionado Empregados - Todos');
+    end;
+  end;
+end;
+
+procedure PreenchePrestadores();
+begin
+  if (Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.Exists) then
+  begin
+    if (FormEnvioMensalWhPrestadoresTodos.VisibleOnScreen = false) then
+      Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.whPrestadores10.Click();
+    
+    if (FiltroPrestadorTipo = _Especifico) then
+    begin
+      FormEnvioMensalWhPrestadoresEspec.ClickButton;
+      VerificaConsultaF3Insere(_ModuloFolha, FormEnvioMensalWhPrestadoresEspecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Selecionados) then
+    begin
+      FormEnvioMensalWhPrestadoresSelec.ClickButton;
+      VerificaInsere(FormEnvioMensalWhPrestadoresSelecCampo, FiltroPrestadorValor);
+      Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestadorValor);
+    end
+    else if (FiltroPrestadorTipo = _Todos) then
+    begin
+      FormEnvioMensalWhPrestadoresTodos.ClickButton;
+      Log.Checkpoint('Selecionado Prestador - Todos');
+    end;
+  end;
+end;
+
+procedure PreencheEventos();
+begin
+  if (FormEnvioMensalDPS1200 = 'S') then
+  begin
+  	FormEnvioMensalRBS1200.ClickButton();
+    PreencheEmpregados();
+    PreencheDatas(FormEnvioMensalWhMesAnoCompetencia, FiltroMesAnoCompetencia); 
+  end
+  else if (FormEnvioMensalDPS1210 = 'S') then
+  begin
+  	FormEnvioMensalRBS1210.ClickButton();
+    PreencheEmpregados();
+    PreencheDatas(FormEnvioMensalWhMesAnoPagamento, FiltroMesAnoPagamento); 
+  end
+  else if (FormEnvioMensalDPS1270 = 'S') then
+  begin
+   	FormEnvioMensalRBS1270.ClickButton();
+    PreencheDatas(FormEnvioMensalWhMesAnoComp, FiltroMesAnoCompetencia);
+  end
+  else if (FormEnvioMensalDPS1280 = 'S') then
+  begin
+   	FormEnvioMensalRBS1280.ClickButton();
+    PreencheDatas(FormEnvioMensalWhMesAnoCompetencia, FiltroMesAnoCompetencia);
+  end
+  else if (FormEnvioMensalDPS1295 = 'S') then
+  begin
+   	FormEnvioMensalRBS1295.ClickButton();
+    PreencheDatas(FormEnvioMensalWhMesAnoCompetencia, FiltroMesAnoCompetencia);
+  end
+  else if (FormEnvioMensalDPS1300 = 'S') then
+  begin
+  	FormEnvioMensalRBS1300.ClickButton();
+    PreencheDatas(FormEnvioMensalWhMesAnoCompetencia, FiltroMesAnoCompetencia);
+  end
+  else if (FormEnvioMensalDPS1200PS = 'S') then
+  begin
+  	FormEnvioMensalRBS1200PS.ClickButton();
+    PreenchePrestadores();
+    PreencheDatas(FormEnvioMensalWhMesAnoComp, FiltroMesAnoCompetencia);
+  end
+  else if (FormEnvioMensalDPS1210PS = 'S') then
+  begin
+  	FormEnvioMensalRBS1210PS.ClickButton();
+    PreenchePrestadores();
+    PreencheDatas(FormEnvioMensalWhMesAnoPagamento, FiltroMesAnoPagamento); 
+  end
+  else if (FormEnvioMensalDPS2206 = 'S') then
+  begin
+  	FormEnvioMensalRBS2206.ClickButton();
+    PreencheEmpregados();
+    PreencheDatas(FormEnvioMensalWhDataAlteracao, FiltroDataAlteracao);
+  end
+  else if (FormEnvioMensalDPS2230 = 'S') then
+  begin
+  	FormEnvioMensalRBS2230.ClickButton(); 
+    PreencheEmpregados();
+    PreencheDatas(FormEnvioMensalWhMesAnoComp, FiltroMesAnoCompetencia); 
+  end;
+end;
+
+procedure PreencheConsulta(pathData);
+var
+  DDTConsulta;
+begin
+  PageESocialEnvioMensal.ActivePageIndex := 1;
+
+  MapESocialConsEnvioMensal();
+  
+  DDTConsulta := CarregaDDT(pathData, 'Consulta');
+  
+  begin
+    LeDataPoolConsulta(DDTConsulta.Name);
+
+    VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+    PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+    VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+    PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+    VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+    VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+    VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+    VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+    
+    DDTConsulta.Next;
+  end;
+  
+  BtnBuscar.Click();
+  
+  DDT.CloseDriver(DDTConsulta.Name);
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialEnvioMensal(pathData);
+begin
+  AcessaESocialEnvioMensal();
+  
+  MapESocialEnvioMensal();
+  
+  DDTEnvioMensal := CarregaDDT(pathData, 'Envio');
+  
+  while not(DDTEnvioMensal.EOF) do
+  begin
+    LeDataPoolEnvioMensal(DDTEnvioMensal.Name);
+  
+    PreencheEventos();
+  
+    BtnEnviarMensal.Click();
+       
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído', 1, 60000).Exists)  then
+      Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();
+    
+    DDTEnvioMensal.Next;
+  end;
+  PreencheConsulta(pathData);
+  
+  ActFechar(FormESocialEnvioMensal);
+  
+  DDT.CloseDriver(DDTEnvioMensal.Name);
+end;

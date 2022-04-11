@@ -1,0 +1,13 @@
+﻿var
+  TrocaFeriadoForm, TrocaFeriadoEBEstab,
+  TrocaFeriadoEBEmpregado, TrocaFeriadoEBDataFer,
+  TrocaFeriadoEBDataTroca: OleVariant;
+
+procedure MapTrocaFeriados();
+begin
+  TrocaFeriadoForm        := Aliases.Ponto.FRhTrocaFeriado;
+  TrocaFeriadoEBEstab     := Aliases.Ponto.FRhTrocaFeriado.Page.TabNormal.ScrollBox1.EB_ESTAB;
+  TrocaFeriadoEBEmpregado := Aliases.Ponto.FRhTrocaFeriado.Page.TabNormal.ScrollBox1.EB_IDEMPREGADO;
+  TrocaFeriadoEBDataFer   := Aliases.Ponto.FRhTrocaFeriado.Page.TabNormal.ScrollBox1.EB_DATAFER;
+  TrocaFeriadoEBDataTroca := Aliases.Ponto.FRhTrocaFeriado.Page.TabNormal.ScrollBox1.EB_DATATROCA;
+end;

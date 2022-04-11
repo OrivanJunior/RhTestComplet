@@ -1,0 +1,33 @@
+﻿{Script para criar DataPool da tela de cadastro de Medico
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var  
+  FormCadMedicoDPIdMedico, FormCadMedicoDPNome, FormCadMedicoDPRegistro,
+  FormCadMedicoDPIdOrgao, FormCadMedicoDPUfCrm, FormCadMedicoDPPis,
+  FormCadMedicoDPEndereco, FormCadMedicoDPNroEnd, FormCadMedicoDPBairro,
+  FormCadMedicoDPCidade, FormCadMedicoDPCep, FormCadMedicoDPTelefone,
+  FormCadMedicoDPCelular, FormCadMedicoDPEmail: OleVariant;
+
+procedure LeDataPoolCadMedico(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    FormCadMedicoDPIdMedico := DDT.DriverByName(nomeDriver).Value('IDMEDICO');
+    FormCadMedicoDPNome     := DDT.DriverByName(nomeDriver).Value('NOME');
+    FormCadMedicoDPRegistro := DDT.DriverByName(nomeDriver).Value('REGISTRO');
+    FormCadMedicoDPIdOrgao  := DDT.DriverByName(nomeDriver).Value('IDORGAO');
+    FormCadMedicoDPUfCrm    := DDT.DriverByName(nomeDriver).Value('UFCRM');
+    FormCadMedicoDPPis      := DDT.DriverByName(nomeDriver).Value('PIS');
+    FormCadMedicoDPEndereco := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+    FormCadMedicoDPNroEnd   := DDT.DriverByName(nomeDriver).Value('NROEND');
+    FormCadMedicoDPBairro   := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+    FormCadMedicoDPCidade   := DDT.DriverByName(nomeDriver).Value('CIDADE');
+    FormCadMedicoDPCep      := DDT.DriverByName(nomeDriver).Value('CEP');
+    FormCadMedicoDPTelefone := DDT.DriverByName(nomeDriver).Value('TELEFONE');
+    FormCadMedicoDPCelular  := DDT.DriverByName(nomeDriver).Value('CELULAR');
+    FormCadMedicoDPEmail    := DDT.DriverByName(nomeDriver).Value('EMAIL');
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

@@ -1,0 +1,49 @@
+﻿{Script para criar DataPool da tela de cadastro de Prestadores
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  { Informações do Prestador }    
+  FormCadPrestadoresDPCodPreserv, FormCadPrestadoresDPIdPess, FormCadPrestadoresDPVinculo,
+  FormCadPrestadoresDPFuncao, FormCadPrestadoresDPPis, FormCadPrestadoresDPRecolheIss,
+  FormCadPrestadoresDPPercAliqIss: OleVariant;
+
+  { Dados para o pagamento }  		
+  FormCadPrestadoresDPAgencia, FormCadPrestadoresDPContaBanco, FormCadPrestadoresDPDigitoConta: OleVariant;
+
+  { Dados para a exportação }  	       
+  FormCadPrestadoresDPFornecFin, FormCadPrestadoresDPAnalitFin, FormCadPrestadoresDPCCFin,
+  FormCadPrestadoresDPSituacaoFin, FormCadPrestadoresDPFornecFinDesc, FormCadPrestadoresDPAnaliticaFinDesc,
+  FormCadPrestadoresDPCCFinDesc, FormCadPrestadoresDPSituacaoFinDesc: OleVariant;
+ 
+procedure LeDataPoolCadPrestadores(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    { Informações do Prestador }
+    FormCadPrestadoresDPCodPreserv  := DDT.DriverByName(nomeDriver).Value('CODPRESERV');
+    FormCadPrestadoresDPIdPess      := DDT.DriverByName(nomeDriver).Value('IDPESS');
+    FormCadPrestadoresDPVinculo     := DDT.DriverByName(nomeDriver).Value('IDVINC');
+    FormCadPrestadoresDPFuncao      := DDT.DriverByName(nomeDriver).Value('IDFUNCAO');
+    FormCadPrestadoresDPPis         := DDT.DriverByName(nomeDriver).Value('PIS');
+    FormCadPrestadoresDPRecolheIss  := DDT.DriverByName(nomeDriver).Value('RECOLHEISS');
+    FormCadPrestadoresDPPercAliqIss := DDT.DriverByName(nomeDriver).Value('PERCALIQISS');
+				  
+    { Dados para o pagamento }  				  
+    FormCadPrestadoresDPAgencia     := DDT.DriverByName(nomeDriver).Value('IDAGENCIA');
+    FormCadPrestadoresDPContaBanco  := DDT.DriverByName(nomeDriver).Value('CONTA');
+    FormCadPrestadoresDPDigitoConta := DDT.DriverByName(nomeDriver).Value('DIGITOCONTA');
+	
+    { Dados para a exportação }  	
+    FormCadPrestadoresDPFornecFin        := DDT.DriverByName(nomeDriver).Value('FORNECEDORFIN');
+    FormCadPrestadoresDPAnalitFin        := DDT.DriverByName(nomeDriver).Value('ANALITICAFIN');
+    FormCadPrestadoresDPCCFin            := DDT.DriverByName(nomeDriver).Value('CCFIN');
+    FormCadPrestadoresDPSituacaoFin      := DDT.DriverByName(nomeDriver).Value('SITUACAOFIN');
+    FormCadPrestadoresDPFornecFinDesc    := DDT.DriverByName(nomeDriver).Value('FORNECEDORFINDESC');
+    FormCadPrestadoresDPAnaliticaFinDesc := DDT.DriverByName(nomeDriver).Value('ANALITICAFINDESC');
+    FormCadPrestadoresDPCCFinDesc        := DDT.DriverByName(nomeDriver).Value('CCFINDESC');
+    FormCadPrestadoresDPSituacaoFinDesc  := DDT.DriverByName(nomeDriver).Value('SITUACAOFINDESC');
+    
+  DDT.CloseDriver(DDT.CurrentDriver.Name)  ;
+end;

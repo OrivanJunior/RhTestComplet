@@ -1,0 +1,79 @@
+﻿{Script para mapear o Processo de RAIS Sistema
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Datas: 25/06/2021}
+
+var
+  FormRaisSistema, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormRaisSistemaWhEstabEspec, FormRaisSistemaWhEstabEspecCampo,
+  FormRaisSistemaWhEstabTodosEmp, FormRaisSistemaWhEstabTodosEmpCampo,
+  FormRaisSistemaWhEstabTodos, FormRaisSistemaWhEstabSelec,
+  FormRaisSistemaWhEstabSelecCampo, 
+  
+  FormRaisSistemaWhLocaisTodos, FormRaisSistemaWhLocaisEspec, 
+  FormRaisSistemaWhLocaisEspecCampo, FormRaisSistemaWhLocaisSelec, 
+  FormRaisSistemaWhLocaisSelecCampo,
+  
+  FormRaisSistemaWhEmpreTodos, FormRaisSistemaWhEmpreEspec,
+  FormRaisSistemaWhEmpreEspecCampo, FormRaisSistemaWhEmpreSelec,
+  FormRaisSistemaWhEmpreSelecCampo, 
+  
+  FormRaisSistemaWhDataIni, FormRaisSistemaWhDataFin,
+  
+  FormRaisSistemaWhProcTodos, FormRaisSistemaWhProcEspec, 
+  FormRaisSistemaWhProcEspecCampo, FormRaisSistemaWhProcSelec, 
+  FormRaisSistemaWhProcSelecCampo,
+  
+  FormRaisSistemaWhPrestTodos, FormRaisSistemaWhPrestEspec,
+  FormRaisSistemaWhPrestEspecCampo, FormRaisSistemaWhPrestSelec,
+  FormRaisSistemaWhPrestSelecCampo,
+   
+  FormRaisSistemaWhAnoBase: OleVariant;
+  
+procedure MapRaisSistema();
+begin
+  FormRaisSistema                     := Aliases.Folha.FRhProcRaisSist;
+  
+  btnSair                             := Aliases.Folha.FRhProcRaisSist.BSair;
+  btnExecutar                         := Aliases.Folha.FRhProcRaisSist.bExecutar;
+  btnSalvar                           := Aliases.Folha.FRhProcRaisSist.tbSalvar;
+  btnRelatorio                        := Aliases.Folha.FRhProcRaisSist.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormRaisSistemaWhEstabEspec         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormRaisSistemaWhEstabEspecCampo    := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormRaisSistemaWhEstabTodosEmp      := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormRaisSistemaWhEstabTodosEmpCampo := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormRaisSistemaWhEstabTodos         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormRaisSistemaWhEstabSelec         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormRaisSistemaWhEstabSelecCampo    := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+    
+  { Filtro de Empregados }
+  FormRaisSistemaWhEmpreTodos         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormRaisSistemaWhEmpreEspec         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormRaisSistemaWhEmpreEspecCampo    := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormRaisSistemaWhEmpreSelec         := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormRaisSistemaWhEmpreSelecCampo    := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Locais }
+  FormRaisSistemaWhLocaisTodos        := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormRaisSistemaWhLocaisEspec        := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormRaisSistemaWhLocaisEspecCampo   := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormRaisSistemaWhLocaisSelec        := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormRaisSistemaWhLocaisSelecCampo   := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Processamentos }
+  FormRaisSistemaWhProcTodos          := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormRaisSistemaWhProcEspec          := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormRaisSistemaWhProcEspecCampo     := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormRaisSistemaWhProcSelec          := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormRaisSistemaWhProcSelecCampo     := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Filtro de Datas }
+  FormRaisSistemaWhDataIni            := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormRaisSistemaWhDataFin            := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+    
+  { Dados Adicionais }
+  FormRaisSistemaWhAnoBase            := Aliases.Folha.FRhProcRaisSist.pg.tsSelecao.SB_Selecao.whDados.EB_Ano;
+end;

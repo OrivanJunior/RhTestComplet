@@ -1,0 +1,27 @@
+﻿{Script de DataPool do Processo de Exportação de Admitidos/Demitidos/Atualizados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 13/07/2021}  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroTipo, FiltroLocalGrav: OleVariant;
+
+procedure LeDataPoolExpAdmDem(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro'); 
+    { Filtro Estab }
+    FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+    { Filtro Empregados }
+    FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+    FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+  
+    { Dados Adicionais }
+    FiltroLocalGrav  := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+    FiltroTipo       := DDT.DriverByName(nomeDriver).Value('TIPO');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

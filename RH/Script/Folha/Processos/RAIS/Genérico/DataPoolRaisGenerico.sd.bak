@@ -1,0 +1,35 @@
+﻿{Script de DataPool do Processo de RAIS Genérico
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 25/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroAnoBase, FiltroIdPessoa,
+  FiltroRetifica, FiltroDtRetificacao,
+  FiltroCREA, FiltroEncerra,
+  FiltroDtEncerra, FiltroCaminho,
+  FiltroProjAviso: OleVariant;
+
+procedure LeDataPoolRaisGenerico(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo        := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+    FiltroEstabValor       := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+   
+    { Filtro Dados Adicionais }
+    FiltroAnoBase          := DDT.DriverByName(nomeDriver).Value('ANO_BASE');
+    FiltroIdPessoa         := DDT.DriverByName(nomeDriver).Value('ID_PESSOA');
+    FiltroRetifica         := DDT.DriverByName(nomeDriver).Value('RETIFICA');
+    FiltroDtRetificacao    := DDT.DriverByName(nomeDriver).Value('DT_RETIFICACAO');
+    FiltroCREA             := DDT.DriverByName(nomeDriver).Value('CREA');
+    FiltroEncerra          := DDT.DriverByName(nomeDriver).Value('ENCERRA');
+    FiltroDtEncerra        := DDT.DriverByName(nomeDriver).Value('DT_ENCERRA');
+    FiltroCaminho          := DDT.DriverByName(nomeDriver).Value('LOCAL_GRAV');
+    FiltroProjAviso        := DDT.DriverByName(nomeDriver).Value('PROJ_AVISO');
+    
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

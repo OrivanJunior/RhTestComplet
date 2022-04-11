@@ -1,0 +1,116 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolBanco,
+  ObjBanco,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Banco
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTBanco: OleVariant; 
+
+procedure AcessaCadBanco();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Bancos');
+end;
+
+procedure InsereDadosBanco();
+begin
+  VerificaInsere(FormCadBancoIdBanco, FormCadBancoDPIdBanco);
+  VerificaInsere(FormCadBancoNome, FormCadBancoDPNome);
+  VerificaInsere(FormCadBancoIdLayCheque, FormCadBancoDPIdLayCheque);
+  VerificaInsere(FormCadBancoIdBancoComp, FormCadBancoDPIdBancoComp);
+end;
+
+procedure ExeCadastraBanco(pathData);
+begin
+  AcessaCadBanco();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTBanco := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadBanco(DDTBanco.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHBANCO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadBancoDPIdBanco);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadBanco();
+     
+    if (FormCadBanco.Exists) then
+    begin
+      InsereDadosBanco();
+      
+      ActSalvar(FormCadBanco);
+      ActFechar(FormCadBanco);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTBanco.Name);
+end;
+
+procedure ExeAlteraBanco(pathData);
+begin
+  AcessaCadBanco();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTBanco := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadBanco(DDTBanco.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHBANCO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadBancoDPIdBanco);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadBanco();   
+     
+    if (FormCadBanco.Exists) then
+    begin
+      InsereDadosBanco();
+      
+      ActSalvar(FormCadBanco);
+      ActFechar(FormCadBanco);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTBanco.Name);
+end;
+
+procedure ExeExcluirBanco(pathData);
+begin
+  AcessaCadBanco();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTBanco := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadBanco(DDTBanco.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHBANCO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadBancoDPIdBanco);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHBANCO');
+    ActFechar(FormCadBanco);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTBanco.Name);
+end;

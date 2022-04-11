@@ -1,0 +1,69 @@
+﻿uses
+  CommonsAll,  CommonsObj, VarConsts;
+
+var
+  FormRelRPA,
+  btnPrint: OleVariant;
+  
+  { Filtro de Estabelecimento }
+  FormRelRpaWhEstabEspec, FormRelRpaWhEstabEspecCampo,
+  FormRelRpaWhEstabTodosEmp, FormRelRpaWhEstabTodosEmpCampo, FormRelRpaWhEstabTodos,
+  FormRelRpaWhEstabSelec, FormRelRpaWhEstabSelecCampo: OleVariant;
+  
+  { Filtro de Prestador }
+  FormRelRpaWhPrestTodos, 
+  FormRelRpaWhPrestSelec, FormRelRpaWhPrestEspec,
+  FormRelRpaWhPrestEspecCampo, FormRelRpaWhPrestSelecCampo: OlaVariant;
+  
+  { Filtro de Datas }
+  FormRelRpaWhDataDtIni, FormRelRpaWhDataDtFin: OlaVariant;
+  
+  { Dados Adicionais }
+  FormRelRpaWhDadosMensagem, FormRelRpaWhDadosMoeda,
+  FormRelRpaWhDadosListaBanco: OleVariant;
+  
+  { Tela Preview }
+  FormPreviewRPA, FormPreviewRPADock, FormPreviewRpaToolBar, 
+  FormPreviewRpa100ZoomButton, FormPreviewRpaCancelButton,
+  
+  FormPreviewRpaPanel, FormPreviewRpaViewer, FormPreviewRPaScrollBox: OleVariant;
+  
+procedure MapRelatorioRPA();
+begin
+  FormRelRPA := Aliases.Folha.FRhRelRPA;
+  
+  btnPrint   := Aliases.Folha.FRhRelRPA.BPreview;
+  
+  { Filtro de Estabelecimento }
+  
+  FormRelRpaWhEstabEspec         := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs40;
+  FormRelRpaWhEstabEspecCampo    := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs80;
+  FormRelRpaWhEstabTodosEmp      := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs50;
+  FormRelRpaWhEstabTodosEmpCampo := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs100;
+  FormRelRpaWhEstabTodos         := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs120;
+  FormRelRpaWhEstabSelec         := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs60;
+  FormRelRpaWhEstabSelecCampo    := Aliases.Folha.FRhRelRPA.whEstabs.whEstabs70;
+  
+  { Filtro de Prestador }
+  FormRelRpaWhPrestTodos      := Aliases.Folha.FRhRelRPA.WhPrestador.WhPrestador30;
+  FormRelRpaWhPrestEspec      := Aliases.Folha.FRhRelRPA.WhPrestador.WhPrestador20;
+  FormRelRpaWhPrestEspecCampo := Aliases.Folha.FRhRelRPA.WhPrestador.WhPrestador50;
+  FormRelRpaWhPrestSelec      := Aliases.Folha.FRhRelRPA.WhPrestador.WhPrestador40;
+  FormRelRpaWhPrestSelecCampo := Aliases.Folha.FRhRelRPA.WhPrestador.WhPrestador80;
+  
+  { Filtro de Datas }
+  FormRelRpaWhDataDtIni := Aliases.Folha.FRhRelRPA.whDatas.whDatas20;
+  FormRelRpaWhDataDtFin := Aliases.Folha.FRhRelRPA.whDatas.whDatas30;
+  
+  { Dados Adicionais }
+  FormRelRpaWhDadosMensagem   := Aliases.Folha.FRhRelRPA.whDados.memoMSG;
+  FormRelRpaWhDadosMoeda      := Aliases.Folha.FRhRelRPA.whDados.EB_IDMOEDA;
+  FormRelRpaWhDadosListaBanco := Aliases.Folha.FRhRelRPA.whDados.EB_ListaBanco;
+end;
+
+procedure MapPreview();
+begin
+  FormPreviewRPA              := Aliases.Folha.ppPrintPreview;
+  FormPreviewRpa100ZoomButton := Aliases.Folha.ppPrintPreview.GetPercent100Button; 
+  FormPreviewRpaCancelButton  := Aliases.Folha.ppPrintPreview.GetCancelButton;
+end;

@@ -1,0 +1,15 @@
+﻿{ Script para criar DataPool da tela de cadastro de EntidadePrev
+  Módulo: Folha
+  Autor: Renato Balbinotti
+  Data: 18/03/2021 }
+ 
+var
+  FormCadEntidadePrevDPIdentidadeInfpc, FormCadEntidadePrevDPCNPJ, 
+  FormCadEntidadePrevDPRazaoSoc: OleVariant; 
+  
+procedure LeDataPoolCadEntidadePrev(nomeDriver);
+begin
+  FormCadEntidadePrevDPIdentidadeInfpc := DDT.DriverByName(nomeDriver).Value('IDENTIDADEINFPC');
+  FormCadEntidadePrevDPCNPJ            := DDT.DriverByName(nomeDriver).Value('CNPJ');
+  FormCadEntidadePrevDPRazaoSoc        := DDT.DriverByName(nomeDriver).Value('RAZAOSOC'); 
+end;

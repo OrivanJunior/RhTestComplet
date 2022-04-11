@@ -1,0 +1,35 @@
+﻿{Script para mapear o Cadastro de Controle de Processsamento por Grupo
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}
+ 
+var
+  FormCadControle, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+  
+  CadControlewhGruposEspec, CadControlewhGruposEspecCampo,
+  CadControlewhGruposTodosEmp, CadControlewhGruposTodosEmpCampo,
+  CadControlewhGruposTodos, CadControlewhGruposSelec,
+  CadControlewhGruposSelecCampo, 
+  
+  CadControlePeriodo: OleVariant;
+  
+procedure MapCadControlePorGrupos();
+begin
+  FormCadControle               := Aliases.Ponto.FRhProcPontoControlePorGrupo;
+  
+  btnSair                       := Aliases.Ponto.FRhProcPontoControlePorGrupo.BSair;
+  btnExecutar                   := Aliases.Ponto.FRhProcPontoControlePorGrupo.bExecutar;
+  btnSalvar                     := Aliases.Ponto.FRhProcPontoControlePorGrupo.tbSalvar;
+  btnRelatorio                  := Aliases.Ponto.FRhProcPontoControlePorGrupo.tbRelatorio;
+
+  { Filtro de Grupo de Empresas }
+  CadControlewhGruposEspec      := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos20;
+  CadControlewhGruposEspecCampo := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos50;
+  CadControlewhGruposTodos      := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos30;
+  CadControlewhGruposSelec      := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos40;
+  CadControlewhGruposSelecCampo := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.whGrupos.whGrupos80;
+  
+  { Dados do Controle }
+  CadControlePeriodo            := Aliases.Ponto.FRhProcPontoControlePorGrupo.pg.tsSelecao.SB_Selecao.pnCab.EB_MESANO;
+end;

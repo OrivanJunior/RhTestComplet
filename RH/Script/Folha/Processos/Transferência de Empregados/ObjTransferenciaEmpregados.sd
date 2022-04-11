@@ -1,0 +1,32 @@
+﻿{Script para mapear a Transferência de Empregados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 23/06/2021}
+ 
+var
+  FormTransfEmpregados, 
+  btnSair, btnExecutar, 
+  TransfEmpEBEstabDest,
+  btnIncEmp, btnSaveEmp,
+  btnExcEmp, btnDesfEmp,
+  btnFiltEmp, btnLimpEmp,
+  btnCopyEmp, TransfEmpGrid: OleVariant;
+  
+procedure MapTransferenciaEmpregados();
+begin
+  FormTransfEmpregados := Aliases.Folha.FRhProcTransfEmpregados;
+  
+  btnSair              := Aliases.Folha.FRhProcTransfEmpregados.BSair;
+  btnExecutar          := Aliases.Folha.FRhProcTransfEmpregados.bExecutar;
+  
+  TransfEmpEBEstabDest := Aliases.Folha.FRhProcTransfEmpregados.pg.tsProcesso.VsGroupBox1.EB_ESTAB;
+  
+  btnIncEmp            := Aliases.Folha.FRhProcTransfEmpregados.bEmpreInc;
+  btnSaveEmp           := Aliases.Folha.FRhProcTransfEmpregados.bEmpreSave;
+  btnExcEmp            := Aliases.Folha.FRhProcTransfEmpregados.bEmpreExc;
+  btnDesfEmp           := Aliases.Folha.FRhProcTransfEmpregados.bEmpreDesf;
+  btnFiltEmp           := Aliases.Folha.FRhProcTransfEmpregados.bFilEmp;
+  btnLimpEmp           := Aliases.Folha.FRhProcTransfEmpregados.bExcAllEmp;
+  btnCopyEmp           := Aliases.Folha.FRhProcTransfEmpregados.bCopiarInf;
+  TransfEmpGrid        := Aliases.Folha.FRhProcTransfEmpregados.pg.tsProcesso.VsGroupBox2.gTransf;
+end;

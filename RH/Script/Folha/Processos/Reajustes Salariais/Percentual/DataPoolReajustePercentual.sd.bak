@@ -1,0 +1,67 @@
+﻿{Script de DataPool do Processo de Reajuste Salarial por Percentual
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 22/06/2021}
+  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroFuncaoTipo, FiltroFuncaoValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroSindicatosTipo, FiltroSindicatosValor,
+  
+  FiltroMotivoTipo, FiltroMotivoValor,
+  
+  FiltroMotivo, FiltroMoeda,
+  FiltroDataReaj, FiltroRetroativo,
+  FiltroDtRetroativa, FiltroPercReaj,
+  FiltroValAcerto, FiltroValMinReaj,
+  FiltroInfosAdc: OleVariant;
+
+procedure LeDataPoolReajustePercentual(pathData);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo      := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor     := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Funções }
+  FiltroFuncaoTipo     := DDT.DriverByName(nomeDriver).Value('TIPOFUNCAO');
+  FiltroFuncaoValor    := DDT.DriverByName(nomeDriver).Value('FUNCAOVALOR');      
+    
+  { Filtro Locais }
+  FiltroLocalTipo      := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor     := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');  
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo      := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor     := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+
+  { Filtro Situações }
+  FiltroSituacaoTipo      := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+  FiltroSituacaoValor     := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+    
+  { Filtro Sindicatos }
+  FiltroSindicatosTipo  := DDT.DriverByName(nomeDriver).Value('TIPOSINDICATO');
+  FiltroSindicatosValor := DDT.DriverByName(nomeDriver).Value('SINDICATOVALOR');
+    
+  { Filtro Sindicatos }
+  FiltroMotivoTipo     := DDT.DriverByName(nomeDriver).Value('TIPOMOTIVO');
+  FiltroMotivoValor    := DDT.DriverByName(nomeDriver).Value('MOTIVOVALOR');  
+        
+  { Filtro Dados Adicionais }
+  FiltroMotivo         := DDT.DriverByName(nomeDriver).Value('IDMOTIVO');
+  FiltroMoeda          := DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+  FiltroDataReaj       := DDT.DriverByName(nomeDriver).Value('DATAREAJUSTE');
+  FiltroRetroativo     := DDT.DriverByName(nomeDriver).Value('RETROATIVO');
+  FiltroDtRetroativa   := DDT.DriverByName(nomeDriver).Value('DTRETROATIVA');
+  FiltroPercReaj       := DDT.DriverByName(nomeDriver).Value('PERCREAJUSTE');
+  FiltroValAcerto      := DDT.DriverByName(nomeDriver).Value('VALACERTO');
+  FiltroValMinReaj     := DDT.DriverByName(nomeDriver).Value('VALMINREAJ');
+  FiltroInfosAdc       := DDT.DriverByName(nomeDriver).Value('INFOSADC');
+end;

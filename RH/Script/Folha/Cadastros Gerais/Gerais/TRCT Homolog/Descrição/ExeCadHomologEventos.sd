@@ -1,0 +1,119 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolHomologEventos,
+  ObjHomologEventos,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de HomologEventos
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTHomologEventos: OleVariant;
+
+procedure AcessaCadHomologEventos();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'TRCT Homolog', 'Eventos');
+end;
+
+procedure InsereDadosHomologEventos();
+begin
+  VerificaInsere(FormCadHomologEventosCampo, FormCadHomologEventosDPCampo);
+  VerificaInsere(FormCadHomologEventosNivel, FormCadHomologEventosDPNivel);
+  VerificaInsere(FormCadHomologEventosIdEvento, FormCadHomologEventosDPIdEvento);
+  VerificaInsere(FormCadHomologEventosOperacao, FormCadHomologEventosDPOperacao);
+end;
+
+procedure ExeCadastraHomologEventos(pathData);
+begin
+  AcessaCadHomologEventos();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTHomologEventos := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadHomologEventos(DDTHomologEventos.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTRCTHOMOLOG');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Campo',    FormCadHomologEventosDPCampo);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento',   FormCadHomologEventosDPIdEvento);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadHomologEventos();
+     
+    if (FormCadHomologEventos.Exists) then
+    begin
+      InsereDadosHomologEventos();
+      
+      ActSalvar(FormCadHomologEventos);
+      ActFechar(FormCadHomologEventos);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTHomologEventos.Name);
+end;
+
+procedure ExeAlteraHomologEventos(pathData);
+begin
+  AcessaCadHomologEventos();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTHomologEventos := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadHomologEventos(DDTHomologEventos.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTRCTHOMOLOG');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Campo',  FormCadHomologEventosDPCampo);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento', FormCadHomologEventosDPIdEvento);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadHomologEventos();   
+     
+    if (FormCadHomologEventos.Exists) then
+    begin
+      InsereDadosHomologEventos();
+      
+      ActSalvar(FormCadHomologEventos);
+      ActFechar(FormCadHomologEventos);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTHomologEventos.Name);
+end;
+
+procedure ExeExcluirHomologEventos(pathData);
+begin
+  AcessaCadHomologEventos();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTHomologEventos := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadHomologEventos(DDTHomologEventos.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTRCTHOMOLOG');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Campo',    FormCadHomologEventosDPCampo);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento',   FormCadHomologEventosDPIdEvento);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHTRCTHOMOLOG');
+    ActFechar(FormCadHomologEventos);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTHomologEventos.Name);
+end;

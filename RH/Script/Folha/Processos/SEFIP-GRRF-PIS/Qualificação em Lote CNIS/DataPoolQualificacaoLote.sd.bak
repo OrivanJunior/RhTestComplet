@@ -1,0 +1,40 @@
+﻿{Script de DataPool do Processo de Qualificação em Lote
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 06/07/2021}
+   
+var
+  FiltroEstabTipo,  FiltroEstabValor,
+
+  FiltroEmpreTipo, FiltroEmpreValor,
+
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+
+  FiltroLocalTipo, FiltroLocalValor,
+
+  FiltroLocalGravacao, FiltroDataGeracao,
+  FiltroSeqDia: OleVariant;
+
+procedure LeDataPoolQualificacaoLote();
+begin
+  { Filtro Estab }
+  FiltroEstabTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+  FiltroEstabValor      := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+    
+  { Filtro Locais }
+  FiltroLocalTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_LOCAL');
+  FiltroLocalValor      := DDT.DriverByName(nomeDriver).Value('LOCAL_VALOR');    
+    
+  { Filtro Situações }
+  FiltroSituacaoTipo    := DDT.DriverByName(nomeDriver).Value('TIPO_SITUACAO');
+  FiltroSituacaoValor   := DDT.DriverByName(nomeDriver).Value('SITUACAO_VALOR');     
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpreValor      := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');    
+    
+  { Filtro Dados Adicionais }
+  FiltroLocalGravacao   := DDT.DriverByName(nomeDriver).Value('LOCAL_GRAV');
+  FiltroDataGeracao     := DDT.DriverByName(nomeDriver).Value('GERACAO');
+  FiltroSeqDia          := DDT.DriverByName(nomeDriver).Value('SEQ_DIA');
+end;

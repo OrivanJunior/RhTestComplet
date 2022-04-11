@@ -1,0 +1,873 @@
+﻿uses
+  CommonsObj,
+  ExeTelaLogin,
+  SelecaoEstab,
+  VarConsts;
+{Script padrão de execução para todos os módulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 11/01/2018}
+ 
+procedure TelaLiberacao(sModulo: String);
+var
+  Modulo, FormRevalidacao, 
+  FormRevalidacaoBtnSim, FormRevalidacaoBtnNao : OleVariant;
+begin
+  Modulo := Sys.Process(sModulo);
+  
+  if (Modulo.WaitWindow('#32770', 'Atenção...', 1, 5000).Exists) then
+  begin
+    //FormRevalidacao := Modulo.Window('#32770', '  A T E N Ç Ã O  ', 1);
+    FormRevalidacao := Modulo.Window('#32770', 'Atenção...', 1);
+    
+    if Assigned(FormRevalidacao.Window('Button', '&Sim', 1)) then
+      FormRevalidacaoBtnSim := FormRevalidacao.Window('Button', '&Sim', 1);
+    If Assigned(FormRevalidacao.Window('Button', '&Não', 2)) then
+      FormRevalidacaoBtnNao := FormRevalidacao.Window('Button', '&Não', 2);
+      
+    if (FormRevalidacao.Exists) then
+    begin
+      if Assigned(FormRevalidacaoBtnNao) then
+        FormRevalidacaoBtnNao.clickButton;
+    end;  
+  end;
+end;  
+
+procedure FecharServidorAplicacao();
+var
+  Viasoft3C_XE : OleVariant;
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+  Viasoft3C_XE.VCLObject('frmServerPrincFisco').MainMenu.Click('Arquivo|[0]');
+  Viasoft3C_XE.Window('#32770', 'Encerrar o Servidor').Window('Button', '&Sim').ClickButton;
+end;
+
+procedure ValidaFormAberto(sModulo, sForm : string);
+begin
+  if (Sys.Process(sModulo).VCLObject(sForm).Exists) then
+  begin
+    Delay(1000);
+    Sys.Process(sModulo).VCLObject(sForm).Close();
+  end;  
+end;
+
+procedure ActSalvar(Form: OleVariant);
+begin
+   Form.ActSalvar.Execute();
+end;
+
+procedure ActSalvarNota(Form: OleVariant);
+var
+  TelaSalvar, BtnSavSim : OleVariant;
+begin
+  Sys.Process('Folha').VCLObject(Form).Keys('^s');
+ 
+  TelaSalvar  := Sys.Process('Folha').Window('#32770', 'Atenção', 1);
+  BtnSavSim   := TelaSalvar.Window('Button', '&Sim', 1);
+
+  BtnSavSim.Click();
+end;
+
+procedure ActConsulta(Form: OleVariant);
+begin
+  Form.ActFormulario.Execute();
+end;
+
+procedure ActBrowse(Form: OleVariant);
+begin
+  Form.ActBrowse.Execute();
+end;
+
+procedure ActIncluir(Form: OleVariant);
+begin
+  Form.actIncluir.Execute();
+end;
+
+procedure ActCopiar (Form:OleVariant);
+begin
+  Form.zActCopiarRegistro.Execute();
+end;
+
+procedure ActColar (Form:OleVariant);
+begin
+  Form.zActColarRegistro.Execute();
+end;
+
+procedure ActFechar(Form: OleVariant);
+begin
+  Form.ActFechar.Execute();
+end;
+
+procedure ActExecutar(Form: OleVariant);
+begin
+  Form.ActExecutar.Execute();
+end;
+
+procedure CancelarProcesso(Form: OleVariant);
+begin
+  Form.ActDesfazer.Execute();
+end;
+
+procedure ActAtualizar(Form: OleVariant);
+begin
+  Form.actRefresh.Execute();
+end;
+
+procedure ActExcluir(sModulo, Form: String);
+var
+  CaptionForm : String;
+  TelaExcluir, BtnExcSim : OleVariant;
+begin
+  CaptionForm := Sys.Process(sModulo).VCLObject(Form).Caption();
+
+  Sys.Process(sModulo).VCLObject(Form).Keys('^[Del]');
+
+  TelaExcluir := Sys.Process(sModulo).Window('#32770', CaptionForm, 1);
+  BtnExcSim   := TelaExcluir.Window('Button', '&Sim', 1);
+
+  BtnExcSim.Click();
+end;
+
+function VerificaCaracterEspecial(stringVerificada:OleVariante):boolean ;
+var i, j:interger;
+mascara : OleVariant; 
+begin
+  mascara:='áÁãÃâÂàÀéÉêÊíÍóÓõÕôÔúÚçÇ';
+  
+  for i := 1 to Length(mascara)  do
+  begin
+    for j := 1 to Length(stringVerificada) do
+    begin
+      if stringVerificada[j] = mascara[i] then
+      begin
+        result := true;
+        exit
+      end;
+    end;
+  end;
+end;
+
+function AlteraStringParaPesquisa(stringVerificada:OleVariant):OleVariant;
+var i, j:interger;
+mascara, stringFinal : OleVariant; 
+begin
+  mascara:='áÁãÃâÂàÀéÉêÊíÍóÓõÕôÔúÚçÇ';
+  stringFinal:=StringVerificada;
+  for i := 1 to Length(mascara)  do
+    begin
+    for j := 1 to Length(stringVerificada) do
+      begin
+      if stringFinal[j] = mascara[i] then
+        stringFinal[j] := '%'
+    end;
+  end;
+  result := stringFinal;
+end;
+
+procedure EscolheMetodoDeInsercao(componente,texto:OleVariant);
+begin
+  if (Assigned(texto) and componente.Enabled) then
+  begin
+    if VerificaCaracterEspecial(texto) then
+    componente.SetText(texto)
+  else
+    componente.Keys(texto)
+  end;
+end;
+
+procedure EscolheMetodoDeInsercaoPesquisa(componente,texto:OleVariant);
+begin
+  if VerificaCaracterEspecial(texto) then
+    componente.Keys(AlteraStringParaPesquisa(texto))
+  else
+    componente.Keys(texto);
+    componente.Keys('[Enter]');
+end;
+
+procedure FiltraGrid2(Grid, Valor, Coluna);
+begin
+  if (Grid.ActiveView.ViewData.RowCount > 0) and (Assigned(Valor)) then
+  begin
+    Grid.ClickCell(0, Coluna,0);
+    Grid.Keys('[Up]');
+    Grid.Keys('[Enter]');
+    
+    EscolheMetodoDeInsercaoPesquisa(Grid, Valor);
+  end;
+end;
+
+procedure FiltraGridSelEstab(fgModulo, fgForm, fgPage, fgGrid: OleVariant, fgColuna, fgValor : string);
+var
+  Modulo, Form, FormPage, FormGrid: OleVariant;
+begin
+  Modulo   := Sys.Process(fgModulo);
+  Form     := Modulo.VCLObject(fgForm);
+  FormPage := Form.VCLObject(fgPage);
+  FormGrid := FormPage.VCLObject(fgGrid);
+
+  if (FormGrid.ActiveView.ViewData.RowCount > 0) and (Assigned(fgValor)) then
+  begin
+    FormGrid.ClickCell(1, fgColuna, 0);    
+    EscolheMetodoDeInsercaoPesquisa(FormGrid, fgValor);
+    FormGrid.Keys('[Enter]');
+    
+    Delay(2000);
+    
+//    if(FormGrid.ActiveView.ViewData.RowCount > 0) then
+//      FormPage.VCLObject('PanOpcoes').VCLObject('btnSelecionar').Click();
+  end;
+end;
+
+procedure FiltraGrid(fgModulo, fgForm, fgGrid: OleVariant, fgColuna, fgValor : string);
+begin
+  if (Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ActiveView.ViewData.RowCount > 0) and (Assigned(fgValor)) then
+  begin
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ClickCell(0, fgColuna,0);
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Up]');
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Enter]');
+    
+    EscolheMetodoDeInsercaoPesquisa(Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid), fgValor);
+    
+    Delay(2000);
+    
+    if(Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ActiveView.ViewData.RowCount > 0) then
+      Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ClickCell(0, fgColuna,0);
+  end;
+end;
+
+procedure FazConsultaF3(sModulo, sFiltro : String);
+begin
+  Delay(1000);
+  MapConsultaF3(sModulo);
+  if Assigned(sFiltro) then
+    begin
+    FormConsCpoProc.Clear;
+    EscolheMetodoDeInsercao(FormConsCpoProc, sFiltro);
+    FormConsCpoProc.Keys('[Enter]');
+    Delay(1000);
+    if (FormConsPnlGrid.ActiveView.ViewData.RowCount > 0) then  
+      FormConsCpoProc.Keys('[Enter]')
+    else
+      FormConsTelaF3.Close;  
+  end
+  else
+    FormConsTelaF3.Close;
+  Delay(1000);  
+end;
+
+procedure FazConsultaCPFCNPJ(sModulo, sCodCPFCNPJ : String);
+begin
+  MapConsultaCPFCNPJ(sModulo);
+  FormConsEbCNPJ.Keys(sCodCPFCNPJ);
+  Delay(500);
+  FormConsBtnPesquis.Click();
+  Delay(1000);
+  FormConsBtnOkRet.Click();
+end;
+
+procedure FazConsultaCEP(sModulo, sCodCEP : String);
+begin
+  MapConsultaCEP(sModulo);
+  SelecionaServico.ClickItem('RepublicaVirtual');
+  FormConsEbCEP.Keys(sCodCEP);
+  Delay(500);
+  FormConsGBBtnPesq.Click();
+  Delay(1000);
+  if (FormConsDBGCEP.ActiveView.ViewData.RowCount > 0) then
+    FormConsCEPBtnRet.Click()
+  else
+    FormConsCEPBtnExit.Click();
+end;
+
+function FiltraGridEmLoop(fgModulo, fgForm, nxForm, fgGrid: OleVariant, fgColuna, fgValor : string): interger ;
+var tamanho, qtdeResultados :integer;
+begin
+  if (Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ActiveView.ViewData.RowCount > 0) and
+     (Assigned(fgValor)) then
+    begin
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ClickCell(0,fgColuna,0);
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Up]');
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Enter]');
+    EscolheMetodoDeInsercaoPesquisa(Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid),(fgValor));
+    Delay(2000);
+    qtdeResultados := Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).ActiveView.ViewData.RowCount;
+    if qtdeResultados >= 1 then
+      Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('^m');
+    {else if qtdeResultados > 1 then
+      begin
+      ActExcluir(fgModulo,fgForm);
+      Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('^m');
+    end;}
+    Delay(1000);
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Up]');
+    
+    tamanho := 0;
+    while tamanho < Length(fgValor) do
+    begin
+      Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[BS]');
+      tamanho := tamanho + 1;
+    end;
+    
+    Sys.Process(fgModulo).VCLObject(fgForm).VCLObject(fgGrid).Keys('[Down]');
+    result := qtdeResultados;
+  end;
+end;
+
+procedure PreencheDatas(componente, data: OleVariant);
+begin
+  if (componente.Exists) then
+  begin
+    if (Assigned(componente) and Assigned(data)) then
+    begin 
+      componente.SetText(data);
+      componente.Keys('[Enter]');
+    end;
+  end;
+end;
+
+procedure VerificaClickPreencheGrid(grid, linha, coluna, informacao :OleVariant);
+begin
+  if Assigned(grid) then
+    begin
+    grid.ClickCell(linha, coluna, 0);
+    EscolheMetodoDeInsercao(grid, informacao);
+    //grid.Keys('[Enter]')
+  end;
+end;
+
+procedure ClickColuna(grid, linha, coluna :OleVariant);
+begin
+  if Assigned(grid) then
+    begin
+    grid.ClickCell(linha, coluna);
+  end;
+end;
+
+procedure VerificaInsere(campo, dado : OleVariant);
+begin
+  if Assigned(dado) and campo.Exists then
+    EscolheMetodoDeInsercao(campo, dado)
+end;
+
+procedure SelecionaEmpregadosTelaSelecao(modulo, campo, informacao:OleVariant);
+begin
+  if Assigned(informacao) and campo.Enabled then
+    begin
+      campo.Keys(informacao);
+      campo.Keys('[Enter]')
+  end;
+end;
+
+function Pow (base, expoente :integer);
+var i, resultado;
+begin
+  resultado := 1;
+  for i := 1 to expoente do
+  begin
+    resultado := base * resultado;
+  end;
+  result := resultado;
+end;
+
+function AdicionaZero(valor, qtdeZeros: integer);
+var i, stringZeros;
+begin
+  if valor < Pow(10, qtdeZeros) then
+    begin
+    stringZeros := '';
+    for i := 1 to qtdeZeros do 
+      begin
+      stringZeros := stringZeros+'0'
+    end;
+    result := stringZeros + IntToStr(valor);  
+  end
+  else
+    result := IntToStr(valor);
+end;
+
+function GeraSenha(tipoDatabase:String);
+var senha, hora, dia, mes, somaMesDia, somaUnidadeDezena;
+begin
+  hora := aqDateTime.GetHours(aqDateTime.Now());
+  dia := aqDateTime.GetDay(aqDateTime.Now());
+  mes := aqDateTime.GetMonth(aqDateTime.Now());
+  somaMesDia := AdicionaZero(dia+mes,1);
+  somaUnidadeDezena := AdicionaZero(StrToInt(aqString.GetChar(somaMesDia,0))+StrToInt(aqString.GetChar(somaMesDia,1)),1);
+  if aqString.ToUpper(tipoDatabase) = 'ORACLE' then
+    senha := 'VIASOFTRH' + AdicionaZero(somaMesDia,1) + AdicionaZero(hora,1) + somaUnidadeDezena
+  else
+    senha := '153' + AdicionaZero(somaMesDia,1) + AdicionaZero(hora,1) + somaUnidadeDezena;
+  result := senha;
+end;
+
+procedure GerarImagem(componente:OleVariant; mensagem:string);
+var imagem;
+begin
+  //path,nome:String;
+  //imagem := Utils.Picture;
+  //imagem.LoadFromFile(path+'\'+nome);
+  //Log.Picture(imagem);
+  //imagem.SaveToFile(path+'\'+nome);
+  Sys.Clipboard := componente.Picture;
+  Log.Picture(Sys.Clipboard, mensagem);
+  
+end;
+
+procedure AcessaItem(Modulo:string; Aba:string; Item:string; Subitem:string=''; Subsubitem:string=''; Subsubsubitem:string='');
+begin
+  if ((Subitem = '') and (Subsubitem = '') and (Subsubsubitem = '')) then 
+    Sys.Process(Modulo).VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|'+Aba+'|'+Item);
+  if ((Subitem <> '') and (Subsubitem = '') and (Subsubsubitem = '')) then 
+    Sys.Process(Modulo).VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|'+Aba+'|'+Item+'|'+Subitem);
+  if ((Subitem <> '') and (Subsubitem <> '') and (Subsubsubitem = '')) then 
+    Sys.Process(Modulo).VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|'+Aba+'|'+Item+'|'+Subitem+'|'+Subsubitem);
+  if ((Subitem <> '') and (Subsubitem <> '') and (Subsubsubitem <> '')) then 
+    Sys.Process(Modulo).VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|'+Aba+'|'+Item+'|'+Subitem+'|'+Subsubitem+'|'+Subsubsubitem); 
+    
+  Delay(5000);
+end;
+
+procedure AcessaItem3c(Modulo:string; Aba:string; Item:string; Subitem:string=''; Subsubitem:string=''; Subsubsubitem:string='');
+begin
+  if ((Subitem = '') and (Subsubitem = '') and (Subsubsubitem = '')) then 
+    Aliases.Viasoft3c_XE.VsMenu.TdxDockControl.ClickItem('Menu Gerente|'+Aba+'|'+Item);
+  if ((Subitem <> '') and (Subsubitem = '') and (Subsubsubitem = '')) then 
+    Aliases.Viasoft3c_XE.VsMenu.TdxDockControl.ClickItem('Menu Gerente|'+Aba+'|'+Item+'|'+Subitem);
+  if ((Subitem <> '') and (Subsubitem <> '') and (Subsubsubitem = '')) then 
+    Aliases.Viasoft3c_XE.VsMenu.TdxDockControl.ClickItem('Menu Gerente|'+Aba+'|'+Item+'|'+Subitem+'|'+Subsubitem);
+  if ((Subitem <> '') and (Subsubitem <> '') and (Subsubsubitem <> '')) then 
+    Aliases.Viasoft3c_XE.VsMenu.TdxDockControl.ClickItem('Menu Gerente|'+Aba+'|'+Item+'|'+Subitem+'|'+Subsubitem+'|'+Subsubsubitem); 
+    
+  Delay(1000);
+end;
+
+//Abre as rotinas com base no menu
+procedure AbreMenu(Modulo, Menu : String);
+var
+  Mcp, menubar, menuval : OleVariant;
+  i : Integer;
+begin
+  Mcp := Sys.Process(Modulo);
+  Indicator.PushText('Abrindo Menu '+ Menu);
+  
+  for i := 1 to 5 do
+    begin
+      menubar := Mcp.VCLObject('VsMenu').Window('TdxDockControl', '', i);
+      menuval := MenuBar.Window('TdxBarControl', 'Menu');
+      
+      if MenuBar.VisibleOnScreen then
+      begin
+        //if ValidaMenu(menuval, menu, true) then
+        menubar.ClickItem('Menu|'+Menu);
+        Indicator.PopText;
+        exit;
+      end;
+    end;
+    
+  log.Error('Não foi Localizado Nenhum Menu Visivel, o sistema será encerrado!');
+  Indicator.PopText;
+end;
+
+procedure PreencheCheckbox (checkbox, informacao);
+begin
+  if Assigned(informacao) then 
+    begin
+    if (informacao = 'S') then
+      begin
+      if checkbox.Checked = false then
+        checkbox.Click;
+    end
+    else
+      begin
+      if checkbox.Checked = true then
+        checkbox.Click;
+    end;
+  end;
+end;
+
+procedure PreencheZCheckbox (checkbox, informacao);
+begin
+  if Assigned(informacao) then 
+    begin
+    if (informacao = 'S') then
+      begin
+      if checkbox.zChecked = false then
+        checkbox.Click;
+    end
+    else
+      begin
+      if checkbox.zChecked = true then
+        checkbox.Click;
+    end;
+  end;
+end;
+
+procedure VerificaConsultaF3Insere(modulo, campo, informacao:OleVariant);
+begin
+  if Assigned(informacao) and campo.Enabled then
+    begin
+      campo.Keys('[F3]');
+      FazConsultaF3(modulo,informacao);
+  end;
+end;
+
+procedure buscaBanco(tipoBanco, versao , usuario, senha, consulta, pathArq:string);
+var
+  Qry, str, i , arq: OleVariant;
+begin
+  // Create a query
+  Qry := ADO.CreateADOQuery();
+  // Specify the connection string
+  if aqString.ToUpper(tipoBanco) = 'FIREBIRD' then
+    begin
+      if aqString.ToUpper(versao) = 'TESTE' then
+        Qry.ConnectionString := 'Provider=MSDASQL.2;Persist Security Info=False;Data Source=TestCompleteFirebirdTeste;User Id='+usuario+'; Password='+senha+';'
+      else
+        Qry.ConnectionString := 'Provider=MSDASQL.2;Persist Security Info=False;Data Source=TestCompleteFirebirdOK;User Id='+usuario+'; Password='+senha+';'
+  end
+  else
+    begin
+      if aqString.ToUpper(versao) = 'TESTE' then
+        begin
+          Qry.ConnectionString := 'Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=VIASOFT4)'+
+                                  '(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=UEDA-C201)(PORT=1521)))'+
+                                  '(CONNECT_DATA=(SID=VIASOFT4)(SERVER=DEDICATED)));User Id='+usuario+'; Password='+senha+';';
+        end 
+      else
+        Qry.ConnectionString := 'Provider=MSDASQL.3;Persist Security Info=False;Data Source=TestCompleteOracleOk;User Id='+usuario+'; Password='+senha+';'
+    end;
+  // Specify the SQL expression
+  //Qry.SQL := 'select * from placon';
+  //Qry.SQL := 'SELECT MAX(IDMONTAGEM)FROM histmontarq';
+  Qry.SQL := consulta;
+  
+  // Execute the query
+  Qry.Open;
+  
+  // Process results and insert data into the tempQry to use in other function
+  aqFile.Delete(pathArq);
+  arq := aqFile.OpenTextFile(pathArq, aqFile.faReadWrite, aqFile.ctUTF8, true);
+  
+  Qry.First;
+  str := '';
+  // Process to write the header
+  for i:= 0 to Qry.FieldCount-1 do
+      begin
+      str := str + Qry.Field[i].FieldName +'|';
+  end;
+  str := aqString.Remove(str,Length(str)-1,1) + #13#10;
+  arq.Write(str);
+  // Process to write the rows
+  while not aqConvert.VarToBool(Qry.EOF) do
+  begin
+    str := '';
+    for i:= 0 to Qry.FieldCount-1 do
+      begin
+      str := str +  VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value) + '|';
+    end;
+    str := aqString.Remove(str,Length(str)-1,1) + #13#10;
+    arq.Write(str);
+    //Log.Message(str);
+    Qry.Next;
+  end;
+  // Closes the query
+  arq.Close;
+  Qry.Close;
+end;
+
+procedure buscaBancoSemUsuarioSenha(tipoBanco, versao, consulta, pathArq:string);
+var
+  Qry, str, i , arq: OleVariant;
+begin
+  // Create a query
+  Qry := ADO.CreateADOQuery();
+  // Specify the connection string
+  if aqString.ToUpper(tipoBanco) = 'FIREBIRD' then
+    begin
+      if aqString.ToUpper(versao) = 'TESTE' then
+      begin
+        //Qry.ConnectionString := 'Provider=MSDASQL.2;Persist Security Info=False;Data Source=TestCompleteFirebirdTeste;User Id='+Project.Variables.loginFirebird+'; Password='+Project.Variables.senhaFirebird+';';
+        Qry.ConnectionString := 'DRIVER=Firebird/InterBase(r) driver;UID='+Project.Variables.loginFirebird+';PWD=masterkey;DBNAME=rafaelco-c395:D:\Viasoft\Dados\FELIPE\TC_TESTE.FDB;';
+      end  
+      else
+        Qry.ConnectionString := 'Provider=MSDASQL.2;Persist Security Info=False;Data Source=TestCompleteFirebirdOK;User Id='+Project.Variables.loginFirebird+'; Password='+Project.Variables.senhaFirebird+';'
+  end
+  else
+    begin
+      if aqString.ToUpper(versao) = 'TESTE' then
+        begin
+          Qry.ConnectionString := 'Provider=OraOLEDB.Oracle;Data Source=(DESCRIPTION=(CID=VIASOFT4)'+
+                                  '(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=UEDA-C201)(PORT=1521)))'+
+                                  '(CONNECT_DATA=(SID=VIASOFT4)(SERVER=DEDICATED)));User Id='+Project.Variables.loginOracle+'; Password='+Project.Variables.senhaOracle+';';
+        end 
+      else
+        Qry.ConnectionString := 'Provider=MSDASQL.3;Persist Security Info=False;Data Source=TestCompleteOracleOk;User Id='+Project.Variables.loginOracle+'; Password='+Project.Variables.senhaOracle+';'
+    end;
+  // Specify the SQL expression
+  Qry.SQL := consulta;
+  
+  // Execute the query
+  Qry.Open;
+  
+  // Process results and insert data into the tempQry to use in other function
+  aqFile.Delete(pathArq);
+  arq := aqFile.OpenTextFile(pathArq, aqFile.faReadWrite, aqFile.ctUTF8, true);
+  
+  Qry.First;
+  str := '';
+  // Process to write the header
+  for i:= 0 to Qry.FieldCount-1 do
+      begin
+      str := str + Qry.Field[i].FieldName +'|';
+  end;
+  str := aqString.Remove(str,Length(str)-1,1) + #13#10;
+  arq.Write(str);
+  // Process to write the rows
+  while not aqConvert.VarToBool(Qry.EOF) do
+  begin
+    str := '';
+    for i:= 0 to Qry.FieldCount-1 do
+      begin
+      str := str +  VarToStr(Qry.FieldByName(Qry.Field[i].FieldName).Value) + '|';
+    end;
+    str := aqString.Remove(str,Length(str)-1,1) + #13#10;
+    arq.Write(str);
+    //Log.Message(str);
+    Qry.Next;
+  end;
+  // Closes the query
+  arq.Close;
+  Qry.Close;
+end;
+
+procedure checkpointCampo(campo,informacao:OleVariant);
+begin
+  if Assigned(informacao) then
+  begin
+    if VarToStr(campo.EditText) <> VarToStr(informacao) then
+      Log.Error('A informação contida no campo: '+VarToStr(campo.EditText) +' diverge da referência: '+VarToStr(informacao))
+    else
+      Log.Checkpoint('A informação contida no campo é igual à referência');
+  end;
+end;
+
+procedure escolheEstabNovo( modulo, tipo, empresas, compEstab : OleVariant);
+begin
+  if tipo = 'Específico' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '20').Click();
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '60'), empresas);
+  end;
+  if tipo = 'Empresa' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '30').Click();
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '60'), empresas);
+  end;
+  if tipo = 'Selecionados' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '40').Click();
+    compEstab.Selecoes := empresas;
+  end;
+end;
+
+procedure escolheEstabAntigo( modulo, tipo, empresas, compEstab : OleVariant);
+begin
+  if tipo = 'Específico' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '40').Click();
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '80'), empresas);
+  end;
+  if tipo = 'Empresa' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '50').Click();
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '100'), empresas);
+  end;
+  if tipo = 'Selecionados' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '60').Click();
+    compEstab.Selecoes := empresas;
+  end;
+  if tipo = 'Todos' then
+  begin
+    compEstab.VCLObject(compEstab.ObjectIdentifier + '120').Click();
+  end;
+end;
+
+function CarregaDDT(pathData, tab);
+var 
+  varDDT: OleVariant;
+begin
+  varDDT := DDT.ExcelDriver(pathData, tab);
+    
+  result := varDDT;
+end;  
+
+procedure FechaTelaEnviaESocial(sModulo);
+begin
+  if Sys.Process(sModulo).WaitVCLObject('FRhPendeSocial', 10000).Exists then
+  begin
+    MapPageESocial(sModulo);
+  
+    ESocialEnvBtn.Click();
+    
+    Delay(5000);
+  end;
+end;
+
+procedure FechaTelaESocial(sModulo);
+begin
+  if Sys.Process(sModulo).WaitVCLObject('FRhPendeSocial', 10000).Exists then
+  begin
+    MapPageESocial(sModulo);
+  
+    if DesAllBtn.Enabled then
+      DesAllBtn.Click();
+  
+    ESocialFilaBtn.Click();  
+  end;
+end;
+
+procedure ComparaArquivos(arquivoModelo, arquivoGerado);
+begin
+  if aqFile.Exists(arquivoModelo) and aqFile.Exists(arquivoGerado) then
+  begin
+    if not(Files.Compare(arquivoModelo, arquivoGerado)) then
+      Log.Warning('Há diferenças entre os arquivos')
+    else
+      Log.Checkpoint('Os arquivos são iguais')
+  end
+  else
+    Log.Warning('Arquivo não existe')
+end;
+
+procedure ValidaArquivos(arquivoFBModelo, arquivoORAModelo, arquivoGerado);
+begin
+  if (Project.Variables.tipoBanco = 'ORACLE') then
+  begin
+    ComparaArquivos(arquivoORAModelo, arquivoGerado)
+  end
+  else
+  begin
+    ComparaArquivos(arquivoFBModelo, arquivoGerado)
+  end;
+end;
+
+procedure ValidaErro(sModulo, idEstab);
+begin
+  if Sys.Process(sModulo).WaitWindow('#32770', 'Warning', 1, 2000).Exists then
+    Sys.Process(sModulo).Window('#32770', 'Warning', 1).UIAObject('Warning').Window('CtrlNotifySink', '', 7).Window('Button', 'OK', 1).Click();
+  
+  if (Sys.Process(sModulo).WaitVCLObject('FBRespRhAviso', 10000).Exists) then
+  begin
+    Sys.Process(sModulo).VCLObject('FBRespRhAviso').VCLObject('Panel2').VCLObject('btOK').Click();
+  end
+  else
+  begin
+    Log.Message('Não foi possível encontar a tela de aviso sobre a LGPD');
+  end;
+  
+  if (Sys.Process(sModulo).WaitWindow('#32770', 'Error', 1, 10000).Exists) then
+  begin
+    Sys.Process(sModulo).Window('#32770', 'Error', 1).UIAObject('Error').Window('CtrlNotifySink', '', 7).Window('Button', 'OK', 1).Click;
+    
+    if (Sys.Process(sModulo).WaitVCLObject('FRhProcPerAqVenc', 2000).Exists) then
+    begin
+      Sys.Process(sModulo).VCLObject('FRhProcPerAqVenc').VCLObject('BSair').Click();
+    end;
+    FiltraGridSelEstab(sModulo, 'fmSel', 'Page', 'grEstabs', 'Estab.', idEstab);
+  end; 
+end;
+
+procedure FechaTelaInicioModulo(sModulo, idEstab);
+begin  
+  ValidaErro(sModulo, idEstab);
+  
+//  if Sys.Process(sModulo).WaitVCLObject('FVsErrorDlg', 2000).Exists then
+//  begin
+//    Sys.Process('Folha').VCLObject('FVsErrorDlg').VCLObject('ButtonPanel').VCLObject('OKBtn').Click;
+//    FiltraGridSelEstab(sModulo, 'fmSel', 'Page', 'grEstabs', 'Estab.', idEstab);
+//  end;
+  if (Sys.Process(sModulo).WaitVCLObject('FBRespRhAviso', 5000).Exists) then
+  begin
+    Sys.Process(sModulo).VCLObject('FBRespRhAviso').VCLObject('Panel2').VCLObject('btOK').Click();
+  end
+  else
+  begin
+    Log.Message('Não foi possível encontar a tela de aviso sobre a LGPD');
+  end;
+  
+  if (Sys.Process(sModulo).WaitVCLObject('FRhProcPerAqVenc', 20000).Exists) then
+  begin
+    Sys.Process(sModulo).VCLObject('FRhProcPerAqVenc').VCLObject('BSair').Click();
+  end
+  else
+  begin
+    Log.Message('Não foi possível encontar a tela de pendências');
+  end;
+end;
+
+procedure IniciaModulo(modulo, cadastraSenha, tipoBanco, versaoExes, nomeServidor, nomeConexao, login, senha: String);
+begin
+  if Sys.WaitProcess(modulo).Exists then
+    Sys.Process(modulo).Terminate;
+  
+  if not Sys.WaitProcess(modulo).Exists then
+  begin  
+    if modulo = _ModuloServer then
+    begin
+      TestedApps.ViasoftServerRH_XE.Run();
+      Delay(1000);
+    end else
+    if modulo = _ModuloFolha then 
+    begin 
+      TestedApps.Folha.Run();
+      Sys.WaitProcess(_ModuloFolha);
+      AcessaLogin(modulo, cadastraSenha, tipoBanco, versaoExes, nomeServidor, nomeConexao, login, senha);
+      TelaLiberacao(modulo);
+      FechaTelaInicioModulo(modulo, '');
+    end else
+    if modulo = _ModuloGerente then 
+    begin 
+      TestedApps.Viasoft3c.Run();
+      Sys.WaitProcess(_ModuloGerente);
+      AcessaLogin(modulo, cadastraSenha, tipoBanco, versaoExes, nomeServidor, nomeConexao, login, senha);
+    end;
+    if modulo = _ModuloPonto then 
+    begin 
+      TestedApps.Ponto.Run();
+      Sys.WaitProcess(_ModuloPonto);
+      AcessaLogin(modulo, cadastraSenha, tipoBanco, versaoExes, nomeServidor, nomeConexao, login, senha);
+    end;
+  end;    
+end;
+
+procedure SairModulo(Modulo);
+begin
+  AcessaItem(Modulo, 'Configurações', 'Sair');
+  
+  if Sys.Process(Modulo).Window('#32770', 'Atenção...', 1).Exists then
+  begin
+    Sys.Process(Modulo).Window('#32770', 'Atenção...', 1).Window('Button', '&Sim', 1).Click();
+  end;    
+end;
+
+function GetDataAtual(separador: string): OleVariant;
+var
+  dia, mes, ano: OleVariant;
+begin
+  dia := aqDateTime.GetDay(aqDateTime.Now());
+  mes := aqDateTime.GetMonth(aqDateTime.Now());
+  ano := aqDateTime.GetYear(aqDateTime.Now());
+  
+  result := AdicionaZero(IntToStr(dia), 1) + separador + IntToStr(mes) + separador + IntToStr(ano);
+end;
+
+function PrimeiroDiaMesAtual(separador: string): OleVariant;
+var
+  mes, ano: OleVariant;
+begin
+  mes := aqDateTime.GetMonth(aqDateTime.Now());
+  ano := aqDateTime.GetYear(aqDateTime.Now());
+  
+  result := '01' + separador + IntToStr(mes) + separador + IntToStr(ano);
+end;

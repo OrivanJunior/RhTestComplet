@@ -1,0 +1,61 @@
+﻿{Script de DataPool para  o Processo de eSocial - Envio Mensal
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormEnvioMensalDPModoLanc,
+						                 
+  FormEnvioMensalDPS1200, FormEnvioMensalDPS1210,
+  FormEnvioMensalDPS1250, FormEnvioMensalDPS1260,
+  FormEnvioMensalDPS1270, FormEnvioMensalDPS1280,
+  FormEnvioMensalDPS1295, FormEnvioMensalDPS1300,
+  FormEnvioMensalDPS1200PS, FormEnvioMensalDPS1210PS,
+  FormEnvioMensalDPS2206, FormEnvioMensalDPS2230,
+
+  FiltroEmpregadoTipo, FiltroEmpregadoValor,
+
+  FiltroPrestadorTipo, FiltroPrestadorValor, 
+  
+  FiltroMesAnoCompetencia, FiltroMesAnoPagamento,
+  FiltroDataAlteracao,
+
+  FiltroConsEstab, FiltroConsDataIni,
+  FiltroConsHoraIni, FiltroConsDataFin,
+  FiltroConsHoraFin, FiltroConsAmbiente,
+  FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
+
+procedure LeDataPoolEnvioMensal(nomeDriver);
+begin													
+  FormEnvioMensalDPS1200       := DDT.DriverByName(nomeDriver).Value('S-1200');	
+  FormEnvioMensalDPS1210       := DDT.DriverByName(nomeDriver).Value('S-1210');		
+  FormEnvioMensalDPS1270       := DDT.DriverByName(nomeDriver).Value('S-1270');	
+  FormEnvioMensalDPS1280       := DDT.DriverByName(nomeDriver).Value('S-1280');	
+  FormEnvioMensalDPS1295       := DDT.DriverByName(nomeDriver).Value('S-1295');	
+  FormEnvioMensalDPS1300       := DDT.DriverByName(nomeDriver).Value('S-1300');	
+  FormEnvioMensalDPS1200PS     := DDT.DriverByName(nomeDriver).Value('S-1200PS');
+  FormEnvioMensalDPS1210PS     := DDT.DriverByName(nomeDriver).Value('S-1210PS');
+  FormEnvioMensalDPS2206       := DDT.DriverByName(nomeDriver).Value('S-2206');	
+								
+  FiltroEmpregadoTipo          := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor         := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
+    
+  FiltroPrestadorTipo          := DDT.DriverByName(nomeDriver).Value('TIPO_PREST');
+  FiltroPrestadorValor         := DDT.DriverByName(nomeDriver).Value('PREST_VALOR');
+							    
+  FiltroMesAnoCompetencia      := DDT.DriverByName(nomeDriver).Value('MES_ANO_COMPETENCIA');
+  FiltroMesAnoPagamento        := DDT.DriverByName(nomeDriver).Value('MES_ANO_PAGTO');
+  FiltroDataAlteracao          := DDT.DriverByName(nomeDriver).Value('DATA_ALTERACAO');
+end;                                      
+										
+procedure LeDataPoolConsEnvioMensal(nomeDriver);
+begin
+  FiltroConsEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroConsDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
+end;

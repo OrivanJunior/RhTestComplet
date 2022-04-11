@@ -1,0 +1,231 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcSefip,
+  ObjProcSefip,
+  VarConsts;
+{Script para executar o Processo de Sefip
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 25/06/2021}
+
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaProcSefip();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'SEFIP/GRRF/PIS', 'SEFIP 8.4'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormProcSefipWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormProcSefipWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormProcSefipWhEstabTodosEmp.ClickButton;
+    VerificaInsere(FormProcSefipWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormProcSefipWhEstabSelec.ClickButton;
+    VerificaInsere(FormProcSefipWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormProcSefipWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (FormProcSefipWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormProcSefipWhEmpreEspec.ClickButton;
+    VerificaInsere(FormProcSefipWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormProcSefipWhEmpreSelec.ClickButton;
+    VerificaInsere(FormProcSefipWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormProcSefipWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormProcSefipWhPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormProcSefipWhPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormProcSefipWhPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormProcSefipWhPrestSelec.ClickButton;
+    VerificaInsere(FormProcSefipWhPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormProcSefipWhPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormProcSefipWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormProcSefipWhProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormProcSefipWhProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormProcSefipWhProcSelec.ClickButton;
+    VerificaInsere(FormProcSefipWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormProcSefipWhProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraVinculo();
+begin
+  if (FormProcSefipWhVinculoTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whVinculo.whVinculo10.Click();
+    
+  if (FiltroVinculoTipo = _Especifico) then
+  begin
+    FormProcSefipWhVinculoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormProcSefipWhVinculoEspecCampo, FiltroVinculoValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroVinculoValor);
+  end
+  else if (FiltroVinculoTipo = _Selecionados) then
+  begin
+    FormProcSefipWhVinculoSelec.ClickButton;
+    VerificaInsere(FormProcSefipWhVinculoSelecCampo, FiltroVinculoValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroVinculoValor);
+  end
+  else if (FiltroVinculoTipo = _Todos) then
+  begin
+    FormProcSefipWhVinculoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (FormProcSefipWhMesRec.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormProcSefipWhMesRec, FiltroMesRec);
+  VerificaInsere(FormProcSefipWhAnoRec, FiltroAnoRec);
+  VerificaInsere(FormProcSefipWhCodRec, FiltroCodRec);
+  VerificaInsere(FormProcSefipWhModalidade, FiltroModalidade);
+  VerificaInsere(FormProcSefipWhRecFGTS, FiltroRecFGTS);
+  PreencheDatas(FormProcSefipWhDataFGTS, FiltroDataFGTS);
+  VerificaInsere(FormProcSefipWhRecINSS, FiltroRecINSS);
+  PreencheDatas(FormProcSefipWhDataINSS, FiltroDataINSS);
+  VerificaInsere(FormProcSefipWhCNAEPrep, FiltroCNAEPrep);
+  VerificaInsere(FormProcSefipWhLocalGrav, FiltroLocalGrav)  ;
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaProcSefip(pathData, tab);
+var 
+  DDTSefip: OleVariant;
+  MensagemInativa: boolean;
+begin  
+  DDTSefip := CarregaDDT(pathData, tab);
+  
+  while not(DDTSefip.EOF) do
+  begin
+    MensagemInativa := True;
+    
+    AcessaProcSefip();
+
+    MapProcSefip();
+  
+    LeDataPoolProcSefip();
+
+    FiltraEstab();
+  
+    FiltraEmpregados();
+    
+    FiltraPrestadores();
+  
+    FiltraProcessamentos();
+  
+    FiltraVinculo();
+  
+    DadosAdicionais();
+
+    btnExecutar.Click();
+  
+    while (MensagemInativa) do
+    begin
+      Delay(5000);
+      if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+      begin
+        Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+        ActFechar(FormProcSefip);
+      
+        MensagemInativa := false;
+      end
+      else if (Aliases.Folha.FVsErrorDlg.Visible) then
+      begin
+        Log.Warning('Erro, verifique as informações');
+        Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+        ActFechar(FormProcSefip);
+        MensagemInativa := false;
+      end;
+    end;
+    DDTSefip.Next;
+  end;  
+  ValidaArquivos('C:\TEMP\SEFIP\SEFIP_MODELO.RE', 'C:\TEMP\SEFIP\SEFIP_MODELO_ORACLE.RE', 'C:\TEMP\SEFIP\SEFIP.RE');
+  DDT.CloseDriver(DDTSefip.Name);
+end;

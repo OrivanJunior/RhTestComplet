@@ -1,0 +1,78 @@
+﻿uses
+  VarConsts;
+
+{Script para mapear o Processamento de Provisão
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha
+ Data: 08/06/20201}
+
+var
+  Folha,
+  
+  FormProcProvisao, BtnSaveProvisao, PageProcProvisao,
+  BtnSairProvisao, BtnExecProvisao, BtnRecProvisao, 
+  BtnExpProvisao, BtnRelProvisao, BtnTabProvisao, 
+  BtnAdvProvisao, 
+  
+  { Datas }
+  ProcProvisaoEBDtProc, ProcProvisaoEBDtPgto,
+  
+  { Tab Empregados }
+  TsEmpregados, GridEmpregado, GridSiteEmpre,
+  BtnIncEmpre, BtnIncAllEmpre, BtnExcEmpre,
+  BtnExcAllEmpre, BtnSaveEmpre, BtnDesfEmpre,
+  BtnCadProvisao, BtnProcEmpre, BtnConsEmpre, 
+  BtnIncluirCtrlProc,
+  
+  { Tab Movimento }
+  TsMovimento, GridMovimento, GridSiteMov,
+  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  
+procedure MapFormProcessamentoProvisao();
+begin
+  Folha          :=  Sys.Process(_ModuloFolha);
+  
+  FormProcProvisao := Aliases.Folha.FRhProcCalcProvisao;
+  BtnSairProvisao  := Aliases.Folha.FRhProcCalcProvisao.BSair;
+  BtnExecProvisao  := Aliases.Folha.FRhProcCalcProvisao.bExecutar;
+  BtnSaveProvisao  := Aliases.Folha.FRhProcCalcProvisao.tbSalvar;
+  BtnRecProvisao   := Aliases.Folha.FRhProcCalcProvisao.tbRelatorio;
+  BtnExpProvisao   := Aliases.Folha.FRhProcCalcProvisao.tbProcExpFin;
+  BtnRelProvisao   := Aliases.Folha.FRhProcCalcProvisao.tbRelMedias;
+  BtnTabProvisao   := Aliases.Folha.FRhProcCalcProvisao.tbbNotes1;
+  BtnAdvProvisao   := Aliases.Folha.FRhProcCalcProvisao.tbInconsistencias;
+  PageProcProvisao := Aliases.Folha.FRhProcCalcProvisao.pg;
+  
+end; 
+ 
+procedure MapPanelProcessamentoProvisao();
+begin
+  ProcProvisaoEBDtProc := Aliases.Folha.FRhProcCalcProvisao.pnPeriodo.EB_DATA;
+  BtnIncluirCtrlProc := Aliases.Folha.FRhProcCalcProvisao.pnPeriodo.bIncluirControle;
+end;
+
+procedure MapTabEmpregadosProcProvisao();
+begin
+  TsEmpregados   := Aliases.Folha.FRhProcCalcProvisao.pg.tsEmpregados;
+  GridEmpregado  := Aliases.Folha.FRhProcCalcProvisao.pg.tsEmpregados.grp1.gEmpregado;
+  
+  BtnIncEmpre    := Aliases.Folha.FRhProcCalcProvisao.bEmpreInc;
+  BtnIncAllEmpre := Aliases.Folha.FRhProcCalcProvisao.bEmpreIncAll;
+  BtnExcEmpre    := Aliases.Folha.FRhProcCalcProvisao.bEmpreExc;
+  BtnExcAllEmpre := Aliases.Folha.FRhProcCalcProvisao.btnExcAllEmp;
+  BtnSaveEmpre   := Aliases.Folha.FRhProcCalcProvisao.bEmpreSalvar;
+  BtnDesfEmpre   := Aliases.Folha.FRhProcCalcProvisao.bEmpreDesf;
+  BtnCadProvisao := Aliases.Folha.FRhProcCalcProvisao.bCadProvisao;
+  BtnProcEmpre   := Aliases.Folha.FRhProcCalcProvisao.bEmpreProc;
+  BtnConsEmpre   := Aliases.Folha.FRhProcCalcProvisao.bEmpreCons;  
+end;
+
+procedure MapTabMovimentoProcProvisao();
+begin
+  TsMovimento   := Aliases.Folha.FRhProcCalcProvisao.pg.tsMovimento;
+  
+  BtnIncMov     := Aliases.Folha.FRhProcCalcProvisao.bMovInc;
+  BtnRecMov     := Aliases.Folha.FRhProcCalcProvisao.bMovRec;
+  BtnExcMov     := Aliases.Folha.FRhProcCalcProvisao.bMovExc;
+end;
+

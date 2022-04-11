@@ -1,0 +1,14 @@
+﻿uses
+  ObjPowerShell,
+  VarConsts;
+
+procedure ExeCommand(PathInsert, PathDoScript, PathBanco:String);
+begin
+  TestedApps.PowerShell.Run(1, true);
+  MapPowerShell();
+  PowerShellWindow.Keys('cd ' + PathDoScript + '[Enter]');
+  PowerShellWindow.Keys('python3 .\conexaoBanco.py '+PathBanco + ' ' + PathInsert + '[Enter]');
+  Delay(20000);
+  PowerShellWindow.Close();
+end;
+

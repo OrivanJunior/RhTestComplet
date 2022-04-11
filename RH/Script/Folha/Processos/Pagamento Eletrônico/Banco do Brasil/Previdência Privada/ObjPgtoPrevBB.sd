@@ -1,0 +1,95 @@
+﻿{Script para mapear o Processo de Pagamento Previdência Eletrônica - Banco do Brasil
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 14/07/2021}
+
+var
+  FormPgtoPrevBB, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormPgtoPrevBBWhEstabEspec, FormPgtoPrevBBWhEstabEspecCampo,
+  FormPgtoPrevBBWhEstabTodosEmp, FormPgtoPrevBBWhEstabTodosEmpCampo,
+  FormPgtoPrevBBWhEstabTodos, FormPgtoPrevBBWhEstabSelec,
+  FormPgtoPrevBBWhEstabSelecCampo, 
+      
+  FormPgtoPrevBBWhMatriculaTodos, FormPgtoPrevBBWhMatriculaEspec,
+  FormPgtoPrevBBWhMatriculaEspecCampo, FormPgtoPrevBBWhMatriculaSelec,
+  FormPgtoPrevBBWhMatriculaSelecCampo, 
+  
+  FormPgtoPrevBBWhLocaisTodos, FormPgtoPrevBBWhLocaisEspec, 
+  FormPgtoPrevBBWhLocaisEspecCampo, FormPgtoPrevBBWhLocaisSelec, 
+  FormPgtoPrevBBWhLocaisSelecCampo,
+  
+  FormPgtoPrevBBWhDataIni, FormPgtoPrevBBWhDataFin,
+  
+  FormPgtoPrevBBWhProcTodos, FormPgtoPrevBBWhProcEspec, 
+  FormPgtoPrevBBWhProcEspecCampo, FormPgtoPrevBBWhProcSelec, 
+  FormPgtoPrevBBWhProcSelecCampo,
+
+  FormPgtoPrevBBWhSituacoesTodos, FormPgtoPrevBBWhSituacoesEspec,
+  FormPgtoPrevBBWhSituacoesEspecCampo, FormPgtoPrevBBWhSituacoesSelec,
+  FormPgtoPrevBBWhSituacoesSelecCampo,
+  
+  FormPgtoPrevBBWhDataRemessa, FormPgtoPrevBBWhModeloArq,
+  FormPgtoPrevBBWhCodContrib, FormPgtoPrevBBWhLocalGrav,
+  FormPgtoPrevBBWhCodEstab, FormPgtoPrevBBWhCodPatroc,
+  FormPgtoPrevBBWhPercPatroc: OleVariant;
+  
+procedure MapPgtoPrevBB();
+begin
+  FormPgtoPrevBB                      := Aliases.Folha.FRhProcPgtoPrevBB;
+  
+  btnSair                             := Aliases.Folha.FRhProcPgtoPrevBB.BSair;
+  btnExecutar                         := Aliases.Folha.FRhProcPgtoPrevBB.bExecutar;
+  btnSalvar                           := Aliases.Folha.FRhProcPgtoPrevBB.tbSalvar;
+  btnRelatorio                        := Aliases.Folha.FRhProcPgtoPrevBB.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormPgtoPrevBBWhEstabEspec          := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormPgtoPrevBBWhEstabEspecCampo     := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormPgtoPrevBBWhEstabTodosEmp       := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormPgtoPrevBBWhEstabTodosEmpCampo  := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormPgtoPrevBBWhEstabTodos          := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormPgtoPrevBBWhEstabSelec          := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormPgtoPrevBBWhEstabSelecCampo     := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Matricula }
+  FormPgtoPrevBBWhMatriculaTodos      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula30;
+  FormPgtoPrevBBWhMatriculaEspec      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula20;
+  FormPgtoPrevBBWhMatriculaEspecCampo := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula50;
+  FormPgtoPrevBBWhMatriculaSelec      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula40;
+  FormPgtoPrevBBWhMatriculaSelecCampo := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whMatricula.whMatricula80;
+  
+  { Filtro de Locais }
+  FormPgtoPrevBBWhLocaisTodos         := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormPgtoPrevBBWhLocaisEspec         := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormPgtoPrevBBWhLocaisEspecCampo    := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormPgtoPrevBBWhLocaisSelec         := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormPgtoPrevBBWhLocaisSelecCampo    := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Referência }
+  FormPgtoPrevBBWhDataIni             := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormPgtoPrevBBWhDataFin             := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Filtro de Processamentos }
+  FormPgtoPrevBBWhProcTodos           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormPgtoPrevBBWhProcEspec           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormPgtoPrevBBWhProcEspecCampo      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormPgtoPrevBBWhProcSelec           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormPgtoPrevBBWhProcSelecCampo      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Filtro de Situacoes }
+  FormPgtoPrevBBWhSituacoesTodos      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whSituacoes.WhSituacoes30;
+  FormPgtoPrevBBWhSituacoesEspec      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whSituacoes.whSituacoes20;
+  FormPgtoPrevBBWhSituacoesEspecCampo := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whSituacoes.whSituacoes50;
+  FormPgtoPrevBBWhSituacoesSelec      := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whSituacoes.whSituacoes40;
+  FormPgtoPrevBBWhSituacoesSelecCampo := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whSituacoes.whSituacoes80;
+  
+  { Dados Adicionais }
+  FormPgtoPrevBBWhDataRemessa         := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_DtRemessa;
+  FormPgtoPrevBBWhModeloArq           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_MODELO;
+  FormPgtoPrevBBWhCodContrib          := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_CODCONTRIB;
+  FormPgtoPrevBBWhLocalGrav           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormPgtoPrevBBWhCodEstab            := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_CODESTAB;
+  FormPgtoPrevBBWhCodPatroc           := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_NomeArq;
+  FormPgtoPrevBBWhPercPatroc          := Aliases.Folha.FRhProcPgtoPrevBB.pg.tsSelecao.SB_Selecao.whDados.EB_PERCENTUAL;
+end;

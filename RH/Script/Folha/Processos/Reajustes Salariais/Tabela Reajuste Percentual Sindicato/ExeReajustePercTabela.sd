@@ -1,0 +1,278 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolReajustePercTabela,
+  ObjReajustePercTabela,
+  VarConsts;
+{Script para executar o Processo de Reajuste Salarial - Tabela Reajuste Percentual Sindicato
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaReajustePercTabela();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Reaj. Salariais', 'Tabela Reaj. Perc. Sindicato'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ReajustePercTabelaWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhEstabSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraFuncoes();
+begin
+  if (ReajustePercTabelaWhFuncaoTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhFuncao10.Click();
+    
+  if (FiltroFuncaoTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhFuncaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhFuncaoEspecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Específico, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhFuncaoSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhFuncaoSelecCampo, FiltroFuncaoValor);
+    Log.Checkpoint('Selecionado Funções - Selecionados, com valor: ' + FiltroFuncaoValor);
+  end
+  else if (FiltroFuncaoTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhFuncaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Funções - Todos');
+  end;
+  ReajustePercTabelaWhFuncao10.Click();
+end;
+
+procedure FiltraLocais();
+begin
+  if (ReajustePercTabelaWhLocalTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhLocalEspec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhLocalSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+  ReajustePercTabelaWhLocal10.Click();
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (ReajustePercTabelaWhEmpreTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhEmpre10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhEmpreEspec.ClickButton;
+    //VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhEmpreEspecCampo, FiltroEmpreValor);
+    VerificaInsere(ReajustePercTabelaWhEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhEmpreSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+  ReajustePercTabelaWhEmpre10.Click();
+end;
+
+procedure FiltraSituacao();
+begin
+  if (ReajustePercTabelaWhSituacaoTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhSituacao10.Click();
+    
+  if (FiltroSituacaoTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhSituacaoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhSituacaoEspecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhSituacaoSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhSituacaoSelecCampo, FiltroSituacaoValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSituacaoValor);
+  end
+  else if (FiltroSituacaoTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhSituacaoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ReajustePercTabelaWhSituacao10.Click();
+end;
+
+procedure FiltraSindicato();
+begin
+  if (ReajustePercTabelaWhSindicatosTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhSindicatos10.Click();
+    
+  if (FiltroSindicatosTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhSindicatosEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhSindicatosEspecCampo, FiltroSindicatosValor);
+    Log.Checkpoint('Selecionado Situação Específica, com valor: ' + FiltroSindicatosValor);
+  end
+  else if (FiltroSindicatosTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhSindicatosSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhSindicatosSelecCampo, FiltroSindicatosValor);
+    Log.Checkpoint('Selecionado Situações - Selecionadas, com valor: ' + FiltroSindicatosValor);
+  end
+  else if (FiltroSindicatosTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhSindicatosTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situações - Todos');
+  end;
+  ReajustePercTabelaWhSindicatos10.Click();
+end;
+
+procedure FiltraMotivo();
+begin
+  if (ReajustePercTabelaWhMotivoTodos.VisibleOnScreen = false) then
+    ReajustePercTabelaWhMotivo10.Click();
+    
+  if (FiltroMotivoTipo = _Especifico) then
+  begin
+    ReajustePercTabelaWhMotivoEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ReajustePercTabelaWhMotivoEspecCampo, FiltroMotivoValor);
+    Log.Checkpoint('Selecionado Motivo - Específico, com valor: ' + FiltroMotivoValor);
+  end
+  else if (FiltroMotivoTipo = _Selecionados) then
+  begin
+    ReajustePercTabelaWhMotivoSelec.ClickButton;
+    VerificaInsere(ReajustePercTabelaWhMotivoSelecCampo, FiltroMotivoValor);
+    Log.Checkpoint('Selecionado Motivo - Selecionados, com valor: ' + FiltroMotivoValor);
+  end
+  else if (FiltroMotivoTipo = _Todos) then
+  begin
+    ReajustePercTabelaWhMotivoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Motivo - Todos');
+  end;
+  ReajustePercTabelaWhMotivo10.Click();
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ReajustePercTabelaWhMotivo.VisibleOnScreen = false) then
+    ReajustePercTabelaWhDados10.Click();
+    
+  VerificaInsere(ReajustePercTabelaWhMotivo, FiltroMotivo);
+  PreencheDatas(ReajustePercTabelaWhDataReaj, FiltroDataReaj);
+  VerificaInsere(ReajustePercTabelaWhRetroativo, FiltroRetroativo);
+  PreencheDatas(ReajustePercTabelaWhDtRetroativa, FiltroDtRetroativa);
+  VerificaInsere(ReajustePercTabelaWhValAcerto, FiltroValAcerto);
+  PreencheDatas(ReajustePercTabelaWhDataTabela, FiltroDataTabela);
+  VerificaInsere(ReajustePercTabelaWhValMinReaj, FiltroValMinReaj);
+  VerificaInsere(ReajustePercTabelaWhInfosAdc, FiltroInfosAdc);
+  ReajustePercTabelaWhDados10.Click();
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaReajustePercTabela(pathData);
+var 
+  DDTReajuste: OleVariant;
+begin
+  AcessaReajustePercTabela();
+
+  MapReajustePercTabela();
+
+  DDTReajuste := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolReajustePercTabela(DDTReajuste.Name);
+
+  FiltraEstab();
+
+  FiltraFuncoes();
+
+  FiltraLocais();
+  
+  FiltraEmpregados();
+
+  FiltraSituacao();
+  
+  FiltraSindicato();
+  
+  FiltraMotivo();
+
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  if (Aliases.Folha.FVsErrorDlg.Visible) then
+  begin
+    Log.Warning('Nenhum registro encontrado');
+    Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+    ActFechar(FormReajustePercTabela);
+  end
+  else
+  begin
+    FechaMensagemProcessoConcluido();
+  
+    btnSalvar.Click();
+
+    FechaMensagemProcessoConcluido();
+  
+    ActFechar(FormReajustePercTabela)
+  end;
+  DDT.CloseDriver(DDTReajuste.Name);
+end;

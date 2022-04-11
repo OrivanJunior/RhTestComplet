@@ -1,0 +1,53 @@
+﻿uses
+  CommonsAll,
+  DataPoolResultadoExame,
+  ObjResultadoExame,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de ResultadoExame
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant;
+
+procedure AcessaCadResultadoExame();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Exames', 'Cadastro de Resultados');
+end;
+
+procedure InsereDadosResultadoExame();
+begin
+  VerificaInsere(FormCadResultadoExameIdResult, FormCadResultadoExameDPIdResult);
+  VerificaInsere(FormCadResultadoExameDescricao, FormCadResultadoExameDPDescricao);
+  VerificaInsere(FormCadResultadoExameResultado, FormCadResultadoExameDPResultado);
+end;
+
+procedure ExeCadastraResultadoExame();
+begin
+  AcessaCadResultadoExame();
+  
+  MapGridCadResultadoExame();
+  LeDataPoolCadResultadoExame(_Cadastrar);
+  
+  if (CadResultadoExameConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadResultadoExameDPIdResult);
+  if (CadResultadoExameConsGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(CadResultadoExameConsForm);
+    
+    MapTelaCadResultadoExame();
+     
+    if (FormCadResultadoExame.Exists) then
+    begin
+      InsereDadosResultadoExame();
+      
+      FormCadResultadoExame.ActSalvarExecute(FormCadResultadoExame);
+      ActFechar(FormCadResultadoExame);
+    end;
+  end;
+  ActFechar(CadResultadoExameConsForm); 
+end;

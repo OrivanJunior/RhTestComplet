@@ -1,0 +1,238 @@
+﻿uses
+  VarConsts, CommonsAll;
+{Script padrão de mapeamento para todos os módulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 26/03/2018}
+ 
+var
+  Modulo, ModuloFormErro : OleVariant;
+  
+  FormTelaConsultaForm, FormTelaConsultaGrid, FormTelaConsultaGridSite: OleVariant;
+  
+  ModuloConsultaF3Contabil, FormConsTelaF3Cont, FormConsTelaF3ContPn, FormConsTelaF3ContGbLoc,
+  FormConsTelaF3ContCxGrd, FormConsTelaF3ContCxGrdSt, FormConsTelaF3ContPnBt, FormConsTelaF3ContPnBt2,
+  FormConsTelaF3ContBtOk, FormConsTelaF3ContBtCanc,
+ 
+  ModuloConsultaF3, FormConsTelaF3, FormConsPnlProc, FormConsCpoProc, 
+  FormConsPnlGrid, FormConsGridProc, FormConsBtnProc,
+  
+  ModuloConsCPFCNPJ, FormConsCPFCNPJ, FormConsGBCPFCNPJ, FormConsEbCNPJ, FormConsBtnPesquis, 
+  FormConsPnlDados, FormConsTsDadosRet, FormConsPnlBtnOk, FormConsBtnOkRet,
+  
+  ModuloConsCEP, FormConsCEP, FormConsGBCEPBusca, FormConsEbCEP, FormConsGBBtnPesq, FormConsDBGCEP,
+  FormConsCEPGrid, FormConsCEPPanel, FormConsCEPBtnRet, FormConsCEPBtnExit: OleVariant;
+  SelecionaServico: OleVariant;
+  //FormListaErros, FormPainelBtns, FormBtnCorrigir, FormBtnGravar: OleVariant;
+  
+  { Form Movimento }
+  FormCadMovimento, CadMovEBEstab, CadMovEBIdProc, 
+  CadMovEBData, CadMovEBIdEmpreg, CadMovEBIdEvento, 
+  CadMovEBCompFerias, CadMovEBSistExp, CadMovEBOrigemLanc,
+  CadMovEBImpPonto, CadMovBtnSair, CadMovBtnHelp, CadMovBtnSave,
+  CadMovBtnDesf, CadMovBtnImp: OleVariant;  
+  
+  { Tab Parâmetros }
+  ParamsEBValorInfo, ParamsEBInforme, 
+  ParamsEBValorTarefa, ParamsEBInforme2, ParamsEBProporcional, 
+  ParamsEBDiasUteis, ParamsEBDiasFaltas, ParamsEBAvosInforme,
+  ParamsEBAvosDireito, ParamsEBReferencia, ParamsEBBaseProp,
+  
+  {Form Processamento}
+  FormCadControleProc, PageProc, ProcEBEstab, ProcEBIdProc, ProcEBDtCtrl,
+  ProcEBDtPagIRRF, ProcEBVlrArred, ProcEBAberto,
+  ESocialEBEvtRemun, ESocialEBInfoPgtos, 
+  ESocialEBContrataVnp, ESocialEBEvtInfoCompl, 
+  ESocialEBSitESocial, BtnSairProc, BtnAjudaProc, BtnSalvarProc, 
+  BtnDesfProc, BtnImprimeProc, BtnExcluirProc,
+  
+  FormPerFerias, PerFerEBDiasFaltas, PerFerEBDiasGozo, PerFerEBDataIni, 
+  PerFerEBPossuiAbo, PerFerEBAbonarNo, PerFerEBDiasAbo, 
+  PerFeriasSaveBtn, PerFeriasNotBtn, PerFeriasSairBtn: OleVariant;
+  
+  { FormEsocial }
+  ESocialForm, ESocialGrid, SelAllBtn,
+  DesAllBtn, ESocialEnvBtn, ESocialFilaBtn: OleVariant;
+  
+{procedure MapTelaErrosForm(Form: OleVariant);
+begin
+  FormListaErros  := Form.VCLObject('Lista');
+  FormPainelBtns  := FormTelaErros.VCLObject('Panel1');
+  FormBtnCorrigir := FormPainelBtns.VCLObject('Bcorrigir');
+  FormBtnGravar   := FormPainelBtns.VCLObject('bGravar');
+end;}
+
+procedure MapGridConsulta(Modulo);
+begin
+  FormTelaConsultaForm     := Sys.Process(Modulo).VCLObject('FBRowseCds');
+  FormTelaConsultaGrid     := Sys.Process(Modulo).VCLObject('FBRowseCds').VCLObject('BGrid');
+  FormTelaConsultaGridSite := Sys.Process(Modulo).VCLObject('FBRowseCds').VCLObject('BGrid').Window('TcxGridSite', '', 1);  
+end;
+
+procedure FechaGridConsulta();
+begin
+  ActFechar(FormTelaConsultaForm);
+end;
+
+procedure MapConsultaF3(sModulo : String);
+begin
+  ModuloConsultaF3 := Sys.Process(sModulo);
+  
+  FormConsTelaF3   := ModuloConsultaF3.FProcRapidaCds;
+  FormConsPnlProc  := FormConsTelaF3.PanProc;
+  FormConsCpoProc  := FormConsPnlProc.EProcurar;
+  
+  FormConsPnlGrid  := FormConsTelaF3.Cproc;
+  FormConsGridProc := FormConsPnlGrid.Window('TcxGridSite', '', 1);
+  
+  FormConsBtnProc  := FormConsTelaF3.btPesquisar;
+end;
+
+procedure MapConsultaCPFCNPJ(sModulo : String);
+begin
+  ModuloConsCPFCNPJ  := Sys.Process(sModulo);
+  
+  FormConsCPFCNPJ    := ModuloConsCPFCNPJ.frmSearchReceita;
+  
+  FormConsGBCPFCNPJ  := FormConsCPFCNPJ.GroupBox1;
+  FormConsEbCNPJ     := FormConsGBCPFCNPJ.ed_Cnpj;
+  FormConsBtnPesquis := FormConsGBCPFCNPJ.bAcessoSite;
+  
+  FormConsPnlDados   := FormConsCPFCNPJ.PageControl1;
+  FormConsTsDadosRet := FormConsPnlDados.tsDadosCnpj;
+  
+  FormConsPnlBtnOk   := FormConsCPFCNPJ.pnOk;
+  FormConsBtnOkRet   := FormConsPnlBtnOk.bRetorno;
+end;
+
+procedure MapConsultaCEP(sModulo : String);
+begin
+  ModuloConsCEP      := Sys.Process(sModulo);
+  
+  SelecionaServico   := ModuloConsCEP.frmBuscarCEP.gbWebService.cbWebService;
+    
+  FormConsCEP        := ModuloConsCEP.frmBuscarCEP;
+  
+  FormConsGBCEPBusca := FormConsCEP.gbBusca;
+  FormConsEbCEP      := FormConsGBCEPBusca.edtCEP;
+  FormConsGBBtnPesq  := FormConsGBCEPBusca.btnPesquisar;
+
+  FormConsDBGCEP     := FormConsCEP.dbgCEP;
+  FormConsCEPGrid    := FormConsDBGCEP.Window('TcxGridSite', '', 1);
+  
+  FormConsCEPPanel   := FormConsCEP.pnlBarra;
+  FormConsCEPBtnRet  := FormConsCEPPanel.btnRetornar;
+  FormConsCEPBtnExit := FormConsCEPPanel.btnFechar;
+end;
+
+procedure MapFormMovimento();
+begin
+  FormCadMovimento   := Aliases.Folha.FRhMovim;
+    
+  CadMovEBEstab      := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ESTAB;
+  CadMovEBIdProc     := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDPROCESSO;
+  CadMovEBData       := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_DATA;
+  CadMovEBIdEmpreg   := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+  CadMovEBIdEvento   := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDEVENTO;
+  CadMovEBCompFerias := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_COMPLEMENTAFERIAS;
+  CadMovEBSistExp    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDSISTEMAEXP;
+  CadMovEBOrigemLanc := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ORIGEM;
+  CadMovEBImpPonto   := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IMPORTADOPONTO;
+  CadMovBtnSair      := Aliases.Folha.FRhMovim.BSairRap;
+  CadMovBtnHelp      := Aliases.Folha.FRhMovim.BHelpRap;
+  CadMovBtnSave      := Aliases.Folha.FRhMovim.BSalvarRap;
+  CadMovBtnDesf      := Aliases.Folha.FRhMovim.BDesfazerRap;
+  CadMovBtnImp       := Aliases.Folha.FRhMovim.BImprimirRap;
+end;
+
+procedure MapFeriasPeriodo();
+begin
+  FormPerFerias      := Aliases.Folha.FRhFerias;
+
+  PerFerEBDiasFaltas := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbFerias.EB_DIASFALTAS;
+  PerFerEBDiasGozo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DIASGOZO;
+  PerFerEBDataIni    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DATAGOZINI;
+  PerFerEBPossuiAbo  := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_POSSUIABONO;
+  PerFerEBAbonarNo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_ABONARNO;
+  PerFerEBDiasAbo    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_DIASABONO;  
+  
+  PerFeriasSaveBtn  := Aliases.Folha.FRhFerias.tbSalvar;
+  PerFeriasNotBtn   := Aliases.Folha.FRhFerias.tbbNotes;
+  PerFeriasSairBtn  := Aliases.Folha.FRhFerias.BSair;
+end;
+
+procedure MapParamsMovimento();
+begin
+  Log.Checkpoint('Verificando quais campos estão ativados');
+  
+  if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.Exists) then
+  begin
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_VALORINFORMADO.Exists) then
+      ParamsEBValorInfo    := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_VALORINFORMADO;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME.Exists) then
+      ParamsEBInforme      := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_VALORTAREFA.Exists) then
+      ParamsEBValorTarefa  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_VALORTAREFA;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME2.Exists) then
+      ParamsEBInforme2     := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME2;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPORCIONAL.Exists) then
+      ParamsEBProporcional := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPORCIONAL;
+  
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_DIASUTEIS.Exists) then
+      ParamsEBDiasUteis    := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_DIASUTEIS;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_DIASFALTAS.Exists) then
+      ParamsEBDiasFaltas   := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_DIASFALTAS;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_AVOSINFORME.Exists) then
+      ParamsEBAvosInforme  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_AVOSINFORME;
+    
+   // if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_AVOSDIREITO.Exists) then
+      ParamsEBAvosDireito  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_AVOSDIREITO;
+  
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA.Exists) then
+      ParamsEBReferencia   := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA;
+    
+    //if (Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS.Exists) then
+      ParamsEBBaseProp     := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS;
+  end;
+end;
+
+procedure MapFormProcessamento();
+begin
+  FormCadControleProc   := Aliases.Folha.FRhProcesso;
+  PageProc              := Aliases.Folha.FRhProcesso.Page;
+  BtnSairProc           := Aliases.Folha.FRhProcesso.BSairRap;
+  BtnAjudaProc          := Aliases.Folha.FRhProcesso.BHelpRap;
+  BtnSalvarProc         := Aliases.Folha.FRhProcesso.BSalvarRap;
+  BtnDesfProc           := Aliases.Folha.FRhProcesso.BDesfazerRap;
+  BtnImprimeProc        := Aliases.Folha.FRhProcesso.BImprimirRap;
+  BtnExcluirProc        := Aliases.Folha.FRhProcesso.BExcluir;
+  
+  ProcEBEstab           := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_ESTAB;
+  ProcEBIdProc          := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDPROCESSO;
+  ProcEBDtCtrl          := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_DATA;
+  ProcEBDtPagIRRF       := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_COMPIRRF;
+  ProcEBVlrArred        := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_VLRARRED;
+  ProcEBAberto          := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_EMABERTO;
+
+  ESocialEBEvtRemun     := Aliases.Folha.FRhProcesso.Page.tseSocial.sbeSocial.EB_EVTREMUN;
+  ESocialEBInfoPgtos    := Aliases.Folha.FRhProcesso.Page.tseSocial.sbeSocial.EB_EVTPGTOS;
+  ESocialEBContrataVnp  := Aliases.Folha.FRhProcesso.Page.tseSocial.sbeSocial.EB_EVTCONTRATAVNP;
+  ESocialEBEvtInfoCompl := Aliases.Folha.FRhProcesso.Page.tseSocial.sbeSocial.EB_EVTINFOCOMPLPER;
+  ESocialEBSitESocial   := Aliases.Folha.FRhProcesso.Page.tseSocial.sbeSocial.EB_SITPROCESOCIAL;
+end;
+
+procedure MapPageESocial(sModulo);
+begin
+  ESocialForm    := Sys.Process(sModulo).FRhPendeSocial;
+  ESocialGrid    := Sys.Process(sModulo).FRhPendeSocial.Panel2.Panel4.gPend;
+  SelAllBtn      := Sys.Process(sModulo).FRhPendeSocial.Panel2.Panel4.Dock971.Toolbar971.btSelAllCred;
+  DesAllBtn      := Sys.Process(sModulo).FRhPendeSocial.Panel2.Panel4.Dock971.Toolbar971.btDesAllCred;
+  ESocialEnvBtn  := Sys.Process(sModulo).FRhPendeSocial.Panel1.btEnviar;
+  ESocialFilaBtn := Sys.Process(sModulo).FRhPendeSocial.Panel1.btFila;
+end;

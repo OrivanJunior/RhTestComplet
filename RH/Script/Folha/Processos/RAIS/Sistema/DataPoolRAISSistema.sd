@@ -1,0 +1,43 @@
+﻿{Script de DataPool do Processo de RAIS Sistema
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 25/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocaisTipo, FiltroLocaisValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroRAISAnoBase: OleVariant;
+
+procedure LeDataPoolRaisSistema(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo   := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor  := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo   := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor  := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+  { Filtro Locais }
+  FiltroLocaisTipo   := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocaisValor  := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo    := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+    
+  { Filtro Datas }
+  FiltroDataIni     := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin     := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Dados Adicionais }
+  FiltroRAISAnoBase := DDT.DriverByName(nomeDriver).Value('ANOBASE');
+end;

@@ -1,0 +1,45 @@
+﻿{Script de DataPool para  o Processo de eSocial - Carga Inicial
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormEnvioSSTDPS2210, FormEnvioSSTDPS2220, 
+  FormEnvioSSTDPS2240, FiltroMesAnoComp,
+  
+  FiltroEmpregadoTipo, FiltroEmpregadoValor, 
+  
+  FiltroConsEstab, FiltroConsDataIni,
+  FiltroConsHoraIni, FiltroConsDataFin,
+  FiltroConsHoraFin, FiltroConsAmbiente,
+  FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
+
+  
+procedure LoadDataPoolEnvioSST(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);	
+end;
+  
+procedure LeDataPoolEnvioSST();
+begin
+  FormEnvioSSTDPS2210          := DDT.CurrentDriver.Value('S-2210');
+  FormEnvioSSTDPS2220          := DDT.CurrentDriver.Value('S-2220');
+  FormEnvioSSTDPS2240          := DDT.CurrentDriver.Value('S-2240');
+														    
+  FiltroEmpregadoTipo          := DDT.CurrentDriver.Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor         := DDT.CurrentDriver.Value('EMPREGADO_VALOR');
+  
+  FiltroMesAnoComp             := DDT.CurrentDriver.Value('MES_ANO_COMP');
+end;                                      
+										
+procedure LeDataPoolConsEnvioSST();
+begin         
+  FiltroConsEstab      := DDT.CurrentDriver.Value('ESTAB');
+  FiltroConsDataIni    := DDT.CurrentDriver.Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.CurrentDriver.Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.CurrentDriver.Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.CurrentDriver.Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.CurrentDriver.Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.CurrentDriver.Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.CurrentDriver.Value('EVENTO_ESOCIAL');
+end;

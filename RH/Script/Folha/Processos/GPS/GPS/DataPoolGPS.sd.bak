@@ -1,0 +1,55 @@
+﻿{Script de DataPool do Processo de GPS
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 22/06/2021}
+  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroMesGuias, FiltroAnoGuias,
+  FiltroDataVenc, FiltroDescGuia, 
+  FiltroVerValMin, FiltroVerNRec, 
+  FiltroExcGer: OleVariant;
+
+procedure LeDataPoolGPS(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+    { Filtro Locais }
+    FiltroLocalTipo  := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+    FiltroLocalValor := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+    FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+    { Filtro Referência }
+    FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATAINI');
+    FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+    { Filtro Processamentos }
+    FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+    FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+    
+    { Filtro Dados Adicionais }
+    FiltroMesGuias   := DDT.DriverByName(nomeDriver).Value('MESGUIAS');
+    FiltroAnoGuias   := DDT.DriverByName(nomeDriver).Value('ANOGUIAS');
+    FiltroDataVenc   := DDT.DriverByName(nomeDriver).Value('DATAVENC');
+    FiltroDescGuia   := DDT.DriverByName(nomeDriver).Value('DESCGUIA');
+    FiltroVerValMin  := DDT.DriverByName(nomeDriver).Value('VERVALMIN');
+    FiltroVerNRec    := DDT.DriverByName(nomeDriver).Value('VERNREC');
+    FiltroExcGer     := DDT.DriverByName(nomeDriver).Value('EXCGER');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

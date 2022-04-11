@@ -1,0 +1,41 @@
+﻿uses
+  CommonsAll,
+  VarConsts;
+{Script para mapear e executar a tela de Seleção de Estabelecimento
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 30/06/2021}
+
+  
+var
+  Modulo: OleVariant;
+  
+  SelEstabForm, SelEstabPage, SelEstabGrEstab, 
+  SelEstabPnBtns, SelEstabBtnSel: OleVariant;
+  
+procedure MapTelaSelecaoEstab(sModulo: string);
+begin
+  Modulo          := Sys.Process(sModulo);
+  
+  SelEstabForm    := Sys.Process(sModulo).fmSel;
+  SelEstabPage    := Sys.Process(sModulo).fmSel.Page;
+  SelEstabGrEstab := Sys.Process(sModulo).fmSel.Page.grEstabs;
+
+  SelEstabBtnSel  := Sys.Process(sModulo).fmSel.Page.PanOpcoes.btnSelecionar;
+end;
+
+procedure ExecutaSelecaoEstab(sModulo, idEstab: string);
+begin
+  if (Sys.Process(sModulo).VCLObject('VsMenu').Enabled) then
+  begin
+    Sys.Process(sModulo).VCLObject('VsMenu').pnBarraPesquisaEmpresaValor.Click;
+  end;    
+  
+  MapTelaSelecaoEstab(sModulo);
+  
+  SelEstabPage.TabIndex := 1;
+  
+  FiltraGridSelEstab(sModulo, 'fmSel', 'Page', 'grEstabs', 'Estab.', idEstab); 
+  
+  FechaTelaInicioModulo(sModulo, idEstab);
+end;

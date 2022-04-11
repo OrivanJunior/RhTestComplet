@@ -1,0 +1,100 @@
+﻿{Script para mapear o Processo de eSocial - Envio Mensal
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialEnvioMensal, PageESocialEnvioMensal,
+  
+  BtnEnviarMensal, FormEnvioMensalModoLanc,
+
+  FormEnvioMensalRBS1200, FormEnvioMensalRBS1210,
+  FormEnvioMensalRBS1250, FormEnvioMensalRBS1260,
+  FormEnvioMensalRBS1270, FormEnvioMensalRBS1280,
+  FormEnvioMensalRBS1295, FormEnvioMensalRBS1300, 
+  FormEnvioMensalRBS2206, FormEnvioMensalRBS2230,
+  
+  FormEnvioMensalRBS1200PS, FormEnvioMensalRBS1210PS,
+
+  FormEnvioMensalWhEmpregadosTodos, FormEnvioMensalWhEmpregadosEspec,
+  FormEnvioMensalWhEmpregadosEspecCampo, FormEnvioMensalWhEmpregadosSelec,
+  FormEnvioMensalWhEmpregadosSelecCampo, 
+  
+  FormEnvioMensalWhPrestadoresTodos, FormEnvioMensalWhPrestadoresEspec,
+  FormEnvioMensalWhPrestadoresEspecCampo, FormEnvioMensalWhPrestadoresSelec,
+  FormEnvioMensalWhPrestadoresSelecCampo,
+
+  FormEnvioMensalWhMesAnoCompetencia, FormEnvioMensalWhMesAnoPagamento,
+  FormEnvioMensalWhMesAnoComp, FormEnvioMensalWhDataAlteracao,
+  
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialEnvioMensal();
+begin
+  FormESocialEnvioMensal                  := Aliases.Folha.FRhProceSocialEnvioMensal;
+  PageESocialEnvioMensal                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao;
+  
+  BtnEnviarMensal                         := Aliases.Folha.FRhProceSocialEnvioMensal.btEnviarMensal;
+  
+  FormEnvioMensalRBS1200                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1200;
+  FormEnvioMensalRBS1210                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1210;
+  FormEnvioMensalRBS1270                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1270;
+  FormEnvioMensalRBS1280                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1280;
+  FormEnvioMensalRBS1295                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1295;
+  FormEnvioMensalRBS1300                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1300;
+  
+  FormEnvioMensalRBS1200PS                := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1200PS;
+  FormEnvioMensalRBS1210PS                := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS1210PS;
+  
+  FormEnvioMensalRBS2206                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS2206;
+  FormEnvioMensalRBS2230                  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbEventosMensal.pgVersao.tsVersao2_5.sbVersao2_5.rbS2230;
+
+  FormEnvioMensalWhEmpregadosTodos        := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.whEmpregados30;
+  FormEnvioMensalWhEmpregadosEspec        := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.WhEmpregados.WhEmpregados20;
+  FormEnvioMensalWhEmpregadosEspecCampo   := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.whEmpregados50;
+  FormEnvioMensalWhEmpregadosSelec        := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.whEmpregados40;
+  FormEnvioMensalWhEmpregadosSelecCampo   := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whEmpregados.whEmpregados80;
+  
+  FormEnvioMensalWhPrestadoresTodos       := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.whPrestadores30;
+  FormEnvioMensalWhPrestadoresEspec       := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.WhPrestadores.WhPrestadores20;
+  FormEnvioMensalWhPrestadoresEspecCampo  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.whPrestadores50;
+  FormEnvioMensalWhPrestadoresSelec       := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.whPrestadores40;
+  FormEnvioMensalWhPrestadoresSelecCampo  := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.whPrestadores.whPrestadores80;
+  
+  FormEnvioMensalWhMesAnoCompetencia      := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbCompPagtoCont.EB_MESANOPGTOCONT;
+  FormEnvioMensalWhMesAnoPagamento        := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbPagamento.EB_MESANOPAGTO;
+  FormEnvioMensalWhMesAnoComp             := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbComp.EB_MESANOCOMP;
+  FormEnvioMensalWhDataAlteracao          := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsPrincipal.ScrollBox2.gbDataAlteracao.EB_DTALTERACAO;
+end;
+
+procedure MapESocialConsEnvioMensal();
+begin
+  FormConsEstab                := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni              := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni              := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin              := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin              := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente             := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento           := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial           := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar                               := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos                             := Aliases.Folha.FRhProceSocialEnvioMensal.bSelOcs;
+  BtnDesTodos                             := Aliases.Folha.FRhProceSocialEnvioMensal.bDesmOcs;
+  BtnConsSel                              := Aliases.Folha.FRhProceSocialEnvioMensal.btConsTodosSel;
+  BtnEnvTodosSel                          := Aliases.Folha.FRhProceSocialEnvioMensal.btEnvTodosSel;
+  BtnExtTodosSel                          := Aliases.Folha.FRhProceSocialEnvioMensal.btExcTodosSel;
+  BtnSalvarXML                            := Aliases.Folha.FRhProceSocialEnvioMensal.btSalvarXML;
+  BtnVerXML                               := Aliases.Folha.FRhProceSocialEnvioMensal.btVerXML;
+  BtnVerRetorno                           := Aliases.Folha.FRhProceSocialEnvioMensal.btVisualizarRetorno;
+  BtnVizualizar                           := Aliases.Folha.FRhProceSocialEnvioMensal.btVisualizarOc;
+  CbMostrarProtocolos                     := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos                             := Aliases.Folha.FRhProceSocialEnvioMensal.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

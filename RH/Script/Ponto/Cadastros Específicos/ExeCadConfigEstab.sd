@@ -1,0 +1,194 @@
+﻿uses
+  ObjCadConfigEstab, DataPoolCadConfigEstab, CommonsAll, CommonsObj, VarConsts;
+
+procedure PreencheDadosCadastrais();
+begin
+  MapDadosCadastrais();
+  
+  ConfEstabPage.ActivePageIndex := 0;
+  
+  VerificaInsere(ConfEstabEBCei, ConfEstabDPCei);
+  VerificaInsere(ConfEstabEBCpf, ConfEstabDPCpf);
+  VerificaInsere(ConfEstabEBIdResp, ConfEstabDPIdResp);
+  //VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBIdResp, ConfEstabDPIdResp);
+  VerificaInsere(ConfEstabEBCargo, ConfEstabDPCargo);
+  VerificaInsere(ConfEstabEBPisResp, ConfEstabDPPisResp);
+  VerificaInsere(ConfEstabEBEmail, ConfEstabDPEmail);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBConfEmail, ConfEstabDPConfEmail);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBGrupo, ConfEstabDPGrupo);
+  VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBConfNela, ConfEstabDPConfNela);
+end;
+
+procedure PreencheConfGeraisPonto();
+begin
+  MapConfGeraisPonto();
+  
+  ConfEstabPage.ActivePageIndex := 6;
+
+  VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBHorarioPadrao, ConfEstabDPHorarioPadrao);
+  VerificaInsere(ConfEstabEBFechaUltDia, ConfEstabDPFechaUltDia);  
+  VerificaInsere(ConfEstabEBDiaFecha, ConfEstabDPDiaFecha);  
+  VerificaInsere(ConfEstabEBTipoControle, ConfEstabDPTipoControle);  
+  VerificaInsere(ConfEstabEBAvRetEmpPonto, ConfEstabDPAvRetEmpPonto);  
+  VerificaInsere(ConfEstabEBBuscaEstabAFD, ConfEstabDPBuscaEstabAFD);  
+  VerificaInsere(ConfEstabEBCartManConfHr, ConfEstabDPCartManConfHr);  
+  VerificaInsere(ConfEstabEBConsDiaTrab, ConfEstabDPConsDiaTrab);  
+  VerificaInsere(ConfEstabEBCodEstabFolha, ConfEstabDPCodEstabFolha);  
+  VerificaInsere(ConfEstabEBHrExtIndInt, ConfEstabDPHrExtIndInt);  
+  VerificaInsere(ConfEstabEBHoraIniPro, ConfEstabDPHoraIniPro);  
+  VerificaConsultaF3Insere(_ModuloPonto, ConfEstabEBEveHrAviso, ConfEstabDPEveHrAviso); 
+end;
+
+procedure PreencheEventosExportacao();
+begin
+  MapEventosExportacao();
+  
+  ConfEstabPage.ActivePageIndex := 7;
+  
+  EveExpIncBtn.Click();
+  
+  VerificaClickPreencheGrid(EveExpGrid, 0, 'Evento', ConfEstabDPEvento);
+  VerificaClickPreencheGrid(EveExpGrid, 0, 'Eventos de Exportação', ConfEstabDPEventoExp);
+  
+  EveExpDesfBtn.Click();
+end;
+
+procedure PreencheRepEstab();
+begin
+  MapRepEstab();
+  
+  ConfEstabPage.ActivePageIndex := 8;
+  
+  RepEstabIncBtn.Click();
+  
+  VerificaClickPreencheGrid(RepEstabGrid, 0, 'REP', ConfEstabDPRep);
+  
+  RepEstabDesfBtn.Click();
+end;
+
+procedure PreencheListagemPendencias();
+begin
+  MapListagemPendencias();
+  
+  ConfEstabPage.ActivePageIndex := 10;
+  
+  VerificaInsere(ConfEstabEBVencCNH, ConfEstabDPVencCNH);
+  VerificaInsere(ConfEstabEBDiasVencCNH, ConfEstabDPDiasVencCNH);
+  VerificaInsere(ConfEstabEBBcoHrsComp, ConfEstabDPBcoHrsComp);
+  VerificaInsere(ConfEstabEBDiasBHComp, ConfEstabDPDiasBHComp);
+  VerificaInsere(ConfEstabEBVencBcoHrs, ConfEstabDPVencBcoHrs);
+  VerificaInsere(ConfEstabEBDiasVencBH, ConfEstabDPDiasVencBH);
+end;
+
+procedure CadastraConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    PreencheDadosCadastrais();
+  
+    PreencheConfGeraisPonto();
+  
+    PreencheEventosExportacao();
+  
+    PreencheRepEstab();
+  
+    PreencheListagemPendencias();
+  
+    ActSalvar(ConfEstabForm);
+  
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;
+
+procedure AlteraConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    PreencheDadosCadastrais();
+  
+    PreencheConfGeraisPonto();
+  
+    PreencheEventosExportacao();
+  
+    PreencheRepEstab();
+  
+    PreencheListagemPendencias();
+  
+    ActSalvar(ConfEstabForm);
+  
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;
+
+procedure ExcluiConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    ActExcluir(_ModuloPonto, 'FRhFilial');
+    
+    if (Aliases.Ponto.dlgWarning.Exists) then
+      Aliases.Ponto.dlgWarning.Warning.CtrlNotifySink.btnYes.Click();
+        
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;

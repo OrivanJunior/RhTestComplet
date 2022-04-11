@@ -1,0 +1,124 @@
+﻿{Script para executar o Processo de Exportação de Admitidos/Demitidos/Atualizados
+ Módulo: Padrao
+ Autor: Camila Braatz da Rocha
+ Data: 13/07/2021}
+uses
+  DataPoolExpAdmDem, ObjExpAdmDem, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaExpAdmDem();
+begin
+  AcessaItem(_ModuloFolha, 'Processos', 'Exportação','Exportação de Admitidos/Demitidos/Atualizados'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ExpAdmDemWhEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, ExpAdmDemWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ExpAdmDemWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ExpAdmDemWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ExpAdmDemWhEstabSelec.ClickButton;
+    VerificaInsere(ExpAdmDemWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ExpAdmDemWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;  
+end;
+
+procedure FiltraData();
+begin
+  if (ExpAdmDemWhDataIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcExpAdmDem.pg.tsSelecao.SB_Selecao.whDatas.whDatas10.Click();
+    
+  PreencheDatas(ExpAdmDemWhDataIni, FiltroDataIni); 
+  PreencheDatas(ExpAdmDemWhDataFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ExpAdmDemWhDadosTipo.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcManad.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(ExpAdmDemWhDadosLocalGrav, FiltroLocalGrav);
+  VerificaInsere(ExpAdmDemWhDadosTipo, FiltroTipo);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin  
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+  end;
+end;
+
+procedure ExecutaExpAdmDem(pathData);
+var 
+  DDTExpAdmDem: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaExpAdmDem();
+  
+  DDTExpAdmDem := CarregaDDT(pathData, 'Filtro');
+  
+  if (Aliases.Folha.FRhProcExpAdmDem.Exists) then
+  begin
+    MapExpAdmDem();
+
+    LeDataPoolExpAdmDem(DDTExpAdmDem.Name);
+
+    FiltraEstab();
+    
+    FiltraData();
+  
+    DadosAdicionais();
+
+    btnExecutar.Click();
+  
+    while (MensagemInativa) do
+    begin
+      Delay(5000);
+      if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+      begin
+        Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+    
+        ActFechar(FormExpAdmDem);
+      
+        MensagemInativa := false;
+      end
+      else if (Aliases.Folha.FVsErrorDlg.Visible) then
+      begin
+        Log.Warning('Erro, verifique as informações');
+        Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+        ActFechar(FormExpAdmDem);
+        MensagemInativa := false;
+      end
+    end;   
+  end;
+  ValidaArquivos('C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO ADMITIDOS-DEMITIDOS-ATUALIZADOS\EXP_ADM_DEM_ATU_MODELO.txt', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO ADMITIDOS-DEMITIDOS-ATUALIZADOS\EXP_ADM_DEM_ATU_MODELO_ORACLE.txt', 
+                 'C:\TEMP\EXPORTAÇÃO\EXPORTAÇÃO ADMITIDOS-DEMITIDOS-ATUALIZADOS\ADMITIDOS.txt');
+  DDT.CloseDriver(DDTExpAdmDem.Name);
+end;

@@ -1,0 +1,47 @@
+﻿uses
+  VarConsts;
+{Script de mapeamento a tela de cadastro de estabelecimento do Viasoft3c
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 23/03/2018}
+ 
+var
+  Viasoft3C_XE: OleVariant;
+  
+  CadEstabForm, CadEstabEstab, 
+  CadEstabEmpresa, CadEstabFilial, 
+  CadEstabCNPJ, CadEstabRazSoc,
+  CadEstabReduzid, CadEstabInscEst, 
+  CadEstabInscMun, CadEstabCNAE, 
+  CadEstabTipoEnd, CadEstabEnderec,
+  CadEstabNumEnd, CadEstabCompEnd, 
+  CadEstabBairro, CadEstabCidade,
+  CadEstabCEP, CadEstabTelefon, 
+  CadEstabFAX, CadEstabEmail, 
+  CadEstabInativa, CadEstabNire: OleVariant;
+  
+procedure MapCadEstab();
+begin
+  CadEstabForm    := Aliases.Viasoft3c_XE.FFormPadraoFILIAL;
+  CadEstabEstab   := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB;
+  CadEstabEmpresa := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_EMPRESA;
+  CadEstabFilial  := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FILIAL;
+  CadEstabCNPJ    := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CNPJ;
+  CadEstabRazSoc  := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RAZAOSOC;
+  CadEstabReduzid := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_REDUZIDO;
+  CadEstabInscEst := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INSCEST;
+  CadEstabInscMun := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INSCMUN;
+  CadEstabCNAE    := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CNAE;
+  CadEstabTipoEnd := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TIPOEND;
+  CadEstabEnderec := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ENDERECO;
+  CadEstabNumEnd  := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NUMEEND;
+  CadEstabCompEnd := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_COMPEND;
+  CadEstabBairro  := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_BAIRRO;
+  CadEstabCidade  := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CIDADE;
+  CadEstabCEP     := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CEP;
+  CadEstabTelefon := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TELEFONE;
+  CadEstabFAX     := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FAX;
+  CadEstabEmail   := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_EMAIL;
+  CadEstabInativa := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_INATIVA;
+  CadEstabNire    := Aliases.Viasoft3c_XE.FFormPadraoFILIAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NIRE;
+end;

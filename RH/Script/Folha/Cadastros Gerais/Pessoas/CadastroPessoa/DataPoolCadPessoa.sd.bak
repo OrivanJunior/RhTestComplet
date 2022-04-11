@@ -1,0 +1,194 @@
+﻿uses
+  VarConsts;
+{Script para criar DataPool da tela de cadastro de Pessoa
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  { Dados Gerais }
+  DadosGeraisDPCpf: OleVariant;
+  
+  { Dados Pessoais}
+  FormCadPessoaDPIdPess, FormCadPessoaDPNome, FormCadPessoaDPNomeSocial,
+  FormCadPessoaDPIdEstCivil, FormCadPessoaDPIdInstrucao, FormCadPessoaDPIdNacional,
+  FormCadPessoaDPNomePai, FormCadPessoaDPNomeMae, FormCadPessoaDPNomeConjuge, 
+  FormCadPessoaDPSexo, FormCadPessoaDPIdGenero, FormCadPessoaDPRacaCor,    
+  FormCadPessoaDPCodNatural, FormCadPessoaDPDtNascim, FormCadPessoaDPTipoSanguineo, 
+  FormCadPessoaDPApelido, FormCadPessoaDPDefFisica, FormCadPessoaDPDefVisual, 
+  FormCadPessoaDPDefAutiditiva, FormCadPessoaDPDefMental, FormCadPessoaDPDefIntelectual,
+  FormCadPessoaDPReabilitado, FormCadPessoaDPCotaPessDef, FormCadPessoaDPObsDef: OleVariant;
+
+  { Estrangeiro }
+  FormCadPessoaDPDtChegadaPais, FormCadPessoaDPCasadoBrasileiro, 
+  FormCadPessoaDPFilhosComBras, FormCadPessoaDPIdClasTrabEst: OleVariant;
+                                
+  { Endereço/Contato }            
+  FormCadPessoaDPTipoEndereco, FormCadPessoaDPIdTpLogadouro, FormCadPessoaDPEndereco,
+  FormCadPessoaDPNroEnd, FormCadPessoaDPBairro, FormCadPessoaDPComplemento,
+  FormCadPessoaDPCidade, FormCadPessoaDPCEP, FormCadPessoaDPEmail,
+  FormCadPessoaDPEmailAlt, FormCadPessoaDPDdCelular, FormCadPessoaDPCelular,
+  FormCadPessoaDPDddTelefone, FormCadPessoaDPTelefone, FormCadPessoaDPNroCaixaPostal,
+  FormCadPessoaDPCEPCaixaPostal, FormCadPessoaDPResideExterior, FormCadPessoaDPResidenciaPropria,
+  FormCadPessoaDPResidenciaFGTS: OleVariant;
+                                
+  { Documentos }                  
+  FormCadPessoaDPCpf, FormCadPessoaDPDocMilitar, FormCadPessoaDPTituElei, FormCadPessoaDPSecaoElei,
+  FormCadPessoaDPZonaElei, FormCadPessoaDPRg, FormCadPessoaDPDataRg, FormCadPessoaDPComplementoRG, FormCadPessoaDPIdOrgaoRg,
+  FormCadPessoaDPCidadeRG, FormCadPessoaDPUfRg, FormCadPessoaDPCartHabi, FormCadPessoaDPDtVencCNH,
+  FormCadPessoaDPCateHabi, FormCadPessoaDPDtExpCNH, FormCadPessoaDPDtPriHab, FormCadPessoaDPUfExpCNH,
+  FormCadPessoaDPCertCivil, FormCadPessoaDPNroPassaporte, FormCadPessoaDPDtaEmisPasaporte,FormCadPessoaDPDtAvalPassaporte,
+  FormCadPessoaDPFolhaCert, FormCadPessoaDPCodCidCert, FormCadPessoaDPDataEmisCert, FormCadPessoaDPMatriculaCert,
+  FormCadPessoaDPNroPasaporte, FormCadPessoaDPIdOrgaoPass, FormCadPessoaDPCodCidPass, FormCadPessoaDPNroNaturalizao, 
+  FormCadPessoaDPDtaNaturalizacao, FormCadPessoaDPNroRic, FormCadPessoaDPDtaEmisRic, FormCadPessoaDPCodCidRic, 
+  FormCadPessoaDPIdOrgaoRic, FormCadPessoaDPNroRegOrgao, FormCadPessoaDPIdOrgaoRO, FormCadPessoaDPDtValDocumento, 
+  FormCadPessoaDPDtExpDocumento, FormCadPessoaDPCodRne, FormCadPessoaDPDtExpRne, FormCadPessoaDPOrgaoRne, 
+  FormCadPessoaDPNroCartaoSUS: OleVariant;
+  
+  { Dependentes }
+  FormCadPessoaDPDepIdDepende, FormCadPessoaDPNomeDepende, FormCadPessoaDPRelDepende,
+  FormCadPessoaDPDataNascDepende, FormCadPessoaDPCpfDepend, FormCadPessoaDPDepPlano,
+  FormCadPessoaDPIdRelacaoDep, FormCadPessoaDPDepAtivo, FormCadPessoaDPIdadeMaxDepende, 
+  FormCadPessoaDPDeficienteDepende, FormCadPessoaDPBenPenalDepende, FormCadPessoaDPNaturalDeDepende,
+  FormCadPessoaDPLivroNumeroDep,FormCadPessoaDPCartorioDepende, FormCadPessoaDPRegistroDepende, 
+  FormCadPessoaDPFolhaNumDepende, FormCadPessoaDPLivroNumeroDepende, FormCadPessoaDPMatriculaDepende, 
+  FormCadPessoaDPDocumentacaoDepende, FormCadPessoaDPDepSalFamAtivo, FormCadPessoaDPDtEntregaDepende, 
+  FormCadPessoaDPPercPensaoDepende, FormCadPessoaDPIdEventoPensaoDepende, FormCadPessoaDPIdEventoPensaoFerDepende, 
+  FormCadPessoaDPIdEventoPensao13Depende, FormCadPessoaDPDataFinDepende: OleVariant;
+
+  
+procedure leDataPoolCadPessoa(pathData, tab: string);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;
+
+procedure LoadDPPessoaDadosGerais();
+begin
+  DadosGeraisDPCpf                := DriverByName(nomeDriver).Value('CPF');
+    { Dados Pessoais }
+  FormCadPessoaDPIdPess           := DriverByName(nomeDriver).Value('IDPESS'); 
+  FormCadPessoaDPNome             := DriverByName(nomeDriver).Value('NOME'); 
+  FormCadPessoaDPNomeSocial       := DriverByName(nomeDriver).Value('NOMESOCIAL');
+  FormCadPessoaDPIdEstCivil       := DriverByName(nomeDriver).Value('IDESTCIVIL'); 
+  FormCadPessoaDPIdInstrucao      := DriverByName(nomeDriver).Value('IDINSTRUCAO'); 
+  FormCadPessoaDPIdNacional       := DriverByName(nomeDriver).Value('IDNACIONAL');
+  FormCadPessoaDPNomePai          := DriverByName(nomeDriver).Value('NOMEPAI'); 
+  FormCadPessoaDPNomeMae          := DriverByName(nomeDriver).Value('NOMEMAE'); 
+  FormCadPessoaDPNomeConjuge      := DriverByName(nomeDriver).Value('NOMECONJUGE');
+  FormCadPessoaDPSexo             := DriverByName(nomeDriver).Value('SEXO'); 
+  FormCadPessoaDPIdGenero         := DriverByName(nomeDriver).Value('IDGENERO'); 
+  FormCadPessoaDPRacaCor          := DriverByName(nomeDriver).Value('RACACOR');
+  FormCadPessoaDPCodNatural       := DriverByName(nomeDriver).Value('CIDNATURAL'); 
+  FormCadPessoaDPDtNascim         := DriverByName(nomeDriver).Value('DTNASCIM');
+  FormCadPessoaDPTipoSanguineo    := DriverByName(nomeDriver).Value('TIPOSANGUINEO');
+  FormCadPessoaDPApelido          := DriverByName(nomeDriver).Value('APELIDO');
+
+  { Informações de Deficiência }
+  FormCadPessoaDPDefFisica        := DriverByName(nomeDriver).Value('DEFFISICA'); 
+  FormCadPessoaDPDefVisual        := DriverByName(nomeDriver).Value('DEFVISUAL');
+  FormCadPessoaDPDefAutiditiva    := DriverByName(nomeDriver).Value('DEFAUDITIVA'); 
+  FormCadPessoaDPDefMental        := DriverByName(nomeDriver).Value('DEFMENTAL'); 
+  FormCadPessoaDPDefIntelectual   := DriverByName(nomeDriver).Value('DEFINTELECTUAL');
+  FormCadPessoaDPReabilitado      := DriverByName(nomeDriver).Value('REABILITADO'); 
+  FormCadPessoaDPCotaPessDef      := DriverByName(nomeDriver).Value('COTAPESSDEF'); 
+  FormCadPessoaDPObsDef           := DriverByName(nomeDriver).Value('OBSDEF');
+
+  { Estrangeiro }
+  FormCadPessoaDPDtChegadaPais    := DriverByName(nomeDriver).Value('DTCHEGADAPAIS'); 
+  FormCadPessoaDPCasadoBrasileiro := DriverByName(nomeDriver).Value('CASADOBRASILEIRO');
+  FormCadPessoaDPFilhosComBras    := DriverByName(nomeDriver).Value('FILHOSCOMBRAS'); 
+  FormCadPessoaDPIdClasTrabEst    := DriverByName(nomeDriver).Value('IDCLASTRABEST');
+  
+  { Endereço/Contato }
+  FormCadPessoaDPTipoEndereco      := DriverByName(nomeDriver).Value('TIPOENDERECO');
+  FormCadPessoaDPIdTpLogadouro     := DriverByName(nomeDriver).Value('IDTPLOGADOURO');
+  FormCadPessoaDPEndereco          := DriverByName(nomeDriver).Value('ENDERECO');
+  FormCadPessoaDPNroEnd            := DriverByName(nomeDriver).Value('NROEND');
+  FormCadPessoaDPBairro            := DriverByName(nomeDriver).Value('BAIRRO');
+  FormCadPessoaDPComplemento       := DriverByName(nomeDriver).Value('COMPLEMENTO');
+  FormCadPessoaDPCidade            := DriverByName(nomeDriver).Value('CIDADE');
+  FormCadPessoaDPCEP               := DriverByName(nomeDriver).Value('CEP');
+  FormCadPessoaDPEmail             := DriverByName(nomeDriver).Value('EMAIL');
+  FormCadPessoaDPEmailAlt          := DriverByName(nomeDriver).Value('EMAILALT');
+  FormCadPessoaDPDdCelular         := DriverByName(nomeDriver).Value('DDDCELULAR');
+  FormCadPessoaDPCelular           := DriverByName(nomeDriver).Value('CELULAR');
+  FormCadPessoaDPDddTelefone       := DriverByName(nomeDriver).Value('DDDTELEFONE');
+  FormCadPessoaDPTelefone          := DriverByName(nomeDriver).Value('TELEFONE');
+  FormCadPessoaDPNroCaixaPostal    := DriverByName(nomeDriver).Value('NROCAIXAPOSTAL');
+  FormCadPessoaDPCEPCaixaPostal    := DriverByName(nomeDriver).Value('CEPCAIXAPOST');
+  FormCadPessoaDPResideExterior    := DriverByName(nomeDriver).Value('RESIDEEXTERIOR');
+  FormCadPessoaDPResidenciaPropria := DriverByName(nomeDriver).Value('RESIDENCIAPROPRIA');
+  FormCadPessoaDPResidenciaFGTS    := DriverByName(nomeDriver).Value('RESIDENCIAFGTS');
+  
+  { Documentos }
+  FormCadPessoaDPCpf               := DriverByName(nomeDriver).Value('CPF');
+  FormCadPessoaDPDocMilitar        := DriverByName(nomeDriver).Value('DOCMILITAR');
+  FormCadPessoaDPTituElei          := DriverByName(nomeDriver).Value('TITUELEI');
+  FormCadPessoaDPSecaoElei         := DriverByName(nomeDriver).Value('SECAOELEI');
+  FormCadPessoaDPZonaElei          := DriverByName(nomeDriver).Value('ZONAELEI');
+  FormCadPessoaDPRg                := DriverByName(nomeDriver).Value('RG');
+  FormCadPessoaDPDataRg            := DriverByName(nomeDriver).Value('DATARG');
+  FormCadPessoaDPComplementoRG     := DriverByName(nomeDriver).Value('COMPLEMENTORG');
+  FormCadPessoaDPIdOrgaoRg         := DriverByName(nomeDriver).Value('IDORGAORG');
+  FormCadPessoaDPCidadeRG          := DriverByName(nomeDriver).Value('CIDADERG');
+  FormCadPessoaDPUfRg              := DriverByName(nomeDriver).Value('UFRG');
+  FormCadPessoaDPCartHabi          := DriverByName(nomeDriver).Value('CARTHABI');
+  FormCadPessoaDPDtVencCNH         := DriverByName(nomeDriver).Value('DTVENCCNH');
+  FormCadPessoaDPCateHabi          := DriverByName(nomeDriver).Value('CATEHABI');
+  FormCadPessoaDPDtExpCNH          := DriverByName(nomeDriver).Value('DTEXPCNH');
+  FormCadPessoaDPDtPriHab          := DriverByName(nomeDriver).Value('DTPRIHAB');
+  FormCadPessoaDPUfExpCNH          := DriverByName(nomeDriver).Value('UFEXPCNH');
+  FormCadPessoaDPCertCivil         := DriverByName(nomeDriver).Value('CERTCIVIL');
+  FormCadPessoaDPNroPassaporte     := DriverByName(nomeDriver).Value('NROPASAPORTE');
+  FormCadPessoaDPFolhaCert         := DriverByName(nomeDriver).Value('FOLHACERT');
+  FormCadPessoaDPCodCidCert        := DriverByName(nomeDriver).Value('CODCIDCERT');
+  FormCadPessoaDPDataEmisCert      := DriverByName(nomeDriver).Value('DATAEMISCERT');
+  FormCadPessoaDPMatriculaCert     := DriverByName(nomeDriver).Value('MATRICULACERT');
+  FormCadPessoaDPNroPasaporte      := DriverByName(nomeDriver).Value('NROPASAPORTE');
+  FormCadPessoaDPDtaEmisPasaporte  := DriverByName(nomeDriver).Value('DTAEMISPASSAPORTE');
+  FormCadPessoaDPDtAvalPassaporte  := DriverByName(nomeDriver).Value('DTAVALPASSAPORTE');
+  FormCadPessoaDPIdOrgaoPass       := DriverByName(nomeDriver).Value('IDORGAOPASS');
+  FormCadPessoaDPCodCidPass        := DriverByName(nomeDriver).Value('CODCIDPASS');
+  FormCadPessoaDPNroNaturalizao    := DriverByName(nomeDriver).Value('NRONATURALIZACAO');
+  FormCadPessoaDPDtaNaturalizacao  := DriverByName(nomeDriver).Value('DTANATURALIZACAO');
+  FormCadPessoaDPNroRic            := DriverByName(nomeDriver).Value('NRORIC');
+  FormCadPessoaDPDtaEmisRic        := DriverByName(nomeDriver).Value('DTAEMISRIC');
+  FormCadPessoaDPCodCidRic         := DriverByName(nomeDriver).Value('CODCIDRIC');
+  FormCadPessoaDPIdOrgaoRic        := DriverByName(nomeDriver).Value('IDORGAORIC');
+  FormCadPessoaDPNroRegOrgao       := DriverByName(nomeDriver).Value('NROREGORGAO');
+  FormCadPessoaDPIdOrgaoRO         := DriverByName(nomeDriver).Value('IDORGAORO');
+  FormCadPessoaDPDtExpDocumento    := DriverByName(nomeDriver).Value('DTEXPDOCUMENTO');
+  FormCadPessoaDPDtValDocumento    := DriverByName(nomeDriver).Value('DTVALDOCUMENTO');
+  FormCadPessoaDPCodRne            := DriverByName(nomeDriver).Value('CODRNE');
+  FormCadPessoaDPDtExpRne          := DriverByName(nomeDriver).Value('DTEXPRNE');
+  FormCadPessoaDPOrgaoRne          := DriverByName(nomeDriver).Value('IDORGAORNE');
+  FormCadPessoaDPNroCartaoSUS      := DriverByName(nomeDriver).Value('NROCARTAOSUS');
+  
+  FormCadPessoaDPDepIdDepende			        := DriverByName(nomeDriver).Value('IDDEPENDE');
+  FormCadPessoaDPNomeDepende			        := DriverByName(nomeDriver).Value('NOME');
+  FormCadPessoaDPDataNascDepende	    	  := DriverByName(nomeDriver).Value('DATANASC');
+  FormCadPessoaDPRelDepende				        := DriverByName(nomeDriver).Value('RELDEPEND');
+  FormCadPessoaDPCpfDepend				        := DriverByName(nomeDriver).Value('CPFDEPEND');
+  FormCadPessoaDPDeficienteDepende	      := DriverByName(nomeDriver).Value('DEFICIENTE');
+  FormCadPessoaDPDepPlano				          := DriverByName(nomeDriver).Value('DEPPLANO');
+  FormCadPessoaDPIdRelacaoDep			        := DriverByName(nomeDriver).Value('IDRELACAODEP');
+  FormCadPessoaDPIdadeMaxDepende		      := DriverByName(nomeDriver).Value('IDADEMAX');
+  FormCadPessoaDPLivroNumeroDep           := DriverByName(nomeDriver).Value('LIVRONUMERO');
+  FormCadPessoaDPMatriculaDepende 	    	:= DriverByName(nomeDriver).Value('MATRICULA');
+  FormCadPessoaDPDepAtivo    				      := DriverByName(nomeDriver).Value('DEPATIVO');
+														  
+  FormCadPessoaDPNaturalDeDepende		      := DriverByName(nomeDriver).Value('NATURALDE');  
+  FormCadPessoaDPCartorioDepende		      := DriverByName(nomeDriver).Value('CARTORIO');
+  FormCadPessoaDPRegistroDepende    		  := DriverByName(nomeDriver).Value('REGISTRO');
+  FormCadPessoaDPFolhaNumDepende		      := DriverByName(nomeDriver).Value('FOLHANUM');
+  FormCadPessoaDPDocumentacaoDepende      := DriverByName(nomeDriver).Value('DOCUMENTACAO');
+  FormCadPessoaDPDtEntregaDepende		      := DriverByName(nomeDriver).Value('DTENTREGA');
+  FormCadPessoaDPDepSalFamAtivo			      := DriverByName(nomeDriver).Value('DEPSALFAMATIVO');
+														  
+  FormCadPessoaDPBenPenalDepende		      := DriverByName(nomeDriver).Value('BENPENAL');
+  FormCadPessoaDPPercPensaoDepende		    := DriverByName(nomeDriver).Value('PERCPENSAO');
+  FormCadPessoaDPIdEventoPensaoDepende    := DriverByName(nomeDriver).Value('IDEVENTOPENSAO');
+  FormCadPessoaDPIdEventoPensaoFerDepende := DriverByName(nomeDriver).Value('IDEVENTOPENSAOFER');
+  FormCadPessoaDPIdEventoPensao13Depende  := DriverByName(nomeDriver).Value('IDEVENTOPENSAO13');
+  //FormCadPessoaDPDataFinDepende			      := DriverByName(nomeDriver).Value('DATAFINDEP');
+end;

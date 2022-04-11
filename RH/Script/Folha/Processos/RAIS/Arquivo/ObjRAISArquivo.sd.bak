@@ -1,0 +1,60 @@
+﻿{Script de mapeamento o Processo de RAIS Sistema
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Datas: 25/06/2021}
+
+var
+  FormRaisArquivo, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormRaisArquivoWhEstabEspec, FormRaisArquivoWhEstabEspecCampo,
+  FormRaisArquivoWhEstabTodosEmp, FormRaisArquivoWhEstabTodosEmpCampo,
+  FormRaisArquivoWhEstabTodos, FormRaisArquivoWhEstabSelec,
+  FormRaisArquivoWhEstabSelecCampo, 
+  
+  FormRaisArquivoWhAnoBase, FormRaisArquivoWhIdPessoa,
+  FormRaisArquivoWhRetifica, FormRaisArquivoWhDtRetificacao,
+  FormRaisArquivoWhCREA, FormRaisArquivoWhEncerra,
+  FormRaisArquivoWhDtEncerra, FormRaisArquivoWhTpPonto,
+  FormRaisArquivoWhCaminho, FormRaisArquivoWhVRlrContemp,
+  FormRaisArquivoWhProjAviso, FormRaisArquivoWhServicoProprio,
+  FormRaisArquivoWhRefeicaoConvenio, FormRaisArquivoWhAdmCozinhas,
+  FormRaisArquivoWhCestaAlimentos, FormRaisArquivoWhRefeicoesTransp,
+  FormRaisArquivoWhAliConvenio: OleVariant;
+  
+procedure MapRaisArquivo();
+begin
+  FormRaisArquivo                     := Aliases.Folha.FRhProcRaisArq;
+  
+  btnSair                             := Aliases.Folha.FRhProcRaisArq.BSair;
+  btnExecutar                         := Aliases.Folha.FRhProcRaisArq.bExecutar;
+  btnSalvar                           := Aliases.Folha.FRhProcRaisArq.tbSalvar;
+  btnRelatorio                        := Aliases.Folha.FRhProcRaisArq.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormRaisArquivoWhEstabEspec         := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormRaisArquivoWhEstabEspecCampo    := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormRaisArquivoWhEstabTodosEmp      := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormRaisArquivoWhEstabTodosEmpCampo := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormRaisArquivoWhEstabTodos         := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormRaisArquivoWhEstabSelec         := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormRaisArquivoWhEstabSelecCampo    := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+  { Dados Adicionais }
+  FormRaisArquivoWhAnoBase            := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_Ano;
+  FormRaisArquivoWhIdPessoa           := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_IDPESSOA;
+  FormRaisArquivoWhRetifica           := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_Retifica;
+  FormRaisArquivoWhDtRetificacao      := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_DtRetificacao;
+  FormRaisArquivoWhCREA               := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_CREA;
+  FormRaisArquivoWhEncerra            := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_Encerra;
+  FormRaisArquivoWhDtEncerra          := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_DtEncerra;
+  FormRaisArquivoWhTpPonto            := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_TPPONTO;
+  FormRaisArquivoWhCaminho            := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormRaisArquivoWhVRlrContemp        := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_VRLCONTEMP;
+  FormRaisArquivoWhProjAviso          := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_ProjAviso;
+  FormRaisArquivoWhServicoProprio     := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_ServicoProprio;
+  FormRaisArquivoWhRefeicaoConvenio   := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_RefeicaoConvenio;
+  FormRaisArquivoWhAdmCozinhas        := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_AdmCozinhas;
+  FormRaisArquivoWhCestaAlimentos     := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_CestaAlimentos;
+  FormRaisArquivoWhRefeicoesTransp    := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_RefeicoesTransp;
+  FormRaisArquivoWhAliConvenio        := Aliases.Folha.FRhProcRaisArq.pg.tsSelecao.SB_Selecao.whDados.EB_AliConvenio;
+end;

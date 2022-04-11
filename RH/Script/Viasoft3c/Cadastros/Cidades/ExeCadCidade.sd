@@ -1,0 +1,79 @@
+﻿{Script para executar o cadastro de cidade 
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 16/03/2018}
+
+uses
+  VarConsts, CommonsAll, ObjCadCidade, DataPoolCadCidade; 
+ 
+var
+  Viasoft3C_XE: OleVariant;
+  
+procedure AcessaCadastroCidade();
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+  Viasoft3C_XE.VCLObject('VsMenu').Window('TdxDockControl', '', 3).ClickItem('Menu Gerente|Cadastros|Cidades');
+  Delay(1000);
+end;
+
+procedure InsereDadosCidade();
+begin
+  EscolheMetodoDeInsercao(CadCidNome, CadCidDPNome);
+  CadCidUF.Keys('[F3]');
+  CadCidUF.Keys(FazConsultaF3(_ModuloGerente, CadCidDPUF));
+  EscolheMetodoDeInsercao(CadCidDDD, CadCidDPDDD);
+  EscolheMetodoDeInsercao(CadCidOficial, CadCidDPOficial);
+  CadCidPais.Keys('[F3]');
+  CadCidPais.Keys(FazConsultaF3(_ModuloGerente, CadCidDPPais));
+  EscolheMetodoDeInsercao(CadCidIBGE, CadCidDPIBGE);
+end;
+
+Procedure ExecTelaFiltro();
+begin
+  CadCidComboCodigoFiltro.SelectItem('(Ignorar)');
+  //CadCidComboNomeFiltro.SelectItem('(Ignorar)');
+  CadCidComboUFFiltro.SelectItem('(Ignorar)');
+  CadCidBotaoOkFiltro.ClickButton;  
+end;
+
+procedure ExecutaCadCidade();
+begin
+  AcessaCadastroCidade();
+ 
+  MapFiltroCadCidade();
+  
+  if not (CadCidComboTipoListaFiltro.text = 'Filtro Padrão') then
+  begin
+    CadCidComboTipoListaFiltro.Click();
+    CadCidComboTipoListaFiltro.Keys('F[Enter]');
+  end;
+  
+  MapFiltroPadraoCadCidade();
+    
+  ExecTelaFiltro();
+    
+  MapGridCadCidade(); 
+   
+  LeDataPoolCadCidade(_Cadastrar);  
+    
+  if (CadCidConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloGerente, 'FFormPadraoCds');  
+    
+  FiltraGrid(_ModuloGerente, 'FBRowseCds', 'BGrid', 'Nome da Cidade', CadCidDPNome);
+  
+  if (CadCidConsGrid.ActiveView.ViewData.RowCount > 1) then
+    ActExcluir(_ModuloGerente, 'FBRowseCds');  
+  
+  ActIncluir(CadCidConsForm);
+  
+  MapTelaCadCidade();     
+  
+  CadCidCEP.Keys('[F3]');
+  FazConsultaCEP(_ModuloGerente , CadCidDPCEP);
+
+  InsereDadosCidade();
+  
+  ActSalvar(CadCidForm);
+  ActFechar(CadCidForm); 
+  ActFechar(CadCidConsForm);
+end;

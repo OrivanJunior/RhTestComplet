@@ -1,0 +1,48 @@
+﻿{Script de mapeamento o Processo de RAIS Sistema
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Datas: 25/06/2021}
+
+var
+  FormRaisGenerico, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormRaisGenericoWhEstabEspec, FormRaisGenericoWhEstabEspecCampo,
+  FormRaisGenericoWhEstabTodosEmp, FormRaisGenericoWhEstabTodosEmpCampo,
+  FormRaisGenericoWhEstabTodos, FormRaisGenericoWhEstabSelec,
+  FormRaisGenericoWhEstabSelecCampo, 
+  
+  FormRaisGenericoWhAnoBase, FormRaisGenericoWhIdPessoa,
+  FormRaisGenericoWhRetifica, FormRaisGenericoWhDtRetificacao,
+  FormRaisGenericoWhCREA, FormRaisGenericoWhEncerra,
+  FormRaisGenericoWhDtEncerra, FormRaisGenericoWhCaminho,
+  FormRaisGenericoWhProjAviso: OleVariant;
+  
+procedure MapRaisGenerico();
+begin
+  FormRaisGenerico                     := Aliases.Folha.FRhProcRaisArqGen;
+  
+  btnSair                              := Aliases.Folha.FRhProcRaisArqGen.BSair;
+  btnExecutar                          := Aliases.Folha.FRhProcRaisArqGen.bExecutar;
+  btnSalvar                            := Aliases.Folha.FRhProcRaisArqGen.tbSalvar;
+  btnRelatorio                         := Aliases.Folha.FRhProcRaisArqGen.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormRaisGenericoWhEstabEspec         := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormRaisGenericoWhEstabEspecCampo    := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormRaisGenericoWhEstabTodosEmp      := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormRaisGenericoWhEstabTodosEmpCampo := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormRaisGenericoWhEstabTodos         := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormRaisGenericoWhEstabSelec         := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormRaisGenericoWhEstabSelecCampo    := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+  { Dados Adicionais }
+  FormRaisGenericoWhAnoBase            := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_Ano;
+  FormRaisGenericoWhIdPessoa           := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_IDPESSOA;
+  FormRaisGenericoWhRetifica           := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_Retifica;
+  FormRaisGenericoWhDtRetificacao      := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_DtRetificacao;
+  FormRaisGenericoWhCREA               := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_CREA;
+  FormRaisGenericoWhEncerra            := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_Encerra;
+  FormRaisGenericoWhDtEncerra          := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_DtEncerra;
+  FormRaisGenericoWhCaminho            := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormRaisGenericoWhProjAviso          := Aliases.Folha.FRhProcRaisArqGen.pg.tsSelecao.SB_Selecao.whDados.EB_ProjAviso;
+end;

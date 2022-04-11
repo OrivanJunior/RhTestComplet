@@ -1,0 +1,32 @@
+﻿uses
+  VarConsts;
+{Script para criar DataPool da tela de cadastro de usuario do Viasoft3c
+ Módulo: ViasoftServerRH_XE
+ Autor: Rafael Colla
+ Data: 16/03/2018}
+ 
+var
+  Fisco : OleVariant;
+  
+  CadUserDPUserId, CadUserDPFullName, CadUserDPEmail, CadUserDPGrupo, CadUserDPTipo,
+  CadUserDPValidade, CadUserDPMudarSenha, CadUserDPAudita, CadUserDPAutUserWin : OleVariant;
+
+procedure InicializaDataPool(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;
+    
+procedure LeDataPoolCadUsuario();
+begin
+  CadUserDPUserId     := DriverByName(nomeDriver).Value('USERID');
+  CadUserDPFullName   := DriverByName(nomeDriver).Value('FULLNAME');
+  CadUserDPEmail      := DriverByName(nomeDriver).Value('EMAIL');
+  CadUserDPGrupo      := DriverByName(nomeDriver).Value('GRUPO');
+  CadUserDPTipo       := DriverByName(nomeDriver).Value('TIPO');
+  CadUserDPValidade   := DriverByName(nomeDriver).Value('VALIDADE');
+  CadUserDPMudarSenha := DriverByName(nomeDriver).Value('MUDARSENHA');
+  CadUserDPAudita     := DriverByName(nomeDriver).Value('AUDITA');
+  CadUserDPAutUserWin := DriverByName(nomeDriver).Value('AUTUSERWIN');     
+  //DDT.CurrentDriver.Next();
+  //DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

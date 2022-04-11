@@ -1,0 +1,29 @@
+﻿{Script para mapear o Cartão Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 22/09/2021}
+
+var
+  CartaoPontoForm, CartaoPontoEBEstab,
+  CartaoPontoEBEmpregado, CartaoPontoEBMesAno,
+  CartaoPontoGrid, CartaoPontoBtnExecutar,
+  TelaJustificativa, CampoJustificativa,
+  BtnOkJustificativa: OleVariant;
+
+procedure MapCartaoPonto();
+begin
+  CartaoPontoForm        := Aliases.Ponto.FRHProcBatidas;
+  CartaoPontoEBEstab     := Aliases.Ponto.FRHProcBatidas.Page.tsDados.pnFiltros.gbFiltros.Panel1.EB_ESTAB;
+  CartaoPontoEBEmpregado := Aliases.Ponto.FRHProcBatidas.Page.tsDados.pnFiltros.gbFiltros.Panel1.EB_IDEMPREGADO;
+  CartaoPontoEBMesAno    := Aliases.Ponto.FRHProcBatidas.Page.tsDados.pnFiltros.gbFiltros.Panel1.EB_MESANO;
+  
+  CartaoPontoGrid        := Aliases.Ponto.FRHProcBatidas.Page.tsDados.pg.tsCartaoPonto.gRhBatidas;
+  CartaoPontoBtnExecutar := Aliases.Ponto.FRHProcBatidas.bExecutar;
+end;
+
+procedure MapJustificativa();
+begin
+  TelaJustificativa   := Aliases.Ponto.FRhInsJustificativa;
+  CampoJustificativa  := Aliases.Ponto.FRhInsJustificativa.Panel1.EB_JUSTPADRAO;
+  BtnOkJustificativa  := Aliases.Ponto.FRhInsJustificativa.Panel1.btOk;
+end;

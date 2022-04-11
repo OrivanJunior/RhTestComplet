@@ -1,0 +1,59 @@
+﻿uses
+  DataPoolESocialLogEnvioEmMassa, ObjESocialLogEnvioEmMassa, CommonsAll, VarConsts, conexaoBanco, ExeValidaEventos;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  
+procedure AcessaESocialLogEnvioEmMassa();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Envio em Massa', 'Log'); 
+end;
+
+procedure ConsultaEventosProcessados(pathData);
+begin
+  PageESocialLogEnvioEmMassa.ActivePageIndex := 1;
+
+  MapESocialConsLogEnvioEmMassa();
+   
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+  
+
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialLogEnvioEmMassa(pathData);
+var 
+  DDTEnvioEmMassa: OleVariant;
+begin
+  AcessaESocialLogEnvioEmMassa();
+  
+  MapESocialLogEnvioEmMassa();
+  
+  BtnAtualizar.Click();
+  
+  DDTEnvioEmMassa := CarregaDDT(pathData, 'Consulta');
+  
+  LeDataPoolConsLogEnvioEmMassa(DDTEnvioEmMassa.Name);
+  
+  ConsultaEventosProcessados(pathData);
+  
+  ActFechar(FormESocialLogEnvioEmMassa);
+  DDT.CloseDriver(DDTEnvioEmMassa.Name);
+end;

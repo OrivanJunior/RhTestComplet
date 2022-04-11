@@ -1,0 +1,95 @@
+﻿{Script para criar o DataPool do Processo de GPS sobre Faturamento
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 22/06/2021}
+ 
+var
+  FormGPSFaturamento, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  FormGPSWhEstabEspec, FormGPSWhEstabEspecCampo,
+  FormGPSWhEstabTodosEmp, FormGPSWhEstabTodosEmpCampo,
+  FormGPSWhEstabTodos, FormGPSWhEstabSelec,
+  FormGPSWhEstabSelecCampo, 
+  
+  FormGPSWhLocaisTodos, FormGPSWhLocaisEspec, 
+  FormGPSWhLocaisEspecCampo, FormGPSWhLocaisSelec, 
+  FormGPSWhLocaisSelecCampo,
+  
+  FormGPSWhEmpreTodos, FormGPSWhEmpreEspec,
+  FormGPSWhEmpreEspecCampo, FormGPSWhEmpreSelec,
+  FormGPSWhEmpreSelecCampo, 
+  
+  FormGPSWhDataDtIni, FormGPSWhDataDtFin,
+  
+  FormGPSWhProcTodos, FormGPSWhProcEspec, 
+  FormGPSWhProcEspecCampo, FormGPSWhProcSelec, 
+  FormGPSWhProcSelecCampo,
+   
+  FormGPSWhGerarDarf, FormGPSWhEstabDarf,
+  FormGPSWhCodDarf, FormGPSWhVencDarf,
+  
+  FormGPSWhDadosMesGuias, FormGPSWhDadosAnoGuias,
+  FormGPSWhDadosDataVenc, FormGPSWhDadosDescGuia,
+  FormGPSWhDadosVerValMin, FormGPSWhDadosVerNRec,
+  FormGPSWhDadosExcGer: OleVariant;
+  
+procedure MapGPSFaturamento();
+begin
+  FormGPSFaturamento          := Aliases.Folha.FRhProcGpsFaturamento;
+  
+  btnSair                     := Aliases.Folha.FRhProcGpsFaturamento.BSair;
+  btnExecutar                 := Aliases.Folha.FRhProcGpsFaturamento.bExecutar;
+  btnSalvar                   := Aliases.Folha.FRhProcGpsFaturamento.tbSalvar;
+  btnRelatorio                := Aliases.Folha.FRhProcGpsFaturamento.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  
+  FormGPSWhEstabEspec         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormGPSWhEstabEspecCampo    := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormGPSWhEstabTodosEmp      := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormGPSWhEstabTodosEmpCampo := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormGPSWhEstabTodos         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormGPSWhEstabSelec         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormGPSWhEstabSelecCampo    := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Locais }
+  FormGPSWhLocaisTodos        := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormGPSWhLocaisEspec        := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormGPSWhLocaisEspecCampo   := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormGPSWhLocaisSelec        := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormGPSWhLocaisSelecCampo   := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Empregados }
+  FormGPSWhEmpreTodos         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormGPSWhEmpreEspec         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormGPSWhEmpreEspecCampo    := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormGPSWhEmpreSelec         := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormGPSWhEmpreSelecCampo    := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Referência }
+  FormGPSWhDataDtIni          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormGPSWhDataDtFin          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Filtro de Processamentos }
+  FormGPSWhProcTodos          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormGPSWhProcEspec          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormGPSWhProcEspecCampo     := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormGPSWhProcSelec          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormGPSWhProcSelecCampo     := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Dados Para Darf }
+  FormGPSWhGerarDarf          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_GERAR;
+  FormGPSWhEstabDarf          := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_ESTAB;
+  FormGPSWhCodDarf            := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_CODIGO;
+  FormGPSWhVencDarf           := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_DTVENC;
+  
+  { Dados Adicionais }
+  FormGPSWhDadosMesGuias      := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_MesGuia;
+  FormGPSWhDadosAnoGuias      := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_AnoGuia;
+  FormGPSWhDadosDataVenc      := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_DTVENCIMENTO;
+  FormGPSWhDadosDescGuia      := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_DescGuia;
+  FormGPSWhDadosVerValMin     := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_VlrMinimo;
+  FormGPSWhDadosVerNRec       := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_NaoGeradas;
+  FormGPSWhDadosExcGer        := Aliases.Folha.FRhProcGpsFaturamento.pg.tsSelecao.SB_Selecao.whDados.EB_EXCLUIR;
+end;

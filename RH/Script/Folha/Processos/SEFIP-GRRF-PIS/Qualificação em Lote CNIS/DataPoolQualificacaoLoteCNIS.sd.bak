@@ -1,0 +1,43 @@
+﻿{Script para criar o DataPool do Processo de Qualificação Cadastral - Qualificacao em Lote
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha 
+ Data: 24/06/2021}
+   
+var
+  FiltroEstabTipo,  FiltroEstabValor,
+
+  FiltroEmpreTipo, FiltroEmpreValor,
+
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+
+  FiltroLocalTipo, FiltroLocalValor,
+
+  FiltroLocalGravacao, FiltroDataGeracao,
+  FiltroSeqDia: OleVariant;
+
+procedure LeDataPoolQualificacaoLote(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo       := DDT.CurrentDriver.Value('TIPOESTAB');
+    FiltroEstabValor      := DDT.CurrentDriver.Value('ESTABVALOR');
+    
+    { Filtro Locais }
+    FiltroLocalTipo       := DDT.CurrentDriver.Value('TIPOLOCAL');
+    FiltroLocalValor      := DDT.CurrentDriver.Value('LOCALVALOR');    
+    
+    { Filtro Situações }
+    FiltroSituacaoTipo    := DDT.CurrentDriver.Value('TIPOSITUACAO');
+    FiltroSituacaoValor   := DDT.CurrentDriver.Value('SITUACAOVALOR');     
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo       := DDT.CurrentDriver.Value('TIPOEMPREGADO');
+    FiltroEmpreValor      := DDT.CurrentDriver.Value('EMPREGADOVALOR');    
+    
+    { Filtro Dados Adicionais }
+    FiltroLocalGravacao   := DDT.CurrentDriver.Value('LOCALGRAV');
+    FiltroDataGeracao     := DDT.CurrentDriver.Value('GERACAO');
+    FiltroSeqDia          := DDT.CurrentDriver.Value('SEQ_DIA');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

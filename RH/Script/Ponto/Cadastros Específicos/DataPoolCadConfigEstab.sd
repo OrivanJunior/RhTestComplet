@@ -1,0 +1,66 @@
+﻿{Script de DataPool do Cadastro da Configuração do Estabelecimento
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 30/08/2021}
+
+var
+  ConfEstabDPEstab,
+  ConfEstabDPCei, ConfEstabDPCpf,
+  ConfEstabDPIdResp, ConfEstabDPCargo,
+  ConfEstabDPPisResp, ConfEstabDPEmail,
+  ConfEstabDPConfEmail, ConfEstabDPGrupo,
+  ConfEstabDPConfNela,
+                         
+  ConfEstabDPEvento, ConfEstabDPEventoExp,
+                         
+  ConfEstabDPRep,
+                         
+  ConfEstabDPHorarioPadrao, ConfEstabDPFechaUltDia,
+  ConfEstabDPDiaFecha, ConfEstabDPTipoControle,
+  ConfEstabDPAvRetEmpPonto, ConfEstabDPBuscaEstabAFD,
+  ConfEstabDPCartManConfHr, ConfEstabDPConsDiaTrab,
+  ConfEstabDPCodEstabFolha, ConfEstabDPHrExtIndInt,
+  ConfEstabDPHoraIniPro, ConfEstabDPEveHrAviso,
+                         
+  ConfEstabDPVencCNH, ConfEstabDPDiasVencCNH,
+  ConfEstabDPBcoHrsComp, ConfEstabDPDiasBHComp,
+  ConfEstabDPVencBcoHrs, ConfEstabDPDiasVencBH: OleVariant;
+
+procedure LeDataPoolConfEstab(nomeDriver);
+begin
+  ConfEstabDPEstab         := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ConfEstabDPCei           := DDT.DriverByName(nomeDriver).Value('CEI');
+  ConfEstabDPCpf           := DDT.DriverByName(nomeDriver).Value('CPF');
+  ConfEstabDPIdResp        := DDT.DriverByName(nomeDriver).Value('IDPESRESP');
+  ConfEstabDPCargo         := DDT.DriverByName(nomeDriver).Value('CARGO');
+  ConfEstabDPPisResp       := DDT.DriverByName(nomeDriver).Value('PISRESP');
+  ConfEstabDPEmail         := DDT.DriverByName(nomeDriver).Value('EMAIL');
+  ConfEstabDPConfEmail     := DDT.DriverByName(nomeDriver).Value('IDCONFIGMAIL');
+  ConfEstabDPGrupo         := DDT.DriverByName(nomeDriver).Value('IDGRUPO');
+  ConfEstabDPConfNela      := DDT.DriverByName(nomeDriver).Value('CONFNELA');
+  
+  ConfEstabDPEvento        := DDT.DriverByName(nomeDriver).Value('EVENTO');
+  ConfEstabDPEventoExp     := DDT.DriverByName(nomeDriver).Value('EVENTOEXP');
+  
+  ConfEstabDPRep           := DDT.DriverByName(nomeDriver).Value('REP');
+  
+  ConfEstabDPHorarioPadrao := DDT.DriverByName(nomeDriver).Value('HORARIOPADRAOPONTO');
+  ConfEstabDPFechaUltDia   := DDT.DriverByName(nomeDriver).Value('FECHAULTDIAMES');
+  ConfEstabDPDiaFecha      := DDT.DriverByName(nomeDriver).Value('DIAFECHA');
+  ConfEstabDPTipoControle  := DDT.DriverByName(nomeDriver).Value('TIPOCONTROLEPONTO');
+  ConfEstabDPAvRetEmpPonto := DDT.DriverByName(nomeDriver).Value('AVRETEMPPONTO');
+  ConfEstabDPBuscaEstabAFD := DDT.DriverByName(nomeDriver).Value('IGNESTABIMPAFD');
+  ConfEstabDPCartManConfHr := DDT.DriverByName(nomeDriver).Value('CARTMANCONFHORARIO');
+  ConfEstabDPConsDiaTrab   := DDT.DriverByName(nomeDriver).Value('CONSULTDIATRAB');
+  ConfEstabDPCodEstabFolha := DDT.DriverByName(nomeDriver).Value('CODESTABFOLHA');
+  ConfEstabDPHrExtIndInt   := DDT.DriverByName(nomeDriver).Value('HREXTINDINT');
+  ConfEstabDPHoraIniPro    := DDT.DriverByName(nomeDriver).Value('HORAINIPRORROGA');
+  ConfEstabDPEveHrAviso    := DDT.DriverByName(nomeDriver).Value('EVEHRSOBREAVISO');
+  
+  ConfEstabDPVencCNH       := DDT.DriverByName(nomeDriver).Value('LVENCCNH_PONTO');
+  ConfEstabDPDiasVencCNH   := DDT.DriverByName(nomeDriver).Value('DLVENCCNH_PONTO');
+  ConfEstabDPBcoHrsComp    := DDT.DriverByName(nomeDriver).Value('LBANHORCOMP');
+  ConfEstabDPDiasBHComp    := DDT.DriverByName(nomeDriver).Value('DLBANHORCOMP');
+  ConfEstabDPVencBcoHrs    := DDT.DriverByName(nomeDriver).Value('LBANHOR');
+  ConfEstabDPDiasVencBH    := DDT.DriverByName(nomeDriver).Value('DLBANHOR');
+end;

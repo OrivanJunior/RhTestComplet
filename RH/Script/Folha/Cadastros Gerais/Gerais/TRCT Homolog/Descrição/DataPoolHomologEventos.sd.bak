@@ -1,0 +1,20 @@
+﻿{Script para criar DataPool da tela de cadastro de HomologEventos
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadHomologEventosDPCampo, FormCadHomologEventosDPNivel,
+  FormCadHomologEventosDPIdEvento, FormCadHomologEventosDPOperacao: OleVariant;
+
+procedure LeDataPoolCadHomologEventos(pathData, tab: String);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    FormCadHomologEventosDPCampo    := DDT.DriverByName(nomeDriver).Value('CAMPO'); 
+    FormCadHomologEventosDPNivel    := DDT.DriverByName(nomeDriver).Value('NIVEL');      
+    FormCadHomologEventosDPIdEvento := DDT.DriverByName(nomeDriver).Value('IDEVENTO');   
+    FormCadHomologEventosDPOperacao := DDT.DriverByName(nomeDriver).Value('OPERACAO');   
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

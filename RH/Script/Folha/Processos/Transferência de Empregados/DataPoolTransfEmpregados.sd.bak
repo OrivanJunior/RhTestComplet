@@ -1,0 +1,26 @@
+﻿uses 
+  VarConsts;
+  
+var
+  TransfEmpDPEstabDestino, 
+  TransfEmpDPIdEmpregado,
+  TransfEmpDPSituaSaida, 
+  TransfEmpDPTipoAdm,
+  TransfEmpDPLocalDestino, 
+  TransfEmpDPTabAnuenio,
+  TransfEmpDPDataEntrada, 
+  TransfEmpDPManterId: OleVariant;
+
+procedure LeDataPoolTransferenciaEmpregado(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Dados');  
+    TransfEmpDPEstabDestino := DDT.CurrentDriver.Value('ESTABDESTINO');
+    TransfEmpDPIdEmpregado  := DDT.CurrentDriver.Value('IDEMPPREGADO');
+    TransfEmpDPSituaSaida   := DDT.CurrentDriver.Value('SITUASAIDA');
+    TransfEmpDPTipoAdm      := DDT.CurrentDriver.Value('TIPOADM');
+    TransfEmpDPLocalDestino := DDT.CurrentDriver.Value('LOCALDESTINO');
+    TransfEmpDPTabAnuenio   := DDT.CurrentDriver.Value('TABANUENIO');
+    TransfEmpDPDataEntrada  := DDT.CurrentDriver.Value('DATAENTRADA');
+    TransfEmpDPManterId     := DDT.CurrentDriver.Value('MANTERID');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

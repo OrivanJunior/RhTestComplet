@@ -1,0 +1,267 @@
+﻿uses
+  CommonsAll,
+  DataPoolCadPessoa,
+  ObjCadPessoa,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Pessoa
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant;  
+
+  procedure InsereDadosPessoaisObrigatorios(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 0;
+  
+  MapTelaCadPessoaDadosPessoais();
+
+  Log.Checkpoint('Preenchendo Dados Pessoais Obrigatórios');
+  VerificaInsere(FormCadPessoaIdPess, FormCadPessoaDPIdPess);
+  VerificaInsere(FormCadPessoaNome, FormCadPessoaDPNome); 
+  VerificaInsere(FormCadPessoaSexo, FormCadPessoaDPSexo); 
+  PreencheDatas(FormCadPessoaDtNascim, FormCadPessoaDPDtNascim);
+end;
+
+procedure InsereDadosPessoaisComplementares(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 0;
+  
+  MapTelaCadPessoaDadosPessoais();
+  
+  Log.Checkpoint('Preenchendo Dados Pessoais Complementares');
+  VerificaInsere(FormCadPessoaNomeSocial, FormCadPessoaDPNomeSocial);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdEstCivil, FormCadPessoaDPIdEstCivil);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdInstrucao, FormCadPessoaDPIdInstrucao);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdNacional, FormCadPessoaDPIdNacional);
+  VerificaInsere(FormCadPessoaNomePai, FormCadPessoaDPNomePai);
+  VerificaInsere(FormCadPessoaNomeMae, FormCadPessoaDPNomeMae); 
+  VerificaInsere(FormCadPessoaNomeConjuge, FormCadPessoaDPNomeConjuge);  
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdGenero, FormCadPessoaDPIdGenero); 
+  VerificaInsere(FormCadPessoaRacaCor, FormCadPessoaDPRacaCor);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCodNatural, FormCadPessoaDPCodNatural);
+  VerificaInsere(FormCadPessoaTipoSanguineo, FormCadPessoaDPTipoSanguineo);
+  VerificaInsere(FormCadPessoaApelido, FormCadPessoaDPApelido);
+  
+  //Informações de deficiência
+  VerificaInsere(FormCadPessoaDefFisica, FormCadPessoaDPDefFisica);
+  VerificaInsere(FormCadPessoaDefVisual, FormCadPessoaDPDefVisual);
+  VerificaInsere(FormCadPessoaDefAutiditiva, FormCadPessoaDPDefAutiditiva);
+  VerificaInsere(FormCadPessoaDefMental, FormCadPessoaDPDefMental);
+  VerificaInsere(FormCadPessoaDefIntelectual, FormCadPessoaDPDefIntelectual);
+  VerificaInsere(FormCadPessoaReabilitado, FormCadPessoaDPReabilitado);
+  VerificaInsere(FormCadPessoaCotaPessDef, FormCadPessoaDPCotaPessDef);
+  VerificaInsere(FormCadPessoaObsDef, FormCadPessoaDPObsDef);   
+
+  //Se estrangeiro 
+  if (FormCadPessoaDPIdNacional > 1) then
+  begin
+    VerificaInsere(FormCadPessoaDtChegadaPais, FormCadPessoaDPDtChegadaPais);
+    VerificaInsere(FormCadPessoaCasadoBrasileiro, FormCadPessoaDPCasadoBrasileiro);
+    VerificaInsere(FormCadPessoaFilhosComBras, FormCadPessoaDPFilhosComBras);
+    VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdClasTrabEst, FormCadPessoaDPIdClasTrabEst); 
+  end; 
+end;
+
+procedure InsereDadosEnderecoContatoObrigatorios(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 1;
+  
+  MapTelaCadPessoaEndereco();
+  
+  Log.Checkpoint('Preenchendo Dados de Endereço/Contato Obrigatórios');
+  VerificaInsere(FormCadPessoaTipoEndereco, FormCadPessoaDPTipoEndereco);
+  VerificaInsere(FormCadPessoaEndereco, FormCadPessoaDPEndereco);
+  VerificaInsere(FormCadPessoaBairro, FormCadPessoaDPBairro);
+  VerificaInsere(FormCadPessoaComplemento, FormCadPessoaDPComplemento);
+  VerificaInsere(FormCadPessoaCEP, FormCadPessoaDPCEP);
+end;
+
+procedure InsereDadosEnderecoContatoComplementares(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 1;
+  
+  MapTelaCadPessoaEndereco();
+  
+  Log.Checkpoint('Preenchendo Dados de Endereço/Contato Complementares');
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdTpLogadouro, FormCadPessoaDPIdTpLogadouro);
+  VerificaInsere(FormCadPessoaNroEnd, FormCadPessoaDPNroEnd);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCidade, FormCadPessoaDPCidade);
+  VerificaInsere(FormCadPessoaEmail, FormCadPessoaDPEmail);
+  VerificaInsere(FormCadPessoaEmailAlt, FormCadPessoaDPEmailAlt);
+  VerificaInsere(FormCadPessoaDdCelular, FormCadPessoaDPDdCelular);
+  VerificaInsere(FormCadPessoaCelular, FormCadPessoaDPCelular);
+  VerificaInsere(FormCadPessoaDddTelefone, FormCadPessoaDPDddTelefone);
+  VerificaInsere(FormCadPessoaTelefone, FormCadPessoaDPTelefone);
+  VerificaInsere(FormCadPessoaNroCaixaPostal, FormCadPessoaDPNroCaixaPostal);
+  VerificaInsere(FormCadPessoaCEPCaixaPostal, FormCadPessoaDPCEPCaixaPostal);
+  VerificaInsere(FormCadPessoaResideExterior, FormCadPessoaDPResideExterior);
+  VerificaInsere(FormCadPessoaResidenciaPropria, FormCadPessoaDPResidenciaPropria);
+  VerificaInsere(FormCadPessoaResidenciaFGTS, FormCadPessoaDPResidenciaFGTS);  
+end;
+
+procedure InsereDocumentosObrigatorios(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 2;
+  
+  MapTelaCadPessoaDocumentos();
+  
+  Log.Checkpoint('Preenchendo Documentos Obrigatórios');
+  VerificaInsere(FormCadPessoaCpf, FormCadPessoaDPCpf);       
+end;
+
+procedure InsereDocumentosComplementares(pathData);
+begin
+  FormCadPessoaPage.zTabIndex := 2;
+  
+  MapTelaCadPessoaDocumentos();
+     
+  Log.Checkpoint('Preenchendo Documentos Complementares');
+  VerificaInsere(FormCadPessoaDocMilitar, FormCadPessoaDPDocMilitar);
+  VerificaInsere(FormCadPessoaSecaoElei, FormCadPessoaDPSecaoElei);   
+  VerificaInsere(FormCadPessoaRg, FormCadPessoaDPRg);
+  VerificaInsere(FormCadPessoaComplementoRG, FormCadPessoaDPComplementoRG);   
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdOrgaoRg, FormCadPessoaDPIdOrgaoRg);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCidadeRG, FormCadPessoaDPCidadeRG);   
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaUfRg, FormCadPessoaDPUfRg);      
+       
+  VerificaInsere(FormCadPessoaCartHabi, FormCadPessoaDPCartHabi);   
+  VerificaInsere(FormCadPessoaCateHabi, FormCadPessoaDPCateHabi);
+  PreencheDatas(FormCadPessoaDtPriHab, FormCadPessoaDPDtPriHab);  
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaUfExpCNH, FormCadPessoaDPUfExpCNH);
+    
+  //
+  VerificaInsere(FormCadPessoaFolhaCert, FormCadPessoaDPFolhaCert);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCodCidCert, FormCadPessoaDPCodCidCert);   
+  PreencheDatas(FormCadPessoaDataEmisCert, FormCadPessoaDPDataEmisCert);
+  VerificaInsere(FormCadPessoaNroPassaporte, FormCadPessoaDPNroPassaporte);             
+  PreencheDatas(FormCadPessoaDtValPassaporte, FormCadPessoaDPDtAvalPassaporte);  
+     
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdOrgaoPass, FormCadPessoaDPIdOrgaoPass);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCodCidPass, FormCadPessoaDPCodCidPass);   
+  VerificaInsere(FormCadPessoaNroNaturalizao, FormCadPessoaDPNroNaturalizao);
+  VerificaInsere(FormCadPessoaNroRic, FormCadPessoaDPNroRic);   
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaCodCidRic, FormCadPessoaDPCodCidRic);
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaIdOrgaoRic, FormCadPessoaDPIdOrgaoRic);   
+  VerificaInsere(FormCadPessoaNroRegOrgao, FormCadPessoaDPNroRegOrgao);   
+  VerificaInsere(FormCadPessoaIdOrgaoRO, FormCadPessoaDPIdOrgaoRO);   
+  PreencheDatas(FormCadPessoaDtExpDocumento, FormCadPessoaDPDtExpDocumento);
+  VerificaInsere(FormCadPessoaCodRne, FormCadPessoaDPCodRne);   
+  VerificaConsultaF3Insere(_ModuloFolha, FormCadPessoaOrgaoRne, FormCadPessoaDPOrgaoRne);   
+  VerificaInsere(FormCadPessoaNroCartaoSUS, FormCadPessoaDPNroCartaoSUS);
+end;
+
+procedure InsereDadosDependentes(pathData);
+var 
+  DataPoolDep: OleVariant;
+begin
+  FormCadPessoaPage.zTabIndex := 3;
+  
+  MapTelaCadPessoaDependentes();
+  
+  FormCadPessoaBIncDepIRRF.Click();  
+  
+  Log.Checkpoint('Preenchendo Dados Dependentes');
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Nome', FormCadPessoaDPNomeDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Dt. Nasc.', FormCadPessoaDPDataNascDepende);  
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'CPF Dependente', FormCadPessoaDPCpfDepend);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Deficiente', FormCadPessoaDPDeficienteDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Dependente de Plano de Saúde?', FormCadPessoaDPDepPlano);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Relação Dependência', FormCadPessoaDPIdRelacaoDep);;
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Idade Máxima', FormCadPessoaDPIdadeMaxDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Livro', FormCadPessoaDPLivroNumeroDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Matrícula', FormCadPessoaDPMatriculaDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Dep. IRRF Ativo?', FormCadPessoaDPDepAtivo);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Natural de', FormCadPessoaDPNaturalDeDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Cartório', FormCadPessoaDPCartorioDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Registro', FormCadPessoaDPRegistroDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Folha', FormCadPessoaDPFolhaNumDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Documentação', FormCadPessoaDPDocumentacaoDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Data da Entrega', FormCadPessoaDPDtEntregaDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Dep. Sal. Fam. Ativo?', FormCadPessoaDPDepSalFamAtivo);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Beneficiário de Pensão Alimentícia?', FormCadPessoaDPBenPenalDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Percentual Pensão', FormCadPessoaDPPercPensaoDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Evento Mensal', FormCadPessoaDPIdEventoPensaoDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Evento Férias', FormCadPessoaDPIdEventoPensaoFerDepende);
+  VerificaClickPreencheGrid(FormCadPessoaGRhDepIRRF, 0, 'Evento 13º', FormCadPessoaDPIdEventoPensao13Depende);
+  
+  FormCadPessoaBDesfDepIRRF.Click();
+end;
+
+procedure EscolheFiltrosCadPessoa();
+begin
+  MapFiltroCadPessoa();
+  
+  Log.Checkpoint('Filtrando Pessoas');
+  FiltroConsFormCBSelCons.Keys('Pessoa por Nome[Enter]');
+  FiltroConsFormCBNome.SelectItem('(Ignorar)');
+  btnOkFiltroConsForm.ClickButton;
+end;
+
+procedure ValidaTelaNaoSalvou();
+var
+  FormErros, FormErrosPanel1, 
+  FormErrosBtnCorrigir, FormErrosBtnFechar, FormErrosBtnSalvar: OleVariant;
+begin  
+  if (Modulo.VCLObject('FFormErros').Exists) then
+  begin
+    FormErros := Modulo.VCLObject('FFormErros'); 
+    
+    if (FormErros.VCLObject('Panel1').Exists) then
+      FormErrosPanel1 := FormErros.VCLObject('Panel1');
+      
+    if Assigned(FormErrosPanel1) then
+    begin  
+      if Assigned(FormErrosPanel1.VCLObject('Bcorrigir')) then  
+        FormErrosBtnCorrigir := FormErrosPanel1.VCLObject('Bcorrigir');
+        
+      FormErrosBtnFechar := FormErrosPanel1.VCLObject('BFechar'); 
+      
+      if Assigned(FormErrosPanel1.VCLObject('bGravar')) then  
+        FormErrosBtnSalvar := FormErrosPanel1.VCLObject('bGravar');
+    end;        
+    
+    if Assigned(FormErrosBtnSalvar) then    
+      FormErrosBtnSalvar.ClickButton
+    else
+      Log.Error('Campos obrigatórios não preenchidos, verifique a planilha de DataPool para ajusta-la');
+  end;
+    
+end;
+      
+proc
+edure FechaTelaAtencao();
+var 
+  TelaAtencao, BtnYes, btnNo: OleVariant;
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  if (Modulo.WaitWindow('#32770', 'Atenção...', 1, 10000).Exists) then
+  begin
+    TelaAtencao := Modulo.Window('#32770', 'Atenção...', 1);
+    
+    BtnYes := TelaAtencao.Window('Button', '&Sim', 1);
+    btnNo  := TelaAtencao.Window('Button', '&Não', 2);
+      
+    Log.Checkpoint('Fecha mensagem de cadastro de empregado');
+    btnNo.Click();
+
+  end;
+procedure FechaDDTs();
+begin
+  if Assigned(DDTDadosGerais) then
+    DDT.CloseDriver(DDTDadosGerais.Name);
+    
+  if Assigned(DDTDadosPessoais) then
+    DDT.CloseDriver(DDTDadosPessoais.Name);
+  
+  if Assigned(DDTEnderecoContato) then
+    DDT.CloseDriver(DDTEnderecoContato.Name);
+  
+  if Assigned(DDTDocumentos) then
+    DDT.CloseDriver(DDTDocumentos.Name);
+  
+  if Assigned(DDTDependentes) then
+    DDT.CloseDriver(DDTDependentes.Name);    
+end;end;

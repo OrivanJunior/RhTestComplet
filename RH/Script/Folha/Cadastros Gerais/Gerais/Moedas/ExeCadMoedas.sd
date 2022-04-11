@@ -1,0 +1,158 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolMoedas,
+  ObjMoedas,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Moedas
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTMoedas: OleVariant;
+
+procedure AcessaCadMoedas();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Moedas');
+end;
+
+procedure InsereDadosGerais();
+begin
+  VerificaInsere(FormCadMoedasIdMoeda, FormCadMoedasDPIdMoeda);
+  VerificaInsere(FormCadMoedasSimbolo, FormCadMoedasDPSimbolo);  
+  VerificaInsere(FormCadMoedasNomeSing, FormCadMoedasDPNomeSing);
+  VerificaInsere(FormCadMoedasNomePlural, FormCadMoedasDPNomePlural);
+  VerificaInsere(FormCadMoedasCentSing, FormCadMoedasDPCentSing);   
+  VerificaInsere(FormCadMoedasCentPlural, FormCadMoedasDPCentPlural);   
+  VerificaInsere(FormCadMoedasTipoMoeda, FormCadMoedasDPTipoMoeda);  
+  VerificaInsere(FormCadMoedasSexoMoeda, FormCadMoedasDPSexoMoeda);  
+end;
+
+procedure InsereValores();
+begin
+  PageMoedas.zTabIndex := 0;
+  
+  if (FormCadMoedasValDPData <> '') and (FormCadMoedasValDPValor > 0) then
+  begin
+    FormCadMoedasbIncMoedaVal.Click();  
+
+    VerificaClickPreencheGrid(FormCadMoedasGRhMoedaVal, 0, 'Data', FormCadMoedasValDPData); 
+    VerificaClickPreencheGrid(FormCadMoedasGRhMoedaVal, 0, 'Valor', FormCadMoedasValDPValor); 
+  
+    FormCadMoedasbSaveMoedaVal.Click();
+  end;
+end;
+
+procedure InsereCedulas();
+begin
+  PageMoedas.zTabIndex := 1;
+  
+  if Assigned(FormCadMoedasCedDPValor) and (FormCadMoedasCedDPValor > 0)  then
+  begin
+    FormCadMoedasbIncCedMoedas.Click();
+    
+    VerificaClickPreencheGrid(FormCadMoedasGRhMoedaVal, 0, 'Valor', FormCadMoedasValDPData); 
+    
+    FormCadMoedasbSaveCedMoeda.Click();
+  end;  
+end;
+
+procedure InsereDadosMoedas();
+begin
+  InsereDadosGerais();
+  
+  InsereValores();
+  
+  InsereCedulas();
+end;
+
+procedure ExeCadastraMoedas(pathData);
+begin
+  AcessaCadMoedas();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTMoedas := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadMoedas(DDTMoedas.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhMoeda');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Moeda', FormCadMoedasDPIdMoeda);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadMoedas();
+     
+    if (FormCadMoedas.Exists) then
+    begin
+      InsereDadosMoedas();
+      
+      ActSalvar(FormCadMoedas);
+      ActFechar(FormCadMoedas);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTMoedas.Name);
+end;
+
+procedure ExeAlteraMoedas(pathData);
+begin
+  AcessaCadMoedas();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTMoedas := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadMoedas(DDTMoedas.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhMoeda');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Moeda', FormCadMoedasDPIdMoeda);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadMoedas();   
+     
+    if (FormCadMoedas.Exists) then
+    begin
+      InsereDadosMoedas();
+      
+      ActSalvar(FormCadMoedas);
+      ActFechar(FormCadMoedas);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTMoedas.Name);
+end;
+
+procedure ExeExcluirMoedas(pathData);
+begin
+  AcessaCadMoedas();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTMoedas := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadMoedas(DDTMoedas.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhMoeda');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Moeda', FormCadMoedasDPIdMoeda);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FRhMoeda');
+    ActFechar(FormCadMoedas);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTMoedas.Name);
+end;

@@ -1,0 +1,123 @@
+﻿{Script para mapear o Processo de Reajuste Salarial - Tabela Reajuste Percentual Sindicato
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+var
+  FormReajustePercTabela, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  ReajustePercTabelaWhEstabEspec, ReajustePercTabelaWhEstabEspecCampo,
+  ReajustePercTabelaWhEstabTodosEmp, ReajustePercTabelaWhEstabTodosEmpCampo,
+  ReajustePercTabelaWhEstabTodos, ReajustePercTabelaWhEstabSelec,
+  ReajustePercTabelaWhEstabSelecCampo, 
+  
+  ReajustePercTabelaWhFuncao10, ReajustePercTabelaWhFuncaoTodos, 
+  ReajustePercTabelaWhFuncaoEspec, ReajustePercTabelaWhFuncaoEspecCampo, 
+  ReajustePercTabelaWhFuncaoSelec, ReajustePercTabelaWhFuncaoSelecCampo,
+  
+  ReajustePercTabelaWhLocal10, ReajustePercTabelaWhLocalTodos,
+  ReajustePercTabelaWhLocalEspec, ReajustePercTabelaWhLocalEspecCampo, 
+  ReajustePercTabelaWhLocalSelec, ReajustePercTabelaWhLocalSelecCampo,
+  
+  ReajustePercTabelaWhEmpre10, ReajustePercTabelaWhEmpreTodos, 
+  ReajustePercTabelaWhEmpreEspec, ReajustePercTabelaWhEmpreEspecCampo,
+  ReajustePercTabelaWhEmpreSelec, ReajustePercTabelaWhEmpreSelecCampo, 
+  
+  ReajustePercTabelaWhSituacao10, ReajustePercTabelaWhSituacaoTodos, 
+  ReajustePercTabelaWhSituacaoEspec, ReajustePercTabelaWhSituacaoEspecCampo, 
+  ReajustePercTabelaWhSituacaoSelec, ReajustePercTabelaWhSituacaoSelecCampo,
+  
+  ReajustePercTabelaWhSindicatos10, ReajustePercTabelaWhSindicatosTodos, 
+  ReajustePercTabelaWhSindicatosEspec, ReajustePercTabelaWhSindicatosEspecCampo, 
+  ReajustePercTabelaWhSindicatosSelec, ReajustePercTabelaWhSindicatosSelecCampo, 
+  
+  ReajustePercTabelaWhMotivo10, ReajustePercTabelaWhMotivoTodos, 
+  ReajustePercTabelaWhMotivoEspec, ReajustePercTabelaWhMotivoEspecCampo, 
+  ReajustePercTabelaWhMotivoSelec, ReajustePercTabelaWhMotivoSelecCampo,
+  
+  ReajustePercTabelaWhProc10, ReajustePercTabelaWhProcTodos, 
+  ReajustePercTabelaWhProcEspec, ReajustePercTabelaWhProcEspecCampo, 
+  ReajustePercTabelaWhProcSelec, ReajustePercTabelaWhProcSelecCampo,
+   
+  ReajustePercTabelaWhDados10,ReajustePercTabelaWhMotivo, 
+  ReajustePercTabelaWhDataReaj, ReajustePercTabelaWhRetroativo, 
+  ReajustePercTabelaWhDtRetroativa, ReajustePercTabelaWhValAcerto, 
+  ReajustePercTabelaWhValMinReaj, ReajustePercTabelaWhDataTabela, 
+  ReajustePercTabelaWhInfosAdc: OleVariant;
+  
+procedure MapReajustePercTabela();
+begin
+  FormReajustePercTabela                   := Aliases.Folha.FRhProcReajustePercTabela;
+   
+  btnSair                                  := Aliases.Folha.FRhProcReajustePercTabela.BSair;
+  btnExecutar                              := Aliases.Folha.FRhProcReajustePercTabela.bExecutar;
+  btnSalvar                                := Aliases.Folha.FRhProcReajustePercTabela.tbSalvar;
+  btnRelatorio                             := Aliases.Folha.FRhProcReajustePercTabela.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  ReajustePercTabelaWhEstabEspec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  ReajustePercTabelaWhEstabEspecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  ReajustePercTabelaWhEstabTodosEmp        := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  ReajustePercTabelaWhEstabTodosEmpCampo   := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  ReajustePercTabelaWhEstabTodos           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  ReajustePercTabelaWhEstabSelec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  ReajustePercTabelaWhEstabSelecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Funções }
+  ReajustePercTabelaWhFuncao10             := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao10;
+  ReajustePercTabelaWhFuncaoTodos          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao30;
+  ReajustePercTabelaWhFuncaoEspec          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao20;
+  ReajustePercTabelaWhFuncaoEspecCampo     := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao50;
+  ReajustePercTabelaWhFuncaoSelec          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao40;
+  ReajustePercTabelaWhFuncaoSelecCampo     := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whFuncao.whFuncao80;
+  
+  { Filtro de Local }
+  ReajustePercTabelaWhLocal10              := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal10;
+  ReajustePercTabelaWhLocalTodos           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  ReajustePercTabelaWhLocalEspec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  ReajustePercTabelaWhLocalEspecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  ReajustePercTabelaWhLocalSelec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  ReajustePercTabelaWhLocalSelecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;
+  
+  { Filtro de Empregado }
+  ReajustePercTabelaWhEmpre10              := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10;
+  ReajustePercTabelaWhEmpreTodos           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+  ReajustePercTabelaWhEmpreEspec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+  ReajustePercTabelaWhEmpreEspecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+  ReajustePercTabelaWhEmpreSelec           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+  ReajustePercTabelaWhEmpreSelecCampo      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+  { Filtro de Situações }
+  ReajustePercTabelaWhSituacao10           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao10;
+  ReajustePercTabelaWhSituacaoTodos        := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao30;
+  ReajustePercTabelaWhSituacaoEspec        := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  ReajustePercTabelaWhSituacaoEspecCampo   := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  ReajustePercTabelaWhSituacaoSelec        := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  ReajustePercTabelaWhSituacaoSelecCampo   := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;  
+  
+  { Filtro de Sindicatos }
+  ReajustePercTabelaWhSindicatos10         := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato10;
+  ReajustePercTabelaWhSindicatosTodos      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato30;
+  ReajustePercTabelaWhSindicatosEspec      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato20;
+  ReajustePercTabelaWhSindicatosEspecCampo := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato50;
+  ReajustePercTabelaWhSindicatosSelec      := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato40;
+  ReajustePercTabelaWhSindicatosSelecCampo := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whSindicato.whSindicato80;   
+  
+  { Filtro de Motivo de Reajustes }
+  ReajustePercTabelaWhMotivo10             := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo10;
+  ReajustePercTabelaWhMotivoTodos          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo30;
+  ReajustePercTabelaWhMotivoEspec          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo20;
+  ReajustePercTabelaWhMotivoEspecCampo     := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo50;
+  ReajustePercTabelaWhMotivoSelec          := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo40;
+  ReajustePercTabelaWhMotivoSelecCampo     := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whMotivo.whMotivo80;   
+  
+  { Dados Adicionais }
+  ReajustePercTabelaWhDados10              := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.whDados10;
+  ReajustePercTabelaWhMotivo               := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_IDMOTIVO;
+  ReajustePercTabelaWhDataReaj             := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_DataReaj;
+  ReajustePercTabelaWhRetroativo           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_Retroativo;
+  ReajustePercTabelaWhDtRetroativa         := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_DataRet;
+  ReajustePercTabelaWhValAcerto            := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_VLRACERTO;
+  ReajustePercTabelaWhDataTabela           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_DATA_TABELA;
+  ReajustePercTabelaWhValMinReaj           := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.EB_VLRMIN;
+  ReajustePercTabelaWhInfosAdc             := Aliases.Folha.FRhProcReajustePercTabela.pg.tsSelecao.SB_Selecao.whDados.memInfoAdicional;
+end;

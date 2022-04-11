@@ -1,0 +1,17 @@
+﻿{Script para criar DataPool da tela de cadastro de HomologDesc
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadHomologDescDPCampo, FormCadHomologDescDPDescricao: OleVariant;
+
+procedure LeDataPoolCadHomologDesc(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    FormCadHomologDescDPCampo     s:= DDT.CurrentDriver.Value('CAMPO'); 
+    FormCadHomologDescDPDescricao := DDT.CurrentDriver.Value('DESCRICAO');      
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

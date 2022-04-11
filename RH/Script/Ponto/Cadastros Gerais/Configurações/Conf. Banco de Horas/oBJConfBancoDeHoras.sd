@@ -1,0 +1,46 @@
+﻿{Script para mapear o Cadastro da Conf. do Banco de Horas
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 13/09/2021}
+
+var
+  ConfBcoHorasForm, ConfBcoHorasPage,
+  ConfBcoHorasEBIdBhConf, ConfBcoHorasEBDescricao,
+  ConfBcoHorasEBTipo, ConfBcoHorasEBLimQuit,
+  ConfBcoHorasEBLimComp, ConfBcoHorasEBDebFaltas,
+  ConfBcoHorasEBDebAtrasos, ConfBcoHorasEBTransfSaldoDeb,
+  ConfBcoHorasEBTransfSaldoCred, ConfBcoHorasEBJor12x36,
+  ConfBcoHorasBtnIncDia, ConfBcoHorasBtnSaveDia,
+  ConfBcoHorasBtnExcDia, ConfBcoHorasBtnDesfDia,
+  ConfBcoHorasGridDia, ConfBcoHorasComboDia,
+  ConfBcoHorasGridMen, ConfBcoHorasComboMen,
+  ConfBcoHorasBtnIncMen, ConfBcoHorasBtnSaveMen,
+  ConfBcoHorasBtnExcMen, ConfBcoHorasBtnDesfMen: OleVariant;
+
+procedure MapConfBancoHoras();
+begin
+  ConfBcoHorasForm              := Aliases.Ponto.FRhBhConf;
+  ConfBcoHorasPage              := Aliases.Ponto.FRhBhConf.Page.TabNormal.pg;
+  ConfBcoHorasEBIdBhConf        := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_IDBHCONF;
+  ConfBcoHorasEBDescricao       := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_DESCRICAO;
+  ConfBcoHorasEBTipo            := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_TIPO;
+  ConfBcoHorasEBLimQuit         := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_LIMQUIT;
+  ConfBcoHorasEBLimComp         := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_LIMCOMP;
+  ConfBcoHorasEBDebFaltas       := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_DEBFALTAS;
+  ConfBcoHorasEBDebAtrasos      := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_DEBATRASOS;
+  ConfBcoHorasEBTransfSaldoDeb  := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_TRANSFSALDODEB;
+  ConfBcoHorasEBTransfSaldoCred := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_TRANSFSALDOCRED;
+  ConfBcoHorasEBJor12x36        := Aliases.Ponto.FRhBhConf.Page.TabNormal.pnCab.EB_JOR12X36;
+  ConfBcoHorasBtnIncDia         := Aliases.Ponto.FRhBhConf.bInc;
+  ConfBcoHorasBtnSaveDia        := Aliases.Ponto.FRhBhConf.bSalv;
+  ConfBcoHorasBtnExcDia         := Aliases.Ponto.FRhBhConf.bExc;
+  ConfBcoHorasBtnDesfDia        := Aliases.Ponto.FRhBhConf.bDesf;
+  ConfBcoHorasGridDia           := Aliases.Ponto.FRhBhConf.Page.TabNormal.pg.tsConfDiario.gRhBhConfDet;
+  ConfBcoHorasComboDia          := Aliases.Ponto.FRhBhConf.Page.TabNormal.pg.tsConfDiario.gRhBhConfDet.TcxGridSite.TcxImageComboBox;
+  ConfBcoHorasBtnIncMen         := Aliases.Ponto.FRhBhConf.bIncMen;
+  ConfBcoHorasBtnSaveMen        := Aliases.Ponto.FRhBhConf.bSalvMen;
+  ConfBcoHorasBtnExcMen         := Aliases.Ponto.FRhBhConf.bExcMen;
+  ConfBcoHorasBtnDesfMen        := Aliases.Ponto.FRhBhConf.bDesfMen;
+  ConfBcoHorasGridMen           := Aliases.Ponto.FRhBhConf.Page.TabNormal.pg.tsConfMensal.gRhBhConfDetMen;
+  ConfBcoHorasComboMen          := Aliases.Ponto.FRhBhConf.Page.TabNormal.pg.tsConfMensal.gRhBhConfDetMen.TcxGridSite.TcxImageComboBox;
+end;

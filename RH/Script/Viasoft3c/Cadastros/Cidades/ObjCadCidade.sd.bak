@@ -1,0 +1,70 @@
+﻿{Script de mapeamento a tela de cadastro de cidades
+ Módulo: Viasoft_RO
+ Autor: Rafael Colla
+ Data: 19/03/2018}
+ 
+uses 
+  VarConsts;
+ 
+var
+  Viasoft3C_XE: OleVariant;
+
+  CadCidFormFiltro, CadCidPainelListaFiltro, CadCidComboTipoListaFiltro, CadCidPainelCamposFiltro, 
+  CadCidComboCodigoFiltro, CadCidComboNomeFiltro, CadCidComboUFFiltro, CadCidPainelBotaoFiltro,
+  CadCidBotaoOkFiltro, CadCidBotaoAbreVazioFiltro, CadCidBotaonCancelaFiltro : OleVariant; 
+  
+  CadCidForm, CadCidPrinc, CadCidPrincTs1, CadCidScroll, CadCidNome, CadCidUF, CadCidDDD, 
+  CadCidOficial, CadCidCEP, CadCidPais, CadCidIBGE: OleVariant;
+  
+  CadCidConsForm, CadCidConsGrid, CadCidConsGridSite: OleVariant;
+  
+  SelecionaServico: OleVariant;
+  
+procedure MapFiltroCadCidade();
+begin
+  Viasoft3C_XE               := Sys.Process(_ModuloGerente);
+  
+  CadCidFormFiltro           := Viasoft3C_XE.VCLObject('FFiltroConsultaCDS');
+  CadCidPainelListaFiltro    := CadCidFormFiltro.VCLObject('grpConsulta');
+  CadCidComboTipoListaFiltro := CadCidPainelListaFiltro.VCLObject('cbListaConsultas');
+    
+end;
+
+procedure MapTelaCadCidade();
+begin
+  Viasoft3C_XE    := Sys.Process(_ModuloGerente);
+   
+  CadCidForm      := Viasoft3C_XE.VCLObject('FFormPadraoCds');
+  CadCidPrinc     := CadCidForm.VCLObject('FFormPadraoCds_abPrinc');
+  CadCidPrincTs1  := CadCidPrinc.VCLObject('FFormPadraoCds_abPrinc_ts1');
+  CadCidScroll    := CadCidPrincTs1.Window('TScrollBox'); 
+  CadCidNome      := CadCidScroll.VCLObject('EB_NOME');
+  CadCidUF        := CadCidScroll.VCLObject('EB_UF');
+  CadCidDDD       := CadCidScroll.VCLObject('EB_DDD');
+  CadCidOficial   := CadCidScroll.VCLObject('EB_OFICIAL');
+  CadCidCEP       := CadCidScroll.VCLObject('EB_CEP');
+  CadCidPais      := CadCidScroll.VCLObject('EB_PAIS');
+  CadCidIBGE      := CadCidScroll.VCLObject('EB_IBGE');
+end;
+
+procedure MapGridCadCidade();
+begin
+  Viasoft3C_XE       := Sys.Process(_ModuloGerente);
+   
+  CadCidConsForm     := Viasoft3C_XE.VCLObject('FBRowseCds');
+  CadCidConsGrid     := CadCidConsForm.VCLObject('BGrid');
+  CadCidConsGridSite := CadCidConsGrid.Window('TcxGridSite', '', 1);
+end;
+
+procedure MapFiltroPadraoCadCidade();
+begin
+  CadCidPainelCamposFiltro   := CadCidFormFiltro.VCLObject('PanComp');
+  CadCidComboCodigoFiltro    := CadCidPainelCamposFiltro.VCLObject('cb1');
+//  CadCidComboNomeFiltro      := CadCidFormFiltro.Window('TVsEdit', '', 1);
+  CadCidComboUFFiltro        := CadCidPainelCamposFiltro.VCLObject('cb2');
+  
+  CadCidPainelBotaoFiltro    := CadCidFormFiltro.VCLObject('pnlBotao');
+  CadCidBotaoOkFiltro        := CadCidPainelBotaoFiltro.VCLObject('bOK');
+  CadCidBotaoAbreVazioFiltro := CadCidPainelBotaoFiltro.VCLObject('bAbrirVazio');
+  CadCidBotaonCancelaFiltro  := CadCidPainelBotaoFiltro.VCLObject('bCancelar');
+end;

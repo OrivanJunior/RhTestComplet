@@ -1,0 +1,31 @@
+﻿{Script de DataPool da Transferência de Empregados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 23/06/2021}
+  
+var
+  TransfEmpDPEstabDestino, 
+  TransfEmpDPIdEmpregado,
+  TransfEmpDPSituaSaida, 
+  TransfEmpDPTipoAdm,
+  TransfEmpDPLocalDestino, 
+  TransfEmpDPTabAnuenio,
+  TransfEmpDPDataEntrada, 
+  TransfEmpDPManterId: OleVariant;
+
+
+procedure LoadDataPoolEstab(nomeDriver);
+begin
+  TransfEmpDPEstabDestino := DDT.DriverByName(nomeDriver).Value('ESTABDESTINO');
+end;
+
+procedure LoadDataPoolEmpregado(nomeDriver);
+begin
+  TransfEmpDPIdEmpregado  := DDT.DriverByName(nomeDriver).Value('IDEMPPREGADO');
+  TransfEmpDPSituaSaida   := DDT.DriverByName(nomeDriver).Value('SITUASAIDA');
+  TransfEmpDPTipoAdm      := DDT.DriverByName(nomeDriver).Value('TIPOADM');
+  TransfEmpDPLocalDestino := DDT.DriverByName(nomeDriver).Value('LOCALDESTINO');
+  TransfEmpDPTabAnuenio   := DDT.DriverByName(nomeDriver).Value('TABANUENIO');
+  TransfEmpDPDataEntrada  := DDT.DriverByName(nomeDriver).Value('DATAENTRADA');
+  TransfEmpDPManterId     := DDT.DriverByName(nomeDriver).Value('MANTERID');
+end;

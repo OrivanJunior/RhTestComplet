@@ -1,0 +1,70 @@
+﻿uses
+  ObjAtualizaInteligente,
+  VarConsts;
+{Script para executar a atualizacao inteligente dos módulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 03/04/2018}
+ 
+
+var
+  Modulo: OleVariant;
+    
+procedure ProcessoAtInteligente(AtuIntForca: boolean);
+begin
+  Modulo.WaitVCLObject('VsMenu', 5000);
+    
+  if (Modulo.WaitVCLObject('FSincTabelasListar', 20000).Exists) then 
+  begin
+    MapTelaAtualizaInteligente();
+  
+    if (FormAtInteligente.Exists) then
+    begin
+      if (FormAtIntDgListar.ActiveView.ViewData.RowCount >= 1) then
+      begin
+        if (not FormAtIntChkTodas.Checked) then
+          FormAtIntChkTodas.Checked := True;
+    
+        FormAtIntBtnAt.ClickButton;
+    
+        Modulo.Window('#32770', 'Confirma atualização', 1).Window('Button', '&Sim', 1).ClickButton;
+        
+        while FormAtInteligente.Exists do
+          Delay(1000);
+      end
+    end  
+  end
+  else if (AtuIntForca) then
+    if (Modulo.WaitVCLObject('FBRespNew', 100).Exists)then
+      Modulo.VCLObject('FBRespNew').VCLObject('pnBotoes').VCLObject('btnOK').ClickButton;
+end;
+
+procedure ExeForcaAtInteligente();
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  
+  Modulo.WaitVCLObject('VsMenu', 2000);
+  Modulo.VCLObject('VsMenu').Keys('~^i');
+  
+  if(Modulo.WaitVCLObject('FBRespNew',500).Exists) then
+    Modulo.VCLObject('FBRespNew').VCLObject('pnBotoes').VCLObject('btnOK').Click()
+  else
+  begin
+    Modulo.Window('#32770', 'Atenção!', 1).Window('Button', '&Sim', 1).ClickButton;
+  
+    Modulo.VCLObject('FBRespNew').VCLObject('pnBotoes').VCLObject('btnOK').ClickButton;
+  end;
+  
+  ProcessoAtInteligente(True);
+end;  
+  
+procedure ExeAtInteligente();
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  
+  ProcessoAtInteligente(False);
+  
+  Delay(1000);
+  
+  //ExeForcaAtInteligente();   
+end;

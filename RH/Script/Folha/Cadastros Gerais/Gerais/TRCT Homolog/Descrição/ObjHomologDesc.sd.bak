@@ -1,0 +1,37 @@
+﻿{Script para mapear tela de cadastro de HomologDesc
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  Modulo: OleVariant;
+  
+  FormCadHomologDesc, FormCadHomologDescabPrinc, 
+  FormCadHomologDescabPrinc_ts1, FormCadHomologDescTScrollBox: OleVariant;
+  
+  FormCadHomologDescIdSistemaExp, FormCadHomologDescSoftware, FormCadHomologDescFabricante: OleVariant;
+  
+  CadHomologDescConsForm, CadHomologDescConsGrid, CadHomologDescConsGridSite: OleVariant;
+
+procedure MapTelaCadHomologDesc(sModulo: String);
+begin
+  Modulo := Sys.Process(sModulo);
+  
+  FormCadHomologDesc            := Modulo.VCLObject('FFormPadraoCds');
+  FormCadHomologDescabPrinc     := FormCadHomologDesc.VCLObject('FFormPadraoCds_abPrinc');
+  FormCadHomologDescabPrinc_ts1 := FormCadHomologDescabPrinc.VCLObject('FFormPadraoCds_abPrinc_ts1');
+  FormCadHomologDescTScrollBox  := FormCadHomologDescabPrinc_ts1.Window('TScrollBox', '', 1);
+     
+  FormCadHomologDescCampo     := FormCadHomologDescTSscrollBox.VCLObject('EB_CAMPO');
+  FormCadHomologDescDescricao := FormCadHomologDescTScrollBox.VCLObject('EB_DESCRICAO');
+end;
+
+procedure MapGridCadHomologDesc(sModulo: String);
+begin
+  Modulo := Sys.Process(sModulo);
+   
+  CadHomologDescConsForm     := Modulo.VCLObject('FBRowseCds');
+  CadHomologDescConsGrid     := CadHomologDescConsForm.VCLObject('BGrid');
+  CadHomologDescConsGridSite := CadHomologDescConsGrid.Window('TcxGridSite', '', 1);
+end;
+

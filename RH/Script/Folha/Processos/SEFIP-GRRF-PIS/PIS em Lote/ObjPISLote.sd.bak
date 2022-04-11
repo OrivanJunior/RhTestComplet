@@ -1,0 +1,61 @@
+﻿{Script para criar o DataPool do Processo de PIS em Lote
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 06/07/2021}
+ 
+var
+  FormPisLote, btnSair, btnExecutar, 
+  btnSalvar, btnRelatorio,
+   
+  PisLoteWhEstabEspec, PisLoteWhEstabEspecCampo,
+  PisLoteWhEstabTodosEmp, PisLoteWhEstabTodosEmpCampo,
+  PisLoteWhEstabTodos, PisLoteWhEstabSelec,
+  PisLoteWhEstabSelecCampo, 
+  
+  PisLoteWhEmpreTodos, PisLoteWhEmpreEspec,
+  PisLoteWhEmpreEspecCampo, PisLoteWhEmpreSelec,
+  PisLoteWhEmpreSelecCampo, 
+  
+  PisLoteWhDataDtIni, PisLoteWhDataDtFin,
+  
+  PisLoteWhDadosLocalGrav, PisLoteWhDadosTipoArquivo,
+  PisLoteWhDadosDataGeracao, PisLoteWhDadosEmpSemPis,
+  PisLoteWhDadosRetifica, PisLoteWhDadosSeqDia: OleVariant;
+  
+procedure MapPisLote();
+begin
+  FormPisLote                 := Aliases.Folha.FRhProcPisLote;
+  
+  btnSair                     := Aliases.Folha.FRhProcPisLote.BSair;
+  btnExecutar                 := Aliases.Folha.FRhProcPisLote.bExecutar;
+  btnSalvar                   := Aliases.Folha.FRhProcPisLote.tbSalvar;
+  btnRelatorio                := Aliases.Folha.FRhProcPisLote.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  PisLoteWhEstabEspec         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  PisLoteWhEstabEspecCampo    := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  PisLoteWhEstabTodosEmp      := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  PisLoteWhEstabTodosEmpCampo := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  PisLoteWhEstabTodos         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  PisLoteWhEstabSelec         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  PisLoteWhEstabSelecCampo    := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  PisLoteWhEmpreTodos         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  PisLoteWhEmpreEspec         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  PisLoteWhEmpreEspecCampo    := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  PisLoteWhEmpreSelec         := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  PisLoteWhEmpreSelecCampo    := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Datas }
+  PisLoteWhDataDtIni          := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  PisLoteWhDataDtFin          := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Dados Adicionais }
+  PisLoteWhDadosLocalGrav     := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  PisLoteWhDadosTipoArquivo   := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.EB_TIPO;
+  PisLoteWhDadosDataGeracao   := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.EB_DATAGERACAO;
+  PisLoteWhDadosEmpSemPis     := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.EB_EMPPIS;
+  PisLoteWhDadosRetifica      := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.eb_retifica;
+  PisLoteWhDadosSeqDia        := Aliases.Folha.FRhProcPisLote.pg.tsSelecao.SB_Selecao.whDados.eb_versao;
+end;

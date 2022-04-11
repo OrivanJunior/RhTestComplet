@@ -1,0 +1,29 @@
+﻿uses
+  CommonsAll, VarConsts;
+  
+procedure Acessa();
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Gerais', 'Gerais', 'Eventos', 'Eventos');
+end;
+
+
+function Soma();
+var senha, hora, dia, mes, somaMesDia, somaUnidadeDezena;
+begin
+  hora := aqDateTime.GetHours(aqDateTime.Now());
+  dia := aqDateTime.GetDay(aqDateTime.Now());
+  mes := aqDateTime.GetMonth(aqDateTime.Now());
+  
+  
+  somaMesDia := AdicionaZero(dia+mes,1);
+  somaUnidadeDezena := AdicionaZero(StrToInt(aqString.GetChar(somaMesDia,0))+StrToInt(aqString.GetChar(somaMesDia,1)),1);
+
+  senha := 'VIASOFTRH' + AdicionaZero(somaMesDia,1) + AdicionaZero(hora,1) + somaUnidadeDezena;
+  
+  result := senha;
+end;
+
+procedure teste();
+begin
+  Aliases.Folha.FSelUsu.cxGroupBox1.dxLayoutControl.VCLObject('ESenha').Keys('[Space]');
+end;

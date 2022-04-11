@@ -1,0 +1,179 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  SelecaoEstab,
+  DataPoolProcRapido,
+  ObjProcRapido,
+  VarConsts;
+ 
+{Script para executar o Processamento Rápido
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 16/07/2021}
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AcessaProcRapido();
+begin
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Processamento Rápido'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    ProcRapidoWhEstabEspec.ClickButton;
+    VerificaInsere(ProcRapidoWhEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    ProcRapidoWhEstabTodosEmp.ClickButton;
+    VerificaInsere(ProcRapidoWhEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    ProcRapidoWhEstabSelec.ClickButton;
+    VerificaInsere(ProcRapidoWhEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    ProcRapidoWhEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;  
+end;
+
+procedure FiltraEmpregados();
+begin
+  if (ProcRapidoWhEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpregadoTipo = _Especifico) then
+  begin
+    ProcRapidoWhEmpreEspec.ClickButton;
+    VerificaInsere(ProcRapidoWhEmpreEspecCampo, FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Selecionados) then
+  begin
+    ProcRapidoWhEmpreSelec.ClickButton;
+    ProcRapidoWhEmpreSelecCampo.SetText(FiltroEmpregadoValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpregadoValor);
+  end
+  else if (FiltroEmpregadoTipo = _Todos) then
+  begin
+    ProcRapidoWhEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraLocal();
+begin
+  if (ProcRapidoWhLocalTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whLocal.whLocal10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    ProcRapidoWhLocalEspec.ClickButton;
+    VerificaInsere(ProcRapidoWhLocalEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Local - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    ProcRapidoWhLocalSelec.ClickButton;
+    VerificaInsere(ProcRapidoWhLocalSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Local - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    ProcRapidoWhLocalTodos.ClickButton;
+    Log.Checkpoint('Selecionado Local - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (ProcRapidoWhDadosDataProc.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcRapido.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  PreencheDatas(ProcRapidoWhDadosDataProc, FiltroDataProc);
+  PreencheDatas(ProcRapidoWhDadosDataPagto, FiltroDataPgto);
+  VerificaConsultaF3Insere(_ModuloFolha, ProcRapidoWhDadosProcessamento, FiltroProcessamento);
+  VerificaInsere(ProcRapidoWhDadosProcConsiderar, FiltroProcConsiderar);
+  PreencheCheckbox(ProcRapidoWhDadosSalvarTestes, FiltroSalvarTeste);
+end;
+
+procedure ExecutaProcRapido(pathData, tab);
+var 
+  MensagemInativa: boolean;
+  Estab, DDTProcRapido: OleVariant;
+begin
+  AcessaProcRapido();
+
+  MapProcRapido();
+  
+  DDTProcRapido := CarregaDDT(pathData, tab);
+  
+  Estab := 0;
+  
+  while not (DDTProcRapido.EOF) do
+  begin
+    LeDataPoolProcRapido(DDTProcRapido.Name);
+    
+    MensagemInativa := True;
+        
+    if Estab <> FiltroEstabValor then
+    begin
+      if (Aliases.Folha.FRhProcRapido.Exists) then
+      begin
+        Aliases.Folha.FRhProcRapido.BSair.Click();
+      end;
+      
+      ExecutaSelecaoEstab(_ModuloFolha, FiltroEstabValor);
+      
+      AcessaProcRapido();
+
+      MapProcRapido();
+    end;
+    
+    FiltraEstab();
+
+    FiltraEmpregados();
+  
+    FiltraLocal();
+  
+    DadosAdicionais();
+
+    btnExecutar.Click();
+    
+    if Aliases.Folha.dlgAten_o2.Exists then
+      Aliases.Folha.dlgAten_o2.btnN_o.Click();
+  
+    while (MensagemInativa) do
+    begin
+      if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 20000).Exists) then
+      begin
+        Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();
+        MensagemInativa := false;
+      end 
+      else if (Aliases.Folha.FVsErrorDlg.Visible) then
+      begin
+        Log.Warning('Erro, verifique as informações');
+        Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+        ActFechar(FormProcRapido);
+        MensagemInativa := false;
+      end
+    end;
+    Estab := FiltroEstabValor;
+    
+    DDTProcRapido.Next();
+  end;
+  ActFechar(FormProcRapido);
+  DDT.CloseDriver(DDTProcRapido.Name);
+end;

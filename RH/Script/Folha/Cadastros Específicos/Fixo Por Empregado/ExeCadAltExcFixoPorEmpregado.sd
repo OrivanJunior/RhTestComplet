@@ -1,0 +1,258 @@
+﻿uses
+  DataPoolCadFixoPorEmpregado, ObjCadFixoPorEmpregado, VarConsts, CommonsAll, CommonsObj;
+
+
+procedure FiltraFixoPorEmpregado();
+begin 
+  Folha := Sys.Process(_ModuloFolha);
+
+  MapFiltroFixoPorEmpregado();
+  log.Checkpoint('Filtrando Fixo Por Empregado');
+  FiltroConsFormCBSelCons.Keys('[Enter]');
+  FiltroConsFormCBCodigo.SelectItem('(Ignorar)');
+  
+  btnOkFiltroConsForm.ClickButton;
+end;
+   
+procedure PreencheDadosGeraisFixoE(pathData);
+var
+  DDTDadosGeraisFixoE;
+begin 
+  DDTDadosGeraisFixoE := CarregaDDT(pathData, 'Gerais');
+  
+  LoadDPDadosGeraisFixoE(DDTDadosGeraisFixoE.Name);
+  
+  MapDadosGeraisFixoPorEmpregado();
+  
+  Log.Checkpoint('Preenchendo Dados Gerais');
+  VerificaConsultaF3Insere(_ModuloFolha, FixoEmpEBEstab, FixoEDPEstab);
+  VerificaConsultaF3Insere(_ModuloFolha, FixoEmpEBEmpregado, FixoEDPEmpregado);
+  VerificaConsultaF3Insere(_ModuloFolha, FixoEmpEBEvento, FixoEDPEvento);
+  FixoEmpEBEvento.Keys('[Enter]');
+end;
+
+procedure PreencheTabPeriodicidadeMesFixoE(pathData);
+var
+  DDTPeriodicidadeMes;
+begin
+  FixoEmpFormPage.ActivePageIndex := 0; 
+
+  DDTPeriodicidadeMes := CarregaDDT(pathData, 'Periodicidade-Por Mes');
+  
+  LoadDPTabPeriodicidadeMesFixoE(DDTPeriodicidadeMes.Name);
+  
+  MapTabPeriodicidadeMesFixoE();
+
+  Log.Checkpoint('Preenchendo Periodicidade Por Mês');
+  BtnAllFixoEmpMes.Click();
+end;
+
+procedure PreencheTabPeriodicidadeMesAnoFixoE(pathData);
+var
+  DDTPeriodicidadeMesAno, i;
+begin
+  i := 0;
+  FixoEmpFormPage.ActivePageIndex := 1; 
+  
+  DDTPeriodicidadeMesAno := CarregaDDT(pathData, 'Periodicidade-Por Mes Ano');
+  
+  while not (DDTPeriodicidadeMesAno.EOF) do
+  begin
+    LoadDPTabPeriodicidadeMesAnoFixoE(DDTPeriodicidadeMesAno.Name);
+  
+    MapTabPeriodicidadeMesAnoFixoE();
+  
+    BtnIncFixoEmpMesAno.Click();
+  
+    Log.Checkpoint('Preenchendo Periodicidade Por Mês/Ano');  
+    VerificaClickPreencheGrid(FixoEmpMesAnoGrid, i, 'Mês', FixoEMesAnoDPMes);
+    VerificaClickPreencheGrid(FixoEmpMesAnoGrid, i, 'Ano', FixoEMesAnoDPAno);
+  
+    BtnSaveFixoEmpMesAno.Click();
+    
+    DDTPeriodicidadeMesAno.Next;
+    Inc(i);
+  end;
+  DDT.CloseDriver(DDTPeriodicidadeMesAno.Name);
+end;
+
+procedure PreencheTabParametrosFixoE(pathData);
+var
+  DDTParametros;
+begin
+  FixoEmpFormPage.ActivePageIndex := 2; 
+  
+  DDTParametros := CarregaDDT(pathData, 'Parametros');
+  
+  LoadDPTabParametrosFixoE(DDTParametros.Name); 
+  
+  MapTabParametrosFixoE();
+  
+  Log.Checkpoint('Preenchendo Parâmetros');
+  VerificaInsere(ParamsEBValorInfo, FixoEParamsDPValorInfo);
+  VerificaInsere(ParamsEBInforme, FixoEParamsDPInforme);
+  VerificaInsere(ParamsEBInforme2, FixoEParamsDPInforme2);
+  VerificaInsere(ParamsEBValorTarefa, FixoEParamsDPValorTarefa);
+  VerificaInsere(ParamsEBProporcional, FixoEParamsDPProporcional);
+  VerificaInsere(ParamsEBDiasUteis, FixoEParamsDPDiasUteis);
+  VerificaInsere(ParamsEBDiasFaltas, FixoEParamsDPDiasFaltas);
+  VerificaInsere(ParamsEBAvosInforme, FixoEParamsDPAvosInforme);
+  VerificaInsere(ParamsEBAvosDireito, FixoEParamsDPAvosDireito);
+  VerificaInsere(ParamsEBReferencia, FixoEParamsDPReferencia);
+  VerificaInsere(ParamsEBBaseProp, FixoEParamsDPBaseProp);
+end;
+
+procedure ExcluiPeriodicidadeMesFixoE();
+var
+  i : integer;
+begin
+  FixoEmpFormPage.ActivePageIndex := 0;
+  
+  MapTabPeriodicidadeMesFixoE();
+  
+  Log.Checkpoint('Excluindo Periodicidade Por Mês');
+  for i := 0 to 11 do
+    BtnExcFixoEmpMes.Click();
+end;
+
+procedure CadastraFixoPorEmpregado(pathData);
+var
+  DDTDadosGeraisFixoE;
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Fixo Por Empregado');
+  
+  FiltraFixoPorEmpregado();
+
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTDadosGeraisFixoE := CarregaDDT(pathData, 'Gerais');
+  
+  while not (DDTDadosGeraisFixoE.EOF) do
+  begin
+    LoadDPDadosGeraisFixoE(DDTDadosGeraisFixoE.Name);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFixoE');
+  
+    Log.Checkpoint('Filtrando Fixo Por Empregado');
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado', FixoEDPEmpregado); 
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento', FixoEDPEvento);
+
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+    
+      if (Aliases.Folha.FRhFixoE.Exists) then
+      begin
+        MapTelaCadastroFixoPorEmpregado();
+  
+        PreencheDadosGeraisFixoE(pathData);
+    
+        PreencheTabPeriodicidadeMesFixoE(pathData);
+    
+        PreencheTabParametrosFixoE(pathData);
+    
+        Log.Checkpoint('Salvando Fixo Por Empregado');
+        ActSalvar(FixoEmpFormCad);
+        ActFechar(FixoEmpFormCad);
+      end;
+    end;
+    DDTDadosGeraisFixoE.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTDadosGeraisFixoE.Name);
+end;
+
+procedure AlteraFixoPorEmpregado(pathData);
+var
+  DDTDadosGeraisFixoE;
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Fixo Por Empregado');
+  
+  FiltraFixoPorEmpregado();
+
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTDadosGeraisFixoE := CarregaDDT(pathData, 'Gerais');
+  
+  while not (DDTDadosGeraisFixoE.EOF) do
+  begin
+    LoadDPDadosGeraisFixoE(DDTDadosGeraisFixoE.Name);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFixoE');
+    
+    Log.Checkpoint('Filtrando Fixo Por Empregado');
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado', FixoEDPEmpregado); 
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento', FixoEDPEvento);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+    
+      if (Aliases.Folha.FRhFixoE.Exists) then
+      begin
+        MapTelaCadastroFixoPorEmpregado();
+
+        ExcluiPeriodicidadeMesFixoE();
+    
+        PreencheTabPeriodicidadeMesAnoFixoE(pathData);
+    
+        Log.Checkpoint('Salvando Fixo Por Empregado');
+        ActSalvar(FixoEmpFormCad);
+        ActFechar(FixoEmpFormCad);
+      end;
+    end;
+    DDTDadosGeraisFixoE.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTDadosGeraisFixoE.Name);
+end;
+
+procedure ExcluiFixoPorEmpregado(pathData);
+var
+  DDTDadosGeraisFixoE;
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Fixo Por Empregado');
+  
+  FiltraFixoPorEmpregado();
+
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTDadosGeraisFixoE := CarregaDDT(pathData, 'Gerais');
+  
+  while not (DDTDadosGeraisFixoE.EOF) do
+  begin
+    LoadDPDadosGeraisFixoE(DDTDadosGeraisFixoE.Name);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFixoE');
+    
+    Log.Checkpoint('Filtrando Fixo Por Empregado');
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado', FixoEDPEmpregado); 
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento', FixoEDPEvento);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+    
+      if (Aliases.Folha.FRhFixoE.Exists) then
+      begin
+        MapTelaCadastroFixoPorEmpregado();
+  
+        Log.Checkpoint('Excluindo Fixo Por Empregado');
+        ActExcluir(_ModuloFolha, 'FRhFixoE');
+        ActFechar(FixoEmpFormCad);
+      end;
+    end;
+    DDTDadosGeraisFixoE.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTDadosGeraisFixoE.Name);
+end;

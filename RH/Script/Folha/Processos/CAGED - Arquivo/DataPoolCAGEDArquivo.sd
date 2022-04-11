@@ -1,0 +1,27 @@
+﻿{Script de DataPool do Processo de CAGED - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 24/06/2021}  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroMesComp, FiltroCTPScomCPF, 
+  FiltroLocalGrav: OleVariant;
+
+procedure LeDataPoolCAGEDArquivo(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+  
+  { Dados Adicionais }
+  FiltroMesComp    := DDT.DriverByName(nomeDriver).Value('MESCOMP');
+  FiltroCTPScomCPF := DDT.DriverByName(nomeDriver).Value('CTPSCOMCPF');
+  FiltroLocalGrav  := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+end;

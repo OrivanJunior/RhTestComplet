@@ -1,0 +1,180 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DatapoolRPA,
+  ObjRPA,
+  VarConsts;
+  
+var
+  Modulo: OleVariant;
+  
+procedure AcessaCadastroRPA();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'RPA', 'RPA');
+end;
+
+procedure EscolheFiltroConsultaRPA(nomeDriver);
+begin
+  mapFiltroConsultaRPA();
+  
+  loadDataPoolRPA(nomeDriver);
+  
+  { Seleciona Consulta }
+  FiltroConsFormCBSelCons.Keys('RPA por Data de Emiss');
+  
+  { Estabelecimento }
+  FiltroConsFormCBEstab.Keys('=');
+  FormFiltroConsultaEstab.Keys(FormRhRpaDPEstab);
+  
+  { Data }
+  FiltroConsFormCBData.Keys('Entre');
+  PreencheDatas(FormFiltroConsultaDataIni, FormRhRpaDPData); 
+  PreencheDatas(FormFiltroConsultaDataFin, FormRhRpaDPData); 
+  
+  btnOkFiltroConsForm.ClickButton;  
+end;
+
+procedure PreencheCamposPrestador();
+begin
+  VerificaInsere(FormRhRpaNroRpa, FormRhRpaDPNroRpa);
+  PreencheDatas(FormRhRpaData, FormRhRpaDPData);
+  PreencheDatas(FormRhRpaDtVenc, FormRhRpaDPDtVenc);
+  VerificaInsere(FormRhRpaIdLocal, FormRhRpaDPIdLocal);
+  VerificaInsere(FormRhRpaIdPreserv, FormRhRpaDPIdPreserv);
+  VerificaInsere(FormRhRpaDescricao, FormRhRpaDPDescricao);
+  VerificaInsere(FormRhRpaVlrServico, FormRhRpaDPVlrServico);
+  VerificaInsere(FormRhRpaVlrDescontos, FormRhRpaDPVlrDescontos);
+  FormRhRpaVlrDescontos.Keys('[Enter]');
+  
+  FormRhRpaBtnCalcular.Click();
+end;
+
+procedure ValidaExclusaoRPA();
+var 
+  TelaMensagem, TelaAtencao, btnSim, btnNao, btnOK;
+begin
+  if (Modulo.WaitWindow('TMessageForm', 'Atenção', 1, 2000).Exists) then
+  begin
+    TelaMensagem := Modulo.Window('TMessageForm', 'Atenção', 1);
+    
+    btnSim := TelaMensagem.VCLObject('Yes');
+    btnNao := TelaMensagem.VCLObject('No');
+    
+    btnSim.Click();
+    
+    if (Modulo.WaitWindow('#32770', 'Atenção', 1, 2000).Exists) then
+    begin
+      TelaAtencao := Modulo.WaitWindow('#32770', 'Atenção', 1);
+    
+      btnOK := TelaAtencao.Window('Button', 'OK', 1);
+      
+      btnOK.Click();
+    end;
+  end;
+end;
+
+procedure CadastrarDadosRPA(pathData);
+var
+  DDTRpa;
+begin
+  AcessaCadastroRPA();
+  
+  DDTRpa := CarregaDDT(pathData, _Cadastrar);
+  
+  EscolheFiltroConsultaRPA(DDTRpa.Name);
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  while (not (DDTRpa.EOF)) do
+  begin
+    loadDataPoolRPA(DDTRpa.Name);
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número da RPA', FormRhRpaDPNroRpa);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      
+      MapCadRPA();
+     
+      if (FormRhRpa.Exists) then
+      begin
+        PreencheCamposPrestador();
+      
+        FormRhRpaBtnSalvar.Click();
+        ActFechar(FormRhRpa);
+      end;
+    end;
+    DDTRpa.Next();
+  end; 
+  DDT.CloseDriver(DDTRpa.Name); 
+end;
+
+procedure AlteraDadosRPA(pathData);
+var
+  DDTRpa;
+begin
+  AcessaCadastroRPA();
+  
+  DDTRpa := CarregaDDT(pathData, _Alterar);
+  
+  EscolheFiltroConsultaRPA(DDTRpa.Name);
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  while (not (DDTRpa.EOF)) do
+  begin
+    loadDataPoolRPA(DDTRpa.Name);
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número da RPA', FormRhRpaDPNroRpa);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      MapCadRPA();
+     
+      if (FormRhRpa.Exists) then
+      begin
+        PreencheCamposPrestador();
+      
+        FormRhRpaBtnSalvar.Click();
+        ActFechar(FormRhRpa);
+      end;
+    end;
+    DDTRpa.Next();
+  end; 
+  DDT.CloseDriver(DDTRpa.Name);
+end;
+
+procedure DeletaDadosRPA(pathData);
+var
+  DDTRpa;
+begin
+  AcessaCadastroRPA();
+  
+  DDTRpa := CarregaDDT(pathData, _Excluir);
+  
+  EscolheFiltroConsultaRPA(DDTRpa.Name);
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  while (not (DDTRpa.EOF)) do
+  begin
+    loadDataPoolRPA(DDTRpa.Name);
+    
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número da RPA', FormRhRpaDPNroRpa);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm); 
+    
+      if (FormRhRpa.Exists) then
+      begin
+        ActExcluir(_ModuloFolha, 'FRhRpa');
+        ValidaExclusaoRPA();
+    
+        ActFechar(FormRhRpa);
+      end;
+    end; 
+    DDTRpa.Next();
+  end;
+  DDT.CloseDriver(DDTRpa.Name);
+end;

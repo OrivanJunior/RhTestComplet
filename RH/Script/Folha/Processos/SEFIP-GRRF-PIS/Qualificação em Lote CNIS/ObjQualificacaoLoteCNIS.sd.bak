@@ -1,0 +1,81 @@
+﻿{Script para mapear o Processo de Qualificação Cadastral - Remessa
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha
+ Data: 24/06/2021}
+
+var
+  FormRemessa, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormRemessaWhEstabEspec, FormRemessaWhEstabEspecCampo,
+  FormRemessaWhEstabTodosEmp, FormRemessaWhEstabTodosEmpCampo,
+  FormRemessaWhEstabTodos, FormRemessaWhEstabSelec,
+  FormRemessaWhEstabSelecCampo, 
+  
+  FormRemessaWhLocalTodos, FormRemessaWhLocalEspec, 
+  FormRemessaWhLocalEspecCampo, FormRemessaWhLocalSelec, 
+  FormRemessaWhLocalSelecCampo,
+  
+  FormRemessaWhEmpreTodos, FormRemessaWhEmpreEspec,
+  FormRemessaWhEmpreEspecCampo, FormRemessaWhEmpreSelec,
+  FormRemessaWhEmpreSelecCampo, 
+  
+  FormRemessaWhSituacaoTodos, FormRemessaWhSituacaoEspec,
+  FormRemessaWhSituacaoEspecCampo, FormRemessaWhSituacaoSelec,
+  FormRemessaWhSituacaoSelecCampo,
+
+  FormRemessaWhLocalGravacao, FormRemessaWhGerarDadosPrest, 
+  
+  FormRemessaWhPrestTodos, FormRemessaWhPrestEspec,
+  FormRemessaWhPrestEspecCampo, FormRemessaWhPrestSelec,
+  FormRemessaWhPrestSelecCampo: OleVariant;
+  
+procedure MapRemessa();
+begin
+  FormRemessa                     := Aliases.Folha.FRhProcGeraQualificacao;
+  
+  btnSair                         := Aliases.Folha.FRhProcGeraQualificacao.BSair;
+  btnExecutar                     := Aliases.Folha.FRhProcGeraQualificacao.bExecutar;
+  btnSalvar                       := Aliases.Folha.FRhProcGeraQualificacao.tbSalvar;
+  btnRelatorio                    := Aliases.Folha.FRhProcGeraQualificacao.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormRemessaWhEstabEspec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormRemessaWhEstabEspecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormRemessaWhEstabTodosEmp      := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormRemessaWhEstabTodosEmpCampo := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormRemessaWhEstabTodos         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormRemessaWhEstabSelec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormRemessaWhEstabSelecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+  { Filtro de Empregados }
+  FormRemessaWhEmpreTodos         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormRemessaWhEmpreEspec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormRemessaWhEmpreEspecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormRemessaWhEmpreSelec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormRemessaWhEmpreSelecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Situações }
+  FormRemessaWhSituacaoTodos      := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao30;
+  FormRemessaWhSituacaoEspec      := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao20;
+  FormRemessaWhSituacaoEspecCampo := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao50;
+  FormRemessaWhSituacaoSelec      := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao40;
+  FormRemessaWhSituacaoSelecCampo := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whSituacao.whSituacao80;
+
+  { Filtro de Local }
+  FormRemessaWhLocalTodos         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal30;
+  FormRemessaWhLocalEspec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal20;
+  FormRemessaWhLocalEspecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal50;
+  FormRemessaWhLocalSelec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal40;
+  FormRemessaWhLocalSelecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whLocal.whLocal80;
+  
+  { Dados Adicionais }
+  FormRemessaWhLocalGravacao      := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormRemessaWhGerarDadosPrest    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whDados.EB_PRESTADOR;
+  
+  { Filtro de Prestador }
+  FormRemessaWhPrestTodos         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.WhPrestador30;
+  FormRemessaWhPrestEspec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador20;
+  FormRemessaWhPrestEspecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador50;
+  FormRemessaWhPrestSelec         := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador40;
+  FormRemessaWhPrestSelecCampo    := Aliases.Folha.FRhProcGeraQualificacao.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador80;
+end;

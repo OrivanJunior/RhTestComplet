@@ -1,0 +1,47 @@
+﻿uses
+  CommonsAll,
+  DataPoolCadUsuario,
+  ObjCadUsuario,
+  ObjTelaGerente,
+  VarConsts;
+{Script para executar a alteração do cadastro de usuario do Viasoft3c
+ Módulo: Viasoft3C_XE
+ Autor: Rafael Colla
+ Data: 19/03/2018}
+
+ 
+var
+  Viasoft3C_XE: OleVariant;
+  
+procedure AcessaCadastroUsuario();
+begin
+  Viasoft3C_XE := Sys.Process(_ModuloGerente);
+  Viasoft3C_XE.VCLObject('VsMenu').Window('TdxDockControl', '', 3).ClickItem('Menu Gerente|Configuração|Usuários|Cadastro de usuários');
+  Delay(1000);
+end;
+
+procedure ExecutaAlteracaoUsuario();
+begin
+  MapTelaGerente();
+  FormTela.Maximize;
+  
+  AcessaCadastroUsuario();
+ 
+  MapGridCadUsuarios();
+    
+  if (CadUserConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloGerente, 'FFormPadraoCds');  
+    
+  FiltraGrid(_ModuloGerente, 'FBRowseCds', 'BGrid', 'Usuário', 'Usuarioteste');
+  if (CadUserConsGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(CadUserConsForm);  
+    
+    MapCadUsuarios();  
+    
+    CadUserAudita.Keys('S');
+    ActSalvar(CadUserFormCad);
+    ActFechar(CadUserFormCad);
+  end; 
+  ActFechar(CadUserConsForm);         
+end;

@@ -1,0 +1,21 @@
+﻿{Script para criar DataPool da tela de cadastro de Agência
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  FormCadAgenciaDPIdAgencia, FormCadAgenciaDPIdBanco, FormCadAgenciaDPAgencia, 
+  FormCadAgenciaDPDigito, FormCadAgenciaDPNome: OleVariant;
+
+procedure LeDataPoolCadAgencia(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab);
+  
+    FormCadAgenciaDPIdAgencia := DDT.DriverByName(nomeDriver).Value('IDAGENCIA');
+    FormCadAgenciaDPIdBanco   := DDT.DriverByName(nomeDriver).Value('IDBANCO');
+    FormCadAgenciaDPAgencia   := DDT.DriverByName(nomeDriver).Value('AGENCIA');
+    FormCadAgenciaDPDigito    := DDT.DriverByName(nomeDriver).Value('DIGITO');
+    FormCadAgenciaDPNome      := DDT.DriverByName(nomeDriver).Value('NOME');
+  
+  DDT.CloseDriver(DDT.CurrentDriver.Name); 
+end;

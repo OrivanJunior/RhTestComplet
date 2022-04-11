@@ -1,0 +1,73 @@
+﻿uses
+  VarConsts;
+
+{Script de mapeamento o Processamento de Ferias
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 08/06/20201}
+
+var
+  Folha,
+  
+  FormProcFerias, BtnSaveFerias, PageProcFerias,
+  BtnSairFerias, BtnExecFerias, BtnRecFerias, 
+  BtnExpFerias, BtnRelFerias, BtnTabFerias, 
+  BtnAdvFerias, 
+  
+  { Datas }
+  ProcFeriasEBDtProc, ProcFeriasEBDtPgto,
+  
+  { Tab Empregados }
+  GridEmpregado,BtnIncEmpre, BtnIncAllEmpre, 
+  BtnExcEmpre, BtnExcAllEmpre, BtnSaveEmpre, 
+  BtnDesfEmpre, BtnCadFerias, BtnProcEmpre, 
+  BtnConsEmpre, BtnIncluirCtrlProc,
+  
+  { Tab Movimento }
+  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  
+procedure MapFormProcessamentoFerias();
+begin
+  Folha          :=  Sys.Process(_ModuloFolha);
+  
+  FormProcFerias := Aliases.Folha.FRhProcFerias;
+  BtnSairFerias  := Aliases.Folha.FRhProcFerias.BSair;
+  BtnExecFerias  := Aliases.Folha.FRhProcFerias.bExecutar;
+  BtnSaveFerias  := Aliases.Folha.FRhProcFerias.tbSalvar;
+  BtnRecFerias   := Aliases.Folha.FRhProcFerias.tbRelatorio;
+  BtnExpFerias   := Aliases.Folha.FRhProcFerias.tbProcExpFin;
+  BtnRelFerias   := Aliases.Folha.FRhProcFerias.tbRelMedias;
+  BtnTabFerias   := Aliases.Folha.FRhProcFerias.tbbNotes1;
+  BtnAdvFerias   := Aliases.Folha.FRhProcFerias.tbInconsistencias;
+  PageProcFerias := Aliases.Folha.FRhProcFerias.pg;
+  
+end; 
+ 
+procedure MapPanelProcessamentoFerias();
+begin
+  ProcFeriasEBDtProc := Aliases.Folha.FRhProcFerias.pnPeriodo.EB_DATA;
+  ProcFeriasEBDtPgto := Aliases.Folha.FRhProcFerias.pnPeriodo.EB_DATAPAGTO;
+  BtnIncluirCtrlProc := Aliases.Folha.FRhProcFerias.pnPeriodo.bIncluirControle;
+end;
+
+procedure MapTabEmpregadosProcFerias();
+begin  
+  BtnIncEmpre    := Aliases.Folha.FRhProcFerias.bEmpreInc;
+  BtnIncAllEmpre := Aliases.Folha.FRhProcFerias.bEmpreIncAll;
+  BtnExcEmpre    := Aliases.Folha.FRhProcFerias.bEmpreExc;
+  BtnExcAllEmpre := Aliases.Folha.FRhProcFerias.btnExcAllEmp;
+  BtnSaveEmpre   := Aliases.Folha.FRhProcFerias.bEmpreSalvar;
+  BtnDesfEmpre   := Aliases.Folha.FRhProcFerias.bEmpreDesf;
+  BtnCadFerias   := Aliases.Folha.FRhProcFerias.bCadFerias;
+  BtnProcEmpre   := Aliases.Folha.FRhProcFerias.bEmpreProc;
+  BtnConsEmpre   := Aliases.Folha.FRhProcFerias.bEmpreCons;
+  GridEmpregado  := Aliases.Folha.FRhProcFerias.pg.tsEmpregados.grp1.gEmpregado;  
+end;
+
+procedure MapTabMovimentoProcFerias();
+begin  
+  BtnIncMov     := Aliases.Folha.FRhProcFerias.bMovInc;
+  BtnRecMov     := Aliases.Folha.FRhProcFerias.bMovRec;
+  BtnExcMov     := Aliases.Folha.FRhProcFerias.bMovExc;
+end;
+

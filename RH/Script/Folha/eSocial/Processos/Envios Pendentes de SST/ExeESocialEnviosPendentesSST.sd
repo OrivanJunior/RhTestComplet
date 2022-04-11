@@ -1,0 +1,102 @@
+﻿uses
+  DataPoolESocialEnviosPendentesSST, ObjESocialEnviosPendentesSST, CommonsAll, VarConsts, conexaoBanco;
+
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  
+procedure AcessaESocialEnviosPendentesSST();
+begin
+  AcessaItem(_ModuloFolha, 'eSocial', 'Processos', 'Envios Pendentes de SST'); 
+end;
+
+procedure EnviaEnviosPendentesSST();
+begin
+  BtnEnviarSelec.Click();
+    
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído', 1, 2000).Exists) then
+    Aliases.Folha.dlgProcessoConclu_do3.btnOK.Click();
+end;
+
+procedure ConsultaEventosPendentes(pathData);
+begin
+  PageESocialEnviosPendentesSST.ActivePageIndex := 0;
+
+  MapESocialEnviosPendentesSST();
+  
+  LoadDataPoolEnviosPendentesSST(pathData, 'Envios');
+  
+  LeDataPoolEnviosPendentesSST();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormEnviosPendentesSSTEstab, FiltroEstab);
+  PreencheDatas(FormEnviosPendentesSSTDataIni, FiltroDataIni);
+  VerificaInsere(FormEnviosPendentesSSTHoraIni, FiltroHoraIni);
+  PreencheDatas(FormEnviosPendentesSSTDataFin, FiltroDataFin);
+  VerificaInsere(FormEnviosPendentesSSTHoraFin, FiltroHoraFin);
+  VerificaInsere(FormEnviosPendentesSSTEvteSocial, FiltroEvteSocial);
+  
+  BtnFiltrar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ConsultaEventosProcessados(pathData);
+begin
+  PageESocialEnviosPendentesSST.ActivePageIndex := 1;
+
+  MapESocialConsEnviosPendentesSST();
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FormConsEstab, FiltroConsEstab);
+  PreencheDatas(FormConsDataIni, FiltroConsDataIni);
+  VerificaInsere(FormConsHoraIni, FiltroConsHoraIni);
+  PreencheDatas(FormConsDataFin, FiltroConsDataFin);
+  VerificaInsere(FormConsHoraFin, FiltroConsHoraFin);
+  VerificaInsere(FormConsAmbiente, FiltroConsAmbiente);
+  VerificaInsere(FormConsTipoEvento, FiltroConsTipoEvento);
+  VerificaInsere(FormConsEvteSocial, FiltroConsEvteSocial);
+  
+  BtnBuscar.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Atenção...', 1, 2000).Exists) then
+  begin
+    Aliases.Folha.dlgAten_o.btnOK.Click();
+    Log.Message('Nenhum evento encontrado no período informado');
+  end;
+end;
+
+procedure ExecutaESocialEnviosPendentesSST(pathData);
+var 
+  consultaFB, consultaORA: string;
+begin
+  AcessaESocialEnviosPendentesSST();
+  
+  MapESocialEnviosPendentesSST();
+  
+  LoadDataPoolEnviosPendentesSST(pathData, 'Envios');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LeDataPoolEnviosPendentesSST;
+
+    ConsultaEventosPendentes(pathData);
+
+    DDT.CurrentDriver.Next();
+  end;
+  LoadDataPoolEnviosPendentesSST(pathData, 'Consulta');
+  
+  LeDataPoolConsEnviosPendentesSST();
+    
+  ConsultaEventosProcessados(pathData);
+    
+  VerificaEventosESocial(FiltroConsDataIni, FiltroConsDataFin, FiltroConsAmbiente);
+  
+  ActFechar(FormESocialEnviosPendentesSST);
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

@@ -1,0 +1,61 @@
+﻿uses
+  VarConsts;
+
+var 
+  { Tela Filtro Consulta}
+  FiltroConsForm, FiltroConsFormCBSelCons,
+                                   
+  { Campos - FiltroConsulta  }                       
+  FiltroConsFormCBEstab, FormFiltroConsultaEstab, 
+  FiltroConsFormCBData, FormFiltroConsultaDataIni, FormFiltroConsultaDataFin,
+  btnOkFiltroConsForm, btnVazioFiltroConsForm, btnCancelFiltroConsForm,
+  
+  { Tela - Cadastro RPA}
+  FormRhRpa,
+  
+  { Campos - Cadastro RPA  }
+  FormRhRpaNroRpa, FormRhRpaData, FormRhRpaDtVenc,
+  FormRhRpaIdLocal, FormRhRpaIdPreserv, FormRhRpaCodCategoria, 
+  FormRhRpaDescricao, FormRhRpaVlrServico, FormRhRpaVlrDescontos,
+  
+  { Botões - Cadastro RPA }
+  FormRhRpaBtnSalvar, FormRhRpaBtnCalcular, FormRhRpaBtnValores: OleVariant;
+
+procedure mapFiltroConsultaRPA();
+begin
+  { Selecione a Consulta }
+  FiltroConsForm            := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons   := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+
+  { Filtros  } 
+  FiltroConsFormCBEstab     := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  FiltroConsFormCBData      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  FormFiltroConsultaEstab   := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item;
+  FormFiltroConsultaDataIni := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item2;
+  FormFiltroConsultaDataFin := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item3; 
+  
+  btnOkFiltroConsForm       := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm   := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+    
+procedure mapCadRPA();
+begin
+  FormRhRpa             := Aliases.Folha.FRhRpa;
+  
+  { Campos }
+  FormRhRpaNroRpa       := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_NRORPA;
+  FormRhRpaData         := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_DATA;
+  FormRhRpaDtVenc       := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_DTVENC;
+  FormRhRpaIdLocal      := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_IDLOCAL;
+  FormRhRpaIdPreserv    := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_IDPRESERV;
+  FormRhRpaCodCategoria := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_CODCATEGORIA;
+  FormRhRpaDescricao    := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_DESCRICAO;
+  FormRhRpaVlrServico   := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_VLRSERVICO;
+  FormRhRpaVlrDescontos := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_VLRDESCONTOS;  
+  
+  { Botões }
+  FormRhRpaBtnSalvar    := Aliases.Folha.FRhRpa.BSalvar;
+  FormRhRpaBtnCalcular  := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_PROC;
+  FormRhRpaBtnValores   := Aliases.Folha.FRhRpa.Page.TabNormal.sbDados.pnTop.EB_PRESTINSS;
+end;

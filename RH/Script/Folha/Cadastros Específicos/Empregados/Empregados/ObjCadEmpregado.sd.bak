@@ -1,0 +1,691 @@
+﻿{Script para mapear o Cadastro de Empregados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 25/05/2020}  
+
+var
+  {Filtro Empregados}
+  FiltroConsForm, FiltroConsFormCBSelCons, FiltroConsFormCBCodigo, btnOkFiltroConsForm, 
+  btnVazioFiltroConsForm, btnCancelFiltroConsForm,
+  
+  FormCadEmpregado, PageCadEmpregado,
+  
+  { Dados Gerais}
+  DadosGeraisEstab, DadosGeraisIdEmp, DadosGeraisIdPess,
+  DadosGeraisMatriculaESocial, DadosGeraisMatricula,        
+  
+  { Dados Pessoais }
+  DadosPessoaisIdTpAdm, DadosPessoaisIdSind, 
+  DadosPessoaisIdVinc, DadosPessoaisTipoContrato, 
+  DadosPessoaisClausulaAssec, DadosPessoaisObjDet,
+  DadosPessoaisIdTurno, DadosPessoaisIdCateg, 
+  DadosPessoaisIdTabAnuenio, DadosPessoaisDtAdmissao, 
+  DadosPessoaisTelefone, DadosPessoaisPis, 
+  DadosPessoaisDtNascim, DadosPessoaisRepouso, 
+  DadosPessoaisCpf, DadosPessoaisRepousoCfeEscala, 
+  DadosPessoaisRg, DadosPessoaisDtAnuenios,
+  DadosPessoaisIndAdmissao, DadosPessoaisCtpsNro, 
+  DadosPessoaisCtpsUf, DadosPessoaisCtpsNroOf, 
+  DadosPessoaisCtpsSerie, DadosPessoaisIdCurriculo,
+  DadosPessoaisEmpAposentado, DadosPessoaisDtAposentadoria,
+  DadosPessoaisRegistro, DadosPessoaisNroLivroReg, 
+  DadosPessoaisDias, DadosPessoaisDtExperie, 
+  DadosPessoaisDiasProrrogCont, DadosPessoaisDtFinProrrogExp,
+  
+  { Contribuições }
+  ContribRecFGTS, ContribRecValet, ContribDtOpcFGTS, 
+  ContribVIncFGTS, ContribRecINSS, ContribIdFPAS, 
+  ContribIncGPS, ContribIncSEFIP, ContribRecIRRF, 
+  ContribRec13O, ContribDiasFerias, ContribRecAdtos,         
+  ContribIncCAGED, ContribEmpSDAcaoFiscal, ContribIncRAIS,
+  ContribParticipaPat, ContribRecContribSind, 
+  ContribRecContribSindAno, ContribTpRegTrabalhista,
+  ContribTpRegPrevidenciario, ContribIndDescCP,
+  ContribConsPISBtn, ContribInfSindBtn,
+  
+  { Outras Configurações }
+  OutrasConfigIncQdHora, OutrasConfigObsQdHora, 
+  OutrasConfigSincNela, OutrasConfigTipoRec, 
+  OutrasConfigTpConta, OutrasConfigIdAgenciaRem,
+  OutrasConfigIdAgenciaPgto, OutrasConfigNrCtaBco, 
+  OutrasConfigCodOpBrad, OutrasConfigOpCaixa, 
+  OutrasConfigSalarioPret, OutrasConfigNumChapa, 
+  OutrasConfigCodFornFin, OutrasConfigCalcRescMaiorRem, 
+  OutrasConfigBaseMaiorRem, OutrasConfigTemAlvara, 
+  OutrasConfigIdProcAlvara, OutrasConfigPartBrigada,
+  OutrasConfigAprendizGrav, OutrasConfigInscEntEdContApr,
+  ImprestConsigNroContrato, ImprestConsigMatricFGTS,
+  
+  { Cálculos }
+  CalcVlrHrExtDiu, CalcVlrHrExtNot, CalcVlrMHrExtDiu, 
+  CalcVlrMHrExtNot, CalculosGrid, CalculosIncBtn, 
+  CalculosSaveBtn, CalculosDesfBtn, CalculosExcBtn,
+
+  { Ponto }
+  PontoUsaCartao, PontoCodigo, PontoAlmocoLivre, 
+  PontoInterPreAss, PontoHoraNucleo,
+  
+  {  Benefícios }
+  PageBeneficios, 
+  
+  { Conv. Plano de Saúde Titular }
+  ConvenioTilularGrid, ConvTitIncBtn, ConvTitSaveBtn, 
+  ConvTitProcBtn, ConvTitDesfBtn, ConvTitExtBtn, ConvTitHelpBtn,
+  
+  { Conv. Plano de Saúde Dependente }
+  ConvenioDependenteGrid, ConvDepIncBtn, ConvDepSaveBtn, 
+  ConvDepProcBtn, ConvDepDesfBtn, ConvDepExtBtn, ConvDepHelpBtn,
+  
+  { Vale Alimentação }
+  ValeAlimentacaoGrid, ValeIncBtn, ValeSaveBtn, 
+  ValeDesfBtn, ValeExtBtn,
+  
+  { Exames }
+  PageExames, 
+  
+  { Exames Ocupacionais }
+  ExamesOcupGrid, ExOcupIncBtn, ExOcupSaveBtn, 
+  ExOcupProcBtn, ExOcupDesfBtn, ExOcupExcBtn,
+  
+  { Exames Toxicológicos }
+  ExameToxicGrid, ExToxicIncBtn, ExToxicSaveBtn,
+  ExToxicProcBtn, ExToxicDesfBtn, ExToxicExcBtn,
+  
+  { Férias }
+  PageFerias,
+  
+  { Períodos Aquisitivos }
+  FeriasPerAquisGrid, PerAquisIncBtn, PerAquisSaveBtn,
+   PerAquisDesfBtn, PerAquisExcBtn,
+  
+  { Programação Férias }
+  ProgFeriasGrid, ProgFerIncBtn, ProgFerSaveBtn, 
+  ProgFerDesfBtn, ProgFerExcBtn,
+  
+  { Períodos de Férias }
+  PeriodoFeriasGrid, PerFerIncBtn, PerFerSaveBtn, 
+  PerFerDesfBtn, PerFerExcBtn,
+    
+  FormPerFerias, PerFerEBDiasFaltas, PerFerEBDiasGozo, PerFerEBDataIni, 
+  PerFerEBPossuiAbo, PerFerEBAbonarNo, PerFerEBDiasAbo, 
+  PerFeriasSaveBtn, PerFeriasNotBtn, PerFeriasSairBtn: OleVariant;
+  
+  { MP - Prorrogação do pgto adicional de férias }
+  FeriasMPGrid, FeriasMPIncBtn, FeriasMPSaveBtn, 
+  FeriasMPDesfBtn, FeriasMPExcBtn: OleVariant;
+  
+  { Dados Históricos }
+  PageDadosHistoricos, TsAvisoPrevio, TsAdvertencias,
+  TsEstabilidade, TsSucessao, TsProcessos, TsCIPA,
+  TsExpFinanceiro, TsObservacoes,
+  
+  { Funções }  
+  FuncoesGrid, FuncIncBtn, FuncSaveBtn, FuncProcuraBtn, 
+  FuncConsBtn, FuncDesfBtn, FuncExcBtn, 
+  
+  { Situações }
+  SituacoesGrid, SituaIncBtn, SituaSaveBtn, SituaProcuraBtn, 
+  SituaConsBtn, SituaDesfBtn, SituaExcBtn,  
+  
+  { Informações adicionais }  
+  FormInfosAdicionais,  BtnSair, BtnSalvar,
+  InfAdcCodCID, InfAdcIdMedAt, InfAdcNrCertObito, InfAdcTpAcidTran,
+  InfAdcInfoMesmoMtv, InfAdcDataTermAfast, InfAdcInfoAfast, InfAdcTpInscSuc,
+  InfAdcCNPJouCPFEmp, InfAdcNrCAT, InfAdcNotComp,
+   
+  { Locais }
+  LocaisGrid, LocaisIncBtn, LocaisSaveBtn, LocaisProcuraBtn,
+  LocaisConsBtn, LocaisDesfBtn, LocaisExcBtn,
+  
+  { Sindicatos }
+  SindicatoGrid, SindIncBtn, SindSaveBtn, SindProcuraBtn, 
+  SindConsBtn, SindDesfBtn, SindExcBtn,
+  
+  { Horários }
+  HorariosGrid, HoraIncBtn, HoraSaveBtn, HoraProcuraBtn, 
+  HoraConsBtn, HoraDesfBtn, HoraExcBtn,
+  
+  { Salários }
+  SalariosGrid, SalarioIncBtn, SalarioSaveBtn, SalarioProcuraBtn, 
+  SalarioConsBtn, SalarioDesfBtn, SalarioExcBtn, 
+  FormInfosAdc, BtnOkFormInfoAdc, MmoInfosAdc,
+  
+  { Aviso Prévio }
+  AvisoPreGrid, AvisoPreIncBtn, AvisoPreSaveBtn, AvisoPreDesfBtn, 
+  AvisoPreExcBtn,
+  
+  { Avisos/ Advertências/ Suspensões }
+  AdverteGrid, AdverteIncBtn, AdverteSaveBtn, 
+  AdverteDesfBtn, AdverteExcBtn, FormMotivoAdvert,
+  MmoMotivoAdvert, BtnOkMotivAdvert,
+  
+  { Estabilidade }
+  EstGrid, EstIncBtn, EstSaveBtn, EstProcBtn, 
+  EstConsBtn, EstDesfBtn, EstExcBtn:OleVariant;
+  
+  { Sucessão }
+  SucessaoGrid, SuceIncBtn, SuceSaveBtn,
+  SuceProcBtn, SuceConsBtn, SuceDesfBtn, SuceExcBtn,
+  
+  { Processos }
+  ProcessGrid, ProcIncBtn, ProcSaveBtn, ProcDesfBtn, ProcExcBtn,
+  
+  { CIPA }
+  CIPAGrid, CIPAIncBtn, CIPASaveBtn, CIPADesfBtn, CIPAExcBtn,
+  
+  { Documentos }
+  GridDocumentos, DocIncBtn, DocSaveBtn, DocDesfBtn, DocExcBtn,
+  
+  { Exportação Financeiro }
+  ExpFinGrid, ExpFinIncBtn, ExpFinSaveBtn,ExpFinDesfBtn, ExpFinExcBtn,
+  
+  { Observações }
+  ObsGrid, ObsIncBtn, ObsSaveBtn, ObsDesfBtn, ObsExcBtn, FormObserva, 
+  ObsData, ObsObservacao, BtnSaveObs, BtnSairObs,
+  
+  { Exportação Contábil }
+  ExpCtbIncBtn, ExpCtbSaveBtn, ExpCtbDesfBtn, ExpCtbExcBtn, ExpCtbGrid,
+  
+  { Mensagem Kit Admissional }
+  TelaAtencao, BtnNo, BtnYes: OleVariant;
+  
+procedure MapFormGeral();
+begin
+  FormCadEmpregado := Aliases.Folha.FRhEmpregado;
+  PageCadEmpregado := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad;
+end;
+
+procedure MapFiltroEmpregados();
+begin
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBCodigo  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+
+procedure MapDadosGerais();
+begin
+  DadosGeraisEstab            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pnCab.EB_ESTAB;
+  DadosGeraisIdPess           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pnCab.EB_IDPESS;
+  DadosGeraisIdEmp            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+  DadosGeraisMatriculaESocial := Aliases.Folha.FRhEmpregado.Page.TabNormal.pnCab.EB_MATRICULAESOCIAL;
+  DadosGeraisMatricula        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pnCab.EB_MATRICULA;
+end;    
+
+procedure MapDadosPessoais();
+begin
+  DadosPessoaisIdTpAdm          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDTPADM;
+  DadosPessoaisIdSind           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDSIND;
+  DadosPessoaisIdVinc           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDVINC;
+  DadosPessoaisTipoContrato     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_TIPOCONTRATO;
+  DadosPessoaisClausulaAssec    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CLAUSULAASSEC;
+  DadosPessoaisObjDet           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_OBJDET;
+  DadosPessoaisIdTurno          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDTURNO;
+  DadosPessoaisIdCateg          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDCATEG;
+  DadosPessoaisIdTabAnuenio     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDTABANUENIO;
+  DadosPessoaisDtAdmissao       := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTADMISSAO;
+  DadosPessoaisTelefone         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_TELEFONE;
+  DadosPessoaisPis              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_PIS;
+  DadosPessoaisDtNascim         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTNASCIM;
+  DadosPessoaisRepouso          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_REPOUSO;
+  DadosPessoaisCpf              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CPF;
+  DadosPessoaisRepousoCfeEscala := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_REPOUSOCFMEESCALA;
+  DadosPessoaisRg               := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_RG;
+  DadosPessoaisDtAnuenios       := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTANUENIOS;
+  DadosPessoaisIndAdmissao      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_INDADMISSAO;
+  DadosPessoaisCtpsNro          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CTPSNRO;
+  DadosPessoaisCtpsUf           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CTPSUF;
+  DadosPessoaisCtpsNroOf        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CTPSNROOF;
+  DadosPessoaisCtpsSerie        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_CTPSSERIE;
+  DadosPessoaisIdCurriculo      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_IDCURRICULO;
+  DadosPessoaisEmpAposentado    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_EMPAPOSENTADO;
+  DadosPessoaisDtAposentadoria  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTAPOSENTADORIA;
+  DadosPessoaisRegistro         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_REGISTRO;
+  DadosPessoaisNroLivroReg      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_NROLIVROREG;
+  DadosPessoaisDias             := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DIAS;
+  DadosPessoaisDtExperie        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTEXPERIE;
+  DadosPessoaisDiasProrrogCont  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DiasProrrogCont;
+  DadosPessoaisDtFinProrrogExp  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosPessoais.sbDadosPessoais.EB_DTFINPRORROGEXP;
+end;
+
+procedure MapContribuicoes();
+begin
+  ContribRecFGTS             := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECFGTS;
+  ContribRecValet            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECVALET;
+  ContribDtOpcFGTS           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_DTOPTFGTS;
+  ContribVIncFGTS            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_VINCFGTS;
+  ContribRecINSS             := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECINSS;
+  ContribIdFPAS              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_IDFPAS;
+  ContribIncGPS              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INCGPS;
+  ContribIncSEFIP            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INCSEFIP;
+  ContribRecIRRF             := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECIRRF;
+  ContribRec13O              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_REC13O;
+  ContribDiasFerias          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_DIASFERIAS;
+  ContribRecAdtos            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECADTOS;
+  ContribIncCAGED            := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INCCAGED;
+  ContribEmpSDAcaoFiscal     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_EMPSDOUACAO;
+  ContribIncRAIS             := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INCRAIS;
+  ContribParticipaPat        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_ParticipaPat;
+  ContribRecContribSind      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECGRCS;
+  ContribRecContribSindAno   := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_RECCONTSINDANO;
+  ContribTpRegTrabalhista    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_TPREGTRABALHISTA;
+  ContribTpRegPrevidenciario := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_TPREGPREVIDENCIARIO;
+  ContribIndDescCP           := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INDDESCCP;
+         
+  ContribConsPISBtn := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_CONSPIS;
+  ContribInfSindBtn := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsContribuicoes.sbContribuicoes.EB_INFSIND;
+end;
+
+procedure MapOutrasConfig();
+begin
+  OutrasConfigIncQdHora 	     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_INCQUADHORA;
+  OutrasConfigObsQdHora 	     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_OBSQUADHORA;
+  OutrasConfigSincNela 		     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_SINCNELA;
+  OutrasConfigTipoRec  		     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_TIPOREC;
+  OutrasConfigTpConta 		     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_TPCONTA;
+  OutrasConfigIdAgenciaRem 	   := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_IDAGENCIA;
+  OutrasConfigIdAgenciaPgto    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_IDAGENCIAPAGTO;
+  OutrasConfigNrCtaBco         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_CONTABANCO;
+  OutrasConfigCodOpBrad        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_OPBRADESCO;
+  OutrasConfigOpCaixa          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_OPCAIXA;
+  OutrasConfigSalarioPret      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_SALPRETENDE;
+  OutrasConfigNumChapa         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_NUMCHAPA;
+  OutrasConfigCodFornFin       := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_FORNECEDORFIN;
+  OutrasConfigCalcRescMaiorRem := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_CALCMAIORREM;
+  OutrasConfigBaseMaiorRem     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_BMRESC;
+  OutrasConfigTemAlvara        := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_TemAlvara;
+  OutrasConfigIdProcAlvara     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_IDPROCJUDALVARA;
+  OutrasConfigPartBrigada      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_BRIGADA;
+  OutrasConfigAprendizGrav     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_APRENDIZGRAV;
+  OutrasConfigInscEntEdContApr := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.EB_NRINSCENTEDCONTAPR;
+  
+  { Empréstimo Consignado }
+  ImprestConsigNroContrato := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.grpInprestimoConsig.EB_NROCONTRATO;
+  ImprestConsigMatricFGTS  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsOutrasConf.sbOutrasConf.grpInprestimoConsig.EB_MATRICULAFGTS;
+end;
+
+procedure MapCalculos();
+begin  
+  CalcVlrHrExtDiu  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsCalculos.sbCalculos.TGroupBox.EB_IDVLRHREXTDIU;
+  CalcVlrHrExtNot  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsCalculos.sbCalculos.TGroupBox.EB_IDVLRHREXTNOT;
+  CalcVlrMHrExtDiu := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsCalculos.sbCalculos.TGroupBox.EB_IDVLRMHREXTDIU;
+  CalcVlrMHrExtNot := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsCalculos.sbCalculos.TGroupBox.EB_IDVLRMHREXTNOT;
+
+  CalculosIncBtn   := Aliases.Folha.FRhEmpregado.bCalculosInc;
+  CalculosSaveBtn  := Aliases.Folha.FRhEmpregado.bCalculosSave;
+  CalculosDesfBtn  := Aliases.Folha.FRhEmpregado.bCalculosDesf;
+  CalculosExcBtn   := Aliases.Folha.FRhEmpregado.bCalculosExc;
+  CalculosGrid     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsCalculos.sbCalculos.GroupBox1.ScrollBox10.ScrollBox9.gHistCalc;
+end;
+
+procedure MapPonto();
+begin  
+  PontoUsaCartao   := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsPonto.ScrollBox16.EB_UTIPE;
+  PontoCodigo      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsPonto.ScrollBox16.EB_CODIGOPE;
+  PontoAlmocoLivre := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsPonto.ScrollBox16.EB_UTIALMOCOLIVRE;
+  PontoInterPreAss := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsPonto.ScrollBox16.EB_UTIPREASS;
+  PontoHoraNucleo  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsPonto.ScrollBox16.EB_UTIHORNUCLEO;  
+end;
+
+procedure MapPageBeneficios();
+begin
+  PageBeneficios := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsBeneficios.pgBeneficio;
+end;
+
+procedure MapBenefConvenioTitular();
+begin
+  ConvTitIncBtn  := Aliases.Folha.FRhEmpregado.BincConv;
+  ConvTitSaveBtn := Aliases.Folha.FRhEmpregado.bSalvConv;
+  ConvTitProcBtn := Aliases.Folha.FRhEmpregado.ToolbarButton976;
+  ConvTitDesfBtn := Aliases.Folha.FRhEmpregado.bDesfConv;
+  ConvTitExtBtn  := Aliases.Folha.FRhEmpregado.bExcConv;
+  ConvTitHelpBtn := Aliases.Folha.FRhEmpregado.BAjudaTitular;
+  
+  ConvenioTilularGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsBeneficios.pgBeneficio.ts_convenioTitular.ScrollBox3.gConvenio;
+end;
+
+procedure MapBenefConvenioDependente();
+begin
+  ConvDepIncBtn  := Aliases.Folha.FRhEmpregado.BIncConvDep;
+  ConvDepSaveBtn := Aliases.Folha.FRhEmpregado.BSalvConvDep;
+  ConvDepProcBtn := Aliases.Folha.FRhEmpregado.ToolbarButton9711;
+  ConvDepDesfBtn := Aliases.Folha.FRhEmpregado.BDesfConvDep;
+  ConvDepExtBtn  := Aliases.Folha.FRhEmpregado.bExcConvDep;
+  ConvDepHelpBtn := Aliases.Folha.FRhEmpregado.bAjudaDep;
+  
+  ConvenioDependenteGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsBeneficios.pgBeneficio.Ts_ConvenioDep.ScrollBox11.gConvenioDep;
+end;
+
+procedure MapBenefValeAlimentacao();
+begin
+  ValeIncBtn  := Aliases.Folha.FRhEmpregado.bValeAlimentInc;
+  ValeSaveBtn := Aliases.Folha.FRhEmpregado.bValeAlimentSave;
+  ValeDesfBtn := Aliases.Folha.FRhEmpregado.bValeAlimentDesf;
+  ValeExtBtn  := Aliases.Folha.FRhEmpregado.bValeAlimentExc; 
+  
+  ValeAlimentacaoGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsBeneficios.pgBeneficio.tsValeAliment.ScrollBox20.gHistValeAliment;
+end;
+
+procedure MapPageExames();
+begin
+  PageExames := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsExamesEmpregado.pgExames; 
+end;
+
+procedure MapExamesOcupacionais();
+begin
+  ExOcupIncBtn  := Aliases.Folha.FRhEmpregado.bExameOcupInc;
+  ExOcupSaveBtn := Aliases.Folha.FRhEmpregado.bExameOcupSave;
+  ExOcupProcBtn := Aliases.Folha.FRhEmpregado.bExameOcupProc;
+  ExOcupDesfBtn := Aliases.Folha.FRhEmpregado.bExameOcupDesf;
+  ExOcupExcBtn  := Aliases.Folha.FRhEmpregado.bExameOcupExc;
+  
+  ExamesOcupGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsExamesEmpregado.pgExames.tsExameOcupa.sbRhHistExamed.gRhHistExamed;
+  //Mapear Procedimentos
+end;
+
+procedure MapExamesToxicologicos();
+begin
+  ExToxicIncBtn  := Aliases.Folha.FRhEmpregado.bToxicoIncEmp;
+  ExToxicSaveBtn := Aliases.Folha.FRhEmpregado.bToxicoSave;
+  ExToxicProcBtn := Aliases.Folha.FRhEmpregado.bToxicoProcEmp;
+  ExToxicDesfBtn := Aliases.Folha.FRhEmpregado.bToxicoDesfEmp;
+  ExToxicExcBtn  := Aliases.Folha.FRhEmpregado.bToxicoExcEmp;
+  
+  ExameToxicGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsExamesEmpregado.pgExames.tsExamesToxico.ScrollBox22.gRhHistToxico;
+end;
+
+procedure MapPageFerias();
+begin
+  PageFerias := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias;
+end;
+
+procedure MapFeriasPeriodosAquisitivos();
+begin
+  PerAquisIncBtn  := Aliases.Folha.FRhEmpregado.bPerAquisitInc;
+  PerAquisSaveBtn := Aliases.Folha.FRhEmpregado.bPerAquisitSave;
+  PerAquisDesfBtn := Aliases.Folha.FRhEmpregado.bPerAquisitDesf;
+  PerAquisExcBtn  := Aliases.Folha.FRhEmpregado.bPerAquisitExc;
+  
+  FeriasPerAquisGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsPerAquisit.sbPerAquisit.gPerAquisit;
+end;
+
+procedure MapFeriasProgramacao();
+begin
+  ProgFerIncBtn  := Aliases.Folha.FRhEmpregado.bProgFerInc;
+  ProgFerSaveBtn := Aliases.Folha.FRhEmpregado.bProgFerSave;
+  ProgFerDesfBtn := Aliases.Folha.FRhEmpregado.bProgFerDesf;
+  ProgFerExcBtn  := Aliases.Folha.FRhEmpregado.bProgFerExc;
+  
+  ProgFeriasGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsProgFer.ScrollBox4.gProgFer;
+end;
+
+procedure MapFeriasPeriodoCons();
+begin
+  PerFerIncBtn  := Aliases.Folha.FRhEmpregado.bFeriasInc;
+  PerFerSaveBtn := Aliases.Folha.FRhEmpregado.bFeriasSave;
+  PerFerDesfBtn := Aliases.Folha.FRhEmpregado.bFeriasDesf;
+  PerFerExcBtn  := Aliases.Folha.FRhEmpregado.bFeriasExc;
+  
+  PeriodoFeriasGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsRhFerias.ScrollBox1.gFerias;
+end;
+
+procedure MapFeriasPeriodo();
+begin
+  FormPerFerias      := Aliases.Folha.FRhFerias;
+
+  PerFerEBDiasFaltas := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbFerias.EB_DIASFALTAS;
+  PerFerEBDiasGozo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DIASGOZO;
+  PerFerEBDataIni    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DATAGOZINI;
+  PerFerEBPossuiAbo  := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_POSSUIABONO;
+  PerFerEBAbonarNo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_ABONARNO;
+  PerFerEBDiasAbo    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_DIASABONO;  
+  
+  PerFeriasSaveBtn  := Aliases.Folha.FRhFerias.tbSalvar;
+  PerFeriasNotBtn   := Aliases.Folha.FRhFerias.tbbNotes;
+  PerFeriasSairBtn  := Aliases.Folha.FRhFerias.BSair;
+end;
+
+procedure MapFeriasMP();
+begin
+  FeriasMPIncBtn  := Aliases.Folha.FRhEmpregado.bRhHistAdcFeriasInc;
+  FeriasMPSaveBtn := Aliases.Folha.FRhEmpregado.bRhHistAdcFeriasSave;
+  FeriasMPDesfBtn := Aliases.Folha.FRhEmpregado.bRhHistAdcFeriasDesf;
+  FeriasMPExcBtn  := Aliases.Folha.FRhEmpregado.bRhHistAdcFeriasExc;
+  
+  FeriasMPGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsRhHistAdcFerias.ScrollBox24.gRhHistAdcFerias;
+end;
+
+procedure MapPageDadosHist();
+begin
+  PageDadosHistoricos := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos;
+  TsAvisoPrevio       := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsAviso;
+  TsAdvertencias      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsAdverte;
+  TsEstabilidade      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsEst;
+  TsSucessao          := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSucessao;
+  TsProcessos         := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsProcessos;
+  TsCIPA              := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsCIPA;
+  TsExpFinanceiro     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsExpFin;
+  TsObservacoes       := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsObs;
+end;
+
+procedure MapHistFuncoes();
+begin
+  FuncIncBtn      := Aliases.Folha.FRhEmpregado.bFuncaoInc;
+  FuncSaveBtn     := Aliases.Folha.FRhEmpregado.bFuncSave;
+  FuncProcuraBtn  := Aliases.Folha.FRhEmpregado.bFuncProcurar;
+  FuncConsBtn     := Aliases.Folha.FRhEmpregado.bFuncConsultar;
+  FuncDesfBtn     := Aliases.Folha.FRhEmpregado.bFuncaoDesf;
+  FuncExcBtn      := Aliases.Folha.FRhEmpregado.bFuncaoExc;    
+  
+  FuncoesGrid   := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.TsFuncoes.sbFuncoes.gFuncoes;
+end;
+
+procedure MapTelaInfosAdicionaisSitua();
+begin
+  FormInfosAdicionais := Aliases.Folha.FRhInfoAdicionais;
+  	   
+  InfAdcCodCID        := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_CODCID;
+  InfAdcIdMedAt       := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_IDMEDICO;
+  InfAdcNrCertObito   := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_NROCERTOBITO;
+  InfAdcTpAcidTran    := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_TPACIDTRANSITO;
+  InfAdcInfoMesmoMtv  := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_INFOMESMOMTV;
+  InfAdcDataTermAfast := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_DTRETORNO;
+  InfAdcInfoAfast     := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_OBSINIFAST;
+  InfAdcTpInscSuc     := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_TPINSCEMPSUCESS;
+  InfAdcCNPJouCPFEmp  := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_CNPJEMPSUCESS;
+  InfAdcNrCAT         := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_NUMEROCAT;
+  InfAdcNotComp       := Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_IDMOTIVOCOMP;
+  
+  BtnSalvar := Aliases.Folha.FRhInfoAdicionais.tbSalvar;
+  BtnSair   := Aliases.Folha.FRhInfoAdicionais.BSair;
+  
+end;
+
+procedure MapHistSituacoes();
+begin 
+  SituaIncBtn     := Aliases.Folha.FRhEmpregado.bSituaInc;
+  SituaSaveBtn    := Aliases.Folha.FRhEmpregado.bSituaSave;
+  SituaProcuraBtn := Aliases.Folha.FRhEmpregado.bSituaProcura;
+  SituaConsBtn    := Aliases.Folha.FRhEmpregado.bSituaConsulta;
+  SituaDesfBtn    := Aliases.Folha.FRhEmpregado.bSituaDesf;
+  SituaExcBtn     := Aliases.Folha.FRhEmpregado.bSituaExc;
+  
+  SituacoesGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes;
+end;
+
+procedure MapHistLocais();
+begin
+  LocaisIncBtn     := Aliases.Folha.FRhEmpregado.bLocalInc;
+  LocaisSaveBtn    := Aliases.Folha.FRhEmpregado.bLocalSave;
+  LocaisProcuraBtn := Aliases.Folha.FRhEmpregado.bLocalProc;
+  LocaisConsBtn    := Aliases.Folha.FRhEmpregado.bLocalCons;
+  LocaisDesfBtn    := Aliases.Folha.FRhEmpregado.bLocalDesf;
+  LocaisExcBtn     := Aliases.Folha.FRhEmpregado.bLocalExc;
+  
+  LocaisGrid  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsLocais.ScrollBox2.gLocais;
+end;
+
+procedure MapHistSindicato();
+begin
+  SindIncBtn     := Aliases.Folha.FRhEmpregado.bIncSind;
+  SindSaveBtn    := Aliases.Folha.FRhEmpregado.bSaveSind;
+  SindDesfBtn    := Aliases.Folha.FRhEmpregado.bDesfSind;
+  SindExcBtn     := Aliases.Folha.FRhEmpregado.bExcSind;
+  
+  SindicatoGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSindicato.ScrollBox18.gHistSind;
+end;
+
+procedure MapHistHorarios();
+begin 
+  HoraIncBtn     := Aliases.Folha.FRhEmpregado.bHorariosInc;
+  HoraSaveBtn    := Aliases.Folha.FRhEmpregado.bHorariosSave;
+  HoraProcuraBtn := Aliases.Folha.FRhEmpregado.bHorariosProc;
+  HoraConsBtn    := Aliases.Folha.FRhEmpregado.bHorariosCons;
+  HoraDesfBtn    := Aliases.Folha.FRhEmpregado.bHorariosDesf;
+  HoraExcBtn     := Aliases.Folha.FRhEmpregado.bHorariosExc;
+  
+  HorariosGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsHorarios.sbHorarios.gHorarios;
+end;
+
+procedure MapHistSalarios();
+begin
+  SalarioIncBtn     := Aliases.Folha.FRhEmpregado.bSalariosInc;
+  SalarioSaveBtn    := Aliases.Folha.FRhEmpregado.bSalariosSave;
+  SalarioProcuraBtn := Aliases.Folha.FRhEmpregado.bSalariosProcura;
+  SalarioConsBtn    := Aliases.Folha.FRhEmpregado.bSalariosConsulta;
+  SalarioDesfBtn    := Aliases.Folha.FRhEmpregado.bSalariosDesf;
+  SalarioExcBtn     := Aliases.Folha.FRhEmpregado.bSalariosExc;
+  
+  SalariosGrid  := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSalarios.sbSalarios.gSalarios;
+end;
+
+procedure MapHistSalariosInfosAdc();
+begin
+  FormInfosAdc     := Aliases.Folha.FrhInfoAdicReajuste;
+  MmoInfosAdc      := Aliases.Folha.FrhInfoAdicReajuste.pnl1.mmoInfoAdicional;   
+  BtnOkFormInfoAdc := Aliases.Folha.FrhInfoAdicReajuste.pnl1.EB_Ok;
+end;
+
+procedure MapHistAvisoPrevio();
+begin
+  AvisoPreIncBtn  := Aliases.Folha.FRhEmpregado.bAvisoInc;
+  AvisoPreSaveBtn := Aliases.Folha.FRhEmpregado.bAvisoSave;
+  AvisoPreDesfBtn := Aliases.Folha.FRhEmpregado.bAvisoDesf;
+  AvisoPreExcBtn  := Aliases.Folha.FRhEmpregado.bAvisoExc;
+  
+  AvisoPreGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsAviso.gHistAviso;
+end;
+
+procedure MapHistAdvertencias();
+begin
+  AdverteIncBtn    := Aliases.Folha.FRhEmpregado.bAdverteInc;
+  AdverteSaveBtn   := Aliases.Folha.FRhEmpregado.bAdverteSave;
+  AdverteDesfBtn   := Aliases.Folha.FRhEmpregado.bAdverteDesf;
+  AdverteExcBtn    := Aliases.Folha.FRhEmpregado.bAdverteExc;    
+  
+  AdverteGrid      := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsAdverte.sbAdverte.gAdverte;
+end;
+
+procedure MapMotivoAdverte();
+begin
+  FormMotivoAdvert := Aliases.Folha.FrhMotivoAdvert;
+  MmoMotivoAdvert  := Aliases.Folha.FrhMotivoAdvert.pnl1.mmoMotivo;
+  BtnOkMotivAdvert := Aliases.Folha.FrhMotivoAdvert.pnl1.EB_Ok;
+end;
+
+procedure MapDadosHistEstabilidade();
+begin
+  EstIncBtn  := Aliases.Folha.FRhEmpregado.bEstInc;
+  EstSaveBtn := Aliases.Folha.FRhEmpregado.bEstSave;
+  EstProcBtn := Aliases.Folha.FRhEmpregado.bEstProc;
+  EstConsBtn := Aliases.Folha.FRhEmpregado.bEstConsult;
+  EstDesfBtn := Aliases.Folha.FRhEmpregado.bEstDesf;
+  EstExcBtn  := Aliases.Folha.FRhEmpregado.bEstExc;
+  
+  EstGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsEst.ScrollBox5.gEst;
+end;
+
+procedure MapDadosHistSucesssao();
+begin
+  SuceIncBtn   := Aliases.Folha.FRhEmpregado.bIncHistSuc;
+  SuceSaveBtn  := Aliases.Folha.FRhEmpregado.bSaveHistSuc;
+  SuceProcBtn  := Aliases.Folha.FRhEmpregado.ToolbarButton975;
+  SuceConsBtn  := Aliases.Folha.FRhEmpregado.bConsultHistSuc;
+  SuceDesfBtn  := Aliases.Folha.FRhEmpregado.bDesfHistSuc;
+  SuceExcBtn   := Aliases.Folha.FRhEmpregado.bExcHistSuc;
+  
+  SucessaoGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSucessao.ScrollBox12.gHistSucessao;
+end;
+
+procedure MapDadosHistProcessos();
+begin
+  ProcIncBtn  := Aliases.Folha.FRhEmpregado.bIncHistProc;
+  ProcSaveBtn := Aliases.Folha.FRhEmpregado.bSaveHistProc;
+  ProcDesfBtn := Aliases.Folha.FRhEmpregado.bDesfHistProc;
+  ProcExcBtn  := Aliases.Folha.FRhEmpregado.bExcHistProc;
+  
+  ProcessGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsProcessos.ScrollBox13.gRhHistProc;
+end;
+
+procedure MapDadosHistCIPA();
+begin
+  CIPAIncBtn  := Aliases.Folha.FRhEmpregado.bIncHistCipa;
+  CIPASaveBtn := Aliases.Folha.FRhEmpregado.bSaveHistCipa;
+  CIPADesfBtn := Aliases.Folha.FRhEmpregado.bDesfHistCipa;
+  CIPAExcBtn  := Aliases.Folha.FRhEmpregado.bExcHistCipa;
+  
+  CIPAGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsCipa.ScrollBox14.gRhHistCipa;
+end;
+
+procedure MapHistDocumentos();
+begin
+  DocIncBtn  := Aliases.Folha.FRhEmpregado.bIncHistDoc;
+  DocSaveBtn := Aliases.Folha.FRhEmpregado.bSaveHistDoc;
+  DocDesfBtn := Aliases.Folha.FRhEmpregado.bDesfHistDoc;
+  DocExcBtn  := Aliases.Folha.FRhEmpregado.bExcHistDoc;
+  
+  GridDocumentos := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsHistDocumentos.ScrollBox15.gRhHistDoc;
+end;
+
+procedure MapDadosHistExpFinanceiro();
+begin
+  ExpFinIncBtn  := Aliases.Folha.FRhEmpregado.bExpFinInc;
+  ExpFinSaveBtn := Aliases.Folha.FRhEmpregado.bExpFinSave;
+  ExpFinDesfBtn := Aliases.Folha.FRhEmpregado.bExpFinDesf;
+  ExpFinExcBtn  := Aliases.Folha.FRhEmpregado.bExpfinExc;
+  
+  ExpFinGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsExpFin.gExpFin;
+end;
+
+procedure MapDadosHistObservacoes();
+begin
+  ObsIncBtn   := Aliases.Folha.FRhEmpregado.bObsInc;
+  ObsSaveBtn  := Aliases.Folha.FRhEmpregado.bObsSave;
+  ObsDesfBtn  := Aliases.Folha.FRhEmpregado.bObsDesf;
+  ObsExcBtn   := Aliases.Folha.FRhEmpregado.bObsExc; 
+  
+  ObsGrid     := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsObs.ScrollBox17.gHistObs;
+end;
+
+procedure MapFormDadosHistObservacoes();
+begin
+  FormObserva   := Aliases.Folha.FRhEmpregadoObs;
+  
+  ObsData       := Aliases.Folha.FRhEmpregadoObs.ScrollBox1.EB_DATA;
+  ObsObservacao := Aliases.Folha.FRhEmpregadoObs.ScrollBox1.EB_OBS;
+  
+  BtnSaveObs    := Aliases.Folha.FRhEmpregadoObs.tbSalvar;
+  BtnSairObs    := Aliases.Folha.FRhEmpregadoObs.BSair;
+end;
+
+procedure MapDadosHistExpContabil();
+begin
+  ExpCtbIncBtn  := Aliases.Folha.FRhEmpregado.btnIncluirExpCont;
+  ExpCtbSaveBtn := Aliases.Folha.FRhEmpregado.btnSaveExpCont;
+  ExpCtbDesfBtn := Aliases.Folha.FRhEmpregado.btnCancelExpCont;
+  ExpCtbExcBtn  := Aliases.Folha.FRhEmpregado.btnDeleteExpCont;
+
+  ExpCtbGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
+end;

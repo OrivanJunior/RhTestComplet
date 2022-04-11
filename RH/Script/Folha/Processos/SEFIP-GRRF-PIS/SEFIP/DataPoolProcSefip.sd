@@ -1,0 +1,58 @@
+﻿{Script de DataPool do Processo de Sefip
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 25/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroVinculoTipo, FiltroVinculoValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroPrestTipo, FiltroPrestValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroMesRec, FiltroAnoRec,
+  FiltroCodRec, FiltroModalidade,
+  FiltroRecFGTS, FiltroDataFGTS,
+  FiltroRecINSS, FiltroDataINSS,
+  FiltroCNAEPrep, FiltroLocalGrav: OleVariant;
+
+procedure LeDataPoolProcSefip(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+        
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+        
+  { Filtro de Prestador }
+  FiltroPrestTipo  := DDT.DriverByName(nomeDriver).Value('TIPOPREST');
+  FiltroPrestValor := DDT.DriverByName(nomeDriver).Value('PRESTVALOR');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+    
+  { Filtro Vinculos }
+  FiltroVinculoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOVINCULO');
+  FiltroVinculoValor := DDT.DriverByName(nomeDriver).Value('VINCULOVALOR');    
+    
+  { Filtro Dados Adicionais }
+  FiltroMesRec       := DDT.DriverByName(nomeDriver).Value('MESREC');
+  FiltroAnoRec       := DDT.DriverByName(nomeDriver).Value('ANOREC');
+  FiltroCodRec       := DDT.DriverByName(nomeDriver).Value('CODREC');
+  FiltroModalidade   := DDT.DriverByName(nomeDriver).Value('MODALIDADE');
+  FiltroRecFGTS      := DDT.DriverByName(nomeDriver).Value('RECFGTS');
+  FiltroDataFGTS     := DDT.DriverByName(nomeDriver).Value('DATAFGTS');
+  FiltroRecINSS      := DDT.DriverByName(nomeDriver).Value('RECINSS');
+  FiltroDataINSS     := DDT.DriverByName(nomeDriver).Value('DATAINSS');
+  FiltroCNAEPrep     := DDT.DriverByName(nomeDriver).Value('CNAEPREP');
+  FiltroLocalGrav    := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+end;

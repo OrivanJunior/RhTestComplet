@@ -1,0 +1,93 @@
+﻿{Script de DataPool do Processo de DIRF - Arquivo
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 28/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroPrestTipo, FiltroPrestValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroDadosAnoCal, FiltroDadosLocalGrav,
+  FiltroDadosNomeResp, FiltroDadosCpfResp,
+  FiltroDadosEmailResp, FiltroDadosTelResp,
+  FiltroDadosRamal, FiltroDadosFax,
+
+  FiltroDadosGeraPLR, FiltroDadosGeraPrest,
+  FiltroDadosTodosPrest, FiltroDadosIndDecRend,
+  FiltroDadosInsSitEsp, FiltroDadosDataEvento,
+  FiltroDadosDecSocOst, FiltroDadosNroUltEnt,
+  FiltroDadosTipoDecl,
+
+  FiltroDadosNatDecl, FiltroDadosIndDecInst,
+  FiltroDadosIndFundPub, FiltroDadosIndEntUni,
+  FiltroDadosIndDeclDep,
+
+  FiltroDadosIndTitServ, FiltroDadosNomeInvent,
+  FiltroDadosCPFInvent, FiltroDadosIndDecFal,
+  FiltroDadosDataObito, FiltroDadosSituaEp,
+  FiltroDadosTipoEvento: OleVariant;
+
+procedure LeDataPoolDIRFArquivo(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+    FiltroEstabValor      := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+
+    { Filtro Processamentos }
+    FiltroProcTipo        := DDT.DriverByName(nomeDriver).Value('TIPO_PROC');
+    FiltroProcValor       := DDT.DriverByName(nomeDriver).Value('PROC_VALOR');
+    
+    { Filtro Empregados }
+    FiltroEmpreTipo       := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+    FiltroEmpreValor      := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
+    
+    { Filtro Datas }
+    FiltroDataIni         := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+    FiltroDataFin         := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+    
+    { Filtro Dados Adicionais }
+    FiltroDadosAnoCal     := DDT.DriverByName(nomeDriver).Value('ANO_CAL');
+    FiltroDadosLocalGrav  := DDT.DriverByName(nomeDriver).Value('LOCAL_GRAV');
+    FiltroDadosNomeResp   := DDT.DriverByName(nomeDriver).Value('NOME_RESP');
+    FiltroDadosCpfResp    := DDT.DriverByName(nomeDriver).Value('CPF_RESP');
+    FiltroDadosEmailResp  := DDT.DriverByName(nomeDriver).Value('EMAIL_RESP');
+    FiltroDadosTelResp    := DDT.DriverByName(nomeDriver).Value('TEL_RESP');
+    FiltroDadosRamal      := DDT.DriverByName(nomeDriver).Value('RAMAL');
+    FiltroDadosFax        := DDT.DriverByName(nomeDriver).Value('FAX');
+						   
+    FiltroDadosGeraPLR    := DDT.DriverByName(nomeDriver).Value('GERA_PLR');
+    FiltroDadosGeraPrest  := DDT.DriverByName(nomeDriver).Value('GERA_PREST');
+    FiltroDadosTodosPrest := DDT.DriverByName(nomeDriver).Value('TODOS_PREST');
+    FiltroDadosIndDecRend := DDT.DriverByName(nomeDriver).Value('IND_DEC_REND');
+    FiltroDadosInsSitEsp  := DDT.DriverByName(nomeDriver).Value('IND_SIT_ESP');
+    FiltroDadosDataEvento := DDT.DriverByName(nomeDriver).Value('DATA_EVENTO');
+    FiltroDadosDecSocOst  := DDT.DriverByName(nomeDriver).Value('DEC_SOC_OST');
+    FiltroDadosNroUltEnt  := DDT.DriverByName(nomeDriver).Value('NRO_ULT_ENT');
+    FiltroDadosTipoDecl   := DDT.DriverByName(nomeDriver).Value('TIPO_DECL');
+						   
+    FiltroDadosNatDecl    := DDT.DriverByName(nomeDriver).Value('NAT_DECL');
+    FiltroDadosIndDecInst := DDT.DriverByName(nomeDriver).Value('IND_DEC_INST');
+    FiltroDadosIndFundPub := DDT.DriverByName(nomeDriver).Value('IND_FUND_PUB');
+    FiltroDadosIndEntUni  := DDT.DriverByName(nomeDriver).Value('IND_ENT_UNI');
+    FiltroDadosIndDeclDep := DDT.DriverByName(nomeDriver).Value('IND_DECL_DEP');
+						   
+    FiltroDadosIndTitServ := DDT.DriverByName(nomeDriver).Value('IND_TIT_SERV');
+    FiltroDadosNomeInvent := DDT.DriverByName(nomeDriver).Value('NOME_INVENT');
+    FiltroDadosCPFInvent  := DDT.DriverByName(nomeDriver).Value('CPF_INVENT');
+    FiltroDadosIndDecFal  := DDT.DriverByName(nomeDriver).Value('IND_DEC_FAL');
+    FiltroDadosDataObito  := DDT.DriverByName(nomeDriver).Value('DATA_OBITO');
+    FiltroDadosSituaEp    := DDT.DriverByName(nomeDriver).Value('SITUA_EP');
+    FiltroDadosTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

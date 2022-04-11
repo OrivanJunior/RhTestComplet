@@ -1,0 +1,106 @@
+﻿{Script para mapear o Processo de Geração de Escalas
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 17/09/2021}
+
+var
+  FormProcEscalas, btnSair, btnExecutar, btnSalvar,
+   
+  ProcEscalasWhEstabEspec, ProcEscalasWhEstabEspecCampo,
+  ProcEscalasWhEstabTodosEmp, ProcEscalasWhEstabTodosEmpCampo,
+  ProcEscalasWhEstabTodos, ProcEscalasWhEstabSelec,
+  ProcEscalasWhEstabSelecCampo, 
+  
+  ProcEscalaswhFuncoes10, ProcEscalaswhFuncoesTodos, 
+  ProcEscalaswhFuncoesEspec, ProcEscalaswhFuncoesEspecCampo, 
+  ProcEscalaswhFuncoesSelec, ProcEscalaswhFuncoesSelecCampo,
+  
+  ProcEscalaswhLocais10, ProcEscalaswhLocaisTodos, 
+  ProcEscalaswhLocaisEspec, ProcEscalaswhLocaisEspecCampo, 
+  ProcEscalaswhLocaisSelec, ProcEscalaswhLocaisSelecCampo,
+  
+  ProcEscalasWhEmpre10, ProcEscalasWhEmpreTodos, 
+  ProcEscalasWhEmpreEspec, ProcEscalasWhEmpreEspecCampo, 
+  ProcEscalasWhEmpreSelec, ProcEscalasWhEmpreSelecCampo, 
+  
+  ProcEscalaswhSituacoes10, ProcEscalaswhSituacoesTodos, 
+  ProcEscalaswhSituacoesEspec, ProcEscalaswhSituacoesEspecCampo, 
+  ProcEscalaswhSituacoesSelec, ProcEscalaswhSituacoesSelecCampo,
+  
+  ProcEscalasPeriodo10, ProcEscalasMesAno, 
+  ProcEscalasIncControlePonto, ProcEscalasGridEmpregados,
+  ProcEscalasSelAllEmpregados, ProcEscalasDesAllEmpregados,
+  
+  ProcEscalasBtnIncHorario, ProcEscalasBtnSaveHorario,
+  ProcEscalasBtnDesfHorario, ProcEscalasBtnExcHorario,
+  ProcEscalasGridHorarios, ProcEscalasDataIniHora,
+  ProcEscalasDataFinHora, ProcEscalasGerarHorarios: OleVariant;
+  
+
+procedure MapProcGerarEscalas();
+begin
+  FormProcEscalas                  := Aliases.Ponto.FRhProcEscala;
+				                    
+  btnSair                          := Aliases.Ponto.FRhProcEscala.BSair;
+  btnExecutar                      := Aliases.Ponto.FRhProcEscala.bExecutar;
+  btnSalvar                        := Aliases.Ponto.FRhProcEscala.tbSalvar;
+  
+  { Filtro de Estabelecimento }
+  ProcEscalasWhEstabEspec          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab40;
+  ProcEscalasWhEstabEspecCampo     := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab80;
+  ProcEscalasWhEstabTodosEmp       := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab50;
+  ProcEscalasWhEstabTodosEmpCampo  := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab100;
+  ProcEscalasWhEstabTodos          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab120;
+  ProcEscalasWhEstabSelec          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab60;
+  ProcEscalasWhEstabSelecCampo     := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEstab.whEstab70;
+								    
+  { Filtro de Funções }             
+  ProcEscalaswhFuncoes10           := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes10;
+  ProcEscalaswhFuncoesTodos        := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes30;
+  ProcEscalaswhFuncoesEspec        := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes20;
+  ProcEscalaswhFuncoesEspecCampo   := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes50;
+  ProcEscalaswhFuncoesSelec        := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes40;
+  ProcEscalaswhFuncoesSelecCampo   := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whFuncoes.whFuncoes80;
+  
+  { Filtro de Local }
+  ProcEscalaswhLocais10            := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais10;
+  ProcEscalaswhLocaisTodos         := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais30;
+  ProcEscalaswhLocaisEspec         := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais20;
+  ProcEscalaswhLocaisEspecCampo    := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais50;
+  ProcEscalaswhLocaisSelec         := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais40;
+  ProcEscalaswhLocaisSelecCampo    := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whLocais.whLocais80;
+								    
+  { Filtro de Empregado }           
+  ProcEscalasWhEmpre10             := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados10;
+  ProcEscalasWhEmpreTodos          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados30;
+  ProcEscalasWhEmpreEspec          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados20;
+  ProcEscalasWhEmpreEspecCampo     := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados50;
+  ProcEscalasWhEmpreSelec          := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados40;
+  ProcEscalasWhEmpreSelecCampo     := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whEmpregados.whEmpregados80;
+  
+  { Filtro de Situações }
+  ProcEscalaswhSituacoes10         := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes10;
+  ProcEscalaswhSituacoesTodos      := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes30;
+  ProcEscalaswhSituacoesEspec      := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes20;
+  ProcEscalaswhSituacoesEspecCampo := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes50;
+  ProcEscalaswhSituacoesSelec      := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes40;
+  ProcEscalaswhSituacoesSelecCampo := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.whSituacoes.whSituacoes80; 
+  
+  ProcEscalasPeriodo10             := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.VsGroupBox3.VsGroupBox310;
+  ProcEscalasMesAno                := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.VsGroupBox3.EB_MESANO;
+  ProcEscalasIncControlePonto      := Aliases.Ponto.FRhProcEscala.pg.tsFiltros.pnFiltros.VsGroupBox3.btIncluirControle;
+  
+  ProcEscalasGridEmpregados        := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox4.gEmpregados;
+  ProcEscalasSelAllEmpregados      := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox4.Dock974.Toolbar973.btSelAll;
+  ProcEscalasDesAllEmpregados      := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox4.Dock974.Toolbar973.btDesAll;
+  
+  ProcEscalasBtnIncHorario         := Aliases.Ponto.FRhProcEscala.bIncHorario;
+  ProcEscalasBtnSaveHorario        := Aliases.Ponto.FRhProcEscala.bSalvarHorario;
+  ProcEscalasBtnDesfHorario        := Aliases.Ponto.FRhProcEscala.bCancHorario;
+  ProcEscalasBtnExcHorario         := Aliases.Ponto.FRhProcEscala.bExcHorario;
+  ProcEscalasGridHorarios          := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox2.gHorarios;
+  
+  ProcEscalasDataIniHora           := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox2.Panel1.EB_DATAINI;
+  ProcEscalasDataFinHora           := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox2.Panel1.EB_DATAFIN;
+  ProcEscalasGerarHorarios         := Aliases.Ponto.FRhProcEscala.pg.tsDadosEscala.VsGroupBox2.Panel1.brGerarHorarios;
+end; 

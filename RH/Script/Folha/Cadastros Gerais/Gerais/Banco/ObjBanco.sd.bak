@@ -1,0 +1,21 @@
+﻿{Script de mapeamento tela de cadastro de Banco
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadBanco,               
+  FormCadBancoIdBanco, 
+  FormCadBancoNome, 
+  FormCadBancoIdLayCheque, 
+  FormCadBancoIdBancoComp: OleVariant;
+
+procedure MapTelaCadBanco();
+begin
+  FormCadBanco            := Aliases.Folha.FFormPadraoRHBANCO;
+   
+  FormCadBancoIdBanco     := Aliases.Folha.FFormPadraoRHBANCO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDBANCO;
+  FormCadBancoNome        := Aliases.Folha.FFormPadraoRHBANCO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NOME;
+  FormCadBancoIdLayCheque := Aliases.Folha.FFormPadraoRHBANCO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDLAYCHEQUE;
+  FormCadBancoIdBancoComp := Aliases.Folha.FFormPadraoRHBANCO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDBANCOCOMP;
+end;

@@ -1,0 +1,121 @@
+﻿{Script para mapear o Processo de Exportação Financeira Unisystem
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 14/07/2021}
+
+var
+  FormExpFinUnisystem, btnSair, btnExecutar, btnSalvar, btnRelatorio,
+   
+  FormExpFinUnisystemWhEstabEspec, FormExpFinUnisystemWhEstabEspecCampo,
+  FormExpFinUnisystemWhEstabTodosEmp, FormExpFinUnisystemWhEstabTodosEmpCampo,
+  FormExpFinUnisystemWhEstabTodos, FormExpFinUnisystemWhEstabSelec,
+  FormExpFinUnisystemWhEstabSelecCampo, 
+      
+  FormExpFinUnisystemWhEmpreTodos, FormExpFinUnisystemWhEmpreEspec,
+  FormExpFinUnisystemWhEmpreEspecCampo, FormExpFinUnisystemWhEmpreSelec,
+  FormExpFinUnisystemWhEmpreSelecCampo, 
+  
+  FormExpFinUnisystemWhLocaisTodos, FormExpFinUnisystemWhLocaisEspec, 
+  FormExpFinUnisystemWhLocaisEspecCampo, FormExpFinUnisystemWhLocaisSelec, 
+  FormExpFinUnisystemWhLocaisSelecCampo,
+  
+  FormExpFinUnisystemWhDataIni, FormExpFinUnisystemWhDataFin,
+  
+  FormExpFinUnisystemWhProcTodos, FormExpFinUnisystemWhProcEspec, 
+  FormExpFinUnisystemWhProcEspecCampo, FormExpFinUnisystemWhProcSelec, 
+  FormExpFinUnisystemWhProcSelecCampo,
+
+  FormExpFinUnisystemWhPrestTodos, FormExpFinUnisystemWhPrestEspec,
+  FormExpFinUnisystemWhPrestEspecCampo, FormExpFinUnisystemWhPrestSelec,
+  FormExpFinUnisystemWhPrestSelecCampo,
+  
+  FormExpFinUnisystemWhRPATodos, FormExpFinUnisystemWhRPAEspec,
+  FormExpFinUnisystemWhRPAEspecCampo, FormExpFinUnisystemWhRPASelec,
+  FormExpFinUnisystemWhRPASelecCampo,
+  
+  FormExpFinUnisystemWhDataLancto, FormExpFinUnisystemWhDataVenc,
+  FormExpFinUnisystemWhCodSafra, FormExpFinUnisystemWhTipoDoc,
+  FormExpFinUnisystemWhTipoLancto, FormExpFinUnisystemWhSufixo,
+  FormExpFinUnisystemWhHistorico, FormExpFinUnisystemWhLocalGrav,
+  FormExpFinUnisystemWhSobreDarf, FormExpFinUnisystemWhSobreFGTS,
+  FormExpFinUnisystemWhSobreGPSFun, FormExpFinUnisystemWhSobreGPS,
+  FormExpFinUnisystemWhSobreGPS13, FormExpFinUnisystemWhSobreGPSFat,
+  FormExpFinUnisystemWhSobreRPA, FormExpFinUnisystemWhAnoGPS13,
+  FormExpFinUnisystemWhGerarValResc: OleVariant;
+  
+procedure MapExpFinUnisystem();
+begin
+  FormExpFinUnisystem                     := Aliases.Folha.FRhProcExpFinUnisystem;
+  
+  btnSair                                 := Aliases.Folha.FRhProcExpFinUnisystem.BSair;
+  btnExecutar                             := Aliases.Folha.FRhProcExpFinUnisystem.bExecutar;
+  btnSalvar                               := Aliases.Folha.FRhProcExpFinUnisystem.tbSalvar;
+  btnRelatorio                            := Aliases.Folha.FRhProcExpFinUnisystem.tbRelatorio;
+  
+  { Filtro de Estabelecimento }
+  FormExpFinUnisystemWhEstabEspec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+  FormExpFinUnisystemWhEstabEspecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+  FormExpFinUnisystemWhEstabTodosEmp      := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+  FormExpFinUnisystemWhEstabTodosEmpCampo := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+  FormExpFinUnisystemWhEstabTodos         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+  FormExpFinUnisystemWhEstabSelec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+  FormExpFinUnisystemWhEstabSelecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+  { Filtro de Empregados }
+  FormExpFinUnisystemWhEmpreTodos         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados30;
+  FormExpFinUnisystemWhEmpreEspec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados20;
+  FormExpFinUnisystemWhEmpreEspecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados50;
+  FormExpFinUnisystemWhEmpreSelec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados40;
+  FormExpFinUnisystemWhEmpreSelecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whEmpregados.whEmpregados80;
+  
+  { Filtro de Locais }
+  FormExpFinUnisystemWhLocaisTodos        := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais30;
+  FormExpFinUnisystemWhLocaisEspec        := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais20;
+  FormExpFinUnisystemWhLocaisEspecCampo   := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais50;
+  FormExpFinUnisystemWhLocaisSelec        := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais40;
+  FormExpFinUnisystemWhLocaisSelecCampo   := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whLocais.whLocais80;
+  
+  { Filtro de Referência }
+  FormExpFinUnisystemWhDataIni            := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDatas.whDatas20;
+  FormExpFinUnisystemWhDataFin            := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDatas.whDatas30;
+  
+  { Filtro de Processamentos }
+  FormExpFinUnisystemWhProcTodos          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos30;
+  FormExpFinUnisystemWhProcEspec          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos20;
+  FormExpFinUnisystemWhProcEspecCampo     := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos50;
+  FormExpFinUnisystemWhProcSelec          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos40;
+  FormExpFinUnisystemWhProcSelecCampo     := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos80;
+  
+  { Filtro de Prestador }
+  FormExpFinUnisystemWhPrestTodos         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.WhPrestador30;
+  FormExpFinUnisystemWhPrestEspec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador20;
+  FormExpFinUnisystemWhPrestEspecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador50;
+  FormExpFinUnisystemWhPrestSelec         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador40;
+  FormExpFinUnisystemWhPrestSelecCampo    := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whPrestador.whPrestador80;
+  
+  { Filtro de RPA }
+  FormExpFinUnisystemWhRPATodos           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.WhRPA30;
+  FormExpFinUnisystemWhRPAEspec           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.whRPA20;
+  FormExpFinUnisystemWhRPAEspecCampo      := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.whRPA50;
+  FormExpFinUnisystemWhRPASelec           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.whRPA40;
+  FormExpFinUnisystemWhRPASelecCampo      := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whRPA.whRPA80;
+  
+  { Dados Adicionais }
+  FormExpFinUnisystemWhDataLancto         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_DtEmissao;
+  FormExpFinUnisystemWhDataVenc           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_DtVcto;  
+  FormExpFinUnisystemWhCodSafra           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_CODSAFRA;
+  FormExpFinUnisystemWhTipoDoc            := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_TPDOC;
+  FormExpFinUnisystemWhTipoLancto         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_TPLANC;
+  FormExpFinUnisystemWhSufixo             := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_SUFIXO;
+  FormExpFinUnisystemWhHistorico          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_Hist;
+  FormExpFinUnisystemWhLocalGrav          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_Caminho;
+  FormExpFinUnisystemWhSobreDarf          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.cbGeraDarf;
+  FormExpFinUnisystemWhSobreFGTS          := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.cbGeraFGTS;
+  FormExpFinUnisystemWhSobreGPSFun        := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.cbGeraGpsFunrural;
+  FormExpFinUnisystemWhSobreGPS           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.cbGeraGPS;
+  FormExpFinUnisystemWhSobreGPS13         := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_GPSFAT;
+  FormExpFinUnisystemWhSobreGPSFat        := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_GPSFAT;
+  FormExpFinUnisystemWhSobreRPA           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.cbGeraRPA;  
+  FormExpFinUnisystemWhAnoGPS13           := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_ANOGPS13;
+  FormExpFinUnisystemWhGerarValResc       := Aliases.Folha.FRhProcExpFinUnisystem.pg.tsSelecao.SB_Selecao.whDados.EB_GERARRESCISAO;
+end;

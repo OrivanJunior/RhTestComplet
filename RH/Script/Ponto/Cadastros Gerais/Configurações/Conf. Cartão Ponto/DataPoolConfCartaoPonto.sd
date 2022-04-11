@@ -1,0 +1,112 @@
+﻿{Script de DataPool do Cadastro da Conf. do Cartão Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha 
+ Data: 25/08/2021}
+ 
+var  
+  { Informações Normais }
+  ConfCartaoDPCodConfig, ConfCartaoDPDescricao,
+  ConfCartaoDPHrExtAPartir, ConfCartaoDPHrFalAPartir,
+  ConfCartaoDPHrNormSabPri, ConfCartaoDPHrNormSabSeg,
+  ConfCartaoDPHrNormDomPri, ConfCartaoDPHrNormDomSeg,
+  ConfCartaoDPToleAlmLivre,
+  
+  { Ponto }
+  ConfCartaoDPFixaTol, ConfCartaoDPTipoHrAtraso,
+  ConfCartaoDPHrAtraso,
+                         
+  ConfCartaoDPConsDescRSR, ConfCartaoDPLimFalDia,
+  ConfCartaoDPDescFerDSR, ConfCartaoDPTipoHrDescRSR,
+                         
+  ConfCartaoDPInterParaDesc, ConfCartaoDPJornIntHrExt,
+                         
+  ConfCartaoDPIniHrNoturna, ConfCartaoDPFimHrNoturna,
+  
+  { Configurações de Horas Extras }
+  ConfHrExtraDPDiasCons, ConfHrExtraDPHrInicial,
+  ConfHrExtraDPHrFinal, ConfHrExtraDPEveDiurno,
+  ConfHrExtraDPEveNoturno,
+  
+  { Configuração Conforme Horário }
+  ConfCfeHorarioDPDia, ConfCfeHorarioDPHrLimite,
+  ConfCfeHorarioDPEveDiurno, ConfCfeHorarioDPEveNot,
+  
+  { Configurações de Compensação }
+  ConfCompDPTipoCompensa, ConfCompDPCompFaltaInj,
+  ConfCompDPDiasCons, ConfCompDPCompensa,
+  
+  { Integrar Eventos } 
+  ConfCartaoDPHrNormDiu, ConfCartaoDPHrNormNot,
+  ConfCartaoDPHrDiuTrab, ConfCartaoDPHrNotTrab,
+  ConfCartaoDPHrFaltInj, ConfCartaoDPHrFaltJust,
+  ConfCartaoDPEveHrAtraso, ConfCartaoDPEveHrDescRSR,
+  ConfCartaoDPAdcNotNorm, ConfCartaoDPAdcNotTrab,
+  ConfCartaoDPRSRCfeEsc, ConfCartaoDPHrExIntDiu,
+  ConfCartaoDPHrExIntNot, ConfCartaoDPHrIntrajor,
+  ConfCartaoDPHrInterjor, ConfCartaoDPPernoite: OleVariant;
+
+procedure LeDataPoolConfCartaoPonto(nomeDriver);
+begin
+  { Informações Normais }
+  ConfCartaoDPCodConfig     := DDT.DriverByName(nomeDriver).Value('CODCONFIG');
+  ConfCartaoDPDescricao     := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  ConfCartaoDPHrExtAPartir  := DDT.DriverByName(nomeDriver).Value('HREXTAPARTIR');
+  ConfCartaoDPHrFalAPartir  := DDT.DriverByName(nomeDriver).Value('HRFALPARTIR');
+  ConfCartaoDPHrNormSabPri  := DDT.DriverByName(nomeDriver).Value('HRNORMSABPRI');
+  ConfCartaoDPHrNormSabSeg  := DDT.DriverByName(nomeDriver).Value('HRNORMSABSEG');
+  ConfCartaoDPHrNormDomPri  := DDT.DriverByName(nomeDriver).Value('HRNORMDOMPRI');
+  ConfCartaoDPHrNormDomSeg  := DDT.DriverByName(nomeDriver).Value('HRNORMDOMSEG');
+  ConfCartaoDPToleAlmLivre  := DDT.DriverByName(nomeDriver).Value('TOLEAMLLIVRE');
+    
+{ Ponto }                  
+  ConfCartaoDPFixaTol       := DDT.DriverByName(nomeDriver).Value('FIXATOL');
+  ConfCartaoDPTipoHrAtraso  := DDT.DriverByName(nomeDriver).Value('TIPOHRATRASO');
+  ConfCartaoDPHrAtraso      := DDT.DriverByName(nomeDriver).Value('HRATRASO');
+    
+  ConfCartaoDPConsDescRSR   := DDT.DriverByName(nomeDriver).Value('CONSDESCRSR');
+  ConfCartaoDPLimFalDia     := DDT.DriverByName(nomeDriver).Value('LIMFALDIA');
+  ConfCartaoDPDescFerDSR    := DDT.DriverByName(nomeDriver).Value('DESCFERDSR');
+  ConfCartaoDPTipoHrDescRSR := DDT.DriverByName(nomeDriver).Value('HRDESCRSR');
+
+  ConfCartaoDPInterParaDesc := DDT.DriverByName(nomeDriver).Value('INTERPARADESC');
+  ConfCartaoDPJornIntHrExt  := DDT.DriverByName(nomeDriver).Value('JORNINTHREXT');
+
+  ConfCartaoDPIniHrNoturna  := DDT.DriverByName(nomeDriver).Value('INIHRNOTURNA');
+  ConfCartaoDPFimHrNoturna  := DDT.DriverByName(nomeDriver).Value('FIMHRNOTURNA');
+
+{ Configurações de Horas Extras } 
+  ConfHrExtraDPDiasCons     := DDT.DriverByName(nomeDriver).Value('DIASCONS');
+  ConfHrExtraDPHrInicial    := DDT.DriverByName(nomeDriver).Value('HRINICIAL');
+  ConfHrExtraDPHrFinal      := DDT.DriverByName(nomeDriver).Value('HRFINAL');
+  ConfHrExtraDPEveDiurno    := DDT.DriverByName(nomeDriver).Value('EVEDIURNO');
+  ConfHrExtraDPEveNoturno   := DDT.DriverByName(nomeDriver).Value('EVENOTURNO');
+  
+  ConfCfeHorarioDPDia       := DDT.DriverByName(nomeDriver).Value('DIACFEHR');
+  ConfCfeHorarioDPHrLimite  := DDT.DriverByName(nomeDriver).Value('HRLIMCFEHR');
+  ConfCfeHorarioDPEveDiurno := DDT.DriverByName(nomeDriver).Value('EVENTODIUCFEHR');
+  ConfCfeHorarioDPEveNot    := DDT.DriverByName(nomeDriver).Value('EVENTONOTCFEHR');
+
+{ Configurações de Compensação }  
+  ConfCompDPTipoCompensa    := DDT.DriverByName(nomeDriver).Value('TIPOCOMPENSA');
+  ConfCompDPCompFaltaInj    := DDT.DriverByName(nomeDriver).Value('FALTAINJ');
+  ConfCompDPDiasCons        := DDT.DriverByName(nomeDriver).Value('DIASCONSCOMP');
+  ConfCompDPCompensa        := DDT.DriverByName(nomeDriver).Value('COMPENSA');
+
+{ Integrar Eventos }     
+  ConfCartaoDPHrNormDiu     := DDT.DriverByName(nomeDriver).Value('HRNORMDIU');
+  ConfCartaoDPHrNormNot     := DDT.DriverByName(nomeDriver).Value('HRNORMNOT');
+  ConfCartaoDPHrDiuTrab     := DDT.DriverByName(nomeDriver).Value('HRDIUTRAB');
+  ConfCartaoDPHrNotTrab     := DDT.DriverByName(nomeDriver).Value('HRNOTTRAB');
+  ConfCartaoDPHrFaltInj     := DDT.DriverByName(nomeDriver).Value('HRFALTINJ');
+  ConfCartaoDPHrFaltJust    := DDT.DriverByName(nomeDriver).Value('HRFALTJUST');
+  ConfCartaoDPEveHrAtraso   := DDT.DriverByName(nomeDriver).Value('EVEHRATRASO');
+  ConfCartaoDPEveHrDescRSR  := DDT.DriverByName(nomeDriver).Value('EVEHRDESCRSR');
+  ConfCartaoDPAdcNotNorm    := DDT.DriverByName(nomeDriver).Value('ADCNOTNORM');
+  ConfCartaoDPAdcNotTrab    := DDT.DriverByName(nomeDriver).Value('ADCNOTTRAB');
+  ConfCartaoDPRSRCfeEsc     := DDT.DriverByName(nomeDriver).Value('RSRCFEESC');
+  ConfCartaoDPHrExIntDiu    := DDT.DriverByName(nomeDriver).Value('HREXTINTDIU');
+  ConfCartaoDPHrExIntNot    := DDT.DriverByName(nomeDriver).Value('HREXTINTNOT');
+  ConfCartaoDPHrIntrajor    := DDT.DriverByName(nomeDriver).Value('HRINTRAJOR');
+  ConfCartaoDPHrInterjor    := DDT.DriverByName(nomeDriver).Value('HRINTERJOR');
+  ConfCartaoDPPernoite      := DDT.DriverByName(nomeDriver).Value('PERNOITE');
+end;

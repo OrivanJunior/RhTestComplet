@@ -1,0 +1,55 @@
+﻿{Script de DataPool para  o Processo de eSocial - Exclusão de SST
+ Módulo: Padrão
+ Autor: Camila Braatz da Rocha
+ Data: 05/07/2021}
+
+var
+  FiltroEmpregadoTipo,
+  FiltroEmpregadoValor,
+  
+  FiltroEventoExcluirEmp, 
+  
+  FiltroHistEstab, FiltroHistDataIni,
+  FiltroHistHoraIni, FiltroHistDataFin,
+  FiltroHistHoraFin, FiltroHistEvteSocial,
+  
+  FiltroConsEstab, FiltroConsDataIni,
+  FiltroConsHoraIni, FiltroConsDataFin,
+  FiltroConsHoraFin, FiltroConsAmbiente,
+  FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
+
+  
+procedure LoadDataPoolExclusaoSST(pathData, tab);
+begin							
+  DDT.ExcelDriver(pathData, tab);	
+end; 
+
+procedure LeDataPoolExclusaoSST;
+begin												  						
+  FiltroEmpregadoTipo       := DDT.CurrentDriver.Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor      := DDT.CurrentDriver.Value('EMPREGADO_VALOR');
+  
+  FiltroEventoExcluirEmp    := DDT.CurrentDriver.Value('EVENTO_EXCLUSAO');
+end;                                      
+
+procedure LeDataPoolHistExclusaoSST;
+begin         
+  FiltroHistEstab      := DDT.CurrentDriver.Value('ESTAB');
+  FiltroHistDataIni    := DDT.CurrentDriver.Value('DATA_INI_ENV');
+  FiltroHistHoraIni    := DDT.CurrentDriver.Value('HORA_INI_ENV');
+  FiltroHistDataFin    := DDT.CurrentDriver.Value('DATA_FIN_ENV');
+  FiltroHistHoraFin    := DDT.CurrentDriver.Value('HORA_FIN_ENV');
+  FiltroHistEvteSocial := DDT.CurrentDriver.Value('EVENTO_ESOCIAL');
+end;
+									
+procedure LeDataPoolConsExclusaoSST;
+begin         
+  FiltroConsEstab      := DDT.CurrentDriver.Value('ESTAB');
+  FiltroConsDataIni    := DDT.CurrentDriver.Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.CurrentDriver.Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.CurrentDriver.Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.CurrentDriver.Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.CurrentDriver.Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.CurrentDriver.Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.CurrentDriver.Value('EVENTO_ESOCIAL');
+end;

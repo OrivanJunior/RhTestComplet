@@ -1,0 +1,21 @@
+﻿uses
+  VarConsts;
+{Script para criar dataPool da tela de login dos modulos
+ Módulo: Padrao
+ Autor: Rafael Colla
+ Data: 11/01/2018}
+ 
+var
+  LoginDPServidor, LoginDPConexao, LoginDPUsuario, LoginDPSenha : OleVariant;
+  
+procedure LeDataPoolTelaLogin(pathData, tab: string);
+begin
+  DDT.ExcelDriver(pathData, tab);
+    LoginDPServidor := DriverByName(nomeDriver).Value('SERVIDOR');
+    LoginDPConexao  := DriverByName(nomeDriver).Value('CONEXAO');
+    LoginDPUsuario  := DriverByName(nomeDriver).Value('USUARIO');
+    if (tab <> 'ViasoftServerRH_XE_Teste') then  
+      LoginDPSenha  := DriverByName(nomeDriver).Value('SENHA');
+  DDT.CurrentDriver.Next();
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

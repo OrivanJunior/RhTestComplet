@@ -1,0 +1,115 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolSistemaExportador,
+  ObjSistemaExportador,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Sistema Exportador
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTSistemaExportador: OleVariant;
+
+procedure AcessaCadSistemaExportador();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Sistema Exportador');
+end;
+
+procedure InsereDadosSistemaExportador();
+begin
+  VerificaInsere(FormCadSistemaExportadorIdSistemaExp, FormCadSistemaExportadorDPIdSistemaExp);
+  VerificaInsere(FormCadSistemaExportadorSoftware, FormCadSistemaExportadorDPSoftware);
+  VerificaInsere(FormCadSistemaExportadorFabricante, FormCadSistemaExportadorDPFabricante);
+end;
+
+procedure ExeCadastraSistemaExportador(pathData);
+begin
+  AcessaCadSistemaExportador();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTSistemaExportador := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadSistemaExportador(DDTSistemaExportador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSISTEMAEXP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadSistemaExportadorDPIdSistemaExp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadSistemaExportador();
+     
+    if (FormCadSistemaExportador.Exists) then
+    begin
+      InsereDadosSistemaExportador();
+      
+      ActSalvar(FormCadSistemaExportador);
+      ActFechar(FormCadSistemaExportador);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTSistemaExportador.Name);
+end;
+
+procedure ExeAlteraSistemaExportador(pathData);
+begin
+  AcessaCadSistemaExportador();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTSistemaExportador := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadSistemaExportador(DDTSistemaExportador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSISTEMAEXP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadSistemaExportadorDPIdSistemaExp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadSistemaExportador();   
+     
+    if (FormCadSistemaExportador.Exists) then
+    begin
+      InsereDadosSistemaExportador();
+      
+      ActSalvar(FormCadSistemaExportador);
+      ActFechar(FormCadSistemaExportador);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTSistemaExportador.Name);
+end;
+
+procedure ExeExcluirSistemaExportador(pathData);
+begin
+  AcessaCadSistemaExportador();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTSistemaExportador := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadSistemaExportador(DDTSistemaExportador.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSISTEMAEXP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadSistemaExportadorDPIdSistemaExp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHSISTEMAEXP');
+    ActFechar(FormCadSistemaExportador);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTSistemaExportador.Name);
+end;

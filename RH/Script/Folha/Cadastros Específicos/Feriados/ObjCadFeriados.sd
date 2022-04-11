@@ -1,0 +1,40 @@
+﻿uses
+  VarConsts;
+{Script para mapear o Cadastro de Feriados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 12/05/2021}
+ 
+var
+  Folha,  
+  FiltroConsForm,
+  FiltroConsFormCBSelCons,
+  FiltroConsFormCBEstab,
+  FiltroConsFormCBAno,
+  btnOkFiltroConsForm,
+  btnVazioFiltroConsForm,
+  btnCancelFiltroConsForm,
+  
+  CadastroFeriadosFormCad, 
+  CadastroFeriadosEBData,
+  CadastroFeriadosEBDesc,
+  CadastroFeriadosEBGeraRSR: OleVariant;
+ 
+procedure MapTelaCadastroFeriados();
+begin  
+  CadastroFeriadosFormCad   := Aliases.Folha.FRhFeriado;
+  CadastroFeriadosEBData    := Aliases.Folha.FRhFeriado.Page.TabNormal.ScrollBox1.EB_DTFERIADO;
+  CadastroFeriadosEBDesc    := Aliases.Folha.FRhFeriado.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
+  CadastroFeriadosEBGeraRSR := Aliases.Folha.FRhFeriado.Page.TabNormal.ScrollBox1.EB_GERARRSR; 
+end; 
+
+procedure MapFiltroCadastroFeriados();
+begin  
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBEstab   := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  FiltroConsFormCBAno     := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;

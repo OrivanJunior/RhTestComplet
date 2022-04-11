@@ -1,0 +1,84 @@
+﻿{Script para criar o DataPool do Processamento de Provisao
+ Autor: Camila Braatz da Rocha 
+ Data:10/06/2021}
+ 
+var
+  { DDTs }
+  DDTDatas, DDTEmpregado, DDTMovimento, DDTParametros,
+  DDTProcessamento,
+  
+  { Datas }
+  ProvisaoDPDataProc, ProvisaoDPDataPgto,
+  
+  { Empregado }
+  ProvisaoDPEmpregado, ProvisaoDPCalcAdDecimo,
+  
+  { Movimento }
+  CadMovDPEstab, CadMovDPIdProc, CadMovDPData,
+  CadMovDPIdEmpreg, CadMovDPIdEvento,
+    
+  { Tab Parâmetros }
+  CadMovParamsDPValorInfo, CadMovParamsDPInforme,
+  CadMovParamsDPInforme2, CadMovParamsDPValorTarefa,
+  CadMovParamsDPProporcional, CadMovParamsDPDiasUteis,
+  CadMovParamsDPDiasFaltas, CadMovParamsDPAvosInforme,
+  CadMovParamsDPAvosDireito, CadMovParamsDPReferencia,
+  CadMovParamsDPBaseProp,
+  
+  { Form Processamento }
+  ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
+  ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
+  ESocialDPInfoPgtos, ESocialDPInfoComProd, ESocialDPContrataVnp,
+  ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+
+procedure LoadDPDatas();
+begin
+  ProvisaoDPDataProc := DDTDatas.Value('DATA PROC');
+end;
+
+procedure LoadDPEmpregado();
+begin
+  ProvisaoDPEmpregado    := DDTEmpregado.Value('IDEMPREGADO');
+  ProvisaoDPCalcAdDecimo := DDTEmpregado.Value('CALC AD DECIMO');
+end;
+
+procedure LoadDPMovimento();
+begin
+  CadMovDPEstab    := DDTMovimento.Value('ESTAB');
+  CadMovDPIdProc   := DDTMovimento.Value('PROCESSO');
+  CadMovDPData     := DDTMovimento.Value('DATA CONTROLE'); 
+  CadMovDPIdEmpreg := DDTMovimento.Value('EMPREGADO');
+  CadMovDPIdEvento := DDTMovimento.Value('EVENTO');
+end;
+
+procedure LoadDPParamsMovimento();
+begin
+  CadMovParamsDPValorInfo    := DDTParametros.Value('VALOR INFO');
+  CadMovParamsDPInforme      := DDTParametros.Value('INFORME');
+  CadMovParamsDPInforme2     := DDTParametros.Value('INFORME2');
+  CadMovParamsDPValorTarefa  := DDTParametros.Value('VALOR TAREFA');
+  CadMovParamsDPProporcional := DDTParametros.Value('PROPORCIONAL');
+  CadMovParamsDPDiasUteis    := DDTParametros.Value('DIAS UTEIS');
+  CadMovParamsDPDiasFaltas   := DDTParametros.Value('DIAS FALTAS');
+  CadMovParamsDPAvosInforme  := DDTParametros.Value('AVOS INFORME');
+  CadMovParamsDPAvosDireito  := DDTParametros.Value('AVOS DIREITO');
+  CadMovParamsDPReferencia   := DDTParametros.Value('REFERENCIA');
+  CadMovParamsDPBaseProp     := DDTParametros.Value('BASE PROP');
+end;
+
+procedure LoadDPProcessamento();
+begin
+  ProcDPEstab           := DDTProcessamento.Value('ESTAB');
+  ProcDPIdProc          := DDTProcessamento.Value('ID PROC');
+  ProcDPDtCtrl          := DDTProcessamento.Value('DATA CTRL');
+  ProcDPDtPagIRRF       := DDTProcessamento.Value('DATA PAG IRRF');
+  ProcDPVlrArred        := DDTProcessamento.Value('VALOR ARRED');
+  ProcDPAberto          := DDTProcessamento.Value('EM ABERTO');
+
+  ESocialDPEvtRemun     := DDTProcessamento.Value('EVTREMUN');
+  ESocialDPInfoPgtos    := DDTProcessamento.Value('EVTPGTOS');
+  ESocialDPInfoComProd  := DDTProcessamento.Value('EVTCOMPROD');
+  ESocialDPContrataVnp  := DDTProcessamento.Value('EVTCONTRATAVNP');
+  ESocialDPEvtInfoCompl := DDTProcessamento.Value('EVTINFOCOMPLPER');
+  ESocialDPSitESocial   := DDTProcessamento.Value('SITPROCESOCIAL');
+end;

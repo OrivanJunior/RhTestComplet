@@ -1,0 +1,114 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCnaeFiscal,
+  ObjCnaeFiscal,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de CnaeFiscal
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTCnaeFiscal: OleVariant; 
+
+procedure AcessaCadCnaeFiscal();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais',  'Gerais', 'CNAE Fiscal');
+end;
+
+procedure InsereDadosCnaeFiscal();
+begin
+  VerificaInsere(FormCadCnaeFiscalIdCnae, FormCadCnaeFiscalDPIdCnae);
+  VerificaInsere(FormCadCnaeFiscalDescricao, FormCadCnaeFiscalDPDescricao);
+end;
+
+procedure ExeCadastraCnaeFiscal(pathData);
+begin
+  AcessaCadCnaeFiscal();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTCnaeFiscal := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadCnaeFiscal(DDTCnaeFiscal.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCNAE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNAE Fiscal', FormCadCnaeFiscalDPIdCnae);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadCnaeFiscal();
+     
+    if (FormCadCnaeFiscal.Exists) then
+    begin
+      InsereDadosCnaeFiscal();
+      
+      ActSalvar(FormCadCnaeFiscal);
+      ActFechar(FormCadCnaeFiscal);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTCnaeFiscal.Name);
+end;
+
+procedure ExeAlteraCnaeFiscal(pathData);
+begin
+  AcessaCadCnaeFiscal();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTCnaeFiscal := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadCnaeFiscal(DDTCnaeFiscal.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCNAE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNAE Fiscal', FormCadCnaeFiscalDPIdCnae);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadCnaeFiscal();   
+     
+    if (FormCadCnaeFiscal.Exists) then
+    begin
+      InsereDadosCnaeFiscal();
+      
+      ActSalvar(FormCadCnaeFiscal);
+      ActFechar(FormCadCnaeFiscal);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCnaeFiscal.Name);
+end;
+
+procedure ExeExcluirCnaeFiscal(pathData);
+begin
+  AcessaCadCnaeFiscal();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTCnaeFiscal := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadCnaeFiscal(DDTCnaeFiscal.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCNAE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNAE Fiscal', FormCadCnaeFiscalDPIdCnae);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHCNAE');
+    ActFechar(FormCadCnaeFiscal);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCnaeFiscal.Name);
+end;

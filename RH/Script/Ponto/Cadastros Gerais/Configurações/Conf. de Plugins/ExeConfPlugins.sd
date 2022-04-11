@@ -1,0 +1,37 @@
+﻿uses
+  ObjConfPlugins, DataPoolConfPlugins, CommonsAll, CommonsObj, VarConsts, ExeTelaLogin, SelecaoEstab;
+  
+procedure ExecutaConfPlugins(pathData, cadastraSenha, tipoBanco, nomeServidor, nomeConexao, login, senha, sModulo);
+var
+  Posicao, DDTConfPlugins: OleVariant;
+begin
+  AcessaItem(sModulo, 'Cadastros Gerais', 'Configurações', 'Conf. de Plugins');
+  
+  MapConfPlugins(sModulo);
+  
+  DDTConfPlugins := CarregaDDT(pathData, 'Plugins');
+  
+  LeDataPoolConfPlugins(DDTConfPlugins.Name);
+  
+  Posicao := ConfPluginsGrid.FindRow('Nome', ConfPluginsDPPlugin);
+  
+  ConfPluginsGrid.ClickCell(Posicao, 'Habilitar');
+  
+  if ConfPluginsDPOperacao = 'H' then
+    ConfPluginsCBGrid.Checked := True
+  else
+    ConfPluginsCBGrid.Checked := False; 
+    
+  ConfPluginsSalvar.Click();
+  
+  if (Sys.Process(sModulo).Window('#32770', 'Atenção!', 1).Exists) then
+    Sys.Process(sModulo).Window('#32770', 'Atenção!', 1).Window('Button', 'OK', 1).Click();
+    
+  ActFechar(ConfPluginsForm);
+  
+ //Sys.Process(sModulo).VsMenu.pnBarraPesquisa.pnBarraPesquisaUsuario.pnBarraPesquisaUsuarioValor.Click();
+  
+  ExecutaSelecaoEstab(sModulo, ConfPluginsDPEstab);
+ 
+  //AcessaLogin(sModulo, cadastraSenha, tipoBanco, nomeServidor, nomeConexao, login, senha);
+end;

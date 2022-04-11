@@ -1,0 +1,31 @@
+﻿uses 
+  VarConsts;
+  
+var
+  FiltroEstabTipo, FiltroEstabValor : OleVariant;
+  
+  FiltroPrestadorTipo, FiltroPrestadorValor: OleVariant;
+  
+  FiltroDataIni, FiltroDataFin: OleVariant;
+  
+  FiltroMensagem, FiltroMoeda, FiltroListaBC: OleVariant;
+
+procedure leDatapoolRelRPA(nomeDriver);
+begin  
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Prestador }
+  FiltroPrestadorTipo  := DDT.DriverByName(nomeDriver).Value('TIPOPREST');
+  FiltroPrestadorValor := DDT.DriverByName(nomeDriver).Value('PRESTVALOR');
+    
+  { Filtro Datas }
+  FiltroDataIni := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Dados Adicionais }
+  FiltroMensagem := DDT.DriverByName(nomeDriver).Value('MENSAGEM');
+  FiltroMoeda    := DDT.DriverByName(nomeDriver).Value('MOEDA');
+  FiltroListaBC  := DDT.DriverByName(nomeDriver).Value('LISTABC?');
+end;

@@ -1,0 +1,70 @@
+﻿{Script para criar DataPool da tela de cadastro de Sindicato
+ Módulo: Folha
+ Autor: Renato Balbinotti
+ Data: 18/03/2021}
+ 
+var
+  { Informações Cadastrais }
+  FormCadSindicatoDPIdSind, FormCadSindicatoDPDescricao, FormCadSindicatoDPEndereco, 
+  FormCadSindicatoDPBairro, FormCadSindicatoDPCidade, FormCadSindicatoDPCEP, 
+  FormCadSindicatoDPCNPJ, 
+
+  { Dados do Sindicato }     
+  FormCadSindicatoDPCodEntidade, 
+
+  { Conf. Gerais}             
+  FormCadSindicatoDPMesDatabase, FormCadSindicatoDPMesDesc, FormCadSindicatoDPIdTipo, 
+
+  { Conf. Ferias }             
+  FormCadSindicatoDPPercAdcFerias , FormCadSindicatoDPDescFerias, 
+
+  { Conf. Rescisão }              
+  FormCadSindicatoDPRescHomo, FormCadSindicatoDPDias, FormCadSindicatoDPEstabApFerias, 
+  FormCadSindicatoDPDiasEstabilidade, FormCadSindicatoDPIndenizaTrab, FormCadSindicatoDPMesesIndeniza, 
+  FormCadSindicatoDPIdEventoIndeniza: OleVariant;
+  
+  ReajSalDPInstRemPerAnt, ReajSalDPDataConv, ReajSalDPDescInstRemPer,
+  ReajSalDPCompPagDifSal, ReajSalDPNroProcCarac: OleVariant;
+ 
+procedure LeDataPoolDadosCadastrais(nomeDriver);
+begin
+  { Informações Cadastrais }
+  FormCadSindicatoDPIdSind    := DDT.DriverByName(nomeDriver).Value('IDSIND');
+  FormCadSindicatoDPDescricao := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+  FormCadSindicatoDPEndereco  := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+  FormCadSindicatoDPBairro    := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+  FormCadSindicatoDPCidade    := DDT.DriverByName(nomeDriver).Value('CIDADE');
+  FormCadSindicatoDPCEP       := DDT.DriverByName(nomeDriver).Value('CEP');
+  FormCadSindicatoDPCNPJ      := DDT.DriverByName(nomeDriver).Value('CNPJ');
+
+  { Dados do Sindicato }     
+  FormCadSindicatoDPCodEntidade := DDT.DriverByName(nomeDriver).Value('CODENTIDADE');
+
+  { Conf. Gerais}             
+  FormCadSindicatoDPMesDatabase := DDT.DriverByName(nomeDriver).Value('MESDATABASE'); 
+  FormCadSindicatoDPMesDesc     := DDT.DriverByName(nomeDriver).Value('MESDESC');
+  FormCadSindicatoDPIdTipo      := DDT.DriverByName(nomeDriver).Value('IDTIPO');
+
+  { Conf. Ferias }             
+  FormCadSindicatoDPPercAdcFerias := DDT.DriverByName(nomeDriver).Value('PERCADCFERIAS');
+  FormCadSindicatoDPDescFerias    := DDT.DriverByName(nomeDriver).Value('DESCFERIAS');
+
+  { Conf. Rescisão }              
+  FormCadSindicatoDPRescHomo         := DDT.DriverByName(nomeDriver).Value('RESCHOMO');
+  FormCadSindicatoDPDias             := DDT.DriverByName(nomeDriver).Value('DIASHOMO');
+  FormCadSindicatoDPEstabApFerias    := DDT.DriverByName(nomeDriver).Value('ESTABAPFERIAS');
+  FormCadSindicatoDPDiasEstabilidade := DDT.DriverByName(nomeDriver).Value('DIASESTABILIDADE');
+  FormCadSindicatoDPIndenizaTrab     := DDT.DriverByName(nomeDriver).Value('INDENIZATRABALHO');
+  FormCadSindicatoDPMesesIndeniza    := DDT.DriverByName(nomeDriver).Value('MESESINDENIZA');
+  FormCadSindicatoDPIdEventoIndeniza := DDT.DriverByName(nomeDriver).Value('IDEVENTOINDENIZA');
+end;
+
+procedure LeDataPoolHistReajusteSalarial(nomeDriver);
+begin
+  ReajSalDPInstRemPerAnt  := DDT.DriverByName(nomeDriver).Value('INSTREMRELPERANT');
+  ReajSalDPDataConv       := DDT.DriverByName(nomeDriver).Value('DATAACORDO');
+  ReajSalDPDescInstRemPer := DDT.DriverByName(nomeDriver).Value('DESCINSTRUMENTO');
+  ReajSalDPCompPagDifSal  := DDT.DriverByName(nomeDriver).Value('COMPPGTODIFSALARIAL');
+
+  ReajSalDPNroProcCarac   := DDT.DriverByName(nomeDriver).Value('NUMPROCESSOCARA');
+end;

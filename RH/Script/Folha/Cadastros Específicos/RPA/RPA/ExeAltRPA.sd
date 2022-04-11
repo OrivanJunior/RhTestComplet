@@ -1,0 +1,23 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DatapoolRPA,
+  FuncRPA,
+  ObjRPA,
+  VarConsts;
+  
+procedure executaAlteraRPA(pathData);
+begin
+  AcessaCadastroRPA();
+
+  mapFiltroConsultaRPA();
+  
+  leDataPoolRPA(pathData, _Alterar);
+  loadDataPoolRPA();
+  
+  EscolheFiltroConsultaRPA();
+  
+  AlteraDadosRPA();
+  
+  FechaGridConsulta();
+end;

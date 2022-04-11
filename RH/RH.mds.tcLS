@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="data">
+			<Node name="logs">
+				<Prp name="key" type="S" value="{41D8A095-5D15-4355-BCE2-D2905B80D77E}"/>
+				<Prp name="relpath" type="S" value="Log"/>
+			</Node>
+			<Node name="variables">
+				<Node name="datav4">
+					<Node name="var0">
+						<Prp name="name" type="S" value="tipoBanco"/>
+					</Node>
+					<Node name="var1">
+						<Prp name="name" type="S" value="nomeConexao"/>
+					</Node>
+					<Node name="var10">
+						<Prp name="name" type="S" value="senha"/>
+					</Node>
+					<Node name="var11">
+						<Prp name="name" type="S" value="nomeServidor"/>
+					</Node>
+					<Node name="var12">
+						<Prp name="name" type="S" value="ModuloGerente"/>
+					</Node>
+					<Node name="var13">
+						<Prp name="name" type="S" value="ModuloFolha"/>
+					</Node>
+					<Node name="var14">
+						<Prp name="name" type="S" value="ModuloServidor"/>
+					</Node>
+					<Node name="var15">
+						<Prp name="name" type="S" value="loginViasoft"/>
+					</Node>
+					<Node name="var16">
+						<Prp name="name" type="S" value="EPIPC"/>
+					</Node>
+					<Node name="var17">
+						<Prp name="name" type="S" value="RetornoEventosProvisao"/>
+					</Node>
+					<Node name="var18">
+						<Prp name="name" type="S" value="retornoConsultaAtual"/>
+					</Node>
+					<Node name="var19">
+						<Prp name="name" type="S" value="retornoConsultaBase"/>
+					</Node>
+					<Node name="var2">
+						<Prp name="name" type="S" value="versaoExes"/>
+					</Node>
+					<Node name="var20">
+						<Prp name="name" type="S" value="RetornoValoresProvisao"/>
+					</Node>
+					<Node name="var21">
+						<Prp name="name" type="S" value="RetornoValoresEventos"/>
+					</Node>
+					<Node name="var22">
+						<Prp name="name" type="S" value="conexaoBaseCoper"/>
+					</Node>
+					<Node name="var23">
+						<Prp name="name" type="S" value="conexaoAtualCoper"/>
+					</Node>
+					<Node name="var24">
+						<Prp name="name" type="S" value="conexaoBaseVsdbRh"/>
+					</Node>
+					<Node name="var25">
+						<Prp name="name" type="S" value="conexaoAtualVsdbRh"/>
+					</Node>
+					<Node name="var26">
+						<Prp name="name" type="S" value="retornoConsulta"/>
+					</Node>
+					<Node name="var3">
+						<Prp name="name" type="S" value="pathBanco"/>
+					</Node>
+					<Node name="var4">
+						<Prp name="name" type="S" value="pathScript"/>
+					</Node>
+					<Node name="var5">
+						<Prp name="name" type="S" value="loginOracle"/>
+					</Node>
+					<Node name="var6">
+						<Prp name="name" type="S" value="senhaOracle"/>
+					</Node>
+					<Node name="var7">
+						<Prp name="name" type="S" value="loginFirebird"/>
+					</Node>
+					<Node name="var8">
+						<Prp name="name" type="S" value="senhaFirebird"/>
+					</Node>
+					<Node name="var9">
+						<Prp name="name" type="S" value="login"/>
+					</Node>
+				</Node>
+				<Prp name="version" type="I" value="4"/>
+			</Node>
+		</Node>
+		<Prp name="signature" type="S" value="{49FC0C30-9EF7-4DBD-97A8-B7A00E79A2AF}"/>
+	</Node>
+</Nodes>

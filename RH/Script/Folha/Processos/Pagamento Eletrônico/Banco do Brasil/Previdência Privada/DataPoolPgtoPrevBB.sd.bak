@@ -1,0 +1,61 @@
+﻿{Script de DataPool do Processo de Pagamento Previdência Eletrônica - Banco do Brasil
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 14/07/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroMatriculaTipo, FiltroMatriculaValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroSituacaoTipo, FiltroSituacaoValor,
+  
+  FiltroDataRemessa, FiltroModeloArq,
+  FiltroCodContrib, FiltroLocalGrav,
+  FiltroCodEstab, FiltroCodPatroc,
+  FiltroPercPatroc: OleVariant;
+
+procedure LeDataPoolPgtoPrevBB(pathData);
+begin
+  DDT.ExcelDriver(pathData, 'Filtro');
+  
+    { Filtro Estab }
+    FiltroEstabTipo      := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor     := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+        
+    { Filtro Matriculagados }
+    FiltroMatriculaTipo  := DDT.DriverByName(nomeDriver).Value('TIPOMATRICULA');
+    FiltroMatriculaValor := DDT.DriverByName(nomeDriver).Value('MATRICULAVALOR');
+        
+    { Filtro Locais }
+    FiltroLocalTipo      := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+    FiltroLocalValor     := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+    { Filtro Referência }
+    FiltroDataIni        := DDT.DriverByName(nomeDriver).Value('DATAINI');
+    FiltroDataFin        := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+    { Filtro Processamentos }
+    FiltroProcTipo       := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+    FiltroProcValor      := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+    
+    { Filtro de Situação }
+    FiltroSituacaoTipo   := DDT.DriverByName(nomeDriver).Value('TIPOSITUACAO');
+    FiltroSituacaoValor  := DDT.DriverByName(nomeDriver).Value('SITUACAOVALOR');
+    
+    { Filtro Dados Adicionais }
+    FiltroDataRemessa    := DDT.DriverByName(nomeDriver).Value('DATAREMESSA');
+    FiltroModeloArq      := DDT.DriverByName(nomeDriver).Value('MODELOARQ');
+    FiltroCodContrib     := DDT.DriverByName(nomeDriver).Value('CODCONTRIB');
+    FiltroLocalGrav      := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
+    FiltroCodEstab       := DDT.DriverByName(nomeDriver).Value('CODESTAB');
+    FiltroCodPatroc      := DDT.DriverByName(nomeDriver).Value('CODPATROC');
+    FiltroPercPatroc     := DDT.DriverByName(nomeDriver).Value('PERCPATROC');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

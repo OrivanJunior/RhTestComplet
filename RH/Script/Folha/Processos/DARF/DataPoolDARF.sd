@@ -1,0 +1,61 @@
+﻿{Script de DataPool do Processo de DARF
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 23/06/2021}
+   
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroLocalTipo, FiltroLocalValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroProcTipo, FiltroProcValor,
+  
+  FiltroPrestTipo, FiltroPrestValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroDARFCent, FiltroEstabCent,
+  FiltroRipoDARF, FiltroDataVenc,
+  FiltroGerarSobre, FiltroMensal,
+  FiltroSobFerias, FiltroSob13,
+  FiltroSobPLR: OleVariant;
+
+procedure LeDataPoolDARF(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Locais }
+  FiltroLocalTipo  := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+    
+  { Filtro de Prestador }
+  FiltroPrestTipo  := DDT.DriverByName(nomeDriver).Value('TIPOPREST');
+  FiltroPrestValor := DDT.DriverByName(nomeDriver).Value('PRESTVALOR');
+    
+  { Filtro Datas }
+  FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Dados Adicionais }
+  FiltroDARFCent  := DDT.DriverByName(nomeDriver).Value('DARFCENT');
+  FiltroEstabCent := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroRipoDARF  := DDT.DriverByName(nomeDriver).Value('TPDARF');
+  FiltroDataVenc  := DDT.DriverByName(nomeDriver).Value('DTVENCIMENTO');
+  FiltroGerarSobre:= DDT.DriverByName(nomeDriver).Value('GERARSOBRE');
+  FiltroMensal    := DDT.DriverByName(nomeDriver).Value('MENSAL');
+  FiltroSobFerias := DDT.DriverByName(nomeDriver).Value('FERIAS');
+  FiltroSob13     := DDT.DriverByName(nomeDriver).Value('13O');
+  FiltroSobPLR    := DDT.DriverByName(nomeDriver).Value('PLR');
+end;

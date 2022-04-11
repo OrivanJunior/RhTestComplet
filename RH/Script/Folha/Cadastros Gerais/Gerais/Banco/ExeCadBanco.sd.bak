@@ -1,0 +1,57 @@
+﻿uses
+  CommonsAll,
+  DataPoolBanco,
+  ObjBanco,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Banco
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant; 
+
+procedure AcessaCadBanco();
+begin
+  Modulo := Sys.Process(_ModuloFolha);
+  Modulo.WaitVLCObject('VsMenu', 2000);
+  Modulo.VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|Cadastros Gerais|Gerais|Bancos');
+  Delay(1000);
+end;
+
+procedure InsereDadosBanco();
+begin
+  VerificaInsere(FormCadBancoIdBanco, FormCadBancoDPIdBanco)  ;
+  VerificaInsere(FormCadBancoNome, FormCadBancoDPNome);
+  VerificaInsere(FormCadBancoIdLayCheque, FormCadBancoDPIdLayCheque);
+  VerificaInsere(FormCadBancoIdBancoComp, FormCadBancoDPIdBancoComp);
+end;
+
+procedure ExeCadastraBanco();
+begin
+  AcessaCadBanco();
+  
+  MapGridCadBanco();
+  LeDataPoolCadBanco(_Cadastrar);
+  
+  if (CadBancoConsGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', FormCadBancoDPIdBanco);
+  if (CadBancoConsGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(CadBancoConsForm);
+    
+    MapTelaCadBanco();
+     
+    if (FormCadBanco.Exists) then
+    begin
+      InsereDadosBanco();
+      
+      FormCadBanco.ActSalvarExecute(FormCadBanco);
+      ActFechar(FormCadBanco);
+    end;
+  end;
+  ActFechar(CadBancoConsForm); 
+end;

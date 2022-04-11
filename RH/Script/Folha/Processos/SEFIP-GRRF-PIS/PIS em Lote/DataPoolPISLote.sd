@@ -1,0 +1,37 @@
+﻿{Script de DataPool do Processo de PIS em Lote
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 06/07/2021}  
+var
+  FiltroEstabTipo, FiltroEstabValor,
+  
+  FiltroEmpreTipo, FiltroEmpreValor,
+  
+  FiltroDataIni, FiltroDataFin,
+  
+  FiltroDataGeracao, FiltroLocalGrav, 
+  FiltroTipoArquivo, FiltroEmpSemPis,
+  FiltroRetifica, FiltroSeqDia: OleVariant;
+
+procedure LeDataPoolPisLote(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo   := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+  FiltroEstabValor  := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo   := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpreValor  := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
+    
+  { Filtro Datas }
+  FiltroDataIni     := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+  FiltroDataFin     := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+  
+  { Dados Adicionais }
+  FiltroLocalGrav   := DDT.DriverByName(nomeDriver).Value('LOCAL_GRAV');
+  FiltroTipoArquivo := DDT.DriverByName(nomeDriver).Value('TIPO_ARQUIVO');
+  FiltroDataGeracao := DDT.DriverByName(nomeDriver).Value('DATA_GERACAO');
+  FiltroEmpSemPis   := DDT.DriverByName(nomeDriver).Value('EMP_SEM_PIS');
+  FiltroRetifica    := DDT.DriverByName(nomeDriver).Value('RETIFICA');
+  FiltroSeqDia      := DDT.DriverByName(nomeDriver).Value('SEQ_DIA');
+end;

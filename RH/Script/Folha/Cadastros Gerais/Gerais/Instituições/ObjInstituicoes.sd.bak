@@ -1,0 +1,29 @@
+﻿{Script de mapeamento tela de cadastro de Instituicoes
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 11/03/2020}
+ 
+var
+  FormCadInstituicoes,
+  FormCadInstituicoesIdInstituicao, 
+  FormCadInstituicoesCNPJ, 
+  FormCadInstituicoesRazaoSoc,
+  FormCadInstituicoesEndereco, 
+  FormCadInstituicoesNumero, 
+  FormCadInstituicoesBairro,
+  FormCadInstituicoesCEP, 
+  FormCadInstituicoesCidade : OleVariant;
+
+procedure MapTelaCadInstituicoes();
+begin
+  FormCadInstituicoes              := Aliases.Folha.FFormPadraoRHINSTITUICAO;
+     
+  FormCadInstituicoesIdInstituicao := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDINSTITUICAO;
+  FormCadInstituicoesCNPJ          := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CNPJ;         
+  FormCadInstituicoesRazaoSoc      := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_RAZAOSOC;    
+  FormCadInstituicoesEndereco      := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ENDERECO;    
+  FormCadInstituicoesNumero        := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_NUMERO;    
+  FormCadInstituicoesBairro        := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_BAIRRO;    
+  FormCadInstituicoesCEP           := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CEP;    
+  FormCadInstituicoesCidade        := Aliases.Folha.FFormPadraoRHINSTITUICAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_CIDADE;
+end;

@@ -1,0 +1,117 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolAgencia,
+  ObjAgencia,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de Agencia
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  DDTAgencia: OleVariant;
+  
+procedure AcessaCadAgencia();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Agências');
+end;
+
+procedure InsereDadosAgencia();
+begin
+  VerificaInsere(FormCadAgenciaIdAgencia, FormCadAgenciaDPIdAgencia);
+  VerificaInsere(FormCadAgenciaIdBanco, FormCadAgenciaDPIdBanco);
+  VerificaInsere(FormCadAgenciaAgencia, FormCadAgenciaDPAgencia);
+  VerificaInsere(FormCadAgenciaDigito, FormCadAgenciaDPDigito);
+  VerificaInsere(FormCadAgenciaNome, FormCadAgenciaDPNome);
+end;
+
+procedure ExeCadastraAgencia(pathData);
+begin
+  AcessaCadAgencia();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTAgencia := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolCadAgencia(DDTAgencia.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGENCIA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Id', FormCadAgenciaDPIdAgencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadAgencia();
+     
+    if (FormCadAgencia.Exists) then
+    begin
+      InsereDadosAgencia();
+      
+      ActSalvar(FormCadAgencia);
+      ActFechar(FormCadAgencia);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTAgencia.Name);
+end;
+
+procedure ExeAlteraAgencia(pathData);
+begin
+  AcessaCadAgencia();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTAgencia := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolCadAgencia(DDTAgencia.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGENCIA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Id', FormCadAgenciaDPIdAgencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapTelaCadAgencia();   
+     
+    if (FormCadAgencia.Exists) then
+    begin
+      InsereDadosAgencia();
+      
+      ActSalvar(FormCadAgencia);
+      ActFechar(FormCadAgencia);
+    end;
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAgencia.Name);
+end;
+
+procedure ExeExcluirAgencia(pathData);
+begin
+  AcessaCadAgencia();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTAgencia := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolCadAgencia(DDTAgencia.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGENCIA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Id', FormCadAgenciaDPAgencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm); 
+
+    ActExcluir(_ModuloFolha, 'FFormPadraoRHAGENCIA');
+    ActFechar(FormCadAgencia);
+  end;  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAgencia.Name);
+end;

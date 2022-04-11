@@ -1,0 +1,42 @@
+﻿{Script de DataPool do Processamento Rápido
+ Autor: Camila Braatz da Rocha 
+ Data:16/07/2021}
+ 
+var  
+  { Estab }                             
+  FiltroEstabTipo, FiltroEstabValor,
+
+  { Empregado }
+  FiltroEmpregadoTipo, FiltroEmpregadoValor,
+  
+  { Local }
+  FiltroLocalTipo, FiltroLocalValor, 
+  
+  { Dados Adicionais }
+  FiltroDataProc, FiltroDataPgto,
+  FiltroProcessamento, FiltroProcConsiderar,
+  FiltroSalvarTeste: OleVariant;
+
+procedure LeDataPoolProcRapido(nomeDriver);
+begin
+  FiltroEstabTipo      := DDT.DriverByName(nomeDriver).Value('TIPOESTAB'); 
+  FiltroEstabValor     := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+
+  FiltroEmpregadoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpregadoValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+  
+  FiltroLocalTipo      := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL'); 
+  FiltroLocalValor     := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+  
+  FiltroDataProc       := DDT.DriverByName(nomeDriver).Value('DATAPROC');
+  FiltroDataPgto       := DDT.DriverByName(nomeDriver).Value('DATAPGTO');
+  FiltroProcessamento  := DDT.DriverByName(nomeDriver).Value('PROCESSAMENTO');
+  FiltroProcConsiderar := DDT.DriverByName(nomeDriver).Value('PROCACONSIDERAR');
+  FiltroSalvarTeste    := DDT.DriverByName(nomeDriver).Value('SALVARTESTE');
+end;
+
+procedure LoadDataPoolProcRapido(pathData, tab: string);
+begin
+  DDT.ExcelDriver(pathData, tab);
+end;
+

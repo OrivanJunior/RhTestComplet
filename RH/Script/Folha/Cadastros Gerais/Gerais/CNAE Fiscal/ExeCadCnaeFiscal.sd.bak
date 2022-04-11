@@ -1,0 +1,53 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCnaeFiscal,
+  ObjCnaeFiscal,
+  VarConsts;
+{ Script para executar a cadastrar da tela de cadastro de CnaeFiscal
+ Módulo: Padrao
+ Autor: Renato Balbinotti
+ Data: 12/03/2021}
+ 
+
+var
+  Modulo: OleVariant; 
+
+procedure AcessaCadCnaeFiscal();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais',  'Gerais', 'CNAE Fiscal');
+end;
+
+procedure InsereDadosCnaeFiscal();
+begin
+  VerificaInsere(FormCadCnaeFiscalIdCnae, FormCadCnaeFiscalDPIdCnae);
+  VerificaInsere(FormCadCnaeFiscalDescricao, FormCadCnaeFiscalDPDescricao);
+end;
+
+procedure ExeCadastraCnaeFiscal(pathData);
+begin
+  AcessaCadCnaeFiscal();
+  
+  MapGridConsulta();
+  LeDataPoolCadCnaeFiscal(pathData, _Cadastrar);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CNAE Fiscal', FormCadCnaeFiscalDPIdCnae);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapTelaCadCnaeFiscal();
+     
+    if (FormCadCnaeFiscal.Exists) then
+    begin
+      InsereDadosCnaeFiscal();
+      
+      FormCadCnaeFiscal.ActSalvarExecute(FormCadCnaeFiscal);
+      ActFechar(FormCadCnaeFiscal);
+    end;
+  end;
+  ActFechar(FormTelaConsultaForm); 
+end;

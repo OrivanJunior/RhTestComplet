@@ -1,0 +1,135 @@
+﻿uses
+  DataPoolCadFixoPorSindicato, ObjCadFixoPorSindicato, ObjCadSindicato, VarConsts, CommonsAll, CommonsObj;
+
+   
+procedure PreencheDadosGeraisFixoS(pathData);
+begin 
+  DDTDadosGeraisFixoS := CarregaDDT(pathData, 'Gerais');
+  
+  LoadDPDadosGeraisFixoS();
+  
+  Log.Checkpoint('Preenchendo Dados Gerais');
+  
+  VerificaConsultaF3Insere(_ModuloFolha, FixoSIdSindicato, FixoSDPSindicato);
+  VerificaConsultaF3Insere(_ModuloFolha, FixoSIdEvento, FixoSDPEvento);
+  
+  FixoSIdEvento.Keys('[Enter]');
+end;
+
+procedure PreencheTabPeriodicidadeMesFixoS(pathData);
+begin
+  FormCadFixoSPage.ActivePageIndex := 0;
+  
+  DDTPeriodicidadeMes := CarregaDDT(pathData, 'Periodicidade-Por Mes');
+  
+  LoadDPTabPeriodicidadeMesFixoS();
+  
+  MapTabMesFixoS();
+
+  Log.Checkpoint('Preenchendo Periodicidade Por Mês');
+  FixoSBIncTodosMes.Click();
+end;
+
+procedure PreencheTabPeriodicidadeMesAnoFixoS(pathData);
+begin
+  FormCadFixoSPage.ActivePageIndex := 1; 
+  
+  DDTPeriodicidadeMesAno := CarregaDDT(pathData, 'Periodicidade-Por Mes Ano');
+  
+  LoadDPTabPeriodicidadeMesAnoFixoS();
+  
+  MapTabMesAnoFixoS();
+  
+  FixoSBIncMesAno.Click();
+  
+  Log.Checkpoint('Preenchendo Periodicidade Por Mês/Ano');  
+  VerificaClickPreencheGrid(FixoSGridMesAno, 0, 'Mês', FixoSMesAnoDPMes);
+  VerificaClickPreencheGrid(FixoSGridMesAno, 0, 'Ano', FixoSMesAnoDPAno);
+  
+  FixoSBSaveMesAno.Click();
+end;
+
+procedure PreencheTabParametrosFixoS(pathData);
+begin
+  FormCadFixoSPage.ActivePageIndex := 2; 
+  
+  DDTParametros := CarregaDDT(pathData, 'Parametros');
+  
+  LoadDPTabParametrosFixoS(); 
+  
+  MapTabParametrosFixoS();
+  
+  Log.Checkpoint('Preenchendo Parâmetros');
+  VerificaInsere(ParamsEBValorInfo, FixoSParamsDPValorInfo);
+  VerificaInsere(ParamsEBInforme, FixoSParamsDPInforme);
+  VerificaInsere(ParamsEBInforme2, FixoSParamsDPInforme2);
+  VerificaInsere(ParamsEBValorTarefa, FixoSParamsDPValorTarefa);
+  VerificaInsere(ParamsEBProporcional, FixoSParamsDPProporcional);
+  VerificaInsere(ParamsEBDiasUteis, FixoSParamsDPDiasUteis);
+  VerificaInsere(ParamsEBDiasFaltas, FixoSParamsDPDiasFaltas);
+  VerificaInsere(ParamsEBAvosInforme, FixoSParamsDPAvosInforme);
+  VerificaInsere(ParamsEBAvosDireito, FixoSParamsDPAvosDireito);
+  VerificaInsere(ParamsEBReferencia, FixoSParamsDPReferencia);
+  VerificaInsere(ParamsEBBaseProp, FixoSParamsDPBaseProp);
+end;
+
+procedure ExcluiPeriodicidadeMesFixoS();
+var
+  i : integer;
+begin
+  FixoSmpFormPage.ActivePageIndex := 0;
+  
+  MapTabMesAnoFixoS();
+  
+  Log.Checkpoint('Excluindo Periodicidade Por Mês');
+  for i := 0 to 11 do
+    FixoSBExcMes.Click();
+end;
+
+procedure CadastraFixoPorSindicato(pathData);
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Sindicatos');
+  
+  DDTDadosGeraisFixoS := CarregaDDT(pathData, 'Gerais');
+  
+  LoadDPDadosGeraisFixoS();
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoCds');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sindicato', FixoSDPSindicato);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapFormCadSindicato();
+  
+    FormCadSindicatoPage.ActivePageIndex := 3;
+  
+    MapTabFixoSindicato();
+    
+    BtnIncFixo.Click();
+
+    if Assigned(Aliases.Folha.fRhFixoS) then
+    begin
+      MapFixoPorSindicato();
+  
+      PreencheDadosGeraisFixoS(pathData);
+    
+      PreencheTabPeriodicidadeMesFixoS(pathData);
+    
+      //PreencheTabParametrosFixoS(pathData);
+    
+      Log.Checkpoint('Salvando Fixo Por Sindicato');
+      ActSalvar(FormCadFixoS);
+      ActFechar(FormCadFixoS);
+    end;
+    ActFechar(Aliases.Folha.FBRowseCds_1);
+  end; 
+  ActFechar(FormCadSindicato);
+  ActFechar(FormTelaConsultaForm);
+end;
+
+

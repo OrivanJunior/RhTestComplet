@@ -1,0 +1,221 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcessamentoFerias,
+  ObjProcessamentoFerias,
+  VarConsts;
+ 
+{Script para executar o Processamento de Ferias
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 08/06/2021}
+ 
+procedure PreencheDatasProcFerias(pathData);
+var
+  DDTDatas: OleVariant;
+begin
+  DDTDatas := CarregaDDT(pathData, 'Datas');
+  
+  LoadDPDatas(DDTDatas.Name);
+
+  MapPanelProcessamentoFerias();
+  
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  PreencheDatas(ProcFeriasEBDtProc, FeriasDPDataProc); 
+  PreencheDatas(ProcFeriasEBDtPgto, FeriasDPDataPgto);
+end;
+
+procedure PreencheControleProcessamento(pathData);
+var
+  DDTProcessamento: OleVariant;
+begin
+  BtnIncluirCtrlProc.Click();
+  
+  MapFormProcessamento();
+  
+  DDTProcessamento := CarregaDDT(pathData, 'Processamento');
+  
+  LoadDPProcessamento(DDTProcessamento.Name);
+  
+  Log.Checkpoint('Inserindo Controle de Processamento');
+  VerificaInsere(ProcEBEstab, ProcDPEstab);
+  VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
+  PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
+  PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
+  VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
+  VerificaInsere(ProcEBAberto, ProcDPAberto);
+  
+  BtnSalvarProc.Click();
+  
+  if Aliases.Folha.FRhProcesso.Exists then
+    Aliases.Folha.FRhProcesso.BSairRap.Click();
+  
+  DDT.CloseDriver(DDTProcessamento.Name);
+end;
+
+procedure PreencheEmpregadoProcFerias(pathData);
+var 
+  DDTEmpregados: OleVariant;
+  i: integer;
+begin
+  i := 0;
+  PageProcFerias.ActivePageIndex := 0;
+  
+  MapTabEmpregadosProcFerias();
+  
+  DDTEmpregados := CarregaDDT(pathData, 'Empregado');
+  
+  while not (DDTEmpregados.EOF) do
+  begin
+    LoadDPEmpregado(DDTEmpregados.Name);
+  
+    BtnIncEmpre.Click();
+  
+    Log.Checkpoint('Preenchendo empregados');
+  
+    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', FeriasDPEmpregado);
+    VerificaClickPreencheGrid(GridEmpregado, i, 'Calcula adiantamento de décimo junto com as férias?', FeriasDPCalcAdDecimo);
+  
+    GridEmpregado.Click();
+    Inc(i);
+    DDTEmpregados.Next;
+  end;
+  DDT.CloseDriver(DDTEmpregados.Name);
+end;
+
+procedure PreencheFerias(pathData);
+var
+  DDTFeriasPeriodo, i: OleVariant;
+  btnOK, TelaAtencao, TelaAviso, BtnSim, BtnNao;
+begin  
+  DDTFeriasPeriodo := CarregaDDT(pathData, 'Ferias');
+  
+  loadDPFeriasPeriodo(DDTFeriasPeriodo.Name);
+  
+  if Sys.Process('Folha').WaitWindow('#32770', 'Aviso', 1, 2000).Exists then
+  begin
+    Sys.Process('Folha').Window('#32770', 'Aviso', 1).Window('Button', '&Sim', 1).Click;
+  
+    MapFeriasPeriodo();
+  
+    VerificaInsere(PerFerEBDiasFaltas, PerFeriasDPDiasFalta);
+    VerificaInsere(PerFerEBDiasGozo, PerFeriasDPDiasGozo);
+    PreencheDatas(PerFerEBDataIni, PerFeriasDPDtGozoIni);
+    VerificaInsere(PerFerEBPossuiAbo, PerFeriasDPDtGozoFin);
+    VerificaInsere(PerFerEBAbonarNo, PerFeriasDPPossuiAbo);
+    VerificaInsere(PerFerEBDiasAbo, PerFeriasDPDiasAbono);
+    PerFeriasSaveBtn.Click();
+    
+    if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+    begin
+      TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+      BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+      BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+      BtnSim.Click();
+    end;
+  
+    if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+    begin
+      TelaAtencao := Aliases.Folha.Window('#32770', 'Atenção!', 1);
+    
+      btnOK := TelaAtencao.Window('Button', 'OK', 1);
+      btnOK.Click();
+    end;
+  end;
+  DDT.CloseDriver(DDTFeriasPeriodo.Name);
+end;
+
+procedure PreencheMovimentoProcFerias(pathData);
+var
+  
+  DDTMovimento: OleVariant;
+begin
+  PageProcFerias.ActivePageIndex := 1;
+  
+  MapTabMovimentoProcFerias();
+  
+  DDTMovimento := CarregaDDT(pathData, 'Movimento');
+  
+  while not (DDT.CurrentDriver.EOF) do
+  begin
+    LoadDPMovimento(DDTMovimento.Name);
+
+    BtnIncMov.Click();
+  
+    MapFormMovimento();
+  
+    Log.Checkpoint('Preenchendo dados do movimento');
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
+    PreencheDatas(CadMovEBData, CadMovDPData);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEmpreg, CadMovDPIdEmpreg);
+    VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdEvento, CadMovDPIdEvento);
+    VerificaInsere(CadMovEBCompFerias, CadMovDPCompFerias);
+    VerificaConsultaF3Insere(CadMovEBSistExp, CadMovDPSistExp);
+    VerificaInsere(CadMovEBOrigemLanc, CadMovDPOrigemLanc);
+    VerificaInsere(CadMovEBImpPonto, CadMovDPImpPonto);
+    CadMovEBIdEvento.Keys('[Enter]');
+  
+    MapParamsMovimento();
+  
+    
+  
+    LoadDPParamsMovimento(DDTMovimento.Name);
+  
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
+    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+    VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
+    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+    VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
+    VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
+  
+    CadMovBtnSave.Click();
+    DDTMovimento.Next;
+  end;
+  DDT.CloseDriver(DDTMovimento.Name);
+end;
+
+procedure ExecutaProcessamentoFerias(pathData);
+var
+  TelaConfirma, BtnOk;
+begin
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Férias');
+  
+  MapFormProcessamentoFerias();
+  
+  PreencheDatasProcFerias(pathData);
+  
+  PreencheControleProcessamento(pathData);
+  
+  PreencheEmpregadoProcFerias(pathData);
+  
+  PreencheFerias(pathData);
+  
+  FechaTelaESocial(_ModuloFolha);
+  
+  PreencheMovimentoProcFerias(pathData);
+  
+  Log.Checkpoint('Executando processamento Ferias');
+  
+  ActExecutar(FormProcFerias);
+  
+  BtnSaveFerias.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
+  begin
+    TelaConfirma := Aliases.Folha.Window('#32770', 'Confirmação!', 1);
+    
+    BtnOk := TelaConfirma.Window('Button', 'OK', 1);
+      
+    btnOk.Click();
+  end;
+  ActFechar(FormProcFerias);
+end;

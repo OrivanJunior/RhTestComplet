@@ -1,0 +1,27 @@
+﻿{Script de DataPool do Cadastro de Controle de Processamento
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:23/08/2021}
+ 
+var 
+  { Form Processamento }
+  ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
+  ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
+  ESocialDPInfoPgtos,
+  ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+
+procedure LoadDPProcessamento(nomeDriver);
+begin
+  ProcDPEstab           := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ProcDPIdProc          := DDT.DriverByName(nomeDriver).Value('IDPROC');
+  ProcDPDtCtrl          := DDT.DriverByName(nomeDriver).Value('DATACTRL');
+  ProcDPDtPagIRRF       := DDT.DriverByName(nomeDriver).Value('DATAPAGIRRF');
+  ProcDPVlrArred        := DDT.DriverByName(nomeDriver).Value('VALORARRED');
+  ProcDPAberto          := DDT.DriverByName(nomeDriver).Value('EMABERTO');
+
+  ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
+  ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
+  ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
+  ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
+  ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');
+end;

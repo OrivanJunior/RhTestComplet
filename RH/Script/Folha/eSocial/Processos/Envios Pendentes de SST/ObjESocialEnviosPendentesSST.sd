@@ -1,0 +1,66 @@
+﻿{Script para mapear o Processo de eSocial - Envios Pendentes de SST
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 29/06/2021}
+
+var
+  FormESocialEnviosPendentesSST, PageESocialEnviosPendentesSST,
+   
+  FormEnviosPendentesSSTEstab, FormEnviosPendentesSSTDataIni, 
+  FormEnviosPendentesSSTHoraIni, FormEnviosPendentesSSTDataFin,
+  FormEnviosPendentesSSTHoraFin, FormEnviosPendentesSSTEvteSocial, 
+  BtnFiltrar, BtnSelTodosPend,  BtnDesTodosPend, 
+  BtnEnviarSelec, BtnExcPend, GridEventosPend,
+
+  FormConsEstab, FormConsDataIni,
+  FormConsHoraIni, FormConsDataFin,
+  FormConsHoraFin, FormConsAmbiente,
+  FormConsTipoEvento, FormConsEvteSocial,
+  BtnBuscar, BtnSelTodos, BtnDesTodos, BtnConsSel,
+  BtnEnvTodosSel, BtnExtTodosSel, BtnSalvarXML,
+  BtnVerXML, BtnVerRetorno, BtnVizualizar,
+  CbMostrarProtocolos, GridEventos: OleVariant;
+
+  
+procedure MapESocialEnviosPendentesSST();
+begin
+  FormESocialEnviosPendentesSST        := Aliases.Folha.FRhProceSocialEnviosPendentesSST;
+  PageESocialEnviosPendentesSST        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao;
+  
+  FormEnviosPendentesSSTEstab          := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.EB_ESTAB_PESQUISA;
+  FormEnviosPendentesSSTDataIni        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.EB_DATAHORAINI;
+  FormEnviosPendentesSSTHoraIni        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.TVsHora_;
+  FormEnviosPendentesSSTDataFin        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.EB_DATAHORAFIN;
+  FormEnviosPendentesSSTHoraFin        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.TVsHora_2;
+  FormEnviosPendentesSSTEvteSocial     := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.EB_EVENTOESOCIAL_PESQUISA;
+  BtnFiltrar                           := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gbFiltro.btFiltrar;
+  BtnSelTodosPend                      := Aliases.Folha.FRhProceSocialEnviosPendentesSST.bSelEnvPend;
+  BtnDesTodosPend                      := Aliases.Folha.FRhProceSocialEnviosPendentesSST.bDesmEnvPend;
+  BtnEnviarSelec                       := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btEnvSelPend;
+  BtnExcPend                           := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btExcPend;
+  GridEventosPend                      := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsPrincipal.gRhPendeSocial_;
+end;
+
+procedure MapESocialConsEnviosPendentesSST();
+begin
+  FormConsEstab       := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+  FormConsDataIni     := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+  FormConsHoraIni     := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_;
+  FormConsDataFin     := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+  FormConsHoraFin     := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.TVsHora_2;
+  FormConsAmbiente    := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+  FormConsTipoEvento  := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+  FormConsEvteSocial  := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  BtnBuscar           := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+  BtnSelTodos         := Aliases.Folha.FRhProceSocialEnviosPendentesSST.bSelOcs;
+  BtnDesTodos         := Aliases.Folha.FRhProceSocialEnviosPendentesSST.bDesmOcs;
+  BtnConsSel          := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btConsTodosSel;
+  BtnEnvTodosSel      := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btEnvTodosSel;
+  BtnExtTodosSel      := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btExcTodosSel;
+  BtnSalvarXML        := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btSalvarXML;
+  BtnVerXML           := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btVerXML;
+  BtnVerRetorno       := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btVisualizarRetorno;
+  BtnVizualizar       := Aliases.Folha.FRhProceSocialEnviosPendentesSST.btVisualizarOc;
+  CbMostrarProtocolos := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.gbAcoes.Dock973.Toolbar972.cbMostarProtocolos;
+  GridEventos         := Aliases.Folha.FRhProceSocialEnviosPendentesSST.pgPadrao.tsConsulta.pnGrid.gEventos;
+end;

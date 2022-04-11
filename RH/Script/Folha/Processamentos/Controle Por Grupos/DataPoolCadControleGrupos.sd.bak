@@ -1,0 +1,41 @@
+﻿{Script de DataPool do Cadastro de Controle de Processsamento por Grupos
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data: 23/08/2021}  
+var
+  FiltroTipoContole, FiltroFiltarPor,
+  FiltroEstabTipo, FiltroEstabValor,
+  FiltroGrupoTipo, FiltroGrupoValor,
+  FiltroProcesso, FiltroDataCtrl,
+  FiltroDataIRRF, FiltroVlrArred,
+  ESocialDPEvtRemun, ESocialDPInfoPgtos,
+  ESocialDPContrataVnp, ESocialDPEvtInfoCompl,
+  ESocialDPInfoPriComp, ESocialDPSitESocial: OleVariant;
+
+procedure LeDataPoolCadControleGrupo(pathData, tab);
+begin
+  DDT.ExcelDriver(pathData, tab); 
+    FiltroTipoContole     := DDT.DriverByName(nomeDriver).Value('TIPO_CONTROLE');
+    FiltroFiltarPor       := DDT.DriverByName(nomeDriver).Value('FILTRAR_POR');
+  
+    { Filtro Estab }
+    FiltroEstabTipo       := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+    FiltroEstabValor      := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+    { Filtro Grupos }
+    FiltroGrupoTipo       := DDT.DriverByName(nomeDriver).Value('TIPOGRUPO');
+    FiltroGrupoValor      := DDT.DriverByName(nomeDriver).Value('GRUPOVALOR');
+    
+    { Dados Controle }
+    FiltroProcesso        := DDT.DriverByName(nomeDriver).Value('PROCESSO');
+    FiltroDataCtrl        := DDT.DriverByName(nomeDriver).Value('DATA_CTRL');
+    FiltroDataIRRF        := DDT.DriverByName(nomeDriver).Value('DATA_IRRF');
+    FiltroVlrArred        := DDT.DriverByName(nomeDriver).Value('VLR_ARRED');
+    ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
+    ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
+    ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
+    ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
+    ESocialDPInfoPriComp  := DDT.DriverByName(nomeDriver).Value('INFO_PRI_COMP');
+    ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUA_PROC');
+  DDT.CloseDriver(DDT.CurrentDriver.Name);
+end;

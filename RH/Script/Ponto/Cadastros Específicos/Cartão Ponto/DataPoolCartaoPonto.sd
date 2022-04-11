@@ -1,0 +1,45 @@
+﻿{Script de DataPool do Cartão Ponto
+ Módulo: Ponto
+ Autor: Camila Braatz da Rocha
+ Data: 22/09/2021}
+
+var
+  CartaoPontoDPEstab,
+  CartaoPontoDPEmpregado,
+  CartaoPontoDPMesAno,
+  CartaoPontoDPIdEmpregado,
+  CartaoPontoDPNomeEmpregado,
+  CartaoPontoDPData,
+  CartaoPontoDPEntrada1,
+  CartaoPontoDPSaida1,
+  CartaoPontoDPEntrada2,
+  CartaoPontoDPSaida2,
+  CartaoPontoDPEntrada3,
+  CartaoPontoDPSaida3,
+  CartaoPontoDPPernoite,
+  CartaoPontoDPCompensado,
+  CartaoPontoDPJustificativa: OleVariant;
+
+  
+procedure LeDataPoolFiltros(nomeDriver);
+begin
+  CartaoPontoDPEstab         := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  CartaoPontoDPEmpregado     := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+  CartaoPontoDPNomeEmpregado := DDT.DriverByName(nomeDriver).Value('NOMEEMPREGADO');
+  CartaoPontoDPMesAno        := DDT.DriverByName(nomeDriver).Value('MESANO');
+end;
+
+procedure LeDataPoolIncManual(nomeDriver);
+begin
+  CartaoPontoDPIdEmpregado   := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  CartaoPontoDPData          := DDT.DriverByName(nomeDriver).Value('DATA');
+  CartaoPontoDPEntrada1      := DDT.DriverByName(nomeDriver).Value('ENTRADA1');
+  CartaoPontoDPSaida1        := DDT.DriverByName(nomeDriver).Value('SAIDA1');
+  CartaoPontoDPEntrada2      := DDT.DriverByName(nomeDriver).Value('ENTRADA2');
+  CartaoPontoDPSaida2        := DDT.DriverByName(nomeDriver).Value('SAIDA2');
+  CartaoPontoDPEntrada3      := DDT.DriverByName(nomeDriver).Value('ENTRADA3');
+  CartaoPontoDPSaida3        := DDT.DriverByName(nomeDriver).Value('SAIDA3');
+  CartaoPontoDPPernoite      := DDT.DriverByName(nomeDriver).Value('PERNOITE');
+  CartaoPontoDPCompensado    := DDT.DriverByName(nomeDriver).Value('COMPENSADO');
+  CartaoPontoDPJustificativa := DDT.DriverByName(nomeDriver).Value('JUSTIFICATIVA');
+end;

@@ -1,0 +1,119 @@
+﻿uses
+  DatapoolRelRpa, ObjRelRpa, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+procedure AjustaTelaRelatorioImpresso();
+begin
+  FormPreviewRpa100ZoomButton.Click();
+end;
+    
+procedure AcessaRelatorioRPA();
+begin
+  AcessaItem(_ModuloFolha, 'Relatórios', 'RPA'); 
+end;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormRelRpaWhEstabEspec.ClickButton;
+    FormRelRpaWhEstabEspecCampo.Keys(FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormRelRpaWhEstabTodosEmp.ClickButton;
+    FormRelRpaWhEstabTodosEmpCampo.Keys(FiltroEstabValor);  
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormRelRpaWhEstabSelec.ClickButton;
+    FormRelRpaWhEstabSelecCampo.Keys(FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+    FormRelRpaWhEstabTodos.ClickButton;
+end;
+
+procedure FiltraPrestador();
+begin
+  if (FiltroPrestadorTipo = _Especifico) then
+  begin
+    FormRelRpaWhPrestEspec.ClickButton;
+    FormRelRpaWhPrestEspecCampo.Keys(FiltroPrestadorValor);
+  end
+  else if (FiltroPrestadorTipo = _Selecionados) then
+  begin
+    FormRelRpaWhPrestSelec.ClickButton;
+    FormRelRpaWhPrestSelecCampo.Keys(FiltroPrestadorValor);
+  end
+  else if (FiltroPrestadorTipo = _Todos) then
+    FormRelRpaWhPrestTodos.ClickButton;
+end;
+
+procedure FiltraData();
+begin
+  PreencheDatas(FormRelRpaWhDataDtIni, FiltroDataIni); 
+  PreencheDatas(FormRelRpaWHDataDtFin, FiltroDataFin);
+end;
+
+procedure FiltraDadosAdicionais();
+begin
+  FormRelRpaWhDadosMensagem.SetText(FiltroMensagem);
+  FormRelRpaWhDadosMoeda.Keys(FiltroMoeda);
+  
+  if (FiltroListaBC = 'S') or (FiltroListaBC = '') then
+    FormRelRpaWhDadosListaBanco.Keys('Sim')
+  else
+    FormRelRpaWhDadosListaBanco.Keys('Não');
+end;
+
+procedure FiltraRelatorioRPA(pathData);
+begin
+  leDatapoolRelRPA(pathData);
+  
+  FiltraEstab();
+  
+  FiltraPrestador();
+  
+  FiltraData();
+  
+  FiltraDadosAdicionais();
+end;
+
+procedure ImprimeRelatorioRPA();
+begin
+  btnPrint.Click();
+  
+  if (Aliases.Folha.WaitVCLObject('ppPrintPreview', 2000).Exists) then
+  begin
+    MapPreview();
+  
+    AjustaTelaRelatorioImpresso();
+  
+    Delay(20000);
+  end;  
+end;
+
+procedure FechaRelatorioEForm();
+begin
+  FormPreviewRpaCancelButton.Click();
+
+  ActFechar(FormRelRPA);
+end;
+
+procedure ExecutaRelRpa(pathData);
+begin
+  AcessaRelatorioRPA();
+  
+  MapRelatorioRPA();
+  
+  FiltraRelatorioRPA(pathData);
+  
+  ImprimeRelatorioRPA(); 
+  
+  FechaRelatorioEForm();
+end;

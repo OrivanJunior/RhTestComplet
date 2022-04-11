@@ -1,0 +1,63 @@
+﻿uses
+  VarConsts;
+{Script para mapear a tela de cadastro de usuários do Viasoft3c
+ Módulo: ViasoftServerRH_XE
+ Autor: Rafael Colla
+ Data: 16/03/2018}
+ 
+var
+  Viasoft3C_XE: OleVariant;
+
+  CadUserFormCad, CadUserPrinc, CadUserPrincTS,  CadUserScroll, CadUserUserId, 
+  CadUserFullName, CadUserEmail, CadUserGrupo, CadUserTipo, CadUserValidade, 
+  CadUserMudarSenha, CadUserAudita, CadUserAutUserWin: OleVariant; 
+  
+  CadUserConsForm, CadUserConsGrid, CadUserConsGridSite: OleVariant;
+  
+  CadMudaSenForm, CadMudaSenhaPnPrincipal, CadMudaSenhaENovaSenha,
+  CadMudaSenhaEConfirmacao, CadMudaSenhaEPergSenha, CadMudaSenhaERespSenha,
+  CadMudaSenhaConfirmar, CadMudaSenhaCancelar, CadMudaSenhaFechar: OleVariant; 
+  
+procedure MapCadUsuarios();
+begin
+  Viasoft3C_XE       := Sys.Process(_ModuloGerente);
+   
+  CadUserFormCad     := Viasoft3C_XE.VCLObject('FFormPadraoCds');
+  CadUserPrinc       := CadUserFormCad.VCLObject('FFormPadraoCds_abPrinc');
+  CadUserPrincTS     := CadUserPrinc.VCLObject('FFormPadraoCds_abPrinc_ts1');
+  CadUserScroll      := CadUserPrincTS.Window('TScrollBox');
+  CadUserUserId      := CadUserScroll.VCLObject('EB_USERID');
+  CadUserFullName    := CadUserScroll.VCLObject('EB_FULLNAME');
+  CadUserEmail       := CadUserScroll.VCLObject('EB_EMAIL');
+  CadUserGrupo       := CadUserScroll.VCLObject('EB_GRUPO');
+  CadUserTipo        := CadUserScroll.VCLObject('EB_TIPO');
+  CadUserValidade    := CadUserScroll.VCLObject('EB_VALIDADE');
+  CadUserMudarSenha  := CadUserScroll.VCLObject('EB_MUDARSENHA');
+  CadUserAudita      := CadUserScroll.VCLObject('EB_AUDITA');
+  CadUserAutUserWin  := CadUserScroll.VCLObject('EB_AUTUSERWIN');
+end;
+
+procedure MapGridCadUsuarios();
+begin
+  Viasoft3C_XE       := Sys.Process(_ModuloGerente);
+   
+  CadUserConsForm     := Viasoft3C_XE.VCLObject('FBRowseCds');
+  CadUserConsGrid     := CadUserConsForm.VCLObject('BGrid');
+  CadUserConsGridSite := CadUserConsGrid.Window('TcxGridSite', '', 1);
+end;
+
+procedure MapRedefinirSenha();
+begin
+  Viasoft3C_XE   := Sys.Process(_ModuloGerente);
+  CadMudaSenForm := Viasoft3C_XE.VCLObject('FMudaSen');
+  
+  CadMudaSenhaPnPrincipal  := CadMudaSenForm.VCLObject('pnPrincipal');
+  CadMudaSenhaENovaSenha   := CadMudaSenhaPnPrincipal.VCLObject('ENovaSenha');
+  CadMudaSenhaEConfirmacao := CadMudaSenhaPnPrincipal.VCLObject('EConfirmacao');
+  CadMudaSenhaEPergSenha   := CadMudaSenhaPnPrincipal.VCLObject('EpergSenha');
+  CadMudaSenhaERespSenha   := CadMudaSenhaPnPrincipal.VCLObject('ErespSenha');
+  
+  CadMudaSenhaConfirmar := CadMudaSenForm.VCLObject('btnConfirmar');
+  CadMudaSenhaCancelar  := CadMudaSenForm.VCLObject('btnCancelar');
+  CadMudaSenhaFechar    := CadMudaSenForm.VCLObject('btnFechar');
+end;

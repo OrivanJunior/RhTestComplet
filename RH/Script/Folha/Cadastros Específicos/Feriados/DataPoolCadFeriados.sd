@@ -1,0 +1,18 @@
+﻿{Script de DataPool do Cadastro de Feriados
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha 
+ Data:12/05/2021}
+ 
+var
+  CadastroFeriadosDPEstab,
+  CadastroFeriadosDPData,
+  CadastroFeriadosDPDesc,
+  CadastroFeriadosDPGeraRSR : OleVariant;
+
+procedure LeDataPoolCadastroFeriados(nomeDriver);
+begin
+  CadastroFeriadosDPEstab   := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  CadastroFeriadosDPData    := DDT.DriverByName(nomeDriver).Value('DATA');
+  CadastroFeriadosDPDesc    := DDT.DriverByName(nomeDriver).Value('DESC');
+  CadastroFeriadosDPGeraRSR := DDT.DriverByName(nomeDriver).Value('GERA_RSR');
+end;
