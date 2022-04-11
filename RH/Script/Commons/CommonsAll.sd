@@ -10,8 +10,8 @@
  
 procedure TelaLiberacao(sModulo: String);
 var
-  Modulo, FormRevalidacao, 
-  FormRevalidacaoBtnSim, FormRevalidacaoBtnNao, teste : OleVariant;
+  Modulo, FormRevalidacao,
+  FormRevalidacaoBtnSim, FormRevalidacaoBtnNao : OleVariant;
 begin
   Modulo := Sys.Process(sModulo);
   
