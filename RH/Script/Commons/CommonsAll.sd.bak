@@ -15,7 +15,7 @@ var
 begin
   Modulo := Sys.Process(sModulo);
   
-  if (Modulo.WaitWindow('#32770', 'Atenção...', 1, 20000).Exists) then
+  if (Modulo.WaitWindow('#32770', 'Atenção...', 1, 5000).Exists) then
   begin
     //FormRevalidacao := Modulo.Window('#32770', '  A T E N Ç Ã O  ', 1);
     FormRevalidacao := Modulo.Window('#32770', 'Atenção...', 1);
