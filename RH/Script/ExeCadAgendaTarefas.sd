@@ -1,0 +1,139 @@
+﻿  uses
+  CommonsAll,
+  VarConsts,
+  CommonsObj, 
+  DataPoolCadAgendaTarefas,
+  ObjCadAgendaTarefas;
+  
+  procedure FiltroCadAgenda;
+begin
+ MapFiltroCadAgenda();
+
+// Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
+// Aliases.Folha.FBRowseCds.BIncluir.Click;
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB.Keys('1111[Enter]');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDAGETAREFA.Keys('1[Enter]');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA.Keys('140422');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Click(19, 10);
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Keys('1');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.BSalvar.Click(10, 16);
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.Close;
+end;
+  
+  procedure PreencherDados();
+  begin
+  VerificaConsultaF3Insere(_ModuloFolha, CadAgendaTarefaEBEstab, CadAgendaTarefaDPEstab);
+  VerificaInsere(CadAgendaTarefaEBIdAgeTarefa, CadAgendaTarefaDPIdAgeTarefa);
+  PreencheDatas(CadAgendaTarefaEBData,CadAgendaTarefaDPData);
+  VerificaInsere(CadAgendaTarefaEBTarefa, CadAgendaTarefaDPTarefa);
+  end;
+  
+  procedure CadastraTarefa(pathData);
+  var DDTTarefas;
+  begin
+  DDTTarefas := CarregaDDT(pathData, _Cadastrar);
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  
+  //////////
+  
+  while not(DDTTarefas.EOF) do
+  begin
+    LeDataPoolCadAgendaTarefas(DDTTarefas.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGETAREFA');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      MapCadAgendaTarefas; 
+      if (CadAgendaTarefaForm.Exists) then
+      begin
+       PreencherDados();
+        ActSalvar(CadAgendaTarefaForm);
+        ActFechar(CadAgendaTarefaForm);
+      end;
+    end;
+   DDTTarefas.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTarefas.Name);
+end;
+
+ (***************Altera_cadastro_De_Tarefas*****************)
+
+procedure AlteraTarefa(pathData);
+var
+  DDTTarefas;
+begin
+  DDTTarefas := CarregaDDT(pathData, _Alterar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  
+  
+  while not(DDTTarefas.EOF) do
+  begin
+    LeDataPoolCadAgendaTarefas(DDTTarefas.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGETAREFA');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+     // ActConsulta(FormTelaConsultaForm);
+  
+      MapCadAgendaTarefas();
+  
+      if (CadAgendaTarefaForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadAgendaTarefaForm);
+        ActFechar(CadAgendaTarefaForm);
+      end;
+    end;
+    DDTTarefas.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTarefas.Name);
+end;
+
+  (**************Excluir_Tarefas***********************)
+
+procedure ExcluirTarefas(pathData);
+var
+  DDTTarefas;
+begin
+  DDTTarefas := CarregaDDT(pathData, _Excluir);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  
+  while not(DDTTarefas.EOF) do
+  begin
+    LeDataPoolCadAgendaTarefas(DDTTarefas.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGETAREFA');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+    end;
+    DDTTarefas.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTTarefas.Name);
+end;  
+

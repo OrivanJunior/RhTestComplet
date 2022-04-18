@@ -1,0 +1,38 @@
+﻿{Script para mapear o Cadastro Agenda de Tarefas
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 14/04/2022}
+var
+CadAgendaTarefaForm,     
+CadAgendaTarefaEBEstab,
+CadAgendaTarefaEBIdAgeTarefa,
+CadAgendaTarefaEBData, 		  
+CadAgendaTarefaEBTarefa,
+FiltroFormAgendaDeTarefas,
+FiltroConsForm : OleVariant;
+
+
+procedure MapCadAgendaTarefas();
+
+begin
+CadAgendaTarefaForm		        := Aliases.Folha.FFormPadraoRHAGETAREFA;
+CadAgendaTarefaEBEstab 		    := Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB;
+CadAgendaTarefaEBIdAgeTarefa 	:= Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDAGETAREFA;
+CadAgendaTarefaEBData 		    := Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA;
+CadAgendaTarefaEBTarefa 	    := Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA;
+
+end;
+
+procedure MapFiltroCadAgenda;
+begin
+ FiltroFormAgendaDeTarefas := Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
+ FiltroConsForm            := Aliases.Folha.VsMenu;
+// Aliases.Folha.FBRowseCds.BIncluir.Click;
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB.Keys('1111[Enter]');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDAGETAREFA.Keys('1[Enter]');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA.Keys('140422');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Click(19, 10);
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Keys('1');
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.BSalvar.Click(10, 16);
+//  Aliases.Folha.FFormPadraoRHAGETAREFA.Close;
+end;

@@ -133,12 +133,12 @@ begin
       ValidaFormAberto(_ModuloFolha, 'FRhFeriado');
   
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data Feriado', CadastroFeriadosDPData);
+    
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       //ActConsulta(FormTelaConsultaForm);
     
       ActExcluir(_ModuloFolha, 'FBRowseCds');
-      ActFechar(CadastroFeriadosFormCad);
       
       DDTFeriados.Next;
     end;

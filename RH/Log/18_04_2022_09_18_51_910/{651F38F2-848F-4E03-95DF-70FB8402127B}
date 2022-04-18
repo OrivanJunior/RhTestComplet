@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row3">
+				<Prp name="details" type="S" value=""/>
+				<Prp name="index" type="I" value="3"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="end time" type="D" value="44669.3888436111"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44669.3888436111"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="name" type="S" value="The execution process was interrupted."/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="details" type="S" value="{869D7FB0-B8DE-4408-930A-128D0E35330B}"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="end time" type="D" value="44669.3888436111"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44669.3883479398"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="name" type="S" value="Altera Agenda de Tarefas [Script\ExeCadAgendaTarefas - AlteraTarefa]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="details" type="S" value=""/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="end time" type="D" value="44669.3888264005"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44669.3888264005"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="name" type="S" value="The element to be run specified in the 'Altera Agenda de Tarefas' test item failed to run."/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="details" type="S" value="{483FE4A7-1696-4C9C-AAE6-46364C99937F}"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="end time" type="D" value="44669.3883478356"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44669.3881170602"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="name" type="S" value="Cadastra Agenda de Tarefas [Script\ExeCadAgendaTarefas - CadastraTarefa]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

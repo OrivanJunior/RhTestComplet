@@ -1,0 +1,31 @@
+﻿var
+  CadChequesDPEstab,
+  CadChequesDPIdEmpregado,
+  CadChequesDPIdAgencia,
+  CadChequesDPConta,
+  CadChequesDPNroCheque,
+  CadChequesDPDtEmissao,
+  CadChequesDPIdMoeda,
+  CadChequesDPNominal,
+  CadChequesDPCidade,
+  CadChequesDPBomPara,
+  CadChequesDPVlrCheque,
+  CadChequesDPIdProcesso,
+  CadChequesDPDtProcesso: OleVariant;
+
+procedure LeDataPoolCadCheques(nomeDriver);
+ begin
+  CadChequesDPEstab       := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  CadChequesDPIdEmpregado := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  CadChequesDPIdAgencia   := DDT.DriverByName(nomeDriver).Value('IDAGENCIA');
+  CadChequesDPConta       := DDT.DriverByName(nomeDriver).Value('CONTA');
+  CadChequesDPNroCheque   := DDT.DriverByName(nomeDriver).Value('NROCHEQUE');
+  CadChequesDPDtEmissao   := DDT.DriverByName(nomeDriver).Value('DTEMISSAO');
+  CadChequesDPIdMoeda     := DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+  CadChequesDPNominal     := DDT.DriverByName(nomeDriver).Value('NOMINAL');
+  CadChequesDPCidade      := DDT.DriverByName(nomeDriver).Value('CIDADE');
+  CadChequesDPBomPara     := DDT.DriverByName(nomeDriver).Value('BOMPARA');
+  CadChequesDPVlrCheque   := DDT.DriverByName(nomeDriver).Value('VLRCHEQUE');
+  CadChequesDPIdProcesso  := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+  CadChequesDPDtProcesso  := DDT.DriverByName(nomeDriver).Value('DTPROCESSO');
+end;

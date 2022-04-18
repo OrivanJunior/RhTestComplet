@@ -34,4 +34,3 @@ begin
   FiltroProcConsiderar := DDT.DriverByName(nomeDriver).Value('PROCACONSIDERAR');
   FiltroSalvarTeste    := DDT.DriverByName(nomeDriver).Value('SALVARTESTE');
 end;
-

@@ -103,9 +103,9 @@ begin
         ActSalvar(CadastroFeriadosFormCad);
         ActFechar(CadastroFeriadosFormCad);
         
-        DDTFeriados.Next;
       end;
     end;
+     DDTFeriados.Next;
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTFeriados.Name);
@@ -133,15 +133,16 @@ begin
       ValidaFormAberto(_ModuloFolha, 'FRhFeriado');
   
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data Feriado', CadastroFeriadosDPData);
+    
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       //ActConsulta(FormTelaConsultaForm);
     
       ActExcluir(_ModuloFolha, 'FBRowseCds');
       
-      DDTFeriados.Next;
     end;
+     DDTFeriados.Next;
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTFeriados.Name);
-end;  
+end;

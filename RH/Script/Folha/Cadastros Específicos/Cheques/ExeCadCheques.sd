@@ -1,0 +1,153 @@
+﻿  uses
+  CommonsAll,
+  VarConsts,
+  CommonsObj, 
+  ObjCadCheques,
+  DataPoolCadCheques;
+
+procedure FiltroCadastroCheques();
+begin
+  MapFiltroCadastroCheques();
+  
+  //FiltroConsFormCBSelCons.SetFocus;
+  FiltroConsFormCBSelCons.SetText('Cheque Por Data');
+  FiltroConsFormCBData.SelectItem('(Ignorar)');
+  btnOkFiltroConsForm.ClickButton;
+  end;
+  
+procedure PreencherDados();
+begin
+  VerificaConsultaF3Insere(_ModuloFolha, CadChequesEBEstab, CadChequesDPEstab);
+  VerificaConsultaF3Insere(_ModuloFolha, CadChequesEBIdEmpregado, CadChequesDPIdEmpregado);
+  VerificaConsultaF3Insere(_ModuloFolha, CadChequesEBIdAgencia, CadChequesDPIdAgencia);
+  VerificaInsere(CadChequesEBConta, CadChequesDPConta);
+  VerificaInsere(CadChequesEBNroCheque, CadChequesDPNroCheque);
+  PreencheDatas(CadChequesEBDtEmissao, CadChequesDPDtEmissao);
+  VerificaConsultaF3Insere(_ModuloFolha, CadChequesEBIdMoeda, CadChequesDPIdMoeda);
+  VerificaInsere(CadChequesEBNominal, CadChequesDPNominal);
+  VerificaConsultaF3Insere(_ModuloFolha, CadChequesEBCidade, CadChequesDPCidade);
+  PreencheDatas(CadChequesEBBomPara, CadChequesDPBomPara);
+  VerificaInsere(CadChequesEBVlrCheque, CadChequesDPVlrCheque);
+  VerificaInsere(CadChequesEBIdProcesso, CadChequesDPIdProcesso);
+  VerificaInsere(CadChequesEBDtProcesso, CadChequesDPDtProcesso);
+end;
+
+  (***************Cadastro_De_Cheques*****************)
+
+procedure CadastraCheques(pathData);
+var
+  DDTCheques;
+begin
+  DDTCheques := CarregaDDT(pathData, _Cadastrar);
+
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  
+  FiltroCadastroCheques();
+  
+  //enquanto não for o fim do arquivo faça
+  while not(DDTCheques.EOF) do
+  begin
+    LeDataPoolCadCheques(DDTCheques.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCHEQUE');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número Cheque', CadChequesDPNroCheque);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+  
+      MapCadCheques();
+  
+      if (CadChequesForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadChequesForm);
+        ActFechar(CadChequesForm);
+      end;
+    end;
+    DDTCheques.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCheques.Name);
+end;
+  
+  (***************Altera_cadastro_De_Cheques*****************)
+
+procedure AlteraCheque(pathData);
+var
+  DDTCheques;
+begin
+  DDTCheques := CarregaDDT(pathData, _Alterar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  
+  FiltroCadastroCheques();
+  
+  while not(DDTCheques.EOF) do
+  begin
+    LeDataPoolCadCheques(DDTCheques.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCHEQUE');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número Cheque', CadChequesDPNroCheque);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadCheques();
+  
+      if (CadChequesForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadChequesForm);
+        ActFechar(CadChequesForm);
+      end;
+    end;
+    DDTCheques.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCheques.Name);
+end;
+
+  (**************Excluir_Cheque***********************)
+
+procedure ExcluirCheque(pathData);
+var
+  DDTCheques;
+begin
+  DDTCheques := CarregaDDT(pathData, _Excluir);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  
+  FiltroCadastroCheques();
+  
+  while not(DDTCheques.EOF) do
+  begin
+    LeDataPoolCadCheques(DDTCheques.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCHEQUE');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Número Cheque', CadChequesDPNroCheque);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+    end;
+    DDTCheques.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCheques.Name);
+end;

@@ -1,0 +1,14 @@
+﻿var
+CadAgendaTarefaForm,
+CadAgendaTarefaDPEstab,
+CadAgendaTarefaDPIdAgeTarefa,
+CadAgendaTarefaDPData,
+CadAgendaTarefaDPTarefa: OleVariant;
+
+procedure LeDataPoolCadAgendaTarefas(nomeDriver);
+begin		
+CadAgendaTarefaDPEstab			      := DDT.DriverByName(nomeDriver).Value('ESTAB');               
+CadAgendaTarefaDPIdAgeTarefa    	:= DDT.DriverByName(nomeDriver).Value('IDAGETAREFA');
+CadAgendaTarefaDPData             := DDT.DriverByName(nomeDriver).Value('DATA');
+CadAgendaTarefaDPTarefa			      := DDT.DriverByName(nomeDriver).Value('TAREFA');
+end;

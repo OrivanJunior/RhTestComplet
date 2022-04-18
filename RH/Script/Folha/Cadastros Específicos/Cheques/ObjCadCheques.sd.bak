@@ -1,0 +1,56 @@
+﻿{Script para mapear o Cadastro de Cheques
+ Módulo: Folha
+ Autor: Camila Braatz da Rocha
+ Data: 12/04/2022}
+
+var
+  CadChequesForm,
+  CadChequesEBEstab,
+  CadChequesEBIdEmpregado,
+  CadChequesEBIdAgencia,
+  CadChequesEBConta,
+  CadChequesEBNroCheque,
+  CadChequesEBDtEmissao,
+  CadChequesEBIdMoeda,
+  CadChequesEBNominal,
+  CadChequesEBCidade,
+  CadChequesEBBomPara,
+  CadChequesEBVlrCheque,
+  CadChequesEBIdProcesso,
+  CadChequesEBDtProcesso,
+  
+  FiltroConsForm,
+  FiltroConsFormCBSelCons,
+  FiltroConsFormCBData,
+  btnOkFiltroConsForm,
+  btnVazioFiltroConsForm,
+  btnCancelFiltroConsForm: OleVariant;
+ 
+ 
+procedure MapCadCheques();
+begin
+  CadChequesForm          := Aliases.Folha.FFormPadraoRHCHEQUE;
+  CadChequesEBEstab       := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+  CadChequesEBIdEmpregado := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEMPREGADO;
+  CadChequesEBIdAgencia   := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDAGENCIA;
+  CadChequesEBConta       := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CONTA;
+  CadChequesEBNroCheque   := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROCHEQUE;
+  CadChequesEBDtEmissao   := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DTEMISSAO;
+  CadChequesEBIdMoeda     := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDMOEDA;
+  CadChequesEBNominal     := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOMINAL;
+  CadChequesEBCidade      := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
+  CadChequesEBBomPara     := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_BOMPARA;
+  CadChequesEBVlrCheque   := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRCHEQUE;
+  CadChequesEBIdProcesso  := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSO;
+  CadChequesEBDtProcesso  := Aliases.Folha.FFormPadraoRHCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DTPROCESSO;
+end;
+
+procedure MapFiltroCadastroCheques();
+begin  
+  FiltroConsForm          := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsFormCBSelCons := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  FiltroConsFormCBData    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  btnOkFiltroConsForm     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  btnVazioFiltroConsForm  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+  btnCancelFiltroConsForm := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;

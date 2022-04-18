@@ -35,8 +35,3 @@ begin
   FiltroSalvarTeste    := DDT.DriverByName(nomeDriver).Value('SALVARTESTE');
 end;
 
-procedure LoadDataPoolProcRapido(pathData, tab: string);
-begin
-  DDT.ExcelDriver(pathData, tab);
-end;
-
