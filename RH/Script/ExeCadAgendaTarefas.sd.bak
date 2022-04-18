@@ -10,19 +10,20 @@ begin
  MapFiltroCadAgenda();
 end;
   
-  procedure PreencherDados();
-begin
+procedure PreencherDados();
+  begin
   VerificaConsultaF3Insere(_ModuloFolha, CadAgendaTarefaEBEstab, CadAgendaTarefaDPEstab);
   VerificaInsere(CadAgendaTarefaEBIdAgeTarefa, CadAgendaTarefaDPIdAgeTarefa);
   PreencheDatas(CadAgendaTarefaEBData,CadAgendaTarefaDPData);
   VerificaInsere(CadAgendaTarefaEBTarefa, CadAgendaTarefaDPTarefa);
-end;
+  end;
   
-  procedure CadastraTarefa(pathData);
-  var DDTTarefas;
-  begin
+procedure CadastraTarefa(pathData);
+var DDTTarefas;
+begin
   DDTTarefas := CarregaDDT(pathData, _Cadastrar);
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  FiltroCadAgenda;
   
   //////////
   
@@ -62,6 +63,7 @@ begin
   DDTTarefas := CarregaDDT(pathData, _Alterar);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  FiltroCadAgenda;
   
   
   while not(DDTTarefas.EOF) do
@@ -77,7 +79,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       ActConsulta(FormTelaConsultaForm);
-      MapCadAgendaTarefas();
+      MapCadAgendaTarefas;
       if (CadAgendaTarefaForm.Exists) then
       begin
         PreencherDados();
@@ -101,6 +103,7 @@ begin
   DDTTarefas := CarregaDDT(pathData, _Excluir);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
+  FiltroCadAgenda;
   
   while not(DDTTarefas.EOF) do
   begin
