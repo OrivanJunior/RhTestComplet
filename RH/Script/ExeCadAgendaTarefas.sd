@@ -10,7 +10,7 @@ begin
  MapFiltroCadAgenda();
 end;
   
-  procedure PreencherDados();
+procedure PreencherDados();
   begin
   VerificaConsultaF3Insere(_ModuloFolha, CadAgendaTarefaEBEstab, CadAgendaTarefaDPEstab);
   VerificaInsere(CadAgendaTarefaEBIdAgeTarefa, CadAgendaTarefaDPIdAgeTarefa);
@@ -18,9 +18,9 @@ end;
   VerificaInsere(CadAgendaTarefaEBTarefa, CadAgendaTarefaDPTarefa);
   end;
   
-  procedure CadastraTarefa(pathData);
-  var DDTTarefas;
-  begin
+procedure CadastraTarefa(pathData);
+var DDTTarefas;
+begin
   DDTTarefas := CarregaDDT(pathData, _Cadastrar);
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
   
@@ -55,7 +55,7 @@ end;
 
  (***************Altera_cadastro_De_Tarefas*****************)
 
-procedure AlteraTarefa(pathData);
+procedure AlteraTarefas(pathData);
 var
   DDTTarefas;
 begin
@@ -76,13 +76,11 @@ begin
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
-     // ActConsulta(FormTelaConsultaForm); -- em casos de formularios para consulta
-  
-      MapCadAgendaTarefas();
-  
+      ActConsulta(FormTelaConsultaForm);
+      MapCadAgendaTarefas;
       if (CadAgendaTarefaForm.Exists) then
       begin
-        PreencherDados(); 
+        PreencherDados();
   
         ActSalvar(CadAgendaTarefaForm);
         ActFechar(CadAgendaTarefaForm);
@@ -107,14 +105,12 @@ begin
   while not(DDTTarefas.EOF) do
   begin
     LeDataPoolCadAgendaTarefas(DDTTarefas.Name);
-  
     MapGridConsulta(_ModuloFolha);
   
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGETAREFA');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHAGETAREFA');
   
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
-  
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       
@@ -125,5 +121,4 @@ begin
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTTarefas.Name);
-end;  
-
+end;

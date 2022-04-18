@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="name" type="S" value="Altera Agenda de Tarefas [Script\ExeCadAgendaTarefas - AlteraTarefas]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44669.4825559722"/>
+				<Prp name="end time" type="D" value="44669.4831173264"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{0E291E7E-99B9-4935-BF1B-C54E33A396DE}"/>
+				<Prp name="index" type="I" value="1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="name" type="S" value="Cadastra Agenda de Tarefas [Script\ExeCadAgendaTarefas - CadastraTarefa]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44669.4823213426"/>
+				<Prp name="end time" type="D" value="44669.4825559143"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{E5698A4E-2EFC-4A6B-9F26-C36EFA0FAE9E}"/>
+				<Prp name="index" type="I" value="0"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="start time" type="D" value="44669.4831174074"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="details" type="S" value="{C0DA120A-EBC0-4F7A-98A9-8EC60880434B}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="44669.4834097685"/>
+				<Prp name="name" type="S" value="Exclui Agenda de Tarefas [Script\ExeCadAgendaTarefas - ExcluirTarefas]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

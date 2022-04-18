@@ -9,7 +9,7 @@ procedure FiltroCadastroCheques();
 begin
   MapFiltroCadastroCheques();
   
-  FiltroConsFormCBSelCons.SetFocus;
+  //FiltroConsFormCBSelCons.SetFocus;
   FiltroConsFormCBSelCons.SetText('Cheque Por Data');
   FiltroConsFormCBData.SelectItem('(Ignorar)');
   btnOkFiltroConsForm.ClickButton;
