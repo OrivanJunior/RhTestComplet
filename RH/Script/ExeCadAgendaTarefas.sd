@@ -23,7 +23,7 @@ var DDTTarefas;
 begin
   DDTTarefas := CarregaDDT(pathData, _Cadastrar);
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
-//  FiltroCadAgenda;
+  //  FiltroCadAgenda;
   
   while not(DDTTarefas.EOF) do
   begin
@@ -61,7 +61,7 @@ begin
   DDTTarefas := CarregaDDT(pathData, _Alterar);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
-//  FiltroCadAgenda;
+  //  FiltroCadAgenda;
   
   
   while not(DDTTarefas.EOF) do
@@ -101,7 +101,7 @@ begin
   DDTTarefas := CarregaDDT(pathData, _Excluir);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agenda de Tarefas');
- // FiltroCadAgenda;
+  // FiltroCadAgenda;
   
   while not(DDTTarefas.EOF) do
   begin
