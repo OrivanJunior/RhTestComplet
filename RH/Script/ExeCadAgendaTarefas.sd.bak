@@ -86,7 +86,7 @@ begin
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
-      ActConsulta(FormTelaConsultaForm);
+     // ActConsulta(FormTelaConsultaForm);
   
       MapCadAgendaTarefas();
   
