@@ -1,0 +1,57 @@
+﻿  uses
+  CommonsAll,
+  VarConsts,
+  CommonsObj, 
+  ObjCadFap,
+  DataPoolCadFap;
+  
+  procedure FiltroCadastroFap();
+  begin
+  MapFiltroCadFap();
+  end;
+  procedure PreencherDados();
+  begin
+  VerificaConsultaF3Insere(CadFapEBEstab,CadFapDPEstab);	        	
+  PreencheDatas(CadFapEBData,CadFapDPData);			  		
+  VerificaInsere(CadFapEBFap,CadFapDPFap);	   		 	 
+  VerificaConsultaF3Insere(CadFapEBIdProcessoJud,CadFapDPIdProcessoJud);
+  end;
+  
+  (*Cadastra*)
+  procedure CadastraFap(PathData);
+  var 
+  DDTFap;
+  begin
+  DDTFap := CarregaDDT(PathData, _Cadastrar);
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
+  
+  while (DDTFap.EOF) do
+  begin
+  LeDataPoolCadfFap(DDTFap.Name);
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFAP');
+      
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
+      if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+      MapCadFap;
+      if (CadAgendaTarefaForm.Exists) then
+      begin
+       PreencherDados();
+        ActSalvar(CadFapForm);
+        ActFechar(CadFapForm);
+      end;
+    end;
+   DDTFap.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFap.Name);
+end;
+   
+  (*Altera*)
+   
+   
+  (*Exclui*)

@@ -886,7 +886,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Agenda de Tarefas" key="{CCC9A84A-4851-471D-97C0-9BEF46DC653D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Agenda de Tarefas" key="{CCC9A84A-4851-471D-97C0-9BEF46DC653D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Agenda de Tarefas" key="{4A344684-093B-4272-AB80-2C684BED9E82}" group="False" parallel="False" enabled="True" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}CadastraTarefa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -904,6 +904,32 @@
 														<children />
 													</testItem>
 													<testItem name="Exclui Agenda de Tarefas" key="{51E83AD2-FE9C-4946-B39B-DA342FF0C0BE}" group="False" parallel="False" enabled="True" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}ExcluirTarefas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Agenda de Tarefas\AgendaDeTarefas.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="FAP" key="{30C4FD61-F714-45DF-8201-EEAE41A36B1E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra FAP" key="{F06A31CE-D825-41B3-9B9E-2C526CAF9F64}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}CadastraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Altera&#32;&#32;FAP" key="{AEA3A345-4124-4FEC-B9E0-0CBCCB9F4BDC}" group="False" parallel="False" enabled="True" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}AlteraTarefas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Agenda de Tarefas\AgendaDeTarefas.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui&#32;&#32;FAP" key="{7F540FB7-6EB4-4134-A4F0-7E8D575384B4}" group="False" parallel="False" enabled="True" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}ExcluirTarefas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Agenda de Tarefas\AgendaDeTarefas.xls" />
 														</testParameters>

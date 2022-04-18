@@ -1,0 +1,31 @@
+﻿{Script para mapear o Cadastro FAP
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/04/2022}
+var
+CadFapForm,					 
+CadFapEBEstab,        
+CadFapEBData,	     
+CadFapEBFap, 		   
+CadFapEBIdProcessoJud,
+
+FiltroFormFap,
+FiltroConsForm : Olevariante;
+
+
+
+procedure MapCadFap();
+begin
+CadFapForm						    := Aliases.Folha.FFormPadraoRHFAP;
+CadFapEBEstab        			:= Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB;
+CadFapEBData		 			    := Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA;
+CadFapEBFap   		 			  := Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FAP;
+CadFapEBIdProcessoJud			:= Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDPROCESSOJUD;
+end;
+
+
+procedure FiltroCadFap();
+begin
+FiltroFormFap			        := Aliases.Folha.VsMenu;
+FiltroConsForm			      := Aliases.Folha.VsMenu.TdxDockControl.ClickItemXY('Menu|Cadastros Específicos|FAP', 53, 16);
+end;

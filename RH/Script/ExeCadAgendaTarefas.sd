@@ -6,11 +6,11 @@
   ObjCadAgendaTarefas;
   
   procedure FiltroCadAgenda;
-begin
- MapFiltroCadAgenda();
-end;
+  begin
+  MapFiltroCadAgenda();
+  end;
   
-procedure PreencherDados();
+  procedure PreencherDados();
   begin
   VerificaConsultaF3Insere(_ModuloFolha, CadAgendaTarefaEBEstab, CadAgendaTarefaDPEstab);
   VerificaInsere(CadAgendaTarefaEBIdAgeTarefa, CadAgendaTarefaDPIdAgeTarefa);

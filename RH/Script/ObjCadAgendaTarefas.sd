@@ -25,8 +25,8 @@ end;
 
 procedure MapFiltroCadAgenda;
 begin
-  FiltroConsForm            := Aliases.Folha.FFiltroConsultaCDS;
-  //FiltroConsForm            := Aliases.Folha.VsMenu;
+  //FiltroConsForm            := Aliases.Folha.FFiltroConsultaCDS;
+  FiltroConsForm            := Aliases.Folha.VsMenu;
   FiltroFormAgendaDeTarefas := Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
 
 end;

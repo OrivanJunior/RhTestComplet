@@ -25,14 +25,8 @@ end;
 
 procedure MapFiltroCadAgenda;
 begin
- FiltroFormAgendaDeTarefas := Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
- FiltroConsForm            := Aliases.Folha.VsMenu;
-// Aliases.Folha.FBRowseCds.BIncluir.Click;
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_ESTAB.Keys('1111[Enter]');
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDAGETAREFA.Keys('1[Enter]');
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DATA.Keys('140422');
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Click(19, 10);
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA.Keys('1');
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.BSalvar.Click(10, 16);
-//  Aliases.Folha.FFormPadraoRHAGETAREFA.Close;
+  FiltroConsForm            := Aliases.Folha.FFiltroConsultaCDS;
+  //FiltroConsForm            := Aliases.Folha.VsMenu;
+  FiltroFormAgendaDeTarefas := Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
+
 end;

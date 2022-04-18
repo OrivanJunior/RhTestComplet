@@ -1,0 +1,14 @@
+﻿var
+CadFapDPEstab,
+CadFapDPData,
+CadFapDPFap,
+CadFapDPIdProcessoJud : OleVariante; 
+
+
+procedure LeDataPoolCadfFap(nomeDriver);
+begin
+CadFapDPEstab       		:= DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadFapDPData		  		  := DDT.DriverByName(nomeDriver).Value('DATA');
+CadFapDPFap   			    := DDT.DriverByName(nomeDriver).Value('FAP');
+CadFapDPIdProcessoJud 	:= DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
+end;
