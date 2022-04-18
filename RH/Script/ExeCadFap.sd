@@ -51,7 +51,79 @@
   DDT.CloseDriver(DDTFap.Name);
 end;
    
-  (*Altera*)
-   
-   
-  (*Exclui*)
+(***************Altera_cadastro_De_FAP*****************)
+
+procedure AlteraFap(pathData);
+var
+  DDTFap;
+begin
+  DDTFap := CarregaDDT(pathData, _Alterar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
+  
+  FiltroCadastroFap();
+  
+  while not(DDTFap.EOF) do
+  begin
+    LeDataPoolCadCheques(DDTFap.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFAP');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Processo', CadFapDPIdProcessoJud);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadFap();
+  
+      if (CadFapForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadFapForm);
+        ActFechar(CadFapForm);
+      end;
+    end;
+    DDTFap.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFap.Name);
+end;
+
+  (**************Excluir_FAP***********************)
+
+procedure ExcluirFap(pathData);
+var
+  DDTFap;
+begin
+  DDTCheques := CarregaDDT(pathData, _Excluir);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
+  
+  FiltroCadastroFap();
+  
+  while not(DDTFap.EOF) do
+  begin
+    LeDataPoolCadFap(DDTFap.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFAP');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Processo', CadFapDPIdProcessoJud);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+    end;
+    DDTFap.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTFap.Name);
+end;

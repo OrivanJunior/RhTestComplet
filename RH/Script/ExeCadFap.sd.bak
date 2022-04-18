@@ -33,12 +33,12 @@
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFAP');
       
-      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadAgendaTarefaDPIdAgeTarefa);
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Processo', CadFapDPIdProcessoJud);
       if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
       ActIncluir(FormTelaConsultaForm);
       MapCadFap;
-      if (CadAgendaTarefaForm.Exists) then
+      if (CadFapForm.Exists) then
       begin
        PreencherDados();
         ActSalvar(CadFapForm);
