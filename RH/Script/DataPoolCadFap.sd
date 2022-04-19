@@ -5,7 +5,7 @@ CadFapDPFap,
 CadFapDPIdProcessoJud : OleVariante; 
 
 
-procedure LeDataPoolCadfFap(nomeDriver);
+procedure LeDataPoolCadFap(nomeDriver);
 begin
 CadFapDPEstab       		:= DDT.DriverByName(nomeDriver).Value('ESTAB');
 CadFapDPData		  		  := DDT.DriverByName(nomeDriver).Value('DATA');

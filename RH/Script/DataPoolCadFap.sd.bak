@@ -7,8 +7,8 @@ CadFapDPIdProcessoJud : OleVariante;
 
 procedure LeDataPoolCadfFap(nomeDriver);
 begin
-CadFapDPEstab       		:= DDT.DriverByName(nomeDriver).Value('DP_ESTAB');
-CadFapDPData		  		  := DDT.DriverByName(nomeDriver).Value('DP_DATA');
-CadFapDPFap   			    := DDT.DriverByName(nomeDriver).Value('DP_FAP');
-CadFapDPIdProcessoJud 	:= DDT.DriverByName(nomeDriver).Value('DP_IDPROCESSOJUD');
+CadFapDPEstab       		:= DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadFapDPData		  		  := DDT.DriverByName(nomeDriver).Value('DATA');
+CadFapDPFap   			    := DDT.DriverByName(nomeDriver).Value('FAP');
+CadFapDPIdProcessoJud 	:= DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
 end;
