@@ -1,0 +1,73 @@
+﻿{Script para mapear o Cadastro de Profissionais
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/04/2022}
+Var
+CadProfissionaisForm,
+CadProfissionaisEBId,
+CadProfissionaisEBNome,
+CadProfissionaisEBEmail,
+CadProfissionaisEBFiliacao,
+CadProfissionaisEBNacionalidade,
+CadProfissionaisEBCpf,
+CadProfissionaisEBNis,
+CadProfissionaisEBTipo,
+
+CadGrpProfissionaisForm,
+CadGrpProfissionaisEBTpProfissional,
+CadGrpProfissionaisEBCbo,
+
+CadGrpMedicosForm,
+CadGrpMedicosEBOrgao,
+CadGrpMedicosEBNumeroOrgao,
+CadGrpMedicosEBUforgao,
+CadGrpMedicosEBSiglaOrgao,
+
+FiltroConsForm,
+FiltroConsCBSelCons,
+FiltroConsCBCod,
+BtnOkFiltroConsForm,
+BtnVazioFiltroConsForm,
+BtnCancelFiltroConsForm : OleVariant;
+
+
+ procedure MapCadProfissionais();
+ begin
+ CadProfissionaisForm				      := Aliases.Folha.FRhProf;
+ CadProfissionaisEBId           	:= Aliases.Folha.FRhProf.pnl1.EB_ID;
+ CadProfissionaisEBNome         	:= Aliases.Folha.FRhProf.pnl1.EB_NOME;
+ CadProfissionaisEBEmail        	:= Aliases.Folha.FRhProf.pnl1.EB_EMAIL;
+ CadProfissionaisEBFiliacao     	:= Aliases.Folha.FRhProf.pnl1.EB_FILIACAO;
+ CadProfissionaisEBNacionalidade	:= Aliases.Folha.FRhProf.pnl1.EB_NACIONALIDADE;    
+ CadProfissionaisEBCpf          	:= Aliases.Folha.FRhProf.pnl1.EB_CPF;
+ CadProfissionaisEBNis          	:= Aliases.Folha.FRhProf.pnl1.EB_NIS;
+ CadProfissionaisEBTipo         	:= Aliases.Folha.FRhProf.pnl1.EB_TIPO;
+
+ end;
+ 
+ procedure MapCadGrpProfissional();
+ begin
+ CadGrpProfissionaisForm				             := Aliases.Folha.FRhProf.pnl1.grpProfissional;
+ CadGrpProfissionaisEBTpProfissional    		 := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_TPPROFISSIONAL;
+ CadGrpProfissionaisEBCbo 	            		 := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_CBO;
+ end;
+ 
+ procedure MapCadGrpMedico();
+ begin
+ CadGrpMedicosForm			                     := Aliases.Folha.FRhProf.pnl1.grpMedico;			
+ CadGrpMedicosEBOrgao		                     := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_ORGAO;	 
+ CadGrpMedicosEBNumeroOrgao	                 := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_NUMEROORGAO;
+ CadGrpMedicosEBUforgao		                   := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_UFORGAO; 
+ CadGrpMedicosEBSiglaOrgao	                 := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_SIGLAORGAO;
+ end;
+ 
+ procedure MapFiltroCadProfissionais();
+ begin
+ FiltroConsForm					          := Aliases.Folha.FFiltroConsultaCDS;
+ FiltroConsCBSelCons				      := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+ FiltroConsCBCod					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+ BtnOkFiltroConsForm    			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+ BtnVazioFiltroConsForm			      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+ BtnCancelFiltroConsForm			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+ end;
+ 

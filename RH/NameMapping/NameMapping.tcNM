@@ -52852,7 +52852,6 @@
 								</Children>
 							</Child>
 							<Child Name="FFundoTalentRh" Key="{769F65F8-DE6E-4BBA-8427-4C606CCDFA24}">
-								<Image FileName="-599845892" Left="0" Top="0" Right="1366" Bottom="728" />
 								<TypeInfo Item0="{D9F81415-53CE-416A-B397-DBC5B0F5F67E}" />
 								<Properties>
 									<Property Name="ClassName">
@@ -52957,6 +52956,230 @@
 																</Properties>
 															</Child>
 														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="FRhProf" Key="{36CD7979-7673-421F-A6EB-8DD2B2932EBF}">
+								<Image FileName="-1308966582" Left="0" Top="0" Right="1366" Bottom="603" />
+								<TypeInfo Item0="{D2A76756-AA39-4F24-A148-D22E008A0003}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhProf" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhProf" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="pnl1" Key="{B4ED94F0-B43C-4E54-9305-70A60230971E}">
+										<Image FileName="-2017797575" Left="8" Top="61" Right="1358" Bottom="576" />
+										<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TPanel" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="pnl1" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="EB_ID" Key="{03F98504-7099-4A6F-A5FA-1F859039F381}">
+												<Image FileName="-2017797575" Left="178" Top="77" Right="325" Bottom="98" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_ID" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_NOME" Key="{AA597F9C-A395-4345-BC1F-5772F0440385}">
+												<Image FileName="-1871818891" Left="178" Top="104" Right="539" Bottom="124" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_NOME" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_EMAIL" Key="{2FD69B56-B323-4A24-9E01-A1A2DEA6691A}">
+												<Image FileName="-898708634" Left="178" Top="130" Right="539" Bottom="149" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_EMAIL" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_FILIACAO" Key="{322E4030-D3AE-4E0E-878E-666838CCE05E}">
+												<Image FileName="2061610854" Left="178" Top="155" Right="539" Bottom="174" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_FILIACAO" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_NACIONALIDADE" Key="{34946B49-EB78-4CBF-A2E7-F52E9003AB61}">
+												<Image FileName="479264363" Left="178" Top="181" Right="379" Bottom="202" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsComboRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_NACIONALIDADE" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_CPF" Key="{A1DC22CA-E1E2-4A6A-A02B-A1DA945881CE}">
+												<Image FileName="-1365937299" Left="178" Top="208" Right="379" Bottom="228" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_CPF" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_NIS" Key="{F48D6A9D-9441-475E-B093-149998DB4297}">
+												<Image FileName="-56422823" Left="178" Top="234" Right="379" Bottom="254" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_NIS" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_TIPO" Key="{08B279FB-9F9D-4523-8B44-C5458273C4B1}">
+												<Image FileName="2088780703" Left="178" Top="260" Right="379" Bottom="281" />
+												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsComboRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_TIPO" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="grpProfissional" Key="{1629BF31-160E-4AA1-8C83-EDD497F54E19}">
+												<Image FileName="520484323" Left="19" Top="289" Right="560" Bottom="395" />
+												<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TGroupBox" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="grpProfissional" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="EB_TPPROFISSIONAL" Key="{22094E44-BF87-4F4D-B9B6-49775DEE90A0}">
+														<Image FileName="2075233087" Left="178" Top="302" Right="539" Bottom="323" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsComboRight" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_TPPROFISSIONAL" />
+															</Property>
+														</Properties>
+													</Child>
+													<Child Name="EB_CBO" Key="{1BC8BA29-F1F6-4ED8-A53B-97969C15F0BC}">
+														<Image FileName="-635535164" Left="178" Top="355" Right="539" Bottom="374" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsEditLookup" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_CBO" />
+															</Property>
+														</Properties>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="grpMedico" Key="{E048E1B4-F683-46DE-8939-84EB1D151815}">
+												<Image FileName="-468704781" Left="19" Top="395" Right="560" Bottom="525" />
+												<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TGroupBox" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="grpMedico" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="EB_ORGAO" Key="{0CF259D7-D4D8-4FB2-89DA-10C4A5BA1F53}">
+														<Image FileName="1514648069" Left="178" Top="409" Right="539" Bottom="430" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsComboRight" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_ORGAO" />
+															</Property>
+														</Properties>
+													</Child>
+													<Child Name="EB_NUMEROORGAO" Key="{BA412248-DE28-48C3-B4AD-181218D9DBD7}">
+														<Image FileName="1616561877" Left="178" Top="436" Right="539" Bottom="456" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsEditRight" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_NUMEROORGAO" />
+															</Property>
+														</Properties>
+													</Child>
+													<Child Name="EB_UFORGAO" Key="{478BCF12-16A7-4B95-817F-C2D4E7F42E77}">
+														<Image FileName="-1192901051" Left="178" Top="462" Right="539" Bottom="481" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsEditLookup" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_UFORGAO" />
+															</Property>
+														</Properties>
+													</Child>
+													<Child Name="EB_SIGLAORGAO" Key="{7E36758E-A67D-4896-A2BA-1DDEA126E59D}">
+														<Image FileName="-1446252447" Left="178" Top="487" Right="539" Bottom="507" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsEditRight" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_SIGLAORGAO" />
+															</Property>
+														</Properties>
 													</Child>
 												</Children>
 											</Child>
@@ -74507,6 +74730,28 @@
 							<Child Name="EB_FAP" Owner="{7F329FD5-7B7D-44A8-859C-A30A784EFDA0}" />
 							<Child Name="EB_IDPROCESSOJUD" Owner="{6C46F479-C430-431E-9923-D10561A63995}" />
 						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="FRhProf" Owner="{36CD7979-7673-421F-A6EB-8DD2B2932EBF}">
+				<Child Name="pnl1" Owner="{B4ED94F0-B43C-4E54-9305-70A60230971E}">
+					<Child Name="EB_ID" Owner="{03F98504-7099-4A6F-A5FA-1F859039F381}" />
+					<Child Name="EB_NOME" Owner="{AA597F9C-A395-4345-BC1F-5772F0440385}" />
+					<Child Name="EB_EMAIL" Owner="{2FD69B56-B323-4A24-9E01-A1A2DEA6691A}" />
+					<Child Name="EB_FILIACAO" Owner="{322E4030-D3AE-4E0E-878E-666838CCE05E}" />
+					<Child Name="EB_NACIONALIDADE" Owner="{34946B49-EB78-4CBF-A2E7-F52E9003AB61}" />
+					<Child Name="EB_CPF" Owner="{A1DC22CA-E1E2-4A6A-A02B-A1DA945881CE}" />
+					<Child Name="EB_NIS" Owner="{F48D6A9D-9441-475E-B093-149998DB4297}" />
+					<Child Name="EB_TIPO" Owner="{08B279FB-9F9D-4523-8B44-C5458273C4B1}" />
+					<Child Name="grpProfissional" Owner="{1629BF31-160E-4AA1-8C83-EDD497F54E19}">
+						<Child Name="EB_TPPROFISSIONAL" Owner="{22094E44-BF87-4F4D-B9B6-49775DEE90A0}" />
+						<Child Name="EB_CBO" Owner="{1BC8BA29-F1F6-4ED8-A53B-97969C15F0BC}" />
+					</Child>
+					<Child Name="grpMedico" Owner="{E048E1B4-F683-46DE-8939-84EB1D151815}">
+						<Child Name="EB_ORGAO" Owner="{0CF259D7-D4D8-4FB2-89DA-10C4A5BA1F53}" />
+						<Child Name="EB_NUMEROORGAO" Owner="{BA412248-DE28-48C3-B4AD-181218D9DBD7}" />
+						<Child Name="EB_UFORGAO" Owner="{478BCF12-16A7-4B95-817F-C2D4E7F42E77}" />
+						<Child Name="EB_SIGLAORGAO" Owner="{7E36758E-A67D-4896-A2BA-1DDEA126E59D}" />
 					</Child>
 				</Child>
 			</Child>

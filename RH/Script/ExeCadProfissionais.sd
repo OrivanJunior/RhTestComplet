@@ -1,0 +1,20 @@
+﻿uses
+VarConsts,
+CommonsAll,
+CommonsObj,
+DataPoolCadProfissionais,
+ObjCadProfissionais;
+
+procedure FiltroCadastroProfissionais();
+begin
+MapFiltroCadProfissionais;
+FiltroConsCBSelCons('Profissional por Código');
+FiltroConsCBCod.SelectItem(('Ignorar'));
+BtnOkFiltroConsForm.ClickButton;
+end;
+
+procedure PreencheDadosCadastroProfissionais();
+begin
+
+
+end;
