@@ -1,9 +1,11 @@
 ﻿{Script para mapear o Cadastro de Profissionais
- Módulo: Folha
- Autor: Orivan lemes dos Santos Junior
- Data: 19/04/2022}
+Módulo: Folha
+Autor: Orivan lemes dos Santos Junior
+Data: 19/04/2022}
 Var
 CadProfissionaisForm,
+
+{Informações do profissional}
 CadProfissionaisEBId,
 CadProfissionaisEBNome,
 CadProfissionaisEBEmail,
@@ -13,17 +15,20 @@ CadProfissionaisEBCpf,
 CadProfissionaisEBNis,
 CadProfissionaisEBTipo,
 
+{Informações do profissional grupo 1}
 CadGrpProfissionaisForm,
 CadGrpProfissionaisEBFormacao,
 CadGrpProfissionaisEBTpProfissional,
 CadGrpProfissionaisEBCbo,
 
+{Informações do profissional grupo 2}
 CadGrpMedicosForm,
 CadGrpMedicosEBOrgao,
 CadGrpMedicosEBNumeroOrgao,
 CadGrpMedicosEBUforgao,
 CadGrpMedicosEBSiglaOrgao,
 
+{Filtro de Profissionais}
 FiltroConsForm,
 FiltroConsCBSelCons,
 FiltroConsCBCod,
@@ -31,10 +36,11 @@ BtnOkFiltroConsForm,
 BtnVazioFiltroConsForm,
 BtnCancelFiltroConsForm : OleVariant;
 
-
  procedure MapCadProfissionais();
  begin
  CadProfissionaisForm				                := Aliases.Folha.FRhProf;
+ 
+ {Informações do profissional}
  CadProfissionaisEBId           	          := Aliases.Folha.FRhProf.pnl1.EB_ID;
  CadProfissionaisEBNome         	          := Aliases.Folha.FRhProf.pnl1.EB_NOME;
  CadProfissionaisEBEmail        	          := Aliases.Folha.FRhProf.pnl1.EB_EMAIL;
@@ -44,11 +50,13 @@ BtnCancelFiltroConsForm : OleVariant;
  CadProfissionaisEBNis          	          := Aliases.Folha.FRhProf.pnl1.EB_NIS;
  CadProfissionaisEBTipo         	          := Aliases.Folha.FRhProf.pnl1.EB_TIPO;
  
+ {Informações do profissional grupo 1}
  CadGrpProfissionaisForm				            := Aliases.Folha.FRhProf.pnl1.grpProfissional;
  CadGrpProfissionaisEBFormacao              := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_FORMACAO;
  CadGrpProfissionaisEBTpProfissional    	  := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_TPPROFISSIONAL;
  CadGrpProfissionaisEBCbo 	            		:= Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_CBO;
  
+ {Informações do profissional grupo 2}
  CadGrpMedicosForm			                    := Aliases.Folha.FRhProf.pnl1.grpMedico;			
  CadGrpMedicosEBOrgao		                    := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_ORGAO;	 
  CadGrpMedicosEBNumeroOrgao	                := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_NUMEROORGAO;
