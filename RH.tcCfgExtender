@@ -3805,7 +3805,7 @@
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="28"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="20"/>
 						</Node>
 						<Node name="3">
@@ -10813,7 +10813,7 @@
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="79"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="70"/>
 						</Node>
 						<Prp name="bottom" type="I" value="79"/>
@@ -12941,10 +12941,15 @@
 									<Node name="feriados"/>
 								</Node>
 								<Node name="cadastros gerais">
+									<Node name="gerais"/>
+									<Node name="pessoas"/>
+									<Node name="prestadores"/>
 									<Node name="profissionais"/>
+									<Node name="sindicatos"/>
 								</Node>
 							</Node>
 						</Node>
+						<Node name="testedapps"/>
 					</Node>
 				</Node>
 				<Node name="rh logs">

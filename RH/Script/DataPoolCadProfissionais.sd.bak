@@ -18,3 +18,24 @@ CadGrpMedicosDPOrgao,
 CadGrpMedicosDPNumeroOrgao,
 CadGrpMedicosDPUforgao,
 CadGrpMedicosDPSiglaOrgao: OleVariant;
+
+procedure LeDataPoolCadastroProfissionais(nomeDriver);
+begin
+CadProfissionaisDPId						      := DDT.DriverByName(nomeDriver).Value('ID');
+CadProfissionaisDPNome						    := DDT.DriverByName(nomeDriver).Value('NOME');
+CadProfissionaisDPEmail						    := DDT.DriverByName(nomeDriver).Value('EMAIL');
+CadProfissionaisDPFiliacao				    := DDT.DriverByName(nomeDriver).Value('FILIACAO');
+CadProfissionaisDPNacionalidade		    := DDT.DriverByName(nomeDriver).Value('NACIONALIDADE');
+CadProfissionaisDPCpf						      := DDT.DriverByName(nomeDriver).Value('CPF');
+CadProfissionaisDPNis						      := DDT.DriverByName(nomeDriver).Value('NIS');
+CadProfissionaisDPTipo						    := DDT.DriverByName(nomeDriver).Value('TIPO');
+
+CadGrpProfissionaisEBFormacao         := DDT.DriverByName(nomeDriver).Value('FORMACAO');
+CadGrpProfissionaisDPTpProfissional   := DDT.DriverByName(nomeDriver).Value('TPPROFISSIONAL');
+CadGrpProfissionaisDPCbo              := DDT.DriverByName(nomeDriver).Value('CBO');
+
+CadGrpMedicosDPOrgao                  := DDT.DriverByName(nomeDriver).Value('ORGAO');
+CadGrpMedicosDPNumeroOrgao				    := DDT.DriverByName(nomeDriver).Value('NUMEROORGAO');
+CadGrpMedicosDPUforgao    				    := DDT.DriverByName(nomeDriver).Value('UFORGAO');
+CadGrpMedicosDPSiglaOrgao				      := DDT.DriverByName(nomeDriver).Value('SIGLAORGAO');
+end;

@@ -53119,6 +53119,18 @@
 															</Property>
 														</Properties>
 													</Child>
+													<Child Name="EB_FORMACAO" Key="{C8B4AF25-B99C-460C-B1EB-D204F481C843}">
+														<Image FileName="1663067940" Left="178" Top="329" Right="539" Bottom="349" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsEditRight" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="EB_FORMACAO" />
+															</Property>
+														</Properties>
+													</Child>
 												</Children>
 											</Child>
 											<Child Name="grpMedico" Key="{E048E1B4-F683-46DE-8939-84EB1D151815}">
@@ -74746,6 +74758,7 @@
 					<Child Name="grpProfissional" Owner="{1629BF31-160E-4AA1-8C83-EDD497F54E19}">
 						<Child Name="EB_TPPROFISSIONAL" Owner="{22094E44-BF87-4F4D-B9B6-49775DEE90A0}" />
 						<Child Name="EB_CBO" Owner="{1BC8BA29-F1F6-4ED8-A53B-97969C15F0BC}" />
+						<Child Name="EB_FORMACAO" Owner="{C8B4AF25-B99C-460C-B1EB-D204F481C843}" />
 					</Child>
 					<Child Name="grpMedico" Owner="{E048E1B4-F683-46DE-8939-84EB1D151815}">
 						<Child Name="EB_ORGAO" Owner="{0CF259D7-D4D8-4FB2-89DA-10C4A5BA1F53}" />

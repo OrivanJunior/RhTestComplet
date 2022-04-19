@@ -1,5 +1,4 @@
 ﻿var 
-CadProfissionaisForm,
 CadProfissionaisDPId,
 CadProfissionaisDPNome,
 CadProfissionaisDPEmail,
@@ -9,11 +8,10 @@ CadProfissionaisDPCpf,
 CadProfissionaisDPNis,
 CadProfissionaisDPTipo,
 
-CadGrpProfissionaisForm,
+CadGrpProfissionaisDPFormacao,
 CadGrpProfissionaisDPTpProfissional,
 CadGrpProfissionaisDPCbo,
 
-CadGrpMedicosForm,
 CadGrpMedicosDPOrgao,
 CadGrpMedicosDPNumeroOrgao,
 CadGrpMedicosDPUforgao,
@@ -30,7 +28,8 @@ CadProfissionaisDPCpf						      := DDT.DriverByName(nomeDriver).Value('CPF');
 CadProfissionaisDPNis						      := DDT.DriverByName(nomeDriver).Value('NIS');
 CadProfissionaisDPTipo						    := DDT.DriverByName(nomeDriver).Value('TIPO');
 
-CadGrpProfissionaisDPTpProfissional   := DDT.DriverByName(nomeDriver).Value('TPProfissional');
+CadGrpProfissionaisDPFormacao         := DDT.DriverByName(nomeDriver).Value('FORMACAO');
+CadGrpProfissionaisDPTpProfissional   := DDT.DriverByName(nomeDriver).Value('TPPROFISSIONAL');
 CadGrpProfissionaisDPCbo              := DDT.DriverByName(nomeDriver).Value('CBO');
 
 CadGrpMedicosDPOrgao                  := DDT.DriverByName(nomeDriver).Value('ORGAO');
@@ -38,4 +37,3 @@ CadGrpMedicosDPNumeroOrgao				    := DDT.DriverByName(nomeDriver).Value('NUMEROO
 CadGrpMedicosDPUforgao    				    := DDT.DriverByName(nomeDriver).Value('UFORGAO');
 CadGrpMedicosDPSiglaOrgao				      := DDT.DriverByName(nomeDriver).Value('SIGLAORGAO');
 end;
-
