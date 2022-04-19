@@ -23,11 +23,7 @@
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
 				<Prp name="activity" type="S" value="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -359,27 +355,27 @@
 					<Node name="{020d80b6-b737-4c00-84b0-0c4193477cbb}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="9"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="6"/>
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="17"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="14"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="32"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="19"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="64"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="34"/>
 						</Node>
 						<Node name="4">
 							<Prp name="bottom" type="I" value="96"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="66"/>
 						</Node>
 						<Node name="5">
@@ -709,7 +705,7 @@
 					<Node name="{0a90296f-bb6e-4ae4-a1fc-2b77313fcc87}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="13"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="10"/>
 						</Node>
 						<Node name="1">
@@ -12910,9 +12906,10 @@
 							</Node>
 							<Node name="folha">
 								<Node name="cadastros específicos">
-									<Node name="agenda de tarefas"/>
-									<Node name="cheques"/>
 									<Node name="fap"/>
+								</Node>
+								<Node name="cadastros gerais">
+									<Node name="tomadores"/>
 								</Node>
 							</Node>
 						</Node>
