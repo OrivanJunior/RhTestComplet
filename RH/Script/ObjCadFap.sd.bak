@@ -10,7 +10,7 @@ CadFapEBFap,
 CadFapEBIdProcessoJud,
 
 FiltroFormFap,
-FiltroConsForm : Olevariante;
+FiltroConsForm : OleVariant;
 
 
 
@@ -24,7 +24,7 @@ CadFapEBIdProcessoJud			:= Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc
 end;
 
 
-procedure FiltroCadFap();
+procedure MapFiltroCadFap();
 begin
 FiltroFormFap			        := Aliases.Folha.VsMenu;
 FiltroConsForm			      := Aliases.Folha.VsMenu.TdxDockControl.ClickItemXY('Menu|Cadastros Específicos|FAP', 53, 16);

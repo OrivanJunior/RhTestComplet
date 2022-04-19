@@ -9,20 +9,21 @@
   begin
   MapFiltroCadFap();
   end;
+  
   procedure PreencherDados();
   begin
-  VerificaConsultaF3Insere(CadFapEBEstab,CadFapDPEstab);	        	
+  VerificaConsultaF3Insere(_ModuloFolha,CadFapEBEstab,CadFapDPEstab);	        	
   PreencheDatas(CadFapEBData,CadFapDPData);			  		
   VerificaInsere(CadFapEBFap,CadFapDPFap);	   		 	 
-  VerificaConsultaF3Insere(CadFapEBIdProcessoJud,CadFapDPIdProcessoJud);
+  VerificaConsultaF3Insere(_ModuloFolha,CadFapEBIdProcessoJud,CadFapDPIdProcessoJud);
   end;
   
   (*Cadastra*)
-  procedure CadastraFap(PathData);
+  procedure CadastraFap(pathData);
   var 
   DDTFap;
   begin
-  DDTFap := CarregaDDT(PathData, _Cadastrar);
+  DDTFap := CarregaDDT(pathData, _Cadastrar);
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
   
   while (DDTFap.EOF) do
