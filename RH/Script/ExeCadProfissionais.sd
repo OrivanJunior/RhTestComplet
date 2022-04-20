@@ -54,7 +54,7 @@ begin
   
   FiltroCadastroProfissionais();
   
-{enquanto não for o fim do arquivo faça..}
+  {enquanto não for o fim do arquivo faça..}
   while not(DDTProfissionais.EOF) do
   begin
     LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
@@ -64,7 +64,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadProfissionaisDPId);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
       ActIncluir(FormTelaConsultaForm);
@@ -86,13 +86,13 @@ end;
   
 {Altera}
 
-procedure AlteraCheque(pathData);
+procedure AlteraProfissionais(pathData);
 var
-  DDTCheques;
+  DDTProfissionais;
 begin
-  DDTCheques := CarregaDDT(pathData, _Alterar);
+  DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
-  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
   FiltroCadastroProfissionais();
   
@@ -105,7 +105,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadProfissionaisDPId);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       ActConsulta(FormTelaConsultaForm);
@@ -120,10 +120,10 @@ begin
         ActFechar(CadProfissionaisForm);
       end;
     end;
-    DDTCheques.Next;
+    DDTProfissionais.Next;
   end;
   ActFechar(FormTelaConsultaForm);
-  DDT.CloseDriver(DDTCheques.Name);
+  DDT.CloseDriver(DDTProfissionais.Name);
 end;
 
 {Exclui}
@@ -147,7 +147,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadProfissionaisDPId);
   
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin

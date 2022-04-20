@@ -50,14 +50,16 @@ BtnCancelFiltroConsForm : OleVariant;
  CadProfissionaisEBNis          	          := Aliases.Folha.FRhProf.pnl1.EB_NIS;
  CadProfissionaisEBTipo         	          := Aliases.Folha.FRhProf.pnl1.EB_TIPO;
  
- {Informações do profissional grupo 1}
+
  CadGrpProfissionaisForm				            := Aliases.Folha.FRhProf.pnl1.grpProfissional;
+ {Informações do profissional grupo 1}
  CadGrpProfissionaisEBFormacao              := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_FORMACAO;
  CadGrpProfissionaisEBTpProfissional    	  := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_TPPROFISSIONAL;
  CadGrpProfissionaisEBCbo 	            		:= Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_CBO;
  
- {Informações do profissional grupo 2}
- CadGrpMedicosForm			                    := Aliases.Folha.FRhProf.pnl1.grpMedico;			
+ 
+ CadGrpMedicosForm			                    := Aliases.Folha.FRhProf.pnl1.grpMedico;
+ {Informações do profissional grupo 2}			
  CadGrpMedicosEBOrgao		                    := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_ORGAO;	 
  CadGrpMedicosEBNumeroOrgao	                := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_NUMEROORGAO;
  CadGrpMedicosEBUforgao		                  := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_UFORGAO; 

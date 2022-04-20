@@ -691,26 +691,23 @@
 											<testItem name="Profissionais" key="{6AFA5CDE-063F-4415-AB8A-CB77CC2BA5A9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra Profissionais" key="{5889A41B-51A7-4237-B4B5-5ED617244A1F}" group="False" parallel="False" enabled="True" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}CadastraHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Cadastra Profissionais" key="{5889A41B-51A7-4237-B4B5-5ED617244A1F}" group="False" parallel="False" enabled="True" testMoniker="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}CadastraProfissionais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-															<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Profissionais\CadProfissionais.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Altera Profissionais" key="{2B93A40F-C412-4150-929C-0FB18E9B2C88}" group="False" parallel="False" enabled="True" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}AlteraHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Altera Profissionais" key="{2B93A40F-C412-4150-929C-0FB18E9B2C88}" group="False" parallel="False" enabled="True" testMoniker="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}AlteraProfissionais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-															<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Profissionais\CadProfissionais.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Exclui Profissionais" key="{3DA182DD-95A5-4EF2-A3CB-9DD9A4E9ACF3}" group="False" parallel="False" enabled="True" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}ExcluiHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Exclui Profissionais" key="{3DA182DD-95A5-4EF2-A3CB-9DD9A4E9ACF3}" group="False" parallel="False" enabled="True" testMoniker="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}ExcluirProfissionais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-															<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Profissionais\CadProfissionais.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
