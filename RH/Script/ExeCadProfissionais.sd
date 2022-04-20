@@ -45,8 +45,8 @@ end;
 {Cadastra}
 
 procedure CadastraProfissionais(pathData);
-var
-  DDTProfissionais;
+//var
+//  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
 
@@ -87,8 +87,8 @@ end;
 {Altera}
 
 procedure AlteraProfissionais(pathData);
-var
-  DDTProfissionais;
+//var
+//  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
@@ -106,7 +106,7 @@ begin
     ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadProfissionaisDPId);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
     begin
       ActConsulta(FormTelaConsultaForm);
   
@@ -129,8 +129,8 @@ end;
 {Exclui}
 
 procedure ExcluirProfissionais(pathData);
-var
-  DDTProfissionais;
+//var
+//  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Excluir);
   

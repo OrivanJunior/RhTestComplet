@@ -45,8 +45,8 @@ end;
 {Cadastra}
 
 procedure CadastraProfissionais(pathData);
-var
-  DDTProfissionais;
+//var
+//  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
 
@@ -54,7 +54,7 @@ begin
   
   FiltroCadastroProfissionais();
   
-{enquanto não for o fim do arquivo faça..}
+  {enquanto não for o fim do arquivo faça..}
   while not(DDTProfissionais.EOF) do
   begin
     LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
@@ -64,7 +64,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
       ActIncluir(FormTelaConsultaForm);
@@ -86,13 +86,13 @@ end;
   
 {Altera}
 
-procedure AlteraCheque(pathData);
-var
-  DDTCheques;
+procedure AlteraProfissionais(pathData);
+//var
+//  DDTProfissionais;
 begin
-  DDTCheques := CarregaDDT(pathData, _Alterar);
+  DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
-  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
   FiltroCadastroProfissionais();
   
@@ -105,8 +105,8 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
     begin
       ActConsulta(FormTelaConsultaForm);
   
@@ -120,17 +120,17 @@ begin
         ActFechar(CadProfissionaisForm);
       end;
     end;
-    DDTCheques.Next;
+    DDTProfissionais.Next;
   end;
   ActFechar(FormTelaConsultaForm);
-  DDT.CloseDriver(DDTCheques.Name);
+  DDT.CloseDriver(DDTProfissionais.Name);
 end;
 
 {Exclui}
 
 procedure ExcluirProfissionais(pathData);
-var
-  DDTProfissionais;
+//var
+//  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Excluir);
   
@@ -147,9 +147,9 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
   
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 3) then
     begin
       
       ActExcluir(_ModuloFolha, 'FBRowseCds');
