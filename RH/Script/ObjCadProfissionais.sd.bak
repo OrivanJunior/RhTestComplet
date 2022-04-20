@@ -28,13 +28,18 @@ CadGrpMedicosEBNumeroOrgao,
 CadGrpMedicosEBUforgao,
 CadGrpMedicosEBSiglaOrgao,
 
+{filtro teste}
+FiltroFormulario,
+FiltroConsItem, 
+FiltroConsItem2,
+
 {Filtro de Profissionais}
 FiltroConsForm,
 FiltroConsCBSelCons,
 FiltroConsCBCod,
 BtnOkFiltroConsForm,
 BtnVazioFiltroConsForm,
-BtnCancelFiltroConsForm : OleVariant;
+BtnCancelFiltroConsForm: OleVariant;
 
  procedure MapCadProfissionais();
  begin
@@ -50,14 +55,16 @@ BtnCancelFiltroConsForm : OleVariant;
  CadProfissionaisEBNis          	          := Aliases.Folha.FRhProf.pnl1.EB_NIS;
  CadProfissionaisEBTipo         	          := Aliases.Folha.FRhProf.pnl1.EB_TIPO;
  
- {Informações do profissional grupo 1}
+
  CadGrpProfissionaisForm				            := Aliases.Folha.FRhProf.pnl1.grpProfissional;
+ {Informações do profissional grupo 1}
  CadGrpProfissionaisEBFormacao              := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_FORMACAO;
  CadGrpProfissionaisEBTpProfissional    	  := Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_TPPROFISSIONAL;
  CadGrpProfissionaisEBCbo 	            		:= Aliases.Folha.FRhProf.pnl1.grpProfissional.EB_CBO;
  
- {Informações do profissional grupo 2}
- CadGrpMedicosForm			                    := Aliases.Folha.FRhProf.pnl1.grpMedico;			
+ 
+ CadGrpMedicosForm			                    := Aliases.Folha.FRhProf.pnl1.grpMedico;
+ {Informações do profissional grupo 2}			
  CadGrpMedicosEBOrgao		                    := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_ORGAO;	 
  CadGrpMedicosEBNumeroOrgao	                := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_NUMEROORGAO;
  CadGrpMedicosEBUforgao		                  := Aliases.Folha.FRhProf.pnl1.grpMedico.EB_UFORGAO; 
@@ -65,12 +72,20 @@ BtnCancelFiltroConsForm : OleVariant;
  
  end;
  
- procedure MapFiltroCadProfissionais();
- begin
- FiltroConsForm					                    := Aliases.Folha.FFiltroConsultaCDS;
- FiltroConsCBSelCons				                := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
- FiltroConsCBCod					                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
- BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
- BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
- BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
- end;
+// procedure MapFiltroCadProfissionais();
+// begin
+// FiltroConsForm					                    := Aliases.Folha.FFiltroConsultaCDS;
+// FiltroConsCBSelCons				                := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+// FiltroConsCBCod					                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+// BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+// BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+// BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+// 
+// end;
+procedure MapFiltroCadProfissionais();
+begin
+FiltroFormulario	  	:= Aliases.Folha.VsMenu.TdxDockControl.ClickItemXY('Menu|Cadastros Gerais|Profissionais', 72, 8);
+FiltroConsCBSelCons 	:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1.Click();
+FiltroConsItem  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item.Click();
+FiltroConsItem2  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item.Keys('99');
+end;

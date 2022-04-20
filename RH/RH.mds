@@ -607,21 +607,21 @@
 												<children>
 													<testItem name="Cadastrar Prestador" key="{8E89F40E-5F74-4212-AC1D-0D3256FDAB9B}" group="False" parallel="False" enabled="True" testMoniker="{49C5F2A1-7C7E-468F-B6AD-24BF13C61DFB}ExeCadastraPrestadores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
 													<testItem name="Alterar Prestador" key="{11FF0A50-8A30-492B-9378-2326518C5857}" group="False" parallel="False" enabled="True" testMoniker="{49C5F2A1-7C7E-468F-B6AD-24BF13C61DFB}ExeAlteraPrestadores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
 													<testItem name="Excluir Prestador" key="{743FE118-DD63-42D9-9C68-511236C988EE}" group="False" parallel="False" enabled="True" testMoniker="{49C5F2A1-7C7E-468F-B6AD-24BF13C61DFB}ExeExcluirPrestadores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Prestadores\CadPrestador.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
@@ -938,7 +938,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="FAP" key="{30C4FD61-F714-45DF-8201-EEAE41A36B1E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="FAP" key="{30C4FD61-F714-45DF-8201-EEAE41A36B1E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra FAP" key="{F06A31CE-D825-41B3-9B9E-2C526CAF9F64}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}CadastraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">

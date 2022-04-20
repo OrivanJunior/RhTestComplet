@@ -16,14 +16,14 @@ end;
 procedure FiltroCadastroProfissionais();
 begin
 MapFiltroCadProfissionais;
-//FiltroConsFormCBSelCons.SelectFirst;
-//FiltroConsFormCBSelCons.Keys('[Enter]');
-FiltroConsCBSelCons('Profissional por Código');
-FiltroConsCBCod.SelectItem('(Ignorar)');
-BtnOkFiltroConsForm.ClickButton;
+
+FiltroConsCBSelCons.SelectFirst;
+FiltroConsCBSelCons.Keys('[Enter]');
+FiltroConsCBCod.SelectItem('(Igual)');
+btnOkFiltroConsForm.ClickButton;
 end;
 
-procedure PreencheDadosCadastroProfissionais();
+procedure PreencherDados();
 begin
 VerificaInsere(CadProfissionaisEBId,CadProfissionaisDPId);	       
 VerificaInsere(CadProfissionaisEBNome,CadProfissionaisDPNome);	        
@@ -32,23 +32,22 @@ VerificaInsere(CadProfissionaisEBFiliacao,CadProfissionaisDPFiliacao);
 VerificaInsere(CadProfissionaisEBNacionalidade,CadProfissionaisDPNacionalidade);       
 VerificaInsere(CadProfissionaisEBCpf,CadProfissionaisDPCpf);	       
 VerificaInsere(CadProfissionaisEBNis,CadProfissionaisDPNis);	       
-VerificaInsere(CadProfissionaisEBTipo,CadProfissionaisDPTipo);	       				 
-VerificaInsere(CadGrpProfissionaisEBFormacao,CadGrpProfissionaisDPFormacao);      
-VerificaInsere(CadGrpProfissionaisEBTpProfissional,CadGrpProfissionaisDPTpProfissional);      
-VerificaConsultaF3Insere(CadGrpProfissionaisEBCbo,CadGrpProfissionaisDPCbo);      						 
+VerificaInsere(CadProfissionaisEBTipo,CadProfissionaisDPTipo);
+VerificaInsere(CadGrpProfissionaisEBTpProfissional,CadGrpProfissionaisDPTpProfissional); 	       				 
+VerificaInsere(CadGrpProfissionaisEBFormacao,CadGrpProfissionaisDPFormacao);   
+VerificaConsultaF3Insere(_ModuloFolha,CadGrpProfissionaisEBCbo,CadGrpProfissionaisDPCbo);      						 
 VerificaInsere(CadGrpMedicosEBOrgao,CadGrpMedicosDPOrgao);      
 VerificaInsere(CadGrpMedicosEBNumeroOrgao,CadGrpMedicosDPNumeroOrgao);  
-VerificaConsultaF3Insere(CadGrpMedicosEBUforgao,CadGrpMedicosDPUforgao);  
+VerificaConsultaF3Insere(_ModuloFolha,CadGrpMedicosEBUforgao,CadGrpMedicosDPUforgao);  
 VerificaInsere(CadGrpMedicosEBSiglaOrgao,CadGrpMedicosDPSiglaOrgao);
 end;
 
 {Cadastra}
 
 procedure CadastraProfissionais(pathData);
-//var
-//  DDTProfissionais;
+
 begin
-  DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
+  DDTProfissionais := CarregaDDT(pathData, _Alterar);
 
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
@@ -65,14 +64,14 @@ begin
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       ActIncluir(FormTelaConsultaForm);
   
       MapCadProfissionais;
-      if (CadChequesForm.Exists) then
+      if (CadProfissionaisForm.Exists) then
       begin
-        PreencherDados(); 
+        PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
         ActFechar(CadProfissionaisForm);
@@ -83,18 +82,24 @@ begin
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
+
+
+
+
+
   
 {Altera}
 
 procedure AlteraProfissionais(pathData);
-//var
-//  DDTProfissionais;
+var
+  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
   FiltroCadastroProfissionais();
+  
   
   while not(DDTProfissionais.EOF) do
   begin
@@ -103,18 +108,17 @@ begin
     MapGridConsulta(_ModuloFolha);
   
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhProf');
-  
+      ValidaFormAberto(_ModuloFolha, 'FRhProf');
+
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount >= 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
-      ActConsulta(FormTelaConsultaForm);
+      ActIncluir(FormTelaConsultaForm);
   
-      MapCadProfissionais();
-  
+      MapCadProfissionais;
       if (CadProfissionaisForm.Exists) then
       begin
-        PreencherDados(); 
+        PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
         ActFechar(CadProfissionaisForm);
@@ -125,12 +129,13 @@ begin
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
+  
+
 
 {Exclui}
 
 procedure ExcluirProfissionais(pathData);
-//var
-//  DDTProfissionais;
+
 begin
   DDTProfissionais := CarregaDDT(pathData, _Excluir);
   
@@ -147,9 +152,9 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
   
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo',  CadProfissionaisDPTipo);
   
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 3) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       
       ActExcluir(_ModuloFolha, 'FBRowseCds');

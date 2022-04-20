@@ -28,13 +28,18 @@ CadGrpMedicosEBNumeroOrgao,
 CadGrpMedicosEBUforgao,
 CadGrpMedicosEBSiglaOrgao,
 
+{filtro teste}
+FiltroFormulario,
+FiltroConsItem, 
+FiltroConsItem2,
+
 {Filtro de Profissionais}
 FiltroConsForm,
 FiltroConsCBSelCons,
 FiltroConsCBCod,
 BtnOkFiltroConsForm,
 BtnVazioFiltroConsForm,
-BtnCancelFiltroConsForm : OleVariant;
+BtnCancelFiltroConsForm: OleVariant;
 
  procedure MapCadProfissionais();
  begin
@@ -75,4 +80,5 @@ BtnCancelFiltroConsForm : OleVariant;
  BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
  BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
  BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+ 
  end;
