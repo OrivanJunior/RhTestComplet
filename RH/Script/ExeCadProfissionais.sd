@@ -41,3 +41,122 @@ VerificaInsere(CadGrpMedicosEBNumeroOrgao,CadGrpMedicosDPNumeroOrgao);
 VerificaConsultaF3Insere(CadGrpMedicosEBUforgao,CadGrpMedicosDPUforgao);  
 VerificaInsere(CadGrpMedicosEBSiglaOrgao,CadGrpMedicosDPSiglaOrgao);
 end;
+
+{Cadastra}
+
+procedure CadastraProfissionais(pathData);
+var
+  DDTProfissionais;
+begin
+  DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
+
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
+  
+  FiltroCadastroProfissionais();
+  
+{enquanto não for o fim do arquivo faça..}
+  while not(DDTProfissionais.EOF) do
+  begin
+    LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhProf');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActIncluir(FormTelaConsultaForm);
+  
+      MapCadProfissionais;
+      if (CadChequesForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadProfissionaisForm);
+        ActFechar(CadProfissionaisForm);
+      end;
+    end;
+    DDTProfissionais.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTProfissionais.Name);
+end;
+  
+{Altera}
+
+procedure AlteraCheque(pathData);
+var
+  DDTCheques;
+begin
+  DDTCheques := CarregaDDT(pathData, _Alterar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cheques');
+  
+  FiltroCadastroProfissionais();
+  
+  while not(DDTProfissionais.EOF) do
+  begin
+    LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhProf');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadProfissionais();
+  
+      if (CadProfissionaisForm.Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadProfissionaisForm);
+        ActFechar(CadProfissionaisForm);
+      end;
+    end;
+    DDTCheques.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCheques.Name);
+end;
+
+{Exclui}
+
+procedure ExcluirProfissionais(pathData);
+var
+  DDTProfissionais;
+begin
+  DDTProfissionais := CarregaDDT(pathData, _Excluir);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
+  
+  FiltroCadastroProfissionais();
+  
+  while not(DDTProfissionais.EOF) do
+  begin
+    LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhProf');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Profi', CadChequesDPNroCheque);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+    end;
+    DDTProfissionais.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTProfissionais.Name);
+end;

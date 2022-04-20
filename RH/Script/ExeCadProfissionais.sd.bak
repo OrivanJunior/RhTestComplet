@@ -5,16 +5,39 @@ CommonsObj,
 DataPoolCadProfissionais,
 ObjCadProfissionais;
 
+var
+  DDTProfissionais: OleVariant;
+
+procedure AcessaCadProfissionais();
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
+end;
+
 procedure FiltroCadastroProfissionais();
 begin
 MapFiltroCadProfissionais;
+//FiltroConsFormCBSelCons.SelectFirst;
+//FiltroConsFormCBSelCons.Keys('[Enter]');
 FiltroConsCBSelCons('Profissional por Código');
-FiltroConsCBCod.SelectItem(('Ignorar'));
+FiltroConsCBCod.SelectItem('(Ignorar)');
 BtnOkFiltroConsForm.ClickButton;
 end;
 
 procedure PreencheDadosCadastroProfissionais();
 begin
-
-
+VerificaInsere(CadProfissionaisEBId,CadProfissionaisDPId);	       
+VerificaInsere(CadProfissionaisEBNome,CadProfissionaisDPNome);	        
+VerificaInsere(CadProfissionaisEBEmail,CadProfissionaisDPEmail);	       
+VerificaInsere(CadProfissionaisEBFiliacao,CadProfissionaisDPFiliacao);         
+VerificaInsere(CadProfissionaisEBNacionalidade,CadProfissionaisDPNacionalidade);       
+VerificaInsere(CadProfissionaisEBCpf,CadProfissionaisDPCpf);	       
+VerificaInsere(CadProfissionaisEBNis,CadProfissionaisDPNis);	       
+VerificaInsere(CadProfissionaisEBTipo,CadProfissionaisDPTipo);	       				 
+VerificaInsere(CadGrpProfissionaisEBFormacao,CadGrpProfissionaisDPFormacao);      
+VerificaInsere(CadGrpProfissionaisEBTpProfissional,CadGrpProfissionaisDPTpProfissional);      
+VerificaConsultaF3Insere(CadGrpProfissionaisEBCbo,CadGrpProfissionaisDPCbo);      						 
+VerificaInsere(CadGrpMedicosEBOrgao,CadGrpMedicosDPOrgao);      
+VerificaInsere(CadGrpMedicosEBNumeroOrgao,CadGrpMedicosDPNumeroOrgao);  
+VerificaConsultaF3Insere(CadGrpMedicosEBUforgao,CadGrpMedicosDPUforgao);  
+VerificaInsere(CadGrpMedicosEBSiglaOrgao,CadGrpMedicosDPSiglaOrgao);
 end;
