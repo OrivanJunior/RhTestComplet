@@ -129,10 +129,12 @@ begin
         PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
+        
         ActFechar(CadProfissionaisForm);
       end;
     end;
-    DDTProfissionais.Next;
+     DDTProfissionais.Next;
+     break;
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
@@ -149,7 +151,7 @@ begin
   
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
-  FiltroCadastroProfissionais();
+  FiltroCadastroProfissionalEspecifico();
   
   while not(DDTProfissionais.EOF) do
   begin
