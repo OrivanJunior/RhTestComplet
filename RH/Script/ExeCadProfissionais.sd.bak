@@ -24,6 +24,7 @@ FiltroConsCBCod.SelectItem('(Ignorar)');
 btnOkFiltroConsForm.ClickButton;
 end;
 
+{Filtro cadastro Especifico}
 procedure FiltroCadastroProfissionalEspecifico();
 begin
 MapFiltroCadProfissionais;
@@ -99,8 +100,6 @@ end;
 {Altera}
 
 procedure AlteraProfissionais(pathData);
-var
-  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
@@ -108,7 +107,7 @@ begin
   
   FiltroCadastroProfissionalEspecifico();
   
-  
+  DDTProfissionais.first;
   while not(DDTProfissionais.EOF) do
   begin
     LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
@@ -129,17 +128,18 @@ begin
         PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
-        
         ActFechar(CadProfissionaisForm);
+        
       end;
     end;
+    
      DDTProfissionais.Next;
      break;
   end;
+  
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
-  
 
 
 {Exclui}

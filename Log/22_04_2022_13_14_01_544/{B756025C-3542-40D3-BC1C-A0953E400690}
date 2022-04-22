@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row0">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="start time" type="D" value="44673.5514077199"/>
+				<Prp name="details" type="S" value="{87C210AA-4890-4B32-8543-4F4B665FD6EB}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="Cadastra Profissionais [Script\ExeCadProfissionais - CadastraProfissionais]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44673.5517555556"/>
+				<Prp name="status" type="I" value="0"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="start time" type="D" value="44673.5517556713"/>
+				<Prp name="details" type="S" value="{5F4A499C-CA35-4B41-A0F5-72B92564B72F}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="Altera Profissionais [Script\ExeCadProfissionais - AlteraProfissionais]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="end time" type="D" value="44673.5519269097"/>
+				<Prp name="status" type="I" value="0"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="start time" type="D" value="44673.5519270023"/>
+				<Prp name="details" type="S" value="{C1F9C8AA-1551-4232-8447-D8F745E75760}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="Exclui Profissionais [Script\ExeCadProfissionais - ExcluirProfissionais]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="end time" type="D" value="44673.5520714352"/>
+				<Prp name="status" type="I" value="0"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

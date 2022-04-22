@@ -73,9 +73,8 @@ BtnCancelFiltroConsForm: OleVariant;
  FiltroConsForm					                    := Aliases.Folha.FFiltroConsultaCDS;
  FiltroConsCBSelCons				                := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
  FiltroConsCBCod					                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
- BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
  FiltroConsInsereValor                      := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+ BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
  BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
  BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
- 
  end;

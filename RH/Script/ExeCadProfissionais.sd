@@ -100,8 +100,6 @@ end;
 {Altera}
 
 procedure AlteraProfissionais(pathData);
-var
-  DDTProfissionais;
 begin
   DDTProfissionais := CarregaDDT(pathData, _Alterar);
   
@@ -109,7 +107,7 @@ begin
   
   FiltroCadastroProfissionalEspecifico();
   
-  
+  DDTProfissionais.first;
   while not(DDTProfissionais.EOF) do
   begin
     LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
@@ -117,30 +115,29 @@ begin
     MapGridConsulta(_ModuloFolha);
   
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-      ValidaFormAberto(_ModuloFolha, 'FRhProf');
+    ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
-      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
       ActConsulta(FormTelaConsultaForm);
   
-      MapCadProfissionais;
+      MapCadProfissionais();
+      
       if (CadProfissionaisForm.Exists) then
       begin
         PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
         ActFechar(CadProfissionaisForm);
-        
       end;
     end;
-     DDTProfissionais.Next;
-     break;
+    DDTProfissionais.Next;
+    //break;
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
-  
 
 
 {Exclui}
