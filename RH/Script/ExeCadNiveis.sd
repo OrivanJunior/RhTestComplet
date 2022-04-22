@@ -1,0 +1,132 @@
+﻿uses
+CommonsAll,
+CommonsObj,
+VarConsts,
+DataPoolCadNiveis,
+ObjCadNiveis;
+
+
+var 
+DDTNiveis: OleVariant;
+
+procedure AcessaCadNiveis();
+begin
+AcessaItem(_ModuloFolha,'Cadastro Gerais', 'Niveís');
+end;
+
+procedure PreencherDados();
+begin
+VerificaInsere(CadNivEBIdNivel,CadNivDTIdNivel);
+VerificaInsere(CadNivEBDescricao,CadNivDTDescricao);
+end;
+  
+procedure CadastraNiveis(pathData);
+begin
+  DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
+  
+  AcessaCadNiveis();
+  
+  DDTNiveis.first;
+  
+  {enquanto não for o fim do arquivo faça..}
+  while not(DDTNiveis.EOF) do
+  begin
+    LeDataPoolCadNiveis(DDTNiveis.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHNIVEL');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nível', CadNivDTIdNivel);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadNiveis();
+      if (CadNivelForm.Exists) then
+      begin
+        PreencherDados();
+  
+        ActSalvar(CadNivelForm);
+        ActFechar(CadNivelForm);
+      end;
+    end;
+    DDTNiveis.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTNiveis.Name);
+end;
+
+{Altera}
+
+procedure AlteraNiveis(pathData);
+
+begin
+  DDTNiveis := CarregaDDT(pathData, _Alterar);
+  
+  AcessaCadNiveis();
+  
+  DDTNiveis.first;
+  
+{Ler Arquivo}
+  LeDataPoolCadNiveis(DDTNiveis.Name);
+{Consulta arquivo}  
+  MapGridConsulta(_ModuloFolha);
+    
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHNIVEL');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nível', CadNivDTIdNivel);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadNiveis();
+      
+      if (CadNivelForm.Exists) then
+      begin
+        PreencherDados();
+
+        ActSalvar(CadNivelForm);
+        ActFechar(CadNivelForm);
+      end;
+    end;
+  DDTNiveis.Next;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTNiveis.Name);
+end;
+
+{Exclui}
+
+procedure ExcluirNiveis(pathData);
+
+begin
+  DDTNiveis := CarregaDDT(pathData, _Excluir);
+  
+  AcessaCadNiveis();
+  
+  DDTNiveis.first;
+  
+  while not(DDTNiveis.EOF) do
+  begin
+   LeDataPoolCadNiveis(DDTNiveis.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHNIVEL');
+  
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nível',  CCadNivDTIdNivel);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      
+      ActExcluir(_ModuloFolha, 'FBRowseCds');
+      
+    end;
+    DDTNiveis.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTNiveis.Name);
+end;

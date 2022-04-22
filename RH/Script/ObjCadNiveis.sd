@@ -1,0 +1,15 @@
+﻿{Script para mapear o Cadastro de Profissionais
+Módulo: Folha
+Autor: Orivan lemes dos Santos Junior
+Data: 22/04/2022}
+var
+CadNivelForm,			
+CadNivEBIdNivel,  
+CadNivEBDescricao: OleVariant;
+
+Procedure MapCadNiveis();
+begin
+CadNivForm			      := Aliases.Folha.FFormPadraoRHNIVEL;
+CadNivEBIdNivel       := Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDNIVEL;
+CadNivEBDescricao     := Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DESCRICAO;
+end;
