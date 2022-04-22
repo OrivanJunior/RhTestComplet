@@ -1,1 +1,9 @@
-﻿
+﻿var		
+CadNivDTIdNivel,  
+CadNivDTDescricao: OleVariant;
+
+Procedure LeDataPoolCadNiveis();
+begin
+CadNivDTIdNivel       := DDT.DriverByName(nomeDriver).Value('IDNIVEL');  
+CadNivDTDescricao     := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

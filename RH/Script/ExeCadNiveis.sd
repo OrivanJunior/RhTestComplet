@@ -22,7 +22,7 @@ end;
   
 procedure CadastraNiveis(pathData);
 begin
-  DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
+  DDTNiveis := CarregaDDT(pathData, _Cadastrar);
   
   AcessaCadNiveis();
   

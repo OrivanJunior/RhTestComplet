@@ -109,13 +109,13 @@ begin
 
   FiltroCadastroProfissionalEspecifico();
   
-  DDTProfissionais.first;
+  while not DDTProfissionais.Eof do
+  begin  
+  {Ler Arquivo}
+    LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
+  {Consulta arquivo}  
+    MapGridConsulta(_ModuloFolha);
   
-{Ler Arquivo}
-  LeDataPoolCadastroProfissionais(DDTProfissionais.Name);
-{Consulta arquivo}  
-  MapGridConsulta(_ModuloFolha);
-    
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
@@ -134,7 +134,8 @@ begin
         ActFechar(CadProfissionaisForm);
       end;
     end;
-  DDTProfissionais.Next;
+    DDTProfissionais.Next;
+  end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
