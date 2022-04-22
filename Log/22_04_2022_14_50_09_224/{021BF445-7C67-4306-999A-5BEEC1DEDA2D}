@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="details" type="S" value="{9D533FE5-7A60-42FD-BC2D-29B880A3BD7D}"/>
+				<Prp name="end time" type="D" value="44673.6190937153"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="name" type="S" value="Altera Profissionais [Script\ExeCadProfissionais - AlteraProfissionais]"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44673.6184956713"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="details" type="S" value="{3A37B592-F704-4F38-B4F1-917C2B7CC216}"/>
+				<Prp name="end time" type="D" value="44673.6184955556"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="name" type="S" value="Cadastra Profissionais [Script\ExeCadProfissionais - CadastraProfissionais]"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44673.6181634838"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="start time" type="D" value="44673.6190937153"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="44673.6190937153"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="The execution process was interrupted."/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="details" type="S" value=""/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
