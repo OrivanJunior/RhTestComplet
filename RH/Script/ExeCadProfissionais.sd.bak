@@ -13,16 +13,19 @@ begin
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
 end;
 
+{Filtro Ignorar}
 procedure FiltroCadastroProfissionais();
 begin
 MapFiltroCadProfissionais;
 
 FiltroConsCBSelCons.SelectFirst;
 FiltroConsCBSelCons.Keys('[Enter]');
-FiltroConsCBCod.SelectItem('(Igual)');
+FiltroConsCBCod.SelectItem('Começa Com');
+FiltroConsInsereValor.Keys('99');
 btnOkFiltroConsForm.ClickButton;
 end;
 
+{Preencher dados}
 procedure PreencherDados();
 begin
 VerificaInsere(CadProfissionaisEBId,CadProfissionaisDPId);	       
@@ -47,7 +50,7 @@ end;
 procedure CadastraProfissionais(pathData);
 
 begin
-  DDTProfissionais := CarregaDDT(pathData, _Alterar);
+  DDTProfissionais := CarregaDDT(pathData, _Cadastrar);
 
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
@@ -64,9 +67,9 @@ begin
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
-      ActIncluir(FormTelaConsultaForm);
+      ActConsulta(FormTelaConsultaForm);
   
       MapCadProfissionais;
       if (CadProfissionaisForm.Exists) then
@@ -83,11 +86,6 @@ begin
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
 
-
-
-
-
-  
 {Altera}
 
 procedure AlteraProfissionais(pathData);
@@ -110,10 +108,10 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhProf');
 
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+      FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo', CadProfissionaisDPTipo);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
-      ActIncluir(FormTelaConsultaForm);
+      ActConsulta(FormTelaConsultaForm);
   
       MapCadProfissionais;
       if (CadProfissionaisForm.Exists) then
@@ -165,3 +163,4 @@ begin
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTProfissionais.Name);
 end;
+

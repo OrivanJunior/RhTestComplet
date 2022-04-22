@@ -28,15 +28,11 @@ CadGrpMedicosEBNumeroOrgao,
 CadGrpMedicosEBUforgao,
 CadGrpMedicosEBSiglaOrgao,
 
-{filtro teste}
-FiltroFormulario,
-FiltroConsItem, 
-FiltroConsItem2,
-
 {Filtro de Profissionais}
 FiltroConsForm,
 FiltroConsCBSelCons,
 FiltroConsCBCod,
+FiltroConsInsereValor,
 BtnOkFiltroConsForm,
 BtnVazioFiltroConsForm,
 BtnCancelFiltroConsForm: OleVariant;
@@ -72,20 +68,14 @@ BtnCancelFiltroConsForm: OleVariant;
  
  end;
  
-// procedure MapFiltroCadProfissionais();
-// begin
-// FiltroConsForm					                    := Aliases.Folha.FFiltroConsultaCDS;
-// FiltroConsCBSelCons				                := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
-// FiltroConsCBCod					                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
-// BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
-// BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
-// BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
-// 
-// end;
-procedure MapFiltroCadProfissionais();
-begin
-FiltroFormulario	  	:= Aliases.Folha.VsMenu.TdxDockControl.ClickItemXY('Menu|Cadastros Gerais|Profissionais', 72, 8);
-FiltroConsCBSelCons 	:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1.Click();
-FiltroConsItem  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item.Click();
-FiltroConsItem2  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item.Keys('99');
-end;
+ procedure MapFiltroCadProfissionais();
+ begin
+ FiltroConsForm					                    := Aliases.Folha.FFiltroConsultaCDS;
+ FiltroConsCBSelCons				                := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+ FiltroConsCBCod					                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+ BtnOkFiltroConsForm    			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+ FiltroConsAltSele                         := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+ BtnVazioFiltroConsForm			                := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+ BtnCancelFiltroConsForm			              := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+ 
+ end;
