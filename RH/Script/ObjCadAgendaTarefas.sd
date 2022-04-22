@@ -22,11 +22,3 @@ CadAgendaTarefaEBData 		    := Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoC
 CadAgendaTarefaEBTarefa 	    := Aliases.Folha.FFormPadraoRHAGETAREFA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_TAREFA;
 
 end;
-
-procedure MapFiltroCadAgenda;
-begin
-  //FiltroConsForm            := Aliases.Folha.FFiltroConsultaCDS;
-  FiltroConsForm            := Aliases.Folha.VsMenu;
-  FiltroFormAgendaDeTarefas := Aliases.Folha.VsMenu.TdxDockControl2.ClickItemXY('Menu|Cadastros Específicos|Agenda de Tarefas',5,6);
-
-end;
