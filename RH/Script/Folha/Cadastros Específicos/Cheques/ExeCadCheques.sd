@@ -32,8 +32,6 @@ begin
   VerificaInsere(CadChequesEBDtProcesso, CadChequesDPDtProcesso);
 end;
 
-  (***************Cadastro_De_Cheques*****************)
-
 procedure CadastraCheques(pathData);
 var
   DDTCheques;
@@ -75,7 +73,6 @@ begin
   DDT.CloseDriver(DDTCheques.Name);
 end;
   
-  (***************Altera_cadastro_De_Cheques*****************)
 
 procedure AlteraCheque(pathData);
 var
@@ -117,7 +114,6 @@ begin
   DDT.CloseDriver(DDTCheques.Name);
 end;
 
-  (**************Excluir_Cheque***********************)
 
 procedure ExcluirCheque(pathData);
 var

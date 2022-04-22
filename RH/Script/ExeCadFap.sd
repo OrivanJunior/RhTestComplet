@@ -17,8 +17,7 @@
   VerificaInsere(CadFapEBFap,CadFapDPFap);	   		 	 
   VerificaConsultaF3Insere(_ModuloFolha,CadFapEBIdProcessoJud,CadFapDPIdProcessoJud);
   end;
-  
-  {Cadastra}
+
   procedure CadastraFap(pathData);
 var
   DDTFap;
@@ -26,7 +25,7 @@ begin
   DDTFap := CarregaDDT(pathData, _Cadastrar);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
-//  FiltroCadastroFap();
+
   while not (DDTFap.EOF) do
   begin
   LeDataPoolCadFap(DDTFap.Name);
@@ -54,8 +53,6 @@ begin
   DDT.CloseDriver(DDTFap.Name);
 end;
    
-{Altera}
-
 procedure AlteraFap(pathData);
 var
   DDTFap;
@@ -63,7 +60,7 @@ begin
   DDTFap := CarregaDDT(pathData, _Alterar);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
- // FiltroCadastroFap();
+
   while not(DDTFap.EOF) do
   begin
     LeDataPoolCadFap(DDTFap.Name);
@@ -94,7 +91,6 @@ begin
   DDT.CloseDriver(DDTFap.Name);
 end;
 
- {Exclui}
 
 procedure ExcluirFap(pathData);
 var
@@ -103,7 +99,7 @@ begin
   DDTFap := CarregaDDT(pathData, _Excluir);
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'FAP');
-//  FiltroCadastroFap();
+
   while not(DDTFap.EOF) do
   begin
     LeDataPoolCadFap(DDTFap.Name);

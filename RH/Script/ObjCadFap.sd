@@ -22,10 +22,3 @@ CadFapEBData		 			    := Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.F
 CadFapEBFap   		 			  := Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_FAP;
 CadFapEBIdProcessoJud			:= Aliases.Folha.FFormPadraoRHFAP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDPROCESSOJUD;
 end;
-
-
-procedure MapFiltroCadFap();
-begin
-FiltroConsForm        := Aliases.Folha.VsMenu;
-FiltroFormFap         := Aliases.Folha.VsMenu.TdxDockControl.ClickItemXY('Menu|Cadastros Específicos|FAP', 53, 16);
-end;

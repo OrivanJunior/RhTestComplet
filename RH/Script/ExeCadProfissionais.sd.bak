@@ -151,7 +151,7 @@ begin
   
   AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Profissionais');
   
-  FiltroCadastroProfissionais();
+  FiltroCadastroProfissionalEspecifico();
   
   while not(DDTProfissionais.EOF) do
   begin

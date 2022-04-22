@@ -24,6 +24,7 @@ FiltroConsCBCod.SelectItem('(Ignorar)');
 btnOkFiltroConsForm.ClickButton;
 end;
 
+{Filtro cadastro Especifico}
 procedure FiltroCadastroProfissionalEspecifico();
 begin
 MapFiltroCadProfissionais;
@@ -129,8 +130,8 @@ begin
         PreencherDados();
   
         ActSalvar(CadProfissionaisForm);
-        
         ActFechar(CadProfissionaisForm);
+        
       end;
     end;
      DDTProfissionais.Next;
