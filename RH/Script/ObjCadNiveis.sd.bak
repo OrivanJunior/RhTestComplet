@@ -16,10 +16,3 @@ CadNivForm			      := Aliases.Folha.FFormPadraoRHNIVEL;
 CadNivEBIdNivel       := Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDNIVEL;
 CadNivEBDescricao     := Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DESCRICAO;
 end;
-
-procedure FiltraGrid();
-begin
-testeclicar   :=  Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDNIVEL;
-testeinserir  : = Aliases.Folha.FFormPadraoRHNIVEL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_IDNIVEL;
-GridInicial   :=  Aliases.Folha.FBRowseCds.BGrid.TcxGridSite_;
-end;
