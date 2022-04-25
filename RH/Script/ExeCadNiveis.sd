@@ -18,7 +18,6 @@ procedure PreencherDados();
 begin
 
 MapCadNiveis();
-//CadNivEBIdNivel.Clear;
 VerificaInsere(CadNivEBIdNivel, CadNivDPIdNivel);
 VerificaInsere(CadNivEBDescricao,CadNivDPDescricao);
 end;

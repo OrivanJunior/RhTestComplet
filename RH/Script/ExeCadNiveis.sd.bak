@@ -82,7 +82,7 @@ begin
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nível', CadNivDPIdNivel);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
-     ActIncluir(FormTelaConsultaForm);
+     ActConsulta(FormTelaConsultaForm);
   
       MapCadNiveis();
       
