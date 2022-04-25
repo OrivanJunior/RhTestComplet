@@ -3,9 +3,12 @@ Módulo: Folha
 Autor: Orivan lemes dos Santos Junior
 Data: 22/04/2022}
 var
-CadNivelForm,			
+CadNivForm,			
 CadNivEBIdNivel,  
-CadNivEBDescricao: OleVariant;
+CadNivEBDescricao,
+testeclicar, 
+testeinserir,
+GridInicial: OleVariant;
 
 Procedure MapCadNiveis();
 begin

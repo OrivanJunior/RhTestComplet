@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row0">
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44676.6098414699"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="name" type="S" value="Cadastra Niveis [Script\ExeCadNiveis - CadastraNiveis]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{85A84671-33DB-410F-99C6-9FEE331DFAB3}"/>
+				<Prp name="start time" type="D" value="44676.6094052546"/>
+				<Prp name="extended message" type="S" value=""/>
+			</Node>
+			<Node name="row2">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="start time" type="D" value="44676.6102368866"/>
+				<Prp name="name" type="S" value="Exclui Niveis [Script\ExeCadNiveis - ExcluirNiveis]"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="details" type="S" value="{FE0156E2-55F9-4884-8465-87CF4523250D}"/>
+				<Prp name="end time" type="D" value="44676.6104895255"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="start time" type="D" value="44676.6098415972"/>
+				<Prp name="name" type="S" value="Altera Niveis [Script\ExeCadNiveis - AlteraNiveis]"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="details" type="S" value="{432847BB-8C76-44C4-90B3-0E26E01224B0}"/>
+				<Prp name="end time" type="D" value="44676.610236713"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

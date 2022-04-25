@@ -5,11 +5,6 @@
   ObjCadFap,
   DataPoolCadFap;
   
-  procedure FiltroCadastroFap();
-  begin
-  MapFiltroCadFap();
-  end;
-  
   procedure PreencherDados();
   begin
   VerificaConsultaF3Insere(_ModuloFolha,CadFapEBEstab,CadFapDPEstab);	        	
