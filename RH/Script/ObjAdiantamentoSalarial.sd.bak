@@ -1,0 +1,44 @@
+﻿{Script para mapear Adiantamento Salarial
+Módulo: Folha
+Autor: Orivan lemes dos Santos Junior
+Data: 25/04/2022}
+
+procedure MapPanelProcAdiantamentoSalarial();
+begin 
+ProcAdiantamentoSalarialEBDtProc			:=  Aliases.Folha.FRhProcCalcAdiantamento.pnPeriodo.EB_DATA;
+ProcAdiantamentoSalarialEBDtPgto			:=  Aliases.Folha.FRhProcCalcAdiantamento.pnPeriodo.EB_DATAPAGTO;
+end;
+
+{Formulario de adiantamento Salarial}
+procedure MapFormProcAdiantamentoSalarial();
+begin
+Folha                        := Sys.Process(_ModuloFolha);
+  
+FormProcCalcAdiantamento     := Aliases.Folha.FRhProcCalcAdiantamento;
+PnlProcCalcAdiantamento      := Aliases.Folha.FRhProcCalcAdiantamento.pnPeriodo;
+PageProcAdiantamentoSalarial := Aliases.Folha.FRhProcCalcAdiantamento.pg;
+BtnIncluirControle           := Aliases.Folha.FRhProcCalcAdiantamento.pnPeriodo.bIncluirControle;
+BtnSalvarCalc                := Aliases.Folha.FRhProcCalcAdiantamento.tbSalvar;
+end;
+
+{Tabela de empregado}
+procedure MapTabEmpregadosAdiantSalarial();
+begin
+BtnIncEmpre    :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreInc;
+BtnIncAllEmpre :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreIncAll;
+BtnExcEmpre    :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreExc;
+BtnExcAllEmpre :=			Aliases.Folha.FRhProcCalcAdiantamento.btnExcAllEmp;
+BtnSaveEmpre   :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreSalvar;
+BtnDesfEmpre   :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreDesf;
+BtnProcEmpre   :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreProc;
+BtnConsEmpre   :=			Aliases.Folha.FRhProcCalcAdiantamento.bEmpreCons;
+GridEmpregado  :=			Aliases.Folha.FRhProcCalcAdiantamento.pg.tsEmpregados.grp1.gEmpregado;
+end;
+
+{Tabela de movimento}
+procedure MapTabMovimentoAdiantamentoSalarial();
+begin
+BtnIncMov	:=	Aliases.Folha.FRhProcCalcAdiantamento.bMovInc;
+BtnRecMov	:=	Aliases.Folha.FRhProcCalcAdiantamento.bMovRec;
+BtnExcMov	:=	Aliases.Folha.FRhProcCalcAdiantamento.bMovExc;
+end;

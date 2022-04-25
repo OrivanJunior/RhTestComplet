@@ -1,0 +1,79 @@
+﻿{Script de DataPool do Processamento Mensal
+ Módulo: Folha
+ Autor: Orivan Lemes dos Santos Junior
+ Data:25/04/2022}
+ 
+var
+  { Datas }
+  MensalDPDataProc, MensalDPDataPgto,
+  
+  { Empregado }
+  MensalDPEmpregado,
+  
+  { Movimento }
+  CadMovDPEstab, CadMovDPIdProc, CadMovDPData,
+  CadMovDPIdEmpreg, CadMovDPIdEvento,
+    
+  { Tab Parâmetros }
+  CadMovParamsDPValorInfo, CadMovParamsDPInforme,
+  CadMovParamsDPInforme2, CadMovParamsDPValorTarefa,
+  CadMovParamsDPProporcional, CadMovParamsDPDiasUteis,
+  CadMovParamsDPDiasFaltas, CadMovParamsDPAvosInforme,
+  CadMovParamsDPAvosDireito, CadMovParamsDPReferencia,
+  CadMovParamsDPBaseProp,
+  
+  { Form Processamento }
+  ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
+  ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
+  ESocialDPInfoPgtos, ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+
+procedure LoadDPDatas(nomeDriver);
+begin
+  MensalDPDataProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
+  MensalDPDataPgto := DDT.DriverByName(nomeDriver).Value('DATA PGTO');
+end;
+
+procedure LoadDPEmpregado(nomeDriver);
+begin
+  MensalDPEmpregado := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+end;
+
+procedure LoadDPMovimento(nomeDriver);
+begin
+  CadMovDPEstab    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  CadMovDPIdProc   := DDT.DriverByName(nomeDriver).Value('PROCESSO');
+  CadMovDPData     := DDT.DriverByName(nomeDriver).Value('DATA CONTROLE'); 
+  CadMovDPIdEmpreg := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+  CadMovDPIdEvento := DDT.DriverByName(nomeDriver).Value('EVENTO');
+end;
+
+procedure LoadDPParamsMovimento(nomeDriver);
+begin
+  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALOR INFO');
+  CadMovParamsDPInforme      := DDT.DriverByName(nomeDriver).Value('INFORME');
+  CadMovParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
+  CadMovParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');
+  CadMovParamsDPProporcional := DDT.DriverByName(nomeDriver).Value('PROPORCIONAL');
+  CadMovParamsDPDiasUteis    := DDT.DriverByName(nomeDriver).Value('DIAS UTEIS');
+  CadMovParamsDPDiasFaltas   := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
+  CadMovParamsDPAvosInforme  := DDT.DriverByName(nomeDriver).Value('AVOS INFORME');
+  CadMovParamsDPAvosDireito  := DDT.DriverByName(nomeDriver).Value('AVOS DIREITO');
+  CadMovParamsDPReferencia   := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+  CadMovParamsDPBaseProp     := DDT.DriverByName(nomeDriver).Value('BASE PROP');
+end;
+
+procedure LoadDPProcessamento(nomeDriver);
+begin
+  ProcDPEstab           := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  ProcDPIdProc          := DDT.DriverByName(nomeDriver).Value('IDPROC');
+  ProcDPDtCtrl          := DDT.DriverByName(nomeDriver).Value('DATACTRL');
+  ProcDPDtPagIRRF       := DDT.DriverByName(nomeDriver).Value('DATAPAGIRRF');
+  ProcDPVlrArred        := DDT.DriverByName(nomeDriver).Value('VALORARRED');
+  ProcDPAberto          := DDT.DriverByName(nomeDriver).Value('EMABERTO');
+
+  ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
+  ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
+  ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
+  ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
+  ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');
+end;
