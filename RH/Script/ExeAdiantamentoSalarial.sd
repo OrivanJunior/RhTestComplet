@@ -16,7 +16,7 @@ begin
 
   MapPanelProcAdiantamentoSalarial();
   
-  //Log.Checkpoint('Preenchendo datas de processamento e pagamento');
+  Log.Checkpoint('Preenchendo datas de processamento e pagamento');
   PreencheDatas(ProcAdiantamentoSalarialEBDtProc, AdiantamentoSalDPDataProc); 
   PreencheDatas(ProcAdiantamentoSalarialEBDtPgto, AdiantamentoSalDPDataPgto);
 end;
@@ -33,7 +33,7 @@ begin
   
   LoadDPProcessamento(DDTProcessamento.Name);
   
-  //Log.Checkpoint('Inserindo Controle de Processamento');
+  Log.Checkpoint('Inserindo Controle de Processamento');
   VerificaInsere(ProcEBEstab, ProcDPEstab);
   VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
   PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
@@ -78,7 +78,7 @@ begin
   begin
     LoadDPEmpregado(DDTEmpregados.Name);
     
-    //Log.Checkpoint('Preenchendo empregados');
+    Log.Checkpoint('Preenchendo empregados');
   
     VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', AdiantamentoSalDPEmpregado);  
   
@@ -111,7 +111,7 @@ begin
   
     MapFormMovimento();
   
-    //Log.Checkpoint('Preenchendo dados do movimento');
+    Log.Checkpoint('Preenchendo dados do movimento');
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
     PreencheDatas(CadMovEBData, CadMovDPData);
@@ -123,7 +123,7 @@ begin
   
     LoadDPParamsMovimento(DDTMovimento.Name);
     
-    //Log.Checkpoint('Preenchendo parâmetros do movimento');
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
     VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
     VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
     VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
@@ -138,13 +138,14 @@ begin
   
     CadMovBtnSave.Click();
     
-//    if Aliases.Folha.FVsErrorDlg.Exists then
-//    begin
-//      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
-//      CadMovBtnSair.Click();
-//      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
-//        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
-//    end;
+    {Trata informações em movimentos que ja foram inseridas anteriormente}   
+    if Aliases.Folha.FVsErrorDlg.Exists then
+    begin
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      CadMovBtnSair.Click();
+      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
+        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
+    end;
     
     DDTMovimento.Next;
   end;
@@ -167,7 +168,7 @@ begin
   
   PreencheMovimentoProcAdiantamentoSalarial(pathData);
   
-  //Log.Checkpoint('Executando processamento mensal');
+  Log.Checkpoint('Executando processamento mensal');
   
   ActExecutar(FormProcCalcAdiantamento);
   

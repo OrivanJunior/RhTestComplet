@@ -234,16 +234,6 @@
 					<Prp name="owner" type="S" value="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
-				<Node name="2">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="12"/>
-					<Prp name="owner" type="S" value="{B12E42EE-1A81-4B24-8BC8-B856D27D830E}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
 			</Node>
 			<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 				<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
@@ -6021,7 +6011,7 @@
 						</Node>
 						<Node name="29">
 							<Prp name="bottom" type="I" value="343"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="337"/>
 						</Node>
 						<Node name="3">
@@ -6041,7 +6031,7 @@
 						</Node>
 						<Node name="32">
 							<Prp name="bottom" type="I" value="369"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="360"/>
 						</Node>
 						<Node name="33">
@@ -13052,9 +13042,7 @@
 							<Node name="commons"/>
 							<Node name="folha">
 								<Node name="cadastros específicos"/>
-								<Node name="cadastros gerais">
-									<Node name="níveis"/>
-								</Node>
+								<Node name="cadastros gerais"/>
 								<Node name="processamentos">
 									<Node name="adiantamento salarial"/>
 									<Node name="férias"/>
