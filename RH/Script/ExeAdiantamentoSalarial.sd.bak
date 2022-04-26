@@ -138,6 +138,7 @@ begin
   
     CadMovBtnSave.Click();
     
+    {Trata informações em movimentos que ja foram inseridas anteriormente}   
     if Aliases.Folha.FVsErrorDlg.Exists then
     begin
       Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
