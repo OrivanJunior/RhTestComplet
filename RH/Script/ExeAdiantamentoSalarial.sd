@@ -25,7 +25,7 @@ procedure PreencheControleProcessamento(pathData);
 var
   DDTProcessamento: OleVariant;
 begin
-  BtnIncluirCtrl.Click();
+  BtnIncluirControle.Click();
   
   MapFormProcessamento();
   
@@ -80,7 +80,7 @@ begin
     
     //Log.Checkpoint('Preenchendo empregados');
   
-    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', MensalDPEmpregado);  
+    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', AdiantamentoSalDPEmpregado);  
   
     ClickColuna(GridEmpregado, i, 'Nome Empregado');
   
@@ -138,13 +138,13 @@ begin
   
     CadMovBtnSave.Click();
     
-    if Aliases.Folha.FVsErrorDlg.Exists then
-    begin
-      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
-      CadMovBtnSair.Click();
-      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
-        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
-    end;
+//    if Aliases.Folha.FVsErrorDlg.Exists then
+//    begin
+//      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+//      CadMovBtnSair.Click();
+//      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
+//        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
+//    end;
     
     DDTMovimento.Next;
   end;
@@ -167,9 +167,9 @@ begin
   
   PreencheMovimentoProcAdiantamentoSalarial(pathData);
   
-  Log.Checkpoint('Executando processamento mensal');
+  //Log.Checkpoint('Executando processamento mensal');
   
-  ActExecutar(FormProcMensal);
+  ActExecutar(FormProcCalcAdiantamento);
   
   BtnSalvarCalc.Click();
     

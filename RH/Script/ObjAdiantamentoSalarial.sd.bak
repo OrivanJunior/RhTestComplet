@@ -2,6 +2,35 @@
 Módulo: Folha
 Autor: Orivan lemes dos Santos Junior
 Data: 25/04/2022}
+var 
+Folha,
+
+FormProcCalcAdiantamento,   
+PnlProcCalcAdiantamento,     
+PageProcAdiantamentoSalarial,
+BtnIncluirControle,          
+BtnSalvarCalc,
+
+{Data}
+ProcAdiantamentoSalarialEBDtProc,
+ProcAdiantamentoSalarialEBDtPgto,                   
+
+{Tabela de empregado}
+BtnIncEmpre,   
+BtnIncAllEmpre,
+BtnExcEmpre,   
+BtnExcAllEmpre,
+BtnSaveEmpre,  
+BtnDesfEmpre,  
+BtnProcEmpre,  
+BtnConsEmpre,  
+GridEmpregado, 
+
+{Tabela de Movimento}
+BtnIncMov,
+BtnRecMov,
+BtnExcMov: OleVariant;  
+
 
 procedure MapPanelProcAdiantamentoSalarial();
 begin 

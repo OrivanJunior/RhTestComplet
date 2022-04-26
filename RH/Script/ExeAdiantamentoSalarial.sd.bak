@@ -25,7 +25,7 @@ procedure PreencheControleProcessamento(pathData);
 var
   DDTProcessamento: OleVariant;
 begin
-  BtnIncluirCtrl.Click();
+  BtnIncluirControle.Click();
   
   MapFormProcessamento();
   
@@ -33,7 +33,7 @@ begin
   
   LoadDPProcessamento(DDTProcessamento.Name);
   
-  Log.Checkpoint('Inserindo Controle de Processamento');
+  //Log.Checkpoint('Inserindo Controle de Processamento');
   VerificaInsere(ProcEBEstab, ProcDPEstab);
   VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
   PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
@@ -60,7 +60,7 @@ begin
   DDT.CloseDriver(DDTProcessamento.Name);
 end;
 
-procedure PreencheEmpregadoProcMensal(pathData);
+procedure PreencheEmpregadoProcAdiantamentoSalarial(pathData);
 var 
   DDTEmpregados: OleVariant;
   i: integer;
@@ -80,7 +80,7 @@ begin
     
     //Log.Checkpoint('Preenchendo empregados');
   
-    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', MensalDPEmpregado);  
+    VerificaClickPreencheGrid(GridEmpregado, i, 'Empregado', AdiantamentoSalDPEmpregado);  
   
     ClickColuna(GridEmpregado, i, 'Nome Empregado');
   
@@ -111,7 +111,7 @@ begin
   
     MapFormMovimento();
   
-    Log.Checkpoint('Preenchendo dados do movimento');
+    //Log.Checkpoint('Preenchendo dados do movimento');
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
     PreencheDatas(CadMovEBData, CadMovDPData);
@@ -123,7 +123,7 @@ begin
   
     LoadDPParamsMovimento(DDTMovimento.Name);
     
-    Log.Checkpoint('Preenchendo parâmetros do movimento');
+    //Log.Checkpoint('Preenchendo parâmetros do movimento');
     VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
     VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
     VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
@@ -151,25 +151,25 @@ begin
   DDT.CloseDriver(DDTMovimento.Name);
 end;
 
-procedure ExecutaProcessamentoMensal(pathData);
+procedure ExecutaProcAdiantamentoSalarial(pathData);
 var
   TelaConfirma, BtnOk;
 begin  
-  AcessaItem(_ModuloFolha, 'Processamentos', 'Mensal');
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Adiantamento Salarial');
   
-  MapFormProcessamentoMensal();
+  MapFormProcAdiantamentoSalarial();
   
-  PreencheDatasProcMensal(pathData);
+  PreencheDatasProcAdiantamentoSalarial(pathData);
   
   PreencheControleProcessamento(pathData);
   
-  PreencheEmpregadoProcMensal(pathData);  
+  PreencheEmpregadoProcAdiantamentoSalarial(pathData);  
   
-  PreencheMovimentoProcMensal(pathData);
+  PreencheMovimentoProcAdiantamentoSalarial(pathData);
   
-  Log.Checkpoint('Executando processamento mensal');
+  //Log.Checkpoint('Executando processamento mensal');
   
-  ActExecutar(FormProcMensal);
+  ActExecutar(FormProcCalcAdiantamento);
   
   BtnSalvarCalc.Click();
     
@@ -181,5 +181,5 @@ begin
         
     btnOk.Click();
   end;
-  ActFechar(FormProcMensal); 
+  ActFechar(FormProcCalcAdiantamento);
 end;
