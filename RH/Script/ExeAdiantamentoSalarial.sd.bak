@@ -33,7 +33,7 @@ begin
   
   LoadDPProcessamento(DDTProcessamento.Name);
   
-  //Log.Checkpoint('Inserindo Controle de Processamento');
+  Log.Checkpoint('Inserindo Controle de Processamento');
   VerificaInsere(ProcEBEstab, ProcDPEstab);
   VerificaInsere(ProcEBIdProc, ProcDPIdProc);         
   PreencheDatas(ProcEBDtCtrl, ProcDPDtCtrl);        
@@ -60,7 +60,7 @@ begin
   DDT.CloseDriver(DDTProcessamento.Name);
 end;
 
-procedure PreencheEmpregadoProcAdiantamentoSalarial(pathData);
+procedure PreencheEmpregadoProcMensal(pathData);
 var 
   DDTEmpregados: OleVariant;
   i: integer;
@@ -111,7 +111,7 @@ begin
   
     MapFormMovimento();
   
-    //Log.Checkpoint('Preenchendo dados do movimento');
+    Log.Checkpoint('Preenchendo dados do movimento');
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBEstab, CadMovDPEstab);
     VerificaConsultaF3Insere(_ModuloFolha, CadMovEBIdProc, CadMovDPIdProc);
     PreencheDatas(CadMovEBData, CadMovDPData);
@@ -123,7 +123,7 @@ begin
   
     LoadDPParamsMovimento(DDTMovimento.Name);
     
-    //Log.Checkpoint('Preenchendo parâmetros do movimento');
+    Log.Checkpoint('Preenchendo parâmetros do movimento');
     VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
     VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
     VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
@@ -151,21 +151,21 @@ begin
   DDT.CloseDriver(DDTMovimento.Name);
 end;
 
-procedure ExecutaProcAdiantamentoSalarial(pathData);
+procedure ExecutaProcessamentoMensal(pathData);
 var
   TelaConfirma, BtnOk;
 begin  
-  AcessaItem(_ModuloFolha, 'Processamentos', 'Adiantamento Salarial');
+  AcessaItem(_ModuloFolha, 'Processamentos', 'Mensal');
   
-  MapFormProcAdiantamentoSalarial();
+  MapFormProcessamentoMensal();
   
-  PreencheDatasProcAdiantamentoSalarial(pathData);
+  PreencheDatasProcMensal(pathData);
   
   PreencheControleProcessamento(pathData);
   
-  PreencheEmpregadoProcAdiantamentoSalarial(pathData);  
+  PreencheEmpregadoProcMensal(pathData);  
   
-  PreencheMovimentoProcAdiantamentoSalarial(pathData);
+  PreencheMovimentoProcMensal(pathData);
   
   Log.Checkpoint('Executando processamento mensal');
   
@@ -181,5 +181,5 @@ begin
         
     btnOk.Click();
   end;
-  ActFechar(FormProcCalcAdiantamento);
+  ActFechar(FormProcMensal); 
 end;

@@ -147,7 +147,7 @@
 					<testItem name="Folha" key="{E3C47C1D-4342-42CC-B76C-657F63435C26}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 						<testParameters />
 						<children>
-							<testItem name="Gerais" key="{65527D7F-A001-4B54-AFC0-3D03010560F7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+							<testItem name="Gerais" key="{65527D7F-A001-4B54-AFC0-3D03010560F7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
 									<testItem name="Inicia Folha" key="{76430837-2EB8-4B38-9D2A-8BE0712AAB4E}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1359,6 +1359,18 @@
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Processamentos\Processamento Rápido\ProcRapido.xls" />
 													<param1 name="tab" type="3" localVarName="" varType="8" value="Geal" />
+												</testParameters>
+												<environments activeCloud="CBT" />
+												<children />
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Processamento Adiantamento Salarial" key="{B7B2662D-38C2-4A16-B9F4-52DCC57D3100}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="Executa Processamento Adiantamento Salarial" key="{0FCD3C6C-E3CC-457B-AF36-7C0FC40F2259}" group="False" parallel="False" enabled="True" testMoniker="{B12E42EE-1A81-4B24-8BC8-B856D27D830E}ExecutaProcAdiantamentoSalarial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+												<testParameters>
+													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processamentos\Adiantamento Salarial\ProcessamentoAdiantamentoSalarial.xls" />
 												</testParameters>
 												<environments activeCloud="CBT" />
 												<children />
