@@ -1,1 +1,68 @@
-﻿
+﻿{Script para mapear o Cadastro de Estabelecimento
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 26/04/2022}
+procedure DadosCadastrais;
+begin
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_INCRA;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CPF;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDPESRESP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CARGO;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_PISRESP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_EMAIL;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCONFIGMAIL;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDGRUPO;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDSIND;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDRAIS;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_GERACAGED;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CODCAGEDRESP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_PRICAGED;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_PARTPAT;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_TIPOEMPRESA;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NATJUR;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCATEMP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCATEMP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
+  Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+end;
+
+procedure ConfigDeCalculo;
+begin
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_SALFAMSOBBASE;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_EXPCTB;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_SALPROPVENC;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_BASEPIS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFSEGDES;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_JMCFENDIAS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ADMDEMCFMENDIAS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_TPCOMPFERIAS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_LREGIRRF;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFHOMOLOG;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCLIQFERIASBASE;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCINSSAVIRRF;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCMINIRRF;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCDIF13NEG;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_NOMECALCPAGADI;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ORDEMLISTPROC;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
+
+end;
+
+procedure ConfigAdiantamento;
+begin
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
+  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
+end;
+
+Aliases.Folha.FRhFilial;
+Aliases.Folha.FRhFilial.Page;

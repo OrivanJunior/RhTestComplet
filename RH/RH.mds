@@ -742,7 +742,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -964,26 +964,52 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="FAP" key="{30C4FD61-F714-45DF-8201-EEAE41A36B1E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="FAP" key="{30C4FD61-F714-45DF-8201-EEAE41A36B1E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra FAP" key="{F06A31CE-D825-41B3-9B9E-2C526CAF9F64}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}CadastraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cadastra FAP" key="{F06A31CE-D825-41B3-9B9E-2C526CAF9F64}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}CadastraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\Fap.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Altera&#32;&#32;FAP" key="{AEA3A345-4124-4FEC-B9E0-0CBCCB9F4BDC}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}AlteraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Altera&#32;&#32;FAP" key="{AEA3A345-4124-4FEC-B9E0-0CBCCB9F4BDC}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}AlteraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\Fap.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Exclui&#32;&#32;FAP" key="{7F540FB7-6EB4-4134-A4F0-7E8D575384B4}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}ExcluirFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Exclui&#32;&#32;FAP" key="{7F540FB7-6EB4-4134-A4F0-7E8D575384B4}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}ExcluirFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\Fap.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Configuração do Estabelecimento" key="{1DCC63ED-C672-4A0F-8FBA-77721CC5D0FA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Estabelecimento" key="{1FDAFA03-2DFF-4BA2-811C-942A84854DDD}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}CadastraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Altera&#32;&#32;Estabelecimento" key="{57082C5C-4C7B-4253-9B20-F1BA178A6429}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}AlteraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui&#32;&#32;Estabelecimento" key="{7EF57EBC-E47D-4F32-BE7E-92FF61990575}" group="False" parallel="False" enabled="True" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}ExcluirFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\FAP\FAP.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
