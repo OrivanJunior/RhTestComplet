@@ -1,4 +1,5 @@
 ﻿var
+{Configura estabelecimento}
 CadConfigEstabelecimentoDPCei,
 CadConfigEstabelecimentoDPIncra,
 CadConfigEstabelecimentoDPCpf,
@@ -20,7 +21,8 @@ CadConfigEstabelecimentoDPIdCatemp,
 CadConfigEstabelecimentoDPVlrMiniRrf,
 CadConfigEstabelecimentoDPNroProp,
 CadConfigEstabelecimentoDPConfNela,
-{}
+
+{ConfigDeCalculo}
 CadConfigEstabelecimentoDPPagaAjudaCompensa,	
 CadConfigEstabelecimentoDPConsAvoSuspensao13,
 CadConfigEstabelecimentoDPSalFamSobBase,		
@@ -40,4 +42,35 @@ CadConfigEstabelecimentoDPCalcDif13Neg,
 CadConfigEstabelecimentoDPNomeCalcPagaDi,	
 CadConfigEstabelecimentoDPOrdemListProc,		
 CadConfigEstabelecimentoDPCalcProvisao,		
-CadConfigEstabelecimentoDPFcnRodias: OleVariant;
+CadConfigEstabelecimentoDPFcnRodias,
+
+{ConfigAdiantamento}
+CadConfigEstabelecimentoDPCalcPropFerias,
+CadConfigEstabelecimentoDPPaEntrouAte,  	
+CadConfigEstabelecimentoDPPaVoltouAte, 	
+CadConfigEstabelecimentoDPCalcPropAfasta,
+CadConfigEstabelecimentoDPPropAdmis,  	
+CadConfigEstabelecimentoDPPagaDmAte: OleVariant;
+
+procedure leDataPoolCadConfiguracoesEstab(nomeDriver);
+begin
+{Configura estabelecimento}
+CadConfigEstabelecimentoDPCei			              := DDT.DriverByName(nomeDriver).Value('DPCEI');
+CadConfigEstabelecimentoDPIncra			            := DDT.DriverByName(nomeDriver).Value('INCRA');
+CadConfigEstabelecimentoDPCpf			              := DDT.DriverByName(nomeDriver).Value('CPF');
+CadConfigEstabelecimentoDPIdPesResp		          := DDT.DriverByName(nomeDriver).Value('IDPESRESP');
+CadConfigEstabelecimentoDPCargo			            := DDT.DriverByName(nomeDriver).Value('CARGO');
+CadConfigEstabelecimentoDPPisResp		            := DDT.DriverByName(nomeDriver).Value('PISRESP');
+CadConfigEstabelecimentoDPEmail			            := DDT.DriverByName(nomeDriver).Value('EMAIL');
+CadConfigEstabelecimentoDPIdConfigMail	        := DDT.DriverByName(nomeDriver).Value('IDCONFIGMAIL');
+{Id estabelecimento para consulta}
+CadConfigEstabelecimentoDPIdgrupo               := DDT.DriverByName(nomeDriver).Value('IDGRUPO');
+{ConfigAdiantamento}
+CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
+CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
+CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
+CadConfigEstabelecimentoDPCalcPropAfasta        := DDT.DriverByName(nomeDriver).Value('CALCPROPAFASTA');
+CadConfigEstabelecimentoDPPropAdmis  	          := DDT.DriverByName(nomeDriver).Value('PROPADMIS');
+CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).Value('PAGADMATE');
+end;
+

@@ -30,7 +30,7 @@ CadConfigEstabelecimentoEBNroProp,
 CadConfigEstabelecimentoEBConfNela,
 
 {ConfigDeCalculo}
- 
+
 CadConfigEstabelecimentoEBPagaAjudaCompensa,
 CadConfigEstabelecimentoEBConsAvoSuspensao1,
 CadConfigEstabelecimentoEBSalFamSobBase,			
@@ -58,7 +58,7 @@ CadConfigEstabelecimentoEBPaEntrouAte,
 CadConfigEstabelecimentoEBPaVoltouAte,
 CadConfigEstabelecimentoEBCalcPropAfasta,
 CadConfigEstabelecimentoEBPropAdmis,
-CadConfigEstabelecimentoEBPagaDmAte   : OleVariant;
+CadConfigEstabelecimentoEBPagaDmAte : OleVariant;
 
 
 procedure MapCadConfigEstabelecimento();
@@ -118,10 +118,3 @@ CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
 end;
-
- 
- 
-
-
-
-

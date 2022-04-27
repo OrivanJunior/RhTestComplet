@@ -1,4 +1,5 @@
 ﻿var
+{Configura estabelecimento}
 CadConfigEstabelecimentoDPCei,
 CadConfigEstabelecimentoDPIncra,
 CadConfigEstabelecimentoDPCpf,
@@ -20,7 +21,8 @@ CadConfigEstabelecimentoDPIdCatemp,
 CadConfigEstabelecimentoDPVlrMiniRrf,
 CadConfigEstabelecimentoDPNroProp,
 CadConfigEstabelecimentoDPConfNela,
-{}
+
+{ConfigDeCalculo}
 CadConfigEstabelecimentoDPPagaAjudaCompensa,	
 CadConfigEstabelecimentoDPConsAvoSuspensao13,
 CadConfigEstabelecimentoDPSalFamSobBase,		
@@ -40,4 +42,24 @@ CadConfigEstabelecimentoDPCalcDif13Neg,
 CadConfigEstabelecimentoDPNomeCalcPagaDi,	
 CadConfigEstabelecimentoDPOrdemListProc,		
 CadConfigEstabelecimentoDPCalcProvisao,		
-CadConfigEstabelecimentoDPFcnRodias: OleVariant;
+CadConfigEstabelecimentoDPFcnRodias,
+
+{ConfigAdiantamento}
+CadConfigEstabelecimentoDPCalcPropFerias,
+CadConfigEstabelecimentoDPPaEntrouAte,  	
+CadConfigEstabelecimentoDPPaVoltouAte, 	
+CadConfigEstabelecimentoDPCalcPropAfasta,
+CadConfigEstabelecimentoDPPropAdmis,  	
+CadConfigEstabelecimentoDPPagaDmAte: OleVariant;
+
+procedure leDataPoolCadConfiguracoesEstab(nomeDriver);
+begin
+{ConfigAdiantamento}
+CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
+CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
+CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
+CadConfigEstabelecimentoDPCalcPropAfasta        := DDT.DriverByName(nomeDriver).Value('CALCPROPAFASTA');
+CadConfigEstabelecimentoDPPropAdmis  	          := DDT.DriverByName(nomeDriver).Value('PROPADMIS');
+CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).Value('PAGADMATE');
+end;
+

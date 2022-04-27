@@ -1,1 +1,55 @@
-﻿
+﻿  uses
+  CommonsAll,
+  VarConsts,
+  CommonsObj, 
+  ObjCadConfiguracaoEstab,
+  DataPoolCadConfiguracaoEstab;
+  
+  procedure PreencherDados();
+  begin
+  
+  VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
+  VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);
+  VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte);
+  VerificaInsere(CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoDPCalcPropAfasta);
+  VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);
+  VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
+  
+  end;
+  
+  procedure CadastraAdiantamentoSalarial();
+  Var DDTAdiantamento;
+  begin
+  DDTAdiantamento := CarregaDDT(pathData, _Cadastrar);
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  while not (DDTAdiantamento.EOF) do
+  begin
+  leDataPoolCadConfiguracoesEstab(DDTAdiantamento.Name);
+  MapGridConsulta(_ModuloFolha);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhFilial');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Grupo', CadConfigEstabelecimentoDPIdgrupo);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+  
+      MapCadCheques();
+  
+      if (CadConfigEstabelecimentoForm .Exists) then
+      begin
+        PreencherDados(); 
+  
+        ActSalvar(CadConfigEstabelecimentoForm);
+        ActFechar(CadConfigEstabelecimentoForm);
+    end;
+    DDTCheques.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAdiantamento.Name);
+  end;
+end;
+  

@@ -5,6 +5,7 @@
 var
 
 {Dados do estabelecimento}
+
 CadConfigEstabelecimentoForm,
 CadConfigEstabelecimentoEBCei,
 CadConfigEstabelecimentoEBIncra,
@@ -28,6 +29,8 @@ CadConfigEstabelecimentoEBVlrMiniRrf,
 CadConfigEstabelecimentoEBNroProp,
 CadConfigEstabelecimentoEBConfNela,
 
+{ConfigDeCalculo}
+
 CadConfigEstabelecimentoEBPagaAjudaCompensa,
 CadConfigEstabelecimentoEBConsAvoSuspensao1,
 CadConfigEstabelecimentoEBSalFamSobBase,			
@@ -46,15 +49,21 @@ CadConfigEstabelecimentoEBDescMinIrrf,
 CadConfigEstabelecimentoEBCalcDif13Neg,			
 CadConfigEstabelecimentoEBNomeCalcPagaDi,	
 CadConfigEstabelecimentoEBCalcProvisao,		
-CadConfigEstabelecimentoEBFcnRodias		
+CadConfigEstabelecimentoEBFcnRodias,
 
- {ConfigDeCalculo}
- 
- : OleVariant;
+{ConfigAdiantamento}
+
+CadConfigEstabelecimentoEBCalcPropFerias,
+CadConfigEstabelecimentoEBPaEntrouAte,
+CadConfigEstabelecimentoEBPaVoltouAte,
+CadConfigEstabelecimentoEBCalcPropAfasta,
+CadConfigEstabelecimentoEBPropAdmis,
+CadConfigEstabelecimentoEBPagaDmAte   : OleVariant;
+
 
 procedure MapCadConfigEstabelecimento();
 begin
-
+{Configura estabelecimento}
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 CadConfigEstabelecimentoEBCei				    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
 CadConfigEstabelecimentoEBIncra			    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_INCRA;
@@ -77,10 +86,8 @@ CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
 CadConfigEstabelecimentoEBNroProp    	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
 CadConfigEstabelecimentoEBConfNela   	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
-end;
 
- {ConfigDeCalculo}
- 
+{ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
 CadConfigEstabelecimentoEBSalFamSobBase				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_SALFAMSOBBASE;
@@ -102,35 +109,19 @@ CadConfigEstabelecimentoEBOrdemListProc				  :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
 CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
 
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_SALFAMSOBBASE;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_EXPCTB;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_SALPROPVENC;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_BASEPIS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFSEGDES;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_JMCFENDIAS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ADMDEMCFMENDIAS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_TPCOMPFERIAS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_LREGIRRF;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFHOMOLOG;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCLIQFERIASBASE;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCINSSAVIRRF;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCMINIRRF;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCDIF13NEG;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_NOMECALCPAGADI;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ORDEMLISTPROC;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
+{ConfigAdiantamento}
+CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
+CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
+CadConfigEstabelecimentoEBPaVoltouAte 		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
+CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
+CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
+CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
 end;
 
-{ConfigAdiantamento}
+ 
+ 
 
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
-  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
+
+
+
