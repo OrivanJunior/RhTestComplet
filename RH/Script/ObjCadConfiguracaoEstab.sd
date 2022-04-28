@@ -2,6 +2,7 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
+
 var
 
 {Dados do estabelecimento}
@@ -86,7 +87,10 @@ CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
 CadConfigEstabelecimentoEBNroProp    	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
 CadConfigEstabelecimentoEBConfNela   	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+end;
 
+procedure MapCadConfigDeCalculo();
+begin
 {ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
@@ -108,7 +112,10 @@ CadConfigEstabelecimentoEBNomeCalcPagaDi			  :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBOrdemListProc				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ORDEMLISTPROC;
 CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
 CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
+end;
 
+procedure MapCadConfigAdiantamento();
+begin
 {ConfigAdiantamento}
 CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
 CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
@@ -117,4 +124,9 @@ CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
 CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
+end;
+
+procedure MapTelaEstab();
+begin
+  EstabFormPage := Aliases.Folha.FRhFilial.Page;
 end;

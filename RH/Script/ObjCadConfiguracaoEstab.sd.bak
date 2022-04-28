@@ -58,7 +58,7 @@ CadConfigEstabelecimentoEBPaEntrouAte,
 CadConfigEstabelecimentoEBPaVoltouAte,
 CadConfigEstabelecimentoEBCalcPropAfasta,
 CadConfigEstabelecimentoEBPropAdmis,
-CadConfigEstabelecimentoEBPagaDmAte   : OleVariant;
+CadConfigEstabelecimentoEBPagaDmAte : OleVariant;
 
 
 procedure MapCadConfigEstabelecimento();
@@ -86,7 +86,10 @@ CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
 CadConfigEstabelecimentoEBNroProp    	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
 CadConfigEstabelecimentoEBConfNela   	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+end;
 
+procedure MapCadConfigDeCalculo();
+begin
 {ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
@@ -108,7 +111,10 @@ CadConfigEstabelecimentoEBNomeCalcPagaDi			  :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBOrdemListProc				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ORDEMLISTPROC;
 CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
 CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
+end;
 
+procedure MapCadConfigAdiantamento();
+begin
 {ConfigAdiantamento}
 CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
 CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
@@ -118,10 +124,3 @@ CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
 end;
-
- 
- 
-
-
-
-

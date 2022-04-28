@@ -180,29 +180,29 @@
 									<testItem name="Cadastros Gerais" key="{89CBD4AE-4616-492A-9017-B49935B2C527}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Pessoas" key="{E9584058-B12D-400C-A4A5-369989FD8656}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Pessoas" key="{E9584058-B12D-400C-A4A5-369989FD8656}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastro de Pessoas" key="{ED4A7337-0A14-46FD-B1E2-C2FEA522D0CD}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cadastro de Pessoas" key="{ED4A7337-0A14-46FD-B1E2-C2FEA522D0CD}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Pessoa" key="{AE76A3A2-AA6A-49AE-90DF-2CB9A2888F25}" group="False" parallel="False" enabled="True" testMoniker="{046AE2AE-D261-4ABD-8270-EF959325F903}ExeCadastraPessoa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Pessoas\Cadastro de Pessoas\CadastroPessoa.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\CadastroPessoa.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
 															<testItem name="Altera Pessoa" key="{A0746D1A-D4A6-4ECD-978A-A0F67B61C03F}" group="False" parallel="False" enabled="True" testMoniker="{046AE2AE-D261-4ABD-8270-EF959325F903}ExeAlteraPessoa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Pessoas\Cadastro de Pessoas\CadastroPessoa.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\CadastroPessoa.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
 															<testItem name="Exclui Pessoa" key="{21601C8E-6062-45C0-BBDF-4B1DB9DA4223}" group="False" parallel="False" enabled="True" testMoniker="{046AE2AE-D261-4ABD-8270-EF959325F903}ExeExcluiPessoa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Pessoas\Cadastro de Pessoas\CadastroPessoa.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\CadastroPessoa.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -803,24 +803,24 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Fixo Geral" key="{2A19CB3D-E493-4110-BC43-29A0C469C7C1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Fixo Geral" key="{2A19CB3D-E493-4110-BC43-29A0C469C7C1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra Fixo Geral" key="{C3DF3FF8-918A-4FFE-9927-F4C6CDEE496E}" group="False" parallel="False" enabled="True" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}CadastraFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cadastra Fixo Geral" key="{C3DF3FF8-918A-4FFE-9927-F4C6CDEE496E}" group="False" parallel="False" enabled="True" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}PreencheTabPeriodicidadeMesFixoG" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Fixo Geral\CadastroFixoGeral.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Altera Fixo Geral" key="{2158D507-C0FC-424E-976C-2F4B05412BCA}" group="False" parallel="False" enabled="False" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}AlteraFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Fixo Geral\CadastroFixoGeral.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Altera Fixo Geral" key="{2158D507-C0FC-424E-976C-2F4B05412BCA}" group="False" parallel="False" enabled="True" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}AlteraFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Fixo Geral\CadastroFixoGeral.xls" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
-													</testItem>
-													<testItem name="Exclui Fixo Geral" key="{0E1702CC-B9F9-49AC-8D4B-0A1DFEC5EFB4}" group="False" parallel="False" enabled="True" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}ExcluiFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Exclui Fixo Geral" key="{0E1702CC-B9F9-49AC-8D4B-0A1DFEC5EFB4}" group="False" parallel="False" enabled="False" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}ExcluiFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Fixo Geral\CadastroFixoGeral.xls" />
 														</testParameters>
@@ -990,22 +990,24 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Configuração do Estabelecimento" key="{1DCC63ED-C672-4A0F-8FBA-77721CC5D0FA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Configuração do Estabelecimento" key="{1DCC63ED-C672-4A0F-8FBA-77721CC5D0FA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra Configuração de Estabelecimento" key="{1FDAFA03-2DFF-4BA2-811C-942A84854DDD}" group="False" parallel="False" enabled="True" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}CadastraAdiantamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters />
-														<environments activeCloud="CBT" />
-														<children />
-													</testItem>
-													<testItem name="Altera Configuração de&#32;&#32;Estabelecimento" key="{57082C5C-4C7B-4253-9B20-F1BA178A6429}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}AlteraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cadastra Configuração de Estabelecimento" key="{1FDAFA03-2DFF-4BA2-811C-942A84854DDD}" group="False" parallel="False" enabled="True" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}PreencheTabConfCalculo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\CadConfigEstabelecimento.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Exclui Configuração de Estabelecimento" key="{7EF57EBC-E47D-4F32-BE7E-92FF61990575}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}ExcluirFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Altera Configuração de&#32;&#32;Estabelecimento" key="{57082C5C-4C7B-4253-9B20-F1BA178A6429}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}AlteraFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\CadConfigEstabelecimento.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Configuração de Estabelecimento" key="{7EF57EBC-E47D-4F32-BE7E-92FF61990575}" group="False" parallel="False" enabled="False" testMoniker="{DDACAB61-1913-4CCE-AF00-1EEE10A24A8F}ExcluirFap" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\CadConfigEstabelecimento.xls" />
 														</testParameters>

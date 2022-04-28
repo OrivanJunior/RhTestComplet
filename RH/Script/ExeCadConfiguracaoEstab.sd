@@ -1,55 +1,62 @@
 ﻿  uses
-  CommonsAll,
-  VarConsts,
-  CommonsObj, 
-  ObjCadConfiguracaoEstab,
-  DataPoolCadConfiguracaoEstab;
+  CommonsAll, VarConsts, CommonsObj, ObjCadConfiguracaoEstab,DataPoolCadConfiguracaoEstab;
   
-  procedure PreencherDados();
-  begin
+procedure PreencherCadastro();
+begin
   
+  VerificaInsere(CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoDPCei);				   
+  VerificaInsere(CadConfigEstabelecimentoEBIncra,CadConfigEstabelecimentoDPIncra);			   
+  VerificaInsere(CadConfigEstabelecimentoEBCpf,CadConfigEstabelecimentoDPCpf);				   
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBIdPesResp,CadConfigEstabelecimentoDPIdPesResp);	 
+  VerificaInsere(CadConfigEstabelecimentoEBCargo,CadConfigEstabelecimentoDPCargo);			   
+  VerificaInsere(CadConfigEstabelecimentoEBPisResp ,CadConfigEstabelecimentoDPPisResp);  		 
+  VerificaInsere(CadConfigEstabelecimentoEBEmail,CadConfigEstabelecimentoDPEmail); 			 
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBIdConfigMail,CadConfigEstabelecimentoDPIdConfigMail);
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBIdgrupo,CadConfigEstabelecimentoDPIdgrupo);
+end;
+
+procedure PreencherCalculo();
+begin
+
   VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
-  VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);
-  VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte);
-  VerificaInsere(CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoDPCalcPropAfasta);
-  VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);
+  VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);  	 
+  VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte );	 
+  VerificaInsere(CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoDPCalcPropAfasta); 
+  VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);  	 
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
+end;  
   
-  end;
-  
-  procedure CadastraAdiantamentoSalarial();
-  Var DDTAdiantamento;
-  begin
-  DDTAdiantamentoSal := CarregaDDT(pathData, _Cadastrar);
+
+procedure PreencherDadosCadastrais(pathData);
+Var 
+  DDTCadastrar: OleVariant;
+begin
+
+  DDTCadastrar := CarregaDDT(pathData, 'Dados Cadastrais');
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
-  
-  while not (DDTAdiantamentoSal.EOF) do
-  begin
-  leDataPoolCadConfiguracoesEstab(DDTAdiantamentoSal.Name);
-  MapGridConsulta(_ModuloFolha);
-  
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-      ValidaFormAberto(_ModuloFolha, 'FRhFilial');
-
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Grupo', CadConfigEstabelecimentoDPIdgrupo);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
-    begin
-      ActConsulta(FormTelaConsultaForm);
-  
-      MapCadCheques();
-  
-      if (CadConfigEstabelecimentoForm .Exists) then
-      begin
-        PreencherDados(); 
-  
-        ActSalvar(CadConfigEstabelecimentoForm);
-        ActFechar(CadConfigEstabelecimentoForm);
-    end;
-    DDTCheques.Next;
-  end;
-  ActFechar(FormTelaConsultaForm);
-  DDT.CloseDriver(DDTAdiantamentoSal.Name);
-  end;
+  Delay(10000);
+ 
+  leDataPoolDadosCadastrais(DDTCadastrar.Name);
+  MapCadConfigEstabelecimento(); 
+  PreencherCadastro();
 end;
+
+
+
+
+procedure PreencheTabConfCalculo(pathData);
+var
+  DDTCalculo: Olevariant;
+begin
+  EstabFormPage.ActivePageIndex := 0;
+
+  DDTCalculo := CarregaDDT(pathData, 'Calculos');  
+ 
+  LeDataPoolConfigAdiantamento(DDTCalculo.Name);
   
+  MapCadConfigAdiantamento();
+  
+  PreencherCalculo();
+end;
+
