@@ -35,7 +35,7 @@ begin
   DDTCadastrar := CarregaDDT(pathData, 'Dados Cadastrais');
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
-  Delay(10000);
+  Delay(15000);
  
   leDataPoolDadosCadastrais(DDTCadastrar.Name);
   MapCadConfigEstabelecimento(); 
@@ -43,20 +43,22 @@ begin
 end;
 
 
-
-
 procedure PreencheTabConfCalculo(pathData);
 var
   DDTCalculo: Olevariant;
 begin
-  EstabFormPage.ActivePageIndex := 0;
-
-  DDTCalculo := CarregaDDT(pathData, 'Calculos');  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  Delay(15000);
+  
+  DDTCalculo := CarregaDDT(pathData, 'Calculos'); 
  
   LeDataPoolConfigAdiantamento(DDTCalculo.Name);
-  
   MapCadConfigAdiantamento();
   
+  MapTelaEstab();
+  
+  EstabFormPage.ActivePageIndex := 1;
   PreencherCalculo();
+  
 end;
 

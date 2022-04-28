@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}"/>
+				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -1138,17 +1142,17 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="39"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="35"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="52"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="41"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="68"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="54"/>
 						</Node>
 						<Node name="4">
@@ -1163,7 +1167,7 @@
 						</Node>
 						<Node name="6">
 							<Prp name="bottom" type="I" value="102"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="94"/>
 						</Node>
 						<Prp name="bottom" type="I" value="102"/>
@@ -2023,7 +2027,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="65"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="28"/>
 						</Node>
 						<Prp name="bottom" type="I" value="65"/>
@@ -8518,7 +8522,7 @@
 						</Node>
 						<Node name="5">
 							<Prp name="bottom" type="I" value="76"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="67"/>
 						</Node>
 						<Node name="6">
@@ -10063,17 +10067,17 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="18"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="15"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="39"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="20"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="70"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="41"/>
 						</Node>
 						<Node name="4">
@@ -13352,15 +13356,15 @@
 							<Node name="folha">
 								<Node name="cadastros específicos">
 									<Node name="configuração do estabelecimento"/>
-									<Node name="fixo geral"/>
 								</Node>
 								<Node name="cadastros gerais">
 									<Node name="pessoas"/>
 								</Node>
-								<Node name="processamentos"/>
 							</Node>
 							<Node name="ponto">
-								<Node name="cadastros específicos"/>
+								<Node name="cadastros específicos">
+									<Node name="configuração do estabelecimento"/>
+								</Node>
 							</Node>
 						</Node>
 					</Node>

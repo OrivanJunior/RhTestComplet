@@ -2,6 +2,7 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
+
 var
 
 {Dados do estabelecimento}
@@ -50,6 +51,8 @@ CadConfigEstabelecimentoEBCalcDif13Neg,
 CadConfigEstabelecimentoEBNomeCalcPagaDi,	
 CadConfigEstabelecimentoEBCalcProvisao,		
 CadConfigEstabelecimentoEBFcnRodias,
+
+EstabFormPage,
 
 {ConfigAdiantamento}
 
@@ -123,4 +126,10 @@ CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
 CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
+end;
+
+procedure MapTelaEstab();
+
+begin
+  EstabFormPage := Aliases.Folha.FRhFilial.Page;
 end;
