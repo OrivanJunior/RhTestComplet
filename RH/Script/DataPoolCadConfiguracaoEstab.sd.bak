@@ -67,7 +67,7 @@ CadConfigEstabelecimentoDPIdgrupo               := DDT.DriverByName(nomeDriver).
 end;
 
 {ConfigAdiantamento}
-procedure LeDataPoolConfigAdiantamento();
+procedure LeDataPoolConfigAdiantamento(nomeDriver);
 begin
 CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
 CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
