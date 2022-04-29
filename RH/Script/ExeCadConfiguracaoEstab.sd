@@ -3,6 +3,9 @@
   
 procedure PreencherCadastro();
 begin
+  MapCadConfigEstabelecimento();
+  
+  EstabFormPage.ActivePageIndex := 0;
   
   VerificaInsere(CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoDPCei);				   
   VerificaInsere(CadConfigEstabelecimentoEBIncra,CadConfigEstabelecimentoDPIncra);			   
@@ -17,10 +20,32 @@ end;
 
 procedure PreencherCalculo();
 begin
-  MapTelaEstab();
+  MapFormEstab();
   
   EstabFormPage.ActivePageIndex := 1;
+  
+  verificaInsere(CadConfigEstabelecimentoEBPagaAjudaCompensa,CadConfigEstabelecimentoDPPagaAjudaCompensa);	
+  verificaInsere(CadConfigEstabelecimentoEBConsAvoSuspensao13,CadConfigEstabelecimentoDPConsAvoSuspensao13);	
+  verificaInsere(CadConfigEstabelecimentoEBSalFamSobBase,CadConfigEstabelecimentoDPSalFamSobBase);			
+  verificaInsere(CadConfigEstabelecimentoEBExpCtb,CadConfigEstabelecimentoDPExpCtb);				
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBSalPropVenc,CadConfigEstabelecimentoDPSalPropVenc);			
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBBasePis,CadConfigEstabelecimentoDPBasePis);
+  verificaInsere(CadConfigEstabelecimentoEBIdConfSegDes,CadConfigEstabelecimentoDPIdConfSegDes);			
+  verificaInsere(CadConfigEstabelecimentoEBJmcfenDias,CadConfigEstabelecimentoDPJmcfenDias);			
+  VerificaInsere(CadConfigEstabelecimentoEBAdmDemcfmenDias,CadConfigEstabelecimentoDPAdmDemcfmenDias);		
+  VerificaInsere(CadConfigEstabelecimentoEBTpCompFerias	,CadConfigEstabelecimentoDPTpCompFerias);			
+  verificaInsere(CadConfigEstabelecimentoEBLRegIrrf	,CadConfigEstabelecimentoDPLRegIrrf);				
+  VerificaConsultaF3Insere(_ModuloFolha,CadConfigEstabelecimentoEBIdConfHomolog,CadConfigEstabelecimentoDPIdConfHomolog);			
+  verificaInsere(CadConfigEstabelecimentoEBCalcliqFeriasBase,CadConfigEstabelecimentoDPCalcliqFeriasBase);		
+  verificaInsere(CadConfigEstabelecimentoEBDescInssAvIrrf,CadConfigEstabelecimentoDPDescInssAvIrrf);		
+  verificaInsere(CadConfigEstabelecimentoEBDescMinIrrf,CadConfigEstabelecimentoDPDescMinIrrf);			
+  verificaInsere(CadConfigEstabelecimentoEBCalcDif13Neg	,CadConfigEstabelecimentoDPCalcDif13Neg);			
+  verificaInsere(CadConfigEstabelecimentoEBNomeCalcPagaDi,CadConfigEstabelecimentoDPNomeCalcPagaDi);		
+  verificaInsere(CadConfigEstabelecimentoEBOrdemListProc,CadConfigEstabelecimentoDPOrdemListProc);		
+  verificaInsere(CadConfigEstabelecimentoEBCalcProvisao	,CadConfigEstabelecimentoDPCalcProvisao);			
+  verificaInsere(CadConfigEstabelecimentoEBFcnRodias,CadConfigEstabelecimentoDPFcnRodias);				
 
+  
   VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
   VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);  	 
   VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte );	 
@@ -29,36 +54,68 @@ begin
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
 end;  
   
+procedure PreencheFgtsInss();
+begin
 
-procedure PreencherDadosCadastrais(pathData);
+end;
+
+procedure PreencherConfigContabeis();
+begin
+
+end;
+
+procedure PreencherConfigFinanceiro();
+begin
+
+end;
+
+procedure PreencherAvisoPrevio();
+begin
+
+end;
+
+procedure PreencherListPendencia();
+begin
+
+end;
+
+
+
+
+
+
+
+
+procedure CadastraConfigEstab(pathData);
 Var 
   DDTCadastrar: OleVariant;
 begin
-
-  DDTCadastrar := CarregaDDT(pathData, 'Dados Cadastrais');
   
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
   Delay(15000);
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
  
   leDataPoolDadosCadastrais(DDTCadastrar.Name);
-  MapCadConfigEstabelecimento(); 
-  PreencherCadastro();
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFilial');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadConfigEstabelecimento(); 
+  
+    PreencherCadastro();
+    PreencherCalculo();
+    end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
 end;
 
 
-procedure PreencheTabConfCalculo(pathData);
-var
-  DDTCalculo: Olevariant;
-begin
-  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
-  Delay(15000);
-  
-  DDTCalculo := CarregaDDT(pathData, 'Calculos'); 
- 
-  LeDataPoolConfigAdiantamento(DDTCalculo.Name);
-  MapCadConfigAdiantamento();
-  
-  PreencherCalculo();
-  
-end;
 

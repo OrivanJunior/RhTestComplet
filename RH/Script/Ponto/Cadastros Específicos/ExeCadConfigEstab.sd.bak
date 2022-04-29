@@ -90,7 +90,7 @@ begin
   
   DDTConfEstab := CarregaDDT(pathData, _Cadastrar);
   
-  LeDataPoolConfEstab();
+  LeDataPoolConfEstab(DDTConfEstab.Name);
   
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloPonto, 'FRhFilial');
@@ -130,7 +130,7 @@ begin
   
   DDTConfEstab := CarregaDDT(pathData, _Alterar);
   
-  LeDataPoolConfEstab();
+  LeDataPoolConfEstab(DDTConfEstab.Name);
   
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloPonto, 'FRhFilial');
@@ -170,7 +170,7 @@ begin
   
   DDTConfEstab := CarregaDDT(pathData, _Excluir);
   
-  LeDataPoolConfEstab();
+  LeDataPoolConfEstab(DDTConfEstab.Name);
   
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloPonto, 'FRhFilial');

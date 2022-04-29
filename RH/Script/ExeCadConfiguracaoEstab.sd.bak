@@ -3,6 +3,9 @@
   
 procedure PreencherCadastro();
 begin
+  MapCadConfigEstabelecimento();
+  
+  EstabFormPage.ActivePageIndex := 0;
   
   VerificaInsere(CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoDPCei);				   
   VerificaInsere(CadConfigEstabelecimentoEBIncra,CadConfigEstabelecimentoDPIncra);			   
@@ -17,6 +20,9 @@ end;
 
 procedure PreencherCalculo();
 begin
+  MapFormEstab();
+  
+  EstabFormPage.ActivePageIndex := 1;
 
   VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
   VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);  	 
@@ -26,6 +32,32 @@ begin
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
 end;  
   
+procedure PreencheFgtsInss();
+begin
+
+end;
+
+procedure PreencherConfigContabeis();
+begin
+
+end;
+
+procedure PreencherConfigFinanceiro();
+begin
+
+end;
+
+procedure PreencherAvisoPrevio();
+begin
+
+end;
+
+procedure PreencherListPendencia();
+begin
+
+end;
+
+
 
 procedure PreencherDadosCadastrais(pathData);
 Var 
@@ -47,18 +79,129 @@ procedure PreencheTabConfCalculo(pathData);
 var
   DDTCalculo: Olevariant;
 begin
-  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
-  Delay(15000);
+  
   
   DDTCalculo := CarregaDDT(pathData, 'Calculos'); 
  
   LeDataPoolConfigAdiantamento(DDTCalculo.Name);
   MapCadConfigAdiantamento();
   
-  MapTelaEstab();
-  
-  EstabFormPage.ActivePageIndex := 1;
   PreencherCalculo();
   
 end;
 
+{_______________________________________________________________________________________}
+
+procedure CadastraConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  Delay(15000);
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Cadastrar);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    PreencheDadosCadastrais();
+  
+    PreencheConfGeraisPonto();
+  
+    PreencheEventosExportacao();
+  
+    PreencheRepEstab();
+  
+    PreencheListagemPendencias();
+  
+    ActSalvar(ConfEstabForm);
+  
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;
+
+procedure AlteraConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Alterar);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    PreencheDadosCadastrais();
+  
+    PreencheConfGeraisPonto();
+  
+    PreencheEventosExportacao();
+  
+    PreencheRepEstab();
+  
+    PreencheListagemPendencias();
+  
+    ActSalvar(ConfEstabForm);
+  
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;
+
+procedure ExcluiConfigEstab(pathData);
+var
+  DDTConfEstab: OleVariant;
+begin
+  AcessaItem(_ModuloPonto, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  
+  MapGridConsulta(_ModuloPonto);
+  
+  DDTConfEstab := CarregaDDT(pathData, _Excluir);
+  
+  LeDataPoolConfEstab(DDTConfEstab.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloPonto, 'FRhFilial');
+      
+  FiltraGrid(_ModuloPonto, 'FBRowseCds', 'BGrid', 'Estab.', ConfEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    MapConfigEstab();
+  
+    ActExcluir(_ModuloPonto, 'FRhFilial');
+    
+    if (Aliases.Ponto.dlgWarning.Exists) then
+      Aliases.Ponto.dlgWarning.Warning.CtrlNotifySink.btnYes.Click();
+        
+    ActFechar(ConfEstabForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTConfEstab.Name);
+end;

@@ -3,6 +3,7 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
 var
+EstabFormPage,
 
 {Dados do estabelecimento}
 CadConfigEstabelecimentoForm,
@@ -10,7 +11,7 @@ CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoEBIncra,
 CadConfigEstabelecimentoEBCpf,CadConfigEstabelecimentoEBIdPesResp,
 CadConfigEstabelecimentoEBCargo,CadConfigEstabelecimentoEBPisResp,CadConfigEstabelecimentoEBEmail,CadConfigEstabelecimentoEBIdConfigMail,
 CadConfigEstabelecimentoEBIdgrupo,CadConfigEstabelecimentoEBIdSind,CadConfigEstabelecimentoEBIdRais,
-CadConfigEstabelecimentoEBGeraCaged,CadConfigEstabelecimentoEBCodCagedResp,
+CadConfigEstabelecimentoEBGeraCaged,CadConfigEstabelecimentoEBCodCagedResp,CadConfigEstabelecimentoEBIdcnae,
 CadConfigEstabelecimentoEBPriCaged,CadConfigEstabelecimentoEBPartPat,
 CadConfigEstabelecimentoEBTipoEmpresa,CadConfigEstabelecimentoEBNatJur,CadConfigEstabelecimentoEBIdCatEmp,CadConfigEstabelecimentoEBVlrMiniRrf,CadConfigEstabelecimentoEBNroProp,CadConfigEstabelecimentoEBConfNela,
 
@@ -21,8 +22,6 @@ CadConfigEstabelecimentoEBSalPropVenc,CadConfigEstabelecimentoEBBasePis,CadConfi
 CadConfigEstabelecimentoEBAdmDemcfmenDias,CadConfigEstabelecimentoEBTpCompFerias,CadConfigEstabelecimentoEBLRegIrrf,					
 CadConfigEstabelecimentoEBIdConfHomolog,CadConfigEstabelecimentoEBCalcliqFeriasBase,CadConfigEstabelecimentoEBDescInssAvIrrf,	CadConfigEstabelecimentoEBDescMinIrrf,				
 CadConfigEstabelecimentoEBCalcDif13Neg,	CadConfigEstabelecimentoEBNomeCalcPagaDi,	CadConfigEstabelecimentoEBCalcProvisao,	CadConfigEstabelecimentoEBFcnRodias,
-
-EstabFormPage,EstabFormPageCalc,
 
 {ConfigAdiantamento}
 CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoEBPaVoltouAte,
@@ -68,7 +67,7 @@ CadConfigEstabelecimentoEBLvencestab,CadConfigEstabelecimentoEBDlvencestab,CadCo
 procedure MapCadConfigEstabelecimento();
 begin
 {Dados Cadastrais}
-CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
+
 CadConfigEstabelecimentoEBCei				    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
 CadConfigEstabelecimentoEBIncra			    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_INCRA;
 CadConfigEstabelecimentoEBCpf				    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CPF;
@@ -85,6 +84,7 @@ CadConfigEstabelecimentoEBCodCagedResp  := Aliases.Folha.FRhFilial.Page.TabNorma
 CadConfigEstabelecimentoEBPriCaged  	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_PRICAGED;
 CadConfigEstabelecimentoEBPartPat  		  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_PARTPAT;
 CadConfigEstabelecimentoEBTipoEmpresa   := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_TIPOEMPRESA;
+CadConfigEstabelecimentoEBIdcnae        := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCNAE;
 CadConfigEstabelecimentoEBNatJur  		  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NATJUR;
 CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_IDCATEMP;
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
@@ -132,10 +132,10 @@ CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsC
 end;
 
 {Map para saltar para a próxima celula do xls}
-procedure MapTelaEstab();
+procedure MapFormEstab();
 begin
-EstabFormPage := Aliases.Folha.FRhFilial.Page;
-EstabFormPageCalc := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
+CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
+EstabFormPage                           := Aliases.Folha.FRhFilial.Page;
 end;
 
 
@@ -215,7 +215,7 @@ end;
 
 procedure MapCadConfigEstabFinac();
 begin
-  {Config financeiro}
+{Config financeiro}
 CadConfigEstabelecimentoEBEstabfin					    :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_ESTABFIN;
 CadConfigEstabelecimentoEBDarfpisfornecedor			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISFORNECEDOR;
 CadConfigEstabelecimentoEBDarfpisanalitica			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISANALITICA;
@@ -243,7 +243,7 @@ end;
 
 procedure MapCadEstabAvisoPrev();
 begin
-  {Config Aviso previo}
+{Config Aviso previo}
 AvisoPrevGrid    := Aliases.Folha.FRhFilial.Page.tbAvisoPrevio.ScrollBox3.gRhAvPrevio;
 
 AvisoPrevIncBtn  := Aliases.Folha.FRhFilial.bIncAvPrevio;
