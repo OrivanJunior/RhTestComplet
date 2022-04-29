@@ -2,71 +2,72 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
-
 var
 
 {Dados do estabelecimento}
-
 CadConfigEstabelecimentoForm,
-CadConfigEstabelecimentoEBCei,
-CadConfigEstabelecimentoEBIncra,
-CadConfigEstabelecimentoEBCpf,
-CadConfigEstabelecimentoEBIdPesResp,
-CadConfigEstabelecimentoEBCargo,
-CadConfigEstabelecimentoEBPisResp,
-CadConfigEstabelecimentoEBEmail,
-CadConfigEstabelecimentoEBIdConfigMail,
-CadConfigEstabelecimentoEBIdgrupo,
-CadConfigEstabelecimentoEBIdSind,
-CadConfigEstabelecimentoEBIdRais,
-CadConfigEstabelecimentoEBGeraCaged,
-CadConfigEstabelecimentoEBCodCagedResp,
-CadConfigEstabelecimentoEBPriCaged,
-CadConfigEstabelecimentoEBPartPat,
-CadConfigEstabelecimentoEBTipoEmpresa,
-CadConfigEstabelecimentoEBNatJur,
-CadConfigEstabelecimentoEBIdCatEmp,
-CadConfigEstabelecimentoEBVlrMiniRrf,
-CadConfigEstabelecimentoEBNroProp,
-CadConfigEstabelecimentoEBConfNela,
+CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoEBIncra,
+CadConfigEstabelecimentoEBCpf,CadConfigEstabelecimentoEBIdPesResp,
+CadConfigEstabelecimentoEBCargo,CadConfigEstabelecimentoEBPisResp,CadConfigEstabelecimentoEBEmail,CadConfigEstabelecimentoEBIdConfigMail,
+CadConfigEstabelecimentoEBIdgrupo,CadConfigEstabelecimentoEBIdSind,CadConfigEstabelecimentoEBIdRais,
+CadConfigEstabelecimentoEBGeraCaged,CadConfigEstabelecimentoEBCodCagedResp,
+CadConfigEstabelecimentoEBPriCaged,CadConfigEstabelecimentoEBPartPat,
+CadConfigEstabelecimentoEBTipoEmpresa,CadConfigEstabelecimentoEBNatJur,CadConfigEstabelecimentoEBIdCatEmp,CadConfigEstabelecimentoEBVlrMiniRrf,CadConfigEstabelecimentoEBNroProp,CadConfigEstabelecimentoEBConfNela,
 
 {ConfigDeCalculo}
+CadConfigCalcForm,
+CadConfigEstabelecimentoEBPagaAjudaCompensa,CadConfigEstabelecimentoEBConsAvoSuspensao1,CadConfigEstabelecimentoEBSalFamSobBase,CadConfigEstabelecimentoEBExpCtb,					 
+CadConfigEstabelecimentoEBSalPropVenc,CadConfigEstabelecimentoEBBasePis,CadConfigEstabelecimentoEBIdConfSegDes,	CadConfigEstabelecimentoEBJmcfenDias,		
+CadConfigEstabelecimentoEBAdmDemcfmenDias,CadConfigEstabelecimentoEBTpCompFerias,CadConfigEstabelecimentoEBLRegIrrf,					
+CadConfigEstabelecimentoEBIdConfHomolog,CadConfigEstabelecimentoEBCalcliqFeriasBase,CadConfigEstabelecimentoEBDescInssAvIrrf,	CadConfigEstabelecimentoEBDescMinIrrf,				
+CadConfigEstabelecimentoEBCalcDif13Neg,	CadConfigEstabelecimentoEBNomeCalcPagaDi,	CadConfigEstabelecimentoEBCalcProvisao,	CadConfigEstabelecimentoEBFcnRodias,
 
-CadConfigEstabelecimentoEBPagaAjudaCompensa,
-CadConfigEstabelecimentoEBConsAvoSuspensao1,
-CadConfigEstabelecimentoEBSalFamSobBase,			
-CadConfigEstabelecimentoEBExpCtb,					 
-CadConfigEstabelecimentoEBSalPropVenc,				
-CadConfigEstabelecimentoEBBasePis,					 
-CadConfigEstabelecimentoEBIdConfSegDes,			
-CadConfigEstabelecimentoEBJmcfenDias,		
-CadConfigEstabelecimentoEBAdmDemcfmenDias,		
-CadConfigEstabelecimentoEBTpCompFerias,			
-CadConfigEstabelecimentoEBLRegIrrf,					
-CadConfigEstabelecimentoEBIdConfHomolog,		
-CadConfigEstabelecimentoEBCalcliqFeriasBase,
-CadConfigEstabelecimentoEBDescInssAvIrrf,		
-CadConfigEstabelecimentoEBDescMinIrrf,				
-CadConfigEstabelecimentoEBCalcDif13Neg,			
-CadConfigEstabelecimentoEBNomeCalcPagaDi,	
-CadConfigEstabelecimentoEBCalcProvisao,		
-CadConfigEstabelecimentoEBFcnRodias,
-
-EstabFormPage,
+EstabFormPage,EstabFormPageCalc,
 
 {ConfigAdiantamento}
-
-CadConfigEstabelecimentoEBCalcPropFerias,
-CadConfigEstabelecimentoEBPaEntrouAte,
-CadConfigEstabelecimentoEBPaVoltouAte,
-CadConfigEstabelecimentoEBCalcPropAfasta,
-CadConfigEstabelecimentoEBPropAdmis,
-CadConfigEstabelecimentoEBPagaDmAte : OleVariant;
+CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoEBPaVoltouAte,
+CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoEBPagaDmAte, 
+{FGTS INSS}
+CadConfigEstabelecimentoEBGerasefip, CadConfigEstabelecimentoEBCodsefipresp, CadConfigEstabelecimentoEBIdagfgts,CadConfigEstabelecimentoEBContafgts, CadConfigEstabelecimentoEBSeqfgts,  			  
+CadConfigEstabelecimentoEBOpsimples,CadConfigEstabelecimentoEBIndcontsub, CadConfigEstabelecimentoEBEmpart9a8, CadConfigEstabelecimentoEBCodcentralizacao,
+CadConfigEstabelecimentoEBEstabcent, CadConfigEstabelecimentoEBCodpaggps, CadConfigEstabelecimentoEBCodpgtogpsps,CadConfigEstabelecimentoEBVlrmingps,  		  
+CadConfigEstabelecimentoEBGpslocal, CadConfigEstabelecimentoEBLavisosefip, CadConfigEstabelecimentoEBCodpagfunrural,CadConfigEstabelecimentoEBDarfpislocal,  	
+CadConfigEstabelecimentoEBIdfpas,CadConfigEstabelecimentoEBDtaltendereco, 
+{Config Contabeis-Geral}                      
+CadConfigEstabelecimentoEBEstabctbw,CadConfigEstabelecimentoEBUnidcc,CadConfigEstabelecimentoEBExpirrfdtcomp,			  
+{Config Contabeis-Darf de Pis}                
+CadConfigEstabelecimentoEBDebitodarf,CadConfigEstabelecimentoEBCcdebitodarf,CadConfigEstabelecimentoEBCreditodarf,CadConfigEstabelecimentoEBCccreditodarf,
+CadConfigEstabelecimentoEBCodhistdarf,CadConfigEstabelecimentoEBComphistdarf,			  
+{Config Contabeis-Gps}                        
+CadConfigEstabelecimentoEBInssdebito,	CadConfigEstabelecimentoEBInssccdebito,	CadConfigEstabelecimentoEBInsscredito,CadConfigEstabelecimentoEBInsscccredito,		  
+CadConfigEstabelecimentoEBInsshist,	CadConfigEstabelecimentoEBInssdebitocomp,CadConfigEstabelecimentoEBInssccdebitocomp,CadConfigEstabelecimentoEBInsscreditocomp,		  
+CadConfigEstabelecimentoEBInsscccreditocomp,CadConfigEstabelecimentoEBInsshistcomp,CadConfigEstabelecimentoEBInssdebitoret,	CadConfigEstabelecimentoEBInssccdebitoret,		  
+CadConfigEstabelecimentoEBInsscreditoret,CadConfigEstabelecimentoEBInsscccreditoret,CadConfigEstabelecimentoEBInsshistret,			    
+{Config Contabeis-Gps 13}                     
+CadConfigEstabelecimentoEBInssdebito13,CadConfigEstabelecimentoEBInssccdebito13,CadConfigEstabelecimentoEBInsscredito13,CadConfigEstabelecimentoEBInsscccredito13,	  
+CadConfigEstabelecimentoEBInsshist13,CadConfigEstabelecimentoEBInssdebitocomp13,CadConfigEstabelecimentoEBInssccdebitocomp13,CadConfigEstabelecimentoEBInsscreditocomp13,
+CadConfigEstabelecimentoEBInsscccreditocomp13,CadConfigEstabelecimentoEBInsshistcomp13,		  
+{Config Contabeis-Gps FunRural}               
+CadConfigEstabelecimentoEBCccreditofunrural,CadConfigEstabelecimentoEBCreditofunrural,CadConfigEstabelecimentoEBCcdebitofunrural,CadConfigEstabelecimentoEBDebitofunrural,
+{Config financeiro}
+CadConfigEstabelecimentoEBEstabfin,	CadConfigEstabelecimentoEBDarfpisfornecedor,CadConfigEstabelecimentoEBDarfpisanalitica,CadConfigEstabelecimentoEBDarfpiscc,					  
+CadConfigEstabelecimentoEBDarfpissituacao,CadConfigEstabelecimentoEBDarfirrffornecedor,CadConfigEstabelecimentoEBDarfirrfanalitica,	CadConfigEstabelecimentoEBDarfirrfcc,	
+CadConfigEstabelecimentoEBDarfirrfsituacao,	CadConfigEstabelecimentoEBDarffornecedor,CadConfigEstabelecimentoEBDarfanalitica,CadConfigEstabelecimentoEBDarfcc,	CadConfigEstabelecimentoEBDarfsituacao,				
+CadConfigEstabelecimentoEBInssfornecedor,CadConfigEstabelecimentoEBInssanalitica,CadConfigEstabelecimentoEBInsscc,CadConfigEstabelecimentoEBInsssituacao,
+CadConfigEstabelecimentoEBInssfornecedorfunrur,CadConfigEstabelecimentoEBInssanafunrural,CadConfigEstabelecimentoEBInssccfunrural,CadConfigEstabelecimentoEBInsssitfunrural,				  
+{Config Aviso previo}
+AvisoPrevGrid,  AvisoPrevIncBtn,AvisoPrevSaveBtn,AvisoPrevProcBtn,AvisoPrevConsBtn,AvisoPrevDesfBtn,AvisoPrevExcBtn,
+{Config de Pendencia}                
+CadConfigEstabelecimentoEBLlistpor, CadConfigEstabelecimentoEBLperaq,CadConfigEstabelecimentoEBLconcvenc,CadConfigEstabelecimentoEBDlconcvenc,CadConfigEstabelecimentoEBLperexp,CadConfigEstabelecimentoEBDlperexp,     
+CadConfigEstabelecimentoEBLprogfer,CadConfigEstabelecimentoEBDlprogfer,CadConfigEstabelecimentoEBLavprev,CadConfigEstabelecimentoEBDlavprev,CadConfigEstabelecimentoEBLagetarefa,   
+CadConfigEstabelecimentoEBDlagetarefa,CadConfigEstabelecimentoEBLexames,CadConfigEstabelecimentoEBDlexames,CadConfigEstabelecimentoEBLvenccnh,CadConfigEstabelecimentoEBDlvenccnh,    
+CadConfigEstabelecimentoEBLvencestab,CadConfigEstabelecimentoEBDlvencestab,CadConfigEstabelecimentoEBLempterafast,CadConfigEstabelecimentoEBDlempterafast,CadConfigEstabelecimentoEBLempferiasmes 
+: OleVariant;
 
 
 procedure MapCadConfigEstabelecimento();
 begin
-{Configura estabelecimento}
+{Dados Cadastrais}
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 CadConfigEstabelecimentoEBCei				    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
 CadConfigEstabelecimentoEBIncra			    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_INCRA;
@@ -93,6 +94,7 @@ end;
 
 procedure MapCadConfigDeCalculo();
 begin
+CadConfigCalcForm                               :=  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
 {ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
@@ -116,6 +118,7 @@ CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCa
 CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
 end;
 
+
 procedure MapCadConfigAdiantamento();
 begin
 {ConfigAdiantamento}
@@ -128,7 +131,153 @@ CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsC
 
 end;
 
+{Map para saltar para a próxima celula do xls}
 procedure MapTelaEstab();
 begin
-  EstabFormPage := Aliases.Folha.FRhFilial.Page;
+EstabFormPage := Aliases.Folha.FRhFilial.Page;
+EstabFormPageCalc := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
+end;
+
+
+
+procedure MapCadEstabConfigFgtsInss();
+begin
+{FGTS INSS}
+CadConfigEstabelecimentoEBGerasefip  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_GERASEFIP;
+CadConfigEstabelecimentoEBCodsefipresp  	  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODSEFIPRESP;
+CadConfigEstabelecimentoEBIdagfgts  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_IDAGFGTS;
+CadConfigEstabelecimentoEBContafgts  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CONTAFGTS;
+CadConfigEstabelecimentoEBSeqfgts  			    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_SEQFGTS;
+CadConfigEstabelecimentoEBOpsimples  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_OPSIMPLES;
+CadConfigEstabelecimentoEBIndcontsub  		  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_INDCONTSUB;
+CadConfigEstabelecimentoEBEmpart9a8  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_EMPART9A8;
+CadConfigEstabelecimentoEBCodcentralizacao  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODCENTRALIZACAO;
+CadConfigEstabelecimentoEBEstabcent  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_ESTABCENT;
+CadConfigEstabelecimentoEBCodpaggps  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPAGGPS;
+CadConfigEstabelecimentoEBCodpgtogpsps  	  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPGTOGPSPS;
+CadConfigEstabelecimentoEBVlrmingps  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_VLRMINGPS;
+CadConfigEstabelecimentoEBGpslocal  		    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_GPSLOCAL;
+CadConfigEstabelecimentoEBLavisosefip  		  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_LAVISOSEFIP;
+CadConfigEstabelecimentoEBCodpagfunrural  	:= Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPAGFUNRURAL;
+CadConfigEstabelecimentoEBDarfpislocal  	  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_DARFPISLOCAL;
+CadConfigEstabelecimentoEBIdfpas  			    := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_IDFPAS;
+CadConfigEstabelecimentoEBDtaltendereco  	  := Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_DTALTENDERECO;
+end;
+
+
+procedure MapCadEstabConfigContabeis();
+begin
+{Config Contabeis-Geral}
+CadConfigEstabelecimentoEBEstabctbw				    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_ESTABCTBW;
+CadConfigEstabelecimentoEBUnidcc				      :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_UNIDCC;
+CadConfigEstabelecimentoEBExpirrfdtcomp			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_EXPIRRFDTCOMP;
+{Config Contabeis-Darf de Pis}
+CadConfigEstabelecimentoEBDebitodarf			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_DEBITODARF;
+CadConfigEstabelecimentoEBCcdebitodarf			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CCDEBITODARF;
+CadConfigEstabelecimentoEBCreditodarf			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CREDITODARF;
+CadConfigEstabelecimentoEBCccreditodarf			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CCCREDITODARF;
+CadConfigEstabelecimentoEBCodhistdarf			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CODHISTDARF;
+CadConfigEstabelecimentoEBComphistdarf			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_COMPHISTDARF;
+{Config Contabeis-Gps}
+CadConfigEstabelecimentoEBInssdebito			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITO;
+CadConfigEstabelecimentoEBInssccdebito			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITO;
+CadConfigEstabelecimentoEBInsscredito			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITO;
+CadConfigEstabelecimentoEBInsscccredito			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITO;
+CadConfigEstabelecimentoEBInsshist				    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHIST;
+CadConfigEstabelecimentoEBInssdebitocomp		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITOCOMP;
+CadConfigEstabelecimentoEBInssccdebitocomp		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITOCOMP;
+CadConfigEstabelecimentoEBInsscreditocomp		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITOCOMP;
+CadConfigEstabelecimentoEBInsscccreditocomp		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITOCOMP;
+CadConfigEstabelecimentoEBInsshistcomp			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHISTCOMP;
+CadConfigEstabelecimentoEBInssdebitoret			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITORET;
+CadConfigEstabelecimentoEBInssccdebitoret		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITORET;
+CadConfigEstabelecimentoEBInsscreditoret		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITORET;
+CadConfigEstabelecimentoEBInsscccreditoret		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITORET;
+CadConfigEstabelecimentoEBInsshistret			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHISTRET;
+{Config Contabeis-Gps 13}
+CadConfigEstabelecimentoEBInssdebito13			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSDEBITO13;
+CadConfigEstabelecimentoEBInssccdebito13		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCDEBITO13;
+CadConfigEstabelecimentoEBInsscredito13			  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCREDITO13;
+CadConfigEstabelecimentoEBInsscccredito13		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCCREDITO13;
+CadConfigEstabelecimentoEBInsshist13			    :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSHIST13;
+CadConfigEstabelecimentoEBInssdebitocomp13		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSDEBITOCOMP13;
+CadConfigEstabelecimentoEBInssccdebitocomp13	:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCDEBITOCOMP13;
+CadConfigEstabelecimentoEBInsscreditocomp13		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCREDITOCOMP13;
+CadConfigEstabelecimentoEBInsscccreditocomp13	:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCCREDITOCOMP13;
+CadConfigEstabelecimentoEBInsshistcomp13		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSHISTCOMP13;
+{Config Contabeis-Gps FunRural}
+CadConfigEstabelecimentoEBCccreditofunrural		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CCCREDITOFUNRURAL;
+CadConfigEstabelecimentoEBCreditofunrural		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CREDITOFUNRURAL;
+CadConfigEstabelecimentoEBCcdebitofunrural		:=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CCDEBITOFUNRURAL;
+CadConfigEstabelecimentoEBDebitofunrural		  :=  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_DEBITOFUNRURAL;
+
+end;
+
+procedure MapCadConfigEstabFinac();
+begin
+  {Config financeiro}
+CadConfigEstabelecimentoEBEstabfin					    :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_ESTABFIN;
+CadConfigEstabelecimentoEBDarfpisfornecedor			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISFORNECEDOR;
+CadConfigEstabelecimentoEBDarfpisanalitica			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISANALITICA;
+CadConfigEstabelecimentoEBDarfpiscc					    :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISCC;
+CadConfigEstabelecimentoEBDarfpissituacao			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISSITUACAO;
+CadConfigEstabelecimentoEBDarfirrffornecedor		:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFFORNECEDOR;
+CadConfigEstabelecimentoEBDarfirrfanalitica			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFANALITICA;
+CadConfigEstabelecimentoEBDarfirrfcc				    :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFCC;
+CadConfigEstabelecimentoEBDarfirrfsituacao			:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFSITUACAO;
+CadConfigEstabelecimentoEBDarffornecedor			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFFORNECEDOR;
+CadConfigEstabelecimentoEBDarfanalitica				  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFANALITICA;
+CadConfigEstabelecimentoEBDarfcc					      :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFCC;
+CadConfigEstabelecimentoEBDarfsituacao				  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFSITUACAO;
+CadConfigEstabelecimentoEBInssfornecedor			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSFORNECEDOR;
+CadConfigEstabelecimentoEBInssanalitica				  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSANALITICA;
+CadConfigEstabelecimentoEBInsscc					      :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSCC;
+CadConfigEstabelecimentoEBInsssituacao				  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSSITUACAO;
+CadConfigEstabelecimentoEBInssfornecedorfunrur	:=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSFORNECEDORFUNRUR;
+CadConfigEstabelecimentoEBInssanafunrural			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSANAFUNRURAL;
+CadConfigEstabelecimentoEBInssccfunrural			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSCCFUNRURAL;
+CadConfigEstabelecimentoEBInsssitfunrural			  :=  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSSITFUNRURAL;
+
+end;
+
+
+procedure MapCadEstabAvisoPrev();
+begin
+  {Config Aviso previo}
+AvisoPrevGrid    := Aliases.Folha.FRhFilial.Page.tbAvisoPrevio.ScrollBox3.gRhAvPrevio;
+
+AvisoPrevIncBtn  := Aliases.Folha.FRhFilial.bIncAvPrevio;
+AvisoPrevSaveBtn := Aliases.Folha.FRhFilial.bSaveAvPrevio;
+AvisoPrevProcBtn := Aliases.Folha.FRhFilial.ToolbarButton974;
+AvisoPrevConsBtn := Aliases.Folha.FRhFilial.ToolbarButton975;
+AvisoPrevDesfBtn := Aliases.Folha.FRhFilial.bCancelAvPrevio;
+AvisoPrevExcBtn  := Aliases.Folha.FRhFilial.bExcAvPrevio;
+end;
+
+
+procedure MapCadConfEstabListaPendencia();
+begin
+  {Config de Pendencia}
+CadConfigEstabelecimentoEBLlistpor     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LLISTPOR;     
+CadConfigEstabelecimentoEBLperaq       	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPERAQ;       
+CadConfigEstabelecimentoEBLconcvenc    	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LCONCVENC;    
+CadConfigEstabelecimentoEBDlconcvenc   	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLCONCVENC;   
+CadConfigEstabelecimentoEBLperexp      	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPEREXP;      
+CadConfigEstabelecimentoEBDlperexp     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLPEREXP;     
+CadConfigEstabelecimentoEBLprogfer     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPROGFER;     
+CadConfigEstabelecimentoEBDlprogfer    	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLPROGFER;    
+CadConfigEstabelecimentoEBLavprev      	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LAVPREV;      
+CadConfigEstabelecimentoEBDlavprev     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLAVPREV;     
+CadConfigEstabelecimentoEBLagetarefa   	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LAGETAREFA;   
+CadConfigEstabelecimentoEBDlagetarefa  	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLAGETAREFA;  
+CadConfigEstabelecimentoEBLexames      	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEXAMES;      
+CadConfigEstabelecimentoEBDlexames     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLEXAMES;     
+CadConfigEstabelecimentoEBLvenccnh     	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LVENCCNH;     
+CadConfigEstabelecimentoEBDlvenccnh    	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLVENCCNH;    
+CadConfigEstabelecimentoEBLvencestab   	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LVENCESTAB;   
+CadConfigEstabelecimentoEBDlvencestab  	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLVENCESTAB;  
+CadConfigEstabelecimentoEBLempterafast 	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEMPTERAFAST; 
+CadConfigEstabelecimentoEBDlempterafast	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLEMPTERAFAST;
+CadConfigEstabelecimentoEBLempferiasmes	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEMPFERIASMES;
+
 end;

@@ -54271,6 +54271,1494 @@
 													</Child>
 												</Children>
 											</Child>
+											<Child Name="tsFgtsInss" Key="{1E9CF27F-96B9-4BE0-9EE7-36CF72102181}">
+												<Image FileName="2055298086" Left="4" Top="77" Right="1346" Bottom="564" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsFgtsInss" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Panel2" Key="{7F4FA814-A057-4FB8-80D9-AD3FFDE51653}">
+														<Image FileName="2055298086" Left="4" Top="77" Right="1346" Bottom="564" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="Panel2" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_GERASEFIP" Key="{4FA5CDB6-2EDB-44B3-99B4-505974AAF753}">
+																<Image FileName="2055298086" Left="277" Top="80" Right="374" Bottom="101" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_GERASEFIP" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODSEFIPRESP" Key="{10D82D40-CF7C-4727-944B-16E1E5B9802A}">
+																<Image FileName="205673877" Left="277" Top="105" Right="374" Bottom="126" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODSEFIPRESP" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_IDAGFGTS" Key="{6696E427-2CF2-4FAB-B83C-54B674FDD334}">
+																<Image FileName="1412226263" Left="277" Top="130" Right="374" Bottom="150" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDAGFGTS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CONTAFGTS" Key="{2382BECD-36D4-48CC-A40F-6B981D3A748C}">
+																<Image FileName="-691426545" Left="277" Top="155" Right="374" Bottom="175" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CONTAFGTS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_SEQFGTS" Key="{D44EE04F-0A56-462E-B0C6-EE3F8D995B0C}">
+																<Image FileName="-2126313244" Left="277" Top="179" Right="374" Bottom="199" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_SEQFGTS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_OPSIMPLES" Key="{12AB187B-C742-4B39-936F-A7EB86D87940}">
+																<Image FileName="-1723535044" Left="277" Top="203" Right="693" Bottom="224" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_OPSIMPLES" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INDCONTSUB" Key="{60FB1020-048A-4E63-B4A4-CD9A6BA7485A}">
+																<Image FileName="1883845442" Left="277" Top="230" Right="693" Bottom="251" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INDCONTSUB" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_EMPART9A8" Key="{34FBC788-96BC-474F-BDD5-8A974FEE1ECA}">
+																<Image FileName="1314828930" Left="277" Top="257" Right="693" Bottom="278" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_EMPART9A8" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODCENTRALIZACAO" Key="{A172A9F2-C48A-4D39-97AE-6E7F8F904EAA}">
+																<Image FileName="-363378350" Left="277" Top="284" Right="374" Bottom="305" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODCENTRALIZACAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_ESTABCENT" Key="{71216EED-16A6-49C4-9D48-580FE8D48E2A}">
+																<Image FileName="1883845442" Left="277" Top="311" Right="374" Bottom="332" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_ESTABCENT" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODPAGGPS" Key="{D0187ACC-241D-4C5C-A021-47D0D2F77C7A}">
+																<Image FileName="726929824" Left="277" Top="336" Right="374" Bottom="357" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODPAGGPS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODPGTOGPSPS" Key="{158C872E-24C6-4D0B-871C-916C58AC5F89}">
+																<Image FileName="-1465363066" Left="277" Top="363" Right="374" Bottom="384" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODPGTOGPSPS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_VLRMINGPS" Key="{3ACB0F2F-7D97-440D-8B2D-B13D4249E782}">
+																<Image FileName="-1146186636" Left="277" Top="386" Right="374" Bottom="407" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_VLRMINGPS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_GPSLOCAL" Key="{A244CF67-CF5A-4694-8B39-922698229659}">
+																<Image FileName="-157060316" Left="277" Top="412" Right="374" Bottom="433" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_GPSLOCAL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_LAVISOSEFIP" Key="{5E731E18-D2F1-41A0-84EB-90CAF1C6416C}">
+																<Image FileName="-591516840" Left="277" Top="437" Right="374" Bottom="458" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_LAVISOSEFIP" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODPAGFUNRURAL" Key="{4FEE5945-0DE3-478E-A260-50CA18F63ED0}">
+																<Image FileName="230012509" Left="277" Top="462" Right="374" Bottom="483" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODPAGFUNRURAL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFPISLOCAL" Key="{3B36AFBF-7B06-486D-980B-846A10FE0E1F}">
+																<Image FileName="-85561217" Left="277" Top="486" Right="374" Bottom="507" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFPISLOCAL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_IDFPAS" Key="{F6AF77A3-33D0-40D1-8960-64529B131C60}">
+																<Image FileName="1735008927" Left="277" Top="514" Right="374" Bottom="535" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDFPAS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DTALTENDERECO" Key="{B4EDB06E-AB1A-43D4-9399-A2AD2EB38DA4}">
+																<Image FileName="2100562654" Left="277" Top="541" Right="385" Bottom="562" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsDateRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DTALTENDERECO" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="tsConfContabeis" Key="{85D8E34B-459C-4665-BB81-0C49AD8968F1}">
+												<Image FileName="-264631722" Left="4" Top="77" Right="1346" Bottom="564" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsConfContabeis" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Panel3" Key="{B0182057-8C95-4FA3-AC38-3A600595BB60}">
+														<Image FileName="-264631722" Left="4" Top="77" Right="1346" Bottom="564" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="Panel3" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="pgConfContabil" Key="{DBE63E56-8BFB-4F20-8C72-8E25AE64E32B}">
+																<Image FileName="-264631722" Left="4" Top="77" Right="1346" Bottom="564" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsPageControl" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="pgConfContabil" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="TabSheet1" Key="{19E3580B-DD70-4513-8F77-6997EEB44474}">
+																		<Image FileName="-264631722" Left="8" Top="101" Right="1342" Bottom="560" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="TabSheet1" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ScrollBox10" Key="{D705B555-07CE-4635-ABAC-7BE4968B07B0}">
+																				<Image FileName="-264631722" Left="8" Top="101" Right="1342" Bottom="560" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TScrollBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ScrollBox10" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_ESTABCTBW" Key="{396175B4-BF9D-41C3-8638-8623FF7B8995}">
+																						<Image FileName="-264631722" Left="217" Top="109" Right="420" Bottom="130" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsNumRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_ESTABCTBW" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_UNIDCC" Key="{8A3D5782-45AD-406F-8126-EFC7C6760B4E}">
+																						<Image FileName="1086906397" Left="217" Top="136" Right="420" Bottom="157" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_UNIDCC" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_EXPIRRFDTCOMP" Key="{FC165BBE-4CCD-42DA-B580-77771BD3CC49}">
+																						<Image FileName="-674919758" Left="217" Top="163" Right="420" Bottom="184" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsComboRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_EXPIRRFDTCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="tsDARFPIS" Key="{4CA82EE7-E3EC-4A67-BACA-A240043F4387}">
+																		<Image FileName="-145539434" Left="8" Top="101" Right="1342" Bottom="560" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="tsDARFPIS" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ScrollBox4" Key="{0CFB0A3B-BFFD-4894-A81E-5A6FE55D2F62}">
+																				<Image FileName="-145539434" Left="8" Top="101" Right="1342" Bottom="560" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TScrollBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ScrollBox4" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_DEBITODARF" Key="{9D53B6A5-43CC-4DD4-87E1-8D220AE71E67}">
+																						<Image FileName="-145539434" Left="217" Top="113" Right="420" Bottom="134" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_DEBITODARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CCDEBITODARF" Key="{2A217692-9FBB-49FB-8269-762E90072803}">
+																						<Image FileName="1729421806" Left="217" Top="140" Right="420" Bottom="161" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CCDEBITODARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CREDITODARF" Key="{121CB4B8-3D39-4A38-B3AE-3B1E89F16940}">
+																						<Image FileName="820780409" Left="217" Top="167" Right="420" Bottom="188" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CREDITODARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CCCREDITODARF" Key="{ACEEDDED-E7D2-40C1-8C2D-7D57B8EE8834}">
+																						<Image FileName="-292039011" Left="217" Top="194" Right="420" Bottom="215" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CCCREDITODARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CODHISTDARF" Key="{3BF413B5-17B0-4536-88A6-6DB2D4C86AE0}">
+																						<Image FileName="-1150557038" Left="217" Top="221" Right="420" Bottom="242" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsNumRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CODHISTDARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_COMPHISTDARF" Key="{F36ECFC1-8151-4D0F-BFA6-88CC55272CF5}">
+																						<Image FileName="717997313" Left="217" Top="248" Right="420" Bottom="269" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_COMPHISTDARF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="tsINSSGPS" Key="{01A39C5D-FB00-460D-A340-ABE22825905C}">
+																		<Image FileName="2146153981" Left="8" Top="101" Right="1342" Bottom="560" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="tsINSSGPS" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ScrollBox7" Key="{A98CADC9-6AF3-4437-9A50-1D7DF75D6483}">
+																				<Image FileName="2146153981" Left="8" Top="101" Right="1342" Bottom="560" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TScrollBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ScrollBox7" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_INSSDEBITO" Key="{AE9CC20C-98B4-48E2-8252-D907B71D2B4B}">
+																						<Image FileName="2146153981" Left="217" Top="113" Right="420" Bottom="134" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSDEBITO" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCDEBITO" Key="{665B5D24-24DD-46D2-90D0-9A43C4D9519C}">
+																						<Image FileName="-833488006" Left="217" Top="140" Right="420" Bottom="161" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCDEBITO" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCREDITO" Key="{45E9AF7C-52AF-44D0-A818-80A153E2591B}">
+																						<Image FileName="-1515462608" Left="217" Top="167" Right="420" Bottom="188" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCREDITO" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCCREDITO" Key="{69FCAAC3-3CBD-4A98-A60D-7BF0FAA719F0}">
+																						<Image FileName="1520949294" Left="217" Top="194" Right="420" Bottom="215" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCCREDITO" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSHIST" Key="{83E6DC8A-7336-436E-9349-AE0202165A13}">
+																						<Image FileName="1878232977" Left="217" Top="221" Right="420" Bottom="242" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsNumRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSHIST" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSDEBITOCOMP" Key="{BA407A2B-AEBC-4A40-86EF-7FD32C93C9A3}">
+																						<Image FileName="655972375" Left="217" Top="248" Right="420" Bottom="269" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSDEBITOCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCDEBITOCOMP" Key="{C4B2F84F-D147-4583-8794-58131617876B}">
+																						<Image FileName="-1420002071" Left="217" Top="275" Right="420" Bottom="296" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCDEBITOCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCREDITOCOMP" Key="{5CE1E088-24AC-41B6-8226-86DB83625A52}">
+																						<Image FileName="533005273" Left="217" Top="302" Right="420" Bottom="323" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCREDITOCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCCREDITOCOMP" Key="{E3160F3A-771A-4211-8260-D83564C8A018}">
+																						<Image FileName="1417227021" Left="217" Top="329" Right="420" Bottom="350" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCCREDITOCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSHISTCOMP" Key="{960C695B-86CA-4743-A4F6-16E43F6E3181}">
+																						<Image FileName="1772668725" Left="217" Top="356" Right="420" Bottom="377" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSHISTCOMP" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSDEBITORET" Key="{FC3690CF-BC35-4719-8314-BD4A289F7075}">
+																						<Image FileName="1359442336" Left="217" Top="383" Right="420" Bottom="404" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSDEBITORET" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCDEBITORET" Key="{823FA9A1-2CB5-447C-8D2B-0DD0EA004C76}">
+																						<Image FileName="678345655" Left="217" Top="410" Right="420" Bottom="431" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCDEBITORET" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCREDITORET" Key="{DBC0DA9D-5E5A-4FF4-BA9A-AA725FA4BD6C}">
+																						<Image FileName="233338406" Left="217" Top="437" Right="420" Bottom="458" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCREDITORET" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCCREDITORET" Key="{D297A31B-ECCA-4312-9F89-6F947D21C4B2}">
+																						<Image FileName="955827057" Left="217" Top="464" Right="420" Bottom="485" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCCREDITORET" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSHISTRET" Key="{9C6B9C3E-580C-47F8-958B-BD0431B63454}">
+																						<Image FileName="-605955123" Left="217" Top="491" Right="420" Bottom="512" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSHISTRET" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="tsGPS13" Key="{D42B582F-B6EE-4891-AF89-D460CF84DA24}">
+																		<Image FileName="-1918935662" Left="8" Top="101" Right="1342" Bottom="560" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="tsGPS13" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ScrollBox8" Key="{4FC7CAED-DE50-479E-836E-32E3ABFB5E64}">
+																				<Image FileName="-1918935662" Left="8" Top="101" Right="1342" Bottom="560" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TScrollBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ScrollBox8" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_INSSDEBITO13" Key="{DB051B04-7B1F-473A-9916-3C8175E6027E}">
+																						<Image FileName="-1918935662" Left="217" Top="113" Right="420" Bottom="134" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSDEBITO13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCDEBITO13" Key="{FCAE2A1F-951F-40D1-9FB3-17E691DF07EC}">
+																						<Image FileName="-2079392976" Left="217" Top="140" Right="420" Bottom="161" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCDEBITO13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCREDITO13" Key="{91FD44D4-CC7D-49B9-9B75-3AF04381BBE0}">
+																						<Image FileName="1517612458" Left="217" Top="167" Right="420" Bottom="188" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCREDITO13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCCREDITO13" Key="{0F0FF3C8-7546-4253-999B-9E8D2E6F2A4C}">
+																						<Image FileName="1179835717" Left="217" Top="194" Right="420" Bottom="215" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCCREDITO13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSHIST13" Key="{C6112FB1-20EA-40B0-B441-D6EC5A877D0D}">
+																						<Image FileName="-1848757504" Left="217" Top="221" Right="420" Bottom="242" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsNumRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSHIST13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSDEBITOCOMP13" Key="{B1BCD7DF-E826-465E-BE23-D6E269F7142D}">
+																						<Image FileName="161029284" Left="217" Top="248" Right="420" Bottom="269" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSDEBITOCOMP13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCDEBITOCOMP13" Key="{BB817340-7010-4630-805E-706F8D3FF86A}">
+																						<Image FileName="1761516436" Left="217" Top="275" Right="420" Bottom="296" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCDEBITOCOMP13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCREDITOCOMP13" Key="{51B3B31B-FDD3-40BA-844A-BAD151532F4B}">
+																						<Image FileName="1756209809" Left="217" Top="302" Right="420" Bottom="323" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCREDITOCOMP13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSCCCREDITOCOMP13" Key="{5A7475C1-A9E7-4AAA-A225-62C2F5F79C42}">
+																						<Image FileName="-994221181" Left="217" Top="329" Right="420" Bottom="350" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSCCCREDITOCOMP13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INSSHISTCOMP13" Key="{18D7CB90-FF47-4EFC-9BC5-547078BF8CCF}">
+																						<Image FileName="145625479" Left="217" Top="356" Right="420" Bottom="377" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INSSHISTCOMP13" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="tsFUNRURAL" Key="{478E46E3-5492-439A-B0A1-F72FA0A36556}">
+																		<Image FileName="-1906797983" Left="8" Top="101" Right="1342" Bottom="560" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="tsFUNRURAL" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ScrollBox9" Key="{F65DC49E-C61C-45B1-A192-0A6DC5DAFF8B}">
+																				<Image FileName="-1906797983" Left="8" Top="101" Right="1342" Bottom="560" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TScrollBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ScrollBox9" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_CCCREDITOFUNRURAL" Key="{5EF759B8-CD40-4928-856C-895178B9CD7E}">
+																						<Image FileName="-1906797983" Left="217" Top="113" Right="420" Bottom="134" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CCCREDITOFUNRURAL" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CREDITOFUNRURAL" Key="{6E245F61-D75D-4F69-88FC-C25682CB2556}">
+																						<Image FileName="-1244570232" Left="217" Top="140" Right="420" Bottom="161" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CREDITOFUNRURAL" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_CCDEBITOFUNRURAL" Key="{E7411B47-FA89-4C34-9C12-510A3697500F}">
+																						<Image FileName="1500307881" Left="217" Top="167" Right="420" Bottom="188" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_CCDEBITOFUNRURAL" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_DEBITOFUNRURAL" Key="{3158BDB3-C903-4301-A4D2-B5DE2DF2D4BF}">
+																						<Image FileName="1147640104" Left="217" Top="194" Right="420" Bottom="215" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_DEBITOFUNRURAL" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="tbExpContabil" Key="{61CC9957-1E73-43EC-9F62-9D442DA74880}">
+												<Image FileName="1301322700" Left="4" Top="77" Right="1346" Bottom="564" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tbExpContabil" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Panel5" Key="{5AD9B008-86F7-4B28-B73C-C5BE1DA13FEB}">
+														<Image FileName="1301322700" Left="4" Top="77" Right="1346" Bottom="564" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="Panel5" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_ESTABFIN" Key="{197EE10F-8DD3-4036-A4C7-1B5956FB297D}">
+																<Image FileName="-458762686" Left="273" Top="86" Right="370" Bottom="107" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_ESTABFIN" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFPISFORNECEDOR" Key="{778DEC9C-797B-4876-B7A9-5C0AA10B0A94}">
+																<Image FileName="-1368268789" Left="273" Top="110" Right="370" Bottom="129" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFPISFORNECEDOR" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFPISANALITICA" Key="{AD9CD776-0ECF-4C53-A511-CF1DD3397706}">
+																<Image FileName="201786391" Left="273" Top="131" Right="370" Bottom="151" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFPISANALITICA" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFPISCC" Key="{B6F63029-A723-4B3E-B1EA-2044C430FFAF}">
+																<Image FileName="-816472915" Left="273" Top="154" Right="370" Bottom="174" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFPISCC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFPISSITUACAO" Key="{5929D49D-B5EF-443D-9A17-BFDC41E53BA2}">
+																<Image FileName="-1918394771" Left="273" Top="176" Right="370" Bottom="197" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFPISSITUACAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFIRRFFORNECEDOR" Key="{DA3C2CBD-AE52-4E71-881D-CBC28B89661D}">
+																<Image FileName="-370424638" Left="273" Top="200" Right="370" Bottom="220" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFIRRFFORNECEDOR" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFIRRFANALITICA" Key="{6F3C5A3B-0B58-4093-9C86-8390DA92E684}">
+																<Image FileName="739846406" Left="273" Top="222" Right="370" Bottom="242" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFIRRFANALITICA" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFIRRFCC" Key="{243B2639-FD1C-4368-886F-0976C0A50B41}">
+																<Image FileName="-819954778" Left="273" Top="245" Right="370" Bottom="265" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFIRRFCC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFIRRFSITUACAO" Key="{2A1D94C1-02E7-450D-B559-E12EC9BDED0D}">
+																<Image FileName="74236720" Left="273" Top="267" Right="370" Bottom="288" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFIRRFSITUACAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFFORNECEDOR" Key="{B26A9586-A1BD-4B38-9A11-54299361440F}">
+																<Image FileName="1791082816" Left="273" Top="291" Right="370" Bottom="311" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFFORNECEDOR" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFANALITICA" Key="{DDB1CC44-B6BC-4125-9F7D-8324F621C762}">
+																<Image FileName="-2039993676" Left="273" Top="313" Right="370" Bottom="333" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFANALITICA" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFCC" Key="{66B5715C-3911-49A2-B604-D74D3DF03950}">
+																<Image FileName="2129620483" Left="273" Top="336" Right="370" Bottom="356" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFCC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DARFSITUACAO" Key="{4BF601DD-B62D-41C2-A89E-879DB732AB4E}">
+																<Image FileName="-619721760" Left="273" Top="358" Right="370" Bottom="379" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DARFSITUACAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSFORNECEDOR" Key="{AC5866F0-2A21-4827-B271-A29F62644DD9}">
+																<Image FileName="616178634" Left="273" Top="382" Right="370" Bottom="402" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSFORNECEDOR" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSANALITICA" Key="{001F687D-ED14-4FD7-9385-909AB033C8CF}">
+																<Image FileName="2135376523" Left="273" Top="404" Right="370" Bottom="424" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSANALITICA" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSCC" Key="{1174BF0B-BD19-45B4-A1E0-C4E0CB604242}">
+																<Image FileName="-61330089" Left="273" Top="427" Right="370" Bottom="447" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSCC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSSITUACAO" Key="{4E920D05-CA28-4486-B792-5CEAD8BF44FA}">
+																<Image FileName="1922482300" Left="273" Top="449" Right="370" Bottom="470" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSSITUACAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSFORNECEDORFUNRUR" Key="{AB25D538-F6F5-4333-BF7C-368167BFA8BA}">
+																<Image FileName="1996103599" Left="273" Top="473" Right="370" Bottom="493" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSFORNECEDORFUNRUR" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSANAFUNRURAL" Key="{723A0F45-A86C-43D9-9BD7-B53370982C1E}">
+																<Image FileName="2133610462" Left="273" Top="495" Right="370" Bottom="515" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSANAFUNRURAL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSCCFUNRURAL" Key="{F0C56C5C-7FD2-460A-9771-92A330FF2AB3}">
+																<Image FileName="-1599863909" Left="273" Top="518" Right="370" Bottom="538" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSCCFUNRURAL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INSSSITFUNRURAL" Key="{69C2D41B-35B8-49D3-A31A-F5575DC2A582}">
+																<Image FileName="-1842312308" Left="273" Top="540" Right="370" Bottom="561" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INSSSITFUNRURAL" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="tbAvisoPrevio" Key="{13CC8843-D775-48A2-86FE-78ABF009F424}">
+												<Image FileName="-671758709" Left="12" Top="85" Right="1354" Bottom="572" />
+												<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tbAvisoPrevio" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="ScrollBox3" Key="{3638A247-5A54-4F90-9FFB-F86A886DEE78}">
+														<Image FileName="-671758709" Left="12" Top="85" Right="1354" Bottom="572" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TScrollBox" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="ScrollBox3" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="gRhAvPrevio" Key="{AB4943E5-33C9-48DF-9288-ABCF1C6599F6}">
+																<Image FileName="-671758709" Left="39" Top="85" Right="1354" Bottom="570" />
+																<TypeInfo Item0="{E42EE13B-696C-4A5E-AE5F-BB182EB60B98}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TcxGrid" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="gRhAvPrevio" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="tsPendencias" Key="{6FBD9437-8659-4B5A-9E15-1665D1D64BF7}">
+												<Image FileName="1428910649" Left="4" Top="77" Right="1346" Bottom="564" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsPendencias" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Panel4" Key="{86254BE5-CD1E-4FF6-B760-8C385DF59C9B}">
+														<Image FileName="1428910649" Left="4" Top="77" Right="1346" Bottom="564" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="Panel4" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="pnListPendFolha" Key="{C036B95C-0CF7-4C96-9901-BCDB67C3D642}">
+																<Image FileName="1428910649" Left="4" Top="77" Right="1346" Bottom="561" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TPanel" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="pnListPendFolha" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="EB_LLISTPOR" Key="{89F52DF8-D9DA-4AC7-805D-C5C90FA6B200}">
+																		<Image FileName="1428910649" Left="187" Top="79" Right="271" Bottom="100" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LLISTPOR" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LPERAQ" Key="{DF8672F9-EABA-4087-AC72-1FD8E7A2A22D}">
+																		<Image FileName="1468226412" Left="187" Top="106" Right="271" Bottom="127" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LPERAQ" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LCONCVENC" Key="{F724E7CB-D283-48EF-B214-ACEFFF5AFB92}">
+																		<Image FileName="128917893" Left="187" Top="133" Right="271" Bottom="154" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LCONCVENC" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLCONCVENC" Key="{7771F760-FA8F-4E0A-A73F-34B9ADC3331B}">
+																		<Image FileName="1355709568" Left="277" Top="135" Right="314" Bottom="154" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLCONCVENC" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LPEREXP" Key="{97785F6E-69BB-49B6-A47B-F655E8CE2EC6}">
+																		<Image FileName="-669882802" Left="187" Top="160" Right="271" Bottom="181" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LPEREXP" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLPEREXP" Key="{51BD757A-C0B2-4E12-A75A-63543ADE368E}">
+																		<Image FileName="-845520477" Left="277" Top="160" Right="314" Bottom="179" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLPEREXP" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LPROGFER" Key="{D0992C66-83A9-42C9-8941-52EB4F5DA900}">
+																		<Image FileName="-1482850147" Left="187" Top="187" Right="271" Bottom="208" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LPROGFER" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLPROGFER" Key="{68A89587-CD75-4DFF-9E82-9F7828717B50}">
+																		<Image FileName="-1123528285" Left="277" Top="187" Right="314" Bottom="206" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLPROGFER" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LAVPREV" Key="{8861B748-B050-4472-ADF6-6AF0F7D16FA2}">
+																		<Image FileName="1061147870" Left="187" Top="214" Right="271" Bottom="235" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LAVPREV" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLAVPREV" Key="{3153E0B6-AC76-4980-BD5C-FFB12EDCF5AC}">
+																		<Image FileName="-973919945" Left="277" Top="214" Right="314" Bottom="233" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLAVPREV" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LAGETAREFA" Key="{4CB3E82E-3101-479C-87D5-88B28CA1AEFF}">
+																		<Image FileName="1894960308" Left="187" Top="241" Right="271" Bottom="262" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LAGETAREFA" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLAGETAREFA" Key="{E1329ED8-BFA7-4C4E-966F-D06E60F3317B}">
+																		<Image FileName="-179601094" Left="277" Top="241" Right="314" Bottom="260" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLAGETAREFA" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LEXAMES" Key="{7461AE56-21FF-4143-989E-8FC69E61835D}">
+																		<Image FileName="57869944" Left="187" Top="268" Right="271" Bottom="289" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LEXAMES" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLEXAMES" Key="{71DA56C2-157D-4CEB-84F0-15D263BAAF1D}">
+																		<Image FileName="75386021" Left="277" Top="268" Right="314" Bottom="287" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLEXAMES" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LVENCCNH" Key="{6D0C2CAA-1ADE-4C13-A939-D3BB041789C6}">
+																		<Image FileName="-371382793" Left="187" Top="295" Right="271" Bottom="316" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LVENCCNH" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLVENCCNH" Key="{66684B0C-BF06-4A74-A120-1F61A06731A2}">
+																		<Image FileName="497923041" Left="277" Top="295" Right="314" Bottom="314" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLVENCCNH" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LVENCESTAB" Key="{75549B61-7D14-4F62-B7A8-44DE11DEF6D3}">
+																		<Image FileName="1825223703" Left="187" Top="322" Right="271" Bottom="343" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LVENCESTAB" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLVENCESTAB" Key="{AC8470A9-402D-471A-9BFB-7B70E83956BD}">
+																		<Image FileName="1244888723" Left="277" Top="322" Right="314" Bottom="341" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLVENCESTAB" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LEMPTERAFAST" Key="{A8C93280-01FC-49BC-96B1-034469075130}">
+																		<Image FileName="944059903" Left="187" Top="349" Right="271" Bottom="370" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LEMPTERAFAST" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_DLEMPTERAFAST" Key="{B6CE42A5-6737-4BF6-A401-AC37952DEADE}">
+																		<Image FileName="-234987725" Left="277" Top="349" Right="314" Bottom="368" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_DLEMPTERAFAST" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_LEMPFERIASMES" Key="{8A3D88FF-ACEF-4210-8A45-49B06806212B}">
+																		<Image FileName="-891183510" Left="187" Top="376" Right="271" Bottom="397" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_LEMPFERIASMES" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
 										</Children>
 									</Child>
 									<Child Name="SBEB_IDCONFHOMOLOG" Key="{6BE05FA4-9A30-4D3F-93CF-28A45A1C7A88}">
@@ -54281,6 +55769,78 @@
 											</Property>
 											<Property Name="ObjectIdentifier">
 												<Value Value="SBEB_IDCONFHOMOLOG" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncAvPrevio" Key="{7D0B306F-B3E7-4020-AAA6-D730334B6164}">
+										<Image FileName="800175852" Left="14" Top="96" Right="37" Bottom="118" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncAvPrevio" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bSaveAvPrevio" Key="{3EE224A8-E44B-4767-A8D2-111C30C5A231}">
+										<Image FileName="-1225211740" Left="14" Top="118" Right="37" Bottom="140" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bSaveAvPrevio" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcAvPrevio" Key="{97B9FCA7-902E-4ECA-A6BE-E2D1334C2336}">
+										<Image FileName="1076742748" Left="14" Top="223" Right="37" Bottom="245" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcAvPrevio" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="ToolbarButton974" Key="{658A95ED-1390-46AB-B810-CA0B839D3B55}">
+										<Image FileName="1713828817" Left="14" Top="146" Right="37" Bottom="168" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="ToolbarButton974" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="ToolbarButton975" Key="{0B195715-AD6E-44B5-8F27-4FCCA5F40EB3}">
+										<Image FileName="-1371624352" Left="14" Top="168" Right="37" Bottom="190" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="ToolbarButton975" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bCancelAvPrevio" Key="{79716029-789D-4FAE-9BD7-B13053B0926D}">
+										<Image FileName="-1381338768" Left="14" Top="196" Right="37" Bottom="217" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bCancelAvPrevio" />
 											</Property>
 										</Properties>
 									</Child>
@@ -75960,8 +77520,158 @@
 							</Child>
 						</Child>
 					</Child>
+					<Child Name="tsFgtsInss" Owner="{1E9CF27F-96B9-4BE0-9EE7-36CF72102181}">
+						<Child Name="Panel2" Owner="{7F4FA814-A057-4FB8-80D9-AD3FFDE51653}">
+							<Child Name="EB_GERASEFIP" Owner="{4FA5CDB6-2EDB-44B3-99B4-505974AAF753}" />
+							<Child Name="EB_CODSEFIPRESP" Owner="{10D82D40-CF7C-4727-944B-16E1E5B9802A}" />
+							<Child Name="EB_IDAGFGTS" Owner="{6696E427-2CF2-4FAB-B83C-54B674FDD334}" />
+							<Child Name="EB_CONTAFGTS" Owner="{2382BECD-36D4-48CC-A40F-6B981D3A748C}" />
+							<Child Name="EB_SEQFGTS" Owner="{D44EE04F-0A56-462E-B0C6-EE3F8D995B0C}" />
+							<Child Name="EB_OPSIMPLES" Owner="{12AB187B-C742-4B39-936F-A7EB86D87940}" />
+							<Child Name="EB_INDCONTSUB" Owner="{60FB1020-048A-4E63-B4A4-CD9A6BA7485A}" />
+							<Child Name="EB_EMPART9A8" Owner="{34FBC788-96BC-474F-BDD5-8A974FEE1ECA}" />
+							<Child Name="EB_CODCENTRALIZACAO" Owner="{A172A9F2-C48A-4D39-97AE-6E7F8F904EAA}" />
+							<Child Name="EB_ESTABCENT" Owner="{71216EED-16A6-49C4-9D48-580FE8D48E2A}" />
+							<Child Name="EB_CODPAGGPS" Owner="{D0187ACC-241D-4C5C-A021-47D0D2F77C7A}" />
+							<Child Name="EB_CODPGTOGPSPS" Owner="{158C872E-24C6-4D0B-871C-916C58AC5F89}" />
+							<Child Name="EB_VLRMINGPS" Owner="{3ACB0F2F-7D97-440D-8B2D-B13D4249E782}" />
+							<Child Name="EB_GPSLOCAL" Owner="{A244CF67-CF5A-4694-8B39-922698229659}" />
+							<Child Name="EB_LAVISOSEFIP" Owner="{5E731E18-D2F1-41A0-84EB-90CAF1C6416C}" />
+							<Child Name="EB_CODPAGFUNRURAL" Owner="{4FEE5945-0DE3-478E-A260-50CA18F63ED0}" />
+							<Child Name="EB_DARFPISLOCAL" Owner="{3B36AFBF-7B06-486D-980B-846A10FE0E1F}" />
+							<Child Name="EB_IDFPAS" Owner="{F6AF77A3-33D0-40D1-8960-64529B131C60}" />
+							<Child Name="EB_DTALTENDERECO" Owner="{B4EDB06E-AB1A-43D4-9399-A2AD2EB38DA4}" />
+						</Child>
+					</Child>
+					<Child Name="tsConfContabeis" Owner="{85D8E34B-459C-4665-BB81-0C49AD8968F1}">
+						<Child Name="Panel3" Owner="{B0182057-8C95-4FA3-AC38-3A600595BB60}">
+							<Child Name="pgConfContabil" Owner="{DBE63E56-8BFB-4F20-8C72-8E25AE64E32B}">
+								<Child Name="TabSheet1" Owner="{19E3580B-DD70-4513-8F77-6997EEB44474}">
+									<Child Name="ScrollBox10" Owner="{D705B555-07CE-4635-ABAC-7BE4968B07B0}">
+										<Child Name="EB_ESTABCTBW" Owner="{396175B4-BF9D-41C3-8638-8623FF7B8995}" />
+										<Child Name="EB_UNIDCC" Owner="{8A3D5782-45AD-406F-8126-EFC7C6760B4E}" />
+										<Child Name="EB_EXPIRRFDTCOMP" Owner="{FC165BBE-4CCD-42DA-B580-77771BD3CC49}" />
+									</Child>
+								</Child>
+								<Child Name="tsDARFPIS" Owner="{4CA82EE7-E3EC-4A67-BACA-A240043F4387}">
+									<Child Name="ScrollBox4" Owner="{0CFB0A3B-BFFD-4894-A81E-5A6FE55D2F62}">
+										<Child Name="EB_DEBITODARF" Owner="{9D53B6A5-43CC-4DD4-87E1-8D220AE71E67}" />
+										<Child Name="EB_CCDEBITODARF" Owner="{2A217692-9FBB-49FB-8269-762E90072803}" />
+										<Child Name="EB_CREDITODARF" Owner="{121CB4B8-3D39-4A38-B3AE-3B1E89F16940}" />
+										<Child Name="EB_CCCREDITODARF" Owner="{ACEEDDED-E7D2-40C1-8C2D-7D57B8EE8834}" />
+										<Child Name="EB_CODHISTDARF" Owner="{3BF413B5-17B0-4536-88A6-6DB2D4C86AE0}" />
+										<Child Name="EB_COMPHISTDARF" Owner="{F36ECFC1-8151-4D0F-BFA6-88CC55272CF5}" />
+									</Child>
+								</Child>
+								<Child Name="tsINSSGPS" Owner="{01A39C5D-FB00-460D-A340-ABE22825905C}">
+									<Child Name="ScrollBox7" Owner="{A98CADC9-6AF3-4437-9A50-1D7DF75D6483}">
+										<Child Name="EB_INSSDEBITO" Owner="{AE9CC20C-98B4-48E2-8252-D907B71D2B4B}" />
+										<Child Name="EB_INSSCCDEBITO" Owner="{665B5D24-24DD-46D2-90D0-9A43C4D9519C}" />
+										<Child Name="EB_INSSCREDITO" Owner="{45E9AF7C-52AF-44D0-A818-80A153E2591B}" />
+										<Child Name="EB_INSSCCCREDITO" Owner="{69FCAAC3-3CBD-4A98-A60D-7BF0FAA719F0}" />
+										<Child Name="EB_INSSHIST" Owner="{83E6DC8A-7336-436E-9349-AE0202165A13}" />
+										<Child Name="EB_INSSDEBITOCOMP" Owner="{BA407A2B-AEBC-4A40-86EF-7FD32C93C9A3}" />
+										<Child Name="EB_INSSCCDEBITOCOMP" Owner="{C4B2F84F-D147-4583-8794-58131617876B}" />
+										<Child Name="EB_INSSCREDITOCOMP" Owner="{5CE1E088-24AC-41B6-8226-86DB83625A52}" />
+										<Child Name="EB_INSSCCCREDITOCOMP" Owner="{E3160F3A-771A-4211-8260-D83564C8A018}" />
+										<Child Name="EB_INSSHISTCOMP" Owner="{960C695B-86CA-4743-A4F6-16E43F6E3181}" />
+										<Child Name="EB_INSSDEBITORET" Owner="{FC3690CF-BC35-4719-8314-BD4A289F7075}" />
+										<Child Name="EB_INSSCCDEBITORET" Owner="{823FA9A1-2CB5-447C-8D2B-0DD0EA004C76}" />
+										<Child Name="EB_INSSCREDITORET" Owner="{DBC0DA9D-5E5A-4FF4-BA9A-AA725FA4BD6C}" />
+										<Child Name="EB_INSSCCCREDITORET" Owner="{D297A31B-ECCA-4312-9F89-6F947D21C4B2}" />
+										<Child Name="EB_INSSHISTRET" Owner="{9C6B9C3E-580C-47F8-958B-BD0431B63454}" />
+									</Child>
+								</Child>
+								<Child Name="tsGPS13" Owner="{D42B582F-B6EE-4891-AF89-D460CF84DA24}">
+									<Child Name="ScrollBox8" Owner="{4FC7CAED-DE50-479E-836E-32E3ABFB5E64}">
+										<Child Name="EB_INSSDEBITO13" Owner="{DB051B04-7B1F-473A-9916-3C8175E6027E}" />
+										<Child Name="EB_INSSCCDEBITO13" Owner="{FCAE2A1F-951F-40D1-9FB3-17E691DF07EC}" />
+										<Child Name="EB_INSSCREDITO13" Owner="{91FD44D4-CC7D-49B9-9B75-3AF04381BBE0}" />
+										<Child Name="EB_INSSCCCREDITO13" Owner="{0F0FF3C8-7546-4253-999B-9E8D2E6F2A4C}" />
+										<Child Name="EB_INSSHIST13" Owner="{C6112FB1-20EA-40B0-B441-D6EC5A877D0D}" />
+										<Child Name="EB_INSSDEBITOCOMP13" Owner="{B1BCD7DF-E826-465E-BE23-D6E269F7142D}" />
+										<Child Name="EB_INSSCCDEBITOCOMP13" Owner="{BB817340-7010-4630-805E-706F8D3FF86A}" />
+										<Child Name="EB_INSSCREDITOCOMP13" Owner="{51B3B31B-FDD3-40BA-844A-BAD151532F4B}" />
+										<Child Name="EB_INSSCCCREDITOCOMP13" Owner="{5A7475C1-A9E7-4AAA-A225-62C2F5F79C42}" />
+										<Child Name="EB_INSSHISTCOMP13" Owner="{18D7CB90-FF47-4EFC-9BC5-547078BF8CCF}" />
+									</Child>
+								</Child>
+								<Child Name="tsFUNRURAL" Owner="{478E46E3-5492-439A-B0A1-F72FA0A36556}">
+									<Child Name="ScrollBox9" Owner="{F65DC49E-C61C-45B1-A192-0A6DC5DAFF8B}">
+										<Child Name="EB_CCCREDITOFUNRURAL" Owner="{5EF759B8-CD40-4928-856C-895178B9CD7E}" />
+										<Child Name="EB_CREDITOFUNRURAL" Owner="{6E245F61-D75D-4F69-88FC-C25682CB2556}" />
+										<Child Name="EB_CCDEBITOFUNRURAL" Owner="{E7411B47-FA89-4C34-9C12-510A3697500F}" />
+										<Child Name="EB_DEBITOFUNRURAL" Owner="{3158BDB3-C903-4301-A4D2-B5DE2DF2D4BF}" />
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+					<Child Name="tbExpContabil" Owner="{61CC9957-1E73-43EC-9F62-9D442DA74880}">
+						<Child Name="Panel5" Owner="{5AD9B008-86F7-4B28-B73C-C5BE1DA13FEB}">
+							<Child Name="EB_ESTABFIN" Owner="{197EE10F-8DD3-4036-A4C7-1B5956FB297D}" />
+							<Child Name="EB_DARFPISFORNECEDOR" Owner="{778DEC9C-797B-4876-B7A9-5C0AA10B0A94}" />
+							<Child Name="EB_DARFPISANALITICA" Owner="{AD9CD776-0ECF-4C53-A511-CF1DD3397706}" />
+							<Child Name="EB_DARFPISCC" Owner="{B6F63029-A723-4B3E-B1EA-2044C430FFAF}" />
+							<Child Name="EB_DARFPISSITUACAO" Owner="{5929D49D-B5EF-443D-9A17-BFDC41E53BA2}" />
+							<Child Name="EB_DARFIRRFFORNECEDOR" Owner="{DA3C2CBD-AE52-4E71-881D-CBC28B89661D}" />
+							<Child Name="EB_DARFIRRFANALITICA" Owner="{6F3C5A3B-0B58-4093-9C86-8390DA92E684}" />
+							<Child Name="EB_DARFIRRFCC" Owner="{243B2639-FD1C-4368-886F-0976C0A50B41}" />
+							<Child Name="EB_DARFIRRFSITUACAO" Owner="{2A1D94C1-02E7-450D-B559-E12EC9BDED0D}" />
+							<Child Name="EB_DARFFORNECEDOR" Owner="{B26A9586-A1BD-4B38-9A11-54299361440F}" />
+							<Child Name="EB_DARFANALITICA" Owner="{DDB1CC44-B6BC-4125-9F7D-8324F621C762}" />
+							<Child Name="EB_DARFCC" Owner="{66B5715C-3911-49A2-B604-D74D3DF03950}" />
+							<Child Name="EB_DARFSITUACAO" Owner="{4BF601DD-B62D-41C2-A89E-879DB732AB4E}" />
+							<Child Name="EB_INSSFORNECEDOR" Owner="{AC5866F0-2A21-4827-B271-A29F62644DD9}" />
+							<Child Name="EB_INSSANALITICA" Owner="{001F687D-ED14-4FD7-9385-909AB033C8CF}" />
+							<Child Name="EB_INSSCC" Owner="{1174BF0B-BD19-45B4-A1E0-C4E0CB604242}" />
+							<Child Name="EB_INSSSITUACAO" Owner="{4E920D05-CA28-4486-B792-5CEAD8BF44FA}" />
+							<Child Name="EB_INSSFORNECEDORFUNRUR" Owner="{AB25D538-F6F5-4333-BF7C-368167BFA8BA}" />
+							<Child Name="EB_INSSANAFUNRURAL" Owner="{723A0F45-A86C-43D9-9BD7-B53370982C1E}" />
+							<Child Name="EB_INSSCCFUNRURAL" Owner="{F0C56C5C-7FD2-460A-9771-92A330FF2AB3}" />
+							<Child Name="EB_INSSSITFUNRURAL" Owner="{69C2D41B-35B8-49D3-A31A-F5575DC2A582}" />
+						</Child>
+					</Child>
+					<Child Name="tbAvisoPrevio" Owner="{13CC8843-D775-48A2-86FE-78ABF009F424}">
+						<Child Name="ScrollBox3" Owner="{3638A247-5A54-4F90-9FFB-F86A886DEE78}">
+							<Child Name="gRhAvPrevio" Owner="{AB4943E5-33C9-48DF-9288-ABCF1C6599F6}" />
+						</Child>
+					</Child>
+					<Child Name="tsPendencias" Owner="{6FBD9437-8659-4B5A-9E15-1665D1D64BF7}">
+						<Child Name="Panel4" Owner="{86254BE5-CD1E-4FF6-B760-8C385DF59C9B}">
+							<Child Name="pnListPendFolha" Owner="{C036B95C-0CF7-4C96-9901-BCDB67C3D642}">
+								<Child Name="EB_LLISTPOR" Owner="{89F52DF8-D9DA-4AC7-805D-C5C90FA6B200}" />
+								<Child Name="EB_LPERAQ" Owner="{DF8672F9-EABA-4087-AC72-1FD8E7A2A22D}" />
+								<Child Name="EB_LCONCVENC" Owner="{F724E7CB-D283-48EF-B214-ACEFFF5AFB92}" />
+								<Child Name="EB_DLCONCVENC" Owner="{7771F760-FA8F-4E0A-A73F-34B9ADC3331B}" />
+								<Child Name="EB_LPEREXP" Owner="{97785F6E-69BB-49B6-A47B-F655E8CE2EC6}" />
+								<Child Name="EB_DLPEREXP" Owner="{51BD757A-C0B2-4E12-A75A-63543ADE368E}" />
+								<Child Name="EB_LPROGFER" Owner="{D0992C66-83A9-42C9-8941-52EB4F5DA900}" />
+								<Child Name="EB_DLPROGFER" Owner="{68A89587-CD75-4DFF-9E82-9F7828717B50}" />
+								<Child Name="EB_LAVPREV" Owner="{8861B748-B050-4472-ADF6-6AF0F7D16FA2}" />
+								<Child Name="EB_DLAVPREV" Owner="{3153E0B6-AC76-4980-BD5C-FFB12EDCF5AC}" />
+								<Child Name="EB_LAGETAREFA" Owner="{4CB3E82E-3101-479C-87D5-88B28CA1AEFF}" />
+								<Child Name="EB_DLAGETAREFA" Owner="{E1329ED8-BFA7-4C4E-966F-D06E60F3317B}" />
+								<Child Name="EB_LEXAMES" Owner="{7461AE56-21FF-4143-989E-8FC69E61835D}" />
+								<Child Name="EB_DLEXAMES" Owner="{71DA56C2-157D-4CEB-84F0-15D263BAAF1D}" />
+								<Child Name="EB_LVENCCNH" Owner="{6D0C2CAA-1ADE-4C13-A939-D3BB041789C6}" />
+								<Child Name="EB_DLVENCCNH" Owner="{66684B0C-BF06-4A74-A120-1F61A06731A2}" />
+								<Child Name="EB_LVENCESTAB" Owner="{75549B61-7D14-4F62-B7A8-44DE11DEF6D3}" />
+								<Child Name="EB_DLVENCESTAB" Owner="{AC8470A9-402D-471A-9BFB-7B70E83956BD}" />
+								<Child Name="EB_LEMPTERAFAST" Owner="{A8C93280-01FC-49BC-96B1-034469075130}" />
+								<Child Name="EB_DLEMPTERAFAST" Owner="{B6CE42A5-6737-4BF6-A401-AC37952DEADE}" />
+								<Child Name="EB_LEMPFERIASMES" Owner="{8A3D88FF-ACEF-4210-8A45-49B06806212B}" />
+							</Child>
+						</Child>
+					</Child>
 				</Child>
 				<Child Name="SBEB_IDCONFHOMOLOG" Owner="{6BE05FA4-9A30-4D3F-93CF-28A45A1C7A88}" />
+				<Child Name="bIncAvPrevio" Owner="{7D0B306F-B3E7-4020-AAA6-D730334B6164}" />
+				<Child Name="bSaveAvPrevio" Owner="{3EE224A8-E44B-4767-A8D2-111C30C5A231}" />
+				<Child Name="bExcAvPrevio" Owner="{97B9FCA7-902E-4ECA-A6BE-E2D1334C2336}" />
+				<Child Name="ToolbarButton974" Owner="{658A95ED-1390-46AB-B810-CA0B839D3B55}" />
+				<Child Name="ToolbarButton975" Owner="{0B195715-AD6E-44B5-8F27-4FCCA5F40EB3}" />
+				<Child Name="bCancelAvPrevio" Owner="{79716029-789D-4FAE-9BD7-B13053B0926D}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

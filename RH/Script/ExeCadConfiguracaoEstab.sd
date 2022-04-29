@@ -17,6 +17,9 @@ end;
 
 procedure PreencherCalculo();
 begin
+  MapTelaEstab();
+  
+  EstabFormPage.ActivePageIndex := 1;
 
   VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
   VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);  	 
@@ -55,9 +58,6 @@ begin
   LeDataPoolConfigAdiantamento(DDTCalculo.Name);
   MapCadConfigAdiantamento();
   
-  MapTelaEstab();
-  
-  EstabFormPage.ActivePageIndex := 1;
   PreencherCalculo();
   
 end;

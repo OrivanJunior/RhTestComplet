@@ -48,9 +48,9 @@ var
   DDTCalculo: Olevariant;
 begin
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
-  Delay(10000);
+  Delay(15000);
   
-  DDTCalculo := CarregaDDT(pathData, 'Calculos');  
+  DDTCalculo := CarregaDDT(pathData, 'Calculos'); 
  
   LeDataPoolConfigAdiantamento(DDTCalculo.Name);
   MapCadConfigAdiantamento();

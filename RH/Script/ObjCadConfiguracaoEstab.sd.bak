@@ -32,6 +32,7 @@ CadConfigEstabelecimentoEBConfNela,
 
 {ConfigDeCalculo}
 
+CadConfigCalcForm,
 CadConfigEstabelecimentoEBPagaAjudaCompensa,
 CadConfigEstabelecimentoEBConsAvoSuspensao1,
 CadConfigEstabelecimentoEBSalFamSobBase,			
@@ -52,7 +53,7 @@ CadConfigEstabelecimentoEBNomeCalcPagaDi,
 CadConfigEstabelecimentoEBCalcProvisao,		
 CadConfigEstabelecimentoEBFcnRodias,
 
-EstabFormPage,
+EstabFormPage,EstabFormPageCalc,
 
 {ConfigAdiantamento}
 
@@ -66,7 +67,7 @@ CadConfigEstabelecimentoEBPagaDmAte : OleVariant;
 
 procedure MapCadConfigEstabelecimento();
 begin
-{Configura estabelecimento}
+{Dados Cadastrais}
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 CadConfigEstabelecimentoEBCei				    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CEI;
 CadConfigEstabelecimentoEBIncra			    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_INCRA;
@@ -93,6 +94,7 @@ end;
 
 procedure MapCadConfigDeCalculo();
 begin
+CadConfigCalcForm                               :=  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
 {ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
@@ -116,6 +118,7 @@ CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCa
 CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
 end;
 
+
 procedure MapCadConfigAdiantamento();
 begin
 {ConfigAdiantamento}
@@ -128,8 +131,146 @@ CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsC
 
 end;
 
+{Map para saltar para a próxima celula do xls}
 procedure MapTelaEstab();
-
 begin
   EstabFormPage := Aliases.Folha.FRhFilial.Page;
+  EstabFormPageCalc := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
+end;
+
+
+
+procedure MapCadEstabConfigFgtsInss();
+begin
+  {FGTS INSS}
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_GERASEFIP.DblClick(33, 10);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODSEFIPRESP.Click(58, 9);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_IDAGFGTS.Click(48, 8);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CONTAFGTS.Click(47, 13);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_SEQFGTS.Click(47, 6);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_OPSIMPLES.Click(408, 8);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_INDCONTSUB.Click(110, 12);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_EMPART9A8.Click(408, 9);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODCENTRALIZACAO;
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_ESTABCENT.Click(44, 9);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPAGGPS.Click(33, 7);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPGTOGPSPS.Click(43, 9);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_VLRMINGPS.Click(42, 4);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_GPSLOCAL.DblClick(46, 9);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_LAVISOSEFIP.DblClick(40, 11);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_CODPAGFUNRURAL.Click(49, 13);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_DARFPISLOCAL.DblClick(40, 7);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_IDFPAS.Click(53, 14);
+  Aliases.Folha.FRhFilial.Page.tsFgtsInss.Panel2.EB_DTALTENDERECO.Click(25, 14);
+end;
+
+
+procedure MapCadEstabConfigContabeis();
+begin
+  {Config Contabeis-Geral}
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_ESTABCTBW.DblClick(25, 10);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_UNIDCC.DblClick(52, 12);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.TabSheet1.ScrollBox10.EB_EXPIRRFDTCOMP.DblClick(58, 11);
+  {Config Contabeis-Darf de Pis}
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_DEBITODARF.DblClick(63, 15);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CCDEBITODARF.Click(74, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CREDITODARF.Click(65, 8);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CCCREDITODARF.Click(45, 10);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_CODHISTDARF.Click(30, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsDARFPIS.ScrollBox4.EB_COMPHISTDARF.Click(20, 5);
+  {Config Contabeis-Gps}
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITO.Click(89, 9);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITO.Click(91, 12);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITO.Click(83, 8);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITO.Click(70, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHIST.Click(55, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITOCOMP.Click(25, 17);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITOCOMP.Click(27, 11);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITOCOMP.Click(25, 12);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITOCOMP.Click(31, 10);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHISTCOMP.Click(20, 11);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSDEBITORET.Click(25, 5);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCDEBITORET.Click(27, 11);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCREDITORET.Click(22, 8);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSCCCREDITORET.Click(26, 10);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsINSSGPS.ScrollBox7.EB_INSSHISTRET.Click(31, 12);
+  {Config Contabeis-Gps 13}
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSDEBITO13.Click(32, 13);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCDEBITO13.Click(32, 8);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCREDITO13.Click(29, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCCREDITO13.Click(15, 9);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSHIST13.Click(17, 10);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSDEBITOCOMP13.Click(18, 8);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCDEBITOCOMP13.Click(20, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCREDITOCOMP13.Click(22, 11);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSCCCREDITOCOMP13.Click(21, 13);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsGPS13.ScrollBox8.EB_INSSHISTCOMP13.Click(30, 12);
+  {Config Contabeis-Gps FunRural}
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CCCREDITOFUNRURAL.Click(41, 7);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CREDITOFUNRURAL.Click(25, 15);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_CCDEBITOFUNRURAL.Click(29, 13);
+  Aliases.Folha.FRhFilial.Page.tsConfContabeis.Panel3.pgConfContabil.tsFUNRURAL.ScrollBox9.EB_DEBITOFUNRURAL.Click(35, 8);
+end;
+
+procedure MapCadConfigEstabFinac();
+begin
+  {Config financeiro}
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_ESTABFIN.DblClick(44, 13);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISFORNECEDOR.Click(50, 11);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISANALITICA.Click(46, 9);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISCC.Click(41, 7);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFPISSITUACAO.Click(34, 13);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFFORNECEDOR.Click(31, 9);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFANALITICA.Click(28, 5);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFCC.Click(30, 13);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFIRRFSITUACAO.Click(33, 14);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFFORNECEDOR.Click(38, 8);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFANALITICA.Click(39, 7);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFCC.Click(39, 13);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_DARFSITUACAO.Click(35, 10);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSFORNECEDOR.Click(37, 11);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSANALITICA.Click(37, 10);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSCC.Click(37, 11);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSSITUACAO.Click(38, 10);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSFORNECEDORFUNRUR.Click(36, 14);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSANAFUNRURAL.Click(39, 7);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSCCFUNRURAL.Click(32, 12);
+  Aliases.Folha.FRhFilial.Page.tbExpContabil.Panel5.EB_INSSSITFUNRURAL.Click(33, 9);
+end;
+
+
+procedure MapCadEstabAvisoPrevGrid();
+begin
+  {Config Aviso previo}
+  Aliases.Folha.FRhFilial.Page.tbAvisoPrevio.ScrollBox3.gRhAvPrevio;
+  Aliases.Folha.FRhFilial.bIncAvPrevio;
+  Aliases.Folha.FRhFilial.bSaveAvPrevio;
+  Aliases.Folha.FRhFilial.bExcAvPrevio;
+end;
+
+
+procedure MapCadConfEstabListPendencia();
+begin
+  {Config de Pendencia}
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LLISTPOR.DblClick(46, 10);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPERAQ.DblClick(40, 7);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LCONCVENC.DblClick(35, 11);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLCONCVENC.DblClick(29, 6);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPEREXP.DblClick(26, 7);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLPEREXP.DblClick(17, 7);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LPROGFER.DblClick(26, 11);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLPROGFER.Click(21, 8);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LAVPREV.DblClick(30, 10);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLAVPREV.Click(18, 9);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LAGETAREFA.DblClick(43, 9);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLAGETAREFA.Click(22, 11);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEXAMES.DblClick(25, 7);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLEXAMES.Click(22, 8);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LVENCCNH.DblClick(35, 14);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLVENCCNH.Click(19, 10);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LVENCESTAB.DblClick(34, 8);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLVENCESTAB.Click(29, 10);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEMPTERAFAST.DblClick(23, 10);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLEMPTERAFAST.Click(22, 8);
+  Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEMPFERIASMES.DblClick(26, 8);
 end;
