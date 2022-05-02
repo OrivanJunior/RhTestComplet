@@ -102,7 +102,7 @@ CadConfigEstabelecimentoDPCalcDif13Neg			    := DDT.DriverByName(nomeDriver).Val
 CadConfigEstabelecimentoDPNomeCalcPagaDi		    := DDT.DriverByName(nomeDriver).Value('NOMECALCPAGADI');
 CadConfigEstabelecimentoDPOrdemListProc			    := DDT.DriverByName(nomeDriver).Value('ORDEMLISTPROC');
 CadConfigEstabelecimentoDPCalcProvisao			    := DDT.DriverByName(nomeDriver).Value('CALCPROVISAO');
-
+{Config Adiantamento}
 CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
 CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
 CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
@@ -220,17 +220,6 @@ CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).
 //CadConfigEstabelecimentoDPDlempterafast:= DDT.DriverByName(nomeDriver).Value('DLEMPTERAFAST');
 //CadConfigEstabelecimentoDPLempferiasmes:= DDT.DriverByName(nomeDriver).Value('LEMPFERIASMES');
 
-end;
-
-{ConfigAdiantamento}
-procedure LeDataPoolConfigAdiantamento(nomeDriver);
-begin
-CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
-CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
-CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
-CadConfigEstabelecimentoDPCalcPropAfasta        := DDT.DriverByName(nomeDriver).Value('CALCPROPAFASTA');
-CadConfigEstabelecimentoDPPropAdmis  	          := DDT.DriverByName(nomeDriver).Value('PROPADMIS');
-CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).Value('PAGADMATE');
 end;
 
 

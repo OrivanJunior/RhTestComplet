@@ -103,6 +103,13 @@ CadConfigEstabelecimentoDPNomeCalcPagaDi		    := DDT.DriverByName(nomeDriver).Va
 CadConfigEstabelecimentoDPOrdemListProc			    := DDT.DriverByName(nomeDriver).Value('ORDEMLISTPROC');
 CadConfigEstabelecimentoDPCalcProvisao			    := DDT.DriverByName(nomeDriver).Value('CALCPROVISAO');
 
+CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
+CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
+CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
+CadConfigEstabelecimentoDPCalcPropAfasta        := DDT.DriverByName(nomeDriver).Value('CALCPROPAFASTA');
+CadConfigEstabelecimentoDPPropAdmis  	          := DDT.DriverByName(nomeDriver).Value('PROPADMIS');
+CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).Value('PAGADMATE');
+
 
 
 {FGTS INSS}
