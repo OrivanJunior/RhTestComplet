@@ -342,7 +342,28 @@
 					</folder>
 				</folder>
 				<folder name="Configurações" />
-				<folder name="Empregados" />
+				<folder name="Empregados">
+					<folder name="Categoria">
+						<child name="ExeCadCategoria" key="{5858D54D-5D95-4B3D-A52A-60C6C9CA943E}" path="ExeCadCategoria.sd" />
+						<child name="ObjCadCategoria" key="{F981EE4B-9C02-4204-9D3C-435B832AF335}" path="ObjCadCategoria.sd" />
+						<child name="DataPoolCadCategoria" key="{21EF0982-8076-4C9B-B82A-353BBF2D2C4F}" path="DataPoolCadCategoria.sd" />
+					</folder>
+					<folder name="Vínculos">
+						<child name="ExeCadVinculos" key="{E5F62D54-F86F-4CF0-A9B1-87F4A519BDF3}" path="ExeCadVinculos.sd" />
+						<child name="ObjCadVinculos" key="{2709085E-C454-4388-9A18-A64803E262C7}" path="ObjCadVinculos.sd" />
+						<child name="DataPoolCadVinculos" key="{E4CE6568-5BD3-4638-8C35-7E712E373460}" path="DataPoolCadVinculos.sd" />
+					</folder>
+					<folder name="Turno">
+						<child name="ExeCadTurno" key="{3285956B-772D-4ECA-9503-28007D96AAA6}" path="ExeCadTurno.sd" />
+						<child name="ObjCadTurno" key="{4A8580E2-E2A8-401C-90ED-32EE7F481EE8}" path="ObjCadTurno.sd" />
+						<child name="DataPoolCadTurno" key="{2FD355A1-B0C0-4C0E-B675-34201BD33F05}" path="DataPoolCadTurno.sd" />
+					</folder>
+					<folder name="Horários">
+						<child name="ExeCadHorariosGerais" key="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}" path="ExeCadHorariosGerais.sd" />
+						<child name="ObjCadHorariosGerais" key="{0284E1B3-55D9-48BD-86EC-C60E54279568}" path="ObjCadHorariosGerais.sd" />
+						<child name="DataPoolCadHorariosGerais" key="{003C640B-DBAB-47D9-8E91-84DD0FEC7474}" path="DataPoolCadHorariosGerais.sd" />
+					</folder>
+				</folder>
 				<folder name="Profissionais">
 					<child name="DataPoolCadProfissionais" key="{91C52A1A-014B-43AD-9A11-6AEE3A2BE96C}" path="DataPoolCadProfissionais.sd" />
 					<child name="ObjCadProfissionais" key="{B04304BD-2957-43C2-BB55-4E8E33148BF6}" path="ObjCadProfissionais.sd" />
