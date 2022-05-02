@@ -10,7 +10,8 @@ CadConfigEstabelecimentoDPPagaAjudaCompensa,CadConfigEstabelecimentoDPConsAvoSus
 CadConfigEstabelecimentoDPSalPropVenc,CadConfigEstabelecimentoDPBasePis,CadConfigEstabelecimentoDPIdConfSegDes,CadConfigEstabelecimentoDPJmcfenDias,	
 CadConfigEstabelecimentoDPAdmDemcfmenDias,CadConfigEstabelecimentoDPTpCompFerias,	CadConfigEstabelecimentoDPLRegIrrf,	CadConfigEstabelecimentoDPIdConfHomolog,CadConfigEstabelecimentoDPCalcliqFeriasBase,	
 CadConfigEstabelecimentoDPDescInssAvIrrf,CadConfigEstabelecimentoDPDescMinIrrf,CadConfigEstabelecimentoDPCalcDif13Neg,CadConfigEstabelecimentoDPNomeCalcPagaDi,	
-CadConfigEstabelecimentoDPOrdemListProc,CadConfigEstabelecimentoDPCalcProvisao,CadConfigEstabelecimentoDPFcnRodias,
+CadConfigEstabelecimentoDPOrdemListProc,CadConfigEstabelecimentoDPCalcProvisao,CadConfigEstabelecimentoDPFcnRodias,CadConfigEstabelecimentoDPDarfcent,     
+CadConfigEstabelecimentoDPEstabCentdarf,
 {ConfigAdiantamento}
 CadConfigEstabelecimentoDPCalcPropFerias,CadConfigEstabelecimentoDPPaEntrouAte, CadConfigEstabelecimentoDPPaVoltouAte, 	
 CadConfigEstabelecimentoDPCalcPropAfasta,CadConfigEstabelecimentoDPPropAdmis,CadConfigEstabelecimentoDPPagaDmAte,
@@ -87,10 +88,13 @@ CadConfigEstabelecimentoDPSalPropVenc			      := DDT.DriverByName(nomeDriver).Va
 CadConfigEstabelecimentoDPBasePis				        := DDT.DriverByName(nomeDriver).Value('BASEPIS');
 CadConfigEstabelecimentoDPIdConfSegDes			    := DDT.DriverByName(nomeDriver).Value('IDCONFSEGDES');
 CadConfigEstabelecimentoDPJmcfenDias			      := DDT.DriverByName(nomeDriver).Value('JMCFENDIAS');
+CadConfigEstabelecimentoDPFcnRodias				      := DDT.DriverByName(nomeDriver).Value('FCNRODIAS');
 CadConfigEstabelecimentoDPAdmDemcfmenDias		    := DDT.DriverByName(nomeDriver).Value('ADMDEMCFMENDIAS');
 CadConfigEstabelecimentoDPTpCompFerias			    := DDT.DriverByName(nomeDriver).Value('TPCOMPFERIAS');
 CadConfigEstabelecimentoDPLRegIrrf				      := DDT.DriverByName(nomeDriver).Value('LREGIRRF');
 CadConfigEstabelecimentoDPIdConfHomolog			    := DDT.DriverByName(nomeDriver).Value('IDCONFHOMOLOG');
+CadConfigEstabelecimentoDPDarfcent              := DDT.DriverByName(nomeDriver).Value('DARFCENT');
+CadConfigEstabelecimentoDPEstabCentdarf         := DDT.DriverByName(nomeDriver).Value('ESTABCENTDARF'); 
 CadConfigEstabelecimentoDPCalcliqFeriasBase		  := DDT.DriverByName(nomeDriver).Value('CALCLIQFERIASBASE');
 CadConfigEstabelecimentoDPDescInssAvIrrf		    := DDT.DriverByName(nomeDriver).Value('DESCINSSAVIRRF');
 CadConfigEstabelecimentoDPDescMinIrrf			      := DDT.DriverByName(nomeDriver).Value('DESCMINIRRF');
@@ -98,114 +102,123 @@ CadConfigEstabelecimentoDPCalcDif13Neg			    := DDT.DriverByName(nomeDriver).Val
 CadConfigEstabelecimentoDPNomeCalcPagaDi		    := DDT.DriverByName(nomeDriver).Value('NOMECALCPAGADI');
 CadConfigEstabelecimentoDPOrdemListProc			    := DDT.DriverByName(nomeDriver).Value('ORDEMLISTPROC');
 CadConfigEstabelecimentoDPCalcProvisao			    := DDT.DriverByName(nomeDriver).Value('CALCPROVISAO');
-CadConfigEstabelecimentoDPFcnRodias				      := DDT.DriverByName(nomeDriver).Value('FCNRODIAS');
+
+CadConfigEstabelecimentoDPCalcPropFerias		    := DDT.DriverByName(nomeDriver).Value('CALCPROPFERIAS');
+CadConfigEstabelecimentoDPPaEntrouAte  	        := DDT.DriverByName(nomeDriver).Value('PAENTROUATE');
+CadConfigEstabelecimentoDPPaVoltouAte 	        := DDT.DriverByName(nomeDriver).Value('PAVOLTOUATE');
+CadConfigEstabelecimentoDPCalcPropAfasta        := DDT.DriverByName(nomeDriver).Value('CALCPROPAFASTA');
+CadConfigEstabelecimentoDPPropAdmis  	          := DDT.DriverByName(nomeDriver).Value('PROPADMIS');
+CadConfigEstabelecimentoDPPagaDmAte  	          := DDT.DriverByName(nomeDriver).Value('PAGADMATE');
+
+
+
 {FGTS INSS}
-CadConfigEstabelecimentoDPGerasefip  		        := DDT.DriverByName(nomeDriver).Value('GERASEFIP');
-CadConfigEstabelecimentoDPCodsefipresp  	      := DDT.DriverByName(nomeDriver).Value('CODSEFIPRESP');
-CadConfigEstabelecimentoDPIdagfgts  		        := DDT.DriverByName(nomeDriver).Value('IDAGFGTS');
-CadConfigEstabelecimentoDPContafgts  		        := DDT.DriverByName(nomeDriver).Value('CONTAFGTS');
-CadConfigEstabelecimentoDPSeqfgts  			        := DDT.DriverByName(nomeDriver).Value('SEQFGTS');
-CadConfigEstabelecimentoDPOpsimples  		        := DDT.DriverByName(nomeDriver).Value('OPSIMPLES');
-CadConfigEstabelecimentoDPIndcontsub  		      := DDT.DriverByName(nomeDriver).Value('INDCONTSUB');
-CadConfigEstabelecimentoDPEmpart9a8  		        := DDT.DriverByName(nomeDriver).Value('EMPART9A8');
-CadConfigEstabelecimentoDPCodcentralizacao 	    := DDT.DriverByName(nomeDriver).Value('CODCENTRALIZACAO');
-CadConfigEstabelecimentoDPEstabcent  		        := DDT.DriverByName(nomeDriver).Value('ESTABCENT');
-CadConfigEstabelecimentoDPCodpaggps  		        := DDT.DriverByName(nomeDriver).Value('CODPAGGPS');
-CadConfigEstabelecimentoDPCodpgtogpsps  	      := DDT.DriverByName(nomeDriver).Value('CODPGTOGPSPS');
-CadConfigEstabelecimentoDPVlrmingps  		        := DDT.DriverByName(nomeDriver).Value('VLRMINGPS');
-CadConfigEstabelecimentoDPGpslocal  		        := DDT.DriverByName(nomeDriver).Value('GPSLOCAL');
-CadConfigEstabelecimentoDPLavisosefip  		      := DDT.DriverByName(nomeDriver).Value('LAVISOSEFIP');
-CadConfigEstabelecimentoDPCodpagfunrural  	    := DDT.DriverByName(nomeDriver).Value('CODPAGFUNRURAL');
-CadConfigEstabelecimentoDPDarfpislocal  	      := DDT.DriverByName(nomeDriver).Value('DARFPISLOCAL');
-CadConfigEstabelecimentoDPIdfpas  			        := DDT.DriverByName(nomeDriver).Value('IDFPAS');
-CadConfigEstabelecimentoDPDtaltendereco  	      := DDT.DriverByName(nomeDriver).Value('DTALTENDERECO');
-{Config Contabeis-Geral}
-CadConfigEstabelecimentoDPEstabctbw				      := DDT.DriverByName(nomeDriver).Value('ESTABCTBW');
-CadConfigEstabelecimentoDPUnidcc				        := DDT.DriverByName(nomeDriver).Value('UNIDCC');
-CadConfigEstabelecimentoDPExpirrfdtcomp			    := DDT.DriverByName(nomeDriver).Value('EXPIRRFDTCOMP');
-{Config Contabeis-Darf de Pis}                                                            
-CadConfigEstabelecimentoDPDebitodarf			      := DDT.DriverByName(nomeDriver).Value('DEBITODARF');
-CadConfigEstabelecimentoDPCcdebitodarf			    := DDT.DriverByName(nomeDriver).Value('CCDEBITODARF');
-CadConfigEstabelecimentoDPCreditodarf			      := DDT.DriverByName(nomeDriver).Value('CREDITODARF');
-CadConfigEstabelecimentoDPCccreditodarf			    := DDT.DriverByName(nomeDriver).Value('CCCREDITODARF');
-CadConfigEstabelecimentoDPCodhistdarf			      := DDT.DriverByName(nomeDriver).Value('CODHISTDARF');  
-CadConfigEstabelecimentoDPComphistdarf			    := DDT.DriverByName(nomeDriver).Value('COMPHISTDARF');
-{Config Contabeis-Gps}                                                                   
-CadConfigEstabelecimentoDPInssdebito			      := DDT.DriverByName(nomeDriver).Value('INSSDEBITO');
-CadConfigEstabelecimentoDPInssccdebito			    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO');
-CadConfigEstabelecimentoDPInsscredito			      := DDT.DriverByName(nomeDriver).Value('INSSCREDITO');
-CadConfigEstabelecimentoDPInsscccredito			    := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO');
-CadConfigEstabelecimentoDPInsshist				      := DDT.DriverByName(nomeDriver).Value('INSSHIST');
-CadConfigEstabelecimentoDPInssdebitocomp		    := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP');
-CadConfigEstabelecimentoDPInssccdebitocomp		  := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP');
-CadConfigEstabelecimentoDPInsscreditocomp		    := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP');
-CadConfigEstabelecimentoDPInsscccreditocomp		  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP');
-CadConfigEstabelecimentoDPInsshistcomp			    := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP');
-CadConfigEstabelecimentoDPInssdebitoret			    := DDT.DriverByName(nomeDriver).Value('INSSDEBITORET');
-CadConfigEstabelecimentoDPInssccdebitoret		    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITORET');
-CadConfigEstabelecimentoDPInsscreditoret		    := DDT.DriverByName(nomeDriver).Value('INSSCREDITORET');
-CadConfigEstabelecimentoDPInsscccreditoret		  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITORET');
-CadConfigEstabelecimentoDPInsshistret			      := DDT.DriverByName(nomeDriver).Value('INSSHISTRET');
-{Config Contabeis-Gps 13}                                                                 
-CadConfigEstabelecimentoDPInssdebito13			    := DDT.DriverByName(nomeDriver).Value('INSSDEBITO13');
-CadConfigEstabelecimentoDPInssccdebito13		    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO13');
-CadConfigEstabelecimentoDPInsscredito13			    := DDT.DriverByName(nomeDriver).Value('INSSCREDITO13');
-CadConfigEstabelecimentoDPInsscccredito13		    := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO13');
-CadConfigEstabelecimentoDPInsshist13			      := DDT.DriverByName(nomeDriver).Value('INSSHIST13');
-CadConfigEstabelecimentoDPInssdebitocomp13		  := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP13');
-CadConfigEstabelecimentoDPInssccdebitocomp13	  := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP13');
-CadConfigEstabelecimentoDPInsscreditocomp13		  := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP13');
-CadConfigEstabelecimentoDPInsscccreditocomp13	  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP13');
-CadConfigEstabelecimentoDPInsshistcomp13		    := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP13');
-{Config Contabeis-Gps FuDPural}                                                           
-CadConfigEstabelecimentoDPCccreditofunrural			:= DDT.DriverByName(nomeDriver).Value('CCCREDITOFUNRURAL');
-CadConfigEstabelecimentoDPCreditofunrural		    := DDT.DriverByName(nomeDriver).Value('CREDITOFUNRURAL');
-CadConfigEstabelecimentoDPCcdebitofunrural		  := DDT.DriverByName(nomeDriver).Value('CCDEBITOFUNRURAL');
-CadConfigEstabelecimentoDPDebitofunrural		    := DDT.DriverByName(nomeDriver).Value('DEBITOFUNRURAL');
-{Config financeiro}
-CadConfigEstabelecimentoDPEstabfin				      := DDT.DriverByName(nomeDriver).Value('ESTABFIN');
-CadConfigEstabelecimentoDPDarfpisfornecedor		  := DDT.DriverByName(nomeDriver).Value('DARFPISFORNECEDOR');
-CadConfigEstabelecimentoDPDarfpisanalitica		  := DDT.DriverByName(nomeDriver).Value('DARFPISANALITICA');
-CadConfigEstabelecimentoDPDarfpiscc				      := DDT.DriverByName(nomeDriver).Value('DARFPISCC');
-CadConfigEstabelecimentoDPDarfpissituacao		    := DDT.DriverByName(nomeDriver).Value('DARFPISSITUACAO');
-CadConfigEstabelecimentoDPDarfirrffornecedor	  := DDT.DriverByName(nomeDriver).Value('DARFIRRFFORNECEDOR');
-CadConfigEstabelecimentoDPDarfirrfanalitica	    := DDT.DriverByName(nomeDriver).Value('DARFIRRFANALITICA');
-CadConfigEstabelecimentoDPDarfirrfcc			      := DDT.DriverByName(nomeDriver).Value('DARFIRRFCC');
-CadConfigEstabelecimentoDPDarfirrfsituacao		  := DDT.DriverByName(nomeDriver).Value('DARFIRRFSITUACAO'); 
-CadConfigEstabelecimentoDPDarffornecedor		    := DDT.DriverByName(nomeDriver).Value('DARFFORNECEDOR');
-CadConfigEstabelecimentoDPDarfanalitica			    := DDT.DriverByName(nomeDriver).Value('DARFANALITICA');
-CadConfigEstabelecimentoDPDarfcc				        := DDT.DriverByName(nomeDriver).Value('DARFCC');
-CadConfigEstabelecimentoDPDarfsituacao			    := DDT.DriverByName(nomeDriver).Value('DARFSITUACAO');
-CadConfigEstabelecimentoDPInssfornecedor		    := DDT.DriverByName(nomeDriver).Value('INSSFORNECEDOR');
-CadConfigEstabelecimentoDPInssanalitica			    := DDT.DriverByName(nomeDriver).Value('INSSANALITICA');
-CadConfigEstabelecimentoDPInsscc				        := DDT.DriverByName(nomeDriver).Value('INSSCC');
-CadConfigEstabelecimentoDPInsssituacao			    := DDT.DriverByName(nomeDriver).Value('INSSSITUACAO');
-CadConfigEstabelecimentoDPInssfornecedorfunrur	:= DDT.DriverByName(nomeDriver).Value('INSSFORNECEDORFUNRUR');
-CadConfigEstabelecimentoDPInssanafunrural		    := DDT.DriverByName(nomeDriver).Value('INSSANAFUNRURAL');
-CadConfigEstabelecimentoDPInssccfunrural		    := DDT.DriverByName(nomeDriver).Value('INSSCCFUNRURAL');
-CadConfigEstabelecimentoDPInsssitfunrural		    := DDT.DriverByName(nomeDriver).Value('INSSSITFUNRURAL');
-{Config de Pendencia}
-CadConfigEstabelecimentoDPLlistpor     := DDT.DriverByName(nomeDriver).Value('LLISTPOR');
-CadConfigEstabelecimentoDPLperaq       := DDT.DriverByName(nomeDriver).Value('LPERAQ');
-CadConfigEstabelecimentoDPLconcvenc    := DDT.DriverByName(nomeDriver).Value('LCONCVENC');
-CadConfigEstabelecimentoDPDlconcvenc   := DDT.DriverByName(nomeDriver).Value('DLCONCVENC');
-CadConfigEstabelecimentoDPLperexp      := DDT.DriverByName(nomeDriver).Value('LPEREXP');
-CadConfigEstabelecimentoDPDlperexp     := DDT.DriverByName(nomeDriver).Value('DLPEREXP');
-CadConfigEstabelecimentoDPLprogfer     := DDT.DriverByName(nomeDriver).Value('LPROGFER');
-CadConfigEstabelecimentoDPDlprogfer    := DDT.DriverByName(nomeDriver).Value('DLPROGFER');
-CadConfigEstabelecimentoDPLavprev      := DDT.DriverByName(nomeDriver).Value('LAVPREV');
-CadConfigEstabelecimentoDPDlavprev     := DDT.DriverByName(nomeDriver).Value('DLAVPREV');
-CadConfigEstabelecimentoDPLagetarefa   := DDT.DriverByName(nomeDriver).Value('LAGETAREFA');
-CadConfigEstabelecimentoDPDlagetarefa  := DDT.DriverByName(nomeDriver).Value('DLAGETAREFA');
-CadConfigEstabelecimentoDPLexames      := DDT.DriverByName(nomeDriver).Value('LEXAMES');
-CadConfigEstabelecimentoDPDlexames     := DDT.DriverByName(nomeDriver).Value('DLEXAMES');
-CadConfigEstabelecimentoDPLvenccnh     := DDT.DriverByName(nomeDriver).Value('LVENCCNH');
-CadConfigEstabelecimentoDPDlvenccnh    := DDT.DriverByName(nomeDriver).Value('DLVENCCNH');
-CadConfigEstabelecimentoDPLvencestab   := DDT.DriverByName(nomeDriver).Value('LVENCESTAB');
-CadConfigEstabelecimentoDPDlvencestab  := DDT.DriverByName(nomeDriver).Value('DLVENCESTAB');
-CadConfigEstabelecimentoDPLempterafast := DDT.DriverByName(nomeDriver).Value('LEMPTERAFAST');
-CadConfigEstabelecimentoDPDlempterafast:= DDT.DriverByName(nomeDriver).Value('DLEMPTERAFAST');
-CadConfigEstabelecimentoDPLempferiasmes:= DDT.DriverByName(nomeDriver).Value('LEMPFERIASMES');
+//CadConfigEstabelecimentoDPGerasefip  		        := DDT.DriverByName(nomeDriver).Value('GERASEFIP');
+//CadConfigEstabelecimentoDPCodsefipresp  	      := DDT.DriverByName(nomeDriver).Value('CODSEFIPRESP');
+//CadConfigEstabelecimentoDPIdagfgts  		        := DDT.DriverByName(nomeDriver).Value('IDAGFGTS');
+//CadConfigEstabelecimentoDPContafgts  		        := DDT.DriverByName(nomeDriver).Value('CONTAFGTS');
+//CadConfigEstabelecimentoDPSeqfgts  			        := DDT.DriverByName(nomeDriver).Value('SEQFGTS');
+//CadConfigEstabelecimentoDPOpsimples  		        := DDT.DriverByName(nomeDriver).Value('OPSIMPLES');
+//CadConfigEstabelecimentoDPIndcontsub  		      := DDT.DriverByName(nomeDriver).Value('INDCONTSUB');
+//CadConfigEstabelecimentoDPEmpart9a8  		        := DDT.DriverByName(nomeDriver).Value('EMPART9A8');
+//CadConfigEstabelecimentoDPCodcentralizacao 	    := DDT.DriverByName(nomeDriver).Value('CODCENTRALIZACAO');
+//CadConfigEstabelecimentoDPEstabcent  		        := DDT.DriverByName(nomeDriver).Value('ESTABCENT');
+//CadConfigEstabelecimentoDPCodpaggps  		        := DDT.DriverByName(nomeDriver).Value('CODPAGGPS');
+//CadConfigEstabelecimentoDPCodpgtogpsps  	      := DDT.DriverByName(nomeDriver).Value('CODPGTOGPSPS');
+//CadConfigEstabelecimentoDPVlrmingps  		        := DDT.DriverByName(nomeDriver).Value('VLRMINGPS');
+//CadConfigEstabelecimentoDPGpslocal  		        := DDT.DriverByName(nomeDriver).Value('GPSLOCAL');
+//CadConfigEstabelecimentoDPLavisosefip  		      := DDT.DriverByName(nomeDriver).Value('LAVISOSEFIP');
+//CadConfigEstabelecimentoDPCodpagfunrural  	    := DDT.DriverByName(nomeDriver).Value('CODPAGFUNRURAL');
+//CadConfigEstabelecimentoDPDarfpislocal  	      := DDT.DriverByName(nomeDriver).Value('DARFPISLOCAL');
+//CadConfigEstabelecimentoDPIdfpas  			        := DDT.DriverByName(nomeDriver).Value('IDFPAS');
+//CadConfigEstabelecimentoDPDtaltendereco  	      := DDT.DriverByName(nomeDriver).Value('DTALTENDERECO');
+//{Config Contabeis-Geral}
+//CadConfigEstabelecimentoDPEstabctbw				      := DDT.DriverByName(nomeDriver).Value('ESTABCTBW');
+//CadConfigEstabelecimentoDPUnidcc				        := DDT.DriverByName(nomeDriver).Value('UNIDCC');
+//CadConfigEstabelecimentoDPExpirrfdtcomp			    := DDT.DriverByName(nomeDriver).Value('EXPIRRFDTCOMP');
+//{Config Contabeis-Darf de Pis}                                                            
+//CadConfigEstabelecimentoDPDebitodarf			      := DDT.DriverByName(nomeDriver).Value('DEBITODARF');
+//CadConfigEstabelecimentoDPCcdebitodarf			    := DDT.DriverByName(nomeDriver).Value('CCDEBITODARF');
+//CadConfigEstabelecimentoDPCreditodarf			      := DDT.DriverByName(nomeDriver).Value('CREDITODARF');
+//CadConfigEstabelecimentoDPCccreditodarf			    := DDT.DriverByName(nomeDriver).Value('CCCREDITODARF');
+//CadConfigEstabelecimentoDPCodhistdarf			      := DDT.DriverByName(nomeDriver).Value('CODHISTDARF');  
+//CadConfigEstabelecimentoDPComphistdarf			    := DDT.DriverByName(nomeDriver).Value('COMPHISTDARF');
+//{Config Contabeis-Gps}                                                                   
+//CadConfigEstabelecimentoDPInssdebito			      := DDT.DriverByName(nomeDriver).Value('INSSDEBITO');
+//CadConfigEstabelecimentoDPInssccdebito			    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO');
+//CadConfigEstabelecimentoDPInsscredito			      := DDT.DriverByName(nomeDriver).Value('INSSCREDITO');
+//CadConfigEstabelecimentoDPInsscccredito			    := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO');
+//CadConfigEstabelecimentoDPInsshist				      := DDT.DriverByName(nomeDriver).Value('INSSHIST');
+//CadConfigEstabelecimentoDPInssdebitocomp		    := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP');
+//CadConfigEstabelecimentoDPInssccdebitocomp		  := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP');
+//CadConfigEstabelecimentoDPInsscreditocomp		    := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP');
+//CadConfigEstabelecimentoDPInsscccreditocomp		  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP');
+//CadConfigEstabelecimentoDPInsshistcomp			    := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP');
+//CadConfigEstabelecimentoDPInssdebitoret			    := DDT.DriverByName(nomeDriver).Value('INSSDEBITORET');
+//CadConfigEstabelecimentoDPInssccdebitoret		    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITORET');
+//CadConfigEstabelecimentoDPInsscreditoret		    := DDT.DriverByName(nomeDriver).Value('INSSCREDITORET');
+//CadConfigEstabelecimentoDPInsscccreditoret		  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITORET');
+//CadConfigEstabelecimentoDPInsshistret			      := DDT.DriverByName(nomeDriver).Value('INSSHISTRET');
+//{Config Contabeis-Gps 13}                                                                 
+//CadConfigEstabelecimentoDPInssdebito13			    := DDT.DriverByName(nomeDriver).Value('INSSDEBITO13');
+//CadConfigEstabelecimentoDPInssccdebito13		    := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO13');
+//CadConfigEstabelecimentoDPInsscredito13			    := DDT.DriverByName(nomeDriver).Value('INSSCREDITO13');
+//CadConfigEstabelecimentoDPInsscccredito13		    := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO13');
+//CadConfigEstabelecimentoDPInsshist13			      := DDT.DriverByName(nomeDriver).Value('INSSHIST13');
+//CadConfigEstabelecimentoDPInssdebitocomp13		  := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP13');
+//CadConfigEstabelecimentoDPInssccdebitocomp13	  := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP13');
+//CadConfigEstabelecimentoDPInsscreditocomp13		  := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP13');
+//CadConfigEstabelecimentoDPInsscccreditocomp13	  := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP13');
+//CadConfigEstabelecimentoDPInsshistcomp13		    := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP13');
+//{Config Contabeis-Gps FuDPural}                                                           
+//CadConfigEstabelecimentoDPCccreditofunrural			:= DDT.DriverByName(nomeDriver).Value('CCCREDITOFUNRURAL');
+//CadConfigEstabelecimentoDPCreditofunrural		    := DDT.DriverByName(nomeDriver).Value('CREDITOFUNRURAL');
+//CadConfigEstabelecimentoDPCcdebitofunrural		  := DDT.DriverByName(nomeDriver).Value('CCDEBITOFUNRURAL');
+//CadConfigEstabelecimentoDPDebitofunrural		    := DDT.DriverByName(nomeDriver).Value('DEBITOFUNRURAL');
+//{Config financeiro}
+//CadConfigEstabelecimentoDPEstabfin				      := DDT.DriverByName(nomeDriver).Value('ESTABFIN');
+//CadConfigEstabelecimentoDPDarfpisfornecedor		  := DDT.DriverByName(nomeDriver).Value('DARFPISFORNECEDOR');
+//CadConfigEstabelecimentoDPDarfpisanalitica		  := DDT.DriverByName(nomeDriver).Value('DARFPISANALITICA');
+//CadConfigEstabelecimentoDPDarfpiscc				      := DDT.DriverByName(nomeDriver).Value('DARFPISCC');
+//CadConfigEstabelecimentoDPDarfpissituacao		    := DDT.DriverByName(nomeDriver).Value('DARFPISSITUACAO');
+//CadConfigEstabelecimentoDPDarfirrffornecedor	  := DDT.DriverByName(nomeDriver).Value('DARFIRRFFORNECEDOR');
+//CadConfigEstabelecimentoDPDarfirrfanalitica	    := DDT.DriverByName(nomeDriver).Value('DARFIRRFANALITICA');
+//CadConfigEstabelecimentoDPDarfirrfcc			      := DDT.DriverByName(nomeDriver).Value('DARFIRRFCC');
+//CadConfigEstabelecimentoDPDarfirrfsituacao		  := DDT.DriverByName(nomeDriver).Value('DARFIRRFSITUACAO'); 
+//CadConfigEstabelecimentoDPDarffornecedor		    := DDT.DriverByName(nomeDriver).Value('DARFFORNECEDOR');
+//CadConfigEstabelecimentoDPDarfanalitica			    := DDT.DriverByName(nomeDriver).Value('DARFANALITICA');
+//CadConfigEstabelecimentoDPDarfcc				        := DDT.DriverByName(nomeDriver).Value('DARFCC');
+//CadConfigEstabelecimentoDPDarfsituacao			    := DDT.DriverByName(nomeDriver).Value('DARFSITUACAO');
+//CadConfigEstabelecimentoDPInssfornecedor		    := DDT.DriverByName(nomeDriver).Value('INSSFORNECEDOR');
+//CadConfigEstabelecimentoDPInssanalitica			    := DDT.DriverByName(nomeDriver).Value('INSSANALITICA');
+//CadConfigEstabelecimentoDPInsscc				        := DDT.DriverByName(nomeDriver).Value('INSSCC');
+//CadConfigEstabelecimentoDPInsssituacao			    := DDT.DriverByName(nomeDriver).Value('INSSSITUACAO');
+//CadConfigEstabelecimentoDPInssfornecedorfunrur	:= DDT.DriverByName(nomeDriver).Value('INSSFORNECEDORFUNRUR');
+//CadConfigEstabelecimentoDPInssanafunrural		    := DDT.DriverByName(nomeDriver).Value('INSSANAFUNRURAL');
+//CadConfigEstabelecimentoDPInssccfunrural		    := DDT.DriverByName(nomeDriver).Value('INSSCCFUNRURAL');
+//CadConfigEstabelecimentoDPInsssitfunrural		    := DDT.DriverByName(nomeDriver).Value('INSSSITFUNRURAL');
+//{Config de Pendencia}
+//CadConfigEstabelecimentoDPLlistpor     := DDT.DriverByName(nomeDriver).Value('LLISTPOR');
+//CadConfigEstabelecimentoDPLperaq       := DDT.DriverByName(nomeDriver).Value('LPERAQ');
+//CadConfigEstabelecimentoDPLconcvenc    := DDT.DriverByName(nomeDriver).Value('LCONCVENC');
+//CadConfigEstabelecimentoDPDlconcvenc   := DDT.DriverByName(nomeDriver).Value('DLCONCVENC');
+//CadConfigEstabelecimentoDPLperexp      := DDT.DriverByName(nomeDriver).Value('LPEREXP');
+//CadConfigEstabelecimentoDPDlperexp     := DDT.DriverByName(nomeDriver).Value('DLPEREXP');
+//CadConfigEstabelecimentoDPLprogfer     := DDT.DriverByName(nomeDriver).Value('LPROGFER');
+//CadConfigEstabelecimentoDPDlprogfer    := DDT.DriverByName(nomeDriver).Value('DLPROGFER');
+//CadConfigEstabelecimentoDPLavprev      := DDT.DriverByName(nomeDriver).Value('LAVPREV');
+//CadConfigEstabelecimentoDPDlavprev     := DDT.DriverByName(nomeDriver).Value('DLAVPREV');
+//CadConfigEstabelecimentoDPLagetarefa   := DDT.DriverByName(nomeDriver).Value('LAGETAREFA');
+//CadConfigEstabelecimentoDPDlagetarefa  := DDT.DriverByName(nomeDriver).Value('DLAGETAREFA');
+//CadConfigEstabelecimentoDPLexames      := DDT.DriverByName(nomeDriver).Value('LEXAMES');
+//CadConfigEstabelecimentoDPDlexames     := DDT.DriverByName(nomeDriver).Value('DLEXAMES');
+//CadConfigEstabelecimentoDPLvenccnh     := DDT.DriverByName(nomeDriver).Value('LVENCCNH');
+//CadConfigEstabelecimentoDPDlvenccnh    := DDT.DriverByName(nomeDriver).Value('DLVENCCNH');
+//CadConfigEstabelecimentoDPLvencestab   := DDT.DriverByName(nomeDriver).Value('LVENCESTAB');
+//CadConfigEstabelecimentoDPDlvencestab  := DDT.DriverByName(nomeDriver).Value('DLVENCESTAB');
+//CadConfigEstabelecimentoDPLempterafast := DDT.DriverByName(nomeDriver).Value('LEMPTERAFAST');
+//CadConfigEstabelecimentoDPDlempterafast:= DDT.DriverByName(nomeDriver).Value('DLEMPTERAFAST');
+//CadConfigEstabelecimentoDPLempferiasmes:= DDT.DriverByName(nomeDriver).Value('LEMPFERIASMES');
 
 end;
 

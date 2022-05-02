@@ -15,13 +15,15 @@ CadConfigEstabelecimentoEBGeraCaged,CadConfigEstabelecimentoEBCodCagedResp,CadCo
 CadConfigEstabelecimentoEBPriCaged,CadConfigEstabelecimentoEBPartPat,
 CadConfigEstabelecimentoEBTipoEmpresa,CadConfigEstabelecimentoEBNatJur,CadConfigEstabelecimentoEBIdCatEmp,CadConfigEstabelecimentoEBVlrMiniRrf,CadConfigEstabelecimentoEBNroProp,CadConfigEstabelecimentoEBConfNela,
 
+
 {ConfigDeCalculo}
-CadConfigCalcForm,
-CadConfigEstabelecimentoEBPagaAjudaCompensa,CadConfigEstabelecimentoEBConsAvoSuspensao1,CadConfigEstabelecimentoEBSalFamSobBase,CadConfigEstabelecimentoEBExpCtb,					 
+CadConfigCalcForm, EstabFormCalc,
+CadConfigEstabelecimentoEBPagaAjudaCompensa,CadConfigEstabelecimentoEBConsAvoSuspensao13,CadConfigEstabelecimentoEBSalFamSobBase,CadConfigEstabelecimentoEBExpCtb,					 
 CadConfigEstabelecimentoEBSalPropVenc,CadConfigEstabelecimentoEBBasePis,CadConfigEstabelecimentoEBIdConfSegDes,	CadConfigEstabelecimentoEBJmcfenDias,		
 CadConfigEstabelecimentoEBAdmDemcfmenDias,CadConfigEstabelecimentoEBTpCompFerias,CadConfigEstabelecimentoEBLRegIrrf,					
 CadConfigEstabelecimentoEBIdConfHomolog,CadConfigEstabelecimentoEBCalcliqFeriasBase,CadConfigEstabelecimentoEBDescInssAvIrrf,	CadConfigEstabelecimentoEBDescMinIrrf,				
-CadConfigEstabelecimentoEBCalcDif13Neg,	CadConfigEstabelecimentoEBNomeCalcPagaDi,	CadConfigEstabelecimentoEBCalcProvisao,	CadConfigEstabelecimentoEBFcnRodias,
+CadConfigEstabelecimentoEBCalcDif13Neg,	CadConfigEstabelecimentoEBNomeCalcPagaDi,CadConfigEstabelecimentoEBOrdemListProc,	CadConfigEstabelecimentoEBCalcProvisao,	
+CadConfigEstabelecimentoEBFcnRodias,CadConfigEstabelecimentoEBDarfcent,CadConfigEstabelecimentoEBEstabCentdarf,
 
 {ConfigAdiantamento}
 CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoEBPaVoltouAte,
@@ -94,7 +96,6 @@ end;
 
 procedure MapCadConfigDeCalculo();
 begin
-CadConfigCalcForm                               :=  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1;
 {ConfigDeCalculo}
 CadConfigEstabelecimentoEBPagaAjudaCompensa			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_PAGAAJUDACOMPENSA;
 CadConfigEstabelecimentoEBConsAvoSuspensao13		:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CONSAVOSUSPENSAO13;
@@ -104,10 +105,13 @@ CadConfigEstabelecimentoEBSalPropVenc				    :=	Aliases.Folha.FRhFilial.Page.tsC
 CadConfigEstabelecimentoEBBasePis					      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_BASEPIS;
 CadConfigEstabelecimentoEBIdConfSegDes				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFSEGDES;
 CadConfigEstabelecimentoEBJmcfenDias				    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_JMCFENDIAS;
+CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
 CadConfigEstabelecimentoEBAdmDemcfmenDias			  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ADMDEMCFMENDIAS;
 CadConfigEstabelecimentoEBTpCompFerias				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_TPCOMPFERIAS;
 CadConfigEstabelecimentoEBLRegIrrf					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_LREGIRRF;
 CadConfigEstabelecimentoEBIdConfHomolog				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_IDCONFHOMOLOG;
+CadConfigEstabelecimentoEBDarfcent              :=  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DARFCENT;
+CadConfigEstabelecimentoEBEstabCentdarf         :=  Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ESTABCENTDARF;
 CadConfigEstabelecimentoEBCalcliqFeriasBase			:=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCLIQFERIASBASE;
 CadConfigEstabelecimentoEBDescInssAvIrrf			  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCINSSAVIRRF;
 CadConfigEstabelecimentoEBDescMinIrrf				    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_DESCMINIRRF;
@@ -115,17 +119,23 @@ CadConfigEstabelecimentoEBCalcDif13Neg				  :=	Aliases.Folha.FRhFilial.Page.tsCa
 CadConfigEstabelecimentoEBNomeCalcPagaDi			  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_NOMECALCPAGADI;
 CadConfigEstabelecimentoEBOrdemListProc				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_ORDEMLISTPROC;
 CadConfigEstabelecimentoEBCalcProvisao				  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_CALCPROVISAO;
-CadConfigEstabelecimentoEBFcnRodias					    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.EB_FCNRODIAS;
+CadConfigEstabelecimentoEBCalcPropFerias  	    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
+CadConfigEstabelecimentoEBPaEntrouAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
+CadConfigEstabelecimentoEBPaVoltouAte 		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
+CadConfigEstabelecimentoEBCalcPropAfasta  	    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
+CadConfigEstabelecimentoEBPropAdmis  		        :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
+CadConfigEstabelecimentoEBPagaDmAte  		        :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
+
 end;
 
 
 procedure MapCadConfigAdiantamento();
 begin
 {ConfigAdiantamento}
-CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS;
-CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE;
+CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS.Click('Não Calcula');
+CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE.SetFocus;
 CadConfigEstabelecimentoEBPaVoltouAte 		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
-CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA;
+CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA.Click();
 CadConfigEstabelecimentoEBPropAdmis  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PROPADMIS;
 CadConfigEstabelecimentoEBPagaDmAte  		      :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp2.EB_PAGADMATE;
 
@@ -136,6 +146,7 @@ procedure MapFormEstab();
 begin
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 EstabFormPage                           := Aliases.Folha.FRhFilial.Page;
+EstabFormCalc                           := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1;
 end;
 
 
