@@ -68,19 +68,6 @@ begin
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
 
 end;  
-
-procedure PreencheAdiantamento();
-begin
-  MapCadConfigAdiantamento();
- 
-  VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
-  VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);
-  VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte );
-  VerificaInsere(CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoDPCalcPropAfasta);
-  VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);
-  VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
-   
-end;
   
 procedure PreencheFgtsInss();
 begin
@@ -109,11 +96,6 @@ end;
 
 
 
-
-
-
-
-
 procedure CadastraConfigEstab(pathData);
 Var 
   DDTCadastrar: OleVariant;
@@ -132,9 +114,9 @@ begin
     ValidaFormAberto(_ModuloFolha, 'FRhFilial');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount <= 1) then
   begin
-    ActIncluir(FormTelaConsultaForm);
+    ActConsulta(FormTelaConsultaForm);
   
     MapFormEstab(); 
        
@@ -149,5 +131,71 @@ begin
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
+procedure AlteraConfigEstab(pathData);
+Var 
+  DDTAlterar: OleVariant;
+begin
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  Delay(15000);
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTCadastrar := CarregaDDT(pathData, _Alterar);
+ 
+  leDataPoolDadosCadastrais(DDTAlterar.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFilial');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapFormEstab(); 
+       
+    PreencherCadastro();
+                                        
+    PreencherCalculo();
+    
+    ActSalvar(CadConfigEstabelecimentoForm);
+    ActFechar(CadConfigEstabelecimentoForm);
+    end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirConfigEstab(pathData);
+Var 
+  DDTExcluir: OleVariant;
+begin
+  
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Configuração do Estabelecimento');
+  Delay(15000);
+  
+  MapGridConsulta(_ModuloFolha);
+  
+  DDTCadastrar := CarregaDDT(pathData, _Excluir);
+ 
+  leDataPoolDadosCadastrais(DDTCadastrar.Name);
+  
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFilial');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+    
+    ActExcluir(_ModuloFolha, 'FRhFilial');
+  
+    MapFormEstab(); 
+
+    end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
 
 

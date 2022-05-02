@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="durationwithoutchildren" type="I" value="106554"/>
+						<Prp name="starttime" type="D" value="44683.6786036806"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBEAEIARQBCAEIAMAA5ADAALQA4AEEAQgBFAC0ANAA0ADcAMAAtAEIAQwA3AEYALQAzAEEAOQBDADQARQBCAEEANQAwADUAMQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="duration" type="I" value="106554"/>
+						<Prp name="name" type="S" value="Executa Processamento Adiantamento Salarial"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error0">
+								<Prp name="msg" type="S" value="Unable to find the object VCLObject('FBRowseCds'). See Details for additional information."/>
+							</Node>
+							<Node name="error6">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject('FBRowseCds').ActFechar&quot; does not exist."/>
+							</Node>
+							<Node name="error4">
+								<Prp name="msg" type="S" value="The object &quot;Page&quot; does not exist."/>
+							</Node>
+							<Node name="error5">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject('FBRowseCds')&quot; does not exist."/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject('FBRowseCds').ActFormulario&quot; does not exist."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject('FBRowseCds')&quot; does not exist."/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The object &quot;Page&quot; does not exist."/>
+							</Node>
+						</Node>
+						<Prp name="durationwithoutchildren" type="I" value="145756"/>
+						<Prp name="starttime" type="D" value="44683.6769163194"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA0AEUANABGADIAMAA1ADgALQA1ADkAOAA2AC0ANAAxADUAMQAtAEEAMABFAEQALQBDADIARgBBADYAOAAyADQAMAAwADAAMQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="duration" type="I" value="145756"/>
+						<Prp name="name" type="S" value="Cadastra Configuração de Estabelecimento"/>
+					</Node>
+				</Node>
+				<Prp name="starttime" type="D" value="44683.6769163194"/>
+				<Prp name="duration" type="I" value="252310"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="warningtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="tests" type="I" value="2"/>
+		<Prp name="key" type="S" value="{404835CF-69ED-4096-BF23-CD03657A6036}"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="stop" type="D" value="44683.6798386458"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="starttime" type="D" value="44683.6769135995"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="warningtests" type="I" value="0"/>
+	</Node>
+</Nodes>
