@@ -9,3 +9,13 @@ VerificaInsere(CategoriaEBDescricao,CategoriaDPDescricao);
 VerificaInsere(CategoriaEBTipo,CategoriaDPTipo);		
 VerificaInsere(CategoriaEBCodrais,CategoriaDPCodrais);
 end;
+
+procedure CadastraCategoria(nomeDriver);
+Var
+DDTCategoria : OleVariant;
+begin
+DDTCategoria := CarregaDDT(pathData, _Cadastrar);
+
+AcessaItem(_ModuloFolha,'Cadastro Gerais', 'Empregados', 'Categoria');
+
+end;

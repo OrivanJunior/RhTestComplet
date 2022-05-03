@@ -1,0 +1,16 @@
+﻿{Script para mapear o Cadastro de Turno
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 02/05/2022}
+var 
+TurnoEBForm,     
+TurnoEBIdurno,   
+TurnoEBDescricao : OleVariant;
+ 
+
+procedure MapCadTurno();
+begin
+  TurnoEBForm       := Aliases.Folha.FFormPadraoRHTURNO;
+  TurnoEBIdurno     := Aliases.Folha.FFormPadraoRHTURNO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDTURNO;
+  TurnoEBDescricao  := Aliases.Folha.FFormPadraoRHTURNO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;
