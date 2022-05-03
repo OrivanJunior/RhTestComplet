@@ -1,4 +1,16 @@
 ﻿{Script para mapear o Cadastro Categoria
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
- Data: 18/04/2022}
+ Data: 02/05/2022}
+uses VarConsts;
+ 
+
+procedure MapCadCategoria();
+begin
+CategoriaEBForm		  :=	Aliases.Folha.FFormPadraoRHCATEGORIA;                                                                                                                        
+CategoriaEBIDCATEG	:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCATEG;
+CategoriaEBDESCRICA	:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICA;
+CategoriaEBTIPO			:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPO;   
+CategoriaEBCODRAIS	:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODRAIS;
+end;
+

@@ -1,1 +1,11 @@
-﻿
+﻿uses CommonsAll, CommonsObj, DataPoolCadCategoria,ObjCadCAtegoria;
+
+
+
+procedure PreencheCategoria();
+begin
+VerificaInsere(CategoriaEBIdcateg,CategoriaDPIdcateg);
+VerificaInsere(CategoriaEBDescricao,CategoriaDPDescricao);
+VerificaInsere(CategoriaEBTipo,CategoriaDPTipo);		
+VerificaInsere(CategoriaEBCodrais,CategoriaDPCodrais);
+end;

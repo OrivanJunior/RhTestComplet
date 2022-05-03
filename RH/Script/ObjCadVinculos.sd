@@ -1,4 +1,22 @@
-﻿{Script para mapear o Cadastro Vinculos
+﻿{Script para mapear o Cadastro de Vinculos
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 02/05/2022}
+ 
+ 
+
+procedure Test1;
+begin
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_IDVINC.DblClick(53, 7);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODRAIS.DblClick(55, 9);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODSEFIP.Click(54, 9);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_DESCRICAO.Click(52, 9);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODDARF.Click(52, 11);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODDARFPLR.Click(49, 7);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODCATEGORIA.Click(41, 9);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_EMPPAGSALMAT.DblClick(48, 10);
+  Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_TIPOCONTRATO.Click(50, 6);
+  
+  Aliases.Folha.FRhVinculo;
+  Aliases.Folha.FRhVinculo.Page;
+end;

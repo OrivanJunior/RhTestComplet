@@ -2,3 +2,18 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 02/05/2022}
+uses VarConsts;
+
+var
+CategoriaEBForm,CategoriaEBIDCateg,CategoriaEBDescricao,CategoriaEBTipo,CategoriaEBCodRais: OleVariant;
+
+
+procedure MapCadCategoria();
+begin
+CategoriaEBForm		  :=	Aliases.Folha.FFormPadraoRHCATEGORIA;                                                                                                                        
+CategoriaEBIdCateg	:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCATEG;
+CategoriaEBDescricao:=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CategoriaEBTipo		  :=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPO;   
+CategoriaEBCodRais  :=	Aliases.Folha.FFormPadraoRHCATEGORIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODRAIS;
+end;
+
