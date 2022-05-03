@@ -3,7 +3,7 @@
 procedure PrencheHorario();
 begin
 
-VerificaInsere(HorariosGerEBIdHorario ,HorariosGerDPIdHorario);  		
+VerificaInsere(HorariosGerEBIdHorario,HorariosGerDPIdHorario);  		
 VerificaInsere(HorariosGerEBDescricao ,HorariosGerDPDescricao);  		
 VerificaConsultaF3Insere(_ModuloFolha,HorariosGerEBIdConf,HorariosGerDPIdConf);	
 VerificaInsere(HorariosGerEBDsctPJorn,HorariosGerDPDsctPJorn); 			
@@ -31,5 +31,12 @@ VerificaInsere(HorariosGerEBControle,HorariosGerDPControle);
 VerificaInsere(HorariosGerEBTolimpaFd,HorariosGerDPTolimpaFd);  		
 VerificaInsere(HorariosGerEBPossuiHorNoturno,HorariosGerDPPossuiHorNoturno); 
 VerificaInsere(HorariosGerEBDiaComp,HorariosGerDPDiaComp);  			
+
+end;
+
+procedure PreencheGridDetalHora();
+begin
+
+
 
 end;

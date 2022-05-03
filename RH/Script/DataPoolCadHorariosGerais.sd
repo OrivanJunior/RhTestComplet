@@ -1,1 +1,65 @@
-﻿
+﻿var
+HorariosGerDPIDHORARIO, 		 
+HorariosGerDPDESCRICAO,  		 
+HorariosGerDPIDCONF,  			   
+HorariosGerDPREGJOREMP,  		 
+HorariosGerDPTPJORNADA,			 
+HorariosGerDPDSCTPJORN, 			 
+HorariosGerDPJDIAHORAS, 			 
+HorariosGerDPJDIARIADIU, 		 
+HorariosGerDPJDIARIANOT, 		 
+HorariosGerDPJDIARIARSR, 		 
+HorariosGerDPJSEMANAL,  			 
+HorariosGerDPJQUINZENAL,  		 
+HorariosGerDPJMENSAL, 			   
+HorariosGerDPINTERVALO,  		 
+HorariosGerDPENT1, 				   
+HorariosGerDPSAI1, 				   
+HorariosGerDPENT2,  				   
+HorariosGerDPSAI2,  				   
+HorariosGerDPENT1SAB, 			 
+HorariosGerDPSAI1SAB,  			 
+HorariosGerDPENT2SAB, 			 
+HorariosGerDPSAI2SAB, 			   
+HorariosGerDPTOLEXTRAPONTO,   
+HorariosGerDPTOLFALTAPONTO,   
+HorariosGerDPTOLEXTRAPONTO2,  
+HorariosGerDPTOLFALTAPONTO2,  
+HorariosGerDPCONTROLE,  			 
+HorariosGerDPTOLIMPAFD,  	  	
+HorariosGerDPPOSSUIHORNOTURNO,
+HorariosGerDPDIACOMP  	: OleVariant;		 
+procedure LeDataPoolCadHorGerais();
+begin
+{Cadastro}                      
+HorariosGerDPIDHORARIO  		  := DDT.DriverByName(nomeDriver).Value('IDHORARIO');
+HorariosGerDPDESCRICAO  		  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+HorariosGerDPIDCONF  			    := DDT.DriverByName(nomeDriver).Value('IDCONF');
+HorariosGerDPREGJOREMP  		  := DDT.DriverByName(nomeDriver).Value('REGJOREMP');
+HorariosGerDPTPJORNADA			  := DDT.DriverByName(nomeDriver).Value('TPJORNADA');
+HorariosGerDPDSCTPJORN 			  := DDT.DriverByName(nomeDriver).Value('DSCTPJORN');
+HorariosGerDPJDIAHORAS 			  := DDT.DriverByName(nomeDriver).Value('JDIAHORAS');
+HorariosGerDPJDIARIADIU 		  := DDT.DriverByName(nomeDriver).Value('JDIARIADIU');
+HorariosGerDPJDIARIANOT 		  := DDT.DriverByName(nomeDriver).Value('JDIARIANOT');
+HorariosGerDPJDIARIARSR 		  := DDT.DriverByName(nomeDriver).Value('JDIARIARSR');
+HorariosGerDPJSEMANAL  			  := DDT.DriverByName(nomeDriver).Value('JSEMANAL');
+HorariosGerDPJQUINZENAL  		  := DDT.DriverByName(nomeDriver).Value('JQUINZENAL');
+HorariosGerDPJMENSAL 			    := DDT.DriverByName(nomeDriver).Value('JMENSAL');
+HorariosGerDPINTERVALO  		  := DDT.DriverByName(nomeDriver).Value('INTERVALO');
+HorariosGerDPENT1 				    := DDT.DriverByName(nomeDriver).Value('ENT1');
+HorariosGerDPSAI1 				    := DDT.DriverByName(nomeDriver).Value('SAI1');
+HorariosGerDPENT2  				    := DDT.DriverByName(nomeDriver).Value('ENT2');
+HorariosGerDPSAI2  				    := DDT.DriverByName(nomeDriver).Value('SAI2');
+HorariosGerDPENT1SAB  			  := DDT.DriverByName(nomeDriver).Value('ENT1SAB');
+HorariosGerDPSAI1SAB  			  := DDT.DriverByName(nomeDriver).Value('SAI1SAB');
+HorariosGerDPENT2SAB  			  := DDT.DriverByName(nomeDriver).Value('ENT2SAB');
+HorariosGerDPSAI2SAB 			    := DDT.DriverByName(nomeDriver).Value('SAI2SAB');
+HorariosGerDPTOLEXTRAPONTO    := DDT.DriverByName(nomeDriver).Value('TOLEXTRAPONTO');
+HorariosGerDPTOLFALTAPONTO    := DDT.DriverByName(nomeDriver).Value('TOLFALTAPONTO');
+HorariosGerDPTOLEXTRAPONTO2   := DDT.DriverByName(nomeDriver).Value('TOLEXTRAPONTO2');
+HorariosGerDPTOLFALTAPONTO2   := DDT.DriverByName(nomeDriver).Value('TOLFALTAPONTO2');
+HorariosGerDPCONTROLE  			  := DDT.DriverByName(nomeDriver).Value('CONTROLE');
+HorariosGerDPTOLIMPAFD  	  	:= DDT.DriverByName(nomeDriver).Value('TOLIMPAFD');
+HorariosGerDPPOSSUIHORNOTURNO := DDT.DriverByName(nomeDriver).Value('POSSUIHORNOTURNO');
+HorariosGerDPDIACOMP  			  := DDT.DriverByName(nomeDriver).Value('DIACOMP');
+end;

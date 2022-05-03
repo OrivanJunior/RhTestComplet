@@ -2,7 +2,25 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 02/05/2022}
- 
+var
+ {Form}                       
+HorariosGerEBFomr,horariosEBFPage,
+{Cadastro}                   
+HorariosGerEBIdHorario,HorariosGerEBDescricao,HorariosGerEBIdConf,HorariosGerEBRegJorEmp,HorariosGerEBRegJorEmp,
+HorariosGerEBTpJornada,HorariosGerEBTpJornada,HorariosGerEBDsctPJorn,HorariosGerEBJDiaHoras,
+HorariosGerEBJDiariaDiu,HorariosGerEBJDiariaNot,HorariosGerEBJDiariaRsr,HorariosGerEBJSemanal,
+HorariosGerEBJQuinzenal,HorariosGerEBJMensal,HorariosGerEBIntervalo,HorariosGerEBEnt1,HorariosGerEBSai1,
+HorariosGerEBEnt2,HorariosGerEBSai2,HorariosGerEBEnt1Sab,HorariosGerEBSai1Sab,HorariosGerEBEnt2Sab,HorariosGerEBSai2Sab,
+HorariosGerEBTolExtraPonto,HorariosGerEBTolFaltaPonto,HorariosGerEBTolExtraPonto2,HorariosGerEBTolFaltaPonto2,
+HorariosGerEBControle,HorariosGerEBControle,HorariosGerEBTolimpaFd,HorariosGerEBPossuiHorNoturno,HorariosGerEBDiaComp,
+{grid}           
+HorariosGerEBGrid,
+{Botões}         
+HorarioGerBSave,
+HorarioGerBInc,
+HorarioGerIncAll,
+HorarioGerBDesf,
+HorarioGerBExc: OleVariant;
  
 
 procedure MapCadHorariosGerais();
@@ -45,6 +63,10 @@ HorariosGerEBControle  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab
 HorariosGerEBTolimpaFd  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD;
 HorariosGerEBPossuiHorNoturno := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_POSSUIHORNOTURNO;
 HorariosGerEBDiaComp  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP;
+
+end;
+procedure MapCadHorGrid();
+begin
 {grid}
 HorariosGerEBGrid             := Aliases.Folha.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet.TcxGridSite_;
 {Botões}
@@ -53,4 +75,5 @@ HorarioGerBInc                := Aliases.Folha.FRhHorario.bInc;
 HorarioGerIncAll              := Aliases.Folha.FRhHorario.bIncAll;
 HorarioGerBDesf               := Aliases.Folha.FRhHorario.bDesf;
 HorarioGerBExc                := Aliases.Folha.FRhHorario.bExc; 
+
 end;

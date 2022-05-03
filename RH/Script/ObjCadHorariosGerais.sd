@@ -4,15 +4,15 @@
  Data: 02/05/2022}
 var
  {Form}                       
-HorariosGerEBFomr,horariosEBFPage,
+HorariosGerEBForm,HorariosEBFPage,
 {Cadastro}                   
-HorariosGerEBIdHorario,HorariosGerEBDescricao,HorariosGerEBIdConf,HorariosGerEBRegJorEmp,HorariosGerEBRegJorEmp,
-HorariosGerEBTpJornada,HorariosGerEBTpJornada,HorariosGerEBDsctPJorn,HorariosGerEBJDiaHoras,
+HorariosGerEBIdHorario,HorariosGerEBDescricao,HorariosGerEBIdConf,HorariosGerEBRegJorEmp,
+HorariosGerEBTpJornada,HorariosGerEBDsctPJorn,HorariosGerEBJDiaHoras,
 HorariosGerEBJDiariaDiu,HorariosGerEBJDiariaNot,HorariosGerEBJDiariaRsr,HorariosGerEBJSemanal,
 HorariosGerEBJQuinzenal,HorariosGerEBJMensal,HorariosGerEBIntervalo,HorariosGerEBEnt1,HorariosGerEBSai1,
 HorariosGerEBEnt2,HorariosGerEBSai2,HorariosGerEBEnt1Sab,HorariosGerEBSai1Sab,HorariosGerEBEnt2Sab,HorariosGerEBSai2Sab,
 HorariosGerEBTolExtraPonto,HorariosGerEBTolFaltaPonto,HorariosGerEBTolExtraPonto2,HorariosGerEBTolFaltaPonto2,
-HorariosGerEBControle,HorariosGerEBControle,HorariosGerEBTolimpaFd,HorariosGerEBPossuiHorNoturno,HorariosGerEBDiaComp,
+HorariosGerEBControle,HorariosGerEBTolimpaFd,HorariosGerEBPossuiHorNoturno,HorariosGerEBDiaComp,
 {grid}           
 HorariosGerEBGrid,
 {Botões}         
@@ -27,16 +27,14 @@ procedure MapCadHorariosGerais();
 begin
 
 {Form}
-HorariosGerEBFomr             := Aliases.Folha.FRhHorario;
-horariosEBFPage               := Aliases.Folha.FRhHorario.Page;
+HorariosGerEBForm             := Aliases.Folha.FRhHorario;
+HorariosEBFPage               := Aliases.Folha.FRhHorario.Page;
 {Cadastro}
 HorariosGerEBIdHorario  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO;
 HorariosGerEBDescricao  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO;
 HorariosGerEBIdConf  			    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDCONF;
 HorariosGerEBRegJorEmp  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
-HorariosGerEBRegJorEmp 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
 HorariosGerEBTpJornada			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
-HorariosGerEBTpJornada 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
 HorariosGerEBDsctPJorn 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DSCTPJORN;
 HorariosGerEBJDiaHoras 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIAHORAS;
 HorariosGerEBJDiariaDiu 		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIADIU;
@@ -58,7 +56,6 @@ HorariosGerEBTolExtraPonto    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnC
 HorariosGerEBTolFaltaPonto    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO;
 HorariosGerEBTolExtraPonto2   := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO2;
 HorariosGerEBTolFaltaPonto2   := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO2;
-HorariosGerEBControle  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
 HorariosGerEBControle  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
 HorariosGerEBTolimpaFd  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD;
 HorariosGerEBPossuiHorNoturno := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_POSSUIHORNOTURNO;
