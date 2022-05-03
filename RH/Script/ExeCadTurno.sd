@@ -1,2 +1,9 @@
 ﻿uses
 CommonsAll,CommonsObj,VarConsts,DataPoolCadTurno,ObjCadTurno;
+
+procedure PreencheTurno();
+begin          
+VerificaInsere(TurnoEBIdurno,TurnoDPIdTurno );  
+VerificaInsere(TurnoEBDescricao,TurnoDPDescricao);
+end;
+ 

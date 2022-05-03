@@ -1,4 +1,10 @@
 ﻿
-var TurnoEBForm,     
+var    
 TurnoEBIdurno,   
 TurnoEBDescricao : OleVariant;
+
+procedure LeDataPoolCadTurno();
+begin
+TurnoEBIdurno     := DDT.DriverByName(nome.Driver).Value('IDTURNO');
+TurnoEBDescricao  := DDT.DriverByName(nome.Driver).Value('SCRICAO');
+end;D

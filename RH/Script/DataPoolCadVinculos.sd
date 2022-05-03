@@ -1,1 +1,23 @@
-﻿
+﻿var 
+VinculosDPIdVin,  		
+VinculosDPCodRais,  		
+VinculosDPCodSefip,  	
+VinculosDPDescricao,  	
+VinculosDPCodDarf,  		
+VinculosDPCodDarfPlr,  	
+VinculosDPCodCategoria, 
+VinculosDPEmpPagSalMat, 
+VinculosDPTipoContrato : OleVariant; 
+
+procedure LeDataPoolCadVinculo();
+begin
+VinculosDPIdVin  		    :=	DDT.DriverByName(nomeDriver).Value('IDVIN');
+VinculosDPCodRais  		  :=	DDT.DriverByName(nomeDriver).Value('CODRAIS');
+VinculosDPCodSefip  	  :=	DDT.DriverByName(nomeDriver).Value('CODSEFIP');
+VinculosDPDescricao  	  :=	DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+VinculosDPCodDarf  		  :=	DDT.DriverByName(nomeDriver).Value('CODDARF');
+VinculosDPCodDarfPlr  	:=	DDT.DriverByName(nomeDriver).Value('CODDARFPLR');
+VinculosDPCodCategoria  :=	DDT.DriverByName(nomeDriver).Value('CODCATEGORIA');
+VinculosDPEmpPagSalMat  :=	DDT.DriverByName(nomeDriver).Value('EMPPAGSALMAT');
+VinculosDPTipoContrato  :=	DDT.DriverByName(nomeDriver).Value('TIPOCONTRATO');
+end;
