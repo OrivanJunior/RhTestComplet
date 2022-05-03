@@ -46,6 +46,7 @@ begin
   VerificaInsere(FormRhRpaVlrDescontos, FormRhRpaDPVlrDescontos);
   FormRhRpaVlrDescontos.Keys('[Enter]');
   
+  
   FormRhRpaBtnCalcular.Click();
 end;
 

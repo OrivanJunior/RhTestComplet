@@ -13,7 +13,7 @@ begin
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'RPA', 'RPA');
 end;
 
-procedure EscolheFiltroConsultaRPA();
+procedure EscolheFiltroConsultaRPA(nomeDriver);
 begin
   mapFiltroConsultaRPA();
   
