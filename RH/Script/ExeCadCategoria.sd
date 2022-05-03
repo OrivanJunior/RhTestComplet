@@ -1,8 +1,6 @@
 ﻿uses CommonsAll, CommonsObj,VarConsts, DataPoolCadCategoria,ObjCadCategoria;
 
-
-
-procedure PreencheCategoria();
+procedure PreencherCategoria();
 begin
 VerificaInsere(CategoriaEBIdcateg,CategoriaDPIdcateg);
 VerificaInsere(CategoriaEBDescricao,CategoriaDPDescricao);
@@ -10,12 +8,97 @@ VerificaInsere(CategoriaEBTipo,CategoriaDPTipo);
 VerificaInsere(CategoriaEBCodrais,CategoriaDPCodrais);
 end;
 
-procedure CadastraCategoria(nomeDriver);
+procedure CadastraCategoria(pathData);
 Var
-DDTCategoria : OleVariant;
+DDTCadastrar : OleVariant;
 begin
-DDTCategoria := CarregaDDT(pathData, _Cadastrar);
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-AcessaItem(_ModuloFolha,'Cadastro Gerais', 'Empregados', 'Categoria');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Categorias');
 
+MapGridConsulta(_ModuloFolha);
+
+leDataPoolCategoria(DDTCadastrar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria', CategoriaDPIDCateg);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadCategoria();
+    
+    if (CategoriaEBForm.Exists) then
+
+    PreencherCategoria();
+    
+    ActSalvar(CategoriaEBForm);
+    ActFechar(CategoriaEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
 end;
+
+
+procedure AlteraCategoria(pathData);
+Var
+DDTAlterar : OleVariant;
+begin
+DDTAlterar := CarregaDDT(pathData, _Alterar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Categorias');
+
+MapGridConsulta(_ModuloFolha);
+
+leDataPoolCategoria(DDTAlterar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadCategoria();
+    
+    if (CategoriaEBForm.Exists) then
+
+    PreencherCategoria();
+    
+    ActSalvar(CategoriaEBForm);
+    ActFechar(CategoriaEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAlterar.Name);
+end;
+
+procedure ExcluirCategoria(pathData);
+Var
+DDTExcluir : OleVariant;
+begin
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Categorias');
+
+MapGridConsulta(_ModuloFolha);
+
+leDataPoolCategoria(DDTExcluir.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+    ActExcluir(_ModuloFolha, 'FBRowseCds');
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;
+
+

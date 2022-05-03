@@ -1,10 +1,12 @@
 ﻿var 
-CategoriaDPIDCATEG,CategoriaDPDESCRICA,CategoriaDPTIPO,CategoriaDPCODRAIS : OleVariant;	
+CategoriaDPEstab,
+CategoriaDPIDCateg,CategoriaDPDescricao,CategoriaDPTipo,CategoriaDPCodRais : OleVariant;	
 
-procedure leDataPoolCategoria();
+procedure leDataPoolCategoria(nomeDriver);
 begin
-CategoriaDPIDCATEG	:= DDT.DriverByName(nomeDriver).Value('IDCATEG');
-CategoriaDPDESCRICA	:= DDT.DriverByName(nomeDriver).Value('DESCRICA');
-CategoriaDPTIPO		:= DDT.DriverByName(nomeDriver).Value('TIPO');
-CategoriaDPCODRAIS	:= DDT.DriverByName(nomeDriver).Value('CODRAIS');
+CategoriaDPEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CategoriaDPIDCateg	  := DDT.DriverByName(nomeDriver).Value('IDCATEG');
+CategoriaDPDescricao	:= DDT.DriverByName(nomeDriver).Value('DESCRICA');
+CategoriaDPTipo		    := DDT.DriverByName(nomeDriver).Value('TIPO');
+CategoriaDPCodRais	  := DDT.DriverByName(nomeDriver).Value('CODRAIS');
 end;

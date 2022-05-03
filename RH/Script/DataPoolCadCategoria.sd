@@ -1,7 +1,7 @@
 ﻿var 
 CategoriaDPIDCateg,CategoriaDPDescricao,CategoriaDPTipo,CategoriaDPCodRais : OleVariant;	
 
-procedure leDataPoolCategoria();
+procedure leDataPoolCategoria(nomeDriver);
 begin
 CategoriaDPIDCateg	  := DDT.DriverByName(nomeDriver).Value('IDCATEG');
 CategoriaDPDescricao	:= DDT.DriverByName(nomeDriver).Value('DESCRICA');
