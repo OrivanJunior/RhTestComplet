@@ -1,1 +1,109 @@
-﻿
+﻿uses
+CommonsAll, CommonsObj,VarConsts,DataPoolCadVinculos,ObjCadVinculos;
+
+
+procedure PreencherVinculos();
+begin
+VerificaInsere(VinculosEBIdVin,VinculosDPIdVin);
+VerificaInsere(VinculosEBCodRais,VinculosDPCodRais);
+VerificaInsere(VinculosEBCodSefip,VinculosDPCodSefip);
+VerificaInsere(VinculosEBDescricao,VinculosDPDescricao );
+VerificaInsere(VinculosEBCodDarf,VinculosDPCodDarf);
+VerificaInsere(VinculosEBCodDarfPlr,VinculosDPCodDarfPlr);
+VerificaInsere(VinculosEBCodCategoria,VinculosDPCodCategoria);
+VerificaInsere(VinculosEBEmpPagSalMat,VinculosDPEmpPagSalMat);
+VerificaInsere(VinculosEBTipoContrato,VinculosDPTipoContrato);
+end;
+
+procedure CadastrarVinculo(pathData);
+Var
+DDTCadastrar : OleVariant;
+begin
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Vínculos');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadVinculo(DDTCadastrar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadVinculos();
+    
+    if (VinculosEBForm.Exists) then
+
+    PreencherVinculos();
+    
+    ActSalvar(VinculosEBForm);
+    ActFechar(VinculosEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure AlterarVinculos(pathData);
+Var
+DDTAlterar : OleVariant;
+begin
+DDTAlterar := CarregaDDT(pathData, _Alterar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Vínculos');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadVinculo(DDTAlterar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadVinculos();
+    
+    if (VinculosEBForm.Exists) then
+
+    PreencherVinculos();
+    
+    ActSalvar(VinculosEBForm);
+    ActFechar(VinculosEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAlterar.Name);
+end;
+
+procedure ExcluirVinculos(pathData);
+Var
+DDTExcluir : OleVariant;
+begin
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Vínculos');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadVinculo(DDTExcluir.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+    ActExcluir(_ModuloFolha, 'FBRowseCds');
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;

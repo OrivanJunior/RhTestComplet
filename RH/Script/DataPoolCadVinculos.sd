@@ -9,7 +9,7 @@ VinculosDPCodCategoria,
 VinculosDPEmpPagSalMat, 
 VinculosDPTipoContrato : OleVariant; 
 
-procedure LeDataPoolCadVinculo();
+procedure LeDataPoolCadVinculo(nomeDriver);
 begin
 VinculosDPIdVin  		    :=	DDT.DriverByName(nomeDriver).Value('IDVIN');
 VinculosDPCodRais  		  :=	DDT.DriverByName(nomeDriver).Value('CODRAIS');

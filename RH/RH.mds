@@ -712,7 +712,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Turnos" key="{9329E3F2-B068-4895-986A-82E0DB3E9ABD}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Turnos" key="{9329E3F2-B068-4895-986A-82E0DB3E9ABD}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastrar Turnos" key="{39F13384-0EA1-413A-8637-82B87490FDA3}" group="False" parallel="False" enabled="True" testMoniker="{3285956B-772D-4ECA-9503-28007D96AAA6}CadastrarTurno" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -732,6 +732,32 @@
 															<testItem name="Excluir Turnos" key="{697E8C3B-0761-41FF-871F-115BC364D65E}" group="False" parallel="False" enabled="True" testMoniker="{3285956B-772D-4ECA-9503-28007D96AAA6}ExcluirTurno" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Turnos\CadTurnos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Vínculos" key="{7F73074C-ACA9-4D5F-8FA4-DF7648E062EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastrar Vínculos" key="{B66DBD25-7676-47CC-BAD7-8ED671BAB8B4}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}CadastrarVinculo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Alterar Vínculos" key="{D9DA09FA-F111-45E6-A7EA-5A87B72C5B91}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}AlterarVinculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Excluir Vínculos" key="{7169CE0B-0D1F-4D9B-82DA-4CEED5BFE981}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}ExcluirVinculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
