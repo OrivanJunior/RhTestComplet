@@ -5,50 +5,52 @@
  
  
 
-procedure Test1;
+procedure MapCadHorariosGerais();
 begin
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO.Click(28, 5);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO.Click(21, 7);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDCONF.Click(24, 11);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP.DblClick(276, 6);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP.Click(276, 6);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA.DblClick(191, 8);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA.DblClick(191, 8);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DSCTPJORN.Click(116, 41);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIAHORAS.Click(28, 13);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIADIU.Click(14, 12);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIANOT.Click(10, 11);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIARSR.Click(14, 14);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JSEMANAL.Click(6, 16);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JQUINZENAL.Click(6, 15);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JMENSAL.Click(2, 14);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_INTERVALO.Click(12, 9);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1.Click(6, 12);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1.Click(7, 7);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2.Click(5, 13);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2.Click(10, 10);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1SAB.Click(8, 15);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1SAB.Click(7, 6);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2SAB.Click(7, 12);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2SAB.Click(12, 9);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO.Click(4, 9);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO.Click(9, 11);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO2.Click(8, 14);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO2.Click(12, 12);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE.DblClick(51, 13);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE.Click(51, 13);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD.Click(17, 9);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_POSSUIHORNOTURNO.Click(49, 11);
-  Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP.Click(118, 10);
-  {Form}
-  Aliases.Folha.FRhHorario;
-  Aliases.Folha.FRhHorario.Page;
-  {grid}
-  Aliases.Folha.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet.TcxGridSite_;
-  Aliases.Folha.FRhHorario.bInc;
-  Aliases.Folha.FRhHorario.bSave;
-  Aliases.Folha.FRhHorario.bIncAll;
-  Aliases.Folha.FRhHorario.bDesf;
-  Aliases.Folha.FRhHorario.bExc;
-      
+
+{Form}
+HorariosGerEBFomr             := Aliases.Folha.FRhHorario;
+horariosEBFPage               := Aliases.Folha.FRhHorario.Page;
+{Cadastro}
+HorariosGerEBIdHorario  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO;
+HorariosGerEBDescricao  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO;
+HorariosGerEBIdConf  			    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDCONF;
+HorariosGerEBRegJorEmp  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
+HorariosGerEBRegJorEmp 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_REGJOREMP;
+HorariosGerEBTpJornada			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
+HorariosGerEBTpJornada 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TPJORNADA;
+HorariosGerEBDsctPJorn 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DSCTPJORN;
+HorariosGerEBJDiaHoras 			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIAHORAS;
+HorariosGerEBJDiariaDiu 		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIADIU;
+HorariosGerEBJDiariaNot 		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIANOT;
+HorariosGerEBJDiariaRsr 		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JDIARIARSR;
+HorariosGerEBJSemanal  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JSEMANAL;
+HorariosGerEBJQuinzenal  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JQUINZENAL;
+HorariosGerEBJMensal 			    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_JMENSAL;
+HorariosGerEBIntervalo  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_INTERVALO;
+HorariosGerEBEnt1 				    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1;
+HorariosGerEBSai1 				    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1;
+HorariosGerEBEnt2  				    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2;
+HorariosGerEBSai2  				    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2;
+HorariosGerEBEnt1Sab  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT1SAB;
+HorariosGerEBSai1Sab  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI1SAB;
+HorariosGerEBEnt2Sab  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_ENT2SAB;
+HorariosGerEBSai2Sab 			    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_SAI2SAB;
+HorariosGerEBTolExtraPonto    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO;
+HorariosGerEBTolFaltaPonto    := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO;
+HorariosGerEBTolExtraPonto2   := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLEXTRAPONTO2;
+HorariosGerEBTolFaltaPonto2   := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLFALTAPONTO2;
+HorariosGerEBControle  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
+HorariosGerEBControle  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_CONTROLE;
+HorariosGerEBTolimpaFd  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_TOLIMPAFD;
+HorariosGerEBPossuiHorNoturno := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_POSSUIHORNOTURNO;
+HorariosGerEBDiaComp  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP;
+{grid}
+HorariosGerEBGrid             := Aliases.Folha.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet.TcxGridSite_;
+{Botões}
+HorarioGerBSave               := Aliases.Folha.FRhHorario.bSave;
+HorarioGerBInc                := Aliases.Folha.FRhHorario.bInc;
+HorarioGerIncAll              := Aliases.Folha.FRhHorario.bIncAll;
+HorarioGerBDesf               := Aliases.Folha.FRhHorario.bDesf;
+HorarioGerBExc                := Aliases.Folha.FRhHorario.bExc; 
 end;

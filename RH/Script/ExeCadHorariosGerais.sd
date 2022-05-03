@@ -1,10 +1,11 @@
-﻿VerificaInsere(HorariosGerEBIdHorario ,HorariosGerDPIdHorario);  		
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolCadHorariosGerais, ObjCadHorariosGerais;
+
+procedure PrencheHorario();
+begin
+
+VerificaInsere(HorariosGerEBIdHorario ,HorariosGerDPIdHorario);  		
 VerificaInsere(HorariosGerEBDescricao ,HorariosGerDPDescricao);  		
-VerificaConsultaF3Insere(_ModuloFolha,HorariosGerEBIdConf,HorariosGerDPIdConf
-VerificaInsere(HorariosGerEBRegJorEmp,HorariosGerDPRegJorEmp);  		
-VerificaInsere(HorariosGerEBRegJorEmp,HorariosGerDPRegJorEmp); 			
-VerificaInsere(HorariosGerEBTpJornada,HorariosGerDPTpJornada);			
-VerificaInsere(HorariosGerEBTpJornada,HorariosGerDPTpJornada); 			
+VerificaConsultaF3Insere(_ModuloFolha,HorariosGerEBIdConf,HorariosGerDPIdConf);	
 VerificaInsere(HorariosGerEBDsctPJorn,HorariosGerDPDsctPJorn); 			
 VerificaInsere(HorariosGerEBJDiaHoras,HorariosGerDPJDiaHoras);			
 VerificaInsere(HorariosGerEBJDiariaDiu,HorariosGerDPJDiariaDiu); 		
@@ -30,3 +31,5 @@ VerificaInsere(HorariosGerEBControle,HorariosGerDPControle);
 VerificaInsere(HorariosGerEBTolimpaFd,HorariosGerDPTolimpaFd);  		
 VerificaInsere(HorariosGerEBPossuiHorNoturno,HorariosGerDPPossuiHorNoturno); 
 VerificaInsere(HorariosGerEBDiaComp,HorariosGerDPDiaComp);  			
+
+end;
