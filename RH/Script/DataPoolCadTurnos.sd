@@ -2,8 +2,8 @@
 TurnoDPIdTurno,   
 TurnoDPDescricao : OleVariant;
 
-procedure LeDataPoolCadTurno();
+procedure LeDataPoolCadTurno(nomeDriver);
 begin
-TurnoDPIdTurno      := DDT.DriverByName(nome.Driver).Value('IDTURNO');
-TurnoDPDescricao    := DDT.DriverByName(nome.Driver).Value('DESCRICAO');
+TurnoDPIdTurno      := DDT.DriverByName(nomeDriver).Value('IDTURNO');
+TurnoDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 end;

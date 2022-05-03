@@ -686,7 +686,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Categorias" key="{CBB667A6-B072-47F5-BD1C-FE531F325824}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Categorias" key="{CBB667A6-B072-47F5-BD1C-FE531F325824}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Categorias" key="{74854917-0E66-4A3C-A413-CFA97F8FBCE7}" group="False" parallel="False" enabled="True" testMoniker="{5858D54D-5D95-4B3D-A52A-60C6C9CA943E}CadastraCategoria" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -706,6 +706,32 @@
 															<testItem name="Exclui Categorias" key="{A0CFC30A-5201-4CBB-8707-181D0C7C46FB}" group="False" parallel="False" enabled="True" testMoniker="{5858D54D-5D95-4B3D-A52A-60C6C9CA943E}ExcluirCategoria" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Categorias\CadCategoria.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Turnos" key="{9329E3F2-B068-4895-986A-82E0DB3E9ABD}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastrar Turnos" key="{39F13384-0EA1-413A-8637-82B87490FDA3}" group="False" parallel="False" enabled="True" testMoniker="{3285956B-772D-4ECA-9503-28007D96AAA6}CadastrarTurno" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Turnos\CadTurnos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Alterar Turnos" key="{4C7A5E78-1FFC-48F8-8627-E8382D9AE6F5}" group="False" parallel="False" enabled="True" testMoniker="{3285956B-772D-4ECA-9503-28007D96AAA6}AlterarTurno" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Turnos\CadTurnos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Excluir Turnos" key="{697E8C3B-0761-41FF-871F-115BC364D65E}" group="False" parallel="False" enabled="True" testMoniker="{3285956B-772D-4ECA-9503-28007D96AAA6}ExcluirTurno" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Turnos\CadTurnos.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

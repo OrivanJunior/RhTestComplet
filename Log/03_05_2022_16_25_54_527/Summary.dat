@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="Alterar Turnos"/>
+						<Prp name="starttime" type="D" value="44684.6848950347"/>
+						<Prp name="durationwithoutchildren" type="I" value="15095"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBFADAAOAAwADUAMgA5ADMALQBDADcANABEAC0ANAAwADAAMQAtADgAMQA3ADQALQBFADgAMQA4AEUAOABBADUAQgBCADUARgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="15095"/>
+						<Prp name="status" type="I" value="0"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="Cadastrar Turnos"/>
+						<Prp name="starttime" type="D" value="44684.6846791435"/>
+						<Prp name="durationwithoutchildren" type="I" value="18631"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA2AEYANgA1ADAARgBGADIALQA3ADEARgA2AC0ANABFADkAOQAtADkANwA5ADkALQAxAEUARQA0AEEAQQBBADEAQgBEAEQAQQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="18631"/>
+						<Prp name="status" type="I" value="0"/>
+					</Node>
+					<Node name="test2">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="BOF ou EOF são verdadeiros, ou o registro atual foi excluído. A operação solicitada pelo aplicativo requer um registro atual"/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The element to be run specified in the 'Excluir Turnos' test item failed to run."/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="starttime" type="D" value="44684.6850699074"/>
+						<Prp name="durationwithoutchildren" type="I" value="29458"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBCADYAMABCADAAQgBCAEQALQBFADQAQwA0AC0ANABBADUAQQAtAEIAMQA0ADAALQAyAEIAMgA5AEUAOQA5AEIAQQA5ADIAQgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="29458"/>
+						<Prp name="name" type="S" value="Excluir Turnos"/>
+					</Node>
+				</Node>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="starttime" type="D" value="44684.6846791435"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="duration" type="I" value="63184"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="stop" type="D" value="44684.6854167014"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="tests" type="I" value="3"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="starttime" type="D" value="44684.6846784491"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="key" type="S" value="{1A9977D4-C50F-4D59-AB08-D370CF7B92F3}"/>
+	</Node>
+</Nodes>

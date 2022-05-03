@@ -5,9 +5,101 @@
   ObjCadTurnos,
   VarConsts;
 
-procedure PreencheTurno();
+procedure PreencherTurno();
 begin          
 VerificaInsere(TurnoEBIdurno,TurnoDPIdTurno);  
 VerificaInsere(TurnoEBDescricao,TurnoDPDescricao);
 end;
  
+procedure CadastrarTurno(pathData);
+Var
+DDTCadastrar : OleVariant;
+begin
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Turnos');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadTurno(DDTCadastrar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTURNO');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Turno', TurnoDPIdTurno);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadTurno();
+    
+    if (TurnoEBForm.Exists) then
+
+    PreencherTurno();
+    
+    ActSalvar(TurnoEBForm);
+    ActFechar(TurnoEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure AlterarTurno(pathData);
+Var
+DDTAlterar : OleVariant;
+begin
+DDTAlterar := CarregaDDT(pathData, _Alterar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Turnos');
+
+MapGridConsulta(_ModuloFolha);
+
+leDataPoolCadTurno(DDTAlterar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTURNO');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Turno', TurnoDPIdTurno);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadTurno();
+    
+    if (TurnoEBForm.Exists) then
+
+    PreencherTurno();
+    
+    ActSalvar(TurnoEBForm);
+    ActFechar(TurnoEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAlterar.Name);
+end;
+
+procedure ExcluirTurno(pathData);
+Var
+DDTExcluir : OleVariant;
+begin
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Turnos');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadTurno(DDTExcluir.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTURNO');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Turno', TurnoDPIdTurno);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+    ActExcluir(_ModuloFolha, 'FBRowseCds');
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;

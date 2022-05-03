@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{5858D54D-5D95-4B3D-A52A-60C6C9CA943E}"/>
+				<Prp name="activity" type="S" value="{3285956B-772D-4ECA-9503-28007D96AAA6}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -424,6 +424,16 @@
 					<Prp name="owner" type="S" value="{983DC6DC-E121-450B-AFDD-DDAB7A132680}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
+				<Node name="2">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="86"/>
+					<Prp name="owner" type="S" value="{3285956B-772D-4ECA-9503-28007D96AAA6}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
 			</Node>
 			<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 				<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
@@ -734,11 +744,11 @@
 					</Node>
 					<Node name="{0578759d-a1a4-4d04-99d2-d875914e80df}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="64"/>
+							<Prp name="bottom" type="I" value="65"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="31"/>
+							<Prp name="top" type="I" value="32"/>
 						</Node>
-						<Prp name="bottom" type="I" value="64"/>
+						<Prp name="bottom" type="I" value="65"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -13543,7 +13553,6 @@
 								<Node name="cadastros gerais">
 									<Node name="empregados">
 										<Node name="categoria"/>
-										<Node name="horários"/>
 										<Node name="turno"/>
 										<Node name="vínculos"/>
 									</Node>
