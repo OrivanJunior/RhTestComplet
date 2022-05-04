@@ -54,6 +54,19 @@ begin
   VerificaClickPreencheGrid(DetHorarioGrid, 0, 'Tol. Saída 2', DetHorarioDPTolSai2);
   VerificaClickPreencheGrid(DetHorarioGrid, 0, 'Intervalo', DetHorarioDPInterv);
   DetHorarioGrid.Click();
+  
+  HorarioGerBInc.Click();
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Dia',DetHorarioDPDia);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Entrada 1',DetHorarioDPEnt1);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Saída 1',DetHorarioDPSai1);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Entrada 2',DetHorarioDPEnt2);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Saída 2',DetHorarioDPSai2);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Tol. Entrada 1',DetHorarioDPTolEnt1);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Tol. Saída 1',DetHorarioDPTolSai1);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Tol. Entrada 2',DetHorarioDPTolEnt2);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Tol. Saída 2',DetHorarioDPTolSai2);
+  VerificaClickPreencheGrid(HorariosGerEBGrid,1,'Intervalo',DetHorarioDPInterv);
+  HorariosGerEBGrid.Click();
 end;
 
 procedure CadastraHorario(Modulo, pathData);
@@ -87,8 +100,8 @@ begin
       BtnSalvar.Click();
       
       FechaTelaESocial(Modulo);
-      
-      ActFechar(CadHorarioForm)
+      ActSalvar(CadHorarioForm);
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
@@ -127,8 +140,8 @@ begin
       BtnSalvar.Click();
       
       FechaTelaESocial(Modulo);
-      
-      ActFechar(CadHorarioForm)
+      ActSalvar(CadHorarioForm);
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
@@ -162,10 +175,11 @@ begin
       
       FechaTelaESocial(Modulo);
       
-      ActFechar(CadHorarioForm)
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
   ActFechar(FormTelaConsultaForm);
+  Aliases.obs64.OBSBasic_.controlsDock.controlsDockContents.recordButton.Click();
   DDT.CloseDriver(DDTHorarios.Name);
 end;

@@ -54,6 +54,7 @@ begin
   VerificaClickPreencheGrid(DetHorarioGrid, 0, 'Tol. Saída 2', DetHorarioDPTolSai2);
   VerificaClickPreencheGrid(DetHorarioGrid, 0, 'Intervalo', DetHorarioDPInterv);
   DetHorarioGrid.Click();
+  
 end;
 
 procedure CadastraHorario(Modulo, pathData);
@@ -87,8 +88,8 @@ begin
       BtnSalvar.Click();
       
       FechaTelaESocial(Modulo);
-      
-      ActFechar(CadHorarioForm)
+      ActSalvar(CadHorarioForm);
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
@@ -127,8 +128,8 @@ begin
       BtnSalvar.Click();
       
       FechaTelaESocial(Modulo);
-      
-      ActFechar(CadHorarioForm)
+      ActSalvar(CadHorarioForm);
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
@@ -162,7 +163,7 @@ begin
       
       FechaTelaESocial(Modulo);
       
-      ActFechar(CadHorarioForm)
+      ActFechar(CadHorarioForm);
     end;
     DDTHorarios.Next;
   end;
