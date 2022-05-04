@@ -1,1 +1,73 @@
-﻿
+﻿{Script para mapear o Cadastro Categoria
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 04/05/2022}
+uses VarConsts;
+
+{declarar variaveis OleVariant;}
+
+
+procedure MapCadFuncoes();
+begin
+  {Form}
+CadFuncForm             :=  Aliases.Folha.FRhFuncao;
+CadFuncPage             :=  Aliases.Folha.FRhFuncao.Page;
+  
+  {Cadastro prof}
+CadFuncEBIdfuncao		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO;
+CadFuncEBDescricao		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
+CadFuncEBIdcbo			    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCBO;
+CadFuncEBCbo			      := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_CBO;
+CadFuncEBIdcargo		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCARGO;
+CadFuncEBAnosapesp		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ANOSAPESP;
+CadFuncEBOcsefip		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_OCSEFIP;
+CadFuncEBRequisitos		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_REQUISITOS;
+CadFuncEBRiscosatividade:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_RISCOSATIVIDADE;
+CadFuncEBDesc			      := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESC;
+CadFuncEBFuncaocomissao	:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_FUNCAOCOMISSAO;
+CadFuncEBAtivo			    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ATIVO;
+end;
+
+procedure MapCadRelKitAdm();
+begin
+CadFuncEBAdit			      :=	Aliases.Folha.FRhFuncao.Page.tsRelatorios.ScrollBox2.whOutrosAditivos.TVsEditLookup;
+end;
+
+
+procedure MapCadInclFixoFunc();
+begin
+
+{botões Fixo função - incluir}
+BtnIncFixo		          := Aliases.Folha.FRhFuncao.bIncFixo;
+BtnEdtFixo     	        := Aliases.Folha.FRhFuncao.bEditFixo;
+BtnExcFixo     	        := Aliases.Folha.FRhFuncao.bExcFixo;
+{Form de fixo funcão}
+CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
+end;
+
+procedure MapCadFixoFunc();
+begin
+{Dados fixo por função}
+CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
+CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
+end;
+
+procedure MapCadPerPorMes();
+begin 
+{botões Fixo por função - por mes}
+BtnIncMes 		          :=  Aliases.Folha.FRhFixoF.bIncMes;
+BtnIncTodosMes 	        :=  Aliases.Folha.FRhFixoF.bIncTodosMes;
+BtnSalvarMes  	        := 	Aliases.Folha.FRhFixoF.bPostMes;
+BtnExcMes		            := 	Aliases.Folha.FRhFixoF.bExcMes;
+CadGridMes 		          :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsRhFixoGMes.sbRhFixoGMes.gMes;
+end;
+
+procedure MapCadPerPorMesAno();
+begin
+{botõess Fixo por função - por mes ano}
+BtnIncMesAno  		      := 	Aliases.Folha.FRhFixoF.bIncMesAno;
+BtnExcMesAno  		      :=	Aliases.Folha.FRhFixoF.bExcMesAno;
+BtnIncMesAnos  		      :=	Aliases.Folha.FRhFixoF.bIncMesAno;
+BtnSalvarMesAno  	      :=	Aliases.Folha.FRhFixoF.bPostMesAno;
+CadGridMesAno  		      :=	Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno; 
+end;

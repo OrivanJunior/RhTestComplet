@@ -55,7 +55,7 @@ VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Saída 1',DetHorarioDPTolSai
 VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Entrada 2',DetHorarioDPTolEnt2);
 VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Saída 2',DetHorarioDPTolSai2);
 VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Intervalo',DetHorarioDPInterv);
-HorariosGerEBGrid.Click();
+HorarioGerBSave.Click();
 
 HorarioGerBInc.Click();
 VerificaClickPreencheGrid(HorariosGerEBGrid,2,'Dia',DetHorarioDPDia);
