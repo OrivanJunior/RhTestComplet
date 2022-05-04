@@ -69,7 +69,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     
     if (TurnoEBForm.Exists) then
 
-    PreencherCategoria();
+    PreencherTurno();
     
     ActSalvar(TurnoEBForm);
     ActFechar(TurnoEBForm);

@@ -18281,6 +18281,17 @@
 													</Property>
 												</Properties>
 											</Child>
+											<Child Name="BRepetir" Key="{67AD1197-31C5-4DDD-BD16-AC9288905302}">
+												<TypeInfo Item0="{3B2AC7BA-9153-41C8-8C92-5649CBCCE866}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="BRepetir" />
+													</Property>
+												</Properties>
+											</Child>
 										</Children>
 									</Child>
 								</Children>
@@ -56723,6 +56734,18 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="BSalvar" Key="{F1905B30-8682-492F-B1E4-1D1C5FDFF32E}">
+										<Image FileName="343525949" Left="119" Top="33" Right="157" Bottom="59" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BSalvar" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 						</Children>
@@ -74670,6 +74693,7 @@
 			<Child Name="FVsErrorDlg" Owner="{49598527-37C6-4E33-B6BF-4C34F73B2C46}">
 				<Child Name="ButtonPanel" Owner="{07ECDEBC-8CA1-480C-975E-226D84101D52}">
 					<Child Name="OKBtn" Owner="{42766B1E-98F2-46C8-9C68-D1699C943449}" />
+					<Child Name="BRepetir" Owner="{67AD1197-31C5-4DDD-BD16-AC9288905302}" />
 				</Child>
 			</Child>
 			<Child Name="FRhProcTransfLocal" Owner="{B3330FA6-3971-4629-9741-BCC9429F54E5}">
@@ -78643,6 +78667,7 @@
 				<Child Name="bIncAll" Owner="{EB9E1652-9498-4641-A719-2FB28B1F1D0A}" />
 				<Child Name="bDesf" Owner="{374F53C8-B21A-47F1-9262-1130A97E0DFB}" />
 				<Child Name="bExc" Owner="{DCF167CC-3C28-48E0-9EEB-95F7C67422D5}" />
+				<Child Name="BSalvar" Owner="{F1905B30-8682-492F-B1E4-1D1C5FDFF32E}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

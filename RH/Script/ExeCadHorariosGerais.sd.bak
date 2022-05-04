@@ -2,17 +2,19 @@
 
 procedure PrencheHorario();
 begin
+CadHorariosPage.ActivePageIndex := 0;
 
-VerificaInsere(HorariosGerEBIdHorario ,HorariosGerDPIdHorario);  		
+VerificaInsere(HorariosGerEBIdHorario,HorariosGerDPIdHorario);  		
 VerificaInsere(HorariosGerEBDescricao ,HorariosGerDPDescricao);  		
-VerificaConsultaF3Insere(_ModuloFolha,HorariosGerEBIdConf,HorariosGerDPIdConf);	
-VerificaInsere(HorariosGerEBDsctPJorn,HorariosGerDPDsctPJorn); 			
+VerificaConsultaF3Insere(_ModuloFolha,HorariosGerEBIdConf,HorariosGerDPIdConf);
+VerificaInsere(HorariosGerEBTpJornada,HorariosGerDPTpJornada);
+VerificaInsere(HorariosGerEBDsctPJorn,HorariosGerDPDsctPJorn);
 VerificaInsere(HorariosGerEBJDiaHoras,HorariosGerDPJDiaHoras);			
 VerificaInsere(HorariosGerEBJDiariaDiu,HorariosGerDPJDiariaDiu); 		
 VerificaInsere(HorariosGerEBJDiariaNot,HorariosGerDPJDiariaNot); 		
 VerificaInsere(HorariosGerEBJDiariaRsr,HorariosGerDPJDiariaRsr); 		
 VerificaInsere(HorariosGerEBJSemanal,HorariosGerDPJSemanal);  			
-VerificaInsere(HorariosGerEBJQuinzenal ,HorariosGerDPJQuinzenal);  		
+VerificaInsere(HorariosGerEBJQuinzenal,HorariosGerDPJQuinzenal);  		
 VerificaInsere(HorariosGerEBJMensal,HorariosGerDPJMensal);			
 VerificaInsere(HorariosGerEBIntervalo,HorariosGerDPIntervalo);  		
 VerificaInsere(HorariosGerEBEnt1,HorariosGerDPEnt1); 				
@@ -33,3 +35,125 @@ VerificaInsere(HorariosGerEBPossuiHorNoturno,HorariosGerDPPossuiHorNoturno);
 VerificaInsere(HorariosGerEBDiaComp,HorariosGerDPDiaComp);  			
 
 end;
+
+procedure PreencheGridDetalheDoHorario();
+begin
+
+CadHorariosPage.ActivePageIndex := 1;
+
+MapCadDetHorGrid();
+
+HorarioGerBInc.Click();
+{VerificaClickPreencheGrid(grid, linha, coluna, informacao :OleVariant);}
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Dia',DetHorarioDPDia);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Entrada 1',DetHorarioDPEnt1);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Saída 1',DetHorarioDPSai1);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Entrada 2',DetHorarioDPEnt2);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Saída 2',DetHorarioDPSai2);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Entrada 1',DetHorarioDPTolEnt1);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Saída 1',DetHorarioDPTolSai1);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Entrada 2',DetHorarioDPTolEnt2);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Tol. Saída 2',DetHorarioDPTolSai2);
+VerificaClickPreencheGrid(HorariosGerEBGrid,0,'Intervalo',DetHorarioDPInterv);
+HorariosGerEBGrid.Click();
+
+end;
+
+procedure CadastrarHorario(pathData);
+var 
+DDTCadastrar : OleVariant;
+begin
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Horários');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadHorGerais(DDTCadastrar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhHorario');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Horário', HorariosGerDPIDHORARIO);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadHoraInfoNormais();
+    
+    if (CadHorarioForm.Exists) then
+
+    PrencheHorario();
+    PreencheGridDetalheDoHorario();
+    HorarioGerBSave.Click;
+    
+    ActSalvar(CadHorarioForm);
+    ActFechar(CadHorarioForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure AlterarHorario(pathData);
+Var
+DDTAlterar : OleVariant;
+begin
+DDTAlterar := CarregaDDT(pathData, _Alterar);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Horários');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadHorGerais(DDTAlterar.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhHorario');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Horário', HorariosGerDPIDHORARIO);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadHoraInfoNormais();
+    
+    if (CadHorarioForm.Exists) then
+
+    PrencheHorario();
+    
+    PreencheGridDetalheDoHorario();
+    HorarioGerBSave.Click;
+    
+    ActSalvar(CadHorarioForm);
+    ActFechar(CadHorarioForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAlterar.Name);
+end;
+
+procedure ExcluirHorario(pathData);
+Var
+DDTExcluir : OleVariant;
+begin
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Horários');
+
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadHorGerais(DDTExcluir.Name);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhHorario');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Horário', HorariosGerDPIDHORARIO);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+    ActExcluir(_ModuloFolha, 'FBRowseCds');
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;
+

@@ -657,29 +657,26 @@
 											<testItem name="Empregados" key="{3A4D798F-AAAD-4DFF-B6B5-048394B509B1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Horários" key="{7067016C-8724-48D1-9A79-F65D4D96ED9E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Horários" key="{7067016C-8724-48D1-9A79-F65D4D96ED9E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Horário" key="{90AEB4F1-B73A-419B-8C73-5C47A2ABDF3E}" group="False" parallel="False" enabled="False" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}CadastraHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+															<testItem name="Cadastra Horário" key="{90AEB4F1-B73A-419B-8C73-5C47A2ABDF3E}" group="False" parallel="False" enabled="True" testMoniker="{7722C619-B7D7-4A95-9491-AECB63B3C440}CadastrarHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-																	<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Altera Horário" key="{79D030DB-60C9-405B-849B-9970C4729328}" group="False" parallel="False" enabled="False" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}AlteraHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+															<testItem name="Altera Horário" key="{79D030DB-60C9-405B-849B-9970C4729328}" group="False" parallel="False" enabled="True" testMoniker="{7722C619-B7D7-4A95-9491-AECB63B3C440}AlterarHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-																	<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui Horário" key="{D2838E73-C4A6-45DC-ACB9-BB951718C46B}" group="False" parallel="False" enabled="False" testMoniker="{BFC6143D-358B-42D6-A454-F131437D5817}ExcluiHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+															<testItem name="Exclui Horário" key="{D2838E73-C4A6-45DC-ACB9-BB951718C46B}" group="False" parallel="False" enabled="True" testMoniker="{7722C619-B7D7-4A95-9491-AECB63B3C440}ExcluirHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
-																	<param1 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Ponto\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Horários\CadHorarios.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -738,7 +735,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Vínculos" key="{7F73074C-ACA9-4D5F-8FA4-DF7648E062EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Vínculos" key="{7F73074C-ACA9-4D5F-8FA4-DF7648E062EE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastrar Vínculos" key="{B66DBD25-7676-47CC-BAD7-8ED671BAB8B4}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}CadastrarVinculo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

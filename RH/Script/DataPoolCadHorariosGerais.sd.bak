@@ -28,7 +28,19 @@ HorariosGerDPTOLFALTAPONTO2,
 HorariosGerDPCONTROLE,  			 
 HorariosGerDPTOLIMPAFD,  	  	
 HorariosGerDPPOSSUIHORNOTURNO,
-HorariosGerDPDIACOMP  	: OleVariant;		 
+HorariosGerDPDIACOMP,
+
+DetHorarioDPDia,    
+DetHorarioDPEnt1,   
+DetHorarioDPSai1,   
+DetHorarioDPEnt2,  
+DetHorarioDPSai2,   
+DetHorarioDPTolEnt1,
+DetHorarioDPTolSai1,
+DetHorarioDPTolEnt2,
+DetHorarioDPTolSai2,
+DetHorarioDPInterv   	: OleVariant;
+		 
 procedure LeDataPoolCadHorGerais();
 begin
 {Cadastro}                      
@@ -62,4 +74,15 @@ HorariosGerDPCONTROLE  			  := DDT.DriverByName(nomeDriver).Value('CONTROLE');
 HorariosGerDPTOLIMPAFD  	  	:= DDT.DriverByName(nomeDriver).Value('TOLIMPAFD');
 HorariosGerDPPOSSUIHORNOTURNO := DDT.DriverByName(nomeDriver).Value('POSSUIHORNOTURNO');
 HorariosGerDPDIACOMP  			  := DDT.DriverByName(nomeDriver).Value('DIACOMP');
+  
+DetHorarioDPDia               := DDT.DriverByName(nomeDriver).Value('DIA');
+DetHorarioDPEnt1              := DDT.DriverByName(nomeDriver).Value('DTENT1');
+DetHorarioDPSai1              := DDT.DriverByName(nomeDriver).Value('DTSAI1');
+DetHorarioDPEnt2              := DDT.DriverByName(nomeDriver).Value('DTENT2');
+DetHorarioDPSai2              := DDT.DriverByName(nomeDriver).Value('DTSAI2');
+DetHorarioDPTolEnt1           := DDT.DriverByName(nomeDriver).Value('DTTOLENT1');
+DetHorarioDPTolSai1           := DDT.DriverByName(nomeDriver).Value('DTTOLSAI1');
+DetHorarioDPTolEnt2           := DDT.DriverByName(nomeDriver).Value('DTTOLENT2');
+DetHorarioDPTolSai2           := DDT.DriverByName(nomeDriver).Value('DTTOLSAI2');
+DetHorarioDPInterv            := DDT.DriverByName(nomeDriver).Value('DTINTERVALO');
 end;

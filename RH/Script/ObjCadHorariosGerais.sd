@@ -4,7 +4,7 @@
  Data: 02/05/2022}
 var
  {Form}                       
-HorariosGerEBForm,HorariosEBFPage,
+CadHorarioForm,CadHorariosPage,BtnSalvar,
 {Cadastro}                   
 HorariosGerEBIdHorario,HorariosGerEBDescricao,HorariosGerEBIdConf,HorariosGerEBRegJorEmp,
 HorariosGerEBTpJornada,HorariosGerEBDsctPJorn,HorariosGerEBJDiaHoras,
@@ -23,12 +23,13 @@ HorarioGerBDesf,
 HorarioGerBExc: OleVariant;
  
 
-procedure MapCadHorariosGerais();
+procedure MapCadHoraInfoNormais();
 begin
 
 {Form}
-HorariosGerEBForm             := Aliases.Folha.FRhHorario;
-HorariosEBFPage               := Aliases.Folha.FRhHorario.Page;
+CadHorarioForm                := Aliases.Folha.FRhHorario;
+CadHorariosPage               := Aliases.Folha.FRhHorario.Page;
+BtnSalvar                     := Aliases.Folha.FRhHorario.BSalvar;
 {Cadastro}
 HorariosGerEBIdHorario  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_IDHORARIO;
 HorariosGerEBDescricao  		  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DESCRICAO;
@@ -62,15 +63,14 @@ HorariosGerEBPossuiHorNoturno := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnC
 HorariosGerEBDiaComp  			  := Aliases.Folha.FRhHorario.Page.tsInformacoes.pnCab.EB_DIACOMP;
 
 end;
-procedure MapCadHorGrid();
+procedure MapCadDetHorGrid();
 begin
 {grid}
-HorariosGerEBGrid             := Aliases.Folha.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet.TcxGridSite_;
+HorariosGerEBGrid             := Aliases.Folha.FRhHorario.Page.tsDetalhes.sbRHExpDet.gRhHorarioDet;
 {Botões}
-HorarioGerBSave               := Aliases.Folha.FRhHorario.bSave;
 HorarioGerBInc                := Aliases.Folha.FRhHorario.bInc;
+HorarioGerBSave               := Aliases.Folha.FRhHorario.bSave;
 HorarioGerIncAll              := Aliases.Folha.FRhHorario.bIncAll;
 HorarioGerBDesf               := Aliases.Folha.FRhHorario.bDesf;
-HorarioGerBExc                := Aliases.Folha.FRhHorario.bExc; 
-
+HorarioGerBExc                := Aliases.Folha.FRhHorario.bExc;
 end;

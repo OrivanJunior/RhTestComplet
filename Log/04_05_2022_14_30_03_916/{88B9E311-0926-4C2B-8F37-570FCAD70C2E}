@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row2">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="44685.6054319676"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44685.6052666551"/>
+				<Prp name="details" type="S" value="{5BC0F8B3-BC9F-4CCA-82D3-76F7D5834CF0}"/>
+				<Prp name="name" type="S" value="Exclui Horário [Script\ExeCadHorariosGerais - ExcluirHorario]"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="44685.6048216898"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="status" type="I" value="1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44685.6042130324"/>
+				<Prp name="details" type="S" value="{637004B0-C085-4FF5-904F-15781E9FD288}"/>
+				<Prp name="name" type="S" value="Cadastra Horário [Script\ExeCadHorariosGerais - CadastrarHorario]"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="44685.6052664005"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="status" type="I" value="1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="start time" type="D" value="44685.6048220833"/>
+				<Prp name="details" type="S" value="{9CF8B63E-FB1B-4036-BF3C-F2182B0A39F2}"/>
+				<Prp name="name" type="S" value="Altera Horário [Script\ExeCadHorariosGerais - AlterarHorario]"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
