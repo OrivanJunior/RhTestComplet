@@ -4,7 +4,7 @@ CommonsAll, CommonsObj,VarConsts,DataPoolCadVinculos,ObjCadVinculos;
 
 procedure PreencherVinculos();
 begin
-VerificaInsere(VinculosEBIdVin,VinculosDPIdVin);
+VerificaInsere(VinculosEBIdVinc,VinculosDPIdVinc);
 VerificaInsere(VinculosEBCodRais,VinculosDPCodRais);
 VerificaInsere(VinculosEBCodSefip,VinculosDPCodSefip);
 VerificaInsere(VinculosEBDescricao,VinculosDPDescricao );
@@ -30,7 +30,7 @@ LeDataPoolCadVinculo(DDTCadastrar.Name);
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Vínculos', VinculosDPIdVinc);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
     ActIncluir(FormTelaConsultaForm);
@@ -64,8 +64,8 @@ LeDataPoolCadVinculo(DDTAlterar.Name);
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Vínculos', VinculosDPIdVinc);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
     ActConsulta(FormTelaConsultaForm);
   
@@ -97,8 +97,8 @@ LeDataPoolCadVinculo(DDTExcluir.Name);
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhVinculo');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IDVIN', VinculosDPIdVin);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Vínculos', VinculosDPIdVinc);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   
     ActExcluir(_ModuloFolha, 'FBRowseCds');

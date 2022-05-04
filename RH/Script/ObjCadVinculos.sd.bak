@@ -2,6 +2,19 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 02/05/2022}
+Var
+VinculosEBForm,  			
+VinculosEBFormPage,  	
+                      
+VinculosEBIdVinc,  			
+VinculosEBCodRais,
+VinculosEBCodSefip,  	
+VinculosEBDescricao,  	
+VinculosEBCodDarf,  		
+VinculosEBCodDarfPlr,  
+VinculosEBCodCategoria,
+VinculosEBEmpPagSalMat,
+VinculosEBTipoContrato : OleVariant;
  
  
 
@@ -10,7 +23,7 @@ begin
 VinculosEBForm  			  :=	Aliases.Folha.FRhVinculo;
 VinculosEBFormPage  		:=	Aliases.Folha.FRhVinculo.Page;
 
-VinculosEBIdVin  			  :=	Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_IDVIN;
+VinculosEBIdVinc  			  :=	Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_IDVINC;
 VinculosEBCodRais  			:=	Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODRAIS;
 VinculosEBCodSefip  		:=	Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_CODSEFIP;
 VinculosEBDescricao  		:=	Aliases.Folha.FRhVinculo.Page.TabNormal.ScrollBox1.EB_DESCRICAO;

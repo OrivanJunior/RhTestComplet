@@ -1,5 +1,5 @@
 ﻿var 
-VinculosDPIdVin,  		
+VinculosDPIdVinc,  		
 VinculosDPCodRais,  		
 VinculosDPCodSefip,  	
 VinculosDPDescricao,  	
@@ -9,9 +9,9 @@ VinculosDPCodCategoria,
 VinculosDPEmpPagSalMat, 
 VinculosDPTipoContrato : OleVariant; 
 
-procedure LeDataPoolCadVinculo();
+procedure LeDataPoolCadVinculo(nomeDriver);
 begin
-VinculosDPIdVin  		    :=	DDT.DriverByName(nomeDriver).Value('IDVIN');
+VinculosDPIdVinc  		    :=	DDT.DriverByName(nomeDriver).Value('IDVINC');
 VinculosDPCodRais  		  :=	DDT.DriverByName(nomeDriver).Value('CODRAIS');
 VinculosDPCodSefip  	  :=	DDT.DriverByName(nomeDriver).Value('CODSEFIP');
 VinculosDPDescricao  	  :=	DDT.DriverByName(nomeDriver).Value('DESCRICAO');
