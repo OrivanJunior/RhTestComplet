@@ -41,21 +41,25 @@ end;
 
 procedure IncluirFixo();
 begin
-CadFuncPage.ActivePageIndex := 2;
+CadFuncPage.ActivePageIndex := 3;
 {Função, Evento}
 MapCadInclFixoFunc();
-BtnIncFixo.ClickButton();
+BtnIncFixo.Click();
+Delay(5000);
 end;
 
 procedure PreencheNovoFixo();
 begin
 IncluirFixo();
 
-CadIncForm.ActivePageIndex := 0;
+
 MapCadFixoFunc();
 
 VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDFuncao,CadIncDPIDFuncao);
 VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDEvento,CadIncDPIDEvento);
+CadIncEBIDEvento.Keys('[Enter]');
+
+
 end;
 
 procedure PreenchePerPorMesAno();
@@ -73,7 +77,7 @@ end;
 
 procedure PreencheParametros();
 begin
-  MapCadParametros();
+MapCadParametros();
 CadFormParam.ActivePageIndex := 2;
 
 VerificaInsere(CadParamEBInforme ,CadParamDPInforme);
@@ -103,7 +107,7 @@ AcessaItem(_ModuloFolha,'Cadastros Gerais','Empregados', 'Funções');
 
 FiltrarFuncoes();
 
-LeDataPoolCadFuncoes(DDTFuncoes.Name);
+LeDataPoolCadFuncoes(DDTCadastrar.Name);
 
 MapGridConsulta(_ModuloFolha);
 
@@ -111,8 +115,8 @@ MapGridConsulta(_ModuloFolha);
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncEBIdFuncao);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncDPIdFuncao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount <= 1) then
   begin
     ActIncluir(FormTelaConsultaForm);
   
@@ -124,8 +128,11 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     PreencheKit();
     PreencheNovoFixo();
     PreencheParametros();
-      
     
+    MapCadFixoFunc();
+    
+    BtnFixoSave.ClickButton();
+    BtnFixoSair.ClickButton();
     
     ActSalvar(CadFuncForm);
     ActFechar(CadFuncForm);
@@ -140,27 +147,27 @@ var
 DDTAlterar : OleVariant;
 begin
   
-DDTAlterar := CarregaDDT(pathData,_Cadastrar);
+DDTAlterar := CarregaDDT(pathData,_Alterar);
 
 AcessaItem(_ModuloFolha,'Cadastros Gerais','Empregados', 'Funções');
 
 FiltrarFuncoes();
 
-LeDataPoolCadFuncoes(DDTFuncoes.Name);
+LeDataPoolCadFuncoes(DDTAlterar.Name);
 
 MapGridConsulta(_ModuloFolha);
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+    ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncDPIdFuncao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
     ActConsulta(FormTelaConsultaForm);
   
-    MapCadCategoria();
+    MapCadFuncoes();
     
-    if (CategoriaEBForm.Exists) then
+    if (CadFuncForm.Exists) then
 
     PreencherCategoria();
     
@@ -171,25 +178,25 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   DDT.CloseDriver(DDTAlterar.Name);
 end;
 
-procedure ExcluirCategoria(pathData);
+procedure ExcluirFuncoes(pathData);
 Var
 DDTExcluir : OleVariant;
 begin
 DDTExcluir := CarregaDDT(pathData, _Excluir);
 
-AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Categorias');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Funções');
 
 FiltrarFuncoes();
 
-LeDataPoolCadFuncoes(DDTFuncoes.Name);
+LeDataPoolCadFuncoes(DDTExcluir.Name);
 
 MapGridConsulta(_ModuloFolha);
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+    ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
       
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncDPIdFuncao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
     ActExcluir(_ModuloFolha, 'FBRowseCds');
@@ -197,8 +204,5 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTExcluir.Name);
-end;
-
-
 end;
 

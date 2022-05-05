@@ -23,7 +23,7 @@ CadParamDPPropBaseHoras,
 
 CadPPorMes, CadPPorMesAno : OleVariant;
 
-procedure LeDataPoolCadFuncoes();
+procedure LeDataPoolCadFuncoes(nomeDriver);
 begin
 CadFuncDPIdfuncao		      := DDT.DriverByName(nomeDriver).Value('IDFUNCAO');       
 CadFuncDPDescricao		    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');     
@@ -47,8 +47,7 @@ CadParamDPInforme         := DDT.DriverByName(nomeDriver).Value('INFORME');
 CadParamDPRefencia        := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
 CadParamDPPropBaseHoras   := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
 
-CadPPorMes                := DDT.DriverByName(nomeDriver).Value('PPORMES');
-
-CadPPorMesAno             := DDT.DriverByName(nomeDriver).Value('PPORMESANO');
+//CadPPorMes                := DDT.DriverByName(nomeDriver).Value('PPORMES');
+//CadPPorMesAno             := DDT.DriverByName(nomeDriver).Value('PPORMESANO');
 
 end;

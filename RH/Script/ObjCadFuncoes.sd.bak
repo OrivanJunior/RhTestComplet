@@ -10,7 +10,7 @@ var
 CadFuncForm,
 CadFuncPage,
 {Form de fixo função }
-CadFixoFPage,
+CadFixoFPage, BtnFuncSalvar,
 {Filtro funções}
 FiltroConsForm,  
 FiltroConsSelCons,
@@ -38,7 +38,7 @@ BtnExcFixo,
 {botões Fixo função - incluir}
 CadFixoFuncForm,
 {Dados fixo por função}
-CadIncForm, BtnFixoSave,
+CadIncForm, BtnFixoSave, BtnFixoSair,
 CadIncEBIDFuncao,
 CadIncEBIDEvento,
 {botões Fixo por função - por mes}
@@ -65,8 +65,8 @@ begin
 {Form}
 CadFuncForm             :=  Aliases.Folha.FRhFuncao;
 CadFuncPage             :=  Aliases.Folha.FRhFuncao.Page;
-{Form de fixo função }
-CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
+
+BtnFuncSalvar           :=  Aliases.Folha.FRhFuncao.BSalvar;
   
 {Cadastro prof}
 CadFuncEBIdFuncao		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO;
@@ -91,13 +91,15 @@ end;
 
 procedure MapCadInclFixoFunc();
 begin
-
+{Form de fixo função }
+CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
+{Form de fixo incl função grid}
+CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
 {botões Fixo função - incluir}
 BtnIncFixo		          := Aliases.Folha.FRhFuncao.bIncFixo;
 BtnEdtFixo     	        := Aliases.Folha.FRhFuncao.bEditFixo;
 BtnExcFixo     	        := Aliases.Folha.FRhFuncao.bExcFixo;
-{Form de fixo incl função grid}
-CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
+
 end;
 
 procedure MapCadFixoFunc();
@@ -107,8 +109,10 @@ begin
 CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
 CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
 
-CadIncForm              := Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
-BtnFixoSave             := Aliases.Folha.FRhFixoF.BSalvar;
+CadIncForm              :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
+
+BtnFixoSave             :=  Aliases.Folha.FRhFixoF.BSalvar;
+BtnFixoSair             :=  Aliases.Folha.FRhFixoF.BSair;
 end;
 
 procedure MapCadPerPorMes();

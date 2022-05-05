@@ -65,8 +65,6 @@ begin
 {Form}
 CadFuncForm             :=  Aliases.Folha.FRhFuncao;
 CadFuncPage             :=  Aliases.Folha.FRhFuncao.Page;
-{Form de fixo função }
-CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
 
 BtnFuncSalvar           :=  Aliases.Folha.FRhFuncao.BSalvar;
   
@@ -93,13 +91,15 @@ end;
 
 procedure MapCadInclFixoFunc();
 begin
-
+{Form de fixo função }
+CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
+{Form de fixo incl função grid}
+CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
 {botões Fixo função - incluir}
 BtnIncFixo		          := Aliases.Folha.FRhFuncao.bIncFixo;
 BtnEdtFixo     	        := Aliases.Folha.FRhFuncao.bEditFixo;
 BtnExcFixo     	        := Aliases.Folha.FRhFuncao.bExcFixo;
-{Form de fixo incl função grid}
-CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
+
 end;
 
 procedure MapCadFixoFunc();
@@ -137,7 +137,7 @@ end;
 
 procedure MapCadParametros();
 begin
-CadFormParam              := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_;
+CadFormParam              := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams;
 
 CadParamEBInforme         := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME;
 CadParamEBRefencia        := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_REFERENCIA;
