@@ -41,7 +41,7 @@ DetHorarioDPTolEnt2,
 DetHorarioDPTolSai2,
 DetHorarioDPInterv   	: OleVariant;
 		 
-procedure LeDataPoolCadHorGerais();
+procedure LeDataPoolCadHorGerais(nomeDriver);
 begin
 {Cadastro}                      
 HorariosGerDPIDHORARIO  		  := DDT.DriverByName(nomeDriver).Value('IDHORARIO');

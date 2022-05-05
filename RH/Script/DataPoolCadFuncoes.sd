@@ -1,8 +1,54 @@
-﻿{var 
-: OleVariant;	}
+﻿var 
+CadFuncDPIdfuncao,	     
+CadFuncDPDescricao,
+CadFuncDPIdcbo,
+CadFuncDPCbo,
+CadFuncDPIdcargo,
+CadFuncDPAnosapesp,
+CadFuncDPOcsefip,
+CadFuncDPRequisitos,
+CadFuncDPRiscosatividade,
+CadFuncDPDesc,
+CadFuncDPFuncaocomissao,
+CadFuncDPAtivo,
+                         
+CadFuncDPAditivo,
+                         
+CadIncDPIdFuncao,
+CadIncDPIdEvento,
 
-procedure LeDataPoolCadFuncoes();
+CadParamDPInforme,      
+CadParamDPRefencia,     
+CadParamDPPropBaseHoras,
+
+CadPPorMes, CadPPorMesAno : OleVariant;
+
+procedure LeDataPoolCadFuncoes(nomeDriver);
 begin
+CadFuncDPIdfuncao		      := DDT.DriverByName(nomeDriver).Value('IDFUNCAO');       
+CadFuncDPDescricao		    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');     
+CadFuncDPIdCbo			      := DDT.DriverByName(nomeDriver).Value('IDCBO');     
+CadFuncDPCbo			        := DDT.DriverByName(nomeDriver).Value('CBO');     
+CadFuncDPIdCargo		      := DDT.DriverByName(nomeDriver).Value('IDCARGO');     
+CadFuncDPAnosApEsp		    := DDT.DriverByName(nomeDriver).Value('ANOSAPESP');  
+CadFuncDPOcSefip		      := DDT.DriverByName(nomeDriver).Value('OCSEFIP');  
+CadFuncDPRequisitos		    := DDT.DriverByName(nomeDriver).Value('REQUISITOS');  
+CadFuncDPRiscosAtividade  := DDT.DriverByName(nomeDriver).Value('RISCOSATIVIDADE');
+CadFuncDPDesc			        := DDT.DriverByName(nomeDriver).Value('DESC');
+CadFuncDPFuncaoComissao	  := DDT.DriverByName(nomeDriver).Value('FUNCAOCOMISSAO'); 
+CadFuncDPAtivo			      := DDT.DriverByName(nomeDriver).Value('ATIVO');
 
+CadFuncDPAditivo          := DDT.DriverByName(nomeDriver).Value('ADITIVOS');
+
+CadIncDPIdFuncao          := DDT.DriverByName(nomeDriver).Value('IDFUNCAO'); 
+CadIncDPIdEvento          := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+
+CadParamDPInforme         := DDT.DriverByName(nomeDriver).Value('INFORME');
+CadParamDPRefencia        := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+CadParamDPPropBaseHoras   := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
+
+CadPPorMes                := DDT.DriverByName(nomeDriver).Value('PPORMES');
+
+CadPPorMesAno             := DDT.DriverByName(nomeDriver).Value('PPORMESANO');
 
 end;

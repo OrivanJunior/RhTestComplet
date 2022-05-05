@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="details" type="S" value="{BF121D28-06B9-4482-9E92-584B260FC097}"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="end time" type="D" value="44686.4028341667"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Altera Horário [Script\ExeCadHorariosGerais - AlterarHorario]"/>
+				<Prp name="start time" type="D" value="44686.4022775579"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="details" type="S" value="{11B13633-5A9A-429A-969F-C1490EDFD1A0}"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44686.4022772801"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Cadastra Horário [Script\ExeCadHorariosGerais - CadastrarHorario]"/>
+				<Prp name="start time" type="D" value="44686.4014065393"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="details" type="S" value="{6D5F86E9-FCAF-44C7-BC91-6EE901AEEF1E}"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="end time" type="D" value="44686.4030042824"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Exclui Horário [Script\ExeCadHorariosGerais - ExcluirHorario]"/>
+				<Prp name="start time" type="D" value="44686.4028343866"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

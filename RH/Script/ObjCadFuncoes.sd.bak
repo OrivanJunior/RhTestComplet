@@ -5,6 +5,59 @@
 uses VarConsts;
 
 {declarar variaveis OleVariant;}
+var 
+{Form}
+CadFuncForm,
+CadFuncPage,
+{Form de fixo função }
+CadFixoFPage,
+{Filtro funções}
+FiltroConsForm,  
+FiltroConsSelCons,
+FiltroConsOk,
+FiltroConsCancel,
+{Cadastro prof} 
+CadFuncEBIdFuncao,
+CadFuncEBDescricao,
+CadFuncEBIdCbo,
+CadFuncEBCbo,
+CadFuncEBIdCargo,
+CadFuncEBAnosApEsp,
+CadFuncEBOcSefip,
+CadFuncEBRequisitos,
+CadFuncEBRiscosAtividade,
+CadFuncEBDesc,
+CadFuncEBFuncaoComissao,
+CadFuncEBAtivo,
+
+CadFuncEBAditivos,
+{botões Fixo função - incluir}
+BtnIncFixo,
+BtnEdtFixo,
+BtnExcFixo,
+{botões Fixo função - incluir}
+CadFixoFuncForm,
+{Dados fixo por função}
+CadIncForm, BtnFixoSave,
+CadIncEBIDFuncao,
+CadIncEBIDEvento,
+{botões Fixo por função - por mes}
+BtnIncMes,
+BtnIncTodosMes,
+BtnSalvarMes,
+BtnExcMes,
+CadGridMes,
+{botõess Fixo por função - por mes ano}
+BtnIncMesAno,
+BtnExcMesAno,
+BtnIncMesAnos,
+BtnSalvarMesAno,
+CadGridMesAno,
+{Parametros}
+CadFormParam,                    
+CadParamEBInforme,      
+CadParamEBRefencia,     
+CadParamEBPropBaseHoras  : OleVariant;
 
 
 procedure MapCadFuncoes();
@@ -12,25 +65,27 @@ begin
 {Form}
 CadFuncForm             :=  Aliases.Folha.FRhFuncao;
 CadFuncPage             :=  Aliases.Folha.FRhFuncao.Page;
+{Form de fixo função }
+CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
   
 {Cadastro prof}
-CadFuncEBIdfuncao		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO;
+CadFuncEBIdFuncao		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO;
 CadFuncEBDescricao		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
-CadFuncEBIdcbo			    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCBO;
+CadFuncEBIdCbo			    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCBO;
 CadFuncEBCbo			      := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_CBO;
-CadFuncEBIdcargo		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCARGO;
-CadFuncEBAnosapesp		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ANOSAPESP;
-CadFuncEBOcsefip		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_OCSEFIP;
+CadFuncEBIdCargo		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCARGO;
+CadFuncEBAnosApEsp		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ANOSAPESP;
+CadFuncEBOcSefip		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_OCSEFIP;
 CadFuncEBRequisitos		  := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_REQUISITOS;
-CadFuncEBRiscosatividade:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_RISCOSATIVIDADE;
+CadFuncEBRiscosAtividade:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_RISCOSATIVIDADE;
 CadFuncEBDesc			      := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESC;
-CadFuncEBFuncaocomissao	:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_FUNCAOCOMISSAO;
+CadFuncEBFuncaoComissao	:= Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_FUNCAOCOMISSAO;
 CadFuncEBAtivo			    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ATIVO;
 end;
 
 procedure MapCadRelKitAdm();
 begin
-CadFuncEBAdit			      :=	Aliases.Folha.FRhFuncao.Page.tsRelatorios.ScrollBox2.whOutrosAditivos.TVsEditLookup;
+CadFuncEBAditivos			      :=	Aliases.Folha.FRhFuncao.Page.tsRelatorios.ScrollBox2.whOutrosAditivos.TVsEditLookup;
 end;
 
 
@@ -47,11 +102,13 @@ end;
 
 procedure MapCadFixoFunc();
 begin
+
 {Dados fixo por função}
 CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
 CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
-{Form de fixo função }
-CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
+
+CadIncForm              := Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
+BtnFixoSave             := Aliases.Folha.FRhFixoF.BSalvar;
 end;
 
 procedure MapCadPerPorMes();
@@ -73,3 +130,22 @@ BtnIncMesAnos  		      :=	Aliases.Folha.FRhFixoF.bIncMesAno;
 BtnSalvarMesAno  	      :=	Aliases.Folha.FRhFixoF.bPostMesAno;
 CadGridMesAno  		      :=	Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno; 
 end;
+
+procedure MapCadParametros();
+begin
+CadFormParam              := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_;
+
+CadParamEBInforme         := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME;
+CadParamEBRefencia        := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_REFERENCIA;
+CadParamEBPropBaseHoras   := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_PROPBASEHORAS;
+end;
+
+procedure MapCadFiltroFuncoes();
+begin
+FiltroConsForm        :=  Aliases.Folha.FFiltroConsultaCDS;
+FiltroConsSelCons     :=  Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroConsOk          :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+FiltroConsCancel      :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar
+end;
+
+

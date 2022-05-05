@@ -1,1 +1,204 @@
-﻿
+﻿uses CommonsAll, CommonsObj,VarConsts, DataPoolCadFuncoes,ObjCadFuncoes;
+
+procedure FiltrarFuncoes();
+begin
+MapCadFiltroFuncoes();
+
+FiltroConsSelCons.SetText('Consulta todas as Funções');
+FiltroConsOk.ClickButton();
+end;
+
+
+procedure PreencheCadProf();
+begin
+CadFuncPage.ActivePageIndex := 0;
+
+MapCadFuncoes();
+
+VerificaInsere(CadFuncEBIdfuncao,CadFuncDPIdfuncao);		
+VerificaInsere(CadFuncEBDescricao,CadFuncDPDescricao);
+VerificaConsultaF3Insere(_ModuloFolha,CadFuncEBIdcbo,CadFuncDPIdcbo);
+VerificaInsere(CadFuncEBCbo,CadFuncDPCbo);
+VerificaInsere(CadFuncEBIdcargo,CadFuncDPIdcargo);
+VerificaInsere(CadFuncEBAnosapesp,CadFuncDPAnosapesp);
+VerificaInsere(CadFuncEBOcsefip,CadFuncDPOcsefip);
+VerificaInsere(CadFuncEBRequisitos,CadFuncDPRequisitos);
+VerificaInsere(CadFuncEBRiscosatividade,CadFuncDPRiscosatividade);
+VerificaInsere(CadFuncEBDesc,CadFuncDPDesc);
+VerificaInsere(CadFuncEBFuncaocomissao,CadFuncDPFuncaocomissao);
+VerificaInsere(CadFuncEBAtivo,CadFuncDPAtivo);
+
+end;
+
+procedure PreencheKit();
+begin
+CadFuncPage.ActivePageIndex := 1;
+
+MapCadRelKitAdm();
+
+VerificaConsultaF3Insere(_ModuloFolha,CadFuncEBAditivos,CadFuncDPAditivo);
+end;
+
+procedure IncluirFixo();
+begin
+CadFuncPage.ActivePageIndex := 2;
+{Função, Evento}
+MapCadInclFixoFunc();
+BtnIncFixo.ClickButton();
+end;
+
+procedure PreencheNovoFixo();
+begin
+IncluirFixo();
+
+CadIncForm.ActivePageIndex := 0;
+MapCadFixoFunc();
+
+VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDFuncao,CadIncDPIDFuncao);
+VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDEvento,CadIncDPIDEvento);
+end;
+
+procedure PreenchePerPorMesAno();
+begin
+CadGridMesAno.ActivePageIndex := 1;
+
+MapCadPerPorMesAno();
+
+BtnIncMesAno.ClickButton();
+
+VerificaClickPreencheGrid(CadGridMesAno,0,'Mês',CadPPorMesAno);
+VerificaClickPreencheGrid(CadGridMesAno,0,'Ano',CadPPorMesAno);
+end;
+
+
+procedure PreencheParametros();
+begin
+  MapCadParametros();
+CadFormParam.ActivePageIndex := 2;
+
+VerificaInsere(CadParamEBInforme ,CadParamDPInforme);
+VerificaInsere(CadParamEBRefencia,CadParamDPRefencia);
+VerificaInsere(CadParamEBPropBaseHoras,CadParamDPPropBaseHoras);
+end;
+
+
+procedure PreenchePerPorMes();
+begin
+CadGridMes.ActivePageIndex := 0;
+
+MapCadPerPorMes();
+
+BtnIncMes.ClickButton();
+VerificaClickPreencheGrid(CadGridMes,0,'Mês',CadPPorMes);
+end;
+
+
+procedure CadastraFuncoes(pathData);
+var 
+DDTCadastrar : OleVariant;
+begin
+DDTCadastrar := CarregaDDT(pathData,_Cadastrar);
+
+AcessaItem(_ModuloFolha,'Cadastros Gerais','Empregados', 'Funções');
+
+FiltrarFuncoes();
+
+LeDataPoolCadFuncoes(DDTFuncoes.Name);
+
+MapGridConsulta(_ModuloFolha);
+
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncEBIdFuncao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadFuncoes();
+    
+    if (CadFuncForm.Exists) then
+
+    PreencheCadProf();
+    PreencheKit();
+    PreencheNovoFixo();
+    PreencheParametros();
+      
+    
+    
+    ActSalvar(CadFuncForm);
+    ActFechar(CadFuncForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure AlteraFuncoes(pathData);
+var
+DDTAlterar : OleVariant;
+begin
+  
+DDTAlterar := CarregaDDT(pathData,_Cadastrar);
+
+AcessaItem(_ModuloFolha,'Cadastros Gerais','Empregados', 'Funções');
+
+FiltrarFuncoes();
+
+LeDataPoolCadFuncoes(DDTFuncoes.Name);
+
+MapGridConsulta(_ModuloFolha);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+    ActConsulta(FormTelaConsultaForm);
+  
+    MapCadCategoria();
+    
+    if (CategoriaEBForm.Exists) then
+
+    PreencherCategoria();
+    
+    ActSalvar(CategoriaEBForm);
+    ActFechar(CategoriaEBForm);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTAlterar.Name);
+end;
+
+procedure ExcluirCategoria(pathData);
+Var
+DDTExcluir : OleVariant;
+begin
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Empregados','Categorias');
+
+FiltrarFuncoes();
+
+LeDataPoolCadFuncoes(DDTFuncoes.Name);
+
+MapGridConsulta(_ModuloFolha);
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEGORIA');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Categoria',CategoriaDPIDCateg);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+    ActExcluir(_ModuloFolha, 'FBRowseCds');
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;
+
+
+end;
+

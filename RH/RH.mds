@@ -657,7 +657,7 @@
 											<testItem name="Empregados" key="{3A4D798F-AAAD-4DFF-B6B5-048394B509B1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Horários" key="{7067016C-8724-48D1-9A79-F65D4D96ED9E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Horários" key="{7067016C-8724-48D1-9A79-F65D4D96ED9E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Horário" key="{90AEB4F1-B73A-419B-8C73-5C47A2ABDF3E}" group="False" parallel="False" enabled="True" testMoniker="{7722C619-B7D7-4A95-9491-AECB63B3C440}CadastrarHorario" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -753,6 +753,32 @@
 																<children />
 															</testItem>
 															<testItem name="Excluir Vínculos" key="{7169CE0B-0D1F-4D9B-82DA-4CEED5BFE981}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}ExcluirVinculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Funções" key="{ADD882FE-20D9-4B7E-863E-3CD3D6231804}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastrar Funções" key="{5614CD5A-36BE-43B9-BC17-6C18DEF6269B}" group="False" parallel="False" enabled="True" testMoniker="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}CadastraFuncoes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="0" value="" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Alterar&#32;&#32;Funções" key="{26CCD437-0802-4503-A019-2EFEF389219B}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}AlterarVinculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Excluir&#32;&#32;Funções" key="{50762B2B-F941-4524-A7AB-444F26C751E8}" group="False" parallel="False" enabled="True" testMoniker="{659CC977-BAEE-40B0-8347-5EB5E4EAEFC2}ExcluirVinculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Vínculos\CadVinculos.xls" />
 																</testParameters>
