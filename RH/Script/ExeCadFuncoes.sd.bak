@@ -43,9 +43,9 @@ procedure IncluirFixo();
 begin
 CadFuncPage.ActivePageIndex := 3;
 {Função, Evento}
+BtnFuncSalvar.Click();
 MapCadInclFixoFunc();
 BtnIncFixo.Click();
-Delay(5000);
 end;
 
 procedure PreencheNovoFixo();
@@ -78,11 +78,14 @@ end;
 procedure PreencheParametros();
 begin
 MapCadParametros();
-CadFormParam.ActivePageIndex := 2;
 
 VerificaInsere(CadParamEBInforme ,CadParamDPInforme);
 VerificaInsere(CadParamEBRefencia,CadParamDPRefencia);
 VerificaInsere(CadParamEBPropBaseHoras,CadParamDPPropBaseHoras);
+
+MapCadFixoFunc();
+BtnFixoSave.Click();
+BtnFixoSair.Click();
 end;
 
 
@@ -129,12 +132,11 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     PreencheNovoFixo();
     PreencheParametros();
     
-    MapCadFixoFunc();
-    
-    BtnFixoSave.ClickButton();
-    BtnFixoSair.ClickButton();
-    
-    ActSalvar(CadFuncForm);
+//    MapCadFixoFunc();
+//    
+//    BtnFixoSave.Click();
+//    BtnFixoSair.Click();
+
     ActFechar(CadFuncForm);
   end;
   ActFechar(FormTelaConsultaForm);

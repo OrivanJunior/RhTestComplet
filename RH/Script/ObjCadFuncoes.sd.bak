@@ -38,7 +38,7 @@ BtnExcFixo,
 {botões Fixo função - incluir}
 CadFixoFuncForm,
 {Dados fixo por função}
-CadIncForm, BtnFixoSave, BtnFixoSair,
+CadIncForm, BtnFixoSave, BtnFixoSair,CadIncFormFunc,
 CadIncEBIDFuncao,
 CadIncEBIDEvento,
 {botões Fixo por função - por mes}
@@ -106,13 +106,15 @@ procedure MapCadFixoFunc();
 begin
 
 {Dados fixo por função}
+CadIncForm              :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
+CadIncFormFunc          :=  Aliases.Folha.FRhFixoF;
+
 CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
 CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
 
-CadIncForm              :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
-
 BtnFixoSave             :=  Aliases.Folha.FRhFixoF.BSalvar;
 BtnFixoSair             :=  Aliases.Folha.FRhFixoF.BSair;
+
 end;
 
 procedure MapCadPerPorMes();
@@ -137,7 +139,7 @@ end;
 
 procedure MapCadParametros();
 begin
-CadFormParam              := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_;
+CadFormParam              := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams;
 
 CadParamEBInforme         := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME;
 CadParamEBRefencia        := Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_REFERENCIA;

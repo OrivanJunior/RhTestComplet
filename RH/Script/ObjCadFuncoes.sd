@@ -38,7 +38,7 @@ BtnExcFixo,
 {botões Fixo função - incluir}
 CadFixoFuncForm,
 {Dados fixo por função}
-CadIncForm, BtnFixoSave, BtnFixoSair,
+CadIncForm, BtnFixoSave, BtnFixoSair,CadIncFormFunc,
 CadIncEBIDFuncao,
 CadIncEBIDEvento,
 {botões Fixo por função - por mes}
@@ -106,13 +106,15 @@ procedure MapCadFixoFunc();
 begin
 
 {Dados fixo por função}
-CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
-CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
-
+CadIncFormFunc          :=  Aliases.Folha.FRhFixoF;
 CadIncForm              :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab;
 
 BtnFixoSave             :=  Aliases.Folha.FRhFixoF.BSalvar;
 BtnFixoSair             :=  Aliases.Folha.FRhFixoF.BSair;
+
+CadIncEBIDFuncao 		    :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDFUNCAO;
+CadIncEBIDEvento  		  :=  Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO;
+
 end;
 
 procedure MapCadPerPorMes();

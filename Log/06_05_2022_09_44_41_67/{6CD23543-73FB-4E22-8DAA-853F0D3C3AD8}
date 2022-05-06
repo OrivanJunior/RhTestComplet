@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row0">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="Cadastrar Funções [Script\ExeCadFuncoes - CadastraFuncoes]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value="{832606C3-2BB9-41F9-81DB-DF0108635DBF}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44687.4060317593"/>
+				<Prp name="end time" type="D" value="44687.4075159607"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{3ABC0F67-EB14-4074-8FFE-6B76A7304D46}"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="44687.4075163194"/>
+				<Prp name="name" type="S" value="Alterar  Funções [Script\ExeCadFuncoes - AlteraFuncoes]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="44687.4075507176"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="44687.4075507176"/>
+				<Prp name="name" type="S" value="The execution process was interrupted."/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="44687.4075507176"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

@@ -1091,10 +1091,10 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Configuração do Estabelecimento" key="{1DCC63ED-C672-4A0F-8FBA-77721CC5D0FA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Configuração do Estabelecimento" key="{1DCC63ED-C672-4A0F-8FBA-77721CC5D0FA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra Configuração de Estabelecimento" key="{1FDAFA03-2DFF-4BA2-811C-942A84854DDD}" group="False" parallel="False" enabled="True" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}CadastraConfigEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cadastra Configuração de Estabelecimento" key="{1FDAFA03-2DFF-4BA2-811C-942A84854DDD}" group="False" parallel="False" enabled="False" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}CadastraConfigEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\ConfigEstab.xls" />
 														</testParameters>
@@ -1495,7 +1495,7 @@
 									<testItem name="Processamento Adiantamento Salarial" key="{B7B2662D-38C2-4A16-B9F4-52DCC57D3100}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Executa Processamento Adiantamento Salarial" key="{0FCD3C6C-E3CC-457B-AF36-7C0FC40F2259}" group="False" parallel="False" enabled="True" testMoniker="{B12E42EE-1A81-4B24-8BC8-B856D27D830E}ExecutaProcAdiantamentoSalarial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Executa Processamento Adiantamento Salarial" key="{0FCD3C6C-E3CC-457B-AF36-7C0FC40F2259}" group="False" parallel="False" enabled="False" testMoniker="{B12E42EE-1A81-4B24-8BC8-B856D27D830E}ExecutaProcAdiantamentoSalarial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processamentos\Adiantamento Salarial\ProcessamentoAdiantamentoSalarial.xls" />
 												</testParameters>

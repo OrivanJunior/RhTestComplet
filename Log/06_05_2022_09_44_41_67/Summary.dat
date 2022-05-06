@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA4ADMAMgA2ADAANgBDADMALQAyAEIAQgA5AC0ANAAxAEYAOQAtADgAMQBEAEIALQBEAEYAMAAxADAAOAA2ADMANQBEAEIARgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="128235"/>
+						<Prp name="starttime" type="D" value="44687.4060317593"/>
+						<Prp name="name" type="S" value="Cadastrar Funções"/>
+						<Prp name="durationwithoutchildren" type="I" value="128235"/>
+					</Node>
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAzAEEAQgBDADAARgA2ADcALQBFAEIAMQA0AC0ANAAwADcANAAtADgARgBGAEUALQA2AEIANwA2AEEANwAzADAANABEADQANgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="2975"/>
+						<Prp name="starttime" type="D" value="44687.4075163194"/>
+						<Prp name="name" type="S" value="Alterar  Funções"/>
+						<Prp name="durationwithoutchildren" type="I" value="2975"/>
+					</Node>
+					<Node name="test2">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="status" type="I" value="3"/>
+						<Prp name="duration" type="I" value="0"/>
+						<Prp name="starttime" type="D" value="44687.40755125"/>
+						<Prp name="name" type="S" value="Excluir  Funções"/>
+						<Prp name="durationwithoutchildren" type="I" value="0"/>
+					</Node>
+				</Node>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="incompletedtests" type="I" value="1"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="duration" type="I" value="131210"/>
+				<Prp name="starttime" type="D" value="44687.4060317593"/>
+				<Prp name="name" type="S" value="RH"/>
+			</Node>
+		</Node>
+		<Prp name="stop" type="D" value="44687.4075586806"/>
+		<Prp name="key" type="S" value="{B7D914E3-865B-41C9-8A8C-4870B943DA93}"/>
+		<Prp name="tests" type="I" value="3"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="incompletedtests" type="I" value="1"/>
+		<Prp name="starttime" type="D" value="44687.4060309375"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="failedtests" type="I" value="1"/>
+	</Node>
+</Nodes>

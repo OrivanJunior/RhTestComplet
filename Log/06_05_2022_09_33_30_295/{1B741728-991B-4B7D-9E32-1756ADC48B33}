@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="item 50">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 47">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="247"/>
+		</Node>
+		<Node name="item 39">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="245"/>
+		</Node>
+		<Node name="item 18">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="message 21">
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="247"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.Cproc.ActiveView.ViewData&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="54"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;RowCount&quot; method or property of the &quot;FProcRapidaCds.Cproc.ActiveView.ViewData&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="51"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988412037"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 13">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="243"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="33"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Clear&quot; method or property of the &quot;FProcRapidaCds.PanProc.EProcurar&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="30"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988232292"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 56">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 54">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="item 53">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ANOSAPESP&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_ANOSAPESP'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988553356"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="23"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="224"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Função', 0) was clicked with the left mouse button."/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985705671"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="225"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[Up]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985716435"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 26">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="42"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Keys&quot; method or property of the &quot;FProcRapidaCds.PanProc.EProcurar&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="39"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988250116"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 12">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="248"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3989107292"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="31"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 52">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 48">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 46">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDCBO&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_IDCBO'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3986835069"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 37">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 31">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 27">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 20">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="85"/>
+		</Node>
+		<Node name="item 55">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="250"/>
+		</Node>
+		<Node name="message 27">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'n' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_ATIVO&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_ATIVO'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988662153"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="27"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 26">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="171"/>
+			<Prp name="message" type="S" value="The text 'Atividades relacionada a justiça' was entered in the text editor."/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESC&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_DESC'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.398864213"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="26"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'0' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_OCSEFIP&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_OCSEFIP'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988572569"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="24"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="168"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="38"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Enabled&quot; method or property of the &quot;FProcRapidaCds.PanProc.EProcurar&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="34"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988242361"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="81"/>
+		</Node>
+		<Node name="message 30">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988913773"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="30"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 51">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="247"/>
+		</Node>
+		<Node name="item 43">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="247"/>
+		</Node>
+		<Node name="item 32">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 40">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="247"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.Cproc.ActiveView&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="50"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ViewData&quot; method or property of the &quot;FProcRapidaCds.Cproc.ActiveView&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="47"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988404398"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 17">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 24">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 14">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 7">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 41">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 44">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="message 28">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.tsRelatorios.ScrollBox2.whOutrosAditivos.TVsEditLookup&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('tsRelatorios').VCLObject('ScrollBox2').VCLObject('whOutrosAditivos').Window('TVsEditLookup', 'Nenhum', 1))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988709491"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="28"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 29">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'300' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_IDFUNCAO'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3986786458"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 34">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="EscolheMetodoDeInsercao($40DCB7C8,'241005')"/>
+			<Prp name="line no" type="I" value="168"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="420"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Empregados'].Items.Item['Funções']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Empregados'].Items.Item['Funções'])"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.398470544"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="247"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.Cproc&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="46"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ActiveView&quot; method or property of the &quot;FProcRapidaCds.Cproc&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="43"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988395023"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 22">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="item 19">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="85"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.Cproc&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="24"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Window&quot; method or property of the &quot;FProcRapidaCds.Cproc&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="20"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988197106"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="message 29">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'8' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988904745"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="29"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="line no" type="I" value="80"/>
+			<Prp name="message" type="S" value="Unable to find the object FProcRapidaCds. See Details for additional information."/>
+			<Prp name="stack end" type="I" value="4"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988170255"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 45">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 30">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="243"/>
+		</Node>
+		<Node name="item 38">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 0" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+			<Prp name="unit 1" type="S" value="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}"/>
+			<Prp name="unit 2" type="S" value="{6943DB15-78FA-432B-BBDD-946A4302812D}"/>
+		</Node>
+		<Node name="item 16">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="item 10">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="82"/>
+		</Node>
+		<Node name="item 9">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 11">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="item 6">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="item 58">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 42">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="item 49">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'Advogado' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_DESCRICAO&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_DESCRICAO'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3986816898"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="81"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="9"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;PanProc&quot; method or property of the &quot;FProcRapidaCds&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="5"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988178935"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="250"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="58"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Close&quot; method or property of the &quot;FProcRapidaCds&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="55"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988418403"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 36">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="182"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'300' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985744792"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="message" type="S" value="The button was clicked with the left mouse button."/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK&#xA;(Sys.Process('Folha').VCLObject('FFiltroConsultaCDS').VCLObject('pnlBotao').VCLObject('bOK'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985353704"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 8">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="87"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="29"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;btPesquisar&quot; method or property of the &quot;FProcRapidaCds&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="25"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988202778"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 15">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="84"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="84"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="19"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Cproc&quot; method or property of the &quot;FProcRapidaCds&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="15"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988190972"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="82"/>
+			<Prp name="message" type="S" value="The object &quot;FProcRapidaCds.PanProc&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="14"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;EProcurar&quot; method or property of the &quot;FProcRapidaCds.PanProc&quot; object that does not exist."/>
+			<Prp name="stack beginning" type="I" value="10"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988185301"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+		</Node>
+		<Node name="item 57">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="80"/>
+		</Node>
+		<Node name="item 33">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraFuncoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Funções\CadFuncoes.xls')"/>
+			<Prp name="line no" type="I" value="129"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="183"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985762847"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 21">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="item 23">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="240"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="item 35">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="FazConsultaF3('Folha','241005')"/>
+			<Prp name="line no" type="I" value="244"/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'Viajar na maionese' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_RISCOSATIVIDADE&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('Page').VCLObject('TabNormal').VCLObject('ScrollBox1').VCLObject('EB_RISCOSATIVIDADE'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3988627546"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="25"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="226"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="date" type="D" value="44687.3985728241"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+		</Node>
+		<Node name="item 25">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="stacktext" type="S" value="MapConsultaF3('Folha')"/>
+			<Prp name="line no" type="I" value="87"/>
+		</Node>
+		<Node name="item 28">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadProf"/>
+			<Prp name="line no" type="I" value="19"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaConsultaF3Insere('Folha',$51941698,'241005')"/>
+			<Prp name="line no" type="I" value="509"/>
+		</Node>
+		<Node name="message 35">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="35"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'1' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="date" type="D" value="44687.400248588"/>
+		</Node>
+		<Node name="message 41">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="41"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFixoF.BSair&#xA;(Sys.Process('Folha').VCLObject('FRhFixoF').VCLObject('BSair'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="87"/>
+			<Prp name="date" type="D" value="44687.4005272222"/>
+		</Node>
+		<Node name="message 37">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="37"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="248"/>
+			<Prp name="date" type="D" value="44687.4002739931"/>
+		</Node>
+		<Node name="message 40">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="40"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (19, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFixoF.BSalvar&#xA;(Sys.Process('Folha').VCLObject('FRhFixoF').VCLObject('BSalvar'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="86"/>
+			<Prp name="date" type="D" value="44687.4005212963"/>
+		</Node>
+		<Node name="message 34">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="34"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO&#xA;(Sys.Process('Folha').VCLObject('FRhFixoF').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnlCab').VCLObject('EB_IDEVENTO'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="date" type="D" value="44687.4002267593"/>
+		</Node>
+		<Node name="message 38">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="38"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFixoF.Page.TabNormal.pnlCab.EB_IDEVENTO&#xA;(Sys.Process('Folha').VCLObject('FRhFixoF').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnlCab').VCLObject('EB_IDEVENTO'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="59"/>
+			<Prp name="date" type="D" value="44687.4002886458"/>
+		</Node>
+		<Node name="message 36">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="36"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="date" type="D" value="44687.4002493403"/>
+		</Node>
+		<Node name="message 39">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="39"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'00100' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFixoF.Page.TabNormal.pg.tsParams.TScrollBox_.EB_INFORME&#xA;(Sys.Process('Folha').VCLObject('FRhFixoF').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsParams').Window('TScrollBox', '', 1).VCLObject('EB_INFORME'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="date" type="D" value="44687.4002959375"/>
+		</Node>
+		<Node name="message 32">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="32"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (19, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.BSalvar&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('BSalvar'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="45"/>
+			<Prp name="date" type="D" value="44687.3995055787"/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="33"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (11, 11) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhFuncao.bIncFixo&#xA;(Sys.Process('Folha').VCLObject('FRhFuncao').VCLObject('bIncFixo'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="line no" type="I" value="47"/>
+			<Prp name="date" type="D" value="44687.4000461343"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>
