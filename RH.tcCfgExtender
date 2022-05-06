@@ -424,56 +424,6 @@
 					<Prp name="owner" type="S" value="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
-				<Node name="2">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="0"/>
-					<Prp name="line" type="I" value="91"/>
-					<Prp name="owner" type="S" value="{FBF0E36D-4965-43C8-B1BD-AA0F682E2A5A}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
-				<Node name="3">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="52"/>
-					<Prp name="owner" type="S" value="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
-				<Node name="4">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="55"/>
-					<Prp name="owner" type="S" value="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
-				<Node name="5">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="45"/>
-					<Prp name="owner" type="S" value="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
-				<Node name="6">
-					<Prp name="column" type="I" value="2147483647"/>
-					<Prp name="condition" type="S" value=""/>
-					<Prp name="description" type="S" value=""/>
-					<Prp name="enabled" type="B" value="-1"/>
-					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="46"/>
-					<Prp name="owner" type="S" value="{7CACE7AF-0326-4374-BCD3-EF234CAACCB5}"/>
-					<Prp name="pass count" type="I" value="0"/>
-				</Node>
 			</Node>
 			<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 				<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
@@ -5645,7 +5595,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="62"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="56"/>
 						</Node>
 						<Node name="10">
@@ -13854,13 +13804,10 @@
 						<Node name="script">
 							<Node name="commons"/>
 							<Node name="folha">
-								<Node name="cadastros específicos">
-									<Node name="configuração do estabelecimento"/>
-								</Node>
+								<Node name="cadastros específicos"/>
 								<Node name="cadastros gerais">
 									<Node name="empregados">
 										<Node name="funções"/>
-										<Node name="horários"/>
 									</Node>
 									<Node name="gerais"/>
 								</Node>

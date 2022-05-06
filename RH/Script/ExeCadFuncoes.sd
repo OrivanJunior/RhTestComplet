@@ -42,16 +42,30 @@ end;
 procedure IncluirFixo();
 begin
 CadFuncPage.ActivePageIndex := 3;
-{Função, Evento}
 BtnFuncSalvar.Click();
 MapCadInclFixoFunc();
 BtnIncFixo.Click();
 end;
 
+procedure AlteraFixo();
+begin
+CadFuncPage.ActivePageIndex := 3;
+BtnFuncSalvar.Click();
+MapCadInclFixoFunc();
+BtnEdtFixo.Click();
+end;
+
 procedure PreencheNovoFixo();
 begin
-IncluirFixo();
 
+CadFuncPage.ActivePageIndex := 3;
+MapCadInclFixoFunc();
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+AlteraFixo(); 
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+
+IncluirFixo();
 
 MapCadFixoFunc();
 
@@ -59,7 +73,22 @@ VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDFuncao,CadIncDPIDFuncao);
 VerificaConsultaF3Insere(_ModuloFolha,CadIncEBIDEvento,CadIncDPIDEvento);
 CadIncEBIDEvento.Keys('[Enter]');
 
+end;
 
+procedure ExcluiFixoFunc();
+begin
+CadFuncPage.ActivePageIndex := 3;
+
+MapCadInclFixoFunc();
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+begin
+BtnExcFixo.Click();
+end;
+
+TelasDeAdvertencias();
+
+if (Confirma.Exists)then
+BtnSim.Click();
 end;
 
 procedure PreenchePerPorMesAno();
@@ -85,7 +114,16 @@ VerificaInsere(CadParamEBPropBaseHoras,CadParamDPPropBaseHoras);
 
 MapCadFixoFunc();
 BtnFixoSave.Click();
+
+TelasDeAdvertencias();
+if (Atencao.exists)then
+BtnAdv.click();
+
 BtnFixoSair.Click();
+
+TelasDeAdvertencias();
+if (Confirma.exists) then
+BtnNao.CLick();
 end;
 
 
@@ -129,9 +167,8 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
 
     PreencheCadProf();
     PreencheKit();
-    PreencheNovoFixo();
-    PreencheParametros();
-
+    
+    ActSalvar(CadFuncform);
     ActFechar(CadFuncForm);
   end;
   ActFechar(FormTelaConsultaForm);
@@ -158,7 +195,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncDPIdFuncao);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
     ActConsulta(FormTelaConsultaForm);
   
@@ -166,10 +203,12 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     
     if (CadFuncForm.Exists) then
 
-    PreencherCategoria();
-    
-    ActSalvar(CategoriaEBForm);
-    ActFechar(CategoriaEBForm);
+    PreencheCadProf();
+    PreencheKit(); 
+       
+    ActSalvar(CadFuncform);
+    ActFechar(CadFuncForm);
+
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTAlterar.Name);
@@ -193,9 +232,9 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFuncao');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Função',CadFuncDPIdFuncao);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  
+    
     ActExcluir(_ModuloFolha, 'FBRowseCds');
   
   end;

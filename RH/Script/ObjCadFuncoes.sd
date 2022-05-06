@@ -7,7 +7,7 @@ uses VarConsts;
 {declarar variaveis OleVariant;}
 var 
 {Form}
-CadFuncForm,
+CadFuncForm, ToolBarbtns,
 CadFuncPage,
 {Form de fixo função }
 CadFixoFPage, BtnFuncSalvar,
@@ -57,7 +57,12 @@ CadGridMesAno,
 CadFormParam,                    
 CadParamEBInforme,      
 CadParamEBRefencia,     
-CadParamEBPropBaseHoras  : OleVariant;
+CadParamEBPropBaseHoras,
+
+Atencao, 
+BtnAdv,  
+Confirma,
+BtnNao, BtnSim   : OleVariant;
 
 
 procedure MapCadFuncoes();
@@ -65,8 +70,8 @@ begin
 {Form}
 CadFuncForm             :=  Aliases.Folha.FRhFuncao;
 CadFuncPage             :=  Aliases.Folha.FRhFuncao.Page;
-
 BtnFuncSalvar           :=  Aliases.Folha.FRhFuncao.BSalvar;
+
   
 {Cadastro prof}
 CadFuncEBIdFuncao		    := Aliases.Folha.FRhFuncao.Page.TabNormal.ScrollBox1.EB_IDFUNCAO;
@@ -92,8 +97,9 @@ end;
 procedure MapCadInclFixoFunc();
 begin
 {Form de fixo função }
-CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
+//CadFixoFPage            :=  Aliases.Folha.FRhFixoF.Page;
 {Form de fixo incl função grid}
+ToolBarbtns             := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.Dock972.Toolbar971;
 CadFixoFuncForm	        := Aliases.Folha.FRhFuncao.Page.tsFixoFuncao.ScrollBox3.gFixo.TcxGridSite;
 {botões Fixo função - incluir}
 BtnIncFixo		          := Aliases.Folha.FRhFuncao.bIncFixo;
@@ -154,4 +160,15 @@ FiltroConsOk          :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 FiltroConsCancel      :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar
 end;
 
+procedure TelasDeAdvertencias();
+begin
+{Atenção- não pode alterar dados}
+Atencao   :=  Aliases.Folha.dlgAten_o;
+BtnAdv    :=  Aliases.Folha.dlgAten_o.btnOK;
 
+{Confirmação - deseja salvar}
+Confirma  := Aliases.Folha.dlgFixoPorFun_o;
+BtnNao    := Aliases.Folha.dlgFixoPorFun_o.btnN_o;
+BtnSim    := Aliases.Folha.dlgFixoPorFun_o.btnSim;
+
+end;

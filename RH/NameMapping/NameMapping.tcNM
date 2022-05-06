@@ -57047,6 +57047,32 @@
 																	</Child>
 																</Children>
 															</Child>
+															<Child Name="Dock972" Key="{E1B31838-9943-4D5D-A1ED-0DCB93990947}">
+																<Image FileName="597541412" Left="12" Top="85" Right="39" Bottom="703" />
+																<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TDock97" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="Dock972" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="Toolbar971" Key="{81F692B8-E5FE-4138-9309-020FC0CB8569}">
+																		<Image FileName="597541412" Left="12" Top="85" Right="39" Bottom="176" />
+																		<TypeInfo Item0="{CFB0CCBA-ADCF-4213-97BB-355F00245AA9}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TToolbar97" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="Toolbar971" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
 														</Children>
 													</Child>
 												</Children>
@@ -57471,6 +57497,56 @@
 											</Property>
 											<Property Name="ObjectIdentifier">
 												<Value Value="BBrowse" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgFixoPorFun_o" Key="{E22C3C4B-2B2C-4D39-B98F-1680F57C4688}">
+								<Image FileName="1243640941" Left="0" Top="0" Right="368" Bottom="156" />
+								<TypeInfo Item0="{18C70387-3990-4B60-8735-6D6EBEDFBFBB}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Fixo por Função" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnN_o" Key="{3EF5081A-295E-4146-9DB3-995EFA1301C6}">
+										<Image FileName="1243640941" Left="191" Top="120" Right="266" Bottom="143" />
+										<TypeInfo Item0="{43F66098-40C2-4976-A6A4-E1000B3F421B}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Não" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="btnSim" Key="{671564FF-D034-46D0-AC64-7A8429D86C81}">
+										<Image FileName="1243640941" Left="108" Top="120" Right="183" Bottom="143" />
+										<TypeInfo Item0="{43F66098-40C2-4976-A6A4-E1000B3F421B}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Sim" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="btnCancelar" Key="{5E225985-1B4A-4551-B8CA-63F383F8A9D1}">
+										<Image FileName="1243640941" Left="275" Top="120" Right="350" Bottom="143" />
+										<TypeInfo Item0="{43F66098-40C2-4976-A6A4-E1000B3F421B}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Cancelar" />
 											</Property>
 										</Properties>
 									</Child>
@@ -79428,6 +79504,9 @@
 							<Child Name="gFixo" Owner="{AF4ED6B0-4AC3-4567-969F-08639FF2E7ED}">
 								<Child Name="TcxGridSite" Owner="{D5395A9A-A24D-4211-8F1F-41F98A3E4D58}" />
 							</Child>
+							<Child Name="Dock972" Owner="{E1B31838-9943-4D5D-A1ED-0DCB93990947}">
+								<Child Name="Toolbar971" Owner="{81F692B8-E5FE-4138-9309-020FC0CB8569}" />
+							</Child>
 						</Child>
 					</Child>
 				</Child>
@@ -79478,6 +79557,11 @@
 				<Child Name="BSalvar" Owner="{ED1D945E-3514-4EE5-BFFA-DDBC50F9BE3D}" />
 				<Child Name="BSair" Owner="{ABCCF8C1-F358-45C1-BC27-5978413580C8}" />
 				<Child Name="BBrowse" Owner="{19F62453-D485-4C89-98E6-6BE2A8D7D117}" />
+			</Child>
+			<Child Name="dlgFixoPorFun_o" Owner="{E22C3C4B-2B2C-4D39-B98F-1680F57C4688}">
+				<Child Name="btnN_o" Owner="{3EF5081A-295E-4146-9DB3-995EFA1301C6}" />
+				<Child Name="btnSim" Owner="{671564FF-D034-46D0-AC64-7A8429D86C81}" />
+				<Child Name="btnCancelar" Owner="{5E225985-1B4A-4551-B8CA-63F383F8A9D1}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

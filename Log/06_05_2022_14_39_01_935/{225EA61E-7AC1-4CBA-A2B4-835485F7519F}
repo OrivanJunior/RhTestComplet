@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="start time" type="D" value="44687.6110909607"/>
+				<Prp name="details" type="S" value="{93F36D3F-9D2C-430D-8A3C-6AB1B2F67747}"/>
+				<Prp name="end time" type="D" value="44687.6113348727"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Alterar  Funções [Script\ExeCadFuncoes - AlteraFuncoes]"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44687.6104635995"/>
+				<Prp name="details" type="S" value="{14378EDD-117C-49A4-8506-F85ADED96560}"/>
+				<Prp name="end time" type="D" value="44687.6110906829"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Cadastrar Funções [Script\ExeCadFuncoes - CadastraFuncoes]"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="start time" type="D" value="44687.6113351042"/>
+				<Prp name="details" type="S" value="{B9F64844-0AB8-4263-9D15-4A868CE20CBB}"/>
+				<Prp name="end time" type="D" value="44687.6115065741"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Excluir  Funções [Script\ExeCadFuncoes - ExcluirFuncoes]"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
