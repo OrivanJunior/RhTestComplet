@@ -177,7 +177,7 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Cadastros Gerais" key="{89CBD4AE-4616-492A-9017-B49935B2C527}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Cadastros Gerais" key="{89CBD4AE-4616-492A-9017-B49935B2C527}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Pessoas" key="{E9584058-B12D-400C-A4A5-369989FD8656}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -214,21 +214,21 @@
 											<testItem name="Sindicatos" key="{9FC80AA0-B416-40D4-ADBE-95A7085AA156}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Cadastra Sindicato" key="{81D5DA56-D7AF-4473-B44A-5E7AD92F0736}" group="False" parallel="False" enabled="True" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeCadastraSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Cadastra Sindicato" key="{81D5DA56-D7AF-4473-B44A-5E7AD92F0736}" group="False" parallel="False" enabled="False" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeCadastraSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Sindicatos\CadSindicatos.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Altera Sindicato" key="{83EFFC70-FC03-4E81-BE86-58EA239CA7FD}" group="False" parallel="False" enabled="True" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeAlteraSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Altera Sindicato" key="{83EFFC70-FC03-4E81-BE86-58EA239CA7FD}" group="False" parallel="False" enabled="False" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeAlteraSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Sindicatos\CadSindicatos.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Fixo Por Sindicato" key="{14E7E75E-C776-4B9A-A568-24F04A718F16}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Fixo Por Sindicato" key="{14E7E75E-C776-4B9A-A568-24F04A718F16}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Fixo Por Sindicato" key="{E18A6D94-F042-4519-94C6-75789F468390}" group="False" parallel="False" enabled="True" testMoniker="{DC01ACD2-CE62-4E46-A108-5D14DA078584}CadastraFixoPorSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -240,7 +240,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Exclui Sindicato" key="{B4287798-CE29-404D-9B47-C6CCD17195E1}" group="False" parallel="False" enabled="True" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeExcluirSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Exclui Sindicato" key="{B4287798-CE29-404D-9B47-C6CCD17195E1}" group="False" parallel="False" enabled="False" testMoniker="{99F2D577-7C0A-45B6-8E7A-05BC98FC28A3}ExeExcluirSindicato" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Sindicatos\CadSindicatos.xls" />
 														</testParameters>
@@ -794,7 +794,7 @@
 									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Admissão Preliminar" key="{2BA54E75-E278-4C72-BD4F-0255CA77F2C3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -852,7 +852,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Fixo Geral" key="{2A19CB3D-E493-4110-BC43-29A0C469C7C1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Fixo Geral" key="{2A19CB3D-E493-4110-BC43-29A0C469C7C1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Fixo Geral" key="{C3DF3FF8-918A-4FFE-9927-F4C6CDEE496E}" group="False" parallel="False" enabled="True" testMoniker="{C9E6F368-314A-4963-A1BD-D79BD8A215F0}CadastraFixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -878,7 +878,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Fixo Por Empregado" key="{DA50B508-BCDD-427E-B69B-F21D2B49F7F5}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Fixo Por Empregado" key="{DA50B508-BCDD-427E-B69B-F21D2B49F7F5}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Fixo Por Empregado" key="{9F6B5E89-C258-4927-9B47-21B34F8E67E2}" group="False" parallel="False" enabled="True" testMoniker="{FCF29B28-C086-49A9-90C3-7965A28AD7D6}CadastraFixoPorEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -904,7 +904,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Feriados" key="{21B0D656-A7E3-476F-AE1D-34569EBA22CE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Feriados" key="{21B0D656-A7E3-476F-AE1D-34569EBA22CE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Feriados" key="{4597088C-FAD8-472E-890C-51802D58E3E0}" group="False" parallel="False" enabled="True" testMoniker="{81904D01-7B1F-4724-8EE8-128C7299C333}CadastraFeriados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -930,27 +930,27 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="RPA" key="{312BAE1A-1D1F-4638-9AC7-5747BE62BB95}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="RPA" key="{312BAE1A-1D1F-4638-9AC7-5747BE62BB95}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="RPA" key="{1341FDC2-4945-4C56-9BB3-162F9B387392}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="RPA" key="{1341FDC2-4945-4C56-9BB3-162F9B387392}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastrar RPA" key="{A9E14B24-86C3-4349-9976-B66A5346E8F1}" group="False" parallel="False" enabled="True" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}CadastrarDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastrar RPA" key="{A9E14B24-86C3-4349-9976-B66A5346E8F1}" group="False" parallel="False" enabled="False" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}CadastrarDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\RPA\RPA\RPA.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Alterar RPA" key="{3382C4EE-D1DD-4E43-8C55-237579A0C0EC}" group="False" parallel="False" enabled="True" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}AlteraDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Alterar RPA" key="{3382C4EE-D1DD-4E43-8C55-237579A0C0EC}" group="False" parallel="False" enabled="False" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}AlteraDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\RPA\RPA\RPA.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Excluir RPA" key="{3044C2DA-D5C2-4EE6-B5CC-135867596E57}" group="False" parallel="False" enabled="True" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}DeletaDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Excluir RPA" key="{3044C2DA-D5C2-4EE6-B5CC-135867596E57}" group="False" parallel="False" enabled="False" testMoniker="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}DeletaDadosRPA" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\RPA\RPA\RPA.xls" />
 																</testParameters>
@@ -961,12 +961,64 @@
 													</testItem>
 												</children>
 											</testItem>
+											<testItem name="Config. do Estabelecimento" key="{33713D5F-AD8F-4EF6-88A1-752258AC76AD}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastrar Estabelecimento" key="{61B7C3D2-D1AA-4B3D-80DF-FA5E91AF89A5}" group="False" parallel="False" enabled="False" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}CadastraConfigEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\ConfigEstab.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Alterar Estabelecimento" key="{F1A1CE2F-6E81-4B2A-A011-D931E661D07E}" group="False" parallel="False" enabled="False" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}AlteraConfigEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\ConfigEstab.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Excluir Estabelecimento" key="{2DEC0723-BA2B-40A4-9DC7-281AF9B8C9E6}" group="False" parallel="False" enabled="False" testMoniker="{4318DEFF-CC9F-4C81-B650-D2439A3D0C96}ExcluirConfigEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Configuração do Estabelecimento\ConfigEstab.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Cheque" key="{27C79F6B-EB81-47DA-A1D7-806B0FC779B0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastrar Cheque" key="{2AE365F8-6D5C-4EB5-A94B-3C5F074D1B84}" group="False" parallel="False" enabled="False" testMoniker="{9A3628E8-AFDB-4C1D-A956-F8BCD41CF142}CadastraCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cheques\CadastroCheques.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Alterar Cheque" key="{4901E3AD-06D1-4C89-8248-ECE03AF29385}" group="False" parallel="False" enabled="False" testMoniker="{9A3628E8-AFDB-4C1D-A956-F8BCD41CF142}AlteraCheque" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cheques\CadastroCheques.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Excluir Cheque" key="{97982949-C9A2-48CD-9752-3A6DC4B18F59}" group="False" parallel="False" enabled="False" testMoniker="{9A3628E8-AFDB-4C1D-A956-F8BCD41CF142}ExcluirCheque" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cheques\CadastroCheques.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
 										</children>
 									</testItem>
 									<testItem name="Relatórios" key="{7C3AD300-1563-45DF-84B0-BEEA0D94A301}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="RPA" key="{B9A9C018-83D3-4F9A-A07C-F1E92FBAE4B6}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="RPA" key="{B9A9C018-83D3-4F9A-A07C-F1E92FBAE4B6}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Relatório de RPA" key="{2B247775-D87C-482A-8A9C-C82E8C2D3DD9}" group="False" parallel="False" enabled="True" testMoniker="{70FAD0FA-99A8-4EA3-BC67-FD13817CA227}ExecutaRelRpa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1232,7 +1284,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Cadastro de Controle" key="{5971FF79-0B49-41C2-A369-A665C9C49A48}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Cadastro de Controle" key="{5971FF79-0B49-41C2-A369-A665C9C49A48}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Cadastra Controle de Processamento" key="{0583C4F8-07DD-4F15-8340-C74D2322411E}" group="False" parallel="False" enabled="True" testMoniker="{D5690134-6434-4140-9F7C-7B9878CD1F38}CadastraControleProcessamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1251,7 +1303,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Controle Por Grupos" key="{1DC196E6-5FF2-4FCB-83C5-2077D9DF09C5}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Controle Por Grupos" key="{1DC196E6-5FF2-4FCB-83C5-2077D9DF09C5}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Controle por Grupos" key="{24169E33-C57F-4465-BCD6-3A3C6444CDD0}" group="False" parallel="False" enabled="True" testMoniker="{449A08CB-62E0-4CFC-974C-0CE477E44788}ExecutaCadControle" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1263,7 +1315,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Férias" key="{4007D290-E7C6-44C9-AC93-C78BB794203D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Férias" key="{4007D290-E7C6-44C9-AC93-C78BB794203D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento de Férias" key="{C2F960F9-871A-4CEE-8449-B1DE51B0BF81}" group="False" parallel="False" enabled="True" testMoniker="{F7886BF1-94A5-4309-BE73-8E4CB72B7F3B}ExecutaProcessamentoFerias" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1275,7 +1327,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Mensal" key="{1CF863CE-6020-44C1-B831-EF189A1DBEEA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Mensal" key="{1CF863CE-6020-44C1-B831-EF189A1DBEEA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento Mensal" key="{C02C661F-F835-432A-93C8-D9ECA84D9FA0}" group="False" parallel="False" enabled="True" testMoniker="{FF78CBD4-0DAF-4734-B253-2D843D58E82A}ExecutaProcessamentoMensal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1287,7 +1339,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="13° Salário - 1ª Parcela" key="{D73E7B06-163D-4FEF-B4DD-551CE44A5442}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="13° Salário - 1ª Parcela" key="{D73E7B06-163D-4FEF-B4DD-551CE44A5442}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento de 13° Salário - 1ª Parcela" key="{E4749EA4-6D47-4F56-B5B0-B63DD75ABBDA}" group="False" parallel="False" enabled="True" testMoniker="{1467E689-E8EF-442A-B2BC-1405DBFF2094}ExecutaProcessamento13PrimeiraParcela" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1299,7 +1351,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="13° Salário - 2ª Parcela" key="{B849C3D0-69A7-460C-B2E3-0E7B3B96FCFA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="13° Salário - 2ª Parcela" key="{B849C3D0-69A7-460C-B2E3-0E7B3B96FCFA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento de 13° Salário - 2ª Parcela" key="{79628AFC-A886-420E-8EDE-C928CE8B3B3C}" group="False" parallel="False" enabled="True" testMoniker="{B955003F-5379-47E1-BCF0-36903E4A8BF6}ExecutaProcessamento13SegundaParcela" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1311,7 +1363,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Rescisão" key="{08278CAC-040E-4C49-AC38-73988394D524}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Rescisão" key="{08278CAC-040E-4C49-AC38-73988394D524}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento de Rescisão" key="{D7947447-D805-454B-A067-3742098D8FFB}" group="False" parallel="False" enabled="True" testMoniker="{77F95664-2FE4-4A5E-AEB8-EDB4AE91F18F}ExecutaProcessamentoRescisao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1323,13 +1375,25 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Processamento Rápido" key="{E0D4058E-D173-4055-BDBE-F8B1EE7A3402}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Processamento Rápido" key="{E0D4058E-D173-4055-BDBE-F8B1EE7A3402}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Processamento Rápido" key="{6BD0DAB9-A622-41B5-A84C-88529B3FBC6E}" group="False" parallel="False" enabled="True" testMoniker="{B4B1C9FC-F923-4C46-80C6-8A5EA3F25838}ExecutaProcRapido" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+											<testItem name="Processamento Rápido" key="{6BD0DAB9-A622-41B5-A84C-88529B3FBC6E}" group="False" parallel="False" enabled="False" testMoniker="{B4B1C9FC-F923-4C46-80C6-8A5EA3F25838}ExecutaProcRapido" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Processamentos\Processamento Rápido\ProcRapido.xls" />
 													<param1 name="tab" type="3" localVarName="" varType="8" value="Geal" />
+												</testParameters>
+												<environments activeCloud="CBT" />
+												<children />
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Adiantamento Salarial" key="{22116710-8D1B-4B2B-9491-A6A6FA55B7B4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="Adiantantamento Salarial" key="{E895E0D6-A8C8-4E78-B0FC-AD6CBB75DDE4}" group="False" parallel="False" enabled="False" testMoniker="{B12E42EE-1A81-4B24-8BC8-B856D27D830E}ExecutaProcAdiantamentoSalarial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters>
+													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processamentos\Adiantamento Salarial\ProcessamentoAdiantamentoSalarial.xls" />
 												</testParameters>
 												<environments activeCloud="CBT" />
 												<children />
@@ -2522,6 +2586,11 @@
 						</children>
 					</testItem>
 				</children>
+			</testItem>
+			<testItem name="ProjectTestItem1" key="{DCB274D5-6875-4841-B231-E5EC31DC467D}" group="False" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<environments activeCloud="CBT" />
+				<children />
 			</testItem>
 		</children>
 	</testItems>

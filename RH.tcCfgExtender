@@ -13488,13 +13488,19 @@
 			<Node name="{fc9c0755-2819-4b25-8964-06a87b81e1ad}">
 				<Node name="rh">
 					<Node name="rh">
-						<Node name="script"/>
-						<Node name="stores">
-							<Node name="dbtables"/>
+						<Node name="script">
+							<Node name="folha">
+								<Node name="cadastros específicos"/>
+								<Node name="cadastros gerais"/>
+								<Node name="processamentos">
+									<Node name="adiantamento salarial"/>
+								</Node>
+							</Node>
 						</Node>
 						<Node name="testedapps"/>
 					</Node>
 				</Node>
+				<Node name="rh logs"/>
 			</Node>
 		</Node>
 		<Prp name="signature" type="S" value="{8EBE6EB3-803D-4913-AD7A-D71552123A67}"/>

@@ -173,6 +173,8 @@ begin
   ActExecutar(FormProcCalcAdiantamento);
   
   BtnSalvarCalc.Click();
+  
+  {Caixa de dialogo salvar e fechar}
     
   if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then
   begin

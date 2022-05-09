@@ -152,6 +152,7 @@ begin
   DDT.CloseDriver(DDTMovimento.Name);
 end;
 
+
 procedure ExecutaProcAdiantamentoSalarial(pathData);
 var
   TelaConfirma, BtnOk;
