@@ -789,7 +789,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Profissionais" key="{BE2F92F1-E19B-48C8-90DF-B2C2EBE214D4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Profissionais" key="{BE2F92F1-E19B-48C8-90DF-B2C2EBE214D4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Profissionais" key="{0E4349B5-69F6-4AF3-AADE-E2F6649B4573}" group="False" parallel="False" enabled="False" testMoniker="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}CadastraProfissionais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -809,6 +809,32 @@
 													<testItem name="Exclui Profissionais" key="{713D2BD0-9D34-40E9-8C51-88082B8B5C00}" group="False" parallel="False" enabled="False" testMoniker="{B4BFD631-AFB3-463F-8E6C-D0AD5B0F4722}ExcluirProfissionais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Profissionais\CadProfissionais.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Níveis" key="{EB6F0B8C-6258-4834-AADB-C53EB61746E2}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Níveis" key="{51CF6834-ECAA-4515-BD1B-4EFD0BA60D2F}" group="False" parallel="False" enabled="False" testMoniker="{55610BC6-72A0-4793-BDE2-063F7F9C7CE0}CadastraNiveis" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Níveis\CadNiveis.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Altera Níveis" key="{F7551BDD-B9B6-45BD-9097-5C7C3FE7E2A0}" group="False" parallel="False" enabled="False" testMoniker="{55610BC6-72A0-4793-BDE2-063F7F9C7CE0}AlteraNiveis" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Níveis\CadNiveis.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Níveis" key="{A094552E-7BC9-4BBB-9AE6-F9028437E35B}" group="False" parallel="False" enabled="False" testMoniker="{55610BC6-72A0-4793-BDE2-063F7F9C7CE0}ExcluirNiveis" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Níveis\CadNiveis.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
