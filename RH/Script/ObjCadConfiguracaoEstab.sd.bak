@@ -3,10 +3,11 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
 var
-EstabFormPage,
+EstabFormPage, EstabFormCad,
+PnlErro, Pnlbtnerro, Incluir, Formgrid,
 
 {Dados do estabelecimento}
-CadConfigEstabelecimentoForm,
+CadConfigEstabelecimentoForm,  CadConfigEstabelecimentoEBConfOcepar,
 CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoEBIncra,
 CadConfigEstabelecimentoEBCpf,CadConfigEstabelecimentoEBIdPesResp,
 CadConfigEstabelecimentoEBCargo,CadConfigEstabelecimentoEBPisResp,CadConfigEstabelecimentoEBEmail,CadConfigEstabelecimentoEBIdConfigMail,
@@ -92,6 +93,8 @@ CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
 CadConfigEstabelecimentoEBNroProp    	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
 CadConfigEstabelecimentoEBConfNela   	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+CadConfigEstabelecimentoEBConfOcepar    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_ESTABPRAOCEPAR
+
 end;
 
 procedure MapCadConfigDeCalculo();
@@ -132,7 +135,7 @@ end;
 procedure MapCadConfigAdiantamento();
 begin
 {ConfigAdiantamento}
-CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS.Click('Não Calcula');
+CadConfigEstabelecimentoEBCalcPropFerias  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPFERIAS.Click();
 CadConfigEstabelecimentoEBPaEntrouAte  		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAENTROUATE.SetFocus;
 CadConfigEstabelecimentoEBPaVoltouAte 		    :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_PAVOLTOUATE;
 CadConfigEstabelecimentoEBCalcPropAfasta  	  :=	Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1.grp1.EB_CALCPROPAFASTA.Click();
@@ -146,6 +149,7 @@ procedure MapFormEstab();
 begin
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 EstabFormPage                           := Aliases.Folha.FRhFilial.Page;
+EstabFormCad                            := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2;
 EstabFormCalc                           := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1;
 end;
 
@@ -291,4 +295,24 @@ CadConfigEstabelecimentoEBLempterafast 	:=Aliases.Folha.FRhFilial.Page.tsPendenc
 CadConfigEstabelecimentoEBDlempterafast	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_DLEMPTERAFAST;
 CadConfigEstabelecimentoEBLempferiasmes	:=Aliases.Folha.FRhFilial.Page.tsPendencias.Panel4.pnListPendFolha.EB_LEMPFERIASMES;
 
+end;
+
+procedure PnlAlertaErro();
+begin
+PnlErro     := Aliases.Folha.FVsErrorDlg;
+Pnlbtnerro  := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+end;
+
+procedure Inclui();
+begin
+Formgrid  := Aliases.Folha.FBRowseCds;
+Incluir   := Aliases.Folha.FBRowseCds.BIncluir;
+end;
+
+procedure IncluiItemProvisorio();
+begin
+    Inclui(); 
+    Incluir.Click(); 
+    PnlAlertaErro();
+    PnlbtnErro.Click();
 end;

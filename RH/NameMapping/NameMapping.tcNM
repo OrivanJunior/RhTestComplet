@@ -14575,6 +14575,17 @@
 																		<Value Value="gEmpregado" />
 																	</Property>
 																</Properties>
+																<Children>
+																	<Child Name="TcxGridSite_" Key="{26B41F34-EE67-4698-8DB0-EBC2D48873FF}">
+																		<Image FileName="-1534275912" Left="42" Top="193" Right="1585" Bottom="701" />
+																		<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																		<Properties>
+																			<Property Name="WndClass">
+																				<Value Value="TcxGridSite" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
 															</Child>
 														</Children>
 													</Child>
@@ -75097,7 +75108,9 @@
 				<Child Name="pg" Owner="{47BC3A23-4B3B-468E-B6C5-321E20FF6284}">
 					<Child Name="tsEmpregados" Owner="{B94D0402-DC49-4014-84E8-A064E7A1CFBB}">
 						<Child Name="grp1" Owner="{4DAC9873-0F75-4757-B7B6-8A97FD08D5EB}">
-							<Child Name="gEmpregado" Owner="{BF90EC2B-A608-4332-B283-2D50FFEECD81}" />
+							<Child Name="gEmpregado" Owner="{BF90EC2B-A608-4332-B283-2D50FFEECD81}">
+								<Child Name="TcxGridSite_" Owner="{26B41F34-EE67-4698-8DB0-EBC2D48873FF}" />
+							</Child>
 						</Child>
 					</Child>
 				</Child>

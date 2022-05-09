@@ -3,10 +3,10 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 26/04/2022}
 var
-EstabFormPage,
+EstabFormPage, EstabFormCad,
 
 {Dados do estabelecimento}
-CadConfigEstabelecimentoForm,
+CadConfigEstabelecimentoForm,  CadConfigEstabelecimentoEBConfOcepar,
 CadConfigEstabelecimentoEBCei,CadConfigEstabelecimentoEBIncra,
 CadConfigEstabelecimentoEBCpf,CadConfigEstabelecimentoEBIdPesResp,
 CadConfigEstabelecimentoEBCargo,CadConfigEstabelecimentoEBPisResp,CadConfigEstabelecimentoEBEmail,CadConfigEstabelecimentoEBIdConfigMail,
@@ -92,6 +92,8 @@ CadConfigEstabelecimentoEBIdCatEmp  	  := Aliases.Folha.FRhFilial.Page.TabNormal
 CadConfigEstabelecimentoEBVlrMiniRrf 	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_VLRMINIRRF;  
 CadConfigEstabelecimentoEBNroProp    	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_NROPROP;
 CadConfigEstabelecimentoEBConfNela   	  := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_CONFNELA;
+CadConfigEstabelecimentoEBConfOcepar    := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2.EB_ESTABPRAOCEPAR
+
 end;
 
 procedure MapCadConfigDeCalculo();
@@ -146,6 +148,7 @@ procedure MapFormEstab();
 begin
 CadConfigEstabelecimentoForm            := Aliases.Folha.FRhFilial;
 EstabFormPage                           := Aliases.Folha.FRhFilial.Page;
+EstabFormCad                            := Aliases.Folha.FRhFilial.Page.TabNormal.ScrollBox2;
 EstabFormCalc                           := Aliases.Folha.FRhFilial.Page.tsCalculos.ScrollBox1.GroupBox1;
 end;
 

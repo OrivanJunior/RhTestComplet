@@ -257,5 +257,7 @@ begin
       
     btnOk.Click();
   end;
+  FechaTelaESocial(_ModuloFolha);
+  
   ActFechar(FormProcRescisao);
 end;

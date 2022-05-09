@@ -109,24 +109,22 @@ begin
   DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
  
   leDataPoolDadosCadastrais(DDTCadastrar.Name);
-  
+ 
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFilial');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount <= 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
     ActConsulta(FormTelaConsultaForm);
-  
+
     MapFormEstab(); 
-       
-    PreencherCadastro();
-                                        
+    PreencherCadastro();                                    
     PreencherCalculo();
     
     ActSalvar(CadConfigEstabelecimentoForm);
     ActFechar(CadConfigEstabelecimentoForm);
-    end;
+  end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
@@ -189,9 +187,14 @@ begin
   begin
     ActConsulta(FormTelaConsultaForm);
     
+    MapFormEstab();
+    
     ActExcluir(_ModuloFolha, 'FRhFilial');
-  
-    MapFormEstab(); 
+    
+        if (Aliases.Ponto.dlgWarning.Exists) then
+      Aliases.Ponto.dlgWarning.Warning.CtrlNotifySink.btnYes.Click();
+        
+   ActFechar(CadConfigEstabelecimentoForm);
 
     end;
   ActFechar(FormTelaConsultaForm);
