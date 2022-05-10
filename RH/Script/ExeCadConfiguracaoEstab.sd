@@ -80,6 +80,7 @@ begin
   
   ConfigAdiantamento(DDTCalculo.Name);
   
+  Log.Checkpoint('Inserindo configurações para Adiantamento!');
   VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
   VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);
   VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte );
@@ -136,13 +137,13 @@ begin
  
   leDataPoolDadosCadastrais(DDTCadastrar.Name);
  
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+ { if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFilial');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-    ActConsulta(FormTelaConsultaForm);
+    ActConsulta(FormTelaConsultaForm);}
 
     MapFormEstab(); 
                                        
@@ -150,7 +151,7 @@ begin
     
     ActSalvar(CadConfigEstabelecimentoForm);
     ActFechar(CadConfigEstabelecimentoForm);
-  end;
+  //end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;

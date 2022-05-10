@@ -67,7 +67,34 @@ begin
   VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
 
-end;  
+end; 
+
+procedure PreencherConfigCalculo(pathData);
+var
+ DDTCalculo: OleVariant;
+begin
+  DDTCalculo := CarregaDDT(pathData,'Configurações de Cálculo');
+  MapCadConfigDeCalculo();
+
+  EstabFormPage.ActivePageIndex := 1;  
+  
+  ConfigAdiantamento(DDTCalculo.Name);
+  
+  Log.Checkpoint('Inserindo configurações para Adiantamento!');
+  VerificaInsere(CadConfigEstabelecimentoEBCalcPropFerias,CadConfigEstabelecimentoDPCalcPropFerias);
+  VerificaInsere(CadConfigEstabelecimentoEBPaEntrouAte,CadConfigEstabelecimentoDPPaEntrouAte);
+  VerificaInsere(CadConfigEstabelecimentoEBPaVoltouAte,CadConfigEstabelecimentoDPPaVoltouAte );
+  VerificaInsere(CadConfigEstabelecimentoEBCalcPropAfasta,CadConfigEstabelecimentoDPCalcPropAfasta);
+  VerificaInsere(CadConfigEstabelecimentoEBPropAdmis,CadConfigEstabelecimentoDPPropAdmis);
+  VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
+    
+end;
+
+
+
+
+
+
   
 procedure PreencheFgtsInss();
 begin
@@ -110,17 +137,17 @@ begin
  
   leDataPoolDadosCadastrais(DDTCadastrar.Name);
  
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+ { if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhFilial');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadConfigEstabelecimentoDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-    ActConsulta(FormTelaConsultaForm);
+    ActConsulta(FormTelaConsultaForm);}
 
     MapFormEstab(); 
-    PreencherCadastro();                                    
-    PreencherCalculo();
+                                       
+    PreencherConfigCalculo(pathData);
     
     ActSalvar(CadConfigEstabelecimentoForm);
     ActFechar(CadConfigEstabelecimentoForm);

@@ -41,7 +41,7 @@ begin
   VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
   VerificaInsere(ProcEBAberto, ProcDPAberto);
   
-  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
+{  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
   begin  
     PageProc.ActivePageIndex := 1;
     
@@ -50,7 +50,7 @@ begin
     VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
     VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
     VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
-  end;
+  end;}
   if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
     Aliases.Folha.FRhProcesso.BSalvarRap.Click();
   
@@ -167,7 +167,7 @@ begin
   
   PreencheEmpregadoProcAdiantamentoSalarial(pathData);  
   
-  PreencheMovimentoProcAdiantamentoSalarial(pathData);
+  //PreencheMovimentoProcAdiantamentoSalarial(pathData);
   
   Log.Checkpoint('Executando processamento mensal');
   

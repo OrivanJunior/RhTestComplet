@@ -5,10 +5,10 @@
  
 var
   { Datas }
-  MensalDPDataProc, MensalDPDataPgto,
+  AdiantamentoSalDPDataProc, AdiantamentoSalDPDataPgto,
   
   { Empregado }
-  MensalDPEmpregado,
+  AdiantamentoSalDPEmpregado,
   
   { Movimento }
   CadMovDPEstab, CadMovDPIdProc, CadMovDPData,
@@ -29,13 +29,16 @@ var
 
 procedure LoadDPDatas(nomeDriver);
 begin
-  MensalDPDataProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
-  MensalDPDataPgto := DDT.DriverByName(nomeDriver).Value('DATA PGTO');
+  //MensalDPDataProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
+  //MensalDPDataPgto := DDT.DriverByName(nomeDriver).Value('DATA PGTO');
+   AdiantamentoSalDPDataProc := DDT.DriverByName(nomeDriver).Value('DATA PROC');
+   AdiantamentoSalDPDataPgto := DDT.DriverByName(nomeDriver).Value('DATA PGTO');
 end;
 
 procedure LoadDPEmpregado(nomeDriver);
 begin
-  MensalDPEmpregado := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+ // MensalDPEmpregado := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+ AdiantamentoSalDPEmpregado := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
 end;
 
 procedure LoadDPMovimento(nomeDriver);

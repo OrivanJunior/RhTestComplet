@@ -74,9 +74,9 @@ begin
   ProcDPVlrArred        := DDT.DriverByName(nomeDriver).Value('VALORARRED');
   ProcDPAberto          := DDT.DriverByName(nomeDriver).Value('EMABERTO');
 
-  ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
+  {ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
   ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
   ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
   ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
-  ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');
+  ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');}
 end;
