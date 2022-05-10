@@ -14,7 +14,8 @@ begin
   log.Checkpoint('Filtro de empregados, sem parâmetros');
   FiltraEmpregado();
   
-  CadastraEmpregado(pathData);
+  PreencheDadosHistSituacoes(pathData);
+  //CadastraEmpregado(pathData);
 end;
 
 procedure ExecutaAltEmpregado(pathData);

@@ -610,7 +610,7 @@ procedure PreencheDadosHistSituacoes(pathData);
 var
   DDTHistSituacoes, i: OleVariant;
 begin
-  i := 0;
+  i := 5;
   
   PageDadosHistoricos.ActivePageIndex := 1;
   
@@ -629,26 +629,26 @@ begin
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Situação', DPSituacao);
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Causa', SituaDPCausa); 
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Atestado', SituaDPDiasAt); 
-    ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
+    //ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
   
     MapTelaInfosAdicionaisSitua();
     ActFechar(FormInfosAdicionais);
   
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Aviso', SituaDPDtAviso); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Aviso', SituaDPDtAviso); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
+//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
   
     SituaSaveBtn.Click();
     

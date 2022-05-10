@@ -1238,6 +1238,23 @@ begin
   end;
 end;
 
+procedure InsereEmpregado(pathData);
+begin
+  if (Aliases.Folha.FRhEmpregado.Exists) then
+  begin
+    MapFormGeral();
+        
+    log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
+    InsereDados(pathData);        
+      
+    SalvaEmpregado();
+        
+    log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
+    ActFechar(FormCadEmpregado);
+  end;
+end;
+
+
 procedure CadastraEmpregado(pathData);
 var
   DDTDadosGerais: OleVariant;
@@ -1262,18 +1279,7 @@ begin
     begin
       ActIncluir(FormTelaConsultaForm);
       
-      if (Aliases.Folha.FRhEmpregado.Exists) then
-      begin
-        MapFormGeral();
-        
-        log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-        InsereDados(pathData);        
-      
-        SalvaEmpregado();
-        
-        log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
-        ActFechar(FormCadEmpregado);
-      end;
+      InsereEmpregado(pathData);
     end;
     Delay(5000);
     

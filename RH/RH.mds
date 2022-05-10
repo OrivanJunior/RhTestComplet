@@ -846,10 +846,10 @@
 									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Admissão Preliminar" key="{2BA54E75-E278-4C72-BD4F-0255CA77F2C3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Admissão Preliminar" key="{2BA54E75-E278-4C72-BD4F-0255CA77F2C3}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Ativa Plugin" key="{06ED7A16-10BE-4B14-8C57-D782F88468BC}" group="False" parallel="False" enabled="True" testMoniker="{565F0D12-BA76-4F3C-8088-45A0B7C8ED58}ExecutaConfPlugins" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -876,17 +876,17 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Empregados" key="{0BE464E6-4BD6-48F9-813D-99EEDC433E31}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Empregados" key="{0BE464E6-4BD6-48F9-813D-99EEDC433E31}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Empregado" key="{E762B950-F186-4C0C-8D2A-9C0D931EA999}" group="False" parallel="False" enabled="True" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaCadEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Altera Empregado" key="{2637623E-046F-40EC-A5DE-25B556DEA9BD}" group="False" parallel="False" enabled="True" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaAltEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Altera Empregado" key="{2637623E-046F-40EC-A5DE-25B556DEA9BD}" group="False" parallel="False" enabled="False" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaAltEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
 																</testParameters>
