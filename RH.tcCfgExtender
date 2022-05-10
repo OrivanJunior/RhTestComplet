@@ -23,7 +23,11 @@
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
 				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -12224,7 +12228,7 @@
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="167"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="118"/>
 						</Node>
 						<Prp name="bottom" type="I" value="168"/>
@@ -13489,11 +13493,14 @@
 				<Node name="rh">
 					<Node name="rh">
 						<Node name="script">
+							<Node name="commons"/>
 							<Node name="folha">
-								<Node name="cadastros específicos"/>
+								<Node name="cadastros específicos">
+									<Node name="configuração do estabelecimento"/>
+								</Node>
 								<Node name="cadastros gerais"/>
 								<Node name="processamentos">
-									<Node name="adiantamento salarial"/>
+									<Node name="rescisão"/>
 								</Node>
 							</Node>
 						</Node>

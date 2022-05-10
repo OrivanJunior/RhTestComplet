@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error12">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+							</Node>
+							<Node name="error6">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+							</Node>
+							<Node name="error8">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+							</Node>
+							<Node name="error5">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+							</Node>
+							<Node name="error11">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.Cproc.ActiveView.ViewData&quot; does not exist."/>
+							</Node>
+							<Node name="error4">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.Cproc&quot; does not exist."/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.PanProc&quot; does not exist."/>
+							</Node>
+							<Node name="error9">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.Cproc&quot; does not exist."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="Unable to find the object FProcRapidaCds. See Details for additional information."/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds&quot; does not exist."/>
+							</Node>
+							<Node name="error10">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.Cproc.ActiveView&quot; does not exist."/>
+							</Node>
+							<Node name="error7">
+								<Prp name="msg" type="S" value="The object &quot;FProcRapidaCds.PanProc.EProcurar&quot; does not exist."/>
+							</Node>
+						</Node>
+						<Prp name="duration" type="I" value="98803"/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="name" type="S" value="Executa Processamento de Rescisão"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBFAEIARAAyADgAQgA2ADEALQA1AEIARAA1AC0ANAAwADAAMAAtAEEARgAxADgALQA4ADEAMQAxADIAQQA5ADEANwA3AEUANgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="98803"/>
+						<Prp name="starttime" type="D" value="44690.7217217245"/>
+					</Node>
+				</Node>
+				<Prp name="duration" type="I" value="98803"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="starttime" type="D" value="44690.7217217245"/>
+			</Node>
+		</Node>
+		<Prp name="stop" type="D" value="44690.7228668056"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="starttime" type="D" value="44690.7216991319"/>
+		<Prp name="key" type="S" value="{2530FC79-00D2-4A5C-822B-A1AC726C8B51}"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="tests" type="I" value="1"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+	</Node>
+</Nodes>
