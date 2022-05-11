@@ -1,5 +1,5 @@
 ﻿uses
-  VarConsts, FuncEmpregado, CommonsAll, DataPoolCadEmpregado;
+  VarConsts, FuncEmpregado, CommonsAll,VarConsts,CommonsObj, DataPoolCadEmpregado;
 
 {Script para executar o Cadastro de Empregados
  Módulo: Padrao
@@ -15,6 +15,7 @@ begin
   FiltraEmpregado();
   
   CadastraEmpregado(pathData);
+  
 end;
 
 procedure ExecutaAltEmpregado(pathData);
@@ -38,4 +39,6 @@ begin
   
   ExcluiEmpregados(pathData);
 end;
+
+
 

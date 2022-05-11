@@ -8,7 +8,7 @@
 {Script para executar o Processamento de Rescisao
  Módulo: Folha
  Autor: Camila Braatz da Rocha
- Data: 08/06/20201}
+ Data: 08/06/2021}
  
 procedure PreencheDatasProcRescisao(pathData);
 var
@@ -123,11 +123,17 @@ procedure PreencheHistSituacao(pathData);
 var 
   DDTSituacao: OleVariant;
 begin
+
+  DDTSituacao := CarregaDDT(pathData, 'Hist Situacao');
+
+ while not (DDTSituacao.EOF) do
+  begin
   BtnCadHistSit.Click();
-  
   MapFormHistSituacao();
   
-  DDTSituacao := CarregaDDT(pathData, 'Hist Situacao');
+
+//  DDTSituacao := CarregaDDT(pathData, 'Hist Situacao');
+   
   
   LoadDPHistSituacao(DDTSituacao.Name);
     
@@ -177,8 +183,9 @@ begin
   BtnSaveHistSitua.Click();
   
   FechaTelaESocial(_ModuloFolha);
-  
+  end;
   DDT.CloseDriver(DDTSituacao.Name);
+  
 end;
 
 procedure PreencheMovimentoProcRescisao(pathData);
