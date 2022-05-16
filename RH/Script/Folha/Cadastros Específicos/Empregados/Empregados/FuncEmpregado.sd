@@ -625,6 +625,7 @@ begin
     SituaIncBtn.Click();
   
     log.Checkpoint('Preenchendo Situações do Empregado');
+
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data', SituaDPData);
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Situação', DPSituacao);
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Causa', SituaDPCausa); 
@@ -635,20 +636,20 @@ begin
     ActFechar(FormInfosAdicionais);
   
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Aviso', SituaDPDtAviso); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
-    VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
+   //// VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
+   //VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
+   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
   
     SituaSaveBtn.Click();
     
@@ -1138,22 +1139,22 @@ begin
   MapPageDadosHist();
   
   log.Checkpoint('Preenchendo Dados Históricos do Empregado');
-  PreencheDadosHistFuncoes(pathData);
+  //PreencheDadosHistFuncoes(pathData);
   PreencheDadosHistSituacoes(pathData);
-  PreencheDadosHistLocais(pathData);
-  PreencheDadosHistSindicato(pathData);
-  PreencheDadosHistHorarios(pathData);
-  PreencheDadosHistSalarios(pathData);
-  PreencheDadosHistAvisoPrevio(pathData);
-  PreencheDadosHistAdvertencias(pathData);
-  PreencheDadosHistEstabilidade(pathData);
-  PreencheDadosHistSucessao(pathData);
-  PreencheDadosHistProcessos(pathData);
-  PreencheDadosHistCIPA(pathData);
-  PreencheDadosHistDocumentos();
-  PreencheDadosHistExpFinanceiro(pathData);
-  PreencheDadosHistObservacoes(pathData);
-  PreencheDadosHistExpContabil(pathData);
+  //PreencheDadosHistLocais(pathData);
+  //PreencheDadosHistSindicato(pathData);
+  //PreencheDadosHistHorarios(pathData);
+  //PreencheDadosHistSalarios(pathData);
+  //PreencheDadosHistAvisoPrevio(pathData);
+  //PreencheDadosHistAdvertencias(pathData);
+  //PreencheDadosHistEstabilidade(pathData);
+  //PreencheDadosHistSucessao(pathData);
+  //PreencheDadosHistProcessos(pathData);
+  //PreencheDadosHistCIPA(pathData);
+  //PreencheDadosHistDocumentos();
+  //PreencheDadosHistExpFinanceiro(pathData);
+  //PreencheDadosHistObservacoes(pathData);
+  //PreencheDadosHistExpContabil(pathData);
 end;
 
 procedure PreencheControleMatricula();
@@ -1245,8 +1246,9 @@ begin
     MapFormGeral();
         
     log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    InsereDados(pathData);        
-      
+    //InsereDados(pathData);  descomentar após os testes 16/05
+    PreencheDadosHistoricos(pathData);   //testes de 16/05
+     
     SalvaEmpregado();
         
     log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
@@ -1278,7 +1280,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
     ActConsulta(FormTelaConsultaForm);
-      ActIncluir(FormTelaConsultaForm);
+    //ActIncluir(FormTelaConsultaForm);
       
       InsereEmpregado(pathData);
     end;
