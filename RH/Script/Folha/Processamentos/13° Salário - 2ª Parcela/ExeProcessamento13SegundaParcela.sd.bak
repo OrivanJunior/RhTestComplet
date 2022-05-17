@@ -41,18 +41,19 @@ begin
   VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
   VerificaInsere(ProcEBAberto, ProcDPAberto);
   
-  PageProc.ActivePageIndex := 1;
-  
-  VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
-  VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
-  VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
-  VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
-  VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
-  
-  BtnSalvarProc.Click();
-  
-  if Aliases.Folha.FRhProcesso.Exists then
-    Aliases.Folha.FRhProcesso.BSairRap.Click();
+//  PageProc.ActivePageIndex := 1;
+//  
+//  VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+//  VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+//  VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+//  VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+//  VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+//  
+//  if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
+//    Aliases.Folha.FRhProcesso.BSalvarRap.Click();
+//  
+//  if Aliases.Folha.FRhProcesso.Exists then
+//    Aliases.Folha.FRhProcesso.BSairRap.Click();
   
   DDT.CloseDriver(DDTProcessamento.Name);
 end;

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBEADUANAA2ADMANwA1ADIALQA5ADEAMwBGAC0ANABEADcAMwAtAEIARgA3ADIALQA1AEIAMgA3ADAAQwAwAEUARAAxADMANgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="starttime" type="D" value="44698.6627912847"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="name" type="S" value="Executa Processamento de 13° Salário - 1ª Parcela"/>
+						<Prp name="durationwithoutchildren" type="I" value="56229"/>
+						<Prp name="duration" type="I" value="56229"/>
+					</Node>
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAyAEYANABFADkAQQBCAEYALQA0ADAARABDAC0ANAA3ADMANwAtADkAOQAyAEYALQA4ADUARQAwAEEANQA1AEQARAAwADgARAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="starttime" type="D" value="44698.6634424537"/>
+						<Prp name="durationwithoutchildren" type="I" value="124919"/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="duration" type="I" value="124919"/>
+						<Prp name="name" type="S" value="Executa Processamento de 13° Salário - 2ª Parcela"/>
+					</Node>
+				</Node>
+				<Prp name="starttime" type="D" value="44698.6627912847"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="failedtests" type="I" value="0"/>
+				<Prp name="duration" type="I" value="181148"/>
+				<Prp name="warningtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="key" type="S" value="{2A17CAD9-D7F2-477A-A129-69B128776613}"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="starttime" type="D" value="44698.6627765625"/>
+		<Prp name="executionstatus" type="I" value="0"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="failedtests" type="I" value="0"/>
+		<Prp name="stop" type="D" value="44698.664891331"/>
+		<Prp name="tests" type="I" value="2"/>
+	</Node>
+</Nodes>
