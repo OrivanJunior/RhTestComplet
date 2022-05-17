@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 12">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="233"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5003289699"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Cód. Pessoa', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="child data"/>
+		<Node name="message 50">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="50"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5020376389"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (1, 'Data Aviso', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 48">
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="id" type="I" value="48"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;style&gt;body {font-family : Segoe UI, Tahoma, Arial, Helvetica, sans-serif; font-size : 10pt; font-weight : normal; padding : 14px 8px 8px 14px; margin : 0 0 0 0;} p {margin : 4px 0 4px 0; padding : 0 0 0 0;} h4 {font-size: 10pt; font-weight : bold; margin : 12px 0 0 16px; padding : 0 0 0 0;} table {margin-left : 16px; border-top: 1px solid grey;} td {font-size : 10pt; font-weight : normal; padding-left : 8px;} &lt;/style&gt;&lt;style&gt;p, td, th{font-size: 10pt;} td, th {border-bottom: 1px solid #cdcdcd; padding: 2px 10px 2px 10px;} th {text-align: left; background: #cdcdcd; font-weight : normal;}  p {padding : 0; margin : 4 0 4 0px; line-height: 16pt;} table {border: 0px;}&lt;/style&gt;&lt;body&gt;&lt;p&gt;Unable to find the following object when executing the &lt;code&gt;ActFechar&lt;/code&gt; command:&lt;/p&gt;&lt;p style=&quot;margin-left: 10px;&quot;&gt;&lt;code&gt;Aliases.&amp;#8203;Folha.&amp;#8203;&lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FRhInfoAdicionais&quot; title=&quot;Missing object. Click to view and change its recognition settings.&quot;&gt;&lt;span style=&quot;color: red; font-weight: bold;&quot;&gt;FRhInfoAdicionais&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: #777;&quot;&gt;Tips&lt;/b&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 10px&quot;&gt;&lt;li&gt;On the &lt;a href=&quot;showpicture://pic&quot;&gt;Picture&lt;/a&gt; tab, check if the object existed during the test run.&lt;/li&gt;&lt;li&gt;View the search criteria for the object in the &lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FRhInfoAdicionais&quot;&gt;NameMapping editor&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;aqa-help://2201&quot;&gt;Learn more&lt;/a&gt; about possible causes of the error.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5020059375"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The object &quot;FRhInfoAdicionais&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="5"/>
+		</Node>
+		<Node name="item 9">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1265"/>
+			<Prp name="stacktext" type="S" value="InsereEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 56">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="56"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5020898032"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (2, 'Situação', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 38">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="38"/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_CODCID&#xA;(Sys.Process('Folha').VCLObject('FRhInfoAdicionais').VCLObject('pnPrinc').VCLObject('pg').VCLObject('tsPrincipal').VCLObject('ScrollBox2').VCLObject('EB_CODCID'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5017736921"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="630"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5012981713"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK&#xA;(Sys.Process('Folha').VCLObject('FFiltroConsultaCDS').VCLObject('pnlBotao').VCLObject('bOK'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="10"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.500188831"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The button was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 45">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="45"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.FProcRapidaCds&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="250"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018633333"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The 'Procura Rápida' window was closed."/>
+		</Node>
+		<Node name="message 54">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="54"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="626"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5020426852"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Preenchendo Situações do Empregado"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.bSituaInc&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('bSituaInc'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="624"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5012663426"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 44">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="44"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.501848206"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 8">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1158"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistoricos('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="remarks" type="S" value="'5163' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="182"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5002884722"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 36">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="36"/>
+			<Prp name="remarks" type="S" value="'19' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5016653704"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 34">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="34"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.501646331"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (1, 'Causa', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 53">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="53"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.bSituaInc&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('bSituaInc'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="624"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5020421875"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Específicos'].Items.Item['Empregados'].Items.Item['Empregados']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Específicos'].Items.Item['Empregados'].Items.Item['Empregados'])"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="420"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5001261227"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 40">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="40"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5017950116"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="226"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5002868518"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 37">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="37"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="636"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5016669792"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1265"/>
+			<Prp name="stacktext" type="S" value="InsereEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.501286794"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Data', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1263"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5006164931"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Cadastro de Empregados, com as informações obrigatórias"/>
+		</Node>
+		<Node name="item 14">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1265"/>
+			<Prp name="stacktext" type="S" value="InsereEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="183"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5002901505"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1300"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="33"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.dlgAten_o2.btnSim&#xA;(Sys.Process('Folha').Window('#32770', 'Atenção!', 1).Window('Button', '&amp;Sim', 1))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="633"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5016225116"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1158"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistoricos('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="31"/>
+			<Prp name="remarks" type="S" value="'4' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5016159259"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 15">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1300"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="item 12">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="636"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistSituacoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="item 13">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1158"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistoricos('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 41">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="41"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="248"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018084722"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="24"/>
+			<Prp name="remarks" type="S" value="Aliases.Folha.FRhEmpregado.bSituaSave"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="667"/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5015637731"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The action may be performed incorrectly, because the control is disabled."/>
+		</Node>
+		<Node name="message 60">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="60"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="636"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5022483912"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 21">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5014590394"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Dias Atestado', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="13"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="date" type="D" value="44698.5001848264"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Filtro de empregados, sem parâmetros"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5012969097"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Situação', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 55">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="55"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5020716898"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (2, 'Data', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1156"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5006296181"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Preenchendo Dados Históricos do Empregado"/>
+		</Node>
+		<Node name="message 27">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="27"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="626"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5015678472"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Preenchendo Situações do Empregado"/>
+		</Node>
+		<Node name="message 28">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="28"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5015927546"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (1, 'Data', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 58">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="58"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5022348843"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (2, 'Causa', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="25"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.bSituaSave&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('bSituaSave'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="667"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5015650926"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="23"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5015609606"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Data Aviso', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="636"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.501459838"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="224"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5002844329"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Cód. Pessoa', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="6"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5001849653"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Filtrando Empregado"/>
+		</Node>
+		<Node name="message 29">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="29"/>
+			<Prp name="remarks" type="S" value="'05/05/2022' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.501598507"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 1" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+			<Prp name="unit 0" type="S" value="{9A96D150-EC9C-40C1-88E0-291A622D2942}"/>
+			<Prp name="unit 2" type="S" value="{983DC6DC-E121-450B-AFDD-DDAB7A132680}"/>
+		</Node>
+		<Node name="message 26">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="26"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.bSituaInc&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('bSituaInc'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="624"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5015671875"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 61">
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="61"/>
+			<Prp name="remarks" type="S" value="Possible reasons:&#xA; - An error or warning occurred during the test run. See the preceding log entries to locate and identify the error.&#xA; - The test run was stopped manually.&#xA; - The test run was terminated as a result of the Runner.Halt method call."/>
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="636"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="stack beginning" type="I" value="12"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5023642824"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The script execution was interrupted."/>
+			<Prp name="stack end" type="I" value="16"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="remarks" type="S" value="'[Up]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="225"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5002855093"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 35">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="35"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5016637037"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (1, 'Dias Atestado', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="626"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5012670139"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Preenchendo Situações do Empregado"/>
+		</Node>
+		<Node name="message 52">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="52"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.bSituaSave&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('bSituaSave'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="667"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.502039537"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="item 10">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1300"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 39">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="39"/>
+			<Prp name="remarks" type="S" value="'x505' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5017941667"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 59">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="59"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5022474653"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (2, 'Dias Atestado', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5014411343"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Causa', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1285"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5001899884"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Filtrando Pessoa para Cadastro"/>
+		</Node>
+		<Node name="item 16">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="10"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="date" type="D" value="44698.5000973495"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Abrindo Formulário de Empregados"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="stacktext" type="S" value="ActFechar($4F69B148)"/>
+		</Node>
+		<Node name="item 7">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="649"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistSituacoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 43">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="43"/>
+			<Prp name="remarks" type="S" value="'2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018473264"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 46">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="46"/>
+			<Prp name="remarks" type="S" value="'0' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_TPACIDTRANSITO&#xA;(Sys.Process('Folha').VCLObject('FRhInfoAdicionais').VCLObject('pnPrinc').VCLObject('pg').VCLObject('tsPrincipal').VCLObject('ScrollBox2').VCLObject('EB_TPACIDTRANSITO'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018772917"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 51">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="51"/>
+			<Prp name="remarks" type="S" value="Aliases.Folha.FRhEmpregado.bSituaSave"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="667"/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5020383102"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The action may be performed incorrectly, because the control is disabled."/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas&#xA;(Sys.Process('Folha').VCLObject('FFiltroConsultaCDS').VCLObject('grpConsulta').VCLObject('cbListaConsultas'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5001870949"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 30">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="30"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5016149421"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (1, 'Situação', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 32">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="32"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="630"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5016179167"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="649"/>
+			<Prp name="stacktext" type="S" value="PreencheDadosHistSituacoes('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 49">
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="49"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Execute&quot; method or property of the &quot;FRhInfoAdicionais.ActFechar&quot; object that does not exist."/>
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="stack beginning" type="I" value="6"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5020092593"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The object &quot;FRhInfoAdicionais.ActFechar&quot; does not exist."/>
+			<Prp name="stack end" type="I" value="11"/>
+		</Node>
+		<Node name="item 11">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\EmpregadoTeste\EmpregadoCadTest.xls')"/>
+		</Node>
+		<Node name="message 47">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="47"/>
+			<Prp name="remarks" type="S" value="'N' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_INFOMESMOMTV&#xA;(Sys.Process('Folha').VCLObject('FRhInfoAdicionais').VCLObject('pnPrinc').VCLObject('pg').VCLObject('tsPrincipal').VCLObject('ScrollBox2').VCLObject('EB_INFOMESMOMTV'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018792245"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 42">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="42"/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhInfoAdicionais.pnPrinc.pg.tsPrincipal.ScrollBox2.EB_IDMEDICO&#xA;(Sys.Process('Folha').VCLObject('FRhInfoAdicionais').VCLObject('pnPrinc').VCLObject('pg').VCLObject('tsPrincipal').VCLObject('ScrollBox2').VCLObject('EB_IDMEDICO'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="date" type="D" value="44698.5018287269"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="item 6">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="stacktext" type="S" value="ActFechar($4F69B148)"/>
+		</Node>
+		<Node name="message 57">
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="57"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSituacoes.sbSituacoes.gSituacoes&#xA;(Sys.Process('Folha').VCLObject('FRhEmpregado').VCLObject('Page').VCLObject('TabNormal').VCLObject('pageCad').VCLObject('tsDadosHistoricos').VCLObject('pgDadosHistoricos').VCLObject('tsSituacoes').VCLObject('sbSituacoes').VCLObject('gSituacoes'))"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="630"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="date" type="D" value="44698.5020911574"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

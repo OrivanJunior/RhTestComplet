@@ -7414,6 +7414,17 @@
 																												<Value Value="TcxGridSite" />
 																											</Property>
 																										</Properties>
+																										<Children>
+																											<Child Name="TcxButtonEdit" Key="{B12AA33C-AE43-4838-82DB-3224EBF1EC4D}">
+																												<Image FileName="-2037456861" Left="979" Top="320" Right="1065" Bottom="336" />
+																												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																												<Properties>
+																													<Property Name="WndClass">
+																														<Value Value="TcxButtonEdit" />
+																													</Property>
+																												</Properties>
+																											</Child>
+																										</Children>
 																									</Child>
 																								</Children>
 																							</Child>
@@ -74320,7 +74331,9 @@
 									<Child Name="tsSituacoes" Owner="{AA2C0E53-AEA0-4C45-A376-E85ED9C0EE5C}">
 										<Child Name="sbSituacoes" Owner="{822DBABD-4206-4DCB-B9D3-00EF45773DF6}">
 											<Child Name="gSituacoes" Owner="{7F89A250-5FCD-481A-8560-1FE753E0271E}">
-												<Child Name="TcxGridSite_" Owner="{D7E6819D-AA2C-42C0-87E3-BB115A367316}" />
+												<Child Name="TcxGridSite_" Owner="{D7E6819D-AA2C-42C0-87E3-BB115A367316}">
+													<Child Name="TcxButtonEdit" Owner="{B12AA33C-AE43-4838-82DB-3224EBF1EC4D}" />
+												</Child>
 											</Child>
 										</Child>
 									</Child>

@@ -185,6 +185,9 @@ var
   { Mensagem Kit Admissional }
   TelaAtencao, BtnNo, BtnYes: OleVariant;
   
+  {btns aviso}
+  TelaAvisoBen, BtnSim, BtnNao: OleVariant;    
+  
 procedure MapFormGeral();
 begin
   FormCadEmpregado := Aliases.Folha.FRhEmpregado;
@@ -668,4 +671,11 @@ begin
   ExpCtbExcBtn  := Aliases.Folha.FRhEmpregado.btnDeleteExpCont;
 
   ExpCtbGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
+end;
+
+procedure MapTelaAviso();
+begin
+  TelaAvisoBen := Aliases.Folha.dlgAten_o2;
+  BtnSim       := Aliases.Folha.dlgAten_o2.btnSim;
+  BtnNao       := Aliases.Folha.dlgAten_o2.btnN_o;
 end;

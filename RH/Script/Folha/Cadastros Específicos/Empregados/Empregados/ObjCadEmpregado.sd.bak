@@ -185,6 +185,9 @@ var
   { Mensagem Kit Admissional }
   TelaAtencao, BtnNo, BtnYes: OleVariant;
   
+  {btns aviso}
+  TelaAvisoBen, BtnSim,BtnSim: OleVariant;    
+  
 procedure MapFormGeral();
 begin
   FormCadEmpregado := Aliases.Folha.FRhEmpregado;
@@ -670,7 +673,9 @@ begin
   ExpCtbGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
 end;
 
-procedure Test1;
+procedure MapTelaAviso();
 begin
-  OCR.Recognize(Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos).BlockByText('Situações').Click;
+  TelaAvisoBen := Aliases.Folha.dlgAten_o2;
+  BtnSim       := Aliases.Folha.dlgAten_o2.btnSim;
+  BtnSim       := Aliases.Folha.dlgAten_o2.btnN_o;
 end;

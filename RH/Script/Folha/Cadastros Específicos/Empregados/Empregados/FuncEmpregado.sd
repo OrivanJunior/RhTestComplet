@@ -628,11 +628,25 @@ begin
 
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data', SituaDPData);
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Situação', DPSituacao);
+    SituacoesGrid.Keys('[Enter]');
+    MapTelaAviso();
+    if (TelaAvisoBen.Exists) then
+    BtnSim.Keys('[Enter]');
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Causa', SituaDPCausa); 
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Atestado', SituaDPDiasAt); 
-    ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
+    SituacoesGrid.Keys('[Enter]');
+    //ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
   
     MapTelaInfosAdicionaisSitua();
+    
+    VerificaConsultaF3Insere(_ModuloFolha,InfAdcCodCID,InfAdcDPCodCID);
+    VerificaConsultaF3Insere(_ModuloFolha,InfAdcIdMedAt,InfAdcDPIdMedAt);
+    VerificaInsere(InfAdcNrCertObito,InfAdcDPNrCertObito);
+    VerificaInsere(InfAdcTpAcidTran,InfAdcDPTpAcidTran);
+    VerificaInsere(InfAdcInfoMesmoMtv,InfAdcDPInfoMesmoMtv);
+    
+    //incluir informações
+    ActSalvar(FormInfosAdicionais);
     ActFechar(FormInfosAdicionais);
   
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Aviso', SituaDPDtAviso); 
@@ -657,6 +671,8 @@ begin
     
     DDTHistSituacoes.Next;
   end;
+  ActSalvar(FormInfosAdicionais);
+  ActFechar(FormInfosAdicionais);
   DDT.CloseDriver(DDTHistSituacoes.Name);
 end;
 
@@ -1246,8 +1262,8 @@ begin
     MapFormGeral();
         
     log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    //InsereDados(pathData);  descomentar após os testes 16/05
-    PreencheDadosHistoricos(pathData);   //testes de 16/05
+    //InsereDados(pathData);  descomentar após os testes 17/05
+    PreencheDadosHistoricos(pathData);   //testes de 17/05
      
     SalvaEmpregado();
         
@@ -1385,56 +1401,6 @@ begin
     ActFechar(FormTelaConsultaForm);
      
     DDTDadosGerais.Next;  
-  end;
-  DDT.CloseDriver(DDTDadosGerais.Name);
-end;
-
-
-
-
-
-
-
-
-
-
-
-//Teste de execução apenas de Situações
-procedure CadSituacoes(pathData);
-var
-  DDTDadosGerais: OleVariant;
-begin
-  DDTDadosGerais := CarregaDDT(pathData, 'Gerais');
-  
-  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
-  FiltraEmpregado();
-
-  while (not (DDTDadosGerais.EOF)) do
-  begin
-    loadDPDadosGerais(DDTDadosGerais.Name);
-    
-    log.Checkpoint('Filtrando Pessoa para Cadastro');
-    MapGridConsulta(_ModuloFolha);
-    
-    Delay(5000);
-    
-    if (Aliases.Folha.FBRowseCds.BGrid.ActiveView.ViewData.RowCount = 1) then
-      ValidaFormAberto(_ModuloFolha, 'FRhEmpregado');
-      
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Pessoa', DadosGeraisDPIdPess);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    begin
-      ActConsulta(FormTelaConsultaForm);
-      
-      PreencheDadosHistSituacoes(pathData);      
-      
-    end;
-    Delay(5000);
-    
-    log.Checkpoint('Fechando Grid de Consulta de Empregados');
-    ActFechar(FormTelaConsultaForm);
-    
-    DDTDadosGerais.Next;
   end;
   DDT.CloseDriver(DDTDadosGerais.Name);
 end;
