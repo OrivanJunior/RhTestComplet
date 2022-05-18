@@ -671,7 +671,6 @@ begin
     
     DDTHistSituacoes.Next;
   end;
-  ActSalvar(FormInfosAdicionais);
   ActFechar(FormInfosAdicionais);
   DDT.CloseDriver(DDTHistSituacoes.Name);
 end;
@@ -1262,12 +1261,13 @@ begin
     MapFormGeral();
         
     log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    //InsereDados(pathData);  descomentar após os testes 17/05
-    PreencheDadosHistoricos(pathData);   //testes de 17/05
+    //InsereDados(pathData);  descomentar após os testes 18/05
+    PreencheDadosHistoricos(pathData);   //testes de 18/05
      
     SalvaEmpregado();
         
     log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
+    
     ActFechar(FormCadEmpregado);
   end;
 end;

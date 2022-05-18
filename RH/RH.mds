@@ -147,7 +147,7 @@
 					<testItem name="Folha" key="{E3C47C1D-4342-42CC-B76C-657F63435C26}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 						<testParameters />
 						<children>
-							<testItem name="Gerais" key="{65527D7F-A001-4B54-AFC0-3D03010560F7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+							<testItem name="Gerais" key="{65527D7F-A001-4B54-AFC0-3D03010560F7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
 									<testItem name="Inicia Folha" key="{76430837-2EB8-4B38-9D2A-8BE0712AAB4E}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1365,14 +1365,14 @@
 									<testItem name="Empregados" key="{EB5D52A0-F512-4590-BA4F-AA449D5926AA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Cadastra Empregado" key="{E86992AF-5B7A-41C8-B5B2-15DFD9555180}" group="False" parallel="False" enabled="True" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaCadEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Cadastra Empregado" key="{E86992AF-5B7A-41C8-B5B2-15DFD9555180}" group="False" parallel="False" enabled="False" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaCadEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
 												</testParameters>
 												<environments activeCloud="CBT" />
 												<children />
 											</testItem>
-											<testItem name="Altera Empregado" key="{802497B5-B0CE-485D-8F32-4076F1A9A87A}" group="False" parallel="False" enabled="True" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaAltEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Altera Empregado" key="{802497B5-B0CE-485D-8F32-4076F1A9A87A}" group="False" parallel="False" enabled="False" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaAltEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
 												</testParameters>
