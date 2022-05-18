@@ -40,7 +40,9 @@ begin
   PreencheDatas(ProcEBDtPagIRRF, ProcDPDtPagIRRF);
   VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
   VerificaInsere(ProcEBAberto, ProcDPAberto);
-  BtnSalvarProc.Click();
+  
+  if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
+    Aliases.Folha.FRhProcesso.BSalvarRap.Click();
   
   if Aliases.Folha.FRhProcesso.Exists then
     Aliases.Folha.FRhProcesso.BSairRap.Click();
