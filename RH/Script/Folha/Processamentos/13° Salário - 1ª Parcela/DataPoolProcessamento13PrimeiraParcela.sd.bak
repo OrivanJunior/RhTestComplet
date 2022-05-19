@@ -24,8 +24,7 @@ var
   { Form Processamento }
   ProcDPEstab, ProcDPIdProc, ProcDPDtCtrl, ProcDPDtPagIRRF,
   ProcDPVlrArred, ProcDPAberto, ESocialDPEvtRemun,
-  ESocialDPInfoPgtos, ESocialDPInfoComProd, ESocialDPEvtAqProd,
-  ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
+  ESocialDPInfoPgtos, ESocialDPContrataVnp, ESocialDPEvtInfoCompl, ESocialDPSitESocial: OleVariant;
 
 procedure LoadDPDatas(nomeDriver);
 begin
@@ -49,15 +48,15 @@ end;
 
 procedure LoadDPParamsMovimento(nomeDriver);
 begin
-  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALOR INFO');
+//  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALORINFO');
   CadMovParamsDPInforme      := DDT.DriverByName(nomeDriver).Value('INFORME');
-  CadMovParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
-  CadMovParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');
-  CadMovParamsDPProporcional := DDT.DriverByName(nomeDriver).Value('PROPORCIONAL');
-  CadMovParamsDPDiasUteis    := DDT.DriverByName(nomeDriver).Value('DIAS UTEIS');
-  CadMovParamsDPDiasFaltas   := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
-  CadMovParamsDPAvosInforme  := DDT.DriverByName(nomeDriver).Value('AVOS INFORME');
-  CadMovParamsDPAvosDireito  := DDT.DriverByName(nomeDriver).Value('AVOS DIREITO');
+//  CadMovParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
+//  CadMovParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');
+//  CadMovParamsDPProporcional := DDT.DriverByName(nomeDriver).Value('PROPORCIONAL');
+//  CadMovParamsDPDiasUteis    := DDT.DriverByName(nomeDriver).Value('DIAS UTEIS');
+//  CadMovParamsDPDiasFaltas   := DDT.DriverByName(nomeDriver).Value('DIAS FALTAS');
+//  CadMovParamsDPAvosInforme  := DDT.DriverByName(nomeDriver).Value('AVOS INFORME');
+//  CadMovParamsDPAvosDireito  := DDT.DriverByName(nomeDriver).Value('AVOS DIREITO');
   CadMovParamsDPReferencia   := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
   CadMovParamsDPBaseProp     := DDT.DriverByName(nomeDriver).Value('BASE PROP');
 end;
@@ -73,8 +72,8 @@ begin
 
   ESocialDPEvtRemun     := DDT.DriverByName(nomeDriver).Value('S1200');
   ESocialDPInfoPgtos    := DDT.DriverByName(nomeDriver).Value('S1210');
-  ESocialDPInfoComProd  := DDT.DriverByName(nomeDriver).Value('S1250');
-  ESocialDPEvtAqProd    := DDT.DriverByName(nomeDriver).Value('S1260');
+  
+  
   ESocialDPContrataVnp  := DDT.DriverByName(nomeDriver).Value('S1270');
   ESocialDPEvtInfoCompl := DDT.DriverByName(nomeDriver).Value('S1280');
   ESocialDPSitESocial   := DDT.DriverByName(nomeDriver).Value('SITUAPROC');

@@ -48,7 +48,7 @@ end;
 
 procedure LoadDPParamsMovimento(nomeDriver);
 begin
-  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALOR INFO');
+  CadMovParamsDPValorInfo    := DDT.DriverByName(nomeDriver).Value('VALORINFO');
   CadMovParamsDPInforme      := DDT.DriverByName(nomeDriver).Value('INFORME');
   CadMovParamsDPInforme2     := DDT.DriverByName(nomeDriver).Value('INFORME2');
   CadMovParamsDPValorTarefa  := DDT.DriverByName(nomeDriver).Value('VALOR TAREFA');

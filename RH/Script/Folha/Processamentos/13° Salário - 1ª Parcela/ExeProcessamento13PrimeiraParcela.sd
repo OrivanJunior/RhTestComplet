@@ -83,13 +83,14 @@ end;
 
 procedure PreencheMovimentoProc13PrimeiraParcela(pathData);
 var
-  DDTMovimento: OleVariant;
+  DDTMovimento, DDTParametro: OleVariant;
 begin
   PageProc13Pri.ActivePageIndex := 1;
   
   MapTabMovimentoProc13PrimeiraParcela();
   
   DDTMovimento := CarregaDDT(pathData, 'Movimento');
+//  DDTParametro := CarregaDDT(pathData, 'Parametros');
   
   while not (DDTMovimento.EOF) do
   begin
@@ -109,25 +110,27 @@ begin
   
     MapParamsMovimento();
     
-    LoadDPParamsMovimento(DDTMovimento.Name);
+    LoadDPParamsMovimento(DDTParametro.Name);
   
     Log.Checkpoint('Preenchendo parâmetros do movimento');
-    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
+//    VerificaInsere(ParamsEBValorInfo, CadMovParamsDPValorInfo);
     VerificaInsere(ParamsEBInforme, CadMovParamsDPInforme);
-    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
-    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
-    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
-    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
-    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
-    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
-    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
+//    VerificaInsere(ParamsEBValorTarefa, CadMovParamsDPValorTarefa);
+//    VerificaInsere(ParamsEBInforme2, CadMovParamsDPInforme2);
+//    VerificaInsere(ParamsEBProporcional, CadMovParamsDPProporcional);
+//    VerificaInsere(ParamsEBDiasUteis, CadMovParamsDPDiasUteis);
+//    VerificaInsere(ParamsEBDiasFaltas, CadMovParamsDPDiasFaltas);
+//    VerificaInsere(ParamsEBAvosInforme, CadMovParamsDPAvosInforme);
+//    VerificaInsere(ParamsEBAvosDireito, CadMovParamsDPAvosDireito);
     VerificaInsere(ParamsEBReferencia, CadMovParamsDPReferencia);
     VerificaInsere(ParamsEBBaseProp, CadMovParamsDPBaseProp);
   
     CadMovBtnSave.Click();
     DDTMovimento.Next;
+//    DDTParametro.Next;
   end;
   DDT.CloseDriver(DDTMovimento.Name);
+//  DDT.CloseDriver(DDTParametro.Name);
 end;
 
 procedure ExecutaProcessamento13PrimeiraParcela(pathData);
@@ -145,7 +148,7 @@ begin
   
   PreencheEmpregadoProc13PrimeiraParcela(pathData);  
   
-  PreencheMovimentoProc13PrimeiraParcela(pathData);
+//  PreencheMovimentoProc13PrimeiraParcela(pathData);
   
   Log.Checkpoint('Executando processamento de 13º - 1ª Parcela');
   
