@@ -334,6 +334,16 @@
 					<Prp name="owner" type="S" value="{983DC6DC-E121-450B-AFDD-DDAB7A132680}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
+				<Node name="1">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="45"/>
+					<Prp name="owner" type="S" value="{1294B115-3E7E-42DE-970D-6B4F02DC9019}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
 			</Node>
 			<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 				<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
@@ -1267,7 +1277,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{1294b115-3e7e-42de-970d-6b4f02dc9019}"/>
+					<Node name="{1294b115-3e7e-42de-970d-6b4f02dc9019}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="12"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="9"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="39"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="14"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="64"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="42"/>
+						</Node>
+						<Prp name="bottom" type="I" value="66"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{12d3ca8c-a407-47cf-ab22-e3454034bbad}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="13"/>
@@ -4492,7 +4521,7 @@
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="68"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="46"/>
 						</Node>
 						<Node name="4">
