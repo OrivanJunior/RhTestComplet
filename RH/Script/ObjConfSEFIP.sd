@@ -1,0 +1,49 @@
+﻿procedure Test1;
+begin
+  
+  Aliases.Folha.FRhRelConfSefip.whEstabs.Click(7, 12);
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs40.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs80.Click(17, 9);
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs50.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs100.Click(37, 9);
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs120.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs60.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs70.Click(22, 12);
+  
+
+  
+  Aliases.Folha.FRhRelConfSefip.whLocais.Click(56, 14);
+  Aliases.Folha.FRhRelConfSefip.whLocais.whLocais30.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whLocais.whLocais20.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whLocais.whLocais50.Click(37, 5);
+  Aliases.Folha.FRhRelConfSefip.whLocais.whLocais40.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whLocais.whLocais80.Click(22, 7);
+  
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.Click(42, 14);
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados30.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados20.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados50.Click(33, 12);
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados40.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados80.Click(26, 9);
+  
+
+  OCR.Recognize(Aliases.Folha.FRhRelConfSefip.whDatas.whDatas20).BlockByText('01/12/2022').Click;
+  OCR.Recognize(Aliases.Folha.FRhRelConfSefip.whDatas.whDatas30).BlockByText('31/12/2022').Click;
+  
+
+  Aliases.Folha.FRhRelConfSefip.whProcesso;
+  Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso30.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso20.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso50.Click(24, 9);
+  Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso40.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso80.Click(30, 12);
+  
+  Aliases.Folha.FRhRelConfSefip.whSituacao;
+  Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao30.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao20.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao50.Click(46, 10);
+  Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao40.ClickButton;
+  Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao80.Click(17, 15);
+
+  
+end;

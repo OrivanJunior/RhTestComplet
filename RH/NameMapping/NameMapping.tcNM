@@ -57574,6 +57574,593 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhRelConfSefip" Key="{88C8CE59-2770-49E8-96FD-08C87B7611A0}">
+								<Image FileName="-2113810556" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhRelConfSefip" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhRelConfSefip" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="whEstabs" Key="{CBD57847-DB3A-4E8F-A9D0-0993A755BEB9}">
+										<Image FileName="-2113810556" Left="0" Top="53" Right="1567" Bottom="156" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichEstabCds" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whEstabs" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whEstabs80" Key="{C2BB6F8C-F94B-41DB-81CA-C693A7693AFA}">
+												<Image FileName="-2113810556" Left="120" Top="75" Right="173" Bottom="94" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs80" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs100" Key="{A92518A4-36AD-499C-B056-EDA53F8E9DC8}">
+												<Image FileName="-1206399797" Left="120" Top="100" Right="173" Bottom="119" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs100" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs120" Key="{88FFE759-BED1-47D7-9B4E-BB49D16A0F50}">
+												<Image FileName="-1025769031" Left="8" Top="131" Right="113" Bottom="148" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs120" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs60" Key="{54332FF7-8C4D-4625-870C-409FFD66A500}">
+												<Image FileName="1170025220" Left="212" Top="131" Right="317" Bottom="148" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs60" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs40" Key="{1267647A-25C0-4682-A354-6BC3F2DA1D81}">
+												<Image FileName="1648436552" Left="8" Top="79" Right="89" Bottom="96" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs40" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs50" Key="{F947A0F6-9483-4860-9D65-9E50A594CB27}">
+												<Image FileName="-1664532384" Left="8" Top="105" Right="129" Bottom="122" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs50" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEstabs70" Key="{35C10BAA-D773-45FF-9F43-662C70E4875E}">
+												<Image FileName="797725130" Left="306" Top="125" Right="395" Bottom="146" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditB" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEstabs70" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whLocais" Key="{29601969-58F0-47E1-AF9C-CC435B7E5E44}">
+										<Image FileName="298098959" Left="0" Top="156" Right="1567" Bottom="253" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichRHLocal" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whLocais" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whLocais50" Key="{FB933312-95A7-44CC-AB0E-89E016E5B646}">
+												<Image FileName="298098959" Left="99" Top="200" Right="209" Bottom="221" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whLocais50" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whLocais80" Key="{B822E3CC-5778-4E9E-A262-29A4F438AF68}">
+												<Image FileName="-272874328" Left="99" Top="224" Right="188" Bottom="245" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditB" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whLocais80" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whLocais30" Key="{ECAE32EA-7264-4A24-BCBE-FD90DF71248E}">
+												<Image FileName="1174436537" Left="8" Top="180" Right="85" Bottom="197" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whLocais30" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whLocais20" Key="{99DC0523-5A84-4A86-BEA9-81EB489DF592}">
+												<Image FileName="-653412004" Left="8" Top="204" Right="85" Bottom="221" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whLocais20" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whLocais40" Key="{9CE3A09F-217F-4A15-A3CF-E5C2E5AD8D1B}">
+												<Image FileName="-570437352" Left="8" Top="228" Right="121" Bottom="245" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whLocais40" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whEmpregados" Key="{DE3A611E-EF64-4657-B729-980DDF2E20E6}">
+										<Image FileName="-1447507733" Left="0" Top="253" Right="1567" Bottom="350" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichRhEmpregado" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whEmpregados" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whEmpregados10" Key="{79DF5DDC-5746-4642-948C-04B0C97BBD67}">
+												<Image FileName="-1447507733" Left="0" Top="253" Right="10" Bottom="263" />
+												<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TShapeMinimizar" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados10" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEmpregados30" Key="{512345EB-4278-4EC0-A27B-0B92DDFEEBC7}">
+												<Image FileName="944537707" Left="8" Top="277" Right="85" Bottom="294" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados30" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEmpregados20" Key="{413C09C8-3533-4FE9-B442-B0D9FB0644D0}">
+												<Image FileName="-1012326353" Left="8" Top="301" Right="85" Bottom="318" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados20" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEmpregados50" Key="{E651872F-3624-4389-B054-C0EF1B1AE67F}">
+												<Image FileName="705685207" Left="99" Top="297" Right="209" Bottom="318" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados50" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEmpregados40" Key="{7E71D6C4-CB6C-46E6-9189-D2522FF320D9}">
+												<Image FileName="-1611593523" Left="8" Top="325" Right="121" Bottom="342" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados40" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whEmpregados80" Key="{A68223EC-B8BF-4329-8590-7002EA9E4276}">
+												<Image FileName="-827179705" Left="99" Top="321" Right="188" Bottom="342" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditB" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whEmpregados80" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whDatas" Key="{C0B3D5FC-E2B2-4C0D-B9AB-B07213BC4777}">
+										<Image FileName="929517556" Left="0" Top="350" Right="1567" Bottom="447" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichRHEntreData" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whDatas" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whDatas10" Key="{5C7DDCCC-4C82-42D0-8174-02DB7E8550BF}">
+												<Image FileName="312812549" Left="0" Top="350" Right="10" Bottom="360" />
+												<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TShapeMinimizar" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whDatas10" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whDatas20" Key="{D447568C-D022-4845-8170-76F0A333DEC9}">
+												<Image FileName="1727190564" Left="100" Top="370" Right="229" Bottom="391" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsDateRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whDatas20" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whDatas30" Key="{C0955F9E-C9C8-4900-82E7-59451F1BF88A}">
+												<Image FileName="1600240712" Left="100" Top="394" Right="229" Bottom="415" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsDateRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whDatas30" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whProcesso" Key="{2F9094E5-9154-4AF7-9F5B-5D005507259F}">
+										<Image FileName="-1344118550" Left="0" Top="447" Right="1567" Bottom="544" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichRHProcesso" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whProcesso" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whProcesso10" Key="{F353FFD7-10D4-44BD-BEDF-A3F76CECBE3F}">
+												<Image FileName="-732301749" Left="0" Top="447" Right="10" Bottom="457" />
+												<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TShapeMinimizar" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso10" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whProcesso30" Key="{05B7FBA4-9CD0-4720-9DE3-1E3A8C644B03}">
+												<Image FileName="881631256" Left="8" Top="471" Right="85" Bottom="488" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso30" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whProcesso20" Key="{15C38052-BC68-4B77-878B-267C1F54A361}">
+												<Image FileName="-1222634187" Left="8" Top="495" Right="85" Bottom="512" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso20" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whProcesso50" Key="{88B21352-8058-4A81-84D1-86F170EC620B}">
+												<Image FileName="-180527125" Left="99" Top="491" Right="209" Bottom="512" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso50" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whProcesso40" Key="{A0BE3C31-FCA9-4820-B6DD-94072B4E95D0}">
+												<Image FileName="486155320" Left="8" Top="519" Right="121" Bottom="536" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso40" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whProcesso80" Key="{28679277-BE30-4C6E-8ED6-1E094D1B470B}">
+												<Image FileName="9802410" Left="99" Top="515" Right="188" Bottom="536" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditB" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whProcesso80" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whSituacao" Key="{986FBD1D-4AA5-4B5E-8E8B-ABA807DF3015}">
+										<Image FileName="665696734" Left="0" Top="544" Right="1567" Bottom="641" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TWhichRHSituacao" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whSituacao" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whSituacao10" Key="{A36A0AFF-3DCA-4F79-99AF-4C0DFEF49568}">
+												<Image FileName="-1905903804" Left="0" Top="544" Right="10" Bottom="554" />
+												<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TShapeMinimizar" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao10" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whSituacao30" Key="{EA8ECDCA-7BA1-455E-91DB-EB46A7170C8A}">
+												<Image FileName="121496563" Left="8" Top="568" Right="85" Bottom="585" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao30" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whSituacao20" Key="{353119F8-76D0-434E-A665-353187FB5DE2}">
+												<Image FileName="1677534901" Left="8" Top="592" Right="85" Bottom="609" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao20" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whSituacao50" Key="{FA79261E-25E2-4A44-8BC9-AD682B385E4E}">
+												<Image FileName="-586947144" Left="99" Top="588" Right="209" Bottom="609" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao50" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whSituacao40" Key="{64846CB2-C45B-449F-8FAF-0EF95431D9B0}">
+												<Image FileName="-13294371" Left="8" Top="616" Right="121" Bottom="633" />
+												<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsRadioButton" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao40" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="whSituacao80" Key="{7224F669-5EAC-4FA1-8BD6-3AEF4A6A2353}">
+												<Image FileName="1381980436" Left="99" Top="612" Right="188" Bottom="633" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditB" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whSituacao80" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="whDados" Key="{AA1281E3-9583-4983-9F6C-06DB4F9838DB}">
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsGroupBox" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="whDados" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="whDados10" Key="{9746C100-6822-4E3C-BE75-6092168331C2}">
+												<Image FileName="1202078754" Left="0" Top="558" Right="10" Bottom="568" />
+												<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TShapeMinimizar" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="whDados10" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_Ordem" Key="{81CB3C84-5B6B-4407-8A4A-E7244BB60783}">
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsCombo" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_Ordem" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_AnalitGPS" Key="{DC545B23-85C3-44B2-A76B-0D8EF1252683}">
+												<Image FileName="1135773333" Left="157" Top="592" Right="302" Bottom="613" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsCombo" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_AnalitGPS" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_AnalitGPS13" Key="{9C9FB691-3EE0-45B2-8AEF-6CFA074BA705}">
+												<Image FileName="587651055" Left="157" Top="616" Right="302" Bottom="637" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsCombo" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_AnalitGPS13" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_AnalitFGTS" Key="{32054B0C-F9A6-416E-BC0A-9B06F0926BE7}">
+												<Image FileName="1246333826" Left="157" Top="640" Right="302" Bottom="661" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsCombo" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_AnalitFGTS" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_ListaPrest" Key="{3543E0B8-254B-4007-BE94-E08E95C4FAF0}">
+												<Image FileName="820552768" Left="157" Top="664" Right="302" Bottom="685" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsCombo" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_ListaPrest" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="BPreview" Key="{A888ADA7-E02A-493F-B137-C2620D839999}">
+										<Image FileName="500303717" Left="92" Top="25" Right="130" Bottom="51" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BPreview" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -79588,6 +80175,62 @@
 				<Child Name="btnN_o" Owner="{3EF5081A-295E-4146-9DB3-995EFA1301C6}" />
 				<Child Name="btnSim" Owner="{671564FF-D034-46D0-AC64-7A8429D86C81}" />
 				<Child Name="btnCancelar" Owner="{5E225985-1B4A-4551-B8CA-63F383F8A9D1}" />
+			</Child>
+			<Child Name="FRhRelConfSefip" Owner="{88C8CE59-2770-49E8-96FD-08C87B7611A0}">
+				<Child Name="whEstabs" Owner="{CBD57847-DB3A-4E8F-A9D0-0993A755BEB9}">
+					<Child Name="whEstabs80" Owner="{C2BB6F8C-F94B-41DB-81CA-C693A7693AFA}" />
+					<Child Name="whEstabs100" Owner="{A92518A4-36AD-499C-B056-EDA53F8E9DC8}" />
+					<Child Name="whEstabs120" Owner="{88FFE759-BED1-47D7-9B4E-BB49D16A0F50}" />
+					<Child Name="whEstabs60" Owner="{54332FF7-8C4D-4625-870C-409FFD66A500}" />
+					<Child Name="whEstabs40" Owner="{1267647A-25C0-4682-A354-6BC3F2DA1D81}" />
+					<Child Name="whEstabs50" Owner="{F947A0F6-9483-4860-9D65-9E50A594CB27}" />
+					<Child Name="whEstabs70" Owner="{35C10BAA-D773-45FF-9F43-662C70E4875E}" />
+				</Child>
+				<Child Name="whLocais" Owner="{29601969-58F0-47E1-AF9C-CC435B7E5E44}">
+					<Child Name="whLocais50" Owner="{FB933312-95A7-44CC-AB0E-89E016E5B646}" />
+					<Child Name="whLocais80" Owner="{B822E3CC-5778-4E9E-A262-29A4F438AF68}" />
+					<Child Name="whLocais30" Owner="{ECAE32EA-7264-4A24-BCBE-FD90DF71248E}" />
+					<Child Name="whLocais20" Owner="{99DC0523-5A84-4A86-BEA9-81EB489DF592}" />
+					<Child Name="whLocais40" Owner="{9CE3A09F-217F-4A15-A3CF-E5C2E5AD8D1B}" />
+				</Child>
+				<Child Name="whEmpregados" Owner="{DE3A611E-EF64-4657-B729-980DDF2E20E6}">
+					<Child Name="whEmpregados10" Owner="{79DF5DDC-5746-4642-948C-04B0C97BBD67}" />
+					<Child Name="whEmpregados30" Owner="{512345EB-4278-4EC0-A27B-0B92DDFEEBC7}" />
+					<Child Name="whEmpregados20" Owner="{413C09C8-3533-4FE9-B442-B0D9FB0644D0}" />
+					<Child Name="whEmpregados50" Owner="{E651872F-3624-4389-B054-C0EF1B1AE67F}" />
+					<Child Name="whEmpregados40" Owner="{7E71D6C4-CB6C-46E6-9189-D2522FF320D9}" />
+					<Child Name="whEmpregados80" Owner="{A68223EC-B8BF-4329-8590-7002EA9E4276}" />
+				</Child>
+				<Child Name="whDatas" Owner="{C0B3D5FC-E2B2-4C0D-B9AB-B07213BC4777}">
+					<Child Name="whDatas10" Owner="{5C7DDCCC-4C82-42D0-8174-02DB7E8550BF}" />
+					<Child Name="whDatas20" Owner="{D447568C-D022-4845-8170-76F0A333DEC9}" />
+					<Child Name="whDatas30" Owner="{C0955F9E-C9C8-4900-82E7-59451F1BF88A}" />
+				</Child>
+				<Child Name="whProcesso" Owner="{2F9094E5-9154-4AF7-9F5B-5D005507259F}">
+					<Child Name="whProcesso10" Owner="{F353FFD7-10D4-44BD-BEDF-A3F76CECBE3F}" />
+					<Child Name="whProcesso30" Owner="{05B7FBA4-9CD0-4720-9DE3-1E3A8C644B03}" />
+					<Child Name="whProcesso20" Owner="{15C38052-BC68-4B77-878B-267C1F54A361}" />
+					<Child Name="whProcesso50" Owner="{88B21352-8058-4A81-84D1-86F170EC620B}" />
+					<Child Name="whProcesso40" Owner="{A0BE3C31-FCA9-4820-B6DD-94072B4E95D0}" />
+					<Child Name="whProcesso80" Owner="{28679277-BE30-4C6E-8ED6-1E094D1B470B}" />
+				</Child>
+				<Child Name="whSituacao" Owner="{986FBD1D-4AA5-4B5E-8E8B-ABA807DF3015}">
+					<Child Name="whSituacao10" Owner="{A36A0AFF-3DCA-4F79-99AF-4C0DFEF49568}" />
+					<Child Name="whSituacao30" Owner="{EA8ECDCA-7BA1-455E-91DB-EB46A7170C8A}" />
+					<Child Name="whSituacao20" Owner="{353119F8-76D0-434E-A665-353187FB5DE2}" />
+					<Child Name="whSituacao50" Owner="{FA79261E-25E2-4A44-8BC9-AD682B385E4E}" />
+					<Child Name="whSituacao40" Owner="{64846CB2-C45B-449F-8FAF-0EF95431D9B0}" />
+					<Child Name="whSituacao80" Owner="{7224F669-5EAC-4FA1-8BD6-3AEF4A6A2353}" />
+				</Child>
+				<Child Name="whDados" Owner="{AA1281E3-9583-4983-9F6C-06DB4F9838DB}">
+					<Child Name="whDados10" Owner="{9746C100-6822-4E3C-BE75-6092168331C2}" />
+					<Child Name="EB_Ordem" Owner="{81CB3C84-5B6B-4407-8A4A-E7244BB60783}" />
+					<Child Name="EB_AnalitGPS" Owner="{DC545B23-85C3-44B2-A76B-0D8EF1252683}" />
+					<Child Name="EB_AnalitGPS13" Owner="{9C9FB691-3EE0-45B2-8AEF-6CFA074BA705}" />
+					<Child Name="EB_AnalitFGTS" Owner="{32054B0C-F9A6-416E-BC0A-9B06F0926BE7}" />
+					<Child Name="EB_ListaPrest" Owner="{3543E0B8-254B-4007-BE94-E08E95C4FAF0}" />
+				</Child>
+				<Child Name="BPreview" Owner="{A888ADA7-E02A-493F-B137-C2620D839999}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
