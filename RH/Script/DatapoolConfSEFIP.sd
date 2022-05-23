@@ -1,1 +1,68 @@
-﻿
+﻿var                                
+FiltroEstabTipo,
+FiltroEstabValor,
+                            
+{ Filtro Locais }           
+FiltroLocalTipo,
+FiltroLocalValor,
+                            
+{ Filtro Empregados }       
+FiltroEmpreTipo,
+FiltroEmpreValor,
+                            
+{ Filtro Referência }       
+FiltroDataIni,
+FiltroDataFin,
+                            
+{ Filtro Processamentos }   
+FiltroProcTipo,
+FiltroProcValor,
+                            
+{ Filtro Situação }         
+                            
+FiltroSituaTipo,
+FiltroSituaValor,
+                            
+                            
+{ Filtro Dados Adicionais } 
+FiltroOrdem,
+FiltroAnalitGPS,
+FiltroAnalitGPS13,
+FiltroAnalitFGTS,
+FiltroListaPrest : OleVariant;
+
+procedure LeDataPoolConfSefip(nomeDriver);
+begin
+ { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Locais }
+  FiltroLocalTipo  := DDT.DriverByName(nomeDriver).Value('TIPOLOCAL');
+  FiltroLocalValor := DDT.DriverByName(nomeDriver).Value('LOCALVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+  { Filtro Referência }
+  FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+  
+  { Filtro Situação }
+  
+  FiltroSituaTipo   := DDT.DriverByName(nomeDriver).Value('TIPOSITUA');
+  FiltroSituaValor  := DDT.DriverByName(nomeDriver).Value('SITUAVALOR');
+  
+    
+  { Filtro Dados Adicionais }
+	FiltroOrdem				 := DDT.DriverByName(nomeDriver).Value('ORDEM');
+	FiltroAnalitGPS		 := DDT.DriverByName(nomeDriver).Value('ANALITGPS');
+	FiltroAnalitGPS13	 := DDT.DriverByName(nomeDriver).Value('ANALITGPSGPS13');
+	FiltroAnalitFGTS   := DDT.DriverByName(nomeDriver).Value('ANALITFGTS');
+	FiltroListaPrest	 := DDT.DriverByName(nomeDriver).Value('LISTAPREST');
+end;

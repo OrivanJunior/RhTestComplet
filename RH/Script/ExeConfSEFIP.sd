@@ -1,1 +1,13 @@
-﻿
+﻿uses
+  DataPoolConfSEFIP, ObjConfSEFIP, CommonsAll, CommonsObj, VarConsts;
+  
+Const
+  _Todos = 'TO';
+  _TodosEmpresa = 'TE';
+  _Selecionados = 'SC';
+  _Especifico = 'ES';
+  
+  procedure AcessaSEFIP();
+begin
+  AcessaItem(_ModuloFolha, 'Relatórios', 'INSS', 'Conferência SEFIP'); 
+end;
