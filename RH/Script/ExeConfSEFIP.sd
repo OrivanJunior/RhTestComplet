@@ -122,3 +122,115 @@ begin
     Log.Checkpoint('Selecionado Processamentos - Todos');
   end;
 end;
+
+procedure FiltraSituacoes();
+begin
+  if (CadSituaTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao10.Click();
+    
+  if (FiltroSituaTipo = _Especifico) then
+  begin
+    CadSituaEspec.ClickButton;
+    VerificaInsere(CadSituaEspecCampo, FiltroSituaValor);
+    Log.Checkpoint('Selecionado Situação - Específico, com valor: ' + FiltroSituaValor);
+  end
+  else if (FiltroSituaTipo = _Selecionados) then
+  begin
+    CadSituaSelec.ClickButton;
+    VerificaInsere(CadSituaSelecCampo, FiltroSituaValor);
+    Log.Checkpoint('Selecionado Situação - Selecionados, com valor: ' + FiltroSituaValor);
+  end
+  else if (FiltroSituaTipo = _Todos) then
+  begin
+    CadSituaTodos.ClickButton;
+    Log.Checkpoint('Selecionado Situação - Todos');
+  end;
+end;
+
+procedure DadosAdicionais();
+begin
+  if (CadDadosEBOrdem.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whSituacao.whSituacao10.Click();
+    
+  VerificaInsere(CadDadosEBOrdem, FiltroOrdem);
+  VerificaInsere(CadDadosEBAnalitGPS, FiltroAnalitGPS);
+  VerificaInsere(CadDadosEBAnalitGPS13, FiltroAnalitGPS13);
+  VerificaInsere(CadDadosEBAnalitFGTS, FiltroAnalitFGTS );
+  VerificaInsere(CadDadosEBListaPrest, FiltroListaPrest);
+end;
+
+procedure FechaMensagemProcessoConcluido();
+var 
+  TelaAtencao, BtnOk: OleVariant;
+begin
+  if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 2000).Exists) then
+  begin
+    TelaAtencao := Aliases.Folha.Window('#32770', 'Processo Concluído!', 1);
+    BtnOk       := TelaAtencao.Window('Button', 'OK', 1);
+    
+    BtnOk.Click();  
+  end;
+end;
+
+procedure ExecutaSEFIP(pathData);
+var 
+  DDTSEFIP: OleVariant;
+  MensagemInativa: boolean;
+begin
+  MensagemInativa := True;
+  
+  AcessaSEFIP();
+
+  MapCadSefip();
+  
+  DDTSEFIP := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolConfSEFIP(DDTSEFIP.Name);
+
+  FiltraEstab();
+
+  FiltraLocais();
+
+  FiltraEmpregados();
+
+  FiltraData();
+
+  FiltraProcessamentos();
+  
+  FiltraSituacoes();
+
+  DadosAdicionais();
+
+  BtnPesqSefip.Click();
+
+  if Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists then
+      Aliases.Folha.Window('#32770', 'Atenção!', 1).btnOK.Click;
+      
+  while MensagemInativa do
+  begin      
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
+
+      FechaMensagemProcessoConcluido();
+      
+      ActFechar(CadFormSefip);
+      
+      MensagemInativa := false;
+    end
+    else
+    if (Aliases.Folha.FVsErrorDlg.Visible) then
+    begin
+      Log.Warning('Nenhum registro encontrado');
+      
+      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+      
+      ActFechar(CadFormSefip);
+      
+      MensagemInativa := False
+    end;
+  end;  
+  DDT.CloseDriver(DDTSEFIP.Name);
+end;
+
+

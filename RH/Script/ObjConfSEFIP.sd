@@ -1,7 +1,7 @@
 ﻿var 
 CadFormSefip,
-CadCadPesqSefip,
-CadBtnSair,
+BtnPesqSefip,
+BtnSair,
                       
                       
 CadEstabEspec,
@@ -50,8 +50,8 @@ procedure MapCadSefip();
 begin
 {Filtro Form}
 CadFormSefip  			  := Aliases.Folha.FRhRelConfSefip;
-CadCadPesqSefip 		  := Aliases.Folha.FRhRelConfSefip.BPreview;
-CadBtnSair    			  := Aliases.Folha.FRhRelConfSefip.BSair;
+BtnPesqSefip 		      := Aliases.Folha.FRhRelConfSefip.BPreview;
+BtnSair    			      := Aliases.Folha.FRhRelConfSefip.BSair;
 
 { Filtro de Estabelecimento }
 CadEstabEspec  			  := Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs40;
