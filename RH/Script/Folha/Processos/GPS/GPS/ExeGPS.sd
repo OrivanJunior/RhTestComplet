@@ -107,6 +107,7 @@ begin
   if (FormGPSWhProcTodos.VisibleOnScreen = false) then
     Aliases.Folha.FRhProcGPSLocalSist.pg.tsSelecao.SB_Selecao.whProcessamentos.whProcessamentos10.Click();
     
+    
   if (FiltroProcTipo = _Especifico) then
   begin
     FormGPSWhProcEspec.ClickButton;
@@ -176,7 +177,7 @@ begin
 
   FiltraData();
 
-  FiltraProcessamentos();
+  //FiltraProcessamentos();
 
   DadosAdicionais();
 
@@ -185,8 +186,8 @@ begin
   if Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists then
       Aliases.Folha.Window('#32770', 'Atenção!', 1).btnOK.Click;
       
-  while MensagemInativa do
-  begin      
+//  while MensagemInativa do
+//  begin      
     if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
     begin
       Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
@@ -197,19 +198,19 @@ begin
       
       ActFechar(FormGPS);
       
-      MensagemInativa := false;
-    end
-    else
-    if (Aliases.Folha.FVsErrorDlg.Visible) then
-    begin
-      Log.Warning('Nenhum registro encontrado');
-      
-      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
-      
-      ActFechar(FormGPS);
-      
-      MensagemInativa := False
+//      MensagemInativa := false;
+//    end
+//    else
+//    if (Aliases.Folha.FVsErrorDlg.Visible) then
+//    begin
+//      Log.Warning('Nenhum registro encontrado');
+//      
+//      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+//      
+//      ActFechar(FormGPS);
+//      
+//      MensagemInativa := False
     end;
-  end;  
+//  end;  
   DDT.CloseDriver(DDTGPS.Name);
 end;

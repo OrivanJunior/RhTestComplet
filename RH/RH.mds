@@ -1119,7 +1119,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Relatórios" key="{7C3AD300-1563-45DF-84B0-BEEA0D94A301}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Relatórios" key="{7C3AD300-1563-45DF-84B0-BEEA0D94A301}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="RPA" key="{B9A9C018-83D3-4F9A-A07C-F1E92FBAE4B6}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1159,6 +1159,28 @@
 										</testParameters>
 										<environments activeCloud="CBT" />
 										<children />
+									</testItem>
+									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="GPS" key="{BC95A97E-F3B7-4013-AAEC-9D02081E9FEB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="GPS" key="{BEF654C4-222D-4F06-9977-6DCD6B0F7076}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Realatório GPS" key="{7E59227F-2D94-4331-BA89-3586BD28E4C0}" group="False" parallel="False" enabled="True" testMoniker="{4FCE2ADC-9503-4A4C-9A90-4D9C581C1FA4}ExecutaGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processos\GPS\GPS\GPS.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+												</children>
+											</testItem>
+										</children>
 									</testItem>
 								</children>
 							</testItem>
@@ -2486,7 +2508,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Controle Por Grupos" key="{25331F11-B9D0-4873-832E-DFA426FAD71F}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Controle Por Grupos" key="{25331F11-B9D0-4873-832E-DFA426FAD71F}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Cadastro de Controle por Grupos" key="{A2303636-4AA0-482B-9986-3B2DD36A6AF1}" group="False" parallel="False" enabled="True" testMoniker="{80F1D8BA-AEF0-4E49-AC7B-D0A890FC2C7C}ExecutaCadControlePorGrupos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -2498,7 +2520,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Alteração Em Massa" key="{9A2C5193-5E98-4935-A71B-919D5AC0ECFC}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Alteração Em Massa" key="{9A2C5193-5E98-4935-A71B-919D5AC0ECFC}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Remover Batidas" key="{BA291824-305E-4662-8E7D-1271658164FB}" group="False" parallel="False" enabled="True" testMoniker="{01FFE92A-D66E-474D-846A-35210E621ECB}RemoverBatidas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -2594,7 +2616,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Gerar Escalas" key="{2175A946-1D5E-43A0-A561-382B5A86ACD0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Gerar Escalas" key="{2175A946-1D5E-43A0-A561-382B5A86ACD0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Geração de Escalas" key="{14A5C396-F3E4-4047-B88F-9A83073C6FAE}" group="False" parallel="False" enabled="True" testMoniker="{FCBD7708-98AD-4E8D-851E-945DE27386C0}ExecutaProcGerarEscalas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
