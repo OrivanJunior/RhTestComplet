@@ -1,0 +1,42 @@
+﻿uses
+  DataPoolEsGPS, ObjEsGPS, CommonsAll, CommonsObj, VarConsts;
+
+procedure CadastraGPS(pathData);
+var
+  DDTGPS;
+begin
+  DDTGPS := CarregaDDT(pathData, _Cadastrar);
+
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS');
+  
+  FiltroGps();
+  
+    while not(DDTGPS.EOF) do
+  begin
+    LeDataPoolEsGPS(DDTGPS.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhGps');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadDPSequencia);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+      ActConsulta(FormTelaConsultaForm);
+      
+      MapCadGps();
+      
+      if (CadFormGps.Exists) then
+      begin
+        //PreencherDados(); 
+  
+        ActSalvar(CadFormGps);
+        ActFechar(CadFormGps);
+      end;
+    end;
+    DDTGPS.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTGPS.Name);
+end;

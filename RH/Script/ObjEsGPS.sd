@@ -1,0 +1,76 @@
+﻿var 
+CadFormGps,
+
+FormFiltro,  
+FormConsulta,
+FormCodLocal,
+BtnOk,
+BtnVazio,
+BtnCancelar,CadFormPage,
+
+CadEBSequencia : OleVariant;
+
+
+procedure FiltroGps();
+begin
+FormFiltro    :=    Aliases.Folha.FFiltroConsultaCDS;
+FormConsulta  :=    Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FormCodLocal  :=    Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOk         :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnVazio      :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnCancelar   :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+FormConsulta.SetText('GPS');
+FormCodLocal.SelectItem('(Ignorar)');
+BtnOk.ClickButton;
+
+end;
+
+procedure MapCadGps();
+begin
+CadFormGps      := Aliases.Folha.FRhGps;
+CadFormPage     := Aliases.Folha.FRhGps.Page;
+CadEBSequencia  := Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
+end;
+
+
+procedure Test1;
+begin
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB.Click(58, 11);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_MES.Click(59, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_ANO.Click(52, 12);
+  OCR.Recognize(Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_DTVENCIMENTO).BlockByText('20/12/2022').Click;
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_IDLOCAL.Click(46, 4);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA.Click(44, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_IDFPAS.Click(36, 10);
+  OCR.Recognize(Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_CNPJ).BlockByText('47641170000119').Click;
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_CodGPS.Click(36, 4);
+  OCR.Recognize(Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_DESCGUIA).BlockByText('03/2022').Click;
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_NROEMPREGADOS.Click(38, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEAUT.Click(43, 7);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_APESPEC.Click(33, 7);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_RECOLHIDA.DblClick(84, 12);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_MESREC.Click(44, 12);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_ANOREC.Click(47, 9);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_VLRRETENC.Click(46, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_VLRCOMP.Click(30, 9);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_PCGRAURISCO.Click(24, 17);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_PCTERCEIROS.Click(33, 9);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox1.EB_BASEAPESP15.Click(42, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox1.EB_BASEAPESP20.Click(42, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox1.EB_BASEAPESP25.Click(50, 6);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEEMPREG.Click(28, 11);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEPROLAB.Click(25, 11);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRSEGURADOS.Click(22, 6);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLREMPRESA.Click(20, 14);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRGRAURISCO.Click(26, 13);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRAPESPECIAL.Click(27, 13);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRPGCOOP.Click(28, 8);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRTERCEIROS.Click(28, 15);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_CODTERCEIRO.Click(28, 6);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_TOTDEDUC.Click(39, 9);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_TOTLIQ.Click(42, 11);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRATUMONET.Click(42, 6);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRJURMUL.Click(44, 11);
+  Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_TOTGUIA.Click(48, 9);
+end;

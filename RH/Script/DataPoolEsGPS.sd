@@ -1,0 +1,8 @@
+﻿var 
+CadDPSequencia : OleVariant;
+
+procedure LeDataPoolEsGps(nomeDriver);
+begin
+CadDPSequencia := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');    
+end;
+ 
