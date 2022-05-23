@@ -58183,6 +58183,32 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="Dock971" Key="{856AF005-0C3A-4031-ACBF-E727427BE38D}">
+										<Image FileName="-158397750" Left="8" Top="31" Right="1575" Bottom="61" />
+										<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TDock97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="Dock971" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="ToolBar" Key="{4AB92A52-A23A-4263-9828-2B929FBA91A9}">
+												<Image FileName="-158397750" Left="11" Top="31" Right="146" Bottom="61" />
+												<TypeInfo Item0="{CFB0CCBA-ADCF-4213-97BB-355F00245AA9}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TToolbar97" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="ToolBar" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
 								</Children>
 							</Child>
 						</Children>
@@ -80257,6 +80283,9 @@
 				</Child>
 				<Child Name="BPreview" Owner="{A888ADA7-E02A-493F-B137-C2620D839999}" />
 				<Child Name="BSair" Owner="{B19645F1-7B8A-435D-AA5D-8F5F5D3FFCE2}" />
+				<Child Name="Dock971" Owner="{856AF005-0C3A-4031-ACBF-E727427BE38D}">
+					<Child Name="ToolBar" Owner="{4AB92A52-A23A-4263-9828-2B929FBA91A9}" />
+				</Child>
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

@@ -1,7 +1,10 @@
 ﻿var 
 CadFormSefip,
-CadCadPesqSefip,
-CadBtnSair,
+BtnPesqSefip,
+BtnSair,
+CadMenuSefip,
+FechaRel,
+
                       
                       
 CadEstabEspec,
@@ -50,8 +53,8 @@ procedure MapCadSefip();
 begin
 {Filtro Form}
 CadFormSefip  			  := Aliases.Folha.FRhRelConfSefip;
-CadCadPesqSefip 		  := Aliases.Folha.FRhRelConfSefip.BPreview;
-CadBtnSair    			  := Aliases.Folha.FRhRelConfSefip.BSair;
+BtnPesqSefip 		      := Aliases.Folha.FRhRelConfSefip.BPreview;
+BtnSair    			      := Aliases.Folha.FRhRelConfSefip.BSair;
 
 { Filtro de Estabelecimento }
 CadEstabEspec  			  := Aliases.Folha.FRhRelConfSefip.whEstabs.whEstabs40;
@@ -104,3 +107,21 @@ CadDadosEBListaPrest  	:= Aliases.Folha.FRhRelConfSefip.whDados.EB_ListaPrest;
 
 end;
 
+procedure ExecRelatorio();
+begin
+Aliases.Folha.FRhRelConfSefip.VScroll.Pos := 0;
+
+CadMenuSefip          := Aliases.Folha.FRhRelConfSefip.Dock971.ToolBar;
+CadFormSefip  			  := Aliases.Folha.FRhRelConfSefip;
+BtnPesqSefip 		      := Aliases.Folha.FRhRelConfSefip.BPreview;
+BtnSair    			      := Aliases.Folha.FRhRelConfSefip.BSair;
+
+BtnPesqSefip.Click();
+end;
+
+procedure FechaRelatorio();
+begin
+FechaRel := Aliases.Folha.ppPrintPreview;
+Delay(5000);
+FechaRel.Close();
+end;

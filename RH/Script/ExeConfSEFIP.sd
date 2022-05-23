@@ -1,4 +1,9 @@
-﻿uses
+﻿{Script para executar o Processo de SEFIP
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 23/05/2022}
+
+uses
   DataPoolConfSEFIP, ObjConfSEFIP, CommonsAll, CommonsObj, VarConsts;
   
 Const
@@ -91,7 +96,7 @@ end;
 
 procedure FiltraData();
 begin
-  if (FormGPSWhDataDtIni.VisibleOnScreen = false) then
+  if (CadDataDtIni.VisibleOnScreen = false) then
     Aliases.Folha.FRhRelConfSefip.whDatas.whDatas10.Click();
     
   PreencheDatas(CadDataDtIni, FiltroDataIni); 
@@ -101,7 +106,7 @@ end;
 
 procedure FiltraProcessamentos();
 begin
-  if (FormGPSWhProcTodos.VisibleOnScreen = false) then
+  if (CadProcTodos.VisibleOnScreen = false) then
     Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso10.Click();
     
   if (FiltroProcTipo = _Especifico) then
@@ -157,6 +162,7 @@ begin
   VerificaInsere(CadDadosEBAnalitGPS13, FiltroAnalitGPS13);
   VerificaInsere(CadDadosEBAnalitFGTS, FiltroAnalitFGTS );
   VerificaInsere(CadDadosEBListaPrest, FiltroListaPrest);
+  
 end;
 
 procedure FechaMensagemProcessoConcluido();
@@ -201,36 +207,9 @@ begin
 
   DadosAdicionais();
 
-  BtnPesqSefip.Click();
-
-  if Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists then
-      Aliases.Folha.Window('#32770', 'Atenção!', 1).btnOK.Click;
-      
-  while MensagemInativa do
-  begin      
-    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
-    begin
-      Aliases.Folha.dlgProcessoConclu_do2.btnOK.Click();     
-
-      FechaMensagemProcessoConcluido();
-      
-      ActFechar(CadFormSefip);
-      
-      MensagemInativa := false;
-    end
-    else
-    if (Aliases.Folha.FVsErrorDlg.Visible) then
-    begin
-      Log.Warning('Nenhum registro encontrado');
-      
-      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
-      
-      ActFechar(CadFormSefip);
-      
-      MensagemInativa := False
-    end;
-  end;  
+  ExecRelatorio();
+  FechaRelatorio();
+  
+  ActFechar(CadFormSefip);
   DDT.CloseDriver(DDTSEFIP.Name);
 end;
-
-

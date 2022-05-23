@@ -72,8 +72,12 @@ begin
 end;
 
 procedure FiltraRelatorioRPA(pathData);
+var
+  DDTRPA: OleVariant;
 begin
-  leDatapoolRelRPA(pathData);
+  DDTRPA := CarregaDDT(pathData, 'Filtro');
+  
+  leDatapoolRelRPA(DDTRPA.Name);
   
   FiltraEstab();
   
