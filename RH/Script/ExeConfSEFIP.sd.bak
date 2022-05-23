@@ -38,3 +38,63 @@ begin
     Log.Checkpoint('Selecionado Estabelecimentos - Todos');
   end;
 end;
+
+
+procedure FiltraLocais();
+begin
+  if (CadLocaisTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whLocais.whLocais10.Click();
+    
+  if (FiltroLocalTipo = _Especifico) then
+  begin
+    CadLocaisEspec.ClickButton;
+    VerificaInsere(CadLocaisEspecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Específico, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Selecionados) then
+  begin
+    CadLocaisSelec.ClickButton;
+    VerificaInsere(CadLocaisSelecCampo, FiltroLocalValor);
+    Log.Checkpoint('Selecionado Locais - Selecionados, com valor: ' + FiltroLocalValor);
+  end
+  else if (FiltroLocalTipo = _Todos) then
+  begin
+    CadLocaisTodos.ClickButton;
+    Log.Checkpoint('Selecionado Locais - Todos');
+  end;
+end;
+
+
+procedure FiltraEmpregados();
+begin
+  if (CadEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    CadEmpreEspec.ClickButton;
+    VerificaInsere(CadEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    CadEmpreSelec.ClickButton;
+    VerificaInsere(CadEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    CadEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormGPSWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whDatas.whDatas10.Click();
+    
+  PreencheDatas(CadDataDtIni, FiltroDataIni); 
+  PreencheDatas(CadDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;

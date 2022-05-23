@@ -64,3 +64,61 @@ begin
   end;
 end;
 
+
+procedure FiltraEmpregados();
+begin
+  if (CadEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whEmpregados.whEmpregados10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    CadEmpreEspec.ClickButton;
+    VerificaInsere(CadEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    CadEmpreSelec.ClickButton;
+    VerificaInsere(CadEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    CadEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormGPSWhDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whDatas.whDatas10.Click();
+    
+  PreencheDatas(CadDataDtIni, FiltroDataIni); 
+  PreencheDatas(CadDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+procedure FiltraProcessamentos();
+begin
+  if (FormGPSWhProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelConfSefip.whProcesso.whProcesso10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    CadProcEspec.ClickButton;
+    VerificaInsere(CadProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    CadProcSelec.ClickButton;
+    VerificaInsere(CadProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    CadProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
