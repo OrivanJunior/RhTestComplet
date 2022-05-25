@@ -183,6 +183,7 @@ begin
   BtnSaveHistSitua.Click();
   
   FechaTelaESocial(_ModuloFolha);
+  DDTSituacao.next();
   end;
   DDT.CloseDriver(DDTSituacao.Name);
   
@@ -246,7 +247,7 @@ begin
 
   PreencheEmpregadoProcRescisao(pathData);  
   
-  PreencheHistSituacao(pathData);
+  //PreencheHistSituacao(pathData);
   
   //PreencheMovimentoProcRescisao(pathData);
   

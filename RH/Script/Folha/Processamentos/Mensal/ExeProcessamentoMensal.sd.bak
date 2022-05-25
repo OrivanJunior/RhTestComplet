@@ -41,17 +41,18 @@ begin
   VerificaInsere(ProcEBVlrArred, ProcDPVlrArred);
   VerificaInsere(ProcEBAberto, ProcDPAberto);
   
-  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
-  begin  
-    PageProc.ActivePageIndex := 1;
-    
-    VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
-    VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
-    VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
-    VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
-    VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
-  end;  
-  Aliases.Folha.FRhProcesso.BSalvarRap.Click();
+//  if (Aliases.Folha.FRhProcesso.Page.tseSocial.zTabVisible) then
+//  begin  
+//    PageProc.ActivePageIndex := 1;
+//    
+//    VerificaInsere(ESocialEBEvtRemun, ESocialDPEvtRemun);
+//    VerificaInsere(ESocialEBInfoPgtos, ESocialDPInfoPgtos);
+//    VerificaInsere(ESocialEBContrataVnp, ESocialDPContrataVnp);
+//    VerificaInsere(ESocialEBEvtInfoCompl, ESocialDPEvtInfoCompl);
+//    VerificaInsere(ESocialEBSitESocial, ESocialDPSitESocial);
+//  end;
+  if Aliases.Folha.FRhProcesso.BSalvarRap.Enabled then
+    Aliases.Folha.FRhProcesso.BSalvarRap.Click();
   
   if Aliases.Folha.FRhProcesso.Exists then
     Aliases.Folha.FRhProcesso.BSairRap.Click();

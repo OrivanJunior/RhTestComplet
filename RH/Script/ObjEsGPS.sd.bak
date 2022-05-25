@@ -6,7 +6,7 @@ FormConsulta,
 FormCodLocal,
 BtnOk,
 BtnVazio,
-BtnCancelar,
+BtnCancelar,CadFormPage,
 
 CadEBSequencia : OleVariant;
 
@@ -29,6 +29,7 @@ end;
 procedure MapCadGps();
 begin
 CadFormGps      := Aliases.Folha.FRhGps;
+CadFormPage     := Aliases.Folha.FRhGps.Page;
 CadEBSequencia  := Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
 end;
 
@@ -73,3 +74,5 @@ begin
   Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_VLRJURMUL.Click(44, 11);
   Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.cxGroupBox2.EB_TOTGUIA.Click(48, 9);
 end;
+
+

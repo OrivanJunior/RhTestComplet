@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="details" type="S" value="{6893CB44-15BB-4DC7-88FB-16EAD7DA6089}"/>
+				<Prp name="start time" type="D" value="44706.3936753356"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="13° Salário - 2ª Parcela"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="end time" type="D" value="44706.3944301505"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="details" type="S" value="{670BB4DF-2428-4040-8303-DBF93FCFA872}"/>
+				<Prp name="start time" type="D" value="44706.3944302894"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="Rescisão"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="end time" type="D" value="44706.395443831"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="details" type="S" value="{DB681CD5-22E1-4A5F-BBFA-3F8A88724D47}"/>
+				<Prp name="start time" type="D" value="44706.3928952546"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="13° Salário - 1ª Parcela"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44706.3936752315"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

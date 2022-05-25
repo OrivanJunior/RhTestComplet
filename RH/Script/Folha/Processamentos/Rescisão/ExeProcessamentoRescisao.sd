@@ -243,11 +243,11 @@ begin
   
   PreencheDatasProcRescisao(pathData);
   
-  //PreencheControleProcessamento(pathData);
+  PreencheControleProcessamento(pathData);
 
   PreencheEmpregadoProcRescisao(pathData);  
   
-  PreencheHistSituacao(pathData);
+  //PreencheHistSituacao(pathData);
   
   //PreencheMovimentoProcRescisao(pathData);
   
