@@ -38,7 +38,7 @@ begin
     
   { Filtro Processamentos }
   FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
-  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
     
   { Filtro Vinculos }
   FiltroVinculoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOVINCULO');

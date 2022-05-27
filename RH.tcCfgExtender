@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -1244,7 +1240,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="92"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="35"/>
 						</Node>
 						<Prp name="bottom" type="I" value="92"/>
@@ -6927,7 +6923,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{82fdaf1b-a07d-493b-83c9-7131a01403aa}"/>
+					<Node name="{82fdaf1b-a07d-493b-83c9-7131a01403aa}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="42"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="3"/>
+						</Node>
+						<Prp name="bottom" type="I" value="42"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{8394a179-9f3a-4562-ae2c-3031113d82a0}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="17"/>
@@ -8851,7 +8856,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="17"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="14"/>
 						</Node>
 						<Node name="2">
@@ -10976,7 +10981,7 @@
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="72"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="50"/>
 						</Node>
 						<Node name="4">
@@ -11005,11 +11010,11 @@
 							<Prp name="top" type="I" value="163"/>
 						</Node>
 						<Node name="9">
-							<Prp name="bottom" type="I" value="230"/>
+							<Prp name="bottom" type="I" value="232"/>
 							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="176"/>
 						</Node>
-						<Prp name="bottom" type="I" value="230"/>
+						<Prp name="bottom" type="I" value="232"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -13906,9 +13911,16 @@
 							<Node name="commons"/>
 							<Node name="folha">
 								<Node name="cadastros específicos"/>
+								<Node name="processamentos">
+									<Node name="mensal"/>
+									<Node name="rescisão"/>
+								</Node>
 								<Node name="processos">
+									<Node name="gps">
+										<Node name="gps"/>
+									</Node>
 									<Node name="sefip/grrf/pis">
-										<Node name="sefip 8.4"/>
+										<Node name="sefip"/>
 									</Node>
 								</Node>
 							</Node>

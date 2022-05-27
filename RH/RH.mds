@@ -843,7 +843,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Cadastro Específicos" key="{BD8F493C-3B72-40D9-BC9E-E52E5131ADB0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Empregados" key="{B39D98B9-927D-4183-A4AD-37912111AF75}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1194,7 +1194,7 @@
 									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="GPS" key="{BC95A97E-F3B7-4013-AAEC-9D02081E9FEB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="GPS" key="{BC95A97E-F3B7-4013-AAEC-9D02081E9FEB}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="GPS" key="{BEF654C4-222D-4F06-9977-6DCD6B0F7076}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1214,13 +1214,12 @@
 											<testItem name="SEFIP/GRRF/PIS" key="{C9CF9298-71B4-4E5A-B2AC-554C52827305}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="SEFIP 8.4" key="{861795A6-7E83-4BC9-BC64-F5ED0FB2A1FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="SEFIP" key="{861795A6-7E83-4BC9-BC64-F5ED0FB2A1FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Executa SEFIP 8.4" key="{FE9BB4A3-BE09-4B2F-98BE-72EE74800CE5}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Executa SEFIP" key="{14094AC3-4826-4861-8794-61BB8F75D925}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="0" value="" />
-																	<param1 name="tab" type="3" localVarName="" varType="0" value="" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processos\SEFIP-GRRF-PIS\SEFIP\Sefip.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -1881,7 +1880,6 @@
 															<testItem name="Sefip 8.4" key="{CAD8FB51-FA53-4463-B725-A384AE5E4101}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Processos\SEFIP-GRRF-PIS\SEFIP 8.4\Sefip8.4.xls" />
-																	<param1 name="tab" type="3" localVarName="" varType="8" value="Coper" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

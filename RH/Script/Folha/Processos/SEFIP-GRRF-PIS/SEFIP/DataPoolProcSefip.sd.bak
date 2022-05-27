@@ -22,7 +22,7 @@ var
   FiltroRecINSS, FiltroDataINSS,
   FiltroCNAEPrep, FiltroLocalGrav: OleVariant;
 
-procedure LeDataPoolProcSefip();
+procedure LeDataPoolProcSefip(nomeDriver);
 begin
   { Filtro Estab }
   FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
@@ -55,9 +55,4 @@ begin
   FiltroDataINSS     := DDT.DriverByName(nomeDriver).Value('DATAINSS');
   FiltroCNAEPrep     := DDT.DriverByName(nomeDriver).Value('CNAEPREP');
   FiltroLocalGrav    := DDT.DriverByName(nomeDriver).Value('LOCALGRAV');
-end;
-
-procedure LoadDPProcSefip(pathData, tab);
-begin
-  DDT.ExcelDriver(pathData, tab);
 end;

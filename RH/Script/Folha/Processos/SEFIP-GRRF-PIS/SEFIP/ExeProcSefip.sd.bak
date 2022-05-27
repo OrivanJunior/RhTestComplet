@@ -174,12 +174,13 @@ begin
   end;
 end;
 
-procedure ExecutaProcSefip(pathData, tab);
+procedure ExecutaProcSefip(pathData);
 var 
   DDTSefip: OleVariant;
   MensagemInativa: boolean;
 begin  
-  DDTSefip := CarregaDDT(pathData, tab);
+ DDTSefip := CarregaDDT(pathData, 'filtro');
+
   
   while not(DDTSefip.EOF) do
   begin
@@ -189,7 +190,7 @@ begin
 
     MapProcSefip();
   
-    LeDataPoolProcSefip();
+    LeDataPoolProcSefip(DDTSefip.Name);
 
     FiltraEstab();
   
@@ -225,7 +226,10 @@ begin
       end;
     end;
     DDTSefip.Next;
-  end;  
-  ValidaArquivos('C:\TEMP\SEFIP\SEFIP_MODELO.RE', 'C:\TEMP\SEFIP\SEFIP_MODELO_ORACLE.RE', 'C:\TEMP\SEFIP\SEFIP.RE');
+    break;
+  end;
+
+  ValidaArquivos('  C:\Temp\SEFIP 2022');
+  //ValidaArquivos('C:\TEMP\SEFIP\SEFIP_MODELO.RE', 'C:\TEMP\SEFIP\SEFIP_MODELO_ORACLE.RE', 'C:\TEMP\SEFIP\SEFIP.RE');
   DDT.CloseDriver(DDTSefip.Name);
 end;
