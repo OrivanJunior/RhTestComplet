@@ -138,13 +138,13 @@ begin
   
     CadMovBtnSave.Click();
     
-    if Aliases.Folha.FVsErrorDlg.Exists then
-    begin
-      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
-      CadMovBtnSair.Click();
-      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
-        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
-    end;
+//    if Aliases.Folha.FVsErrorDlg.Exists then
+//    begin
+//      Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click();
+//      CadMovBtnSair.Click();
+//      if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
+//        Aliases.Folha.dlgManuten_oDoMovimento.btnN_o.Click();
+//    end;
     
     DDTMovimento.Next;
   end;
