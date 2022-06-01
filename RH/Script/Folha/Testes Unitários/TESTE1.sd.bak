@@ -1,0 +1,9 @@
+﻿uses
+  CommonsAll,
+  VarConsts, 
+  ObjProcSefip;
+
+procedure FiltraEstab();
+begin
+  escolheEstabNovo(_ModuloFolha, _Especifico, '1111', Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEstab)
+end;

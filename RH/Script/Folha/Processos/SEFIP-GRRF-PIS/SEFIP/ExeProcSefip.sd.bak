@@ -8,13 +8,6 @@
  Módulo: Padrao
  Autor: Camila Braatz da Rocha
  Data: 25/06/2021}
-
-  
-Const
-  _Todos = 'TO';
-  _TodosEmpresa = 'TE';
-  _Selecionados = 'SC';
-  _Especifico = 'ES';
   
 procedure AcessaProcSefip();
 begin
@@ -50,7 +43,7 @@ end;
 
 procedure FiltraEmpregados();
 begin
-  if (FormProcSefipWhEmpreTodos.VisibleOnScreen = false) then
+  if not (FormProcSefipWhEmpreTodos.VisibleOnScreen) then
     Aliases.Folha.FRhProcSefip.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10.Click();
     
   if (FiltroEmpreTipo = _Especifico) then
@@ -228,8 +221,6 @@ begin
     DDTSefip.Next;
     break;
   end;
-
-  ValidaArquivos('  C:\Temp\SEFIP 2022');
   //ValidaArquivos('C:\TEMP\SEFIP\SEFIP_MODELO.RE', 'C:\TEMP\SEFIP\SEFIP_MODELO_ORACLE.RE', 'C:\TEMP\SEFIP\SEFIP.RE');
   DDT.CloseDriver(DDTSefip.Name);
 end;

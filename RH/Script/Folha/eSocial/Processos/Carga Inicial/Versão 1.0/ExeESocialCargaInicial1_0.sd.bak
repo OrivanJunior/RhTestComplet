@@ -249,34 +249,9 @@ begin
     FormCargaInicialRBS2399.ClickButton();
     PreencheEmpregados()
   end
-  else if (FormCargaInicialDPS2405 = 'S') then
-  begin
-    FormCargaInicialRBS2405.ClickButton();
-    //
-  end
-  else if (FormCargaInicialDPS2410 = 'S') then
-  begin
-    FormCargaInicialRBS2410.ClickButton();
-    //
-  end
-  else if (FormCargaInicialDPS2416 = 'S') then
-  begin
-    FormCargaInicialRBS2416.ClickButton();
-    //
-  end
-  else if (FormCargaInicialDPS2418 = 'S') then
-  begin
-    FormCargaInicialRBS2418.ClickButton();
-    //
-  end
-  else if (FormCargaInicialDPS2420 = 'S') then
-  begin
-    FormCargaInicialRBS2420.ClickButton();
-    //
-  end
 end;
 
-procedure ExecutaESocialCargaInicial1_0(pathData, pathDataCons);
+procedure ExecutaESocialCargaInicial1_0(pathData);
 var 
   MensagemInativa: boolean;
   DDTCargaInicial, DDTCargaInicialCons: OleVariant;

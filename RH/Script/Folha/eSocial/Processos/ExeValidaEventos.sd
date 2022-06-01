@@ -71,7 +71,6 @@ begin
       Log.Warning('O evento S-' + VarToStr(valueEvento) +', de sequencial ('+ VarToStr(valueSequencial) +') não foi enviado. Código Resposta: ' + descricao)
     end;
   end;
-  Aliases.obs64.OBSBasic_.controlsDock.controlsDockContents.recordButton.Click();
 end;
 
 procedure LeDataPoolConsulta(nomeDriver);

@@ -55,16 +55,16 @@ begin
   FormCargaInicialDPS2190        := DDT.DriverByName(nomeDriver).Value('S-2190');
   FormCargaInicialDPS2200        := DDT.DriverByName(nomeDriver).Value('S-2200');
   FormCargaInicialDPS2230        := DDT.DriverByName(nomeDriver).Value('S-2230');
-  FormCargaInicialDPS2231        := DDT.DriverByName(nomeDriver).Value('S-2231');
+  //FormCargaInicialDPS2231        := DDT.DriverByName(nomeDriver).Value('S-2231');
   FormCargaInicialDPS2298        := DDT.DriverByName(nomeDriver).Value('S-2298');
   FormCargaInicialDPS2299        := DDT.DriverByName(nomeDriver).Value('S-2299');
   FormCargaInicialDPS2300        := DDT.DriverByName(nomeDriver).Value('S-2300');
   FormCargaInicialDPS2399        := DDT.DriverByName(nomeDriver).Value('S-2399');
   FormCargaInicialDPS2405        := DDT.DriverByName(nomeDriver).Value('S-2405');
-  FormCargaInicialDPS2410        := DDT.DriverByName(nomeDriver).Value('S-2410');
-  FormCargaInicialDPS2416        := DDT.DriverByName(nomeDriver).Value('S-2416');
-  FormCargaInicialDPS2418        := DDT.DriverByName(nomeDriver).Value('S-2418');
-  FormCargaInicialDPS2420        := DDT.DriverByName(nomeDriver).Value('S-2420');
+//  FormCargaInicialDPS2410        := DDT.DriverByName(nomeDriver).Value('S-2410');
+//  FormCargaInicialDPS2416        := DDT.DriverByName(nomeDriver).Value('S-2416');
+//  FormCargaInicialDPS2418        := DDT.DriverByName(nomeDriver).Value('S-2418');
+//  FormCargaInicialDPS2420        := DDT.DriverByName(nomeDriver).Value('S-2420');
 								
   FiltroDataIniValid             := DDT.DriverByName(nomeDriver).Value('ANO_MES_VALIDADE');
 								

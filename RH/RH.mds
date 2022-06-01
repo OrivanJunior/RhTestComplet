@@ -1191,7 +1191,7 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="GPS" key="{BC95A97E-F3B7-4013-AAEC-9D02081E9FEB}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1235,7 +1235,7 @@
 							<testItem name="eSocial" key="{2E03FC99-FCE9-4E1F-A23D-AA7C3105D963}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
-									<testItem name="Inicia Folha" key="{E990EB91-0968-45E2-A492-2FEC2C409092}" group="False" parallel="False" enabled="True" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+									<testItem name="Inicia Folha" key="{E990EB91-0968-45E2-A492-2FEC2C409092}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 										<testParameters>
 											<param0 name="modulo" type="3" localVarName="" varType="8" value="Folha" />
 											<param1 name="cadastraSenha" type="3" localVarName="" varType="8" value="N" />
@@ -1249,12 +1249,12 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Atualização Inteligente" key="{D8A1CDBE-30F9-4113-8495-9E73F0053A2C}" group="False" parallel="False" enabled="True" testMoniker="{48B20F67-A59E-47FA-B12B-9E834FFA680D}ExeAtInteligente" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+									<testItem name="Atualização Inteligente" key="{D8A1CDBE-30F9-4113-8495-9E73F0053A2C}" group="False" parallel="False" enabled="False" testMoniker="{48B20F67-A59E-47FA-B12B-9E834FFA680D}ExeAtInteligente" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 										<testParameters />
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Seleciona Estabelecimento" key="{CAD78BEA-3B97-40AD-8C6F-F9D1E4BFD5D1}" group="False" parallel="False" enabled="True" testMoniker="{AC31178D-E753-4D47-8AD1-D6857FFBE706}ExecutaSelecaoEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+									<testItem name="Seleciona Estabelecimento" key="{CAD78BEA-3B97-40AD-8C6F-F9D1E4BFD5D1}" group="False" parallel="False" enabled="False" testMoniker="{AC31178D-E753-4D47-8AD1-D6857FFBE706}ExecutaSelecaoEstab" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 										<testParameters>
 											<param0 name="sModulo" type="3" localVarName="" varType="8" value="Folha" />
 											<param1 name="idEstab" type="3" localVarName="" varType="8" value="1" />
@@ -1262,7 +1262,7 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Ativa Plugin" key="{37CB3849-51BF-47B6-B4CE-E5B3AEFBF5DA}" group="False" parallel="False" enabled="True" testMoniker="{565F0D12-BA76-4F3C-8088-45A0B7C8ED58}ExecutaConfPlugins" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+									<testItem name="Ativa Plugin" key="{37CB3849-51BF-47B6-B4CE-E5B3AEFBF5DA}" group="False" parallel="False" enabled="False" testMoniker="{565F0D12-BA76-4F3C-8088-45A0B7C8ED58}ExecutaConfPlugins" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 										<testParameters>
 											<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Configurações\Conf. de Plugins\ConfPlugins.xls" />
 											<param1 name="cadastraSenha" type="3" localVarName="" varType="8" value="N" />
@@ -1299,7 +1299,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Envio Mensal" key="{5EE07567-A240-491F-A815-89D3268FB195}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Envio Mensal" key="{5EE07567-A240-491F-A815-89D3268FB195}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Envio Mensal" key="{BA1B8706-6EB8-4AE0-8899-DE7811322F18}" group="False" parallel="False" enabled="False" testMoniker="{F83D575A-5A24-49C0-9F7F-E2804AE22794}ExecutaESocialEnvioMensal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1333,7 +1333,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Retificação" key="{6B63BAA9-4D94-4C94-8B22-01DDCEC31B99}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Retificação" key="{6B63BAA9-4D94-4C94-8B22-01DDCEC31B99}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Retificação" key="{2D754585-5EF1-44D5-B2DA-F6D4CD10588E}" group="False" parallel="False" enabled="False" testMoniker="{6392F63C-3995-4722-94DB-F92DADE23C55}ExecutaESocialRetificacao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1354,7 +1354,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Exclusão" key="{4C65BC3C-33BD-4EE7-A521-A35373120D2F}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Exclusão" key="{4C65BC3C-33BD-4EE7-A521-A35373120D2F}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Exclusão" key="{10E9A3E8-500D-4753-8C11-FF716117D659}" group="False" parallel="False" enabled="True" testMoniker="{F75175CD-87A8-4277-9360-C2BC28F1182A}ExecutaESocialExclusao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1367,7 +1367,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Envios Pendentes" key="{F7D607CC-E0B6-42EE-85C1-0D095EFA12FD}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Envios Pendentes" key="{F7D607CC-E0B6-42EE-85C1-0D095EFA12FD}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Envios Pendentes" key="{B40F8B22-9E04-41F5-A8CC-477CC2EDC684}" group="False" parallel="False" enabled="True" testMoniker="{55530B17-7074-40E5-838D-C9DEB80C1A0E}ExecutaESocialEnviosPendentes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1412,7 +1412,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Consulta Eventos" key="{9E7DBFDA-7E5B-4F0F-A78F-23BBF013C607}" group="False" parallel="False" enabled="True" testMoniker="{4915F410-0658-43D6-BD21-67ACD4C69393}VerificaEventosESocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+									<testItem name="Consulta Eventos" key="{9E7DBFDA-7E5B-4F0F-A78F-23BBF013C607}" group="False" parallel="False" enabled="False" testMoniker="{4915F410-0658-43D6-BD21-67ACD4C69393}VerificaEventosESocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 										<testParameters />
 										<environments activeCloud="CBT" />
 										<children />
@@ -2056,7 +2056,7 @@
 									</testItem>
 								</children>
 							</testItem>
-							<testItem name="Testes Unitários" key="{318BD4E4-15A1-48F1-8C4B-BB6F6F7D7D3A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+							<testItem name="Testes Unitários" key="{318BD4E4-15A1-48F1-8C4B-BB6F6F7D7D3A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
 									<testItem name="COPERCAMPOS" key="{B2D4937F-7ECA-4404-AF2E-FF21F30D0804}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2084,17 +2084,17 @@
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Processa 13° Salário - 1ª Parcela" key="{32C8ECCD-4B8A-4E6A-8A64-7E8BC15BA44A}" group="False" parallel="False" enabled="False" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Processa 13° Salário - 1ª Parcela" key="{32C8ECCD-4B8A-4E6A-8A64-7E8BC15BA44A}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="13° Salário - 1ª Parcela" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Valida Cálculos" key="{F50816BA-B987-4AC0-AF3D-6EAD5D8167C8}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ValidaEventosValores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Valida Cálculos" key="{F50816BA-B987-4AC0-AF3D-6EAD5D8167C8}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ValidaEventosValores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="13° Salário - 1ª Parcela" />
 															<param2 name="strConexaoFBBase" type="3" localVarName="conexaoBaseCoper" localVarLevel="1" value="" />
 															<param3 name="strConexaoFBAtual" type="3" localVarName="conexaoAtualCoper" localVarLevel="1" value="" />
@@ -2111,7 +2111,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="13° Salário - 2ª Parcela" key="{E5E2E50B-E2E3-41C1-975E-1102F212902B}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="13° Salário - 2ª Parcela" key="{E5E2E50B-E2E3-41C1-975E-1102F212902B}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Inicia Folha" key="{D3D8473A-961E-4FF3-AEFA-22D9C5B29AFA}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -2160,7 +2160,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Mensal" key="{91B3CB90-DFC3-4E31-987E-1B0D93313C1E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Mensal" key="{91B3CB90-DFC3-4E31-987E-1B0D93313C1E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Inicia Folha" key="{62689011-7D88-489B-838D-2D8EF97F3625}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -2184,7 +2184,7 @@
 													</testItem>
 													<testItem name="Processa Mensal" key="{3A297548-EB0E-4C2A-9059-F9D54B0F8FA0}" group="False" parallel="False" enabled="False" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="Mensal" />
 														</testParameters>
 														<environments activeCloud="CBT" />
@@ -2192,7 +2192,7 @@
 													</testItem>
 													<testItem name="Valida Cálculos" key="{95259E9F-D9B4-4B6E-B159-6FC6000A1DF2}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ValidaEventosValores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosCoper.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="Mensal" />
 															<param2 name="strConexaoFBBase" type="3" localVarName="conexaoBaseCoper" localVarLevel="1" value="" />
 															<param3 name="strConexaoFBAtual" type="3" localVarName="conexaoAtualCoper" localVarLevel="1" value="" />
@@ -2200,7 +2200,7 @@
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Finaliza Folha" key="{4C60E756-784C-40DF-AEA8-D4115B45CB43}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}SairModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Finaliza Folha" key="{4C60E756-784C-40DF-AEA8-D4115B45CB43}" group="False" parallel="False" enabled="True" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}SairModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="Modulo" type="3" localVarName="" varType="8" value="Folha" />
 														</testParameters>
@@ -2211,7 +2211,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="VSDBRH" key="{34563875-D14D-403B-9F98-971052CCF62D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="VSDBRH" key="{34563875-D14D-403B-9F98-971052CCF62D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Mensal" key="{27D76C7B-25DB-4261-9E0B-169F77DBDFED}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2236,7 +2236,7 @@
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Processa Mensal" key="{43ED6A51-12F6-46AA-9458-D4111D30C3F1}" group="False" parallel="False" enabled="False" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Processa Mensal" key="{43ED6A51-12F6-46AA-9458-D4111D30C3F1}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosVsdbRh.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="Mensal" />
@@ -2285,7 +2285,7 @@
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Processa Férias" key="{D60C3FCF-4142-461F-9DF6-7499D9CC3F80}" group="False" parallel="False" enabled="False" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Processa Férias" key="{D60C3FCF-4142-461F-9DF6-7499D9CC3F80}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentosTestesUnitarios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosVsdbRh.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="Férias" />
@@ -2334,7 +2334,7 @@
 														<environments activeCloud="CBT" />
 														<children />
 													</testItem>
-													<testItem name="Rescisão" key="{3AE1B67A-38F1-4ABB-89C5-3DB6DBFD2F15}" group="False" parallel="False" enabled="False" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentoRescisao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+													<testItem name="Rescisão" key="{3AE1B67A-38F1-4ABB-89C5-3DB6DBFD2F15}" group="False" parallel="False" enabled="True" testMoniker="{7BF63535-5191-48D4-A1B4-E97E2D600105}ExecutaProcessamentoRescisao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Testes Unitários\Processamentos\TestesUnitariosVsdbRh.xls" />
 															<param1 name="tab" type="3" localVarName="" varType="8" value="Rescisão" />
@@ -2777,6 +2777,11 @@
 					</testItem>
 				</children>
 			</testItem>
+			<testItem name="ProjectTestItem1" key="{95750EC0-EFE5-43CA-A6F2-C5294AB12383}" group="False" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<environments activeCloud="CBT" />
+				<children />
+			</testItem>
 		</children>
 	</testItems>
 	<variables key="{B0B6D2B5-4545-42F7-95F9-00DA63FC27AB}">
@@ -2861,16 +2866,16 @@
 					</DefValue>
 				</Variable>
 				<Variable Name="conexaoBaseCoper" Type="String" Local="False">
-					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2_BASE.FDB" />
+					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW165:C:\Viasoft\Dados\TESTEUNITARIO2_BASE.FDB" />
 				</Variable>
 				<Variable Name="conexaoAtualCoper" Type="String" Local="False">
-					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO2.FDB" />
+					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW165:C:\Viasoft\Dados\TESTEUNITARIO2.FDB" />
 				</Variable>
 				<Variable Name="conexaoBaseVsdbRh" Type="String" Local="False">
-					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO_BASE.FDB" />
+					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW165:C:\Viasoft\Dados\TESTEUNITARIO_BASE.FDB" />
 				</Variable>
 				<Variable Name="conexaoAtualVsdbRh" Type="String" Local="False">
-					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW301:C:\Viasoft\Dados\TESTEUNITARIO.FDB" />
+					<DefValue StrValue="DRIVER=Firebird/InterBase(r) driver;UID=SYSDBA;PWD=masterkey;DBNAME=DW165:C:\Viasoft\Dados\TESTEUNITARIO.FDB" />
 				</Variable>
 				<Variable Name="retornoConsulta" Type="Table" Local="False">
 					<DefValue RowCount="0" ColumnCount="0">
@@ -3446,7 +3451,7 @@
 		<setting name="Playback_OverlappingWindow_IgnoreOverlappingWindow" type="1" value="False" />
 		<setting name="Playback_Runtime_AutoWaitTimeout" type="2" value="10000" />
 		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="50" />
-		<setting name="Playback_Runtime_DisableMouse" type="1" value="False" />
+		<setting name="Playback_Runtime_DisableMouse" type="1" value="True" />
 		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="False" />
 		<setting name="Playback_Runtime_UseCaseSensitiveParameters" type="1" value="False" />
 		<setting name="Playback_StopOnError" type="1" value="False" />

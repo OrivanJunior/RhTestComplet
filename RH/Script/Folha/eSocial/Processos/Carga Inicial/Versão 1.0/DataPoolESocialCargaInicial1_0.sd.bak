@@ -43,73 +43,68 @@ var
   FiltroConsTipoEvento, FiltroConsEvteSocial: OleVariant;
 
   
-procedure LoadDataPoolCargaInicial(pathData, tab);
-begin
-  DDT.ExcelDriver(pathData, tab);	
-end;
-  
-procedure LeDataPoolCargaInicial();
+procedure LeDataPoolCargaInicial(nomeDriver);
 begin									 									
-  FiltroCargaInicialDPModoLanc   := DDT.CurrentDriver.Value('MODO_LANCTO');
+  FiltroCargaInicialDPModoLanc   := DDT.DriverByName(nomeDriver).Value('MODO_LANCTO');
 								
-  FormCargaInicialDPS1000        := DDT.CurrentDriver.Value('S-1000');
-  FormCargaInicialDPS1005        := DDT.CurrentDriver.Value('S-1005');
-  FormCargaInicialDPS1010        := DDT.CurrentDriver.Value('S-1010');
-  FormCargaInicialDPS1020        := DDT.CurrentDriver.Value('S-1020');
-  FormCargaInicialDPS1070        := DDT.CurrentDriver.Value('S-1070');
-  FormCargaInicialDPS2190        := DDT.CurrentDriver.Value('S-2190');
-  FormCargaInicialDPS2200        := DDT.CurrentDriver.Value('S-2200');
-  FormCargaInicialDPS2230        := DDT.CurrentDriver.Value('S-2230');
-  FormCargaInicialDPS2231        := DDT.CurrentDriver.Value('S-2231');
-  FormCargaInicialDPS2298        := DDT.CurrentDriver.Value('S-2298');
-  FormCargaInicialDPS2299        := DDT.CurrentDriver.Value('S-2299');
-  FormCargaInicialDPS2300        := DDT.CurrentDriver.Value('S-2300');
-  FormCargaInicialDPS2399        := DDT.CurrentDriver.Value('S-2399');
-  FormCargaInicialDPS2405        := DDT.CurrentDriver.Value('S-2405');
-  FormCargaInicialDPS2410        := DDT.CurrentDriver.Value('S-2410');
-  FormCargaInicialDPS2416        := DDT.CurrentDriver.Value('S-2416');
-  FormCargaInicialDPS2418        := DDT.CurrentDriver.Value('S-2418');
-  FormCargaInicialDPS2420        := DDT.CurrentDriver.Value('S-2420');
+  FormCargaInicialDPS1000        := DDT.DriverByName(nomeDriver).Value('S-1000');
+  FormCargaInicialDPS1005        := DDT.DriverByName(nomeDriver).Value('S-1005');
+  FormCargaInicialDPS1010        := DDT.DriverByName(nomeDriver).Value('S-1010');
+  FormCargaInicialDPS1020        := DDT.DriverByName(nomeDriver).Value('S-1020');
+  FormCargaInicialDPS1070        := DDT.DriverByName(nomeDriver).Value('S-1070');
+  FormCargaInicialDPS2190        := DDT.DriverByName(nomeDriver).Value('S-2190');
+  FormCargaInicialDPS2200        := DDT.DriverByName(nomeDriver).Value('S-2200');
+  FormCargaInicialDPS2230        := DDT.DriverByName(nomeDriver).Value('S-2230');
+  FormCargaInicialDPS2231        := DDT.DriverByName(nomeDriver).Value('S-2231');
+  FormCargaInicialDPS2298        := DDT.DriverByName(nomeDriver).Value('S-2298');
+  FormCargaInicialDPS2299        := DDT.DriverByName(nomeDriver).Value('S-2299');
+  FormCargaInicialDPS2300        := DDT.DriverByName(nomeDriver).Value('S-2300');
+  FormCargaInicialDPS2399        := DDT.DriverByName(nomeDriver).Value('S-2399');
+  FormCargaInicialDPS2405        := DDT.DriverByName(nomeDriver).Value('S-2405');
+  FormCargaInicialDPS2410        := DDT.DriverByName(nomeDriver).Value('S-2410');
+  FormCargaInicialDPS2416        := DDT.DriverByName(nomeDriver).Value('S-2416');
+  FormCargaInicialDPS2418        := DDT.DriverByName(nomeDriver).Value('S-2418');
+  FormCargaInicialDPS2420        := DDT.DriverByName(nomeDriver).Value('S-2420');
 								
-  FiltroDataIniValid             := DDT.CurrentDriver.Value('ANO_MES_VALIDADE');
+  FiltroDataIniValid             := DDT.DriverByName(nomeDriver).Value('ANO_MES_VALIDADE');
 								
-  FiltroEstabTipo                := DDT.CurrentDriver.Value('TIPO_ESTAB');
-  FiltroEstabValor               := DDT.CurrentDriver.Value('ESTAB_VALOR');
+  FiltroEstabTipo                := DDT.DriverByName(nomeDriver).Value('TIPO_ESTAB');
+  FiltroEstabValor               := DDT.DriverByName(nomeDriver).Value('ESTAB_VALOR');
 						
-  FiltroEventoTipo               := DDT.CurrentDriver.Value('TIPO_EVENTO');
-  FiltroEventoValor              := DDT.CurrentDriver.Value('EVENTO_VALOR');
+  FiltroEventoTipo               := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroEventoValor              := DDT.DriverByName(nomeDriver).Value('EVENTO_VALOR');
 						
-  FiltroLocalTipo                := DDT.CurrentDriver.Value('TIPO_LOCAL');
-  FiltroLocalValor               := DDT.CurrentDriver.Value('LOCAL_VALOR');
+  FiltroLocalTipo                := DDT.DriverByName(nomeDriver).Value('TIPO_LOCAL');
+  FiltroLocalValor               := DDT.DriverByName(nomeDriver).Value('LOCAL_VALOR');
 
-  FiltroFuncaoTipo               := DDT.CurrentDriver.Value('TIPO_FUNCAO');
-  FiltroFuncaoValor              := DDT.CurrentDriver.Value('FUNCAO_VALOR');
+  FiltroFuncaoTipo               := DDT.DriverByName(nomeDriver).Value('TIPO_FUNCAO');
+  FiltroFuncaoValor              := DDT.DriverByName(nomeDriver).Value('FUNCAO_VALOR');
     
-  FiltroHorariosTipo             := DDT.CurrentDriver.Value('TIPO_HORARIO');
-  FiltroHorariosValor            := DDT.CurrentDriver.Value('HORARIO_VALOR');
+  FiltroHorariosTipo             := DDT.DriverByName(nomeDriver).Value('TIPO_HORARIO');
+  FiltroHorariosValor            := DDT.DriverByName(nomeDriver).Value('HORARIO_VALOR');
 
-  FiltroProcJudicTipo            := DDT.CurrentDriver.Value('TIPO_PROC_JUDIC');
-  FiltroProcJudicValor           := DDT.CurrentDriver.Value('PROC_JUDIC_VALOR');
+  FiltroProcJudicTipo            := DDT.DriverByName(nomeDriver).Value('TIPO_PROC_JUDIC');
+  FiltroProcJudicValor           := DDT.DriverByName(nomeDriver).Value('PROC_JUDIC_VALOR');
 							    
-  FiltroDataDtIni                := DDT.CurrentDriver.Value('DATA_INI');
-  FiltroDataDtFin                := DDT.CurrentDriver.Value('DATA_FIN');
-  FiltroDescPeriodo              := DDT.CurrentDriver.Value('DESC_PERIODO');
+  FiltroDataDtIni                := DDT.DriverByName(nomeDriver).Value('DATA_INI');
+  FiltroDataDtFin                := DDT.DriverByName(nomeDriver).Value('DATA_FIN');
+  FiltroDescPeriodo              := DDT.DriverByName(nomeDriver).Value('DESC_PERIODO');
 							    
-  FiltroAdPreliminarTipo         := DDT.CurrentDriver.Value('TIPO_AD_PRE');
-  FiltroAdPreliminarValor        := DDT.CurrentDriver.Value('AD_PRE_VALOR');
+  FiltroAdPreliminarTipo         := DDT.DriverByName(nomeDriver).Value('TIPO_AD_PRE');
+  FiltroAdPreliminarValor        := DDT.DriverByName(nomeDriver).Value('AD_PRE_VALOR');
 							    
-  FiltroEmpregadoTipo            := DDT.CurrentDriver.Value('TIPO_EMPREGADO');
-  FiltroEmpregadoValor           := DDT.CurrentDriver.Value('EMPREGADO_VALOR');
+  FiltroEmpregadoTipo            := DDT.DriverByName(nomeDriver).Value('TIPO_EMPREGADO');
+  FiltroEmpregadoValor           := DDT.DriverByName(nomeDriver).Value('EMPREGADO_VALOR');
 end;                                      
 										
-procedure LeDataPoolConsCargaInicial();
+procedure LeDataPoolConsCargaInicial(nomeDriver);
 begin         
-  FiltroConsEstab      := DDT.CurrentDriver.Value('ESTAB');
-  FiltroConsDataIni    := DDT.CurrentDriver.Value('DATA_INI_ENV');
-  FiltroConsHoraIni    := DDT.CurrentDriver.Value('HORA_INI_ENV');
-  FiltroConsDataFin    := DDT.CurrentDriver.Value('DATA_FIN_ENV');
-  FiltroConsHoraFin    := DDT.CurrentDriver.Value('HORA_FIN_ENV');
-  FiltroConsAmbiente   := DDT.CurrentDriver.Value('AMBIENTE');
-  FiltroConsTipoEvento := DDT.CurrentDriver.Value('TIPO_EVENTO');
-  FiltroConsEvteSocial := DDT.CurrentDriver.Value('EVENTO_ESOCIAL');
+  FiltroConsEstab      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+  FiltroConsDataIni    := DDT.DriverByName(nomeDriver).Value('DATA_INI_ENV');
+  FiltroConsHoraIni    := DDT.DriverByName(nomeDriver).Value('HORA_INI_ENV');
+  FiltroConsDataFin    := DDT.DriverByName(nomeDriver).Value('DATA_FIN_ENV');
+  FiltroConsHoraFin    := DDT.DriverByName(nomeDriver).Value('HORA_FIN_ENV');
+  FiltroConsAmbiente   := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+  FiltroConsTipoEvento := DDT.DriverByName(nomeDriver).Value('TIPO_EVENTO');
+  FiltroConsEvteSocial := DDT.DriverByName(nomeDriver).Value('EVENTO_ESOCIAL');
 end;

@@ -40,7 +40,7 @@ begin
                 '|| ' + aqString.Quote(FiltroEmpregadoValor) + ' || ' + aqString.Quote(',') + ' LIKE ' + aqString.Quote('%,') + '|| IDEMPREGADO || '  + 
                 aqString.Quote(',%') + ') AND IDPROCESSO = ' + FiltroProcessamento + ' AND DATA = ' + aqString.Quote(FiltroDataProc) + ' ORDER BY ESTAB,IDEMPREGADO,DATA,IDEVENTO';
     
-    VerificaCalculos(consulta);
+    VerificaCalculos(consulta, strConexaoFBBase, strConexaoFBAtual);
     DDTEventos.Next;
   end;
   DDT.CloseDriver(DDTEventos.Name);
