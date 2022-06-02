@@ -1191,7 +1191,7 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Processos" key="{922C080B-432E-40EB-93F2-0605C89846EE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="GPS" key="{BC95A97E-F3B7-4013-AAEC-9D02081E9FEB}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1217,7 +1217,7 @@
 													<testItem name="SEFIP" key="{861795A6-7E83-4BC9-BC64-F5ED0FB2A1FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Executa SEFIP" key="{14094AC3-4826-4861-8794-61BB8F75D925}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Executa SEFIP" key="{14094AC3-4826-4861-8794-61BB8F75D925}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="2" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processos\SEFIP-GRRF-PIS\SEFIP\Sefip.xls" />
 																</testParameters>
@@ -2056,7 +2056,7 @@
 									</testItem>
 								</children>
 							</testItem>
-							<testItem name="Testes Unitários" key="{318BD4E4-15A1-48F1-8C4B-BB6F6F7D7D3A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+							<testItem name="Testes Unitários" key="{318BD4E4-15A1-48F1-8C4B-BB6F6F7D7D3A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
 									<testItem name="COPERCAMPOS" key="{B2D4937F-7ECA-4404-AF2E-FF21F30D0804}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3451,7 +3451,7 @@
 		<setting name="Playback_OverlappingWindow_IgnoreOverlappingWindow" type="1" value="False" />
 		<setting name="Playback_Runtime_AutoWaitTimeout" type="2" value="10000" />
 		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="50" />
-		<setting name="Playback_Runtime_DisableMouse" type="1" value="True" />
+		<setting name="Playback_Runtime_DisableMouse" type="1" value="False" />
 		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="False" />
 		<setting name="Playback_Runtime_UseCaseSensitiveParameters" type="1" value="False" />
 		<setting name="Playback_StopOnError" type="1" value="False" />
