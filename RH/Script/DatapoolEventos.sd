@@ -1,1 +1,57 @@
-﻿
+﻿var 
+{Info normais}         
+CadEventosDPIdEventos,
+CadEventosDPSequencia,
+CadEventosDPInativo,
+CadEventosDPSubseq,
+CadEventosDPDtInativo,
+CadEventosDPUserId,
+CadEventosDPDescricao,
+CadEventosDPCodHomolog,
+CadEventosDPInvisivel,
+CadEventosDPOpEvento,
+CadEventosDPIdTipo,
+CadEventosDPIdEvecalc,
+ 
+{Validações - Conf Dirf Rendimentos}
+CadDirfRendiDPCampo,
+CadDirfRendiDPLinha,
+CadDirfRendiDPFormula,
+
+{Esocial - Informações gerais}
+CadESocDPIdeventonat,
+CadESocDPObservacao,
+CadESocDPIndApurIrrf,
+
+{Contabiliza}	          
+CadEventosDPContabiliza : Olevariant;
+
+procedure LeDataPoolCadEventos(nomeDriver);
+begin
+{Info normais}         
+CadEventosDPIdEventos  		  := DDT.DriverByName(nomeDriver).Value('IDEVENTOS');
+CadEventosDPSequencia       := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
+CadEventosDPInativo         := DDT.DriverByName(nomeDriver).Value('INATIVO');
+CadEventosDPSubseq          := DDT.DriverByName(nomeDriver).Value('SUBSEQ');
+CadEventosDPDtInativo       := DDT.DriverByName(nomeDriver).Value('DTINATIVO');
+CadEventosDPUserId          := DDT.DriverByName(nomeDriver).Value('USERID');
+CadEventosDPDescricao       := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadEventosDPCodHomolog      := DDT.DriverByName(nomeDriver).Value('CODHOMOLOG');
+CadEventosDPInvisivel       := DDT.DriverByName(nomeDriver).Value('INVISIVEL');
+CadEventosDPOpEvento        := DDT.DriverByName(nomeDriver).Value('OPEVENTO');
+CadEventosDPIdTipo          := DDT.DriverByName(nomeDriver).Value('IDTIPO');
+CadEventosDPIdEvecalc       := DDT.DriverByName(nomeDriver).Value('IDEVECALC');
+ 
+{Validações - Conf Dirf Rendimentos}
+CadDirfRendiDPCampo			    := DDT.DriverByName(nomeDriver).Value('CAMPO');	
+CadDirfRendiDPLinha		      := DDT.DriverByName(nomeDriver).Value('LINHA');
+CadDirfRendiDPFormula	      := DDT.DriverByName(nomeDriver).Value('FORMULA');
+
+{Esocial - Informações gerais}
+CadESocDPIdeventonat		    := DDT.DriverByName(nomeDriver).Value('IDEVENTONAT');
+CadESocDPObservacao			    := DDT.DriverByName(nomeDriver).Value('OBSERVACAO');
+CadESocDPIndApurIrrf		    := DDT.DriverByName(nomeDriver).Value('INDAPURIRRF');
+
+{Contabiliza}	          
+CadEventosDPContabiliza		  := DDT.DriverByName(nomeDriver).Value('CONTABILIZA');
+end;
