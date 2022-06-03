@@ -1,1 +1,15 @@
-﻿
+﻿uses 
+CommonsAll,
+ObjCadEventos,
+VarConst,
+CoommonsObj,
+DatapoolEventos;
+
+
+procedure FiltroEvento();
+begin
+FiltraCadEvento();
+FiltraConsultaEventos.Keys('Código do Evento');
+FiltraEventos.SelectItem('(Ignorar)');
+BtnOKFiltroEvento.ClickButton;
+end;

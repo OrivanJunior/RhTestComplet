@@ -127,7 +127,7 @@ CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox_
 
 end;
 
-procedure MapcadFiltro();
+procedure FiltraCadEvento();
 begin
 FormFiltroEventos 		  := Aliases.Folha.FFiltroConsultaCDS;
 FiltraConsultaEventos 	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
@@ -135,7 +135,4 @@ FiltraEventos 			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
 BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
-
-FiltraConsultaEventos.Click()
-
 end;
