@@ -16,7 +16,20 @@ end;
 
 procedure PreencheInfoNormais();
 begin
+VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
+VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
+VerificaInsere(CadEventosEBInativo,CadEventosDPInativo);
+VerificaInsere(CadEventosEBSubseq,CadEventosDPSubseq);
+PreencheDatas(CadEventosEBDtinativo,CadEventosDPDtinativo);
+VerificaInsere(CadEventosEBUserid,CadEventosDPUserid);
+VerificaInsere(CadEventosEBDescricao,CadEventosDPDescricao);
+VerificaInsere(CadEventosEBCodhomolog,CadEventosDPCodhomolog);
+VerificaInsere(CadEventosEBInvisivel,CadEventosDPInvisivel);
+VerificaInsere(CadEventosEBOpevento,CadEventosDPOpevento);
+VerificaConsultaF3Insere(CadEventosEBIdtipo,CadEventosDPIdtipo);
+VerificaConsultaF3Insere(CadEventosEBIdevecalc,CadEventosDPIdevecalc);
 
+VerificaInsere();
 
 end;
 
@@ -83,5 +96,20 @@ end;
 procedure PreencheESocial();
 begin
 
+
+end;
+
+procedure CadastraEvento(pathData);
+begin
+
+end;
+
+procedure AlteraEvento(pathData);
+begin
+
+end;
+
+procedure ExcluiEvento(pathData);
+begin
 
 end;
