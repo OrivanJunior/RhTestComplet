@@ -6,10 +6,82 @@ CoommonsObj,
 DatapoolEventos;
 
 
-procedure FiltroEvento();
+procedure FiltroTelaInicialEvento();
 begin
 FiltraCadEvento();
 FiltraConsultaEventos.Keys('Código do Evento');
 FiltraEventos.SelectItem('(Ignorar)');
 BtnOKFiltroEvento.ClickButton;
+end;
+
+procedure PreencheInfoNormais();
+begin
+
+
+end;
+
+procedure PreencheValidaSituacao();
+begin
+
+
+end;
+
+procedure PreencheValidaCausas();
+begin
+
+
+end;
+
+procedure PreencheValidaVinculos();
+begin
+
+
+end;
+
+procedure PreencheValidaProcessamentos();
+begin
+
+
+end;
+
+procedure PreencheValidaTurnos();
+begin
+
+
+end;
+
+procedure PreencheValidaCategorias();
+begin
+
+
+end;
+
+procedure PreencheValidaConfiguracao();
+begin
+
+
+end;
+
+procedure PreencheValidaConfigDirfRend();
+begin
+
+
+end;
+
+procedure PreencheIncidencias();
+begin
+
+
+end;
+
+procedure PreencheParametros();
+begin
+
+
+end;
+
+procedure PreencheESocial();
+begin
+
+
 end;

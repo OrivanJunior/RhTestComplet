@@ -44,7 +44,6 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-
 procedure AlterarTurno(pathData);
 Var
 DDTAlterar : OleVariant;
