@@ -1,17 +1,11 @@
 ﻿var 
 {Info normais}   
-CadEventosDPCodigo,      
-CadEventosDPIdEventos,
-CadEventosDPSequencia,
-CadEventosDPInativo,
-CadEventosDPSubseq,
-CadEventosDPDtInativo,
-CadEventosDPUserId,
-CadEventosDPDescricao,
-CadEventosDPCodHomolog,
-CadEventosDPInvisivel,
-CadEventosDPOpEvento,
-CadEventosDPIdTipo,
+CadEventosDPCodigo,CadEventosDPIdEventos,
+CadEventosDPSequencia,CadEventosDPInativo,
+CadEventosDPSubseq,CadEventosDPDtInativo,
+CadEventosDPUserId,CadEventosDPDescricao,
+CadEventosDPCodHomolog,CadEventosDPInvisivel,
+CadEventosDPOpEvento,CadEventosDPIdTipo,
 CadEventosDPIdEvecalc,
 
 {Valida Situações}
@@ -22,14 +16,15 @@ ValidaEventosDPCodTurn,ValidaEventosDPCodCat,ValidaEventosDPCodConf,
 IncidEventosDPCod, ParamEventosDPCod,
  
 {Validações - Conf Dirf Rendimentos}
-CadDirfRendiDPCampo,
-CadDirfRendiDPLinha,
-CadDirfRendiDPFormula,
+CadDirfRendiDPCampo,CadDirfRendiDPLinha,CadDirfRendiDPFormula,
 
 {Esocial - Informações gerais}
-CadESocDPIdeventonat,
-CadESocDPObservacao,
-CadESocDPIndApurIrrf,
+CadESocDPIdeventonat,CadESocDPObservacao,CadESocDPIndApurIrrf,
+{Parâmetros}
+CadParamDPValorBaseModo,CadParamDPValorBaseBase,CadParamDPValorBaseTipo,CadParamDPValorBaseMeses,
+CadParamDPValorBaseMes,CadParamDPValorBaseAno,CadParamDPValorHora,CadParamDPCalculaReducao,
+
+CadParamDPAdicionalInforme,CadParamDPJornadaAConsiderar,CadParamDPProporcionalidadeBase,
 
 {Contabiliza}	          
 CadEventosDPContabiliza : Olevariant;
@@ -81,7 +76,6 @@ ValidaEventosDPCodVin          := DDT.DriverByName(nomeDriver).Value('CODIGOVIN'
 ValidaEventosDPCodProc         := DDT.DriverByName(nomeDriver).Value('CODIGOPROC');
 ValidaEventosDPCodTurn         := DDT.DriverByName(nomeDriver).Value('CODIGOTURN');
 ValidaEventosDPCodCat          := DDT.DriverByName(nomeDriver).Value('CODIGOCAT');
-ValidaEventosDPCodConf         := DDT.DriverByName(nomeDriver).Value('CODIGOCAT');
 end;
 
 procedure LeDataPoolIncid(nomeDriver);
@@ -91,20 +85,21 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
-{Paramentros}
-CadParamEBValorBaseModo			    := 
-CadParamEBValorBaseBase			    := 
-CadParamEBValorBaseTipo			    := 
-CadParamEBValorBaseMeses		    := 
-CadParamEBValorBaseMes			    := 
-CadParamEBValorBaseAno			    := 
-CadParamEBValorHora				      := 
-CadParamEBCalculaReducao		    := 
-{Param-Adicional}
-CadParamEBAdicionalInforme		  := 
-{Param-JORNADA A CONSIDERAR}       
-CadParamEBJornadaAConsiderar	  := 
-{Param-PROPORCIONALIDADE BASE}     
-CadParamEBProporcionalidadeBase	:= 
+CadParamDPValorBaseModo			    := DDT.DriverByName(nomeDriver).Value('BASEMODO');		
+CadParamDPValorBaseBase			    := DDT.DriverByName(nomeDriver).Value('BASEBASE');	
+CadParamDPValorBaseTipo			    := DDT.DriverByName(nomeDriver).Value('BASETIPO');	
+CadParamDPValorBaseMeses		    := DDT.DriverByName(nomeDriver).Value('BASEMESES');	
+CadParamDPValorBaseMes			    := DDT.DriverByName(nomeDriver).Value('BASEMES');	
+CadParamDPValorBaseAno			    := DDT.DriverByName(nomeDriver).Value('BASEANO');	
+CadParamDPValorHora				      := DDT.DriverByName(nomeDriver).Value('HORA');	
+CadParamDPCalculaReducao		    := DDT.DriverByName(nomeDriver).Value('REDUCAO');	
+
+CadParamDPAdicionalInforme		  := DDT.DriverByName(nomeDriver).Value('ADICIONALINFORME');
+
+CadParamDPJornadaAConsiderar 	  := DDT.DriverByName(nomeDriver).Value('JORNADAACONSIDERAR');
+
+CadParamDPProporcionalidadeBase	:= DDT.DriverByName(nomeDriver).Value('PROPORCIONALIDADEBASE');
+
+
 end;
 

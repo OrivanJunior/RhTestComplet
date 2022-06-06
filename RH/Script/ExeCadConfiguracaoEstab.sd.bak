@@ -151,7 +151,7 @@ begin
     
     ActSalvar(CadConfigEstabelecimentoForm);
     ActFechar(CadConfigEstabelecimentoForm);
-  end;
+  //end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;

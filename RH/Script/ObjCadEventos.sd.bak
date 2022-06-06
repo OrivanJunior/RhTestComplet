@@ -7,7 +7,7 @@ VarConst;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormPageValida,CadFormPageTab,BtnSalvarEvento,
+CadFormEventos,CadFormPage,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -42,7 +42,7 @@ BtnIncCat,BtnIncTdCat,BtnExcCat,GridCategorias,
 {Validações - Conf Dirf Rendimentos}                        
 CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
-BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GrideIncidencias,
+BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GridIncidencias,
 {Parametros}
 CadParamEBValorBaseModo,CadParamEBValorBaseBase,CadParamEBValorBaseTipo,		
 CadParamEBValorBaseMeses,CadParamEBValorBaseMes,CadParamEBValorBaseAno,		
@@ -66,6 +66,7 @@ CadFormEventos          :=  Aliases.Folha.FRhEvento;
 CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
 CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
+CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
 
@@ -162,7 +163,7 @@ GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.p
 GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
 GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
 GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
-GrideIncidencias    :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
+GridIncidencias     :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
 GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 end;
 

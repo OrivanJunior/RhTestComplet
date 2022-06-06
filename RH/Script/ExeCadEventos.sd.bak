@@ -18,9 +18,10 @@ procedure PreencheInfoNormais(pathData);
 Var
 DDTInfoNormais : OleVariant;
 begin
-DDTInfoNormais := CarregaDDT(pathData,'Info Normais');
+DDTInfoNormais := CarregaDDT(pathData,'Informações Normais');
 LeDataPoolInfoNormais(DDTInfoNormais.Name);
-MapCadEventos();
+
+MapCadInfoNormais();
 
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -32,8 +33,8 @@ VerificaInsere(CadEventosEBDescricao,CadEventosDPDescricao);
 VerificaInsere(CadEventosEBCodhomolog,CadEventosDPCodhomolog);
 VerificaInsere(CadEventosEBInvisivel,CadEventosDPInvisivel);
 VerificaInsere(CadEventosEBOpevento,CadEventosDPOpevento);
-VerificaConsultaF3Insere(CadEventosEBIdtipo,CadEventosDPIdtipo);
-VerificaConsultaF3Insere(CadEventosEBIdevecalc,CadEventosDPIdevecalc);
+VerificaConsultaF3Insere(_ModuloFolha,CadEventosEBIdtipo,CadEventosDPIdtipo);
+VerificaConsultaF3Insere(_ModuloFolha,CadEventosEBIdevecalc,CadEventosDPIdevecalc);
 end;
 
 procedure PreencheValidaSituacao(pathData);
@@ -47,6 +48,7 @@ i:= 0;
   DDTSituacao := CarregaDDT(pathData, 'Situações');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
+  MapCadValidacoes();
   
   BtnIncSit.Click();
   
@@ -68,7 +70,6 @@ i:= 0;
   DDT.CloseDriver(DDTSituacao.Name);
 end;
 
-
 procedure PreencheValidaCausas(pathData);
 var
 DDTCausas : OleVariant;
@@ -81,6 +82,7 @@ i:= 0;
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
+  MapCadValidacoes();
   
   BtnIncCau.Click();
   
@@ -114,7 +116,7 @@ i:= 0;
   DDTVinculos := CarregaDDT(pathData, 'Vínculos');
   
   LeDataPoolValidacoes(DDTVinculos.Name);
-  
+  MapCadValidacoes();
   BtnIncVin.Click();
   
   Log.Checkpoint('Preenchendo Vínculos');
@@ -147,7 +149,7 @@ i:= 0;
   DDTProcessamentos := CarregaDDT(pathData, 'Processamentos');
   
   LeDataPoolValidacoes(DDTProcessamento.Name);
-  
+  MapCadValidacoes();
   BtnIncProc.Click();
   
   Log.Checkpoint('Preenchendo Processamentos');
@@ -176,6 +178,8 @@ begin
 i:= 0;
 
   CadFormPageValida.ActivePageIndex := 4;
+  
+  MapCadValidacoes();
   
   DDTTurnos := CarregaDDT(pathData, 'Turnos');
   
@@ -210,10 +214,12 @@ i:= 0;
 
   CadFormPageValida.ActivePageIndex := 5;
   
+  MapCadValidacoes();
+   
   DDTCategoria := CarregaDDT(pathData, 'Categorias');
   
   LeDataPoolValidacoes(DDTCategoria.Name);
-  
+ 
   BtnIncCat.Click();
   
   Log.Checkpoint('Preenchendo Categorias');
@@ -243,11 +249,11 @@ i:= 0;
 
   CadFormPageValida.ActivePageIndex := 6;
   
+  MapCadValidacoes();
+  
   DDTConfiguracao := CarregaDDT(pathData, 'Configuração Dirf-Rendimentos');
   
-  LeDataPoolValidacoes(DDTConfiguracao.Name);
-  
-  BtnInc.Click();
+  LeDataPoolDirfRendimentos(DDTConfiguracao.Name);
   
   Log.Checkpoint('Preenchendo Configurações Dirf');
   
@@ -276,10 +282,12 @@ i:= 0;
 
   CadFormPageTab.ActivePageIndex := 1;
   
+  MapCadIncidencias();
+    
   DDTCategoria := CarregaDDT(pathData, 'Incidências');
   
   LeDataPoolIncid(DDTIncidencia.Name);
-  
+
   BtnIncIncide.Click();
   
   Log.Checkpoint('Preenchendo Categorias');
@@ -301,19 +309,99 @@ i:= 0;
 end;
 
 procedure PreencheParametros(pathData);
+var
+DDTParamentro : OleVariant;
+i : integer;
 begin
+i:= 0;
 
-
+  CadFormPageValida.ActivePageIndex := 3;
+  
+  MapCadParametros();
+  
+  DDTParamentro := CarregaDDT(pathData, 'Parâmetros');
+  
+  LeDataPoolParam(DDTParamentro.Name);
+  
+  CadFormParam.ActivePageIndex := 0;
+  Log.Checkpoint('Preenchendo Parâmetros');
+  {Valor base}
+  VerificaInsere(CadParamEBValorBaseModo,CadParamDPValorBaseModo);			
+  VerificaInsere(CadParamEBValorBaseBase,CadParamDPValorBaseBase);			
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBValorBaseTipo,CadParamDPValorBaseTipo);
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBValorBaseMeses,CadParamDPValorBaseMeses);
+  VerificaInsere(CadParamEBValorBaseMes,CadParamDPValorBaseMes);
+  VerificaInsere(CadParamEBValorBaseAno,CadParamDPValorBaseAno);
+  VerificaInsere(CadParamEBValorHora,CadParamDPValorHora);
+  VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
+  
+  {Adicional}
+  CadFormParam.ActivePageIndex := 1;
+  Delay(1000);
+  VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
+  {Outros}
+  CadFormParam.ActivePageIndex := 2;
+  Delay(1000);
+  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+  {Proporcionalidade}
+  CadFormParam.ActivePageIndex := 3;
+  Delay(1000);
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTParamentro.Name);
 end;
 
 procedure PreencheESocial(pathData);
+Var
+DDTInfoGerais : OleVariant;
 begin
+CadFormPageTab.ActivePageIndex := 4;
 
+MapCadESocial();
+
+DDTInfoGerais := CarregaDDT(pathData,'Informações Gerais');
+LeDataPoolESocial(DDTInfoGerais.Name);
+
+Log.Checkpoint('Preenchendo eSocial');
+VerificaConsultaF3Insere(_ModuloFolha,CadESocEBIdeventonat,CadESocDPIdeventonat);
+VerificaInsere(CadESocEBObservacao,CadESocDPObservacao);
+VerificaInsere(CadESocEBIndApurIrrf,CadESocDPIndApurIrrf);
+
+BtnIncTrib.Click();
+
+if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
 
 end;
 
 procedure CadastraEvento(pathData);
 begin
+
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Gerais','Eventos','Eventos');
+
+FiltroTelaInicialEvento();
+
+MapCadFormEventos();
+
+PreencheInfoNormais(pathData);
+
+PreencheESocial(pathData);
 
 end;
 
