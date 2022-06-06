@@ -91,20 +91,20 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
-{Paramentros}
-CadParamEBValorBaseModo			    := 
-CadParamEBValorBaseBase			    := 
-CadParamEBValorBaseTipo			    := 
-CadParamEBValorBaseMeses		    := 
-CadParamEBValorBaseMes			    := 
-CadParamEBValorBaseAno			    := 
-CadParamEBValorHora				      := 
-CadParamEBCalculaReducao		    := 
-{Param-Adicional}
-CadParamEBAdicionalInforme		  := 
-{Param-JORNADA A CONSIDERAR}       
-CadParamEBJornadaAConsiderar	  := 
-{Param-PROPORCIONALIDADE BASE}     
-CadParamEBProporcionalidadeBase	:= 
+{Valor base}
+VerificaInsere(CadParamEBValorBaseModo,CadParamDPValorBaseModo);			
+VerificaInsere(CadParamEBValorBaseBase,CadParamDPValorBaseBase);			
+VerificaConsultaF3Insere(_Folha,CadParamEBValorBaseTipo,CadParamDPValorBaseTipo);
+VerificaConsultaF3Insere(_Folha,CadParamEBValorBaseMeses,CadParamDPValorBaseMeses);
+VerificaInsere(CadParamEBValorBaseMes,CadParamDPValorBaseMes);
+VerificaInsere(CadParamEBValorBaseAno,CadParamDPValorBaseAno);
+VerificaInsere(CadParamEBValorHora,CadParamDPValorHora);
+VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
+{Adicional}
+VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
+{Outros}
+VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+{Proporcionalidade}
+VerificaConsultaF3Insere(CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
 end;
 

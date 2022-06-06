@@ -91,6 +91,20 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
-ParamEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOPARAM');
+{Paramentros}
+CadParamEBValorBaseModo			    := 
+CadParamEBValorBaseBase			    := 
+CadParamEBValorBaseTipo			    := 
+CadParamEBValorBaseMeses		    := 
+CadParamEBValorBaseMes			    := 
+CadParamEBValorBaseAno			    := 
+CadParamEBValorHora				      := 
+CadParamEBCalculaReducao		    := 
+{Param-Adicional}
+CadParamEBAdicionalInforme		  := 
+{Param-JORNADA A CONSIDERAR}       
+CadParamEBJornadaAConsiderar	  := 
+{Param-PROPORCIONALIDADE BASE}     
+CadParamEBProporcionalidadeBase	:= 
 end;
 
