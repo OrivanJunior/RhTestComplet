@@ -27,10 +27,9 @@ CadESocDPIndApurIrrf,
 {Contabiliza}	          
 CadEventosDPContabiliza : Olevariant;
 
-procedure LeDataPoolCadEventos(nomeDriver);
+procedure LeDataPoolInfoNormais(nomeDriver);
 begin
 {Info normais}
-CadEventosDPCodigo          := DDT.DriverByName(nomeDriver).Value('IDCODIGO');
 CadEventosDPIdEventos  		  := DDT.DriverByName(nomeDriver).Value('IDEVENTOS');
 CadEventosDPSequencia       := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
 CadEventosDPInativo         := DDT.DriverByName(nomeDriver).Value('INATIVO');
@@ -43,17 +42,48 @@ CadEventosDPInvisivel       := DDT.DriverByName(nomeDriver).Value('INVISIVEL');
 CadEventosDPOpEvento        := DDT.DriverByName(nomeDriver).Value('OPEVENTO');
 CadEventosDPIdTipo          := DDT.DriverByName(nomeDriver).Value('IDTIPO');
 CadEventosDPIdEvecalc       := DDT.DriverByName(nomeDriver).Value('IDEVECALC');
- 
+end;
+
+procedure LeDataPoolDirfRendimentos(nomeDriver);
+begin 
 {Validações - Conf Dirf Rendimentos}
 CadDirfRendiDPCampo			    := DDT.DriverByName(nomeDriver).Value('CAMPO');	
 CadDirfRendiDPLinha		      := DDT.DriverByName(nomeDriver).Value('LINHA');
 CadDirfRendiDPFormula	      := DDT.DriverByName(nomeDriver).Value('FORMULA');
+end;
 
+procedure LeDataPoolESocial(nomeDriver);
+begin
 {Esocial - Informações gerais}
 CadESocDPIdeventonat		    := DDT.DriverByName(nomeDriver).Value('IDEVENTONAT');
 CadESocDPObservacao			    := DDT.DriverByName(nomeDriver).Value('OBSERVACAO');
 CadESocDPIndApurIrrf		    := DDT.DriverByName(nomeDriver).Value('INDAPURIRRF');
+end;
 
+procedure LeDataPoolContab(nomeDriver);
+begin
 {Contabiliza}	          
 CadEventosDPContabiliza		  := DDT.DriverByName(nomeDriver).Value('CONTABILIZA');
 end;
+
+procedure LeDataPoolValidacoes(nomeDriver);
+begin
+ValidaEventosDPCodSit          := DDT.DriverByName(nomeDriver).Value('CODIGOSIT');
+ValidaEventosDPCodCau          := DDT.DriverByName(nomeDriver).Value('CODIGOCAU');
+ValidaEventosDPCodVin          := DDT.DriverByName(nomeDriver).Value('CODIGOVIN');
+ValidaEventosDPCodProc         := DDT.DriverByName(nomeDriver).Value('CODIGOPROC');
+ValidaEventosDPCodTurn         := DDT.DriverByName(nomeDriver).Value('CODIGOTURN');
+ValidaEventosDPCodCat          := DDT.DriverByName(nomeDriver).Value('CODIGOCAT');
+ValidaEventosDPCodConf         := DDT.DriverByName(nomeDriver).Value('CODIGOCAT');
+end;
+
+procedure LeDataPoolIncid(nomeDriver);
+begin
+IncidEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOINCID');
+end;
+
+procedure LeDataPoolParam(nomeDriver);
+begin
+IncidEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOINCID');
+end;
+

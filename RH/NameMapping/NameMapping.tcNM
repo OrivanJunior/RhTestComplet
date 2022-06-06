@@ -59461,6 +59461,257 @@
 																	</Child>
 																</Children>
 															</Child>
+															<Child Name="tsParam" Key="{F4AF9DA2-66B5-445C-B3CB-B6EAA4B44979}">
+																<Image FileName="2116674720" Left="8" Top="293" Right="1896" Bottom="866" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TTabSheet" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="tsParam" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="pgParam" Key="{33D9F672-FEE9-444E-B3E4-73ECF58AE1C3}">
+																		<Image FileName="2116674720" Left="8" Top="293" Right="1896" Bottom="866" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsPageControl" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="pgParam" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="FRhEvento_Param_ts1" Key="{92394027-6AA1-470B-B30D-8B56A519D094}">
+																				<Image FileName="1841103067" Left="12" Top="320" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="FRhEvento_Param_ts1" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TScrollBox" Key="{4ECF2F4A-7648-4ACD-B806-632B0CF8A2D3}">
+																						<Image FileName="1841103067" Left="12" Top="320" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="EB_VALORBASEMODO" Key="{C91A684C-DD58-4E91-AE0F-64553082A9D7}">
+																								<Image FileName="1841103067" Left="154" Top="328" Right="452" Bottom="349" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsCombo" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASEMODO" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORBASEBASE" Key="{B4514E39-0781-4798-A399-224825AD56AA}">
+																								<Image FileName="441565684" Left="154" Top="357" Right="197" Bottom="376" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASEBASE" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORBASETIPO" Key="{CA434D32-CC2F-44CD-AAA6-2DA215C819B3}">
+																								<Image FileName="752697797" Left="154" Top="384" Right="197" Bottom="403" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASETIPO" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORBASEMESES" Key="{2A41F238-920F-45FE-AF6E-9C62289D7527}">
+																								<Image FileName="-1926922752" Left="154" Top="411" Right="189" Bottom="430" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASEMESES" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORBASEMES" Key="{87DB9582-C32D-461C-AF23-6CE19F671288}">
+																								<Image FileName="1366826200" Left="154" Top="438" Right="212" Bottom="459" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsCombo" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASEMES" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORBASEANO" Key="{8628C795-AC2B-4776-915A-E0EF5CF6A8CC}">
+																								<Image FileName="366815194" Left="154" Top="467" Right="205" Bottom="486" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORBASEANO" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_VALORHORA" Key="{2BAFF419-A032-428F-855F-F7E9BF5A891A}">
+																								<Image FileName="2132828557" Left="154" Top="494" Right="221" Bottom="513" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_VALORHORA" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_CALCULAREDUCAO" Key="{AF738BCA-3F69-44BB-8AB0-54753A6B6665}">
+																								<Image FileName="-276263056" Left="154" Top="521" Right="300" Bottom="542" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsCombo" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_CALCULAREDUCAO" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="FRhEvento_Param_ts2" Key="{02517C34-BF86-4EB3-97E7-FB352C091555}">
+																				<Image FileName="-2037195818" Left="12" Top="320" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="FRhEvento_Param_ts2" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TScrollBox" Key="{9FCAFCF0-593D-4B01-820F-AE26C7F0CBF2}">
+																						<Image FileName="-2037195818" Left="12" Top="320" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="EB_ADICIONALINFORME" Key="{5D7FC8D2-6D2E-455C-9881-C348739B3FCF}">
+																								<Image FileName="777412599" Left="154" Top="328" Right="213" Bottom="347" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_ADICIONALINFORME" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="FRhEvento_Param_ts3" Key="{E24BD93B-0F95-42A6-A5FC-434C0495B0FB}">
+																				<Image FileName="1007090963" Left="12" Top="320" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="FRhEvento_Param_ts3" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TScrollBox" Key="{4E90637E-95C3-451C-9348-C4C84A90658E}">
+																						<Image FileName="1007090963" Left="12" Top="320" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="EB_JORNADAACONSIDERAR" Key="{E1618FA4-3BED-4AD4-976D-D1A1EB9714BD}">
+																								<Image FileName="1007090963" Left="154" Top="328" Right="292" Bottom="349" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsCombo" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_JORNADAACONSIDERAR" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="FRhEvento_Param_ts4" Key="{9D2BF0E6-C4E1-4959-9FB6-8048CB77D681}">
+																				<Image FileName="43592916" Left="12" Top="320" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="FRhEvento_Param_ts4" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TScrollBox" Key="{99A525F6-B26C-40F1-98DD-DFAA37901854}">
+																						<Image FileName="43592916" Left="12" Top="320" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="EB_PROPORCIONALIDADEBASE" Key="{F57E9E85-78D1-4E0F-B920-6123BE469884}">
+																								<Image FileName="43592916" Left="154" Top="328" Right="197" Bottom="347" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_PROPORCIONALIDADEBASE" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
 														</Children>
 													</Child>
 												</Children>
@@ -82282,6 +82533,37 @@
 								<Child Name="sbRHEveIncide" Owner="{FDB0E590-428D-4F7A-BCAD-435BD9AADF3F}">
 									<Child Name="gRhEveIncide" Owner="{4FF813CF-CA88-46E1-9292-ADB51A6F344F}">
 										<Child Name="TcxGridSite" Owner="{2689D928-851B-4929-8E30-C7744DF6B46A}" />
+									</Child>
+								</Child>
+							</Child>
+							<Child Name="tsParam" Owner="{F4AF9DA2-66B5-445C-B3CB-B6EAA4B44979}">
+								<Child Name="pgParam" Owner="{33D9F672-FEE9-444E-B3E4-73ECF58AE1C3}">
+									<Child Name="FRhEvento_Param_ts1" Owner="{92394027-6AA1-470B-B30D-8B56A519D094}">
+										<Child Name="TScrollBox" Owner="{4ECF2F4A-7648-4ACD-B806-632B0CF8A2D3}">
+											<Child Name="EB_VALORBASEMODO" Owner="{C91A684C-DD58-4E91-AE0F-64553082A9D7}" />
+											<Child Name="EB_VALORBASEBASE" Owner="{B4514E39-0781-4798-A399-224825AD56AA}" />
+											<Child Name="EB_VALORBASETIPO" Owner="{CA434D32-CC2F-44CD-AAA6-2DA215C819B3}" />
+											<Child Name="EB_VALORBASEMESES" Owner="{2A41F238-920F-45FE-AF6E-9C62289D7527}" />
+											<Child Name="EB_VALORBASEMES" Owner="{87DB9582-C32D-461C-AF23-6CE19F671288}" />
+											<Child Name="EB_VALORBASEANO" Owner="{8628C795-AC2B-4776-915A-E0EF5CF6A8CC}" />
+											<Child Name="EB_VALORHORA" Owner="{2BAFF419-A032-428F-855F-F7E9BF5A891A}" />
+											<Child Name="EB_CALCULAREDUCAO" Owner="{AF738BCA-3F69-44BB-8AB0-54753A6B6665}" />
+										</Child>
+									</Child>
+									<Child Name="FRhEvento_Param_ts2" Owner="{02517C34-BF86-4EB3-97E7-FB352C091555}">
+										<Child Name="TScrollBox" Owner="{9FCAFCF0-593D-4B01-820F-AE26C7F0CBF2}">
+											<Child Name="EB_ADICIONALINFORME" Owner="{5D7FC8D2-6D2E-455C-9881-C348739B3FCF}" />
+										</Child>
+									</Child>
+									<Child Name="FRhEvento_Param_ts3" Owner="{E24BD93B-0F95-42A6-A5FC-434C0495B0FB}">
+										<Child Name="TScrollBox" Owner="{4E90637E-95C3-451C-9348-C4C84A90658E}">
+											<Child Name="EB_JORNADAACONSIDERAR" Owner="{E1618FA4-3BED-4AD4-976D-D1A1EB9714BD}" />
+										</Child>
+									</Child>
+									<Child Name="FRhEvento_Param_ts4" Owner="{9D2BF0E6-C4E1-4959-9FB6-8048CB77D681}">
+										<Child Name="TScrollBox" Owner="{99A525F6-B26C-40F1-98DD-DFAA37901854}">
+											<Child Name="EB_PROPORCIONALIDADEBASE" Owner="{F57E9E85-78D1-4E0F-B920-6123BE469884}" />
+										</Child>
 									</Child>
 								</Child>
 							</Child>

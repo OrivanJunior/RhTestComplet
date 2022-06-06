@@ -15,6 +15,8 @@ BtnOKFiltroEvento.ClickButton;
 end;
 
 procedure PreencheInfoNormais(pathData);
+var 
+DDTInfoNormais : OleVariant;
 begin
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -46,16 +48,58 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Situações');
   
-  VerificaClickPreencheGrid(GridSituacao, 0, 'Situacao', CadEventosDPCodigo);
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
   
-  GridEmpregado.Click();
+  GridSituacao.Click();
   
-  BtnSaveEmpre.Click;
-
+  BtnSalvarEvento.Click;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTSituacao.Name);
 end;
 
-procedure PreencheValidaCausas();
+
+procedure PreencheValidaCausas(pathData);
+var
+DDTCausas : OleVariant;
+i : integer;
 begin
+i:= 0;
+
+  CadFormPageTab.ActivePageIndex := 1;
+  
+  DDTCausas := CarregaDDT(pathData, 'Causas');
+  
+  LeDataPoolCadEventos(DDTSituacao.Name);
+  
+  BtnIncSit.Click();
+  
+  Log.Checkpoint('Preenchendo Situações');
+  
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  
+  GridSituacao.Click();
+  
+  BtnSalvarEvento.Click;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTSituacao.Name);
 
 
 end;

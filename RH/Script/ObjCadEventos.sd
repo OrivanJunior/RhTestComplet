@@ -23,22 +23,6 @@ CadEventosEBSubseq,CadEventosEBDtInativo,CadEventosEBUserId,
 CadEventosEBDescricao,CadEventosEBCodHomolog,CadEventosEBInvisivel,
 CadEventosEBOpEvento,CadEventosEBIdTipo,CadEventosEBIdEvecalc,
 
-       
-                   
-        
-                   
-       
-                   
- 
-                   
-         
-                   
-     
-                   
-   
-                   
-     
-
 {Contabiliza}	
 CadEventosEBContabiliza,
 
@@ -59,6 +43,16 @@ BtnIncCat,BtnIncTdCat,BtnExcCat,GridCategorias,
 CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
 BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GrideIncidencias,
+{Parametros}
+CadParamEBValorBaseModo,CadParamEBValorBaseBase,CadParamEBValorBaseTipo,		
+CadParamEBValorBaseMeses,CadParamEBValorBaseMes,CadParamEBValorBaseAno,		
+CadParamEBValorHora,CadParamEBCalculaReducao,
+{Param-Adicional}              
+CadParamEBAdicionalInforme,		 
+{Param-JORNADA A CONSIDERAR}   
+CadParamEBJornadaAConsiderar,	 
+{Param-PROPORCIONALIDADE BASE} 
+CadParamEBProporcionalidadeBase,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
@@ -72,7 +66,7 @@ CadFormEventos          :=  Aliases.Folha.FRhEvento;
 CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
 {Btn Salvar}
-BtnSalvarEvento := Aliases.Folha.FRhEvento.BSalvar;
+BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
 
 {Info normais}
 CadEventosEBIdEventos  	:= 	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVENTO;
@@ -128,9 +122,24 @@ CadDirfRendiEBLinha		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes
 CadDirfRendiEBFormula	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.TabSheet1.ScrollBox3.EB_FORMULA;
 
 {Btn Incidencias}
-BtnIncIncide		        := Aliases.Folha.FRhEvento.bIncIncide;
-BtnIncTdIncide          := Aliases.Folha.FRhEvento.bIncTIncide;
-BtnExcIncide 	          := Aliases.Folha.FRhEvento.bExcIncide;
+BtnIncIncide		                := Aliases.Folha.FRhEvento.bIncIncide;
+BtnIncTdIncide                  := Aliases.Folha.FRhEvento.bIncTIncide;
+BtnExcIncide 	                  := Aliases.Folha.FRhEvento.bExcIncide;
+{Paramentros}
+CadParamEBValorBaseModo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEMODO;
+CadParamEBValorBaseBase			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEBASE;
+CadParamEBValorBaseTipo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASETIPO;
+CadParamEBValorBaseMeses		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEMESES;
+CadParamEBValorBaseMes			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEMES;
+CadParamEBValorBaseAno			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEANO;
+CadParamEBValorHora				      := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORHORA;
+CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_CALCULAREDUCAO;
+{Param-Adicional}
+CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;
+{Param-JORNADA A CONSIDERAR}          
+CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
+{Param-PROPORCIONALIDADE BASE}          
+CadParamEBProporcionalidadeBase	:= Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts4.TScrollBox.EB_PROPORCIONALIDADEBASE;
 
 {Esocial - Informações gerais}
 CadESocEBIdeventonat	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_IDEVENTONAT;
@@ -147,21 +156,13 @@ CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.
 
 {Grids Eventos}
 GridSituacao        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsSituacoes.ScrollBox1.gRhEveValSit;
-
 GridCausas          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCausas.sbRhEveValCau.gRhEveValCau;
-
 GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsVinculos.sbValVin.gRhEveValVin;
-
 GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
-
 GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
-
 GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
-
 GrideIncidencias    :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
-
 GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
-
 end;
 
 procedure FiltraCadEvento();
@@ -173,3 +174,5 @@ BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
 end;
+
+

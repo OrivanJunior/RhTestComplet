@@ -7,7 +7,7 @@ VarConst;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormPageTab,
+CadFormEventos,CadFormPage,CadFormPageTab,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -22,22 +22,6 @@ CadEventosEBIdEventos,CadEventosEBSequencia,CadEventosEBInativo,
 CadEventosEBSubseq,CadEventosEBDtInativo,CadEventosEBUserId,
 CadEventosEBDescricao,CadEventosEBCodHomolog,CadEventosEBInvisivel,
 CadEventosEBOpEvento,CadEventosEBIdTipo,CadEventosEBIdEvecalc,
-
-       
-                   
-        
-                   
-       
-                   
- 
-                   
-         
-                   
-     
-                   
-   
-                   
-     
 
 {Contabiliza}	
 CadEventosEBContabiliza,
@@ -66,10 +50,13 @@ GridTributacao,BtnIncTrib,BtnIncTdTrib,BtnExcTrib : OleVariant;
 
 procedure MapCadEventos();
 begin
+
 {Form}
 CadFormEventos          :=  Aliases.Folha.FRhEvento;
 CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
+{Btn Salvar}
+BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
 
 {Info normais}
 CadEventosEBIdEventos  	:= 	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVENTO;
@@ -144,21 +131,13 @@ CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.
 
 {Grids Eventos}
 GridSituacao        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsSituacoes.ScrollBox1.gRhEveValSit;
-
 GridCausas          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCausas.sbRhEveValCau.gRhEveValCau;
-
 GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsVinculos.sbValVin.gRhEveValVin;
-
 GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
-
 GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
-
 GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
-
 GrideIncidencias    :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
-
 GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
-
 end;
 
 procedure FiltraCadEvento();
@@ -170,3 +149,4 @@ BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
 end;
+

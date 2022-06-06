@@ -74,9 +74,9 @@ i:= 0;
 
   CadFormPageTab.ActivePageIndex := 1;
   
-  DDTSituacao := CarregaDDT(pathData, 'Situações');
+  DDTCausas := CarregaDDT(pathData, 'Causas');
   
-  LeDataPoolCadEventos(DDTSituacao.Name);
+  LeDataPoolCadEventos(DDTCausas.Name);
   
   BtnIncSit.Click();
   
