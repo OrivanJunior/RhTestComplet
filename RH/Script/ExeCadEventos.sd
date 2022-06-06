@@ -46,13 +46,13 @@ i:= 0;
   
   DDTSituacao := CarregaDDT(pathData, 'Situações');
   
-  LeDataPoolCadEventos(DDTSituacao.Name);
+  LeDataPoolValidacoes(DDTSituacao.Name);
   
   BtnIncSit.Click();
   
   Log.Checkpoint('Preenchendo Situações');
   
-  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', ValidaEventosDPCodSit);
   
   GridSituacao.Click();
   
@@ -82,13 +82,13 @@ i:= 0;
   
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
-  LeDataPoolCadEventos(DDTCausas.Name);
+  LeDataPoolValidacoes(DDTSituacao.Name);
   
   BtnIncCau.Click();
   
-  Log.Checkpoint('Preenchendo Situações');
+  Log.Checkpoint('Preenchendo Causas');
   
-  VerificaClickPreencheGrid(GridSituacao, 1, 'Código', CadEventosDPCodigo);
+  VerificaClickPreencheGrid(GridSituacao, 1, 'Código', ValidaEventosDPCodCau);
   
   GridSituacao.Click();
   
@@ -103,9 +103,7 @@ i:= 0;
     
     BtnNao.Click();
   end;
-  DDT.CloseDriver(DDTSituacao.Name);
-
-
+  DDT.CloseDriver(DDTCausas.Name);
 end;
 
 procedure PreencheValidaVinculos();

@@ -15,7 +15,13 @@ BtnOKFiltroEvento.ClickButton;
 end;
 
 procedure PreencheInfoNormais(pathData);
+Var
+DDTInfoNormais : OleVariant;
 begin
+DDTInfoNormais := CarregaDDT(pathData,'Info Normais');
+LeDataPoolInfoNormais(DDTInfoNormais.Name);
+MapCadEventos();
+
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
 VerificaInsere(CadEventosEBInativo,CadEventosDPInativo);
@@ -40,13 +46,13 @@ i:= 0;
   
   DDTSituacao := CarregaDDT(pathData, 'Situações');
   
-  LeDataPoolCadEventos(DDTSituacao.Name);
+  LeDataPoolValidacoes(DDTSituacao.Name);
   
   BtnIncSit.Click();
   
   Log.Checkpoint('Preenchendo Situações');
   
-  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', ValidaEventosDPCodSit);
   
   GridSituacao.Click();
   
@@ -76,13 +82,13 @@ i:= 0;
   
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
-  LeDataPoolCadEventos(DDTCausas.Name);
+  LeDataPoo(DDTCausas.Name);
   
-  BtnIncSit.Click();
+  BtnIncCau.Click();
   
-  Log.Checkpoint('Preenchendo Situações');
+  Log.Checkpoint('Preenchendo Causas');
   
-  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  VerificaClickPreencheGrid(GridSituacao, 1, 'Código', CadEventosDPCodigo);
   
   GridSituacao.Click();
   
