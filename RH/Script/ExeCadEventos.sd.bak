@@ -15,8 +15,6 @@ BtnOKFiltroEvento.ClickButton;
 end;
 
 procedure PreencheInfoNormais(pathData);
-var 
-DDTInfoNormais : OleVariant;
 begin
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -78,7 +76,7 @@ i:= 0;
   
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
-  LeDataPoolCadEventos(DDTSituacao.Name);
+  LeDataPoolCadEventos(DDTCausas.Name);
   
   BtnIncSit.Click();
   
