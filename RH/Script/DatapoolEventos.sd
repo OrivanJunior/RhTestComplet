@@ -1,5 +1,6 @@
 ﻿var 
-{Info normais}         
+{Info normais}   
+CadEventosDPCodigo,      
 CadEventosDPIdEventos,
 CadEventosDPSequencia,
 CadEventosDPInativo,
@@ -28,7 +29,8 @@ CadEventosDPContabiliza : Olevariant;
 
 procedure LeDataPoolCadEventos(nomeDriver);
 begin
-{Info normais}         
+{Info normais}
+CadEventosDPCodigo          := DDT.DriverByName(nomeDriver).Value('IDCODIGO');
 CadEventosDPIdEventos  		  := DDT.DriverByName(nomeDriver).Value('IDEVENTOS');
 CadEventosDPSequencia       := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
 CadEventosDPInativo         := DDT.DriverByName(nomeDriver).Value('INATIVO');

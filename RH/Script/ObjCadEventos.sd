@@ -7,7 +7,7 @@ VarConst;
 
 var
 {Form}
-CadFormEventos,CadFormPage,
+CadFormEventos,CadFormPage,CadFormPageTab,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -23,36 +23,56 @@ CadEventosEBSubseq,CadEventosEBDtInativo,CadEventosEBUserId,
 CadEventosEBDescricao,CadEventosEBCodHomolog,CadEventosEBInvisivel,
 CadEventosEBOpEvento,CadEventosEBIdTipo,CadEventosEBIdEvecalc,
 
+       
+                   
+        
+                   
+       
+                   
+ 
+                   
+         
+                   
+     
+                   
+   
+                   
+     
+
 {Contabiliza}	
 CadEventosEBContabiliza,
 
 {Btn Situações} 
 BtnIncSit,BtnIncTdVlrSit,BtnProcVlrSit,BtnConsultVlrSit,
-BtnDesfVlrSit,BtnExcValSit,BtnExcTdValSit,
+BtnDesfVlrSit,BtnExcValSit,BtnExcTdValSit,GridSituacao,
 {Validações - Btn Causas}
-BtnIncValCau,BtnIncTdCau,BtnExcCau,
+BtnIncValCau,BtnIncTdCau,BtnExcCau,GridCausas,
 {Validações - Btn vinculos}
-BtnIncVin,BtnIncTdVin,BtnExcVin,	
+BtnIncVin,BtnIncTdVin,BtnExcVin,GridVinculos,	
 {Validações - Btn Processamentos}
-BtnIncProc,BtnIncTdProc,BtnExcProc,
+BtnIncProc,BtnIncTdProc,BtnExcProc,GridProcessamentos,
 {Validações - Btn Turnos}
-BtnIncTur,BtnIncTdTur,BtnExcTur,
+BtnIncTur,BtnIncTdTur,BtnExcTur,GridTurnos,
 {Validações - Btn Categoria}
-BtnIncCat,BtnIncTdCat,BtnExcCat,
+BtnIncCat,BtnIncTdCat,BtnExcCat,GridCategorias,
 {Validações - Conf Dirf Rendimentos}                        
 CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
-BtnIncIncide,BtnIncTdIncide,BtnExcIncide,
+BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GrideIncidencias,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
-BtnIncTrib,BtnIncTdTrib,BtnExcTrib : OleVariant;
+GridTributacao,BtnIncTrib,BtnIncTdTrib,BtnExcTrib : OleVariant;
 
 procedure MapCadEventos();
 begin
+
 {Form}
 CadFormEventos          :=  Aliases.Folha.FRhEvento;
-CadFormPage             :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
+CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
+CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
+{Btn Salvar}
+BtnSalvarEvento := Aliases.Folha.FRhEvento.BSalvar;
 
 {Info normais}
 CadEventosEBIdEventos  	:= 	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVENTO;
@@ -123,7 +143,24 @@ BtnIncTdTrib            := Aliases.Folha.FRhEvento.bSaveTrib;
 BtnExcTrib 	            := Aliases.Folha.FRhEvento.bExcTrib;
 
 {Contabiliza}	
-CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox_.EB_CONTABILIZA;
+CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
+
+{Grids Eventos}
+GridSituacao        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsSituacoes.ScrollBox1.gRhEveValSit;
+
+GridCausas          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCausas.sbRhEveValCau.gRhEveValCau;
+
+GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsVinculos.sbValVin.gRhEveValVin;
+
+GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
+
+GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
+
+GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
+
+GrideIncidencias    :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
+
+GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 
 end;
 

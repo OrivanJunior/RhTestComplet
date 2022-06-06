@@ -14,7 +14,7 @@ FiltraEventos.SelectItem('(Ignorar)');
 BtnOKFiltroEvento.ClickButton;
 end;
 
-procedure PreencheInfoNormais();
+procedure PreencheInfoNormais(pathData);
 begin
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -30,14 +30,74 @@ VerificaConsultaF3Insere(CadEventosEBIdtipo,CadEventosDPIdtipo);
 VerificaConsultaF3Insere(CadEventosEBIdevecalc,CadEventosDPIdevecalc);
 end;
 
-procedure PreencheValidaSituacao();
+procedure PreencheValidaSituacao(pathData);
+var
+DDTSituacao : OleVariant;
+i : integer;
 begin
-
-
+i:= 0;
+  CadFormPageTab.ActivePageIndex := 0;
+  
+  DDTSituacao := CarregaDDT(pathData, 'Situações');
+  
+  LeDataPoolCadEventos(DDTSituacao.Name);
+  
+  BtnIncSit.Click();
+  
+  Log.Checkpoint('Preenchendo Situações');
+  
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  
+  GridSituacao.Click();
+  
+  BtnSalvarEvento.Click;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTSituacao.Name);
 end;
 
-procedure PreencheValidaCausas();
+
+procedure PreencheValidaCausas(pathData);
+var
+DDTCausas : OleVariant;
+i : integer;
 begin
+i:= 0;
+
+  CadFormPageTab.ActivePageIndex := 1;
+  
+  DDTSituacao := CarregaDDT(pathData, 'Situações');
+  
+  LeDataPoolCadEventos(DDTSituacao.Name);
+  
+  BtnIncSit.Click();
+  
+  Log.Checkpoint('Preenchendo Situações');
+  
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', CadEventosDPCodigo);
+  
+  GridSituacao.Click();
+  
+  BtnSalvarEvento.Click;
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTSituacao.Name);
 
 
 end;

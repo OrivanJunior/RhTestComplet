@@ -14,7 +14,7 @@ FiltraEventos.SelectItem('(Ignorar)');
 BtnOKFiltroEvento.ClickButton;
 end;
 
-procedure PreencheInfoNormais();
+procedure PreencheInfoNormais(pathData);
 begin
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -28,12 +28,29 @@ VerificaInsere(CadEventosEBInvisivel,CadEventosDPInvisivel);
 VerificaInsere(CadEventosEBOpevento,CadEventosDPOpevento);
 VerificaConsultaF3Insere(CadEventosEBIdtipo,CadEventosDPIdtipo);
 VerificaConsultaF3Insere(CadEventosEBIdevecalc,CadEventosDPIdevecalc);
-
 end;
 
-procedure PreencheValidaSituacao();
+procedure PreencheValidaSituacao(pathData);
+var
+DDTSituacao : OleVariant;
+i : integer;
 begin
-
+i:= 0;
+  CadFormPageTab.ActivePageIndex := 0;
+  
+  DDTSituacao := CarregaDDT(pathData, 'Situações');
+  
+  LeDataPoolCadEventos(DDTSituacao.Name);
+  
+  BtnIncSit.Click();
+  
+  Log.Checkpoint('Preenchendo Situações');
+  
+  VerificaClickPreencheGrid(GridSituacao, 0, 'Situacao', CadEventosDPCodigo);
+  
+  GridEmpregado.Click();
+  
+  BtnSaveEmpre.Click;
 
 end;
 

@@ -58747,6 +58747,1327 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhEvento" Key="{4EB4410C-11C9-4994-9B50-455FA9EBCC35}">
+								<Image FileName="335218969" Left="-8" Top="-8" Right="1912" Bottom="901" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhEvento" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhEvento" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Page" Key="{B5119A5C-3712-46DA-AE4D-164936046F30}">
+										<Image FileName="-1608221703" Left="0" Top="53" Right="1904" Bottom="874" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsPageControl" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="Page" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TabNormal" Key="{2AE1537F-A53B-41CD-A474-85EFCE53C769}">
+												<Image FileName="-709511725" Left="4" Top="77" Right="1900" Bottom="870" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="TabNormal" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="pnCab" Key="{E330A02F-CBB4-43C2-B1FC-CCB75581A767}">
+														<Image FileName="-709511725" Left="4" Top="77" Right="1900" Bottom="269" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="pnCab" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_IDEVENTO" Key="{C313C2C1-DDA9-4E3B-90D8-DC6EE5C11E9B}">
+																<Image FileName="-709511725" Left="160" Top="84" Right="258" Bottom="105" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDEVENTO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_SEQUENCIA" Key="{7405A9BA-EB4D-498A-86CD-738F7D95C1B3}">
+																<Image FileName="-2144851572" Left="160" Top="109" Right="258" Bottom="130" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_SEQUENCIA" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DESCRICAO" Key="{732DDACD-7469-4615-9D9E-CDEA2C4431C3}">
+																<Image FileName="-479679237" Left="160" Top="135" Right="577" Bottom="156" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DESCRICAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODHOMOLOG" Key="{DEA8AAAA-F0A1-40DB-89E3-EB64BF95828A}">
+																<Image FileName="52106629" Left="160" Top="160" Right="258" Bottom="181" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODHOMOLOG" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_INVISIVEL" Key="{6270578A-1D2E-41DA-AAEA-486C3119C6EE}">
+																<Image FileName="1263964205" Left="160" Top="185" Right="258" Bottom="206" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_INVISIVEL" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_OPEVENTO" Key="{AF8A2FE7-2FDB-4015-BA40-B9C28DB9FBE2}">
+																<Image FileName="-1551804797" Left="443" Top="185" Right="577" Bottom="206" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_OPEVENTO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_IDTIPO" Key="{568904FB-61E1-4C0C-A72C-CA86C040A35D}">
+																<Image FileName="-61536400" Left="160" Top="212" Right="578" Bottom="231" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditLookup" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDTIPO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_IDEVECALC" Key="{30737A68-0429-47E2-8336-4DD6F66F2242}">
+																<Image FileName="-31715137" Left="160" Top="235" Right="578" Bottom="254" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditLookup" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDEVECALC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DTINATIVO" Key="{F001CAA3-E225-48C1-8662-F90C06CDD440}">
+																<Image FileName="-1450703121" Left="740" Top="82" Right="861" Bottom="101" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsDateRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DTINATIVO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_USERID" Key="{E9CD0AFD-F553-4832-9710-4DB83998085B}">
+																<Image FileName="-921368115" Left="740" Top="107" Right="861" Bottom="126" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_USERID" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+													<Child Name="pg" Key="{FF91EC20-8E42-4C2C-866B-638E80487285}">
+														<Image FileName="1154360149" Left="4" Top="269" Right="1900" Bottom="870" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsPageControl" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="pg" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="tsValidacoes" Key="{01B5552D-C5DA-4AE1-A02F-34E8473BA9B6}">
+																<Image FileName="1154360149" Left="8" Top="293" Right="1896" Bottom="866" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TTabSheet" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="tsValidacoes" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="pgValida" Key="{AD23B347-3C23-4934-B25C-AE6FC67B7050}">
+																		<Image FileName="1154360149" Left="8" Top="293" Right="1896" Bottom="866" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsPageControl" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="pgValida" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="TabSheet1" Key="{9873A2D1-C9B5-45AF-A7A4-283582FEB482}">
+																				<Image FileName="-131899649" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="TabSheet1" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="ScrollBox3" Key="{6B9C6984-5F01-4170-ACEA-689242E5396C}">
+																						<Image FileName="-131899649" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="ScrollBox3" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="EB_CAMPO" Key="{B6EDB84B-E274-4A82-B962-D8E46FBDC821}">
+																								<Image FileName="-131899649" Left="116" Top="323" Right="186" Bottom="342" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsDbNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_CAMPO" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_LINHA" Key="{30491A0F-4E2B-4F0F-B7BE-322803349CCE}">
+																								<Image FileName="-508847738" Left="116" Top="347" Right="186" Bottom="366" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsDbNum" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_LINHA" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="EB_FORMULA" Key="{0CE8733C-B650-4C93-94C8-5A1CCFA1E62A}">
+																								<Image FileName="-503697178" Left="116" Top="371" Right="186" Bottom="392" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TVsDBEdit" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="EB_FORMULA" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsSituacoes" Key="{5C451159-12DE-4C80-AA3E-A564A05A5104}">
+																				<Image FileName="335218969" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsSituacoes" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="ScrollBox1" Key="{40782D94-C7D0-42DC-AC55-F066281A8BFE}">
+																						<Image FileName="335218969" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="ScrollBox1" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValSit" Key="{31DCFF2B-F39A-4EB2-9A94-6323719E8916}">
+																								<Image FileName="335218969" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValSit" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{A90B6700-7580-424F-8C70-DC76C6C055B0}">
+																										<Image FileName="335218969" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsCausas" Key="{1045931C-CA08-4133-B24B-1747F6561746}">
+																				<Image FileName="528442341" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsCausas" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="sbRhEveValCau" Key="{375A1CA9-B70D-44FE-BF3E-C1BC3D7B0F99}">
+																						<Image FileName="528442341" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="sbRhEveValCau" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValCau" Key="{13C53672-B7B7-482F-BA78-5F4C5547EE18}">
+																								<Image FileName="528442341" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValCau" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{431D2C90-B384-4E32-A054-EA8E0E6CA7F0}">
+																										<Image FileName="528442341" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsVinculos" Key="{E890EDB0-D293-418A-9386-299A70FA67BB}">
+																				<Image FileName="1654205822" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsVinculos" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="sbValVin" Key="{3281BD00-E3D7-430C-8F00-B66C94D29B52}">
+																						<Image FileName="1654205822" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="sbValVin" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValVin" Key="{C36FEBE2-DD73-418E-9E3B-52FDA9B647C4}">
+																								<Image FileName="1654205822" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValVin" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{347A2D7A-50F1-4130-A7AD-448876AE5DCA}">
+																										<Image FileName="1654205822" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsProcessamentos" Key="{04B6358E-1AA3-4E13-B835-0699680133F5}">
+																				<Image FileName="734809293" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsProcessamentos" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="sbValProc" Key="{EAAF4146-4BC4-40BF-82B4-9B8942FCFEDF}">
+																						<Image FileName="734809293" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="sbValProc" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValProc" Key="{9892B350-EF52-4772-A9EB-DD4839115812}">
+																								<Image FileName="734809293" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValProc" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{97740A0E-8865-465C-8BC6-ED00E2C4637A}">
+																										<Image FileName="734809293" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsTurnos" Key="{E2163E40-B12E-42DF-9BDF-710464DC3A3B}">
+																				<Image FileName="1995690093" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsTurnos" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="sbValTurnos" Key="{83B60065-B3E2-45CE-BEB8-769A4F9D1111}">
+																						<Image FileName="1995690093" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="sbValTurnos" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValTur" Key="{480291FD-F28E-4CEF-9B98-34FAE0AFE1B2}">
+																								<Image FileName="1995690093" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValTur" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{6BC5D3B9-8614-4ACC-B58E-A68100F641B5}">
+																										<Image FileName="1995690093" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tsCategorias" Key="{0271CD69-BF27-48E7-A60E-1401B0EE39B2}">
+																				<Image FileName="1831916057" Left="12" Top="317" Right="1892" Bottom="862" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TTabSheet" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="tsCategorias" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="sbValCateg" Key="{F9456D38-6484-454D-9B1C-C5979DB81E5F}">
+																						<Image FileName="1831916057" Left="12" Top="317" Right="1892" Bottom="862" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TScrollBox" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="sbValCateg" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gRhEveValCat" Key="{A5A38B42-C515-4E90-98F0-3169ACED5593}">
+																								<Image FileName="1831916057" Left="42" Top="317" Right="1892" Bottom="861" />
+																								<Properties>
+																									<Property Name="ClassName">
+																										<Value Value="TcxGrid" />
+																									</Property>
+																									<Property Name="ObjectIdentifier">
+																										<Value Value="gRhEveValCat" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="TcxGridSite" Key="{9049989B-85E5-4D16-976A-EB46478D469A}">
+																										<Image FileName="1831916057" Left="43" Top="318" Right="1891" Bottom="860" />
+																										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																										<Properties>
+																											<Property Name="WndClass">
+																												<Value Value="TcxGridSite" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="tsESocial" Key="{E37CFA22-9383-4958-B7E6-B0AA005667C9}">
+																<Image FileName="-767983533" Left="8" Top="293" Right="1896" Bottom="866" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TTabSheet" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="tsESocial" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="ScrollBox4" Key="{6F519C6A-81F8-4F1C-8988-00F72BD9F5D5}">
+																		<Image FileName="-767983533" Left="8" Top="293" Right="1896" Bottom="866" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TScrollBox" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="ScrollBox4" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="GroupBox1" Key="{B0209B4D-A732-4361-B8DD-DDBEACB1B0E2}">
+																				<Image FileName="-767983533" Left="8" Top="293" Right="1896" Bottom="377" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TGroupBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="GroupBox1" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EB_IDEVENTONAT" Key="{5489F444-E447-4065-B3B2-39F84709CF32}">
+																						<Image FileName="-767983533" Left="306" Top="307" Right="742" Bottom="326" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditLookup" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_IDEVENTONAT" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_OBSERVACAO" Key="{B5C1AEF0-3D9E-4FA4-869F-A0A9E8725161}">
+																						<Image FileName="-151913397" Left="306" Top="329" Right="742" Bottom="348" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsEditRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_OBSERVACAO" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																					<Child Name="EB_INDAPURIRRF" Key="{1BDDD7B7-2240-4607-B1B3-C497A65EA591}">
+																						<Image FileName="-2065097906" Left="306" Top="351" Right="742" Bottom="372" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TVsComboRight" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="EB_INDAPURIRRF" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="GroupBox2" Key="{D66B2F28-B263-4887-8200-6FD735018006}">
+																				<Image FileName="-1319647328" Left="8" Top="377" Right="1896" Bottom="866" />
+																				<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TGroupBox" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="GroupBox2" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="gRhEveIncTrib" Key="{70BEEEF6-8856-4179-9A93-C97DFDC73C7D}">
+																						<Image FileName="2079008500" Left="40" Top="392" Right="1894" Bottom="864" />
+																						<Properties>
+																							<Property Name="ClassName">
+																								<Value Value="TcxGrid" />
+																							</Property>
+																							<Property Name="ObjectIdentifier">
+																								<Value Value="gRhEveIncTrib" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="TcxGridSite" Key="{799436FE-24CE-40D7-BF85-07EAEA0BBA6B}">
+																								<Image FileName="2079008500" Left="41" Top="393" Right="1893" Bottom="863" />
+																								<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																								<Properties>
+																									<Property Name="WndClass">
+																										<Value Value="TcxGridSite" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="tsIncidencias" Key="{10C97EB1-98F3-4EF6-8587-3B56CAC6E8AE}">
+																<Image FileName="-510910245" Left="8" Top="293" Right="1896" Bottom="866" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TTabSheet" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="tsIncidencias" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="sbRHEveIncide" Key="{FDB0E590-428D-4F7A-BCAD-435BD9AADF3F}">
+																		<Image FileName="-510910245" Left="8" Top="293" Right="1896" Bottom="866" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TScrollBox" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="sbRHEveIncide" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="gRhEveIncide" Key="{4FF813CF-CA88-46E1-9292-ADB51A6F344F}">
+																				<Image FileName="-510910245" Left="38" Top="293" Right="1896" Bottom="865" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TcxGrid" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="gRhEveIncide" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TcxGridSite" Key="{2689D928-851B-4929-8E30-C7744DF6B46A}">
+																						<Image FileName="-510910245" Left="39" Top="294" Right="1895" Bottom="864" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TcxGridSite" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="TabPersonal" Key="{E8BF96D2-8A4F-4651-808C-AAFA29D7244E}">
+												<Image FileName="-1484671593" Left="4" Top="77" Right="1900" Bottom="870" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="TabPersonal" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="TScrollBox" Key="{24EE5C6E-2A40-4758-B272-E84A95198556}">
+														<Image FileName="-1484671593" Left="4" Top="77" Right="1900" Bottom="870" />
+														<Properties>
+															<Property Name="WndClass">
+																<Value Value="TScrollBox" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_CONTABILIZA" Key="{A25AAD22-8F5F-4ADB-BCEE-3AEE8D418F72}">
+																<Image FileName="-1484671593" Left="73" Top="85" Right="123" Bottom="106" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsCombo" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CONTABILIZA" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="bIncRhEveValSit" Key="{FE8A2A3E-36BD-40EF-940F-33FDCC4588BD}">
+										<Image FileName="2057423207" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulRhEveValSit" Key="{E05F61B7-B8B7-488F-B2D1-6F08096E4F20}">
+										<Image FileName="-1265554020" Left="14" Top="412" Right="40" Bottom="438" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhEveValSit" Key="{15ABB486-98EB-4403-99A4-60D05594EBF6}">
+										<Image FileName="-1265554020" Left="14" Top="444" Right="40" Bottom="470" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValSit" Key="{1B399C9E-8326-4C45-B812-447E93F0D8B6}">
+										<Image FileName="-1902721023" Left="14" Top="476" Right="40" Bottom="502" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValSit" Key="{9A5BBD79-64F2-4CA7-91A6-2128A84AB4FD}">
+										<Image FileName="-1608221703" Left="14" Top="502" Right="40" Bottom="528" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncRhEveValCau" Key="{463EC8C7-3B14-4449-A7FB-742FE3AB3E59}">
+										<Image FileName="-1651127860" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValCau" Key="{3870B40E-553A-4CC6-B89F-5B64A4CEFD12}">
+										<Image FileName="806747008" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulRhEveValCau" Key="{7F1F5A0F-FBFD-4EA7-903D-5FFB502FE062}">
+										<Image FileName="-1950558211" Left="14" Top="412" Right="40" Bottom="438" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhEveValCau" Key="{CA5C9818-2899-4AD8-919E-59FB1F8EDA2C}">
+										<Image FileName="-1950558211" Left="14" Top="444" Right="40" Bottom="470" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValCau" Key="{A5DD5A9D-E15C-4329-8FD2-8A73B585188E}">
+										<Image FileName="1858509768" Left="14" Top="476" Right="40" Bottom="502" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValCau" Key="{045EACC9-EB48-4C16-9C79-898D62B1DAB4}">
+										<Image FileName="-1398796027" Left="14" Top="502" Right="40" Bottom="528" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValCau" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncRhEveValVin" Key="{8931ED04-5F24-4FA1-AB12-59FFA47B15F3}">
+										<Image FileName="375765678" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValVin" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValVin" Key="{1A882D3D-9D79-4070-BEA8-1D8745146D5E}">
+										<Image FileName="-783917154" Left="14" Top="476" Right="40" Bottom="502" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValVin" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValVin" Key="{130FEBB2-B14D-40AF-BFA5-F936FDE87EBF}">
+										<Image FileName="-783917154" Left="14" Top="502" Right="40" Bottom="528" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValVin" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncRhEveValProc" Key="{3BB3C878-D2CD-446F-AD55-B5B8001A4987}">
+										<Image FileName="748984581" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulRhEveValProc" Key="{1E78C936-F1E1-4BD6-85B6-9D1212CF76AE}">
+										<Image FileName="-598743304" Left="14" Top="412" Right="40" Bottom="438" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhEveValProc" Key="{6362761B-0A24-4981-8E92-35B04CF370BE}">
+										<Image FileName="-1859437072" Left="14" Top="438" Right="40" Bottom="464" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValProc" Key="{2A9F86AE-2056-4BBF-B514-8B7C0A4FF113}">
+										<Image FileName="-1386785447" Left="14" Top="470" Right="40" Bottom="496" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValProc" Key="{6A67E97D-12B6-4533-9D0B-652CDFD70907}">
+										<Image FileName="-1372275724" Left="14" Top="496" Right="40" Bottom="522" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncRhEveValTur" Key="{A4B8E55D-DB97-4FC5-8DF6-B979AC77D59B}">
+										<Image FileName="1151716815" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulRhEveValTur" Key="{351D401D-2CD9-430C-8736-AEDDD3395861}">
+										<Image FileName="580667104" Left="14" Top="412" Right="40" Bottom="438" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhEveValTur" Key="{B4286131-90E7-4D9F-9711-DC02E69EE405}">
+										<Image FileName="-955947204" Left="14" Top="444" Right="40" Bottom="470" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValTur" Key="{8F010B93-37F1-4249-A7B3-98FCB1DED5C3}">
+										<Image FileName="-1459082502" Left="14" Top="476" Right="40" Bottom="502" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValTur" Key="{7E5ADAF7-9995-4E68-804F-0CA74D93F676}">
+										<Image FileName="1439708859" Left="14" Top="502" Right="40" Bottom="528" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncRhEveValCat" Key="{0E0E1562-F045-4A2B-83BF-A6A23D044391}">
+										<Image FileName="-1054728625" Left="14" Top="328" Right="40" Bottom="354" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulRhEveValCat" Key="{21632FE6-E90B-4D36-9D0B-25020991EC89}">
+										<Image FileName="1412934451" Left="14" Top="412" Right="40" Bottom="438" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhEveValCat" Key="{21FB5343-BF74-400B-95ED-4FF361EF51CC}">
+										<Image FileName="-2103871219" Left="14" Top="444" Right="40" Bottom="470" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcRhEveValCat" Key="{0BA222F5-B32F-4922-A685-D69CEEEEAA0F}">
+										<Image FileName="787634515" Left="14" Top="476" Right="40" Bottom="502" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTRhEveValCat" Key="{71A3409D-26FB-449D-86D2-3D44245342B4}">
+										<Image FileName="1309881551" Left="14" Top="502" Right="40" Bottom="528" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncIncide" Key="{F96C4189-4CDD-465D-9A96-715E9491665C}">
+										<Image FileName="-88034046" Left="10" Top="304" Right="36" Bottom="330" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bProcIncide" Key="{2217DA82-CA5B-4E07-8C35-940DDCF9F792}">
+										<Image FileName="552072003" Left="10" Top="362" Right="36" Bottom="388" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bProcIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bConsulIncide" Key="{9488B254-F091-49B1-8C9D-D2393E09F115}">
+										<Image FileName="927909330" Left="10" Top="388" Right="36" Bottom="414" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bConsulIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfIncide" Key="{18010FCD-B51E-4E4D-AE32-DB1755EC8792}">
+										<Image FileName="-1246185404" Left="10" Top="420" Right="36" Bottom="446" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcIncide" Key="{A5D859B4-6C13-4ECF-89DC-B4D3097A6CA4}">
+										<Image FileName="-256083725" Left="10" Top="452" Right="36" Bottom="478" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTIncide" Key="{15580CEB-8CA0-4CB1-98FA-9C313C2427C7}">
+										<Image FileName="-378780470" Left="10" Top="478" Right="36" Bottom="504" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTrib" Key="{DD86BFD9-ECF4-4EE2-8E8C-BD109BA9B354}">
+										<Image FileName="1034787067" Left="12" Top="403" Right="38" Bottom="429" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTrib" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bSaveTrib" Key="{347465D4-C3C8-4197-953B-7A7DE26AAE0F}">
+										<Image FileName="5796472" Left="12" Top="429" Right="38" Bottom="455" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bSaveTrib" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfTrib" Key="{0859699D-352C-47CC-A86E-9A991928B730}">
+										<Image FileName="-218878680" Left="12" Top="493" Right="38" Bottom="519" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfTrib" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bExcTrib" Key="{B5F2E165-1237-4086-B2FD-37FFBDB0165E}">
+										<Image FileName="259078404" Left="12" Top="525" Right="38" Bottom="551" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bExcTrib" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValSit" Key="{4A8CEAF8-4B69-41C4-A4D9-D81CD21D411A}">
+										<Image FileName="-1297678346" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTIncide" Key="{6AF3C762-AD23-4981-837E-A9F22EF7C495}">
+										<Image FileName="-313608188" Left="10" Top="330" Right="36" Bottom="356" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTIncide" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValCat" Key="{63364C58-EFE7-459C-A1C1-79AADD32809F}">
+										<Image FileName="974535954" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValCat" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValTur" Key="{0EA705A9-1154-4ED3-83AA-527624C77A37}">
+										<Image FileName="-856730390" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValTur" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValProc" Key="{F3675384-6CDF-4EF6-8B27-43D492DD5B66}">
+										<Image FileName="-800373543" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValProc" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bIncTRhEveValVin" Key="{95AAF38F-1784-47E0-84F1-2260A00BC924}">
+										<Image FileName="1712650046" Left="14" Top="354" Right="40" Bottom="380" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncTRhEveValVin" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bProcRhEveValSit" Key="{9DA86218-62AD-444E-8134-1A1821976B7C}">
+										<Image FileName="1366049042" Left="14" Top="386" Right="40" Bottom="412" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bProcRhEveValSit" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="BSalvar" Key="{6F5B1554-33F9-443E-9FEC-683F32095F06}">
+										<Image FileName="-335987034" Left="119" Top="33" Right="157" Bottom="59" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BSalvar" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -80873,6 +82194,152 @@
 						</Child>
 					</Child>
 				</Child>
+			</Child>
+			<Child Name="FRhEvento" Owner="{4EB4410C-11C9-4994-9B50-455FA9EBCC35}">
+				<Child Name="Page" Owner="{B5119A5C-3712-46DA-AE4D-164936046F30}">
+					<Child Name="TabNormal" Owner="{2AE1537F-A53B-41CD-A474-85EFCE53C769}">
+						<Child Name="pnCab" Owner="{E330A02F-CBB4-43C2-B1FC-CCB75581A767}">
+							<Child Name="EB_IDEVENTO" Owner="{C313C2C1-DDA9-4E3B-90D8-DC6EE5C11E9B}" />
+							<Child Name="EB_SEQUENCIA" Owner="{7405A9BA-EB4D-498A-86CD-738F7D95C1B3}" />
+							<Child Name="EB_DESCRICAO" Owner="{732DDACD-7469-4615-9D9E-CDEA2C4431C3}" />
+							<Child Name="EB_CODHOMOLOG" Owner="{DEA8AAAA-F0A1-40DB-89E3-EB64BF95828A}" />
+							<Child Name="EB_INVISIVEL" Owner="{6270578A-1D2E-41DA-AAEA-486C3119C6EE}" />
+							<Child Name="EB_OPEVENTO" Owner="{AF8A2FE7-2FDB-4015-BA40-B9C28DB9FBE2}" />
+							<Child Name="EB_IDTIPO" Owner="{568904FB-61E1-4C0C-A72C-CA86C040A35D}" />
+							<Child Name="EB_IDEVECALC" Owner="{30737A68-0429-47E2-8336-4DD6F66F2242}" />
+							<Child Name="EB_DTINATIVO" Owner="{F001CAA3-E225-48C1-8662-F90C06CDD440}" />
+							<Child Name="EB_USERID" Owner="{E9CD0AFD-F553-4832-9710-4DB83998085B}" />
+						</Child>
+						<Child Name="pg" Owner="{FF91EC20-8E42-4C2C-866B-638E80487285}">
+							<Child Name="tsValidacoes" Owner="{01B5552D-C5DA-4AE1-A02F-34E8473BA9B6}">
+								<Child Name="pgValida" Owner="{AD23B347-3C23-4934-B25C-AE6FC67B7050}">
+									<Child Name="TabSheet1" Owner="{9873A2D1-C9B5-45AF-A7A4-283582FEB482}">
+										<Child Name="ScrollBox3" Owner="{6B9C6984-5F01-4170-ACEA-689242E5396C}">
+											<Child Name="EB_CAMPO" Owner="{B6EDB84B-E274-4A82-B962-D8E46FBDC821}" />
+											<Child Name="EB_LINHA" Owner="{30491A0F-4E2B-4F0F-B7BE-322803349CCE}" />
+											<Child Name="EB_FORMULA" Owner="{0CE8733C-B650-4C93-94C8-5A1CCFA1E62A}" />
+										</Child>
+									</Child>
+									<Child Name="tsSituacoes" Owner="{5C451159-12DE-4C80-AA3E-A564A05A5104}">
+										<Child Name="ScrollBox1" Owner="{40782D94-C7D0-42DC-AC55-F066281A8BFE}">
+											<Child Name="gRhEveValSit" Owner="{31DCFF2B-F39A-4EB2-9A94-6323719E8916}">
+												<Child Name="TcxGridSite" Owner="{A90B6700-7580-424F-8C70-DC76C6C055B0}" />
+											</Child>
+										</Child>
+									</Child>
+									<Child Name="tsCausas" Owner="{1045931C-CA08-4133-B24B-1747F6561746}">
+										<Child Name="sbRhEveValCau" Owner="{375A1CA9-B70D-44FE-BF3E-C1BC3D7B0F99}">
+											<Child Name="gRhEveValCau" Owner="{13C53672-B7B7-482F-BA78-5F4C5547EE18}">
+												<Child Name="TcxGridSite" Owner="{431D2C90-B384-4E32-A054-EA8E0E6CA7F0}" />
+											</Child>
+										</Child>
+									</Child>
+									<Child Name="tsVinculos" Owner="{E890EDB0-D293-418A-9386-299A70FA67BB}">
+										<Child Name="sbValVin" Owner="{3281BD00-E3D7-430C-8F00-B66C94D29B52}">
+											<Child Name="gRhEveValVin" Owner="{C36FEBE2-DD73-418E-9E3B-52FDA9B647C4}">
+												<Child Name="TcxGridSite" Owner="{347A2D7A-50F1-4130-A7AD-448876AE5DCA}" />
+											</Child>
+										</Child>
+									</Child>
+									<Child Name="tsProcessamentos" Owner="{04B6358E-1AA3-4E13-B835-0699680133F5}">
+										<Child Name="sbValProc" Owner="{EAAF4146-4BC4-40BF-82B4-9B8942FCFEDF}">
+											<Child Name="gRhEveValProc" Owner="{9892B350-EF52-4772-A9EB-DD4839115812}">
+												<Child Name="TcxGridSite" Owner="{97740A0E-8865-465C-8BC6-ED00E2C4637A}" />
+											</Child>
+										</Child>
+									</Child>
+									<Child Name="tsTurnos" Owner="{E2163E40-B12E-42DF-9BDF-710464DC3A3B}">
+										<Child Name="sbValTurnos" Owner="{83B60065-B3E2-45CE-BEB8-769A4F9D1111}">
+											<Child Name="gRhEveValTur" Owner="{480291FD-F28E-4CEF-9B98-34FAE0AFE1B2}">
+												<Child Name="TcxGridSite" Owner="{6BC5D3B9-8614-4ACC-B58E-A68100F641B5}" />
+											</Child>
+										</Child>
+									</Child>
+									<Child Name="tsCategorias" Owner="{0271CD69-BF27-48E7-A60E-1401B0EE39B2}">
+										<Child Name="sbValCateg" Owner="{F9456D38-6484-454D-9B1C-C5979DB81E5F}">
+											<Child Name="gRhEveValCat" Owner="{A5A38B42-C515-4E90-98F0-3169ACED5593}">
+												<Child Name="TcxGridSite" Owner="{9049989B-85E5-4D16-976A-EB46478D469A}" />
+											</Child>
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+							<Child Name="tsESocial" Owner="{E37CFA22-9383-4958-B7E6-B0AA005667C9}">
+								<Child Name="ScrollBox4" Owner="{6F519C6A-81F8-4F1C-8988-00F72BD9F5D5}">
+									<Child Name="GroupBox1" Owner="{B0209B4D-A732-4361-B8DD-DDBEACB1B0E2}">
+										<Child Name="EB_IDEVENTONAT" Owner="{5489F444-E447-4065-B3B2-39F84709CF32}" />
+										<Child Name="EB_OBSERVACAO" Owner="{B5C1AEF0-3D9E-4FA4-869F-A0A9E8725161}" />
+										<Child Name="EB_INDAPURIRRF" Owner="{1BDDD7B7-2240-4607-B1B3-C497A65EA591}" />
+									</Child>
+									<Child Name="GroupBox2" Owner="{D66B2F28-B263-4887-8200-6FD735018006}">
+										<Child Name="gRhEveIncTrib" Owner="{70BEEEF6-8856-4179-9A93-C97DFDC73C7D}">
+											<Child Name="TcxGridSite" Owner="{799436FE-24CE-40D7-BF85-07EAEA0BBA6B}" />
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+							<Child Name="tsIncidencias" Owner="{10C97EB1-98F3-4EF6-8587-3B56CAC6E8AE}">
+								<Child Name="sbRHEveIncide" Owner="{FDB0E590-428D-4F7A-BCAD-435BD9AADF3F}">
+									<Child Name="gRhEveIncide" Owner="{4FF813CF-CA88-46E1-9292-ADB51A6F344F}">
+										<Child Name="TcxGridSite" Owner="{2689D928-851B-4929-8E30-C7744DF6B46A}" />
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+					<Child Name="TabPersonal" Owner="{E8BF96D2-8A4F-4651-808C-AAFA29D7244E}">
+						<Child Name="TScrollBox" Owner="{24EE5C6E-2A40-4758-B272-E84A95198556}">
+							<Child Name="EB_CONTABILIZA" Owner="{A25AAD22-8F5F-4ADB-BCEE-3AEE8D418F72}" />
+						</Child>
+					</Child>
+				</Child>
+				<Child Name="bIncRhEveValSit" Owner="{FE8A2A3E-36BD-40EF-940F-33FDCC4588BD}" />
+				<Child Name="bConsulRhEveValSit" Owner="{E05F61B7-B8B7-488F-B2D1-6F08096E4F20}" />
+				<Child Name="bDesfRhEveValSit" Owner="{15ABB486-98EB-4403-99A4-60D05594EBF6}" />
+				<Child Name="bExcRhEveValSit" Owner="{1B399C9E-8326-4C45-B812-447E93F0D8B6}" />
+				<Child Name="bExcTRhEveValSit" Owner="{9A5BBD79-64F2-4CA7-91A6-2128A84AB4FD}" />
+				<Child Name="bIncRhEveValCau" Owner="{463EC8C7-3B14-4449-A7FB-742FE3AB3E59}" />
+				<Child Name="bIncTRhEveValCau" Owner="{3870B40E-553A-4CC6-B89F-5B64A4CEFD12}" />
+				<Child Name="bConsulRhEveValCau" Owner="{7F1F5A0F-FBFD-4EA7-903D-5FFB502FE062}" />
+				<Child Name="bDesfRhEveValCau" Owner="{CA5C9818-2899-4AD8-919E-59FB1F8EDA2C}" />
+				<Child Name="bExcRhEveValCau" Owner="{A5DD5A9D-E15C-4329-8FD2-8A73B585188E}" />
+				<Child Name="bExcTRhEveValCau" Owner="{045EACC9-EB48-4C16-9C79-898D62B1DAB4}" />
+				<Child Name="bIncRhEveValVin" Owner="{8931ED04-5F24-4FA1-AB12-59FFA47B15F3}" />
+				<Child Name="bExcRhEveValVin" Owner="{1A882D3D-9D79-4070-BEA8-1D8745146D5E}" />
+				<Child Name="bExcTRhEveValVin" Owner="{130FEBB2-B14D-40AF-BFA5-F936FDE87EBF}" />
+				<Child Name="bIncRhEveValProc" Owner="{3BB3C878-D2CD-446F-AD55-B5B8001A4987}" />
+				<Child Name="bConsulRhEveValProc" Owner="{1E78C936-F1E1-4BD6-85B6-9D1212CF76AE}" />
+				<Child Name="bDesfRhEveValProc" Owner="{6362761B-0A24-4981-8E92-35B04CF370BE}" />
+				<Child Name="bExcRhEveValProc" Owner="{2A9F86AE-2056-4BBF-B514-8B7C0A4FF113}" />
+				<Child Name="bExcTRhEveValProc" Owner="{6A67E97D-12B6-4533-9D0B-652CDFD70907}" />
+				<Child Name="bIncRhEveValTur" Owner="{A4B8E55D-DB97-4FC5-8DF6-B979AC77D59B}" />
+				<Child Name="bConsulRhEveValTur" Owner="{351D401D-2CD9-430C-8736-AEDDD3395861}" />
+				<Child Name="bDesfRhEveValTur" Owner="{B4286131-90E7-4D9F-9711-DC02E69EE405}" />
+				<Child Name="bExcRhEveValTur" Owner="{8F010B93-37F1-4249-A7B3-98FCB1DED5C3}" />
+				<Child Name="bExcTRhEveValTur" Owner="{7E5ADAF7-9995-4E68-804F-0CA74D93F676}" />
+				<Child Name="bIncRhEveValCat" Owner="{0E0E1562-F045-4A2B-83BF-A6A23D044391}" />
+				<Child Name="bConsulRhEveValCat" Owner="{21632FE6-E90B-4D36-9D0B-25020991EC89}" />
+				<Child Name="bDesfRhEveValCat" Owner="{21FB5343-BF74-400B-95ED-4FF361EF51CC}" />
+				<Child Name="bExcRhEveValCat" Owner="{0BA222F5-B32F-4922-A685-D69CEEEEAA0F}" />
+				<Child Name="bExcTRhEveValCat" Owner="{71A3409D-26FB-449D-86D2-3D44245342B4}" />
+				<Child Name="bIncIncide" Owner="{F96C4189-4CDD-465D-9A96-715E9491665C}" />
+				<Child Name="bProcIncide" Owner="{2217DA82-CA5B-4E07-8C35-940DDCF9F792}" />
+				<Child Name="bConsulIncide" Owner="{9488B254-F091-49B1-8C9D-D2393E09F115}" />
+				<Child Name="bDesfIncide" Owner="{18010FCD-B51E-4E4D-AE32-DB1755EC8792}" />
+				<Child Name="bExcIncide" Owner="{A5D859B4-6C13-4ECF-89DC-B4D3097A6CA4}" />
+				<Child Name="bExcTIncide" Owner="{15580CEB-8CA0-4CB1-98FA-9C313C2427C7}" />
+				<Child Name="bIncTrib" Owner="{DD86BFD9-ECF4-4EE2-8E8C-BD109BA9B354}" />
+				<Child Name="bSaveTrib" Owner="{347465D4-C3C8-4197-953B-7A7DE26AAE0F}" />
+				<Child Name="bDesfTrib" Owner="{0859699D-352C-47CC-A86E-9A991928B730}" />
+				<Child Name="bExcTrib" Owner="{B5F2E165-1237-4086-B2FD-37FFBDB0165E}" />
+				<Child Name="bIncTRhEveValSit" Owner="{4A8CEAF8-4B69-41C4-A4D9-D81CD21D411A}" />
+				<Child Name="bIncTIncide" Owner="{6AF3C762-AD23-4981-837E-A9F22EF7C495}" />
+				<Child Name="bIncTRhEveValCat" Owner="{63364C58-EFE7-459C-A1C1-79AADD32809F}" />
+				<Child Name="bIncTRhEveValTur" Owner="{0EA705A9-1154-4ED3-83AA-527624C77A37}" />
+				<Child Name="bIncTRhEveValProc" Owner="{F3675384-6CDF-4EF6-8B27-43D492DD5B66}" />
+				<Child Name="bIncTRhEveValVin" Owner="{95AAF38F-1784-47E0-84F1-2260A00BC924}" />
+				<Child Name="bProcRhEveValSit" Owner="{9DA86218-62AD-444E-8134-1A1821976B7C}" />
+				<Child Name="BSalvar" Owner="{6F5B1554-33F9-443E-9FEC-683F32095F06}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
