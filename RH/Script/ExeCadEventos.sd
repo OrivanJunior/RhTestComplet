@@ -42,7 +42,7 @@ DDTSituacao : OleVariant;
 i : integer;
 begin
 i:= 0;
-  CadFormPageTab.ActivePageIndex := 0;
+  CadFormPageValida.ActivePageIndex := 0;
   
   DDTSituacao := CarregaDDT(pathData, 'Situações');
   
@@ -52,11 +52,9 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Situações');
   
-  VerificaClickPreencheGrid(GridSituacao, 0, 'Código', ValidaEventosDPCodSit);
+  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodSit);
   
   GridSituacao.Click();
-  
-  BtnSalvarEvento.Click;
   
   if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
@@ -78,7 +76,7 @@ i : integer;
 begin
 i:= 0;
 
-  CadFormPageTab.ActivePageIndex := 1;
+  CadFormPageValida.ActivePageIndex := 1;
   
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
@@ -88,11 +86,9 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Causas');
   
-  VerificaClickPreencheGrid(GridSituacao, 1, 'Código', ValidaEventosDPCodCau);
+  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodCau);
   
-  GridSituacao.Click();
-  
-  BtnSalvarEvento.Click;
+  GridCausas.Click();
   
   if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
@@ -106,55 +102,212 @@ i:= 0;
   DDT.CloseDriver(DDTCausas.Name);
 end;
 
-procedure PreencheValidaVinculos();
+procedure PreencheValidaVinculos(pathData);
+var
+DDTVinculos : OleVariant;
+i : integer;
 begin
+i:= 0;
 
-
+  CadFormPageValida.ActivePageIndex := 2;
+  
+  DDTVinculos := CarregaDDT(pathData, 'Vínculos');
+  
+  LeDataPoolValidacoes(DDTVinculos.Name);
+  
+  BtnIncVin.Click();
+  
+  Log.Checkpoint('Preenchendo Vínculos');
+  
+  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodVin);
+  
+  GridVinculos.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTVinculos.Name);
 end;
 
 procedure PreencheValidaProcessamentos();
+var
+DDTProcessamento : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+  CadFormPageValida.ActivePageIndex := 3;
+  
+  DDTProcessamentos := CarregaDDT(pathData, 'Processamentos');
+  
+  LeDataPoolValidacoes(DDTProcessamento.Name);
+  
+  BtnIncProc.Click();
+  
+  Log.Checkpoint('Preenchendo Processamentos');
+  
+  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodProc);
+  
+  GridProcessamentos.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTProcessamento.Name);
+end;
+
+procedure PreencheValidaTurnos(pathData);
+var
+DDTTurnos : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+  CadFormPageValida.ActivePageIndex := 4;
+  
+  DDTTurnos := CarregaDDT(pathData, 'Turnos');
+  
+  LeDataPoolValidacoes(DDTTurnos.Name);
+  
+  BtnIncTur.Click();
+  
+  Log.Checkpoint('Preenchendo Turnos');
+  
+  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodTurn);
+  
+  GridTurnos.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTTurnos.Name);
+end;
+
+procedure PreencheValidaCategorias(pathData);
+var
+DDTCategoria : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+  CadFormPageValida.ActivePageIndex := 5;
+  
+  DDTCategoria := CarregaDDT(pathData, 'Categorias');
+  
+  LeDataPoolValidacoes(DDTCategoria.Name);
+  
+  BtnIncCat.Click();
+  
+  Log.Checkpoint('Preenchendo Categorias');
+  
+  VerificaClickPreencheGrid(GridSituacao, i, 'Código', ValidaEventosDPCodCat);
+  
+  GridCategorias.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTCategoria.Name);
+end;
+
+procedure PreencheValidaConfiguracao(pathData);
+var
+DDTConfiguracao : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+  CadFormPageValida.ActivePageIndex := 6;
+  
+  DDTConfiguracao := CarregaDDT(pathData, 'Configuração Dirf-Rendimentos');
+  
+  LeDataPoolValidacoes(DDTConfiguracao.Name);
+  
+  BtnInc.Click();
+  
+  Log.Checkpoint('Preenchendo Configurações Dirf');
+  
+  VerificaInsere(CadDirfRendiEBCampo,CadDirfRendiDPCampo);
+  VerificaInsere(CadDirfRendiEBLinha,CadDirfRendiDPLinha);
+  VerificaInsere(CadDirfRendiEBFormula,CadDirfRendiDPFormula);
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTConfiguracao.Name);
+end;
+
+procedure PreencheIncidencias(pathData);
+var
+DDTIncidencia : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+//outro form
+  CadFormPageTab.ActivePageIndex := 1;
+  
+  DDTCategoria := CarregaDDT(pathData, 'Categorias');
+  
+  LeDataPoolValidacoes(DDTCategoria.Name);
+  
+  BtnIncCat.Click();
+  
+  Log.Checkpoint('Preenchendo Categorias');
+  
+  VerificaClickPreencheGrid(GridSituacao, i, 'Código', ValidaEventosDPCodCat);
+  
+  GridCategorias.Click();
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTCategoria.Name);
+end;
+
+procedure PreencheParametros(pathData);
 begin
 
 
 end;
 
-procedure PreencheValidaTurnos();
-begin
-
-
-end;
-
-procedure PreencheValidaCategorias();
-begin
-
-
-end;
-
-procedure PreencheValidaConfiguracao();
-begin
-
-
-end;
-
-procedure PreencheValidaConfigDirfRend();
-begin
-
-
-end;
-
-procedure PreencheIncidencias();
-begin
-
-
-end;
-
-procedure PreencheParametros();
-begin
-
-
-end;
-
-procedure PreencheESocial();
+procedure PreencheESocial(pathData);
 begin
 
 

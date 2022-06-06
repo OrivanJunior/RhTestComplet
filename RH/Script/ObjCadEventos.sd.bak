@@ -30,7 +30,7 @@ CadEventosEBContabiliza,
 BtnIncSit,BtnIncTdVlrSit,BtnProcVlrSit,BtnConsultVlrSit,
 BtnDesfVlrSit,BtnExcValSit,BtnExcTdValSit,GridSituacao,
 {Validações - Btn Causas}
-BtnIncValCau,BtnIncTdCau,BtnExcCau,GridCausas,
+BtnIncCau,BtnIncTdCau,BtnExcCau,GridCausas,
 {Validações - Btn vinculos}
 BtnIncVin,BtnIncTdVin,BtnExcVin,GridVinculos,	
 {Validações - Btn Processamentos}
@@ -92,7 +92,7 @@ BtnExcValSit 		        :=	Aliases.Folha.FRhEvento.bExcRhEveValSit;
 BtnExcTdValSit 		      :=	Aliases.Folha.FRhEvento.bExcTRhEveValSit;
 
 {Validações - Btn Causas}
-BtnIncValCau		        := Aliases.Folha.FRhEvento.bIncRhEveValCau;
+BtnIncCau		            := Aliases.Folha.FRhEvento.bIncRhEveValCau;
 BtnIncTdCau             := Aliases.Folha.FRhEvento.bIncTRhEveValCau;
 BtnExcCau 	            := Aliases.Folha.FRhEvento.bExcRhEveValCau;
 

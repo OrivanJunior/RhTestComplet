@@ -7,7 +7,7 @@ VarConst;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormPageTab,BtnSalvarEvento,
+CadFormEventos,CadFormPage,CadFormPageValida,CadFormPageTab,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -64,6 +64,7 @@ begin
 {Form}
 CadFormEventos          :=  Aliases.Folha.FRhEvento;
 CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
+CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
