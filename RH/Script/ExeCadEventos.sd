@@ -18,10 +18,12 @@ procedure PreencheInfoNormais(pathData);
 Var
 DDTInfoNormais : OleVariant;
 begin
-DDTInfoNormais := CarregaDDT(pathData,'Informações Normais');
-LeDataPoolInfoNormais(DDTInfoNormais.Name);
 
 MapCadInfoNormais();
+
+DDTInfoNormais := CarregaDDT(pathData,'Informações Normais');
+
+LeDataPoolInfoNormais(DDTInfoNormais.Name);
 
 VerificaInsere(CadEventosEBIdEventos,CadEventosDPIdEventos);
 VerificaInsere(CadEventosEBSequencia,CadEventosDPSequencia);
@@ -43,12 +45,15 @@ DDTSituacao : OleVariant;
 i : integer;
 begin
 i:= 0;
+
   CadFormPageValida.ActivePageIndex := 0;
+  
+  MapCadValidacoes();
   
   DDTSituacao := CarregaDDT(pathData, 'Situações');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
-  MapCadValidacoes();
+  
   
   BtnIncSit.Click();
   
@@ -79,10 +84,12 @@ i:= 0;
 
   CadFormPageValida.ActivePageIndex := 1;
   
+  MapCadValidacoes();
+  
   DDTCausas := CarregaDDT(pathData, 'Causas');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
-  MapCadValidacoes();
+  
   
   BtnIncCau.Click();
   
@@ -113,10 +120,12 @@ i:= 0;
 
   CadFormPageValida.ActivePageIndex := 2;
   
+  MapCadValidacoes();
+  
   DDTVinculos := CarregaDDT(pathData, 'Vínculos');
   
   LeDataPoolValidacoes(DDTVinculos.Name);
-  MapCadValidacoes();
+  
   BtnIncVin.Click();
   
   Log.Checkpoint('Preenchendo Vínculos');
@@ -393,18 +402,31 @@ if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
 end;
 
 procedure CadastraEvento(pathData);
+var
+DDTCadastrar : OleVariant;
 begin
 
 AcessaItem(_ModuloFolha, 'Cadastros Gerais','Gerais','Eventos','Eventos');
 
-FiltroTelaInicialEvento();
+MapGridConsulta(_ModuloFolha);
 
-MapCadFormEventos();
+LeDataPoolInfoNormais(DDTCadastrar.Name);
 
-PreencheInfoNormais(pathData);
-
-PreencheESocial(pathData);
-
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEvento');
+      
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento',CadEventosDPIdEventos);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+    ActIncluir(FormTelaConsultaForm);
+  
+    MapCadInfoNormais();
+    
+    if (CadEventosEBIdEventos.Exists) then
+    
+    
+    
+  end;
 end;
 
 procedure AlteraEvento(pathData);
