@@ -13,6 +13,13 @@ CadEventosDPInvisivel,
 CadEventosDPOpEvento,
 CadEventosDPIdTipo,
 CadEventosDPIdEvecalc,
+
+{Valida Situações}
+ValidaEventosDPCodSit,ValidaEventosDPCodCau,ValidaEventosDPCodVin,ValidaEventosDPCodProc,
+ValidaEventosDPCodTurn,ValidaEventosDPCodCat,ValidaEventosDPCodConf, 
+
+{Incidências}
+IncidEventosDPCod, ParamEventosDPCod,
  
 {Validações - Conf Dirf Rendimentos}
 CadDirfRendiDPCampo,
@@ -84,6 +91,6 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
-IncidEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOINCID');
+ParamEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOPARAM');
 end;
 

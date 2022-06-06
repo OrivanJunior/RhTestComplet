@@ -16,7 +16,10 @@ CadEventosDPIdEvecalc,
 
 {Valida Situações}
 ValidaEventosDPCodSit,ValidaEventosDPCodCau,ValidaEventosDPCodVin,ValidaEventosDPCodProc,
-ValidaEventosDPCodTurn,ValidaEventosDPCodCat,ValidaEventosDPCodConf,
+ValidaEventosDPCodTurn,ValidaEventosDPCodCat,ValidaEventosDPCodConf, 
+
+{Incidências}
+IncidEventosDPCod, ParamEventosDPCod,
  
 {Validações - Conf Dirf Rendimentos}
 CadDirfRendiDPCampo,
@@ -88,6 +91,20 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
-IncidEventosDPCod              := DDT.DriverByName(nomeDriver).Value('CODIGOINCID');
+{Paramentros}
+CadParamEBValorBaseModo			    := 
+CadParamEBValorBaseBase			    := 
+CadParamEBValorBaseTipo			    := 
+CadParamEBValorBaseMeses		    := 
+CadParamEBValorBaseMes			    := 
+CadParamEBValorBaseAno			    := 
+CadParamEBValorHora				      := 
+CadParamEBCalculaReducao		    := 
+{Param-Adicional}
+CadParamEBAdicionalInforme		  := 
+{Param-JORNADA A CONSIDERAR}       
+CadParamEBJornadaAConsiderar	  := 
+{Param-PROPORCIONALIDADE BASE}     
+CadParamEBProporcionalidadeBase	:= 
 end;
 

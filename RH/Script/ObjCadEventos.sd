@@ -42,7 +42,7 @@ BtnIncCat,BtnIncTdCat,BtnExcCat,GridCategorias,
 {Validações - Conf Dirf Rendimentos}                        
 CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
-BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GrideIncidencias,
+BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GridIncidencias,
 {Parametros}
 CadParamEBValorBaseModo,CadParamEBValorBaseBase,CadParamEBValorBaseTipo,		
 CadParamEBValorBaseMeses,CadParamEBValorBaseMes,CadParamEBValorBaseAno,		
@@ -162,7 +162,7 @@ GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.p
 GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
 GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
 GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
-GrideIncidencias    :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
+GridIncidencias     :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
 GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 end;
 

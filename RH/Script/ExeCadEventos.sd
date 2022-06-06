@@ -86,7 +86,7 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Causas');
   
-  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodCau);
+  VerificaClickPreencheGrid(GridCausas,i, 'Código', ValidaEventosDPCodCau);
   
   GridCausas.Click();
   
@@ -119,7 +119,7 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Vínculos');
   
-  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodVin);
+  VerificaClickPreencheGrid(GridVinculos,i, 'Código', ValidaEventosDPCodVin);
   
   GridVinculos.Click();
   
@@ -152,7 +152,7 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Processamentos');
   
-  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodProc);
+  VerificaClickPreencheGrid(GridProcessamentos,i, 'Código', ValidaEventosDPCodProc);
   
   GridProcessamentos.Click();
   
@@ -185,7 +185,7 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Turnos');
   
-  VerificaClickPreencheGrid(GridSituacao,i, 'Código', ValidaEventosDPCodTurn);
+  VerificaClickPreencheGrid(GridTurnos,i, 'Código', ValidaEventosDPCodTurn);
   
   GridTurnos.Click();
   
@@ -218,7 +218,7 @@ i:= 0;
   
   Log.Checkpoint('Preenchendo Categorias');
   
-  VerificaClickPreencheGrid(GridSituacao, i, 'Código', ValidaEventosDPCodCat);
+  VerificaClickPreencheGrid(GridCategorias, i, 'Código', ValidaEventosDPCodCat);
   
   GridCategorias.Click();
   
@@ -274,20 +274,19 @@ i : integer;
 begin
 i:= 0;
 
-//outro form
   CadFormPageTab.ActivePageIndex := 1;
   
-  DDTCategoria := CarregaDDT(pathData, 'Categorias');
+  DDTCategoria := CarregaDDT(pathData, 'Incidências');
   
-  LeDataPoolValidacoes(DDTCategoria.Name);
+  LeDataPoolIncid(DDTIncidencia.Name);
   
-  BtnIncCat.Click();
+  BtnIncIncide.Click();
   
   Log.Checkpoint('Preenchendo Categorias');
   
-  VerificaClickPreencheGrid(GridSituacao, i, 'Código', ValidaEventosDPCodCat);
+  VerificaClickPreencheGrid(GridIncidencias, i, 'Código', IncidEventosDPCod);
   
-  GridCategorias.Click();
+  GrideIncidencias.Click();
   
   if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
@@ -298,13 +297,38 @@ i:= 0;
     
     BtnNao.Click();
   end;
-  DDT.CloseDriver(DDTCategoria.Name);
+  DDT.CloseDriver(DDTIncidencia.Name);
 end;
 
 procedure PreencheParametros(pathData);
+var
+DDTParamentro : OleVariant;
+i : integer;
 begin
+i:= 0;
 
-
+  CadFormPageValida.ActivePageIndex := 3;
+  
+  DDTParamentro := CarregaDDT(pathData, 'Parâmetros');
+  
+  LeDataPoolParam(DDTParamentro.Name);
+  
+  Log.Checkpoint('Preenchendo Configurações Dirf');
+  
+  VerificaInsere(CadDirfRendiEBCampo,CadDirfRendiDPCampo);
+  VerificaInsere(CadDirfRendiEBLinha,CadDirfRendiDPLinha);
+  VerificaInsere(CadDirfRendiEBFormula,CadDirfRendiDPFormula);
+  
+  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+  begin
+    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+    BtnNao.Click();
+  end;
+  DDT.CloseDriver(DDTConfiguracao.Name);
 end;
 
 procedure PreencheESocial(pathData);
