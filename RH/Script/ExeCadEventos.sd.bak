@@ -50,7 +50,7 @@ i:= 0;
   
   MapCadValidacoes();
   
-  DDTSituacao := CarregaDDT(pathData, 'Situações');
+  DDTSituacao := CarregaDDT(pathData, 'Valida - Situações');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
   
@@ -86,7 +86,7 @@ i:= 0;
   
   MapCadValidacoes();
   
-  DDTCausas := CarregaDDT(pathData, 'Causas');
+  DDTCausas := CarregaDDT(pathData, 'Valida - Causas');
   
   LeDataPoolValidacoes(DDTSituacao.Name);
   
@@ -122,7 +122,7 @@ i:= 0;
   
   MapCadValidacoes();
   
-  DDTVinculos := CarregaDDT(pathData, 'Vínculos');
+  DDTVinculos := CarregaDDT(pathData, 'Valida - Vínculos');
   
   LeDataPoolValidacoes(DDTVinculos.Name);
   
@@ -146,7 +146,7 @@ i:= 0;
   DDT.CloseDriver(DDTVinculos.Name);
 end;
 
-procedure PreencheValidaProcessamentos();
+procedure PreencheValidaProcessamentos(pathData);
 var
 DDTProcessamento : OleVariant;
 i : integer;
@@ -157,7 +157,7 @@ i:= 0;
   
   MapCadValidacoes();
    
-  DDTProcessamentos := CarregaDDT(pathData, 'Processamentos');
+  DDTProcessamentos := CarregaDDT(pathData, 'Valida - Processamentos');
   
   LeDataPoolValidacoes(DDTProcessamento.Name);
  
@@ -192,7 +192,7 @@ i:= 0;
   
   MapCadValidacoes();
   
-  DDTTurnos := CarregaDDT(pathData, 'Turnos');
+  DDTTurnos := CarregaDDT(pathData, 'Valida - Turnos');
   
   LeDataPoolValidacoes(DDTTurnos.Name);
   
@@ -212,6 +212,7 @@ i:= 0;
     BtnNao := TelaAviso.Window('Button', '&Não', 2);
     
     BtnNao.Click();
+    
   end;
   DDT.CloseDriver(DDTTurnos.Name);
 end;
@@ -227,7 +228,7 @@ i:= 0;
   
   MapCadValidacoes();
    
-  DDTCategoria := CarregaDDT(pathData, 'Categorias');
+  DDTCategoria := CarregaDDT(pathData, 'Valida - Categorias');
   
   LeDataPoolValidacoes(DDTCategoria.Name);
  
@@ -262,7 +263,7 @@ i:= 0;
   
   MapCadValidacoes();
   
-  DDTConfiguracao := CarregaDDT(pathData, 'Configuração Dirf-Rendimentos');
+  DDTConfiguracao := CarregaDDT(pathData, 'Valida - Configurações DirfRend');
   
   LeDataPoolDirfRendimentos(DDTConfiguracao.Name);
   
@@ -336,6 +337,7 @@ i:= 0;
   
   CadFormParam.ActivePageIndex := 0;
   Log.Checkpoint('Preenchendo Parâmetros');
+  
   {Valor base}
   VerificaInsere(CadParamEBValorCalcPadrao,CadParamDPValorCalcPadrao);
   VerificaInsere(CadParamEBValorBaseModo,CadParamDPValorBaseModo);			
@@ -361,6 +363,8 @@ i:= 0;
  // VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
    BtnSalvarEvento.Click;
    
+   FechaTelaESocial(_ModuloFolha);
+   
   if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
     TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
@@ -376,12 +380,14 @@ end;
 procedure PreencheESocial(pathData);
 Var
 DDTeSocial : OleVariant;
+i;
 begin
+i:=0;
 CadFormPageTab.ActivePageIndex := 4;
 
 MapCadESocial();
 
-DDTeSocial := CarregaDDT(pathData,'Informações Gerais');
+DDTeSocial := CarregaDDT(pathData,'eSocial');
 LeDataPoolESocial(DDTeSocial.Name);
 
 Log.Checkpoint('Preenchendo eSocial');
@@ -390,6 +396,16 @@ VerificaInsere(CadESocEBObservacao,CadESocDPObservacao);
 VerificaInsere(CadESocEBIndApurIrrf,CadESocDPIndApurIrrf);
 
 BtnIncTrib.Click();
+
+VerificaClickPreencheGrid(GridTributacao,i,'Estab.',TributDPEstab);
+VerificaClickPreencheGrid(GridTributacao,i,'INSS.',TributDPInss);
+VerificaClickPreencheGrid(GridTributacao,i,'IRRF',TributDPIrrf);
+VerificaClickPreencheGrid(GridTributacao,i,'FGTS',TributDPFgts);
+VerificaClickPreencheGrid(GridTributacao,i,'C. Sind.',TributDPCSind);
+
+BtnIncSaveTrib.Click;
+
+FechaTelaESocial(_ModuloFolha);
 
 if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin

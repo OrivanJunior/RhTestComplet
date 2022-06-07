@@ -55,7 +55,7 @@ CadParamEBProporcionalidadeBase,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
-GridTributacao,BtnIncTrib,BtnIncTdTrib,BtnExcTrib : OleVariant;
+GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib : OleVariant;
 
 procedure MapCadFormEventos();
 begin
@@ -180,8 +180,9 @@ CadESocEBIndApurIrrf	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.Sc
 
 {Esocial - Btn}
 BtnIncTrib		          := Aliases.Folha.FRhEvento.bIncTrib;
-BtnIncTdTrib            := Aliases.Folha.FRhEvento.bSaveTrib;
+BtnIncSaveTrib          := Aliases.Folha.FRhEvento.bSaveTrib;
 BtnExcTrib 	            := Aliases.Folha.FRhEvento.bExcTrib;
+
 end;
 
 procedure MapCadContabilidade();
@@ -189,4 +190,3 @@ begin
 {Contabiliza}	
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
 end;
-
