@@ -173,9 +173,9 @@ begin
   
     MapFormEstab(); 
        
-    PreencherCadastro();
+    PreencherCadastro(pathData);
                                         
-    PreencherCalculo();
+    PreencherCalculo(pathData);
     
     ActSalvar(CadConfigEstabelecimentoForm);
     ActFechar(CadConfigEstabelecimentoForm);

@@ -1,7 +1,7 @@
 ﻿  uses
   CommonsAll, VarConsts, CommonsObj, ObjCadConfiguracaoEstab,DataPoolCadConfiguracaoEstab;
   
-procedure PreencherCadastro();
+procedure PreencherCadastro(pathData);
 begin
   MapCadConfigEstabelecimento();
   
@@ -32,7 +32,7 @@ begin
   	  
 end;
 
-procedure PreencherCalculo();
+procedure PreencherCalculo(pathData);
 begin
   MapCadConfigDeCalculo();
 
@@ -89,38 +89,31 @@ begin
   VerificaInsere(CadConfigEstabelecimentoEBPagaDmAte,CadConfigEstabelecimentoDPPagaDmAte);
     
 end;
-
-
-
-
-
-
   
-procedure PreencheFgtsInss();
+procedure PreencheFgtsInss(pathData);
 begin
 
 end;
 
-procedure PreencherConfigContabeis();
+procedure PreencherConfigContabeis(pathData);
 begin
 
 end;
 
-procedure PreencherConfigFinanceiro();
+procedure PreencherConfigFinanceiro(pathData);
+begin
+  
+end;
+
+procedure PreencherAvisoPrevio(pathData);
 begin
 
 end;
 
-procedure PreencherAvisoPrevio();
+procedure PreencherListPendencia(pathData);
 begin
 
 end;
-
-procedure PreencherListPendencia();
-begin
-
-end;
-
 
 
 procedure CadastraConfigEstab(pathData);

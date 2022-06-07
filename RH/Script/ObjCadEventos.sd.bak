@@ -3,7 +3,7 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 03/06/2022}
 uses 
-VarConst;
+VarConsts;
 
 var
 {Form}
@@ -14,7 +14,6 @@ FormFiltroEventos,
 FiltraConsultaEventos,
 FiltraEventos,
 BtnOKFiltroEvento,
-BtnCancelaFiltroEvento,
 BtnCancelaFiltroEvento,
 
 {Info normais}
@@ -44,9 +43,9 @@ CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
 BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GridIncidencias,
 {Parametros}
-CadParamEBValorBaseModo,CadParamEBValorBaseBase,CadParamEBValorBaseTipo,		
-CadParamEBValorBaseMeses,CadParamEBValorBaseMes,CadParamEBValorBaseAno,		
-CadParamEBValorHora,CadParamEBCalculaReducao,
+CadParamEBValorCalcPadrao,CadParamEBValorBaseModo,CadParamEBValorBaseBase,
+CadParamEBValorBaseTipo,CadParamEBValorBaseMeses,CadParamEBValorBaseMes,
+CadParamEBValorBaseAno,CadParamEBValorHora,CadParamEBCalculaReducao,
 {Param-Adicional}              
 CadParamEBAdicionalInforme,		 
 {Param-JORNADA A CONSIDERAR}   
@@ -58,7 +57,7 @@ CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
 GridTributacao,BtnIncTrib,BtnIncTdTrib,BtnExcTrib : OleVariant;
 
-procedure MapCadEventos();
+procedure MapCadFormEventos();
 begin
 
 {Form}
@@ -69,7 +68,20 @@ CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
 CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
+end;
 
+procedure FiltraCadEvento();
+begin
+FormFiltroEventos 		  := Aliases.Folha.FFiltroConsultaCDS;
+FiltraConsultaEventos 	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltraEventos 			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+
+procedure MapCadInfoNormais();
+begin
 {Info normais}
 CadEventosEBIdEventos  	:= 	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVENTO;
 CadEventosEBSequencia  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_SEQUENCIA;
@@ -83,7 +95,10 @@ CadEventosEBInvisivel  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_INVIS
 CadEventosEBOpEvento   	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_OPEVENTO;
 CadEventosEBIdTipo     	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDTIPO;
 CadEventosEBIdEvecalc  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC;
+end;
 
+procedure MapCadValidacoes();
+begin
 {Validações - Btn Situações}
 BtnIncSit            		:=	Aliases.Folha.FRhEvento.bIncRhEveValSit;
 BtnIncTdVlrSit 		      :=	Aliases.Folha.FRhEvento.bIncTRhEveValSit;
@@ -92,42 +107,52 @@ BtnConsultVlrSit 	      :=	Aliases.Folha.FRhEvento.bConsulRhEveValSit;
 BtnDesfVlrSit 		      :=	Aliases.Folha.FRhEvento.bDesfRhEveValSit;
 BtnExcValSit 		        :=	Aliases.Folha.FRhEvento.bExcRhEveValSit;
 BtnExcTdValSit 		      :=	Aliases.Folha.FRhEvento.bExcTRhEveValSit;
-
 {Validações - Btn Causas}
 BtnIncCau		            := Aliases.Folha.FRhEvento.bIncRhEveValCau;
 BtnIncTdCau             := Aliases.Folha.FRhEvento.bIncTRhEveValCau;
 BtnExcCau 	            := Aliases.Folha.FRhEvento.bExcRhEveValCau;
-
 {Validações - Btn vinculos}
 BtnIncVin		            := Aliases.Folha.FRhEvento.bIncRhEveValVin;
 BtnIncTdVin             := Aliases.Folha.FRhEvento.bIncTRhEveValVin;
 BtnExcVin 	            := Aliases.Folha.FRhEvento.bExcRhEveValVin;
-
 {Validações - Btn Processamentos}
 BtnIncProc		          := Aliases.Folha.FRhEvento.bIncRhEveValProc;
 BtnIncTdProc            := Aliases.Folha.FRhEvento.bIncTRhEveValProc;
 BtnExcProc 	            := Aliases.Folha.FRhEvento.bExcRhEveValProc;
-
 {Validações - Btn Turnos}
 BtnIncTur		            := Aliases.Folha.FRhEvento.bIncRhEveValTur;
 BtnIncTdTur             := Aliases.Folha.FRhEvento.bIncTRhEveValTur;
 BtnExcTur 	            := Aliases.Folha.FRhEvento.bExcRhEveValTur;
-
 {Validações - Btn Categoria}
 BtnIncCat		            := Aliases.Folha.FRhEvento.bIncRhEveValCat;
 BtnIncTdCat             := Aliases.Folha.FRhEvento.bIncTRhEveValCat;
 BtnExcCat 	            := Aliases.Folha.FRhEvento.bExcRhEveValCat;
-
 {Validações - Conf Dirf Rendimentos}
 CadDirfRendiEBCampo		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.TabSheet1.ScrollBox3.EB_CAMPO;
 CadDirfRendiEBLinha		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.TabSheet1.ScrollBox3.EB_LINHA;
 CadDirfRendiEBFormula	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.TabSheet1.ScrollBox3.EB_FORMULA;
+{Grids Eventos}
+GridSituacao        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsSituacoes.ScrollBox1.gRhEveValSit;
+GridCausas          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCausas.sbRhEveValCau.gRhEveValCau;
+GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsVinculos.sbValVin.gRhEveValVin;
+GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
+GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
+GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
+end;
 
+procedure MapCadIncidencias();
+begin
+GridIncidencias                 :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
 {Btn Incidencias}
 BtnIncIncide		                := Aliases.Folha.FRhEvento.bIncIncide;
 BtnIncTdIncide                  := Aliases.Folha.FRhEvento.bIncTIncide;
 BtnExcIncide 	                  := Aliases.Folha.FRhEvento.bExcIncide;
+end;
+
+procedure MapCadParametros();
+begin
 {Paramentros}
+CadParamEBValorCalcPadrao       := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORCALCPADRAO;
 CadParamEBValorBaseModo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEMODO;
 CadParamEBValorBaseBase			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEBASE;
 CadParamEBValorBaseTipo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASETIPO;
@@ -142,8 +167,13 @@ CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPar
 CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
 {Param-PROPORCIONALIDADE BASE}          
 CadParamEBProporcionalidadeBase	:= Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts4.TScrollBox.EB_PROPORCIONALIDADEBASE;
+end;
 
+procedure MapCadESocial();
+begin
+GridTributacao          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 {Esocial - Informações gerais}
+
 CadESocEBIdeventonat	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_IDEVENTONAT;
 CadESocEBObservacao		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_OBSERVACAO;
 CadESocEBIndApurIrrf	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_INDAPURIRRF;
@@ -152,29 +182,11 @@ CadESocEBIndApurIrrf	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.Sc
 BtnIncTrib		          := Aliases.Folha.FRhEvento.bIncTrib;
 BtnIncTdTrib            := Aliases.Folha.FRhEvento.bSaveTrib;
 BtnExcTrib 	            := Aliases.Folha.FRhEvento.bExcTrib;
+end;
 
+procedure MapCadContabilidade();
+begin
 {Contabiliza}	
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
-
-{Grids Eventos}
-GridSituacao        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsSituacoes.ScrollBox1.gRhEveValSit;
-GridCausas          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCausas.sbRhEveValCau.gRhEveValCau;
-GridVinculos        :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsVinculos.sbValVin.gRhEveValVin;
-GridProcessamentos  :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsProcessamentos.sbValProc.gRhEveValProc;
-GridTurnos          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsTurnos.sbValTurnos.gRhEveValTur;
-GridCategorias      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida.tsCategorias.sbValCateg.gRhEveValCat;
-GridIncidencias     :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsIncidencias.sbRHEveIncide.gRhEveIncide;
-GridTributacao      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 end;
-
-procedure FiltraCadEvento();
-begin
-FormFiltroEventos 		  := Aliases.Folha.FFiltroConsultaCDS;
-FiltraConsultaEventos 	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
-FiltraEventos 			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
-BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
-BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
-BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
-end;
-
 

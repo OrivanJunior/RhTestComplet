@@ -3,7 +3,7 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 03/06/2022}
 uses 
-VarConst;
+VarConsts;
 
 var
 {Form}
@@ -14,7 +14,6 @@ FormFiltroEventos,
 FiltraConsultaEventos,
 FiltraEventos,
 BtnOKFiltroEvento,
-BtnCancelaFiltroEvento,
 BtnCancelaFiltroEvento,
 
 {Info normais}
@@ -44,9 +43,9 @@ CadDirfRendiEBCampo,CadDirfRendiEBLinha,CadDirfRendiEBFormula,
 {Btn Incidencias}                        
 BtnIncIncide,BtnIncTdIncide,BtnExcIncide,GridIncidencias,
 {Parametros}
-CadParamEBValorBaseModo,CadParamEBValorBaseBase,CadParamEBValorBaseTipo,		
-CadParamEBValorBaseMeses,CadParamEBValorBaseMes,CadParamEBValorBaseAno,		
-CadParamEBValorHora,CadParamEBCalculaReducao,
+CadParamEBValorCalcPadrao,CadParamEBValorBaseModo,CadParamEBValorBaseBase,
+CadParamEBValorBaseTipo,CadParamEBValorBaseMeses,CadParamEBValorBaseMes,
+CadParamEBValorBaseAno,CadParamEBValorHora,CadParamEBCalculaReducao,
 {Param-Adicional}              
 CadParamEBAdicionalInforme,		 
 {Param-JORNADA A CONSIDERAR}   
@@ -64,8 +63,8 @@ begin
 {Form}
 CadFormEventos          :=  Aliases.Folha.FRhEvento;
 CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
-CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
+CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
@@ -153,6 +152,7 @@ end;
 procedure MapCadParametros();
 begin
 {Paramentros}
+CadParamEBValorCalcPadrao       := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORCALCPADRAO;
 CadParamEBValorBaseModo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEMODO;
 CadParamEBValorBaseBase			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASEBASE;
 CadParamEBValorBaseTipo			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORBASETIPO;
@@ -173,6 +173,7 @@ procedure MapCadESocial();
 begin
 GridTributacao          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
 {Esocial - Informações gerais}
+
 CadESocEBIdeventonat	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_IDEVENTONAT;
 CadESocEBObservacao		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_OBSERVACAO;
 CadESocEBIndApurIrrf	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox1.EB_INDAPURIRRF;

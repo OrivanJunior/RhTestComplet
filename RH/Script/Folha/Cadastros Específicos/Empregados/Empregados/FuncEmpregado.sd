@@ -1261,7 +1261,7 @@ begin
     MapFormGeral();
         
     log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    //InsereDados(pathData);  descomentar após os testes 18/05
+    //InsereDados(pathData);  descomentar 
     PreencheDadosHistoricos(pathData);   //testes de 18/05
      
     SalvaEmpregado();

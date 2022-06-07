@@ -1,8 +1,8 @@
 ﻿uses 
 CommonsAll,
 ObjCadEventos,
-VarConst,
-CoommonsObj,
+VarConsts,
+CommonsObj,
 DatapoolEventos;
 
 
@@ -325,8 +325,8 @@ DDTParamentro : OleVariant;
 i : integer;
 begin
 i:= 0;
-
-  CadFormPageValida.ActivePageIndex := 3;
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 3;
   
   MapCadParametros();
   
@@ -337,6 +337,7 @@ i:= 0;
   CadFormParam.ActivePageIndex := 0;
   Log.Checkpoint('Preenchendo Parâmetros');
   {Valor base}
+  VerificaInsere(CadParamEBValorCalcPadrao,CadParamDPValorCalcPadrao);
   VerificaInsere(CadParamEBValorBaseModo,CadParamDPValorBaseModo);			
   VerificaInsere(CadParamEBValorBaseBase,CadParamDPValorBaseBase);			
   VerificaConsultaF3Insere(_ModuloFolha,CadParamEBValorBaseTipo,CadParamDPValorBaseTipo);
@@ -347,18 +348,21 @@ i:= 0;
   VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
   
   {Adicional}
-  CadFormParam.ActivePageIndex := 1;
-  Delay(1000);
-  VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
+ // CadFormParam.ActivePageIndex := 1;
+ // Delay(1000);
+ // VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
   {Outros}
-  CadFormParam.ActivePageIndex := 2;
-  Delay(1000);
-  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+//  CadFormParam.ActivePageIndex := 2;
+ // Delay(1000);
+//  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
   {Proporcionalidade}
-  CadFormParam.ActivePageIndex := 3;
-  Delay(1000);
-  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
-  
+ // CadFormParam.ActivePageIndex := 3;
+ // Delay(1000);
+ // VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
+   BtnSalvarEvento.Click;
+   
+   FechaTelaESocial(_ModuloFolha);
+   
   if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
     TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
@@ -373,14 +377,16 @@ end;
 
 procedure PreencheESocial(pathData);
 Var
-DDTInfoGerais : OleVariant;
+DDTeSocial : OleVariant;
+i;
 begin
+i:=0;
 CadFormPageTab.ActivePageIndex := 4;
 
 MapCadESocial();
 
-DDTInfoGerais := CarregaDDT(pathData,'Informações Gerais');
-LeDataPoolESocial(DDTInfoGerais.Name);
+DDTeSocial := CarregaDDT(pathData,'Informações Gerais');
+LeDataPoolESocial(DDTeSocial.Name);
 
 Log.Checkpoint('Preenchendo eSocial');
 VerificaConsultaF3Insere(_ModuloFolha,CadESocEBIdeventonat,CadESocDPIdeventonat);
@@ -388,6 +394,12 @@ VerificaInsere(CadESocEBObservacao,CadESocDPObservacao);
 VerificaInsere(CadESocEBIndApurIrrf,CadESocDPIndApurIrrf);
 
 BtnIncTrib.Click();
+
+VerificaClickPreencheGrid(GridTributacao,i,'Estab.',TributDPEstab);
+VerificaClickPreencheGrid(GridTributacao,i,'INSS.',TributDPInss);
+VerificaClickPreencheGrid(GridTributacao,i,'IRRF',TributDPIrrf);
+VerificaClickPreencheGrid(GridTributacao,i,'FGTS',TributDPFgts);
+VerificaClickPreencheGrid(GridTributacao,i,'C. Sind.',TributDPCSind);
 
 if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
   begin
@@ -402,31 +414,41 @@ if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
 end;
 
 procedure CadastraEvento(pathData);
-var
-DDTCadastrar : OleVariant;
+Var
+DDTInfoNormais : OleVariant;
 begin
+
+DDTInfoNormais := CarregaDDT(pathData,'Informações Normais');
 
 AcessaItem(_ModuloFolha, 'Cadastros Gerais','Gerais','Eventos','Eventos');
 
+FiltroTelaInicialEvento();
+
 MapGridConsulta(_ModuloFolha);
 
-LeDataPoolInfoNormais(DDTCadastrar.Name);
+LeDataPoolInfoNormais(DDTInfoNormais.Name);
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhEvento');
       
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Evento',CadEventosDPIdEventos);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-    ActIncluir(FormTelaConsultaForm);
+    ActConsulta(FormTelaConsultaForm);
   
     MapCadInfoNormais();
     
     if (CadEventosEBIdEventos.Exists) then
     
+    PreencheParametros(pathData);
     
+    log.Checkpoint('Fechando Grid de Consulta de Eventos');
+    
+    ActFechar(CadFormEventos);
+    ActFechar(FormTelaConsultaForm);
     
   end;
+  DDT.CloseDriver(DDTInfoNormais.Name);
 end;
 
 procedure AlteraEvento(pathData);

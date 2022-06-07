@@ -21,7 +21,7 @@ CadDirfRendiDPCampo,CadDirfRendiDPLinha,CadDirfRendiDPFormula,
 {Esocial - Informações gerais}
 CadESocDPIdeventonat,CadESocDPObservacao,CadESocDPIndApurIrrf,
 {Parâmetros}
-CadParamDPValorBaseModo,CadParamDPValorBaseBase,CadParamDPValorBaseTipo,CadParamDPValorBaseMeses,
+CadParamDPValorCalcPadrao,CadParamDPValorBaseModo,CadParamDPValorBaseBase,CadParamDPValorBaseTipo,CadParamDPValorBaseMeses,
 CadParamDPValorBaseMes,CadParamDPValorBaseAno,CadParamDPValorHora,CadParamDPCalculaReducao,
 
 CadParamDPAdicionalInforme,CadParamDPJornadaAConsiderar,CadParamDPProporcionalidadeBase,
@@ -85,6 +85,7 @@ end;
 
 procedure LeDataPoolParam(nomeDriver);
 begin
+CadParamDPValorCalcPadrao       := DDT.DriverByName(nomeDriver).Value('CALCPADRAO');
 CadParamDPValorBaseModo			    := DDT.DriverByName(nomeDriver).Value('BASEMODO');		
 CadParamDPValorBaseBase			    := DDT.DriverByName(nomeDriver).Value('BASEBASE');	
 CadParamDPValorBaseTipo			    := DDT.DriverByName(nomeDriver).Value('BASETIPO');	
@@ -99,7 +100,6 @@ CadParamDPAdicionalInforme		  := DDT.DriverByName(nomeDriver).Value('ADICIONALIN
 CadParamDPJornadaAConsiderar 	  := DDT.DriverByName(nomeDriver).Value('JORNADAACONSIDERAR');
 
 CadParamDPProporcionalidadeBase	:= DDT.DriverByName(nomeDriver).Value('PROPORCIONALIDADEBASE');
-
 
 end;
 
