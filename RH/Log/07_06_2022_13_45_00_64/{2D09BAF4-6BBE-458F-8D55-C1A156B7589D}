@@ -20,27 +20,27 @@
 <Nodes version="1">
 	<Node name="root">
 		<Node name="log data">
-			<Node name="row0">
-				<Prp name="index" type="I" value="0"/>
-				<Prp name="ownerid" type="I" value="-1"/>
-				<Prp name="end time" type="D" value="44719.5722697338"/>
-				<Prp name="details" type="S" value="{6E5568F7-65F7-4E24-B647-609B12C7E59C}"/>
-				<Prp name="extended message" type="S" value=""/>
-				<Prp name="start time" type="D" value="44719.571057963"/>
-				<Prp name="testdata item" type="B" value="0"/>
-				<Prp name="name" type="S" value="Planos de Testes"/>
-				<Prp name="status" type="I" value="1"/>
-			</Node>
 			<Node name="row1">
-				<Prp name="ownerid" type="I" value="-1"/>
-				<Prp name="extended message" type="S" value=""/>
-				<Prp name="details" type="S" value="{31521AC6-7D0F-4228-A3DF-9A32E0BDDA70}"/>
-				<Prp name="name" type="S" value="ProjectTestItem1"/>
-				<Prp name="start time" type="D" value="44719.5722697685"/>
-				<Prp name="testdata item" type="B" value="-1"/>
 				<Prp name="status" type="I" value="0"/>
-				<Prp name="end time" type="D" value="44719.5722720602"/>
+				<Prp name="start time" type="D" value="44719.5739624306"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="No element to be run for the 'ProjectTestItem1' test item was specified."/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value=""/>
 				<Prp name="index" type="I" value="1"/>
+				<Prp name="end time" type="D" value="44719.5739624306"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44719.5739624306"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="name" type="S" value="Element to be run"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44719.5739624306"/>
 			</Node>
 		</Node>
 	</Node>
