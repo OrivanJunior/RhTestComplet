@@ -331,9 +331,9 @@ i:= 0;
   
   MapCadParametros();
   
-  DDTParamentro := CarregaDDT(pathData, 'Parâmetros');
+  DDTParamentro := CarregaDDT(pathData, 'Parâmetros - Base');
   
-  LeDataPoolParam(DDTParamentro.Name);
+  LeDataPoolParamValorBase(DDTParamentro.Name);
   
   CadFormParam.ActivePageIndex := 0;
   Log.Checkpoint('Preenchendo Parâmetros');
@@ -348,62 +348,100 @@ i:= 0;
   VerificaInsere(CadParamEBValorBaseAno,CadParamDPValorBaseAno);
   VerificaInsere(CadParamEBValorHora,CadParamDPValorHora);
   VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
-  
-  BtnSalvarEvento.Click;
-   
-   FechaTelaESocial(_ModuloFolha);
-   
-  if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
-  begin
-    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
-    
-    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
-    BtnNao := TelaAviso.Window('Button', '&Não', 2);
-    
-    BtnNao.Click();
-  end;
+
   DDT.CloseDriver(DDTParamentro.Name);
 end;
 
 procedure PreencheParametrosValorAdicional(pathData);
+var
+DDTAdicional : OleVariant;
+i : integer;
 begin
-
-{Adicional}
+i:= 0;
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 3;
+  
+  MapCadParametros();
+  
+  DDTAdicional := CarregaDDT(pathData, 'Parâmetros - Add Informe');
+  
+  LeDataPoolParamAdInforme(DDTAdicional.Name);
+  
   CadFormParam.ActivePageIndex := 1;
+  Log.Checkpoint('Preenchendo Adicional');
   Delay(1000);
   VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
 
-end;
+  DDT.CloseDriver(DDTAdicional.Name);
 
-procedure PreencheParametrosValorJornadaAConsiderar(pathData);
-begin
-
-  {Outros}
-  CadFormParam.ActivePageIndex := 2;
-  Delay(1000);
-  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
-
-end;
-
-procedure PreencheParametrosvalorProporcionalidade(pathData);
-begin
-
-  {Proporcionalidade}
-  CadFormParam.ActivePageIndex := 3;
-  Delay(1000);
-  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
-  
 end;
 
 procedure PreencheParametrosvalorOutros(pathData);
+var
+DDTOutros : OleVariant;
+i : integer;
 begin
-
-  {Proporcionalidade}
+i:= 0;
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 3;
+  
+  MapCadParametros();
+  
+  DDTOutros := CarregaDDT(pathData, 'Parâmetros - Outros');
+  
+  LeDataPoolParamOutro(DDTOutros.Name);
+  
   CadFormParam.ActivePageIndex := 2;
   Delay(1000);
   VerificaInsere(CadParamEBEhAvisoPrevio,CadParamDPEhAvisoPrevio);
   VerificaInsere(CadParamEBEhEstabilidade,CadParamDPEhEstabilidade);
   
+  DDT.CloseDriver(DDTOutros.Name);
+end;
+
+procedure PreencheParametrosValorJornadaAConsiderar(pathData);
+var
+DDTConsidera : OleVariant;
+i : integer;
+begin
+i:= 0;
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 3;
+  
+  MapCadParametros();
+  
+  DDTConsidera := CarregaDDT(pathData, 'Parâmetros - Jorn Considerar');
+  
+  LeDataPoolParamJornConsiderar(DDTConsidera.Name);
+
+  CadFormParam.ActivePageIndex := 2;
+  Delay(1000);
+  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+  
+  DDT.CloseDriver(DDTConsidera.Name);
+
+end;
+
+procedure PreencheParametrosvalorProporcionalidade(pathData);
+var
+DDTProporcionalidade : OleVariant;
+i : integer;
+begin
+i:= 0;
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 3;
+  
+  MapCadParametros();
+  
+  DDTProporcionalidade := CarregaDDT(pathData, 'Parâmetros - Prop');
+  
+  LeDataPoolParamProporcional(DDTProporcionalidade.Name);
+
+  CadFormParam.ActivePageIndex := 3;
+  Delay(1000);
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
+  
+  DDT.CloseDriver(DDTProporcionalidade.Name);
 end;
     
 procedure PreencheESocial(pathData);
