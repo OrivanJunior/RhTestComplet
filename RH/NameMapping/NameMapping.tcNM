@@ -60331,6 +60331,58 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhInconsistencias" Key="{73988120-70B9-45BD-9054-E1A9B92CB7C4}">
+								<Image FileName="-2125281203" Left="0" Top="0" Right="1470" Bottom="414" />
+								<TypeInfo Item0="{D2A76756-AA39-4F24-A148-D22E008A0003}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhInconsistencias" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhInconsistencias" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="pnl1" Key="{B5500A7A-8651-4EFF-B476-BD6C43DB0709}">
+										<Image FileName="-2125281203" Left="3" Top="56" Right="1467" Bottom="388" />
+										<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TPanel" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="pnl1" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="btnCancelar" Key="{D75E48BF-B6E1-4A7D-964C-540D886B00F8}">
+												<Image FileName="-2125281203" Left="1273" Top="346" Right="1348" Bottom="371" />
+												<TypeInfo Item0="{AF867CF9-856A-4F65-A123-93470217D8FA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TBitBtn" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="btnCancelar" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="btnProsseguir" Key="{87A7BB1E-2F27-44A3-AAF6-34550CB0EB0B}">
+												<Image FileName="-2125281203" Left="1353" Top="346" Right="1428" Bottom="371" />
+												<TypeInfo Item0="{AF867CF9-856A-4F65-A123-93470217D8FA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TBitBtn" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="btnProsseguir" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -82635,6 +82687,12 @@
 				<Child Name="bIncTRhEveValVin" Owner="{95AAF38F-1784-47E0-84F1-2260A00BC924}" />
 				<Child Name="bProcRhEveValSit" Owner="{9DA86218-62AD-444E-8134-1A1821976B7C}" />
 				<Child Name="BSalvar" Owner="{6F5B1554-33F9-443E-9FEC-683F32095F06}" />
+			</Child>
+			<Child Name="FRhInconsistencias" Owner="{73988120-70B9-45BD-9054-E1A9B92CB7C4}">
+				<Child Name="pnl1" Owner="{B5500A7A-8651-4EFF-B476-BD6C43DB0709}">
+					<Child Name="btnCancelar" Owner="{D75E48BF-B6E1-4A7D-964C-540D886B00F8}" />
+					<Child Name="btnProsseguir" Owner="{87A7BB1E-2F27-44A3-AAF6-34550CB0EB0B}" />
+				</Child>
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

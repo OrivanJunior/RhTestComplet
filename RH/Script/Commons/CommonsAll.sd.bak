@@ -656,12 +656,12 @@ begin
   if tipo = _Especifico then
   begin
     compEstab.VCLObject(compEstab.ObjectIdentifier + '40').Click();
-    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '80'), empresas);
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.ObjectIdentifier + '80'), empresas);
   end;
   if tipo = _TodosEmpresa then
   begin
     compEstab.VCLObject(compEstab.ObjectIdentifier + '50').Click();
-    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.Name + '100'), empresas);
+    VerificaConsultaF3Insere(modulo, compEstab.VCLObject(compEstab.ObjectIdentifier + '100'), empresas);
   end;
   if tipo = _Selecionados then
   begin

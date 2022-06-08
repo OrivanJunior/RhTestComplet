@@ -414,6 +414,8 @@ begin
   
   PageFerias.ActivePageIndex := 0;
   
+  Delay(2000);
+  
   MapFeriasPeriodosAquisitivos();
   
   DDTPeriodoAquisitivo := CarregaDDT(pathData, 'Ferias-Periodos Aquisitivos');
@@ -614,6 +616,8 @@ begin
   
   PageDadosHistoricos.ActivePageIndex := 1;
   
+  Delay(2000);
+  
   MapHistSituacoes();
   
   DDTHistSituacoes := CarregaDDT(pathData, 'Dados Historicos-Situacoes');
@@ -671,7 +675,7 @@ begin
     
     DDTHistSituacoes.Next;
   end;
-  ActFechar(FormInfosAdicionais);
+//ActFechar(FormInfosAdicionais);
   DDT.CloseDriver(DDTHistSituacoes.Name);
 end;
 
@@ -910,7 +914,9 @@ begin
   //FormCadEmpregado.testeCompleteAbreHistorico('tsEst');
   //PageDadosHistoricos.ActivePageIndex := 8;
   PageDadosHistoricos.Click(649, 9);
-
+  
+  Delay(2000);
+  
   MapDadosHistEstabilidade();
   
   DDTHistEstabilidade := CarregaDDT(pathData, 'Dados Historicos-Estabilidade');
@@ -1162,7 +1168,7 @@ begin
   //PreencheDadosHistSalarios(pathData);
   //PreencheDadosHistAvisoPrevio(pathData);
   //PreencheDadosHistAdvertencias(pathData);
-  //PreencheDadosHistEstabilidade(pathData);
+  PreencheDadosHistEstabilidade(pathData);
   //PreencheDadosHistSucessao(pathData);
   //PreencheDadosHistProcessos(pathData);
   //PreencheDadosHistCIPA(pathData);
@@ -1260,18 +1266,21 @@ begin
   begin
     MapFormGeral();
         
-    log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    //InsereDados(pathData);  descomentar 
-    PreencheDadosHistoricos(pathData);   //testes de 18/05
+    //log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
+    log.Checkpoint('Confere períodos aquisitivos!');
+    //InsereDados(pathData);
+    PreencheFeriasPeriodoAquisitivo(pathData);
+    log.Checkpoint('Confere Dados Históricos!');
+    PreencheDadosHistoricos(pathData);
+      
      
-    SalvaEmpregado();
+    //SalvaEmpregado();
         
     log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
     
     ActFechar(FormCadEmpregado);
   end;
 end;
-
 
 procedure CadastraEmpregado(pathData);
 var

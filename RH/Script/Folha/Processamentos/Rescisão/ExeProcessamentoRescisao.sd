@@ -247,13 +247,12 @@ begin
 
   PreencheEmpregadoProcRescisao(pathData);  
   
-  //PreencheHistSituacao(pathData);
-  
-  //PreencheMovimentoProcRescisao(pathData);
-  
   Log.Checkpoint('Executando processamento de Rescisão');
   
-  ActExecutar(FormProcRescisao);
+  //ActExecutar(FormProcRescisao);
+  ExecutaRescisao();
+  
+  FechaTelaAdvertencias();
   
   BtnSaveRescisao.Click();
   
@@ -265,7 +264,9 @@ begin
       
     btnOk.Click();
   end;
+  
   FechaTelaESocial(_ModuloFolha);
+
   
   ActFechar(FormProcRescisao);
 end;

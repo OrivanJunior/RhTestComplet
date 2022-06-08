@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="stack"/>
+		<Node name="message 0">
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="line no" type="I" value="10"/>
+			<Prp name="message" type="S" value="Abrindo Formulário de Empregados"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="44719.6308104977"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 2" type="S" value="{983DC6DC-E121-450B-AFDD-DDAB7A132680}"/>
+			<Prp name="unit 3" type="S" value="{6943DB15-78FA-432B-BBDD-946A4302812D}"/>
+			<Prp name="unit 1" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+			<Prp name="unit 0" type="S" value="{9A96D150-EC9C-40C1-88E0-291A622D2942}"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Específicos'].Items.Item['Empregados'].Items.Item['Empregados']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Específicos'].Items.Item['Empregados'].Items.Item['Empregados'])"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="420"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="44719.6308324421"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="line no" type="I" value="13"/>
+			<Prp name="message" type="S" value="Filtro de empregados, sem parâmetros"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="44719.6308913079"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="item 11">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 13">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 16">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="date" type="D" value="44719.633301956"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Filtrando Pessoa para Cadastro"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1284"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 49">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1304"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 47">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="date" type="D" value="44719.6345160301"/>
+			<Prp name="stack end" type="I" value="14"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="12"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;VCLObject&quot; method or property of the &quot;VCLObject('FBRowseCds')&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds')&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="picture" type="S" value="Picture6.png"/>
+		</Node>
+		<Node name="item 35">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 41">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="date" type="D" value="44719.6342379977"/>
+			<Prp name="stack end" type="I" value="1"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;style&gt;body {font-family : Segoe UI, Tahoma, Arial, Helvetica, sans-serif; font-size : 10pt; font-weight : normal; padding : 14px 8px 8px 14px; margin : 0 0 0 0;} p {margin : 4px 0 4px 0; padding : 0 0 0 0;} h4 {font-size: 10pt; font-weight : bold; margin : 12px 0 0 16px; padding : 0 0 0 0;} table {margin-left : 16px; border-top: 1px solid grey;} td {font-size : 10pt; font-weight : normal; padding-left : 8px;} &lt;/style&gt;&lt;style&gt;p, td, th{font-size: 10pt;} td, th {border-bottom: 1px solid #cdcdcd; padding: 2px 10px 2px 10px;} th {text-align: left; background: #cdcdcd; font-weight : normal;}  p {padding : 0; margin : 4 0 4 0px; line-height: 16pt;} table {border: 0px;}&lt;/style&gt;&lt;body&gt;&lt;p&gt;Unable to find the following object when executing the &lt;code&gt;ActiveView&lt;/code&gt; command:&lt;/p&gt;&lt;p style=&quot;margin-left: 10px;&quot;&gt;&lt;code&gt;Aliases.&amp;#8203;Folha.&amp;#8203;&lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FBRowseCds&quot; title=&quot;Missing object. Click to view and change its recognition settings.&quot;&gt;&lt;span style=&quot;color: red; font-weight: bold;&quot;&gt;FBRowseCds&lt;/span&gt;&lt;/a&gt;.&amp;#8203;&lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FBRowseCds.BGrid&quot; title=&quot;Called object. Click to view and change its recognition settings.&quot;&gt;&lt;span style=&quot;color: #00a5e5; font-weight: bold;&quot;&gt;BGrid&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: #777;&quot;&gt;Reason&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The parent object was not found:&lt;/p&gt;&lt;p style=&quot;margin-left: 10px;&quot;&gt;&lt;code&gt;Aliases.&amp;#8203;Folha.&amp;#8203;&lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FBRowseCds&quot; title=&quot;Missing object. Click to view and change its recognition settings.&quot;&gt;&lt;span style=&quot;color: red; font-weight: bold;&quot;&gt;FBRowseCds&lt;/span&gt;&lt;/a&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: #777;&quot;&gt;Tips&lt;/b&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 10px&quot;&gt;&lt;li&gt;On the &lt;a href=&quot;showpicture://pic&quot;&gt;Picture&lt;/a&gt; tab, check if the object existed during the test run.&lt;/li&gt;&lt;li&gt;View the search criteria for the object in the &lt;a href=&quot;lnamemapping://{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}.Aliases.Folha.FBRowseCds&quot;&gt;NameMapping editor&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;aqa-help://2201&quot;&gt;Learn more&lt;/a&gt; about possible causes of the error.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="message" type="S" value="The object &quot;BGrid&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+		</Node>
+		<Node name="item 22">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 19">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 6">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="66"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="item 9">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="date" type="D" value="44719.6346395949"/>
+			<Prp name="stack end" type="I" value="23"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="21"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Window&quot; method or property of the &quot;VCLObject('FBRowseCds').VCLObject('BGrid')&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds').VCLObject('BGrid')&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="picture" type="S" value="Picture9.png"/>
+		</Node>
+		<Node name="item 50">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 32">
+			<Prp name="date" type="D" value="44719.6351121644"/>
+			<Prp name="stack end" type="I" value="47"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="45"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ActFechar&quot; method or property of the &quot;VCLObject('FBRowseCds')&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds')&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="32"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="picture" type="S" value="Picture16.png"/>
+		</Node>
+		<Node name="item 46">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1304"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 40">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="date" type="D" value="44719.6342406366"/>
+			<Prp name="stack end" type="I" value="3"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="2"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ViewData&quot; method or property of the &quot;BGrid.ActiveView&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;BGrid.ActiveView&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="picture" type="S" value="Picture2.png"/>
+		</Node>
+		<Node name="item 30">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="stacktext" type="S" value="FiltraGrid('Folha','FBRowseCds','BGrid','Cód. Pessoa','999')"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="date" type="D" value="44719.633769537"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Fechando Grid de Consulta de Empregados"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1303"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="date" type="D" value="44719.6335314468"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="'5163' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="182"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="date" type="D" value="44719.6348143634"/>
+			<Prp name="stack end" type="I" value="29"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="27"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;VCLObject&quot; method or property of the &quot;VCLObject(FBRowseCds)&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject(FBRowseCds)&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="24"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="picture" type="S" value="Picture10.png"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="date" type="D" value="44719.6350972685"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Fechando Grid de Consulta de Empregados"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="id" type="I" value="31"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1303"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="date" type="D" value="44719.6326355903"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK&#xA;(Sys.Process('Folha').VCLObject('FFiltroConsultaCDS').VCLObject('pnlBotao').VCLObject('bOK'))"/>
+			<Prp name="message" type="S" value="The button was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="10"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 25">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1293"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="date" type="D" value="44719.6342432523"/>
+			<Prp name="stack end" type="I" value="5"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="4"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;RowCount&quot; method or property of the &quot;BGrid.ActiveView.ViewData&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;BGrid.ActiveView.ViewData&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="picture" type="S" value="Picture3.png"/>
+		</Node>
+		<Node name="item 29">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 17">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="date" type="D" value="44719.6335273264"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Cód. Pessoa', 0) was clicked with the left mouse button."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="224"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="date" type="D" value="44719.6351146875"/>
+			<Prp name="stack end" type="I" value="50"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="48"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;Execute&quot; method or property of the &quot;VCLObject('FBRowseCds').ActFechar&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds').ActFechar&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="33"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="picture" type="S" value="Picture17.png"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="date" type="D" value="44719.6335297917"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="226"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="date" type="D" value="44719.6348151157"/>
+			<Prp name="stack end" type="I" value="32"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="30"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ActiveView&quot; method or property of the &quot;VCLObject(FBRowseCds).VCLObject(BGrid)&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject(FBRowseCds).VCLObject(BGrid)&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="25"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="picture" type="S" value="Picture10.png"/>
+		</Node>
+		<Node name="message 29">
+			<Prp name="date" type="D" value="44719.6349637037"/>
+			<Prp name="stack end" type="I" value="42"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="41"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ViewData&quot; method or property of the &quot;VCLObject('FBRowseCds').VCLObject('BGrid').ActiveView&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds').VCLObject('BGrid').ActiveView&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="29"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="picture" type="S" value="Picture14.png"/>
+		</Node>
+		<Node name="item 38">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 7">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 18">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="item 45">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="stacktext" type="S" value="ActFechar($3469F538)"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="date" type="D" value="44719.632583206"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas&#xA;(Sys.Process('Folha').VCLObject('FFiltroConsultaCDS').VCLObject('grpConsulta').VCLObject('cbListaConsultas'))"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 32">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 21">
+			<Prp name="date" type="D" value="44719.6346371644"/>
+			<Prp name="stack end" type="I" value="20"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="18"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;VCLObject&quot; method or property of the &quot;VCLObject('FBRowseCds')&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds')&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="picture" type="S" value="Picture8.png"/>
+		</Node>
+		<Node name="item 44">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 27">
+			<Prp name="date" type="D" value="44719.6348202546"/>
+			<Prp name="stack end" type="I" value="38"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="36"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;RowCount&quot; method or property of the &quot;VCLObject(FBRowseCds).VCLObject(BGrid).ActiveView.ViewData&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject(FBRowseCds).VCLObject(BGrid).ActiveView.ViewData&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="27"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="picture" type="S" value="Picture12.png"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="date" type="D" value="44719.6343948495"/>
+			<Prp name="stack end" type="I" value="8"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="6"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Aliases.Folha"/>
+			<Prp name="message" type="S" value="Unable to find the object VCLObject('FBRowseCds'). See Details for additional information."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="66"/>
+			<Prp name="picture" type="S" value="Picture4.png"/>
+		</Node>
+		<Node name="item 27">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="stacktext" type="S" value="FiltraGrid('Folha','FBRowseCds','BGrid','Cód. Pessoa','999')"/>
+		</Node>
+		<Node name="item 10">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1291"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 8">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 42">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="date" type="D" value="44719.6345134375"/>
+			<Prp name="stack end" type="I" value="11"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="9"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Aliases.Folha"/>
+			<Prp name="message" type="S" value="Unable to find the object VCLObject('FBRowseCds'). See Details for additional information."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="picture" type="S" value="Picture5.png"/>
+		</Node>
+		<Node name="item 21">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="date" type="D" value="44719.6335334028"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="183"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 14">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 26">
+			<Prp name="date" type="D" value="44719.6348175926"/>
+			<Prp name="stack end" type="I" value="35"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="33"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ViewData&quot; method or property of the &quot;VCLObject(FBRowseCds).VCLObject(BGrid).ActiveView&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject(FBRowseCds).VCLObject(BGrid).ActiveView&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="26"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="picture" type="S" value="Picture11.png"/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="date" type="D" value="44719.6325321412"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Filtrando Empregado"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="6"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="date" type="D" value="44719.6348136921"/>
+			<Prp name="stack end" type="I" value="26"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="24"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Aliases.Folha"/>
+			<Prp name="message" type="S" value="Unable to find the object VCLObject(FBRowseCds). See Details for additional information."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="23"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="picture" type="S" value="Picture10.png"/>
+		</Node>
+		<Node name="item 36">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="stacktext" type="S" value="FiltraGrid('Folha','FBRowseCds','BGrid','Cód. Pessoa','999')"/>
+		</Node>
+		<Node name="message 28">
+			<Prp name="date" type="D" value="44719.6349606829"/>
+			<Prp name="stack end" type="I" value="40"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="39"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;ActiveView&quot; method or property of the &quot;VCLObject('FBRowseCds').VCLObject('BGrid')&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds').VCLObject('BGrid')&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="28"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="picture" type="S" value="Picture13.png"/>
+		</Node>
+		<Node name="item 39">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 20">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="date" type="D" value="44719.6340182639"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Filtrando Pessoa para Cadastro"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1284"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 12">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="67"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="item 15">
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="stacktext" type="S" value="MapGridConsulta('Folha')"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1288"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="date" type="D" value="44719.6335285069"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="remarks" type="S" value="'[Up]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="225"/>
+			<Prp name="picture" type="S" value=""/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 33">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="stacktext" type="S" value="FiltraGrid('Folha','FBRowseCds','BGrid','Cód. Pessoa','999')"/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="date" type="D" value="44719.6346346181"/>
+			<Prp name="stack end" type="I" value="17"/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="15"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Aliases.Folha"/>
+			<Prp name="message" type="S" value="Unable to find the object VCLObject('FBRowseCds'). See Details for additional information."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="68"/>
+			<Prp name="picture" type="S" value="Picture7.png"/>
+		</Node>
+		<Node name="item 23">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 28">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1293"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 48">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="stacktext" type="S" value="ActFechar($3469F538)"/>
+		</Node>
+		<Node name="message 30">
+			<Prp name="date" type="D" value="44719.634966169"/>
+			<Prp name="stack end" type="I" value="44"/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="43"/>
+			<Prp name="remarks" type="S" value="You are trying to call the &quot;RowCount&quot; method or property of the &quot;VCLObject('FBRowseCds').VCLObject('BGrid').ActiveView.ViewData&quot; object that does not exist."/>
+			<Prp name="message" type="S" value="The object &quot;VCLObject('FBRowseCds').VCLObject('BGrid').ActiveView.ViewData&quot; does not exist."/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="id" type="I" value="30"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="400"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="picture" type="S" value="Picture15.png"/>
+		</Node>
+		<Node name="item 37">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1293"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 43">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1294"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 34">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1293"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 26">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="16"/>
+			<Prp name="stacktext" type="S" value="ExecutaCadEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Node name="item 24">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="222"/>
+			<Prp name="stacktext" type="S" value="FiltraGrid('Folha','FBRowseCds','BGrid','Cód. Pessoa','999')"/>
+		</Node>
+		<Node name="item 31">
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="line no" type="I" value="1293"/>
+			<Prp name="stacktext" type="S" value="CadastraEmpregado('D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls')"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

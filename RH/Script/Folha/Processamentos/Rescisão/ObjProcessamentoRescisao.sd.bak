@@ -1,10 +1,10 @@
 ﻿uses
   VarConsts;
 
-{Script de mapeamento o Processamento de Rescisao
+{Script para mapear o Processamento de Rescisao
  Módulo: Folha
  Autor: Camila Braatz da Rocha
- Data: 08/06/20201}
+ Data: 08/06/2021}
 
 var
   Folha,
@@ -53,7 +53,9 @@ var
   
   { Tab Movimento }
   TsMovimento, GridMovimento, GridSiteMov,
-  BtnIncMov, BtnRecMov, BtnExcMov: OleVariant;
+  BtnIncMov, BtnRecMov, BtnExcMov,
+  {Tela Advertencia}
+  FormTelaAdvert,BtnCancela,BtnProsseguir : OleVariant;
   
 procedure MapFormProcessamentoRescisao();
 begin
@@ -166,3 +168,19 @@ begin
   HistSituaEBDiasAvCump  := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASAVISOCUMPRIDO;
   HistSituaEBDiasAvInd   := Aliases.Folha.FFormPadraoRHHISTSIT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox_.EB_DIASAVISOINDENIZADO;
 end;
+
+procedure ExecutaRescisao();
+begin
+MapFormProcessamentoRescisao();
+BtnExecRescisao.Click;
+end;
+
+procedure FechaTelaAdvertencias();
+begin
+FormTelaAdvert  := Aliases.Folha.FRhInconsistencias;
+BtnCancela      := Aliases.Folha.FRhInconsistencias.pnl1.btnCancelar;
+BtnProsseguir   := Aliases.Folha.FRhInconsistencias.pnl1.btnProsseguir;
+
+BtnCancela.Click;
+end;
+
