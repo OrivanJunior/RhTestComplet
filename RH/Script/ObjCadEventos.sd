@@ -52,6 +52,8 @@ CadParamEBAdicionalInforme,
 CadParamEBJornadaAConsiderar,	 
 {Param-PROPORCIONALIDADE BASE} 
 CadParamEBProporcionalidadeBase,
+{Outros Aviso/ estabilidade}
+CadParamEBEhAvisoPrevio,CadParamEBEhEstabilidade,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
@@ -167,6 +169,10 @@ CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPar
 CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
 {Param-PROPORCIONALIDADE BASE}          
 CadParamEBProporcionalidadeBase	:= Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts4.TScrollBox.EB_PROPORCIONALIDADEBASE;
+{Param-Aviso previo}
+CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_EHAVISOPREVIO;
+{Param-Estabilidade}
+CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_EHESTABILIDADE;
 end;
 
 procedure MapCadESocial();
@@ -190,3 +196,5 @@ begin
 {Contabiliza}	
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
 end;
+
+ 

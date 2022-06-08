@@ -320,7 +320,7 @@ i:= 0;
   DDT.CloseDriver(DDTIncidencia.Name);
 end;
 
-procedure PreencheParametros(pathData);
+procedure PreencheParametrosValorBase(pathData);
 var
 DDTParamentro : OleVariant;
 i : integer;
@@ -349,19 +349,7 @@ i:= 0;
   VerificaInsere(CadParamEBValorHora,CadParamDPValorHora);
   VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
   
-  {Adicional}
- // CadFormParam.ActivePageIndex := 1;
- // Delay(1000);
- // VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
-  {Outros}
-//  CadFormParam.ActivePageIndex := 2;
- // Delay(1000);
-//  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
-  {Proporcionalidade}
- // CadFormParam.ActivePageIndex := 3;
- // Delay(1000);
- // VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
-   BtnSalvarEvento.Click;
+  BtnSalvarEvento.Click;
    
    FechaTelaESocial(_ModuloFolha);
    
@@ -377,6 +365,47 @@ i:= 0;
   DDT.CloseDriver(DDTParamentro.Name);
 end;
 
+procedure PreencheParametrosValorAdicional(pathData);
+begin
+
+{Adicional}
+  CadFormParam.ActivePageIndex := 1;
+  Delay(1000);
+  VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
+
+end;
+
+procedure PreencheParametrosValorJornadaAConsiderar(pathData);
+begin
+
+  {Outros}
+  CadFormParam.ActivePageIndex := 2;
+  Delay(1000);
+  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+
+end;
+
+procedure PreencheParametrosvalorProporcionalidade(pathData);
+begin
+
+  {Proporcionalidade}
+  CadFormParam.ActivePageIndex := 3;
+  Delay(1000);
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
+  
+end;
+
+procedure PreencheParametrosvalorOutros(pathData);
+begin
+
+  {Proporcionalidade}
+  CadFormParam.ActivePageIndex := 2;
+  Delay(1000);
+  VerificaInsere(CadParamEBEhAvisoPrevio,CadParamDPEhAvisoPrevio);
+  VerificaInsere(CadParamEBEhEstabilidade,CadParamDPEhEstabilidade);
+  
+end;
+    
 procedure PreencheESocial(pathData);
 Var
 DDTeSocial : OleVariant;

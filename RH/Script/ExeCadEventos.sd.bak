@@ -9,7 +9,7 @@ DatapoolEventos;
 procedure FiltroTelaInicialEvento();
 begin
 FiltraCadEvento();
-FiltraConsultaEventos.Keys('Código do Evento');
+FiltraConsultaEventos.Keys('Enter');
 FiltraEventos.SelectItem('(Ignorar)');
 BtnOKFiltroEvento.ClickButton;
 end;
@@ -350,17 +350,17 @@ i:= 0;
   VerificaInsere(CadParamEBCalculaReducao,CadParamDPCalculaReducao);
   
   {Adicional}
- // CadFormParam.ActivePageIndex := 1;
- // Delay(1000);
- // VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
+  CadFormParam.ActivePageIndex := 1;
+  Delay(1000);
+  VerificaInsere(CadParamEBAdicionalInforme,CadParamDPAdicionalInforme);
   {Outros}
-//  CadFormParam.ActivePageIndex := 2;
- // Delay(1000);
-//  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
+  CadFormParam.ActivePageIndex := 2;
+  Delay(1000);
+  VerificaInsere(CadParamEBJornadaAConsiderar,CadParamDPJornadaAConsiderar);
   {Proporcionalidade}
- // CadFormParam.ActivePageIndex := 3;
- // Delay(1000);
- // VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
+  CadFormParam.ActivePageIndex := 3;
+  Delay(1000);
+  VerificaConsultaF3Insere(_ModuloFolha,CadParamEBProporcionalidadeBase,CadParamDPProporcionalidadeBase);
    BtnSalvarEvento.Click;
    
    FechaTelaESocial(_ModuloFolha);

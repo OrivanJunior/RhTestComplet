@@ -20,11 +20,14 @@ CadDirfRendiDPCampo,CadDirfRendiDPLinha,CadDirfRendiDPFormula,
 
 {Esocial - Informações gerais}
 CadESocDPIdeventonat,CadESocDPObservacao,CadESocDPIndApurIrrf,
+
+TributDPEstab,TributDPInss,TributDPIrrf,TributDPFgts,TributDPCSind,
 {Parâmetros}
 CadParamDPValorCalcPadrao,CadParamDPValorBaseModo,CadParamDPValorBaseBase,CadParamDPValorBaseTipo,CadParamDPValorBaseMeses,
 CadParamDPValorBaseMes,CadParamDPValorBaseAno,CadParamDPValorHora,CadParamDPCalculaReducao,
-
 CadParamDPAdicionalInforme,CadParamDPJornadaAConsiderar,CadParamDPProporcionalidadeBase,
+{Param base}
+CadParamDPEhAvisoPrevio,CadParamDPEhEstabilidade,
 
 {Contabiliza}	          
 CadEventosDPContabiliza : Olevariant;
@@ -60,6 +63,13 @@ begin
 CadESocDPIdeventonat		    := DDT.DriverByName(nomeDriver).Value('IDEVENTONAT');
 CadESocDPObservacao			    := DDT.DriverByName(nomeDriver).Value('OBSERVACAO');
 CadESocDPIndApurIrrf		    := DDT.DriverByName(nomeDriver).Value('INDAPURIRRF');
+
+TributDPEstab     := DDT.DriverByName(nomeDriver).Value('ESTAB');
+TributDPInss      := DDT.DriverByName(nomeDriver).Value('INSS');
+TributDPIrrf      := DDT.DriverByName(nomeDriver).Value('IRFF');
+TributDPFgts      := DDT.DriverByName(nomeDriver).Value('FGTS');
+TributDPCSind     := DDT.DriverByName(nomeDriver).Value('C SIND');
+
 end;
 
 procedure LeDataPoolContab(nomeDriver);
