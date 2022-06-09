@@ -184,3 +184,23 @@ BtnProsseguir   := Aliases.Folha.FRhInconsistencias.pnl1.btnProsseguir;
 BtnProsseguir.Click;
 end;
 
+
+procedure BarraDeRolagem();
+  var pageControl : OleVariant;
+  var tppScrollBox : OleVariant;
+begin
+  pageControl := Aliases.Folha.FRhProcRescisao.pg;
+  //pageControl.ClickTab('Cálculos da Folha');
+  tppScrollBox := pageControl.tsCalcDaFolha.gbCalcEfetuados.pcRels.tsRelCalculos.ppViewerCalculos.TppScrollBox;
+  tppScrollBox.VScroll.Pos := 28;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 400;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 697;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 400;
+  Delay(500);
+  tppScrollBox.VScroll.Pos :=250;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 28;
+end;

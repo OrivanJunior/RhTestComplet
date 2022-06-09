@@ -14602,6 +14602,80 @@
 													</Child>
 												</Children>
 											</Child>
+											<Child Name="tsCalcDaFolha" Key="{7C8C2EC2-5042-4AE6-AFF9-FC094AB31FFA}">
+												<Image FileName="-359396807" Left="4" Top="169" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsCalcDaFolha" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="gbCalcEfetuados" Key="{1A5FAE62-1B0C-408E-BAF6-CA7997E7AFA7}">
+														<Image FileName="-359396807" Left="4" Top="169" Right="1580" Bottom="696" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TGroupBox" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="gbCalcEfetuados" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="pcRels" Key="{7299AA27-0147-43E1-A2B9-EE7D8F8961DA}">
+																<Image FileName="-359396807" Left="6" Top="216" Right="1578" Bottom="694" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsPageControl" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="pcRels" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="tsRelCalculos" Key="{A9F78E91-63C9-4ADC-83D5-3C5EB2708C3C}">
+																		<Image FileName="-359396807" Left="10" Top="240" Right="1574" Bottom="690" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TTabSheet" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="tsRelCalculos" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ppViewerCalculos" Key="{2FAAE519-B059-461B-A5B1-2C0391A52FCE}">
+																				<Image FileName="-359396807" Left="10" Top="240" Right="1574" Bottom="690" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TppViewer" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="ppViewerCalculos" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TppScrollBox" Key="{B2BD4802-CABE-4660-AE68-97B341B49172}">
+																						<Image FileName="-359396807" Left="10" Top="240" Right="1574" Bottom="690" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TppScrollBox" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
 										</Children>
 									</Child>
 									<Child Name="bEmpreInc" Key="{0D49E2CC-E3DA-42A8-8EB6-2C0D88ADBE98}">
@@ -77925,6 +77999,17 @@
 						<Child Name="grp1" Owner="{4DAC9873-0F75-4757-B7B6-8A97FD08D5EB}">
 							<Child Name="gEmpregado" Owner="{BF90EC2B-A608-4332-B283-2D50FFEECD81}">
 								<Child Name="TcxGridSite_" Owner="{26B41F34-EE67-4698-8DB0-EBC2D48873FF}" />
+							</Child>
+						</Child>
+					</Child>
+					<Child Name="tsCalcDaFolha" Owner="{7C8C2EC2-5042-4AE6-AFF9-FC094AB31FFA}">
+						<Child Name="gbCalcEfetuados" Owner="{1A5FAE62-1B0C-408E-BAF6-CA7997E7AFA7}">
+							<Child Name="pcRels" Owner="{7299AA27-0147-43E1-A2B9-EE7D8F8961DA}">
+								<Child Name="tsRelCalculos" Owner="{A9F78E91-63C9-4ADC-83D5-3C5EB2708C3C}">
+									<Child Name="ppViewerCalculos" Owner="{2FAAE519-B059-461B-A5B1-2C0391A52FCE}">
+										<Child Name="TppScrollBox" Owner="{B2BD4802-CABE-4660-AE68-97B341B49172}" />
+									</Child>
+								</Child>
 							</Child>
 						</Child>
 					</Child>

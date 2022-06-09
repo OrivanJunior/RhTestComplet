@@ -841,7 +841,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Eventos" key="{C1FF9291-BF48-48DC-8105-7A3A7E019484}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Eventos" key="{C1FF9291-BF48-48DC-8105-7A3A7E019484}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Eventos" key="{6D10F695-C217-4784-988D-2BD4580E3552}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -912,7 +912,7 @@
 														<children>
 															<testItem name="Cadastra Empregado" key="{E762B950-F186-4C0C-8D2A-9C0D931EA999}" group="False" parallel="False" enabled="True" testMoniker="{9A96D150-EC9C-40C1-88E0-291A622D2942}ExecutaCadEmpregado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\Git\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Empregado\Empregado\EmpregadoCad.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -1450,7 +1450,7 @@
 									</testItem>
 								</children>
 							</testItem>
-							<testItem name="Processamentos" key="{E7DED522-F682-4739-BB9F-025CB7078FDF}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+							<testItem name="Processamentos" key="{E7DED522-F682-4739-BB9F-025CB7078FDF}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 								<testParameters />
 								<children>
 									<testItem name="Inicia Folha" key="{B3CDE23B-D24E-49A3-A759-C2F96CD389C4}" group="False" parallel="False" enabled="False" testMoniker="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}IniciaModulo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -1585,12 +1585,12 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Rescisão" key="{08278CAC-040E-4C49-AC38-73988394D524}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Rescisão" key="{08278CAC-040E-4C49-AC38-73988394D524}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Executa Processamento de Rescisão" key="{D7947447-D805-454B-A067-3742098D8FFB}" group="False" parallel="False" enabled="True" testMoniker="{77F95664-2FE4-4A5E-AEB8-EDB4AE91F18F}ExecutaProcessamentoRescisao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters>
-													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\Git\RhTestComplet\DataPool\Folha\Processamentos\Rescisão\ProcessamentoRescisao.xls" />
+													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processamentos\Rescisão\ProcessamentoRescisao.xls" />
 												</testParameters>
 												<environments activeCloud="CBT" />
 												<children />

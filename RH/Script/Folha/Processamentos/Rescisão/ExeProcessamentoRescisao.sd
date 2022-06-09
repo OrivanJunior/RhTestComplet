@@ -254,6 +254,8 @@ begin
   
   FechaTelaAdvertencias();
   
+  BarraDeRolagem();
+  
   BtnSaveRescisao.Click();
   
   if (Aliases.Folha.WaitWindow('#32770', 'Confirmação!', 1, 2000).Exists) then

@@ -181,6 +181,33 @@ FormTelaAdvert  := Aliases.Folha.FRhInconsistencias;
 BtnCancela      := Aliases.Folha.FRhInconsistencias.pnl1.btnCancelar;
 BtnProsseguir   := Aliases.Folha.FRhInconsistencias.pnl1.btnProsseguir;
 
-BtnCancela.Click;
+BtnProsseguir.Click;
 end;
 
+
+procedure BarraDeRolagem();
+  var pageControl : OleVariant;
+  var tppScrollBox : OleVariant;
+begin
+  pageControl := Aliases.Folha.FRhProcRescisao.pg;
+  //pageControl.ClickTab('Cálculos da Folha');
+  tppScrollBox := pageControl.tsCalcDaFolha.gbCalcEfetuados.pcRels.tsRelCalculos.ppViewerCalculos.TppScrollBox;
+  tppScrollBox.VScroll.Pos := 28;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 400;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 697;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 800;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 900;
+  Delay(500);
+  tppScrollBox.Click(1271, 28);
+  tppScrollBox.VScroll.Pos := 800;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 400;
+  Delay(500);
+  tppScrollBox.VScroll.Pos :=250;
+  Delay(500);
+  tppScrollBox.VScroll.Pos := 28;
+end;

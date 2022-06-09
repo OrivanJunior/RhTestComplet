@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{E74E7ECE-370D-4762-B9C3-12A9586257D1}"/>
+				<Prp name="activity" type="S" value="{EA8AF428-F48E-4AA4-AAC2-E9E7CCEC4DFC}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -12752,10 +12748,15 @@
 						</Node>
 						<Node name="5">
 							<Prp name="bottom" type="I" value="184"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="177"/>
 						</Node>
-						<Prp name="bottom" type="I" value="186"/>
+						<Node name="6">
+							<Prp name="bottom" type="I" value="212"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="187"/>
+						</Node>
+						<Prp name="bottom" type="I" value="212"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -14134,10 +14135,14 @@
 								<Node name="cadastros gerais">
 									<Node name="empregados"/>
 									<Node name="gerais">
-										<Node name="eventos"/>
+										<Node name="eventos">
+											<Node name="eventos"/>
+										</Node>
 									</Node>
 								</Node>
-								<Node name="processamentos"/>
+								<Node name="processamentos">
+									<Node name="rescisão"/>
+								</Node>
 							</Node>
 							<Node name="viasoft3c">
 								<Node name="cadastros"/>
