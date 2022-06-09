@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The element to be run specified in the 'Cadastra Eventos' test item failed to run."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="BOF ou EOF são verdadeiros, ou o registro atual foi excluído. A operação solicitada pelo aplicativo requer um registro atual"/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="duration" type="I" value="35444"/>
+						<Prp name="durationwithoutchildren" type="I" value="35444"/>
+						<Prp name="name" type="S" value="Cadastra Eventos"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA3AEIAOABCADAARgBFADMALQA1ADcANgBBAC0ANABGADIANAAtADgAQgA4ADkALQA2ADkAOQAyAEYANgBFADcAMgBFAEUANAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="starttime" type="D" value="44721.5815174421"/>
+					</Node>
+				</Node>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="duration" type="I" value="35444"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="starttime" type="D" value="44721.5815174421"/>
+			</Node>
+		</Node>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="tests" type="I" value="1"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="key" type="S" value="{61F15876-FF67-42E5-A652-0AC633DD85DE}"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="stop" type="D" value="44721.5819307639"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="starttime" type="D" value="44721.5815073843"/>
+		<Prp name="warningtests" type="I" value="0"/>
+	</Node>
+</Nodes>

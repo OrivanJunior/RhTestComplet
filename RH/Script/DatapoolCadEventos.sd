@@ -27,7 +27,7 @@ CadParamDPValorCalcPadrao,CadParamDPValorBaseModo,CadParamDPValorBaseBase,CadPar
 CadParamDPValorBaseMes,CadParamDPValorBaseAno,CadParamDPValorHora,CadParamDPCalculaReducao,
 CadParamDPAdicionalInforme,CadParamDPJornadaAConsiderar,CadParamDPProporcionalidadeBase,
 {Param outros}
-ParamDPEhAvisoPrevio,ParamDPEhEstabilidade,
+CadParamDPEhAvisoPrevio,CadParamDPEhEstabilidade,
 {Contabiliza}	          
 CadEventosDPContabiliza : Olevariant;
 
@@ -98,8 +98,8 @@ end;
 
 procedure LeDataPoolParamOutros(nomeDiver);
 begin
-ParamDPEhAvisoPrevio    := DDT.DriverByName(nomeDriver).Value('EHAVISOPREVIO');        
-ParamDPEhEstabilidade   := DDT.DriverByName(nomeDriver).Value('EHESTABILIDADE');      
+ParamDPEhAvisoPrevio    := DDT.DriverByName(nomeDiver).Value('EHAVISOPREVIO');           
+ParamDPEhEstabilidade   := DDT.DriverByName(nomeDiver).Value('EHESTABILIDADE');    
 end;
 
 procedure LeDataPoolParamProporcional(nomeDriver); 

@@ -7,7 +7,7 @@ VarConsts;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSalvarEvento,
+CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSairEvento,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -68,8 +68,10 @@ CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
 CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
+CadFormParamOutros      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
+BtnSairEvento           := Aliases.Folha.FRhEvento.BSair;
 end;
 
 procedure FiltraCadEvento();
@@ -167,6 +169,7 @@ CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPar
 CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;  
 {Param-Aviso previo}                                                                                                                          
 CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHAVISOPREVIO;
+
 {Param-Estabilidade}                                                                                                                          
 CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHESTABILIDADE;
 
@@ -195,4 +198,12 @@ begin
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
 end;
 
- 
+procedure MapCadOutros();
+  var vsPageControl : OleVariant;
+  var scrollBox : OleVariant;
+begin
+  vsPageControl := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
+  scrollBox := vsPageControl.FRhEvento_Param_ts3.TScrollBox_;
+  CadParamEBEhAvisoPrevio     :=  scrollBox.EB_EHAVISOPREVIO;
+  CadParamEBEhEstabilidade    := scrollBox.EB_EHESTABILIDADE;
+end;

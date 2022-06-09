@@ -352,6 +352,24 @@ begin
   DDT.CloseDriver(DDTParamentro.Name);
 end;
 
+procedure VerificaOutros(PathData);
+  var vsPageControl : OleVariant;
+  var scrollBox : OleVariant;
+  var vsCombo : OleVariant;
+   
+begin
+  vsPageControl := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
+  vsPageControl.Click(154, 10);
+  scrollBox := vsPageControl.FRhEvento_Param_ts3.TScrollBox_;
+  vsCombo := scrollBox.EB_EHAVISOPREVIO;
+  CadParamEBAdicionalInforme :=  scrollBox.EB_EHAVISOPREVIO;
+  vsCombo.Click(43, 7);
+  vsCombo.Click(43, 7);
+  vsCombo := scrollBox.EB_EHESTABILIDADE;
+  vsCombo.Click(47, 11);
+  vsCombo.Click(47, 11);
+end;
+
 procedure PreencheParametrosValorAdicional(pathData);
 var
 DDTAdicional : OleVariant;
@@ -378,7 +396,7 @@ end;
 
 procedure PreencheParametrosValorOutros(pathData);
 var
-DDTAdicional : OleVariant;
+DDTOutros : OleVariant;
 begin
 
   MapCadFormEventos();
@@ -387,17 +405,19 @@ begin
   
   MapCadParametros();
   
-  DDTAdicional := CarregaDDT(pathData, 'Parâmetros Outros');
-  
-  LeDataPoolParamAdInforme(DDTAdicional.Name);
+  DDTOutros := CarregaDDT(pathData, 'Parâmetros - Outros');
   
   CadFormParam.ActivePageIndex := 2;
   
-  Delay(1000);
-  VerificaInsere(CadParamEBEhAvisoPrevio,CadParamDPEhAvisoPrevio);
-  VerificaInsere(CadParamEBEhEstabilidade,CadParamDPEhEstabilidade);
+ // LeDataPoolParamOutros(DDTOutros.Name);
   
-  DDT.CloseDriver(DDTAdicional.Name);
+//  VerificaInsere(CadParamEBEhAvisoPrevio,CadParamDPEhAvisoPrevio);
+//  VerificaInsere(CadParamEBEhEstabilidade,CadParamDPEhEstabilidade);
+  VerificaOutros(PathData); 
+   
+  Delay(1000);
+  
+  DDT.CloseDriver(DDTOutros.Name);
 end;
 
 procedure PreencheParametrosvalorProporcionalidade(pathData);
@@ -500,6 +520,10 @@ FiltroTelaInicialEvento();
 
 MapGridConsulta(_ModuloFolha);
 
+
+while not (DDTInfoNormais.EOF) do
+  begin
+
 LeDataPoolInfoNormais(DDTInfoNormais.Name);
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
@@ -517,11 +541,12 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     PreencheParametrosValorOutros(pathData);
             
     log.Checkpoint('Fechando Grid de Consulta de Eventos');
-    
-    ActFechar(CadFormEventos);
-    ActFechar(FormTelaConsultaForm);
-    
+    ActFechar(CadFormEventos);   
+    end;
+    DDTInfoNormais.Next;
   end;
+   
+    ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTInfoNormais.Name);
 end;
 

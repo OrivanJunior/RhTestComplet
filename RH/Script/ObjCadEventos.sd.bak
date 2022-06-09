@@ -7,7 +7,7 @@ VarConsts;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSalvarEvento,
+CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -68,6 +68,7 @@ CadFormPage             :=  Aliases.Folha.FRhEvento.Page;
 CadFormPageTab          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg;
 CadFormPageValida       :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsValidacoes.pgValida;
 CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
+CadFormParamOutros      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
 end;
@@ -164,13 +165,10 @@ CadParamEBValorBaseAno			    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPara
 CadParamEBValorHora				      := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_VALORHORA;
 CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_CALCULAREDUCAO;
 {Param-Adicional}
-CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;
-//{Param-JORNADA A CONSIDERAR}          
-//CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
-{Param-PROPORCIONALIDADE BASE}          
-CadParamEBProporcionalidadeBase	:= Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts4.TScrollBox.EB_PROPORCIONALIDADEBASE;
+CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;  
 {Param-Aviso previo}                                                                                                                          
 CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHAVISOPREVIO;
+
 {Param-Estabilidade}                                                                                                                          
 CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHESTABILIDADE;
 
@@ -199,4 +197,12 @@ begin
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
 end;
 
- 
+procedure MapCadOutros();
+  var vsPageControl : OleVariant;
+  var scrollBox : OleVariant;
+begin
+  vsPageControl := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam;
+  scrollBox := vsPageControl.FRhEvento_Param_ts3.TScrollBox_;
+  CadParamEBEhAvisoPrevio     :=  scrollBox.EB_EHAVISOPREVIO;
+  CadParamEBEhEstabilidade    := scrollBox.EB_EHESTABILIDADE;
+end;

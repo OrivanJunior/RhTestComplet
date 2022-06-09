@@ -59660,6 +59660,7 @@
 																					<Property Name="ObjectIdentifier">
 																						<Value Value="FRhEvento_Param_ts3" />
 																					</Property>
+																					<RequiredChildren Child0="TScrollBox_" />
 																				</Properties>
 																				<Children>
 																					<Child Name="TScrollBox_" Key="{860BECAB-8124-4DB9-AACE-83360EA01FE4}">
@@ -59669,6 +59670,7 @@
 																							<Property Name="WndClass">
 																								<Value Value="TScrollBox" />
 																							</Property>
+																							<RequiredChildren Child0="EB_EHAVISOPREVIO" Child1="EB_EHESTABILIDADE" />
 																						</Properties>
 																						<Children>
 																							<Child Name="EB_EHAVISOPREVIO" Key="{212A97B7-ECEA-4A9A-B46F-569B8A75D5E4}">
@@ -60305,6 +60307,18 @@
 											</Property>
 											<Property Name="ObjectIdentifier">
 												<Value Value="BSalvar" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="BSair" Key="{8352733C-43A3-4992-97C2-BC2FE0DDA048}">
+										<Image FileName="-2113939646" Left="32" Top="33" Right="59" Bottom="59" />
+										<TypeInfo Item0="{9FE80854-B1DB-437A-A434-015BC1BEC379}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BSair" />
 											</Property>
 										</Properties>
 									</Child>
@@ -82662,6 +82676,7 @@
 				<Child Name="bIncTRhEveValVin" Owner="{95AAF38F-1784-47E0-84F1-2260A00BC924}" />
 				<Child Name="bProcRhEveValSit" Owner="{9DA86218-62AD-444E-8134-1A1821976B7C}" />
 				<Child Name="BSalvar" Owner="{6F5B1554-33F9-443E-9FEC-683F32095F06}" />
+				<Child Name="BSair" Owner="{8352733C-43A3-4992-97C2-BC2FE0DDA048}" />
 			</Child>
 			<Child Name="FRhInconsistencias" Owner="{73988120-70B9-45BD-9054-E1A9B92CB7C4}">
 				<Child Name="pnl1" Owner="{B5500A7A-8651-4EFF-B476-BD6C43DB0709}">
