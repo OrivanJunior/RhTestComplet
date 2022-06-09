@@ -52,6 +52,8 @@ CadParamEBAdicionalInforme,
 CadParamEBJornadaAConsiderar,	 
 {Param-PROPORCIONALIDADE BASE} 
 CadParamEBProporcionalidadeBase,
+{Outros Aviso/ estabilidade}
+CadParamEBEhAvisoPrevio,CadParamEBEhEstabilidade,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
@@ -163,11 +165,17 @@ CadParamEBValorHora				      := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPara
 CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts1.TScrollBox.EB_CALCULAREDUCAO;
 {Param-Adicional}
 CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;
-{Param-JORNADA A CONSIDERAR}          
-CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
+//{Param-JORNADA A CONSIDERAR}          
+//CadParamEBJornadaAConsiderar	  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox.EB_JORNADAACONSIDERAR;
 {Param-PROPORCIONALIDADE BASE}          
 CadParamEBProporcionalidadeBase	:= Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts4.TScrollBox.EB_PROPORCIONALIDADEBASE;
+{Param-Aviso previo}                                                                                                                          
+CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHAVISOPREVIO;
+{Param-Estabilidade}                                                                                                                          
+CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHESTABILIDADE;
+
 end;
+
 
 procedure MapCadESocial();
 begin
@@ -190,3 +198,5 @@ begin
 {Contabiliza}	
 CadEventosEBContabiliza	:= 	Aliases.Folha.FRhEvento.Page.TabPersonal.TScrollBox.EB_CONTABILIZA;
 end;
+
+ 

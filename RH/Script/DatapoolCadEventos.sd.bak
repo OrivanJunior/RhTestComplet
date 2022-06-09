@@ -88,18 +88,14 @@ CadParamDPValorBaseMes			    := DDT.DriverByName(nomeDriver).Value('BASEMES');
 CadParamDPValorBaseAno			    := DDT.DriverByName(nomeDriver).Value('BASEANO');	
 CadParamDPValorHora				      := DDT.DriverByName(nomeDriver).Value('HORA');	
 CadParamDPCalculaReducao		    := DDT.DriverByName(nomeDriver).Value('REDUCAO');	
+
 end;
 
 procedure LeDataPoolParamAdInforme(nomeDriver);
 begin
 CadParamDPAdicionalInforme		  := DDT.DriverByName(nomeDriver).Value('ADICIONALINFORME');
-end;
-
-procedure LeDataPoolParamOutro(nomeDriver);
-begin
-CadParamDPEhAvisoPrevio         := DDT.DriverByName(nomeDriver).Value('AVISOPREVIO');
-
-CadParamDPEhEstabilidade        := DDT.DriverByName(nomeDriver).Value('ESTABILIDADE');
+CadParamDPEhAvisoPrevio         := DDT.DriverByName(nomeDriver).Value('EHAVISOPREVIO');
+CadParamDPEhEstabilidade        := DDT.DriverByName(nomeDriver).Value('EHESTABILIDADE');
 end;
 
 procedure LeDataPoolParamProporcional(nomeDriver); 
