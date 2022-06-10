@@ -39,7 +39,12 @@ FiltroEventoValor,
                  
 { Filtro eVENTO }
 FiltroEmpreTipo, 
-FiltroEmpreValor  : Olevariant;
+FiltroEmpreValor,
+
+FRhProcInsereFixoGeralDPMeses;
+FRhProcInsereFixoGeralDPMes;
+FRhProcInsereFixoGeralDPValor;
+FRhProcInsereFixoGeralDPRefe  : Olevariant;
 
 procedure LeDataPoolInfoNormais(nomeDriver);
 begin
@@ -148,4 +153,8 @@ begin
   FiltroEventoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEVENTO');
   FiltroEventoValor := DDT.DriverByName(nomeDriver).Value('EVENTOVALOR');
   { Filtro de DADOS PESSOAIS }
+  FRhProcInsereFixoGeralDPMeses := DDT.DriverByName(nomeDriver).Value('MESES');
+  FRhProcInsereFixoGeralDPMes := DDT.DriverByName(nomeDriver).Value('MES');
+  FRhProcInsereFixoGeralDPValor := DDT.DriverByName(nomeDriver).Value('VALOR');
+  FRhProcInsereFixoGeralDPRefe := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
 end;

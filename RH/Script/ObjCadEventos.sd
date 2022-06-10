@@ -13,6 +13,7 @@ CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,Cad
 FormFiltroEventos, 		
 FiltraConsultaEventos,
 FiltraEventos,
+SaveEventos;
 BtnOKFiltroEvento,
 BtnCancelaFiltroEvento,
 
@@ -58,7 +59,9 @@ CadParamEBEhAvisoPrevio,CadParamEBEhEstabilidade,
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
 GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib,
-
+//
+ExecProcFixoGeral,FormCadInclFixoGeral,FormPageCadInclFixoGeral,
+//
 FRhProcInsereFixoGeralEstabEspec,
 FRhProcInsereFixoGeralEstabEspecCampo,
 
@@ -81,7 +84,11 @@ FRhProcInsereFixoGeralEventoTodosEmpCampo,
 FRhProcInsereFixoGeralEventoSelec,
 FRhProcInsereFixoGeralEventoSelecCampo,
 					  
-FRhProcInsereFixoGeralEventoTodos : OleVariant;
+FRhProcInsereFixoGeralEventoTodos,
+FRhProcInsereFixoGeralEBMeses,
+FRhProcInsereFixoGeralEBMes,
+FRhProcInsereFixoGeralEBValor,
+FRhProcInsereFixoGeralEBRefe  : OleVariant;
 
 
 procedure MapCadFormEventos();
@@ -206,7 +213,6 @@ CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsP
 
 end;
 
-
 procedure MapCadESocial();
 begin
 GridTributacao          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
@@ -242,7 +248,10 @@ end;
 procedure MapCadInsereFixoGeral();
 begin
 FormCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral;
+
 FormPageCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.pg;
+
+ExecProcFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.bExecutar;
 
 //ESTAB
 FRhProcInsereFixoGeralEstabEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
@@ -264,6 +273,12 @@ FRhProcInsereFixoGeralEventoEspecCampo := Aliases.Folha.FRhProcInsereFixoGeral.p
 					  
 FRhProcInsereFixoGeralEventoSelec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos40;
 FRhProcInsereFixoGeralEventoSelecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos80;
+
+//dados
+
+FRhProcInsereFixoGeralEBMeses := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_MESES;
+FRhProcInsereFixoGeralEBMes := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_MES;
+FRhProcInsereFixoGeralEBValor := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_VALOR;
+FRhProcInsereFixoGeralEBRefe :=  Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_REFERENCIA;
 					  
 end;
-

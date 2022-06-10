@@ -13,7 +13,7 @@ begin
     
   if (FiltroEstabTipo = _Especifico) then
   begin
-    FRhProcInsereFixoGeralEstabEspec.ClickButton; //40 e 80
+    FRhProcInsereFixoGeralEstabEspec.ClickButton;
     VerificaConsultaF3Insere(_ModuloFolha, FRhProcInsereFixoGeralEstabEspecCampo, FiltroEstabValor);
     Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
   end
@@ -40,33 +40,65 @@ procedure FiltraEvento();
 begin
 
  if not (FRhProcInsereFixoGeralEventoEspec.VisibleOnScreen) then
-    Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab10.Click();
+    Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos10.Click();
     
-  if (FiltroEstabTipo = _Especifico) then
+  if (FiltroEventoTipo = _Especifico) then
   begin
-    FRhProcInsereFixoGeralEventoEspec.ClickButton; //40 e 80
+    FRhProcInsereFixoGeralEventoEspec.ClickButton;
     VerificaConsultaF3Insere(_ModuloFolha, FRhProcInsereFixoGeralEventoEspecCampo, FiltroEventoValor);
-    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEventoValor);
+    Log.Checkpoint('Selecionado Eventos - Específico, com valor: ' + FiltroEventoValor);
   end
-  else if (FiltroEstabTipo = _TodosEmpresa) then
-  begin
-    FRhProcInsereFixoGeralEventoTodosEmp.ClickButton;
-    VerificaInsere(FRhProcInsereFixoGeralEventoTodosEmpCampo, FiltroEstabValor);  
-    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
-  end
+
   else if (FiltroEstabTipo = _Selecionados) then
   begin
-    FRhProcInsereFixoGeralEstabSelec.ClickButton;
-    VerificaInsere(FRhProcInsereFixoGeralEstabSelecCampo, FiltroEstabValor);
-    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+    FRhProcInsereFixoGeralEventoSelec.ClickButton;
+    VerificaInsere(FRhProcInsereFixoGeralEventoSelecCampo, FiltroEventoValor);
+    Log.Checkpoint('Selecionado Eventos - Selecionados, com valor: ' + FiltroEventoValor);
   end
-  else if (FiltroEstabTipo = _Todos) then
+  else if (FiltroEventoTipo = _Todos) then
   begin
-    FRhProcInsereFixoGeralEstabTodos.ClickButton;
-    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+    FRhProcInsereFixoGeralEventoTodos.ClickButton;
+    Log.Checkpoint('Selecionado Eventos - Todos');
   end;
 end;
-  
+
+procedure FiltraDadosAdicionais();
+begin
+
+ if not (FRhProcInsereFixoGeralEBMeses.VisibleOnScreen) then
+    Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.VsGroupBox110.Click();
+    
+    VerificaInsere(FRhProcInsereFixoGeralEBMeses,FRhProcInsereFixoGeralDPMeses);
+    VerificaInsere(FRhProcInsereFixoGeralEBMes,FRhProcInsereFixoGeralDPMes);
+    VerificaInsere(FRhProcInsereFixoGeralEBValor,FRhProcInsereFixoGeralDPValor);
+    VerificaInsere(FRhProcInsereFixoGeralEBRefe,FRhProcInsereFixoGeralDPRefe);
+end;
+
+procedure ExecProcFixoGeral();
+var
+DDTFiltro : OleVariant;
+begin
+DDTFiltro :=  CarregaDDT(pathdata, 'Filtro');
+
+LeDataPoolInclusaoFixoGeral(nomeDriver);
+
+MapCadInsereFixoGeral();
+
+FiltraEstab();
+FiltraEvento();
+FiltraDadosAdicionais();
+
+ActExecutar(FormCadInclFixoGeral);
+
+if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
+      begin
+      Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();
+      end;
+      
+ActFechar(FormCadInclFixoGeral);
+DDT.CloseDriver(DDTFiltro.Name);
+end;
+
 procedure FiltroTelaInicialEvento();
 begin
 FiltraCadEvento();
@@ -312,7 +344,8 @@ DDTConfiguracao : OleVariant;
 i : integer;
 begin
 i:= 0;
-
+  MapCadFormEventos();
+  CadFormPageTab.ActivePageIndex := 0;
   CadFormPageValida.ActivePageIndex := 6;
   
   MapCadValidacoes();
@@ -546,7 +579,7 @@ VerificaInsere(CadESocEBIndApurIrrf,CadESocDPIndApurIrrf);
 BtnIncTrib.Click();
 
 VerificaClickPreencheGrid(GridTributacao,i,'Estab.',TributDPEstab);
-VerificaClickPreencheGrid(GridTributacao,i,'INSS.',TributDPInss);
+VerificaClickPreencheGrid(GridTributacao,i,'INSS',TributDPInss);
 VerificaClickPreencheGrid(GridTributacao,i,'IRRF',TributDPIrrf);
 VerificaClickPreencheGrid(GridTributacao,i,'FGTS',TributDPFgts);
 VerificaClickPreencheGrid(GridTributacao,i,'C. Sind.',TributDPCSind);
@@ -602,11 +635,15 @@ LeDataPoolInfoNormais(DDTInfoNormais.Name);
     if (CadEventosEBIdEventos.Exists) then
     
     PreencheInfoNormais(pathData);
+    PreencheValidaConfiguracao(pathData);
     PreencheParametrosValorOutros(pathData);
+    PreencheESocial(pathData);
             
     log.Checkpoint('Fechando Grid de Consulta de Eventos');
     
-    ActSalvar(CadFormEventos);
+    MapCadFormEventos();
+    
+    BtnSalvarEvento.Click;
     
     if (Aliases.Folha.dlgAviso.Window('Button', 'OK', 1).Visible) then
     begin
@@ -624,6 +661,7 @@ LeDataPoolInfoNormais(DDTInfoNormais.Name);
      BtnSim.ClickButton;
     end;
     
+    ExecProcFixoGeral();
     
       ActFechar(CadFormEventos); 
     end;

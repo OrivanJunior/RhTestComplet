@@ -57,7 +57,38 @@ CadParamEBEhAvisoPrevio,CadParamEBEhEstabilidade,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
-GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib : OleVariant;
+GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib,
+//
+ExecProcFixoGeral,FormCadInclFixoGeral,FormPageCadInclFixoGeral,
+//
+FRhProcInsereFixoGeralEstabEspec,
+FRhProcInsereFixoGeralEstabEspecCampo,
+
+FRhProcInsereFixoGeralEstabTodosEmp,
+FRhProcInsereFixoGeralEstabTodosEmpCampo,
+
+FRhProcInsereFixoGeralEstabSelec,
+FRhProcInsereFixoGeralEstabSelecCampo,
+
+FRhProcInsereFixoGeralEstabTodos,
+
+//EVENTOS
+
+FRhProcInsereFixoGeralEventoEspec,
+FRhProcInsereFixoGeralEventoEspecCampo,
+					  
+FRhProcInsereFixoGeralEventoTodosEmp,
+FRhProcInsereFixoGeralEventoTodosEmpCampo,
+					  
+FRhProcInsereFixoGeralEventoSelec,
+FRhProcInsereFixoGeralEventoSelecCampo,
+					  
+FRhProcInsereFixoGeralEventoTodos,
+FRhProcInsereFixoGeralEBMeses,
+FRhProcInsereFixoGeralEBMes,
+FRhProcInsereFixoGeralEBValor,
+FRhProcInsereFixoGeralEBRefe  : OleVariant;
+
 
 procedure MapCadFormEventos();
 begin
@@ -181,7 +212,6 @@ CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsP
 
 end;
 
-
 procedure MapCadESocial();
 begin
 GridTributacao          :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsESocial.ScrollBox4.GroupBox2.gRhEveIncTrib;
@@ -217,31 +247,37 @@ end;
 procedure MapCadInsereFixoGeral();
 begin
 FormCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral;
+
 FormPageCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.pg;
-Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab;
 
-Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab10;
+ExecProcFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.bExecutar;
 
-end;
-//eSTAB
-FRhProcInsereFixoGeralEstabEspec
-FRhProcInsereFixoGeralEstabEspecCampo
+//ESTAB
+FRhProcInsereFixoGeralEstabEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+FRhProcInsereFixoGeralEstabEspecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
 
-FRhProcInsereFixoGeralEstabTodosEmp
-FRhProcInsereFixoGeralEstabTodosEmpCampo
+FRhProcInsereFixoGeralEstabTodosEmp := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+FRhProcInsereFixoGeralEstabTodosEmpCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
 
-FRhProcInsereFixoGeralEstabSelec
-FRhProcInsereFixoGeralEstabSelecCampo
+FRhProcInsereFixoGeralEstabSelec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+FRhProcInsereFixoGeralEstabSelecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
 
-FRhProcInsereFixoGeralEstabTodos
+FRhProcInsereFixoGeralEstabTodos  := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
 
 //EVENTOS
+FRhProcInsereFixoGeralEventoTodos  := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos30;
 
+FRhProcInsereFixoGeralEventoEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos20;
+FRhProcInsereFixoGeralEventoEspecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos50;
+					  
+FRhProcInsereFixoGeralEventoSelec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos40;
+FRhProcInsereFixoGeralEventoSelecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos80;
 
+//dados
 
-
-
-
- 
-
-
+FRhProcInsereFixoGeralEBMeses := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_MESES;
+FRhProcInsereFixoGeralEBMes := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_MES;
+FRhProcInsereFixoGeralEBValor := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_VALOR;
+FRhProcInsereFixoGeralEBRefe :=  Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.VsGroupBox1.EB_REFERENCIA;
+					  
+end;

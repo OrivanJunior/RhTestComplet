@@ -34,10 +34,17 @@ CadEventosDPContabiliza,
 { Filtro Estab } 
 FiltroEstabTipo,  
 FiltroEstabValor, 
+FiltroEventoTipo,
+FiltroEventoValor,
                  
 { Filtro eVENTO }
 FiltroEmpreTipo, 
-FiltroEmpreValor  : Olevariant;
+FiltroEmpreValor,
+
+FRhProcInsereFixoGeralDPMeses;
+FRhProcInsereFixoGeralDPMes;
+FRhProcInsereFixoGeralDPValor;
+FRhProcInsereFixoGeralDPRefe  : Olevariant;
 
 procedure LeDataPoolInfoNormais(nomeDriver);
 begin
@@ -143,8 +150,7 @@ begin
   FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
         
   { Filtro eVENTO }
-  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEVENTO');
-  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EVENTOVALOR');
-        
+  FiltroEventoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEVENTO');
+  FiltroEventoValor := DDT.DriverByName(nomeDriver).Value('EVENTOVALOR');
   { Filtro de DADOS PESSOAIS }
 end;
