@@ -60450,6 +60450,332 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhProcInsereFixoGeral" Key="{E462BC9B-541F-414E-A11C-C8741F8E1895}">
+								<Image FileName="1555678251" Left="0" Top="0" Right="1600" Bottom="735" />
+								<TypeInfo Item0="{D2A76756-AA39-4F24-A148-D22E008A0003}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhProcInsereFixoGeral" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhProcInsereFixoGeral" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="pg" Key="{8ED3E48C-4C3F-4BD9-9024-752C7FF9F04B}">
+										<Image FileName="1925882213" Left="8" Top="61" Right="1592" Bottom="726" />
+										<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsPageControl" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="pg" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="tsSelecao" Key="{8AB5FEFB-FAE8-4035-8F64-AE935DC37BEE}">
+												<Image FileName="587188398" Left="12" Top="85" Right="1588" Bottom="722" />
+												<TypeInfo Item0="{DFFD8F79-10F7-42FD-ACA6-52FA9674CB45}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsSelecao" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="SB_Selecao" Key="{24FC55FA-53CF-415C-9186-896E1DC1A448}">
+														<Image FileName="587188398" Left="12" Top="85" Right="1588" Bottom="722" />
+														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TScrollBox" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="SB_Selecao" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="whEstab" Key="{BBA2A597-BDFB-4A19-9C3C-1BCE68A9A35F}">
+																<Image FileName="587188398" Left="12" Top="85" Right="1588" Bottom="190" />
+																<TypeInfo Item0="{E1B8A7AA-5C33-4DE5-9CCE-A8A3532A6A9F}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TWhichEstabCds" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="whEstab" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="whEstab10" Key="{186E1FF6-30E0-4D5F-8FA8-84ACF10B3DC3}">
+																		<Image FileName="-65313898" Left="12" Top="85" Right="22" Bottom="95" />
+																		<TypeInfo Item0="{5B381B6B-C948-466B-8573-6C06072E221A}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TShapeMinimizar" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab10" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab40" Key="{29C6B108-D348-4221-B0BB-4219197FAF61}">
+																		<Image FileName="507278381" Left="12" Top="103" Right="93" Bottom="120" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab40" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab80" Key="{75BB9B7A-A036-4ECA-A512-5272DE74BD19}">
+																		<Image FileName="1786204988" Left="124" Top="99" Right="177" Bottom="118" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab80" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab50" Key="{1071E68E-1704-4996-AF92-4BD7DE16400D}">
+																		<Image FileName="1707529390" Left="12" Top="129" Right="133" Bottom="146" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab50" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab100" Key="{1630CA83-C016-4F50-AD4D-EC216FDA9E2F}">
+																		<Image FileName="1767603627" Left="124" Top="124" Right="177" Bottom="143" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab100" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab120" Key="{D67D057E-0A89-4454-8880-E1BCE221B896}">
+																		<Image FileName="-550500251" Left="12" Top="155" Right="117" Bottom="172" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab120" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab60" Key="{FB19D1BC-6F38-49F1-9DD3-FB494AA96E33}">
+																		<Image FileName="-1138887559" Left="216" Top="155" Right="321" Bottom="172" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab60" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEstab70" Key="{50241AE6-2845-429D-8CCE-A6A3DC129C0D}">
+																		<Image FileName="1108430703" Left="318" Top="157" Right="407" Bottom="178" />
+																		<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsEditB" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEstab70" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="whEventos" Key="{22F71110-3312-486A-8784-3179F602E65B}">
+																<Image FileName="-1805168034" Left="4" Top="182" Right="1580" Bottom="279" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TWhichRHEventos" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="whEventos" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="whEventos10" Key="{05B56E28-A003-4FEA-9511-3A76E31A3313}">
+																		<Image FileName="-1666803797" Left="4" Top="182" Right="14" Bottom="192" />
+																		<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TShapeMinimizar" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos10" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEventos30" Key="{B2197C0A-174E-4FF2-8D8F-04335901B853}">
+																		<Image FileName="-1805168034" Left="12" Top="206" Right="89" Bottom="223" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos30" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEventos20" Key="{0AD8168A-F648-4DBB-AA95-4FA906539614}">
+																		<Image FileName="809050209" Left="12" Top="230" Right="89" Bottom="247" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos20" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEventos50" Key="{AC16EF80-A278-4F7C-8A24-71B58B1D7E7A}">
+																		<Image FileName="125698958" Left="103" Top="226" Right="213" Bottom="247" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos50" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEventos40" Key="{E0154B44-C3D8-4084-91F6-B2084678176C}">
+																		<Image FileName="-477994195" Left="12" Top="254" Right="125" Bottom="271" />
+																		<TypeInfo Item0="{6539F3B1-E668-465E-A05B-D603D42AA8F7}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsRadioButton" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos40" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="whEventos80" Key="{CDB0BC39-3519-4455-A83F-1C9EE22075AC}">
+																		<Image FileName="-477994195" Left="103" Top="250" Right="192" Bottom="271" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsEditB" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="whEventos80" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="VsGroupBox1" Key="{411DE8D5-77E4-4AA5-A6E3-A8FE9AC455B0}">
+																<Image FileName="-1324205347" Left="4" Top="279" Right="1580" Bottom="406" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsGroupBox" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="VsGroupBox1" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="VsGroupBox110" Key="{B9BDD1C2-E32E-486D-85CA-E97CFB6E4752}">
+																		<Image FileName="1089899052" Left="4" Top="279" Right="14" Bottom="289" />
+																		<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TShapeMinimizar" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="VsGroupBox110" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_MESES" Key="{A66943A2-7DB9-440B-A882-0B6A6BEA213C}">
+																		<Image FileName="1159046977" Left="153" Top="298" Right="279" Bottom="319" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsComboRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_MESES" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_MES" Key="{27976090-C525-4C47-8D30-13E8A05433D0}">
+																		<Image FileName="-1805168034" Left="153" Top="325" Right="279" Bottom="344" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsEdit" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_MES" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_VALOR" Key="{A304507E-A04D-4626-8E87-61F58D1884D0}">
+																		<Image FileName="452795411" Left="153" Top="351" Right="279" Bottom="370" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsNumRight" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_VALOR" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																	<Child Name="EB_REFERENCIA" Key="{D2517151-7007-4E0D-AAC2-CD1421427640}">
+																		<Image FileName="1720275489" Left="153" Top="376" Right="279" Bottom="395" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TVsEdit" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="EB_REFERENCIA" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -82767,6 +83093,39 @@
 				<Child Name="pnl1" Owner="{B5500A7A-8651-4EFF-B476-BD6C43DB0709}">
 					<Child Name="btnCancelar" Owner="{D75E48BF-B6E1-4A7D-964C-540D886B00F8}" />
 					<Child Name="btnProsseguir" Owner="{87A7BB1E-2F27-44A3-AAF6-34550CB0EB0B}" />
+				</Child>
+			</Child>
+			<Child Name="FRhProcInsereFixoGeral" Owner="{E462BC9B-541F-414E-A11C-C8741F8E1895}">
+				<Child Name="pg" Owner="{8ED3E48C-4C3F-4BD9-9024-752C7FF9F04B}">
+					<Child Name="tsSelecao" Owner="{8AB5FEFB-FAE8-4035-8F64-AE935DC37BEE}">
+						<Child Name="SB_Selecao" Owner="{24FC55FA-53CF-415C-9186-896E1DC1A448}">
+							<Child Name="whEstab" Owner="{BBA2A597-BDFB-4A19-9C3C-1BCE68A9A35F}">
+								<Child Name="whEstab10" Owner="{186E1FF6-30E0-4D5F-8FA8-84ACF10B3DC3}" />
+								<Child Name="whEstab40" Owner="{29C6B108-D348-4221-B0BB-4219197FAF61}" />
+								<Child Name="whEstab80" Owner="{75BB9B7A-A036-4ECA-A512-5272DE74BD19}" />
+								<Child Name="whEstab50" Owner="{1071E68E-1704-4996-AF92-4BD7DE16400D}" />
+								<Child Name="whEstab100" Owner="{1630CA83-C016-4F50-AD4D-EC216FDA9E2F}" />
+								<Child Name="whEstab120" Owner="{D67D057E-0A89-4454-8880-E1BCE221B896}" />
+								<Child Name="whEstab60" Owner="{FB19D1BC-6F38-49F1-9DD3-FB494AA96E33}" />
+								<Child Name="whEstab70" Owner="{50241AE6-2845-429D-8CCE-A6A3DC129C0D}" />
+							</Child>
+							<Child Name="whEventos" Owner="{22F71110-3312-486A-8784-3179F602E65B}">
+								<Child Name="whEventos10" Owner="{05B56E28-A003-4FEA-9511-3A76E31A3313}" />
+								<Child Name="whEventos30" Owner="{B2197C0A-174E-4FF2-8D8F-04335901B853}" />
+								<Child Name="whEventos20" Owner="{0AD8168A-F648-4DBB-AA95-4FA906539614}" />
+								<Child Name="whEventos50" Owner="{AC16EF80-A278-4F7C-8A24-71B58B1D7E7A}" />
+								<Child Name="whEventos40" Owner="{E0154B44-C3D8-4084-91F6-B2084678176C}" />
+								<Child Name="whEventos80" Owner="{CDB0BC39-3519-4455-A83F-1C9EE22075AC}" />
+							</Child>
+							<Child Name="VsGroupBox1" Owner="{411DE8D5-77E4-4AA5-A6E3-A8FE9AC455B0}">
+								<Child Name="VsGroupBox110" Owner="{B9BDD1C2-E32E-486D-85CA-E97CFB6E4752}" />
+								<Child Name="EB_MESES" Owner="{A66943A2-7DB9-440B-A882-0B6A6BEA213C}" />
+								<Child Name="EB_MES" Owner="{27976090-C525-4C47-8D30-13E8A05433D0}" />
+								<Child Name="EB_VALOR" Owner="{A304507E-A04D-4626-8E87-61F58D1884D0}" />
+								<Child Name="EB_REFERENCIA" Owner="{D2517151-7007-4E0D-AAC2-CD1421427640}" />
+							</Child>
+						</Child>
+					</Child>
 				</Child>
 			</Child>
 		</Child>

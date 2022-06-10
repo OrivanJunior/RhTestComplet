@@ -57,7 +57,32 @@ CadParamEBEhAvisoPrevio,CadParamEBEhEstabilidade,
 {Esocial - Informações gerais}
 CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
-GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib : OleVariant;
+GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib,
+
+FRhProcInsereFixoGeralEstabEspec,
+FRhProcInsereFixoGeralEstabEspecCampo,
+
+FRhProcInsereFixoGeralEstabTodosEmp,
+FRhProcInsereFixoGeralEstabTodosEmpCampo,
+
+FRhProcInsereFixoGeralEstabSelec,
+FRhProcInsereFixoGeralEstabSelecCampo,
+
+FRhProcInsereFixoGeralEstabTodos,
+
+//EVENTOS
+
+FRhProcInsereFixoGeralEventoEspec,
+FRhProcInsereFixoGeralEventoEspecCampo,
+					  
+FRhProcInsereFixoGeralEventoTodosEmp,
+FRhProcInsereFixoGeralEventoTodosEmpCampo,
+					  
+FRhProcInsereFixoGeralEventoSelec,
+FRhProcInsereFixoGeralEventoSelecCampo,
+					  
+FRhProcInsereFixoGeralEventoTodos : OleVariant;
+
 
 procedure MapCadFormEventos();
 begin
@@ -213,3 +238,32 @@ begin
   CadParamEBEhAvisoPrevio     :=  scrollBox.EB_EHAVISOPREVIO;
   CadParamEBEhEstabilidade    := scrollBox.EB_EHESTABILIDADE;
 end;
+
+procedure MapCadInsereFixoGeral();
+begin
+FormCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral;
+FormPageCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.pg;
+
+//ESTAB
+FRhProcInsereFixoGeralEstabEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+FRhProcInsereFixoGeralEstabEspecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+
+FRhProcInsereFixoGeralEstabTodosEmp := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+FRhProcInsereFixoGeralEstabTodosEmpCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+
+FRhProcInsereFixoGeralEstabSelec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+FRhProcInsereFixoGeralEstabSelecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+
+FRhProcInsereFixoGeralEstabTodos  := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+
+//EVENTOS
+FRhProcInsereFixoGeralEventoTodos  := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos30;
+
+FRhProcInsereFixoGeralEventoEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos20;
+FRhProcInsereFixoGeralEventoEspecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos50;
+					  
+FRhProcInsereFixoGeralEventoSelec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos40;
+FRhProcInsereFixoGeralEventoSelecCampo := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEventos.whEventos80;
+					  
+end;
+

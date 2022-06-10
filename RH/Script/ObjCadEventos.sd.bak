@@ -105,9 +105,7 @@ procedure ClickCelula();
 begin
 MapCadInfoNormais();
  if Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC.Exists then
- 
  CadEventosEBIdEvecalc.Keys('[Enter]');
-
 end;
 
 procedure MapCadValidacoes();
@@ -215,3 +213,35 @@ begin
   CadParamEBEhAvisoPrevio     :=  scrollBox.EB_EHAVISOPREVIO;
   CadParamEBEhEstabilidade    := scrollBox.EB_EHESTABILIDADE;
 end;
+
+procedure MapCadInsereFixoGeral();
+begin
+FormCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral;
+FormPageCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.pg;
+Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab;
+
+Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab10;
+
+end;
+//eSTAB
+FRhProcInsereFixoGeralEstabEspec
+FRhProcInsereFixoGeralEstabEspecCampo
+
+FRhProcInsereFixoGeralEstabTodosEmp
+FRhProcInsereFixoGeralEstabTodosEmpCampo
+
+FRhProcInsereFixoGeralEstabSelec
+FRhProcInsereFixoGeralEstabSelecCampo
+
+FRhProcInsereFixoGeralEstabTodos
+
+//EVENTOS
+
+
+
+
+
+
+ 
+
+

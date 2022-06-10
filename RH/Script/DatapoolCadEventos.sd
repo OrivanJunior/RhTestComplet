@@ -29,7 +29,17 @@ CadParamDPAdicionalInforme,CadParamDPJornadaAConsiderar,CadParamDPProporcionalid
 {Param outros}
 CadParamDPEhAvisoPrevio,CadParamDPEhEstabilidade,
 {Contabiliza}	          
-CadEventosDPContabiliza : Olevariant;
+CadEventosDPContabiliza,
+
+{ Filtro Estab } 
+FiltroEstabTipo,  
+FiltroEstabValor, 
+FiltroEventoTipo,
+FiltroEventoValor,
+                 
+{ Filtro eVENTO }
+FiltroEmpreTipo, 
+FiltroEmpreValor  : Olevariant;
 
 procedure LeDataPoolInfoNormais(nomeDriver);
 begin
@@ -128,3 +138,14 @@ TributDPCSind     := DDT.DriverByName(nomeDriver).Value('C SIND');
 end;
 
 
+procedure LeDataPoolInclusaoFixoGeral(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+        
+  { Filtro eVENTO }
+  FiltroEventoTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEVENTO');
+  FiltroEventoValor := DDT.DriverByName(nomeDriver).Value('EVENTOVALOR');
+  { Filtro de DADOS PESSOAIS }
+end;
