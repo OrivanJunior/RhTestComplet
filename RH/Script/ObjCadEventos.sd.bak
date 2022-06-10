@@ -7,7 +7,7 @@ VarConsts;
 
 var
 {Form}
-CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSalvarEvento,
+CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,CadFormPageTab,BtnSairEvento,BtnSalvarEvento,
 
 {Filtro Inicial}
 FormFiltroEventos, 		
@@ -71,6 +71,7 @@ CadFormParam            :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pg
 CadFormParamOutros      :=  Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_;
 {Btn Salvar}
 BtnSalvarEvento         := Aliases.Folha.FRhEvento.BSalvar;
+BtnSairEvento           := Aliases.Folha.FRhEvento.BSair;
 end;
 
 procedure FiltraCadEvento();
@@ -98,6 +99,15 @@ CadEventosEBInvisivel  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_INVIS
 CadEventosEBOpEvento   	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_OPEVENTO;
 CadEventosEBIdTipo     	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDTIPO;
 CadEventosEBIdEvecalc  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC;
+end;
+
+procedure ClickCelula();
+begin
+MapCadInfoNormais();
+ if Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC.Exists then
+ 
+ CadEventosEBIdEvecalc.Keys('[Enter]');
+
 end;
 
 procedure MapCadValidacoes();
@@ -168,7 +178,6 @@ CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPar
 CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;  
 {Param-Aviso previo}                                                                                                                          
 CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHAVISOPREVIO;
-
 {Param-Estabilidade}                                                                                                                          
 CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHESTABILIDADE;
 

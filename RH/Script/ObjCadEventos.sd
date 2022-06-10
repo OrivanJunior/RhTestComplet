@@ -101,6 +101,13 @@ CadEventosEBIdTipo     	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDTIP
 CadEventosEBIdEvecalc  	:=	Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC;
 end;
 
+procedure ClickCelula();
+begin
+MapCadInfoNormais();
+ if Aliases.Folha.FRhEvento.Page.TabNormal.pnCab.EB_IDEVECALC.Exists then
+ CadEventosEBIdEvecalc.Keys('[Enter]');
+end;
+
 procedure MapCadValidacoes();
 begin
 {Validações - Btn Situações}
@@ -169,7 +176,6 @@ CadParamEBCalculaReducao		    := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsPar
 CadParamEBAdicionalInforme		  := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts2.TScrollBox.EB_ADICIONALINFORME;  
 {Param-Aviso previo}                                                                                                                          
 CadParamEBEhAvisoPrevio         := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHAVISOPREVIO;
-
 {Param-Estabilidade}                                                                                                                          
 CadParamEBEhEstabilidade        := Aliases.Folha.FRhEvento.Page.TabNormal.pg.tsParam.pgParam.FRhEvento_Param_ts3.TScrollBox_.EB_EHESTABILIDADE;
 

@@ -98,8 +98,8 @@ end;
 
 procedure LeDataPoolParamOutros(nomeDiver);
 begin
-ParamDPEhAvisoPrevio    := DDT.DriverByName(nomeDiver).Value('EHAVISOPREVIO');           
-ParamDPEhEstabilidade   := DDT.DriverByName(nomeDiver).Value('EHESTABILIDADE');    
+CadParamDPEhAvisoPrevio    := DDT.DriverByName(nomeDiver).Value('EHAVISOPREVIO');           
+CadParamDPEhEstabilidade   := DDT.DriverByName(nomeDiver).Value('EHESTABILIDADE');    
 end;
 
 procedure LeDataPoolParamProporcional(nomeDriver); 
