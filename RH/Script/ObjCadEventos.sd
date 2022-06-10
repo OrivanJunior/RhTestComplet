@@ -60,7 +60,7 @@ CadESocEBIdeventonat,CadESocEBObservacao,CadESocEBIndApurIrrf,
 {Esocial - Btn}                        
 GridTributacao,BtnIncTrib,BtnIncSaveTrib,BtnExcTrib,
 //
-ExecProcFixoGeral,FormCadInclFixoGeral,FormPageCadInclFixoGeral,
+ExecutaProcFixoGeral,FormCadInclFixoGeral,FormPageCadInclFixoGeral,
 //
 FRhProcInsereFixoGeralEstabEspec,
 FRhProcInsereFixoGeralEstabEspecCampo,
@@ -251,7 +251,7 @@ FormCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral;
 
 FormPageCadInclFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.pg;
 
-ExecProcFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.bExecutar;
+ExecutaProcFixoGeral := Aliases.Folha.FRhProcInsereFixoGeral.bExecutar;
 
 //ESTAB
 FRhProcInsereFixoGeralEstabEspec := Aliases.Folha.FRhProcInsereFixoGeral.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;

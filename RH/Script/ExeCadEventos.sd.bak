@@ -74,13 +74,13 @@ begin
     VerificaInsere(FRhProcInsereFixoGeralEBRefe,FRhProcInsereFixoGeralDPRefe);
 end;
 
-procedure ExecProcFixoGeral();
+procedure ExecProcFixoGeral(pathData);
 var
 DDTFiltro : OleVariant;
 begin
 DDTFiltro :=  CarregaDDT(pathdata, 'Filtro');
 
-LeDataPoolInclusaoFixoGeral(nomeDriver);
+LeDataPoolInclusaoFixoGeral(DDTFiltro.Name);
 
 MapCadInsereFixoGeral();
 
@@ -88,7 +88,8 @@ FiltraEstab();
 FiltraEvento();
 FiltraDadosAdicionais();
 
-ActExecutar(FormCadInclFixoGeral);
+ExecutaProcFixoGeral.Click;
+
 
 if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
       begin
@@ -586,17 +587,17 @@ VerificaClickPreencheGrid(GridTributacao,i,'C. Sind.',TributDPCSind);
 
 BtnIncSaveTrib.Click;
 
-FechaTelaESocial(_ModuloFolha);
+//FechaTelaESocial(_ModuloFolha);
 
-if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
-  begin
-    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
-    
-    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
-    BtnNao := TelaAviso.Window('Button', '&Não', 2);
-    
-    BtnNao.Click();
-  end;
+//if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+//  begin
+//    TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+//    
+//    BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+//    BtnNao := TelaAviso.Window('Button', '&Não', 2);
+//    
+//    BtnNao.Click();
+//  end;
 
 end;
 
@@ -655,13 +656,13 @@ LeDataPoolInfoNormais(DDTInfoNormais.Name);
     
     if (Aliases.Folha.Window('#32770', 'Inclusão no Fixo Geral', 1).Visible) then
     begin
-      Log.Warning('Incluir no Fixo Geral');
+     Log.Warning('Incluir no Fixo Geral');
      BtnSim :=  Aliases.Folha.Window('#32770', 'Inclusão no Fixo Geral', 1).Window('Button', '&Sim', 1);
      BtnNao :=  Aliases.Folha.Window('#32770', 'Inclusão no Fixo Geral', 1).Window('Button', '&Não', 2);
      BtnSim.ClickButton;
     end;
     
-    ExecProcFixoGeral();
+    ExecProcFixoGeral(pathData);
     
       ActFechar(CadFormEventos); 
     end;
