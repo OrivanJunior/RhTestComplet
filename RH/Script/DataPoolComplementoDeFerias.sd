@@ -1,0 +1,63 @@
+﻿var
+{Data}
+CadProcCompFeriasDPData,
+CadProcCompFeriasDPDataPagto,
+
+{Processo controle}
+CadIncProcCompFeriasDPEstab,
+CadIncProcCompFeriasDPIdProcesso,
+CadIncProcCompFeriasDPData,
+CadIncProcCompFeriasDPCompIrrf,
+CadIncProcCompFeriasDPVlrArred,
+CadIncProcCompFeriasDPEmAberto,
+CadIncProcCompFeriasDPIdeDmDev,
+
+{Movimento empregado}
+CadMovCompProcFeriasDPEstab,
+CadMovCompProcFeriasDPIdProcesso,
+CadMovCompProcFeriasDPData,
+CadMovCompProcFeriasDPIdEvento,
+CadMovCompProcFeriasDPIdEmpregado,
+CadMovCompProcFeriasDPComplementaFerias,
+CadMovCompProcFeriasDPIdSistemaExp,
+
+CadParamCompProcFeriasDPInforme,
+CadParamCompProcFeriasDPReferencia,
+CadParamCompProcFeriasDPPropbasehoras,
+CadEmpregadoCompFerias : OleVariant;
+
+
+procedure LeDataPoolCompFerias(nomeDriver);
+begin
+{Data}
+CadProcCompFeriasDPData				 			            := DDT.DriverByName(nomeDriver).Value('DATA');
+CadProcCompFeriasDPDataPagto					          := DDT.DriverByName(nomeDriver).Value('DATAPAGTO');
+												
+{Processo controle}                             
+CadIncProcCompFeriasDPEstab                     := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadIncProcCompFeriasDPIdProcesso                := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+CadIncProcCompFeriasDPData                      := DDT.DriverByName(nomeDriver).Value('DATA');
+CadIncProcCompFeriasDPCompIrrf                  := DDT.DriverByName(nomeDriver).Value('COMPIRRF');
+CadIncProcCompFeriasDPVlrArred                  := DDT.DriverByName(nomeDriver).Value('VLRARRED');
+CadIncProcCompFeriasDPEmAberto                  := DDT.DriverByName(nomeDriver).Value('EMABERTO');
+CadIncProcCompFeriasDPIdeDmDev                  := DDT.DriverByName(nomeDriver).Value('IDEDMDEV');
+												
+{Movimento empregado}                           
+CadMovCompProcFeriasDPEstab  			              := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadMovCompProcFeriasDPIdProcesso  	            := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+CadMovCompProcFeriasDPData  			              := DDT.DriverByName(nomeDriver).Value('DATA');
+CadMovCompProcFeriasDPIdEvento  		            := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+CadMovCompProcFeriasDPIdEmpregado  		          := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadMovCompProcFeriasDPComplementaFerias         := DDT.DriverByName(nomeDriver).Value('COMPLEMENTAFERIAS');
+CadMovCompProcFeriasDPIdSistemaExp  	          := DDT.DriverByName(nomeDriver).Value('IDSISTEMAEXP');
+												
+CadParamCompProcFeriasDPInforme  	              := DDT.DriverByName(nomeDriver).Value('INFORME');
+CadParamCompProcFeriasDPReferencia	            := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+CadParamCompProcFeriasDPPropbasehoras           := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
+
+{Empregado}
+
+CadEmpregadoCompFerias                          := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+
+end;
+

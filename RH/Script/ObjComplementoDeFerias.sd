@@ -2,7 +2,55 @@
 Módulo: Folha
 Autor: Orivan lemes dos Santos Junior
 Data: 13/06/2022}
+var
+CadFormProcCompFerias,
+CadProcCompFeriasEBData,
+CadProcCompFeriasEBDataPagto,
+BtnbIncluirControle,
+BtnbExecutarProcFerias,
+{Processo controle}             
+CadFormProcessoFerias,
+CadFormPageProcessoFerias,
+CadIncProcCompFeriasEBEstab,
+CadIncProcCompFeriasEBIdProcesso,
+CadIncProcCompFeriasEBData,
+CadIncProcCompFeriasEBCompIrrf,
+CadIncProcCompFeriasEBVlrArred,
+CadIncProcCompFeriasEBEmAberto,
+CadIncProcCompFeriasEBIdeDmDev,
+CadIncProcCompFeriasEBSair,
 
+CadFormpgEmpCompProcFerias,
+CadEmpCompProcFeriasGrid,
+CadEmpCompProcFeriasbEmpreInc,
+CadEmpCompProcFeriasbEmpreDesf,
+CadEmpCompProcFeriasbEmpreIncAll,
+CadEmpCompProcFeriasbEmpreExc,
+
+CadFormpgMovCompProcFerias,
+CadMovCompProcFeriasGrid,
+BtnMovCompProcFeriasbMovInc,
+                                       
+CadFormMovCompProcFerias,
+CadMovCompProcFeriasEBEstab,
+CadMovCompProcFeriasEBIdProcesso,
+CadMovCompProcFeriasEBData,
+CadMovCompProcFeriasEBIdEvento,
+CadMovCompProcFeriasEBIdEmpregado,
+CadMovCompProcFeriasEBComplementaFerias,
+CadMovCompProcFeriasEBIdSistemaExp,
+                                       
+CadFormPageTabNormalParam,
+CadPgParamCompProcFerias,
+CadParamCompProcFeriasEBInforme,
+CadParamCompProcFeriasEBReferencia,
+CadParamCompProcFeriasEBPropbasehoras,
+BtnSaveMovParamCompProcFerias,
+                                       
+BtnEmpCompProcFeriasbMovInc,
+BtnEmpCompProcFeriasbMovRec,
+BtnEmpCompProcFeriasbMovExc,
+BtnEmpCompProcFeriasbMovDesf  : OleVariant;
 
 procedure MapCadProcCompFerias();
 begin
@@ -41,7 +89,7 @@ procedure MapCadMovCompProcFerias();
 begin
 CadFormpgMovCompProcFerias  				    := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
 CadMovCompProcFeriasGrid  					    := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsMovimento.gbEventosMovimento.gMovEmpregados.TcxGridSite;
-CadMovCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
+BtnMovCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
 
 CadFormMovCompProcFerias  					    := Aliases.Folha.FRhMovim;
 CadMovCompProcFeriasEBEstab  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ESTAB;
@@ -57,12 +105,10 @@ CadPgParamCompProcFerias  					    := Aliases.Folha.FRhMovim.Page.TabNormal.pg.t
 CadParamCompProcFeriasEBInforme  			  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME;
 CadParamCompProcFeriasEBReferencia			:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA;
 CadParamCompProcFeriasEBPropbasehoras  	:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS;
-BtnSaveMovCompProcFerias  					    := Aliases.Folha.FRhMovim.BSalvarRap;
+BtnSaveMovParamCompProcFerias  					:= Aliases.Folha.FRhMovim.BSalvarRap;
 
 BtnEmpCompProcFeriasbMovInc             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
 BtnEmpCompProcFeriasbMovRec             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovRec;
 BtnEmpCompProcFeriasbMovExc             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovExc;
 BtnEmpCompProcFeriasbMovDesf            := Aliases.Folha.FRhProcCalcComplementaFerias.bMovDesf;
 end;
-
-

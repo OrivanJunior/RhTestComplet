@@ -1,0 +1,65 @@
+﻿uses 
+CommonsAll,
+CommonsObj,
+DataPoolComplementoDeFerias,
+ObjComplementoDeFerias,
+VarConsts;
+
+
+
+procedure PreencheDadosProc(pathData);
+begin
+PreencheDatas(CadProcCompFeriasEBData,CadProcCompFeriasDPData);
+PreencheDatas(CadProcCompFeriasEBDataPagto,CadProcCompFeriasDPDataPagto);
+end;
+
+procedure PreencheProcessoControl(pathData);
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadIncProcCompFeriasEBEstab,CadIncProcCompFeriasDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadIncProcCompFeriasEBIdProcesso,CadIncProcCompFeriasDPIdProcesso);
+PreencheDatas(CadIncProcCompFeriasEBData,CadIncProcCompFeriasDPData);
+VerificaInsere(CadIncProcCompFeriasEBCompIrrf,CadIncProcCompFeriasDPCompIrrf);
+VerificaInsere(CadIncProcCompFeriasEBVlrArred,CadIncProcCompFeriasDPVlrArred);
+VerificaInsere(CadIncProcCompFeriasEBEmAberto,CadIncProcCompFeriasDPEmAberto);
+VerificaInsere(CadIncProcCompFeriasEBIdeDmDev,CadIncProcCompFeriasDPIdeDmDev);
+end;
+
+procedure PreencheMovimento(pathData);
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBEstab,CadMovCompProcFeriasDPEstab);  			
+VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdProcesso,CadMovCompProcFeriasDPIdProcesso);  	    
+PreencheData(CadMovCompProcFeriasEBData,CadMovCompProcFeriasDPData); 
+VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdEvento,CadMovCompProcFeriasDPIdEvento); 
+VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdEmpregado,CadMovCompProcFeriasDPIdEmpregado); 
+VerificaInsere(CadMovCompProcFeriasEBComplementaFerias,CadMovCompProcFeriasDPComplementaFerias); 
+VerificaInsere(CadMovCompProcFeriasEBIdSistemaExp,CadMovCompProcFeriasDPIdSistemaExp);
+end;
+
+procedure PreencheParametros(pathData);
+begin
+VerificaInsere(CadParamCompProcFeriasEBInforme,CadParamCompProcFeriasDPInforme);
+VerificaInsere(CadParamCompProcFeriasEBReferencia,CadParamCompProcFeriasDPReferencia);
+VerificaInsere(CadParamCompProcFeriasEBPropbasehoras,CadParamCompProcFeriasDPPropbasehoras);
+end;
+
+procedure PreencheEmpregado(pathData);
+var
+DDTEmpregado : Olevariant;
+i;
+begin
+i := 0;
+
+
+VerificaClickPreencheGrid(CadEmpCompProcFeriasGrid,i,'Empregado',CadEmpregadoCompFerias);
+
+
+end;
+
+
+procedure ExecutaProcCompFerias(pathData);
+var
+DDTProcessamento : OleVariant;
+begin
+
+end;
+
