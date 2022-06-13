@@ -8,7 +8,15 @@ VarConsts;
 
 
 procedure PreencheDadosProc(pathData);
+var
+DDTDados: OleVariant;
 begin
+DDTDados := CarregaDDT(pathData, 'Data de Processamento');
+
+LeDataPoolCompFerias(DDTDados.Name);
+
+MapCadProcCompFerias();
+
 PreencheDatas(CadProcCompFeriasEBData,CadProcCompFeriasDPData);
 PreencheDatas(CadProcCompFeriasEBDataPagto,CadProcCompFeriasDPDataPagto);
 end;
@@ -25,7 +33,17 @@ VerificaInsere(CadIncProcCompFeriasEBIdeDmDev,CadIncProcCompFeriasDPIdeDmDev);
 end;
 
 procedure PreencheMovimento(pathData);
+var
+DDTMovimento : OleVariant;
 begin
+DDTMovimento := CarregaDDT(pathData, 'Movimento');
+
+LeDataPoolCompFerias(DDTMovimento.Name);
+
+MapCadMovCompProcFerias();
+
+Log.Checkpoint('PreenchendoMovimento');
+
 VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBEstab,CadMovCompProcFeriasDPEstab);  			
 VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdProcesso,CadMovCompProcFeriasDPIdProcesso);  	    
 PreencheData(CadMovCompProcFeriasEBData,CadMovCompProcFeriasDPData); 
@@ -33,13 +51,32 @@ VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdEvento,CadMovCompP
 VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdEmpregado,CadMovCompProcFeriasDPIdEmpregado); 
 VerificaInsere(CadMovCompProcFeriasEBComplementaFerias,CadMovCompProcFeriasDPComplementaFerias); 
 VerificaInsere(CadMovCompProcFeriasEBIdSistemaExp,CadMovCompProcFeriasDPIdSistemaExp);
+
+DDT.CloseDriver(DDTMovimento.Name);
 end;
 
 procedure PreencheParametros(pathData);
+var
+DDTParametros : OleVariant;
 begin
+
+CadPgParamCompProcFerias.ActivePageIndex := 0;
+
+DDTParametros := CarregaDDT(pathData, 'Parametros');
+
+LeDataPoolCompFerias(DDTParametros.Name);
+
+MapCadMovCompProcFerias();
+
+Log.Checkpoint('Prenchendo Parametros');
+
 VerificaInsere(CadParamCompProcFeriasEBInforme,CadParamCompProcFeriasDPInforme);
 VerificaInsere(CadParamCompProcFeriasEBReferencia,CadParamCompProcFeriasDPReferencia);
 VerificaInsere(CadParamCompProcFeriasEBPropbasehoras,CadParamCompProcFeriasDPPropbasehoras);
+
+ActSalvar(FormMovCompProcFerias);
+
+DDT.CloseDriver(DDTParametros.Name);
 end;
 
 procedure PreencheEmpregado(pathData);
@@ -59,7 +96,14 @@ MapCadEmpregadoCompFerias();
 
 VerificaClickPreencheGrid(CadEmpCompProcFeriasGrid,i,'Empregado',CadEmpregadoCompFerias);
 
+MapCadProcCompFerias();
+
+BtnbExecutarProcFerias.Click();
+
 ActExecutar(CadFormProcCompFerias);
+
+ActSalvar(CadFormProcCompFerias);
+ActFechar(CadFormProcCompFerias);
 
 end;
 
