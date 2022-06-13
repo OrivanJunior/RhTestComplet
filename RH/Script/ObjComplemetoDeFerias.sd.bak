@@ -1,0 +1,59 @@
+﻿
+
+
+procedure MapCadProcCompFerias();
+begin
+
+CadFormProcCompFerias             := Aliases.Folha.FRhProcCalcComplementaFerias;
+DataProcCompFerias                := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATA;
+DataPagtoProcCompFerias           := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATAPAGTO;
+BtnIncProcCompFerias              := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.bIncluirControle;
+ExeProcCompFerias                 := Aliases.Folha.FRhProcCalcComplementaFerias.bExecutar;
+{Processo controle}
+CadFormProcessoFerias             := Aliases.Folha.FRhProcesso;
+CadFormPageProcessoFerias         := Aliases.Folha.FRhProcesso.Page;
+CadIncProcCompFeriasEBEstab			  := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_ESTAB;
+CadIncProcCompFeriasEBIdProcesso	:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDPROCESSO;
+CadIncProcCompFeriasEBData			  := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_DATA;
+CadIncProcCompFeriasEBCompIrrf		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_COMPIRRF;
+CadIncProcCompFeriasEBVlrArred		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_VLRARRED;
+CadIncProcCompFeriasEBEmAberto		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_EMABERTO;
+CadIncProcCompFeriasEBIdeDmDev		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDEDMDEV;
+CadIncProcCompFeriasEBSair			  := Aliases.Folha.FRhProcesso.BSairRap;
+
+end;
+
+procedure MapCadMovCompProcFerias();
+begin
+CadFormpgMovCompProcFerias  				    := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
+CadMovCompProcFeriasGrid  					    := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsMovimento.gbEventosMovimento.gMovEmpregados.TcxGridSite;
+CadMovCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
+
+CadFormMovCompProcFerias  					    := Aliases.Folha.FRhMovim;
+CadMovCompProcFeriasEBEstab  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ESTAB;
+CadMovCompProcFeriasEBIdProcesso  	    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDPROCESSO;
+CadMovCompProcFeriasEBData  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_DATA;
+CadMovCompProcFeriasEBIdEvento  			  := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDEVENTO;
+CadMovCompProcFeriasEBIdEmpregado  		  := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+CadMovCompProcFeriasEBComplementaFerias := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_COMPLEMENTAFERIAS;
+CadMovCompProcFeriasEBIdSistemaExp  		:= Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDSISTEMAEXP;
+
+CadFormPageTabNormalParam					      := Aliases.Folha.FRhMovim.Page.TabNormal.pg;
+CadPgParamCompProcFerias  					    := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam;
+CadParamCompProcFeriasEBInforme  			  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME;
+CadParamCompProcFeriasEBReferencia			:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA;
+CadParamCompProcFeriasEBPropbasehoras  	:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS;
+BtnSaveMovCompProcFerias  					    := Aliases.Folha.FRhMovim.BSalvarRap;
+
+end;
+
+procedure MapCadEmpregadoCompFerias();
+begin
+CadFormpgEmpCompProcFerias 		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
+CadEmpCompProcFeriasGrid  		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsEmpregados.grp1.gEmpregado.TcxGridSite;
+CadEmpCompProcFeriasbEmpreInc   := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreInc;
+CadEmpCompProcFeriasbEmpreDesf  := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreDesf;
+CadEmpCompProcFeriasbEmpreIncAll:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreIncAll;
+CadEmpCompProcFeriasbEmpreExc  	:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreExc;
+end;
+
