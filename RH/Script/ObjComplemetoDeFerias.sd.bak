@@ -1,4 +1,7 @@
-﻿
+﻿{Script para mapear o Processamento de Férias
+Módulo: Folha
+Autor: Orivan lemes dos Santos Junior
+Data: 13/06/2022}
 
 
 procedure MapCadProcCompFerias();
@@ -45,6 +48,10 @@ CadParamCompProcFeriasEBReferencia			:= Aliases.Folha.FRhMovim.Page.TabNormal.pg
 CadParamCompProcFeriasEBPropbasehoras  	:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS;
 BtnSaveMovCompProcFerias  					    := Aliases.Folha.FRhMovim.BSalvarRap;
 
+BtnEmpCompProcFeriasbMovInc             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
+BtnEmpCompProcFeriasbMovRec             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovRec;
+BtnEmpCompProcFeriasbMovExc             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovExc;
+BtnEmpCompProcFeriasbMovDesf            := Aliases.Folha.FRhProcCalcComplementaFerias.bMovDesf;
 end;
 
 procedure MapCadEmpregadoCompFerias();
@@ -56,4 +63,3 @@ CadEmpCompProcFeriasbEmpreDesf  := Aliases.Folha.FRhProcCalcComplementaFerias.bE
 CadEmpCompProcFeriasbEmpreIncAll:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreIncAll;
 CadEmpCompProcFeriasbEmpreExc  	:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreExc;
 end;
-
