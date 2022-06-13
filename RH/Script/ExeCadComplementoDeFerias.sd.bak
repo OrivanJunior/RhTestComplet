@@ -5,15 +5,13 @@ DataPoolComplementoDeFerias,
 ObjComplementoDeFerias,
 VarConsts;
 
-
-
-procedure PreencheDadosProc(pathData);
+procedure PreencheDatasProc(pathData);
 var
 DDTDados: OleVariant;
 begin
-DDTDados := CarregaDDT(pathData, 'Data de Processamento e Pagamento');
+DDTDados := CarregaDDT(pathData, 'Datas');
 
-LeDataPoolCompFerias(DDTDados.Name);
+LeDataPoolCompFeriasData(nomeDriver);
 
 MapCadProcCompFerias();
 
