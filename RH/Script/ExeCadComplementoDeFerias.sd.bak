@@ -49,9 +49,17 @@ i;
 begin
 i := 0;
 
+CadFormpgEmpCompProcFerias.ActivePageIndex := 0;
+
+DDTEmpregado := CarregaDDT(pathData, 'Empregado');
+
+LeDataPoolCompFerias(DDTEmpregado.Name);
+
+MapCadEmpregadoCompFerias();
 
 VerificaClickPreencheGrid(CadEmpCompProcFeriasGrid,i,'Empregado',CadEmpregadoCompFerias);
 
+ActExecutar(CadFormProcCompFerias);
 
 end;
 

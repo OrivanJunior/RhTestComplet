@@ -36,10 +36,26 @@ VerificaInsere(CadMovCompProcFeriasEBIdSistemaExp,CadMovCompProcFeriasDPIdSistem
 end;
 
 procedure PreencheParametros(pathData);
+var
+DDTParametros : OleVariant;
 begin
+
+CadPgParamCompProcFerias.ActivePageIndex := 0;
+
+DDTParametros := CarregaDDT(pathData, 'Parametros');
+
+LeDataPoolCompFerias(DDTParametros.Name);
+
+MapCadMovCompProcFerias();
+
+Log.Checkpoint('Prenchendo Parametros');
+
 VerificaInsere(CadParamCompProcFeriasEBInforme,CadParamCompProcFeriasDPInforme);
 VerificaInsere(CadParamCompProcFeriasEBReferencia,CadParamCompProcFeriasDPReferencia);
 VerificaInsere(CadParamCompProcFeriasEBPropbasehoras,CadParamCompProcFeriasDPPropbasehoras);
+
+ActSalvar(FormMovCompProcFerias);
+
 end;
 
 procedure PreencheEmpregado(pathData);
@@ -49,7 +65,17 @@ i;
 begin
 i := 0;
 
+CadFormpgEmpCompProcFerias.ActivePageIndex := 0;
+
+DDTEmpregado := CarregaDDT(pathData, 'Empregado');
+
+LeDataPoolCompFerias(DDTEmpregado.Name);
+
+MapCadEmpregadoCompFerias();
+
 VerificaClickPreencheGrid(CadEmpCompProcFeriasGrid,i,'Empregado',CadEmpregadoCompFerias);
+
+ActExecutar(CadFormProcCompFerias);
 
 end;
 
