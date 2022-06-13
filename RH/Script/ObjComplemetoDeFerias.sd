@@ -9,7 +9,7 @@ begin
 
 CadFormProcCompFerias             := Aliases.Folha.FRhProcCalcComplementaFerias;
 CadProcCompFeriasEBData           := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATA;
-CadProcCompFeriasEBDataPagto	  := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATAPAGTO;
+CadProcCompFeriasEBDataPagto	    := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATAPAGTO;
 BtnbIncluirControle               := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.bIncluirControle;
 BtnbExecutarProcFerias            := Aliases.Folha.FRhProcCalcComplementaFerias.bExecutar;
 
@@ -25,6 +25,16 @@ CadIncProcCompFeriasEBEmAberto		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCa
 CadIncProcCompFeriasEBIdeDmDev		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDEDMDEV;
 CadIncProcCompFeriasEBSair			  := Aliases.Folha.FRhProcesso.BSairRap;
 
+end;
+
+procedure MapCadEmpregadoCompFerias();
+begin
+CadFormpgEmpCompProcFerias 		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
+CadEmpCompProcFeriasGrid  		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsEmpregados.grp1.gEmpregado.TcxGridSite;
+CadEmpCompProcFeriasbEmpreInc   := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreInc;
+CadEmpCompProcFeriasbEmpreDesf  := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreDesf;
+CadEmpCompProcFeriasbEmpreIncAll:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreIncAll;
+CadEmpCompProcFeriasbEmpreExc  	:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreExc;
 end;
 
 procedure MapCadMovCompProcFerias();
@@ -55,12 +65,4 @@ BtnEmpCompProcFeriasbMovExc             := Aliases.Folha.FRhProcCalcComplementaF
 BtnEmpCompProcFeriasbMovDesf            := Aliases.Folha.FRhProcCalcComplementaFerias.bMovDesf;
 end;
 
-procedure MapCadEmpregadoCompFerias();
-begin
-CadFormpgEmpCompProcFerias 		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
-CadEmpCompProcFeriasGrid  		  := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsEmpregados.grp1.gEmpregado.TcxGridSite;
-CadEmpCompProcFeriasbEmpreInc   := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreInc;
-CadEmpCompProcFeriasbEmpreDesf  := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreDesf;
-CadEmpCompProcFeriasbEmpreIncAll:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreIncAll;
-CadEmpCompProcFeriasbEmpreExc  	:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreExc;
-end;
+
