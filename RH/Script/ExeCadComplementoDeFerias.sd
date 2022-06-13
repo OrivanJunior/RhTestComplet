@@ -11,7 +11,7 @@ procedure PreencheDadosProc(pathData);
 var
 DDTDados: OleVariant;
 begin
-DDTDados := CarregaDDT(pathData, 'Data de Processamento');
+DDTDados := CarregaDDT(pathData, 'Data de Processamento e Pagamento');
 
 LeDataPoolCompFerias(DDTDados.Name);
 
@@ -19,14 +19,17 @@ MapCadProcCompFerias();
 
 PreencheDatas(CadProcCompFeriasEBData,CadProcCompFeriasDPData);
 PreencheDatas(CadProcCompFeriasEBDataPagto,CadProcCompFeriasDPDataPagto);
-
-BtnbIncluirControle.ClickButton();
 end;
 
 procedure PreencheProcessoControl(pathData);
 var
 DDTProcesso : OleVariant;
 begin
+BtnbIncluirControle.ClickButton();
+
+Delay(2000);
+
+CadFormProcessoFerias.ActivePageIndex := 0;
 DDTProcesso := CarregaDDT(pathData, 'Processos');
 
 LeDataPoolCompFerias(DDTProcesso.Name);
@@ -36,7 +39,7 @@ MapCadProcCompFerias();
 VerificaConsultaF3Insere(_ModuloFolha,CadIncProcCompFeriasEBEstab,CadIncProcCompFeriasDPEstab);
 VerificaConsultaF3Insere(_ModuloFolha,CadIncProcCompFeriasEBIdProcesso,CadIncProcCompFeriasDPIdProcesso);
 PreencheDatas(CadIncProcCompFeriasEBData,CadIncProcCompFeriasDPData);
-VerificaInsere(CadIncProcCompFeriasEBCompIrrf,CadIncProcCompFeriasDPCompIrrf);
+PreencheDatas(CadIncProcCompFeriasEBCompIrrf,CadIncProcCompFeriasDPCompIrrf);
 VerificaInsere(CadIncProcCompFeriasEBVlrArred,CadIncProcCompFeriasDPVlrArred);
 VerificaInsere(CadIncProcCompFeriasEBEmAberto,CadIncProcCompFeriasDPEmAberto);
 VerificaInsere(CadIncProcCompFeriasEBIdeDmDev,CadIncProcCompFeriasDPIdeDmDev);
@@ -122,21 +125,14 @@ end;
 
 
 procedure ExecutaProcCompFerias(pathData);
-var
-DDTProcessamento : OleVariant;
 begin
 
 AcessaItem(_ModuloFolha, 'Processamentos', 'Complemento de Férias');
-
-DDTProcessamento := CarregaDDT(pathData, 'Processamento');
-
-MapCadEmpregadoCompFerias();
 
 PreencheDadosProc(pathData);
 PreencheProcessoControl(pathData);
 PreencheEmpregado(pathData);
 PreencheParametros(pathData);
-
 
 end;
 
