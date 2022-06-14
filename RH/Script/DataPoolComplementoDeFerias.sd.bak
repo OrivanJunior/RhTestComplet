@@ -27,12 +27,15 @@ CadParamCompProcFeriasDPPropbasehoras,
 CadEmpregadoCompFerias : OleVariant;
 
 
-procedure LeDataPoolCompFerias(nomeDriver);
+procedure LeDataPoolCompFeriasData(nomeDriver);
 begin
 {Data}
 CadProcCompFeriasDPData				 			            := DDT.DriverByName(nomeDriver).Value('DATA');
 CadProcCompFeriasDPDataPagto					          := DDT.DriverByName(nomeDriver).Value('DATAPAGTO');
-												
+end;
+
+procedure LeDataPoolCompFeriasProcCtrl(nomeDriver);
+begin
 {Processo controle}                             
 CadIncProcCompFeriasDPEstab                     := DDT.DriverByName(nomeDriver).Value('ESTAB');
 CadIncProcCompFeriasDPIdProcesso                := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
@@ -41,7 +44,10 @@ CadIncProcCompFeriasDPCompIrrf                  := DDT.DriverByName(nomeDriver).
 CadIncProcCompFeriasDPVlrArred                  := DDT.DriverByName(nomeDriver).Value('VLRARRED');
 CadIncProcCompFeriasDPEmAberto                  := DDT.DriverByName(nomeDriver).Value('EMABERTO');
 CadIncProcCompFeriasDPIdeDmDev                  := DDT.DriverByName(nomeDriver).Value('IDEDMDEV');
-												
+end;												
+
+procedure LeDataPoolCompFeriasMov(nomeDriver);
+begin
 {Movimento empregado}                           
 CadMovCompProcFeriasDPEstab  			              := DDT.DriverByName(nomeDriver).Value('ESTAB');
 CadMovCompProcFeriasDPIdProcesso  	            := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
@@ -50,14 +56,20 @@ CadMovCompProcFeriasDPIdEvento  		            := DDT.DriverByName(nomeDriver).Va
 CadMovCompProcFeriasDPIdEmpregado  		          := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
 CadMovCompProcFeriasDPComplementaFerias         := DDT.DriverByName(nomeDriver).Value('COMPLEMENTAFERIAS');
 CadMovCompProcFeriasDPIdSistemaExp  	          := DDT.DriverByName(nomeDriver).Value('IDSISTEMAEXP');
+end;
 												
+procedure LeDataPoolCompFeriasParam(nomeDriver);
+begin
 CadParamCompProcFeriasDPInforme  	              := DDT.DriverByName(nomeDriver).Value('INFORME');
 CadParamCompProcFeriasDPReferencia	            := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
 CadParamCompProcFeriasDPPropbasehoras           := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
-
-{Empregado}
-
-CadEmpregadoCompFerias                          := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
-
 end;
+												
+
+procedure LeDataPoolEmpregadoGrid(nomeDriver);
+begin
+{Empregado}
+CadEmpregadoCompFerias                          := DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+end;
+
 
