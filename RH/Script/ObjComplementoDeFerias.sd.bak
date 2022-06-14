@@ -27,11 +27,11 @@ CadEmpCompProcFeriasbEmpreDesf,
 CadEmpCompProcFeriasbEmpreIncAll,
 CadEmpCompProcFeriasbEmpreExc,
 
-CadFormpgMovCompProcFerias,
+FormpgMovCompProcFerias,
 CadMovCompProcFeriasGrid,
 BtnMovCompProcFeriasbMovInc,
                                        
-CadFormMovCompProcFerias,
+FormMovCompProcFerias,
 CadMovCompProcFeriasEBEstab,
 CadMovCompProcFeriasEBIdProcesso,
 CadMovCompProcFeriasEBData,
@@ -40,7 +40,7 @@ CadMovCompProcFeriasEBIdEmpregado,
 CadMovCompProcFeriasEBComplementaFerias,
 CadMovCompProcFeriasEBIdSistemaExp,
                                        
-CadFormPageTabNormalParam,
+FormPageTabNormalParam,
 CadPgParamCompProcFerias,
 CadParamCompProcFeriasEBInforme,
 CadParamCompProcFeriasEBReferencia,
@@ -87,11 +87,11 @@ end;
 
 procedure MapCadMovCompProcFerias();
 begin
-CadFormpgMovCompProcFerias  				    := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
+FormpgMovCompProcFerias  				        := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
 CadMovCompProcFeriasGrid  					    := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsMovimento.gbEventosMovimento.gMovEmpregados.TcxGridSite;
 BtnMovCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
 
-CadFormMovCompProcFerias  					    := Aliases.Folha.FRhMovim;
+FormMovCompProcFerias  					        := Aliases.Folha.FRhMovim;
 CadMovCompProcFeriasEBEstab  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ESTAB;
 CadMovCompProcFeriasEBIdProcesso  	    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDPROCESSO;
 CadMovCompProcFeriasEBData  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_DATA;
@@ -100,7 +100,7 @@ CadMovCompProcFeriasEBIdEmpregado  		  := Aliases.Folha.FRhMovim.Page.TabNormal.
 CadMovCompProcFeriasEBComplementaFerias := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_COMPLEMENTAFERIAS;
 CadMovCompProcFeriasEBIdSistemaExp  		:= Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_IDSISTEMAEXP;
 
-CadFormPageTabNormalParam					      := Aliases.Folha.FRhMovim.Page.TabNormal.pg;
+FormPageTabNormalParam					        := Aliases.Folha.FRhMovim.Page.TabNormal.pg;
 CadPgParamCompProcFerias  					    := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam;
 CadParamCompProcFeriasEBInforme  			  := Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_INFORME;
 CadParamCompProcFeriasEBReferencia			:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA;

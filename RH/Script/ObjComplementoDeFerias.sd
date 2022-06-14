@@ -10,7 +10,7 @@ BtnbIncluirControle,
 BtnbExecutarProcFerias,
 {Processo controle}             
 CadFormProcessoFerias,
-CadFormPageProcessoFerias,
+CadFormPageProcessoInfoNormais,
 CadIncProcCompFeriasEBEstab,
 CadIncProcCompFeriasEBIdProcesso,
 CadIncProcCompFeriasEBData,
@@ -63,7 +63,7 @@ BtnbExecutarProcFerias            := Aliases.Folha.FRhProcCalcComplementaFerias.
 
 {Processo controle}
 CadFormProcessoFerias             := Aliases.Folha.FRhProcesso;
-CadFormPageProcessoFerias         := Aliases.Folha.FRhProcesso.Page;
+CadFormPageProcessoInfoNormais    := Aliases.Folha.FRhProcesso.Page;
 CadIncProcCompFeriasEBEstab			  := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_ESTAB;
 CadIncProcCompFeriasEBIdProcesso	:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDPROCESSO;
 CadIncProcCompFeriasEBData			  := Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_DATA;

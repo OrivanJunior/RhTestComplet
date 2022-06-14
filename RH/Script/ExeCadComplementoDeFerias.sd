@@ -27,7 +27,7 @@ BtnbIncluirControle.ClickButton();
 
 Delay(2000);
 
-CadFormProcessoFerias.ActivePageIndex := 0;
+CadFormPageProcessoInfoNormais.ActivePageIndex := 0;
 DDTProcesso := CarregaDDT(pathData, 'Processos');
 
 LeDataPoolCompFeriasProcCtrl(DDTProcesso.Name);
@@ -127,7 +127,7 @@ begin
 
 AcessaItem(_ModuloFolha, 'Processamentos', 'Complemento de Férias');
 
-PreencheDadosProc(pathData);
+PreencheDatasProc(pathData);
 PreencheProcessoControl(pathData);
 PreencheEmpregado(pathData);
 PreencheParametros(pathData);

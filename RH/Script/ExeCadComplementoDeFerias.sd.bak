@@ -11,7 +11,7 @@ DDTDados: OleVariant;
 begin
 DDTDados := CarregaDDT(pathData, 'Datas');
 
-LeDataPoolCompFeriasData(nomeDriver);
+LeDataPoolCompFeriasData(DDTDados.Name);
 
 MapCadProcCompFerias();
 
@@ -30,7 +30,7 @@ Delay(2000);
 CadFormProcessoFerias.ActivePageIndex := 0;
 DDTProcesso := CarregaDDT(pathData, 'Processos');
 
-LeDataPoolCompFerias(DDTProcesso.Name);
+LeDataPoolCompFeriasProcCtrl(DDTProcesso.Name);
 
 MapCadProcCompFerias();
 
@@ -52,7 +52,7 @@ DDTMovimento : OleVariant;
 begin
 DDTMovimento := CarregaDDT(pathData, 'Movimento');
 
-LeDataPoolCompFerias(DDTMovimento.Name);
+LeDataPoolCompFeriasMov(DDTMovimento.Name);
 
 MapCadMovCompProcFerias();
 
@@ -78,7 +78,7 @@ CadPgParamCompProcFerias.ActivePageIndex := 0;
 
 DDTParametros := CarregaDDT(pathData, 'Parametros');
 
-LeDataPoolCompFerias(DDTParametros.Name);
+LeDataPoolCompFeriasParam(DDTParametros.Name);
 
 MapCadMovCompProcFerias();
 
@@ -104,7 +104,7 @@ CadFormpgEmpCompProcFerias.ActivePageIndex := 0;
 
 DDTEmpregado := CarregaDDT(pathData, 'Empregado');
 
-LeDataPoolCompFerias(DDTEmpregado.Name);
+LeDataPoolEmpregadoGrid(DDTEmpregado.Name);
 
 MapCadEmpregadoCompFerias();
 
@@ -127,7 +127,7 @@ begin
 
 AcessaItem(_ModuloFolha, 'Processamentos', 'Complemento de Férias');
 
-PreencheDadosProc(pathData);
+PreencheDatasProc(pathData);
 PreencheProcessoControl(pathData);
 PreencheEmpregado(pathData);
 PreencheParametros(pathData);
