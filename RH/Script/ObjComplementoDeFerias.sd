@@ -18,7 +18,8 @@ CadIncProcCompFeriasEBCompIrrf,
 CadIncProcCompFeriasEBVlrArred,
 CadIncProcCompFeriasEBEmAberto,
 CadIncProcCompFeriasEBIdeDmDev,
-CadIncProcCompFeriasEBSair,
+BtnIncProcEBSair,
+BtnIncProcSave,
 
 CadFormpgEmpCompProcFerias,
 CadEmpCompProcFeriasGrid,
@@ -26,6 +27,7 @@ CadEmpCompProcFeriasbEmpreInc,
 CadEmpCompProcFeriasbEmpreDesf,
 CadEmpCompProcFeriasbEmpreIncAll,
 CadEmpCompProcFeriasbEmpreExc,
+CadEmpCompProcFeriasbEmpreSave,
 
 FormpgMovCompProcFerias,
 CadMovCompProcFeriasGrid,
@@ -46,6 +48,7 @@ CadParamCompProcFeriasEBInforme,
 CadParamCompProcFeriasEBReferencia,
 CadParamCompProcFeriasEBPropbasehoras,
 BtnSaveMovParamCompProcFerias,
+BtnSairMovParamCompProcFerias,
                                        
 BtnEmpCompProcFeriasbMovInc,
 BtnEmpCompProcFeriasbMovRec,
@@ -54,6 +57,8 @@ BtnEmpCompProcFeriasbMovDesf  : OleVariant;
 
 procedure MapCadProcCompFerias();
 begin
+BtnIncProcEBSair			            := Aliases.Folha.FRhProcesso.BSairRap;
+BtnIncProcSave                    := Aliases.Folha.FRhProcesso.BSalvarRap;
 
 CadFormProcCompFerias             := Aliases.Folha.FRhProcCalcComplementaFerias;
 CadProcCompFeriasEBData           := Aliases.Folha.FRhProcCalcComplementaFerias.pnPeriodo.EB_DATA;
@@ -71,7 +76,7 @@ CadIncProcCompFeriasEBCompIrrf		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCa
 CadIncProcCompFeriasEBVlrArred		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_VLRARRED;
 CadIncProcCompFeriasEBEmAberto		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_EMABERTO;
 CadIncProcCompFeriasEBIdeDmDev		:= Aliases.Folha.FRhProcesso.Page.TabNormal.pnCab.ScrollBox2.sbInfo.EB_IDEDMDEV;
-CadIncProcCompFeriasEBSair			  := Aliases.Folha.FRhProcesso.BSairRap;
+
 
 end;
 
@@ -83,6 +88,7 @@ CadEmpCompProcFeriasbEmpreInc   := Aliases.Folha.FRhProcCalcComplementaFerias.bE
 CadEmpCompProcFeriasbEmpreDesf  := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreDesf;
 CadEmpCompProcFeriasbEmpreIncAll:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreIncAll;
 CadEmpCompProcFeriasbEmpreExc  	:= Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreExc;
+CadEmpCompProcFeriasbEmpreSave      := Aliases.Folha.FRhProcCalcComplementaFerias.bEmpreSalvar;
 end;
 
 procedure MapCadMovCompProcFerias();
@@ -106,6 +112,7 @@ CadParamCompProcFeriasEBInforme  			  := Aliases.Folha.FRhMovim.Page.TabNormal.p
 CadParamCompProcFeriasEBReferencia			:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_REFERENCIA;
 CadParamCompProcFeriasEBPropbasehoras  	:= Aliases.Folha.FRhMovim.Page.TabNormal.pg.tsParam.pgParam.FRhMovim_Param_ts1.TScrollBox.EB_PROPBASEHORAS;
 BtnSaveMovParamCompProcFerias  					:= Aliases.Folha.FRhMovim.BSalvarRap;
+BtnSairMovParamCompProcFerias           := Aliases.Folha.FRhMovim.BSairRap;
 
 BtnEmpCompProcFeriasbMovInc             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
 BtnEmpCompProcFeriasbMovRec             := Aliases.Folha.FRhProcCalcComplementaFerias.bMovRec;

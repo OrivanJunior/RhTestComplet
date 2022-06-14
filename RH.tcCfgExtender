@@ -428,7 +428,27 @@
 					<Prp name="description" type="S" value=""/>
 					<Prp name="enabled" type="B" value="-1"/>
 					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="129"/>
+					<Prp name="line" type="I" value="58"/>
+					<Prp name="owner" type="S" value="{C5930256-6D32-434B-8082-6694FA8FB338}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
+				<Node name="1">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="89"/>
+					<Prp name="owner" type="S" value="{C5930256-6D32-434B-8082-6694FA8FB338}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
+				<Node name="2">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="73"/>
 					<Prp name="owner" type="S" value="{C5930256-6D32-434B-8082-6694FA8FB338}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
@@ -10757,36 +10777,36 @@
 					</Node>
 					<Node name="{c5930256-6d32-434b-8082-6694fa8fb338}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="21"/>
+							<Prp name="bottom" type="I" value="19"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="9"/>
+							<Prp name="top" type="I" value="7"/>
 						</Node>
 						<Node name="1">
-							<Prp name="bottom" type="I" value="48"/>
+							<Prp name="bottom" type="I" value="51"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="23"/>
+							<Prp name="top" type="I" value="21"/>
 						</Node>
 						<Node name="2">
-							<Prp name="bottom" type="I" value="71"/>
+							<Prp name="bottom" type="I" value="83"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="50"/>
+							<Prp name="top" type="I" value="54"/>
 						</Node>
 						<Node name="3">
-							<Prp name="bottom" type="I" value="95"/>
+							<Prp name="bottom" type="I" value="106"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="73"/>
+							<Prp name="top" type="I" value="85"/>
 						</Node>
 						<Node name="4">
-							<Prp name="bottom" type="I" value="123"/>
+							<Prp name="bottom" type="I" value="127"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="97"/>
+							<Prp name="top" type="I" value="108"/>
 						</Node>
 						<Node name="5">
-							<Prp name="bottom" type="I" value="136"/>
+							<Prp name="bottom" type="I" value="149"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="126"/>
+							<Prp name="top" type="I" value="129"/>
 						</Node>
-						<Prp name="bottom" type="I" value="138"/>
+						<Prp name="bottom" type="I" value="151"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -14428,6 +14448,7 @@
 							<Node name="commons">
 								<Node name="power shell"/>
 								<Node name="tela seleção estabelecimento"/>
+								<Node name="telalogin"/>
 							</Node>
 							<Node name="folha">
 								<Node name="cadastros específicos">
@@ -14437,14 +14458,20 @@
 								<Node name="cadastros gerais">
 									<Node name="gerais">
 										<Node name="eventos"/>
+										<Node name="moedas"/>
+									</Node>
+									<Node name="pessoas">
+										<Node name="cadastro de pessoas"/>
 									</Node>
 								</Node>
 								<Node name="processamentos">
+									<Node name="adiantamento salarial"/>
 									<Node name="complemento de férias"/>
 								</Node>
 								<Node name="processos">
 									<Node name="gps"/>
 									<Node name="sefip/grrf/pis"/>
+									<Node name="transferência de empregados"/>
 								</Node>
 								<Node name="relatórios">
 									<Node name="inss"/>
