@@ -32,7 +32,7 @@ CadEmpCompProcFeriasbEmpreSave,
 
 FormpgMovCompProcFerias,
 CadMovCompProcFeriasGrid,
-BtnMovCompProcFeriasbMovInc,
+BtnCompProcFeriasbMovInc,
                                        
 FormMovCompProcFerias,
 CadMovCompProcFeriasEBEstab,
@@ -96,7 +96,7 @@ procedure MapCadMovCompProcFerias();
 begin
 FormpgMovCompProcFerias  				        := Aliases.Folha.FRhProcCalcComplementaFerias.pg;
 CadMovCompProcFeriasGrid  					    := Aliases.Folha.FRhProcCalcComplementaFerias.pg.tsMovimento.gbEventosMovimento.gMovEmpregados.TcxGridSite;
-BtnMovCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
+BtnCompProcFeriasbMovInc					    := Aliases.Folha.FRhProcCalcComplementaFerias.bMovInc;
 
 FormMovCompProcFerias  					        := Aliases.Folha.FRhMovim;
 CadMovCompProcFeriasEBEstab  				    := Aliases.Folha.FRhMovim.Page.TabNormal.pnCab.EB_ESTAB;

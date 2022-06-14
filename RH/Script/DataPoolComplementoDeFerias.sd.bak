@@ -56,6 +56,9 @@ CadMovCompProcFeriasDPIdEvento  		            := DDT.DriverByName(nomeDriver).Va
 CadMovCompProcFeriasDPIdEmpregado  		          := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
 CadMovCompProcFeriasDPComplementaFerias         := DDT.DriverByName(nomeDriver).Value('COMPLEMENTAFERIAS');
 CadMovCompProcFeriasDPIdSistemaExp  	          := DDT.DriverByName(nomeDriver).Value('IDSISTEMAEXP');
+CadParamCompProcFeriasDPInforme  	              := DDT.DriverByName(nomeDriver).Value('INFORME');
+CadParamCompProcFeriasDPReferencia	            := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+CadParamCompProcFeriasDPPropbasehoras           := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
 end;
 												
 procedure LeDataPoolCompFeriasParam(nomeDriver);

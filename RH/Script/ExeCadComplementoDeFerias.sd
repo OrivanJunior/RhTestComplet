@@ -51,9 +51,9 @@ else
 BtnIncProcEBSair.Click;
 end;
 
-
 procedure PreencheMovimento(pathData);
 var
+BtnConfirmaErro,BtnNoSave;
 DDTMovimento : OleVariant;
 begin
 MapCadMovCompProcFerias();
@@ -69,7 +69,7 @@ BtnCompProcFeriasbMovInc.Click;
 MapCadMovCompProcFerias();
 LeDataPoolCompFeriasMov(DDTMovimento.Name);
 
-Log.Checkpoint('PreenchendoMovimento');
+Log.Checkpoint('Preenchendo Movimento');
 
 VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBEstab,CadMovCompProcFeriasDPEstab);  			
 VerificaConsultaF3Insere(_ModuloFolha,CadMovCompProcFeriasEBIdProcesso,CadMovCompProcFeriasDPIdProcesso);  	    
@@ -92,32 +92,21 @@ VerificaInsere(CadParamCompProcFeriasEBPropbasehoras,CadParamCompProcFeriasDPPro
 
 BtnSaveMovParamCompProcFerias.Click;
 
+if Aliases.Folha.FVsErrorDlg.Exists then
+begin
+  BtnConfirmaErro := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+  BtnConfirmaErro.ClickButton;
+  BtnSairMovParamCompProcFerias.Click; 
+  
+  if Aliases.Folha.dlgManuten_oDoMovimento.Exists then
+  BtnNoSave := Aliases.Folha.dlgManuten_oDoMovimento.btnN_o;
+  BtnNoSave.ClickButton;
+end;
+
 DDTMovimento.Next;
+
 end;
 DDT.CloseDriver(DDTMovimento.Name);
-end;
-
-procedure PreencheParametros(pathData);
-var
-DDTParametros : OleVariant;
-begin
-MapCadMovCompProcFerias();
-
-CadPgParamCompProcFerias.ActivePageIndex := 0;
-
-DDTParametros := CarregaDDT(pathData, 'Parametros');
-
-LeDataPoolCompFeriasParam(DDTParametros.Name);
-
-Log.Checkpoint('Prenchendo Parametros');
-
-VerificaInsere(CadParamCompProcFeriasEBInforme,CadParamCompProcFeriasDPInforme);
-VerificaInsere(CadParamCompProcFeriasEBReferencia,CadParamCompProcFeriasDPReferencia);
-VerificaInsere(CadParamCompProcFeriasEBPropbasehoras,CadParamCompProcFeriasDPPropbasehoras);
-
-BtnSaveMovParamCompProcFerias.Click;
-
-DDT.CloseDriver(DDTParametros.Name);
 end;
 
 procedure PreencheEmpregado(pathData);
@@ -145,6 +134,21 @@ CadEmpCompProcFeriasbEmpreIncAll.Click;
 
 end;
 
+procedure ProcessarEvento();
+var BtnOk;
+begin
+MapCadProcCompFerias();
+
+BtnbExecutarProcFerias.Click();
+BtnSalvarProcFerias.Click;
+
+if Aliases.Folha.dlgConfirma_o.Exists then
+begin
+ BtnOk := Aliases.Folha.dlgConfirma_o.btnOK;
+ BtnOk.ClickButton;
+end;
+end;
+
 procedure ExecutaProcCompFerias(pathData);
 var
 BtnOk;
@@ -156,19 +160,8 @@ PreencheDatasProc(pathData);
 PreencheProcessoControl(pathData);
 PreencheEmpregado(pathData);
 PreencheMovimento(pathData);
+ProcessarEvento();  
 
-MapCadProcCompFerias();
-
-BtnbExecutarProcFerias.Click();
-
-BtnSalvarProcFerias.Click;
-
-if Aliases.Folha.dlgConfirma_o.Exists then
-begin
- BtnOk := Aliases.Folha.dlgConfirma_o.btnOK;
- BtnOk.ClickButton;
-end;
-  
 ActFechar(CadFormProcCompFerias);
 
 end;

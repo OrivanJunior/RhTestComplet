@@ -59,15 +59,7 @@ CadMovCompProcFeriasDPIdSistemaExp  	          := DDT.DriverByName(nomeDriver).V
 CadParamCompProcFeriasDPInforme  	              := DDT.DriverByName(nomeDriver).Value('INFORME');
 CadParamCompProcFeriasDPReferencia	            := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
 CadParamCompProcFeriasDPPropbasehoras           := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
-end;
-												
-procedure LeDataPoolCompFeriasParam(nomeDriver);
-begin
-CadParamCompProcFeriasDPInforme  	              := DDT.DriverByName(nomeDriver).Value('INFORME');
-CadParamCompProcFeriasDPReferencia	            := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
-CadParamCompProcFeriasDPPropbasehoras           := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
-end;
-												
+end;												
 
 procedure LeDataPoolEmpregadoGrid(nomeDriver);
 begin
