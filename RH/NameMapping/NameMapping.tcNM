@@ -60533,6 +60533,18 @@
 													</Property>
 												</Properties>
 											</Child>
+											<Child Name="btnOk" Key="{6DB15144-CF1B-41C0-BA97-0EF57933F100}">
+												<Image FileName="-1394654980" Left="1279" Top="346" Right="1354" Bottom="371" />
+												<TypeInfo Item0="{AF867CF9-856A-4F65-A123-93470217D8FA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TBitBtn" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="btnOk" />
+													</Property>
+												</Properties>
+											</Child>
 										</Children>
 									</Child>
 								</Children>
@@ -83605,6 +83617,7 @@
 				<Child Name="pnl1" Owner="{B5500A7A-8651-4EFF-B476-BD6C43DB0709}">
 					<Child Name="btnCancelar" Owner="{D75E48BF-B6E1-4A7D-964C-540D886B00F8}" />
 					<Child Name="btnProsseguir" Owner="{87A7BB1E-2F27-44A3-AAF6-34550CB0EB0B}" />
+					<Child Name="btnOk" Owner="{6DB15144-CF1B-41C0-BA97-0EF57933F100}" />
 				</Child>
 			</Child>
 			<Child Name="FRhProcInsereFixoGeral" Owner="{E462BC9B-541F-414E-A11C-C8741F8E1895}">

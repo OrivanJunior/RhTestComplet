@@ -5,6 +5,21 @@ DataPoolComplementoDeFerias,
 ObjComplementoDeFerias,
 VarConsts;
 
+
+procedure FechaTelaInconsistencia();
+var
+BtnFechaIncon;
+begin
+  if Aliases.Folha.FRhInconsistencias.Exists then
+  begin
+  BtnFechaIncon := Aliases.Folha.FRhInconsistencias.pnl1.btnOk;
+  BtnFechaIncon.ClickButton;
+  Delay(2000);
+  ActFechar(CadFormProcCompFerias);
+  end;
+  
+end;
+
 procedure PreencheDatasProc(pathData);
 var
 DDTDados: OleVariant;
@@ -120,7 +135,8 @@ MapCadEmpregadoCompFerias();
 
 CadFormpgEmpCompProcFerias.ActivePageIndex := 0;
 
-//DDTEmpregado := CarregaDDT(pathData, 'Empregado');
+DDTEmpregado := CarregaDDT(pathData, 'Empregado');
+
 
 CadEmpCompProcFeriasbEmpreIncAll.Click;
 
@@ -147,6 +163,8 @@ begin
  BtnOk := Aliases.Folha.dlgConfirma_o.btnOK;
  BtnOk.ClickButton;
 end;
+
+FechaTelaInconsistencia();
 end;
 
 procedure ExecutaProcCompFerias(pathData);

@@ -105,10 +105,6 @@ var
   { Períodos de Férias }
   PeriodoFeriasGrid, PerFerIncBtn, PerFerSaveBtn, 
   PerFerDesfBtn, PerFerExcBtn,
-    
-  FormPerFerias, PerFerEBDiasFaltas, PerFerEBDiasGozo, PerFerEBDataIni, 
-  PerFerEBPossuiAbo, PerFerEBAbonarNo, PerFerEBDiasAbo, 
-  PerFeriasSaveBtn, PerFeriasNotBtn, PerFeriasSairBtn: OleVariant;
   
   { MP - Prorrogação do pgto adicional de férias }
   FeriasMPGrid, FeriasMPIncBtn, FeriasMPSaveBtn, 
@@ -429,22 +425,6 @@ begin
   PerFerExcBtn  := Aliases.Folha.FRhEmpregado.bFeriasExc;
   
   PeriodoFeriasGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsRhFerias.ScrollBox1.gFerias;
-end;
-
-procedure MapFeriasPeriodo();
-begin
-  FormPerFerias      := Aliases.Folha.FRhFerias;
-
-  PerFerEBDiasFaltas := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbFerias.EB_DIASFALTAS;
-  PerFerEBDiasGozo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DIASGOZO;
-  PerFerEBDataIni    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DATAGOZINI;
-  PerFerEBPossuiAbo  := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_POSSUIABONO;
-  PerFerEBAbonarNo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_ABONARNO;
-  PerFerEBDiasAbo    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_DIASABONO;  
-  
-  PerFeriasSaveBtn  := Aliases.Folha.FRhFerias.tbSalvar;
-  PerFeriasNotBtn   := Aliases.Folha.FRhFerias.tbbNotes;
-  PerFeriasSairBtn  := Aliases.Folha.FRhFerias.BSair;
 end;
 
 procedure MapFeriasMP();

@@ -669,3 +669,9 @@ begin
 
   ExpCtbGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
 end;
+
+procedure NextLineGrid();
+var LineZr;
+begin
+ LineZr := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSalarios.sbSalarios.gSalarios.TcxGridSite_.Keys('0');
+end;

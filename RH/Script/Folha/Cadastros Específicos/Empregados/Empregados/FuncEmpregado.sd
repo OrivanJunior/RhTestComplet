@@ -492,6 +492,7 @@ var
   btnOK, TelaAtencao, TelaAviso, BtnSim, BtnNao;
 begin
   i := 0;
+  MapFormGeral(); 
   
   PageCadEmpregado.ActivePageIndex := 11;
   
@@ -618,6 +619,7 @@ begin
   
   DDTHistSituacoes := CarregaDDT(pathData, 'Dados Historicos-Situacoes');
   
+  Delay(2000);
   while not (DDTHistSituacoes.EOF) do
   begin
     loadDPDadosHistSituacoes(DDTHistSituacoes.Name);  
@@ -761,7 +763,7 @@ begin
   PageDadosHistoricos.ActivePageIndex := 5;
   
   MapHistSalarios();
-  
+  Delay(2000);
   DDTHistSalarios := CarregaDDT(pathData, 'Dados Historicos-Salarios');
   
   while not (DDTHistSalarios.EOF) do
@@ -769,6 +771,8 @@ begin
     loadDPDadosHistSalarios(DDTHistSalarios.Name);
   
     SalarioIncBtn.Click();
+    
+    NextLineGrid();
   
     log.Checkpoint('Preenchendo Salários do Empregado');
     VerificaClickPreencheGrid(SalariosGrid, i, 'Data', SalariosDPData); 
@@ -1284,20 +1288,27 @@ begin
       PreencheDadosHistoricos(pathData);
       {InsereEmpregado(pathData);}
       FormCadEmpregado.BSalvar.Click();
+      Delay(2000);
       
       if Aliases.Folha.dlgAten_o2.Exists then
+      begin
       BtnOkCalcComp := Aliases.Folha.dlgAten_o2.btnOK;
       BtnOkCalcComp.ClickButton;
+      end;
       
     end;
-    Delay(5000);
+    Delay(2000);
     
     log.Checkpoint('Fechando Grid de Consulta de Empregados');
-    ActFechar(FormTelaConsultaForm);
-    
+    ActFechar(FormCadEmpregado);
+    //ActFechar(FormTelaConsultaForm);   
     DDTDadosGerais.Next;
   end;
+  
+  ActFechar(FormTelaConsultaForm);
+  
   DDT.CloseDriver(DDTDadosGerais.Name);
+  
 end;
 
 procedure AlteraEmpregado(pathData);
