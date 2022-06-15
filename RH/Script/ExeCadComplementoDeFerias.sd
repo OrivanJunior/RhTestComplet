@@ -159,7 +159,7 @@ AcessaItem(_ModuloFolha, 'Processamentos', 'Complemento de Férias');
 PreencheDatasProc(pathData);
 PreencheProcessoControl(pathData);
 PreencheEmpregado(pathData);
-PreencheMovimento(pathData);
+//PreencheMovimento(pathData);
 ProcessarEvento();  
 
 ActFechar(CadFormProcCompFerias);

@@ -7566,6 +7566,69 @@
 																												<Value Value="TcxGridSite" />
 																											</Property>
 																										</Properties>
+																										<Children>
+																											<Child Name="TcxDateEdit" Key="{A3FC0024-BDEE-44A5-B106-6B41660C4D51}">
+																												<Image FileName="-309667711" Left="65" Top="320" Right="168" Bottom="336" />
+																												<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																												<Properties>
+																													<Property Name="WndClass">
+																														<Value Value="TcxDateEdit" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="TcxCustomDropDownInnerEdit" Key="{9F754503-0C2D-4D8E-AC1E-CFB153AE09CC}">
+																														<Image FileName="-309667711" Left="66" Top="321" Right="168" Bottom="334" />
+																														<TypeInfo Item0="{C62FCB72-91F3-4725-90D6-58F992A5EF7C}" />
+																														<Properties>
+																															<Property Name="WndClass">
+																																<Value Value="TcxCustomDropDownInnerEdit" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																											<Child Name="TcxMaskEdit" Key="{DC56A710-4D92-4CA4-AC63-0D2C15C8A051}">
+																												<Image FileName="147619116" Left="283" Top="312" Right="339" Bottom="328" />
+																												<Properties>
+																													<Property Name="WndClass">
+																														<Value Value="TcxMaskEdit" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="TcxCustomInnerTextEdit" Key="{9C0238E0-C13F-4DAE-AD00-1F7DE64C5B1C}">
+																														<Image FileName="147619116" Left="284" Top="313" Right="339" Bottom="326" />
+																														<TypeInfo Item0="{99FF897C-AEAE-43D6-A99A-89E964B53377}" />
+																														<Properties>
+																															<Property Name="WndClass">
+																																<Value Value="TcxCustomInnerTextEdit" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																											<Child Name="TcxMaskEdit2" Key="{3C9900D5-FBD7-40EB-BCE7-CFC363FEF040}">
+																												<Image FileName="444858585" Left="658" Top="312" Right="761" Bottom="328" />
+																												<Properties>
+																													<Property Name="WndClass">
+																														<Value Value="TcxMaskEdit" />
+																													</Property>
+																													<Property Name="WndCaption">
+																														<Value Value="2" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="TcxCustomInnerTextEdit" Key="{9D97CFC2-491B-47AF-BCA2-B4D0F27749F9}">
+																														<Image FileName="444858585" Left="659" Top="313" Right="761" Bottom="326" />
+																														<TypeInfo Item0="{99FF897C-AEAE-43D6-A99A-89E964B53377}" />
+																														<Properties>
+																															<Property Name="WndClass">
+																																<Value Value="TcxCustomInnerTextEdit" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
 																									</Child>
 																								</Children>
 																							</Child>
@@ -77993,7 +78056,17 @@
 									<Child Name="tsSalarios" Owner="{A646A807-C0DA-4BD4-B8E1-F6A2AE11BB29}">
 										<Child Name="sbSalarios" Owner="{6C41B4E3-5918-4314-82C6-BB5B1767D4FA}">
 											<Child Name="gSalarios" Owner="{6363A6A3-094C-4DAB-ABC9-2452D10E40AF}">
-												<Child Name="TcxGridSite_" Owner="{0E3F9D52-8245-446E-8BC4-1A7EA140D59E}" />
+												<Child Name="TcxGridSite_" Owner="{0E3F9D52-8245-446E-8BC4-1A7EA140D59E}">
+													<Child Name="TcxDateEdit" Owner="{A3FC0024-BDEE-44A5-B106-6B41660C4D51}">
+														<Child Name="TcxCustomDropDownInnerEdit" Owner="{9F754503-0C2D-4D8E-AC1E-CFB153AE09CC}" />
+													</Child>
+													<Child Name="TcxMaskEdit" Owner="{DC56A710-4D92-4CA4-AC63-0D2C15C8A051}">
+														<Child Name="TcxCustomInnerTextEdit" Owner="{9C0238E0-C13F-4DAE-AD00-1F7DE64C5B1C}" />
+													</Child>
+													<Child Name="TcxMaskEdit2" Owner="{3C9900D5-FBD7-40EB-BCE7-CFC363FEF040}">
+														<Child Name="TcxCustomInnerTextEdit" Owner="{9D97CFC2-491B-47AF-BCA2-B4D0F27749F9}" />
+													</Child>
+												</Child>
 											</Child>
 										</Child>
 									</Child>

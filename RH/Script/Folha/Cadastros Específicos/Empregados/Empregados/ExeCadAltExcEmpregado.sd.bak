@@ -1,5 +1,5 @@
 ﻿uses
-  VarConsts, FuncEmpregado, CommonsAll,VarConsts,CommonsObj, DataPoolCadEmpregado;
+  VarConsts, FuncEmpregado, CommonsAll, DataPoolCadEmpregado;
 
 {Script para executar o Cadastro de Empregados
  Módulo: Padrao
@@ -12,9 +12,11 @@ begin
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
   
   log.Checkpoint('Filtro de empregados, sem parâmetros');
-  FiltraEmpregado();
+  FiltraEmpregado(pathData);
   
   CadastraEmpregado(pathData);
+  
+  
   
 end;
 
