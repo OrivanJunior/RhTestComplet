@@ -2,11 +2,8 @@
   DataPoolCadEmpregado, ObjCadEmpregado, VarConsts, CommonsAll, CommonsObj;
 
 procedure FiltraEmpregado();
-
 begin 
-
   MapFiltroEmpregados();
-  
   log.Checkpoint('Filtrando Empregado');
   FiltroConsFormCBSelCons.Keys('[Enter]');
   FiltroConsFormCBCodigo.SelectItem('(Ignorar)');
@@ -417,8 +414,6 @@ begin
   
   PageFerias.ActivePageIndex := 0;
   
-  Delay(2000);
-  
   MapFeriasPeriodosAquisitivos();
   
   DDTPeriodoAquisitivo := CarregaDDT(pathData, 'Ferias-Periodos Aquisitivos');
@@ -498,8 +493,6 @@ var
 begin
   i := 0;
   
-  MapFormGeral();
-  
   PageCadEmpregado.ActivePageIndex := 11;
   
   MapPageFerias();
@@ -512,9 +505,9 @@ begin
   
   while not (DDTFeriasPeriodo.EOF) do
   begin
-    //loadDPFeriasPeriodo(DDTFeriasPeriodo.Name);
+    loadDPFeriasPeriodo(DDTFeriasPeriodo.Name);
   
-    //PerFerIncBtn.Click();
+    PerFerIncBtn.Click();
   
     MapFeriasPeriodo();
   
@@ -524,25 +517,25 @@ begin
     VerificaInsere(PerFerEBPossuiAbo, PerFeriasDPDtGozoFin);
     VerificaInsere(PerFerEBAbonarNo, PerFeriasDPPossuiAbo);
     VerificaInsere(PerFerEBDiasAbo, PerFeriasDPDiasAbono);
-    //PerFeriasSaveBtn.Click();
+    PerFeriasSaveBtn.Click();
     
-//    if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
-//    begin
-//      TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
-//    
-//      BtnSim := TelaAviso.Window('Button', '&Sim', 1);
-//      BtnNao := TelaAviso.Window('Button', '&Não', 2);
-//    
-//      BtnSim.Click();
-//    end;
-//  
-//    if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
-//    begin
-//      TelaAtencao := Aliases.Folha.Window('#32770', 'Atenção!', 1);
-//    
-//      btnOK := TelaAtencao.Window('Button', 'OK', 1);
-//      btnOK.Click();
-//    end;
+    if (Aliases.Folha.WaitWindow('#32770', 'Aviso', 1, 2000).Exists) then
+    begin
+      TelaAviso := Aliases.Folha.Window('#32770', 'Aviso', 1);
+    
+      BtnSim := TelaAviso.Window('Button', '&Sim', 1);
+      BtnNao := TelaAviso.Window('Button', '&Não', 2);
+    
+      BtnSim.Click();
+    end;
+  
+    if (Aliases.Folha.WaitWindow('#32770', 'Atenção!', 1, 2000).Exists) then
+    begin
+      TelaAtencao := Aliases.Folha.Window('#32770', 'Atenção!', 1);
+    
+      btnOK := TelaAtencao.Window('Button', 'OK', 1);
+      btnOK.Click();
+    end;
   DDTFeriasPeriodo.Next;
   end;
   DDT.CloseDriver(DDTFeriasPeriodo.Name);
@@ -619,15 +612,7 @@ var
 begin
   i := 0;
   
-  MapFormGeral();
-  
-  PageCadEmpregado.ActivePageIndex := 12;
-  
-  MapPageDadosHist();
-  
   PageDadosHistoricos.ActivePageIndex := 1;
-  
-  Delay(3000);
   
   MapHistSituacoes();
   
@@ -637,48 +622,33 @@ begin
   begin
     loadDPDadosHistSituacoes(DDTHistSituacoes.Name);  
 
-    //SituaIncBtn.Click();
+    SituaIncBtn.Click();
   
     log.Checkpoint('Preenchendo Situações do Empregado');
-
-//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data', SituaDPData);
-//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Situação', DPSituacao);
-//    SituacoesGrid.Keys('[Enter]');
-//    MapTelaAviso();
-//    if (TelaAvisoBen.Exists) then
-//    BtnSim.Keys('[Enter]');
-//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Causa', SituaDPCausa); 
-//    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Atestado', SituaDPDiasAt); 
-//    SituacoesGrid.Keys('[Enter]');
-    //ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data', SituaDPData);
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Situação', DPSituacao);
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Causa', SituaDPCausa); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Atestado', SituaDPDiasAt); 
+    ClickColuna(SituacoesGrid, 0, 'Mais Informações'); 
   
     MapTelaInfosAdicionaisSitua();
-    
-    VerificaConsultaF3Insere(_ModuloFolha,InfAdcCodCID,InfAdcDPCodCID);
-    VerificaConsultaF3Insere(_ModuloFolha,InfAdcIdMedAt,InfAdcDPIdMedAt);
-    VerificaInsere(InfAdcNrCertObito,InfAdcDPNrCertObito);
-    VerificaInsere(InfAdcTpAcidTran,InfAdcDPTpAcidTran);
-    VerificaInsere(InfAdcInfoMesmoMtv,InfAdcDPInfoMesmoMtv);
-    
-    //incluir informações
-    ActSalvar(FormInfosAdicionais);
     ActFechar(FormInfosAdicionais);
   
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Aviso', SituaDPDtAviso); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
-   //// VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
-   //VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
-   // VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Ind. Cump. Aviso', SituaDPIndCump); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Cumprido', SituaDPDiasCump); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dias Aviso Indenizado', SituaDPDiasAvisoInd); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Projeção Aviso', SituaDPDtProjAv); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS Em GRRF?', SituaDPFGTSEmGRRF); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Indicativo de Pensão', SituaDPIndPensao); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Pensão', SituaDPVlrPensao); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Percentual Pensão', SituaDPPercPensao); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Dissídio', SituaDPDissidio); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Data Dissídio', SituaDPDtDissid); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Valor Dissídio', SituaDPVlrDissid); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Repor Vaga?', SituaDPRepVaga); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
+    VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
   
     SituaSaveBtn.Click();
     
@@ -686,7 +656,6 @@ begin
     
     DDTHistSituacoes.Next;
   end;
-//ActFechar(FormInfosAdicionais);
   DDT.CloseDriver(DDTHistSituacoes.Name);
 end;
 
@@ -785,14 +754,9 @@ end;
 
 procedure PreencheDadosHistSalarios(pathData);
 var
-  BtnConfirmarCalc;
   DDTHistSalarios, i: OleVariant;
 begin
   i := 0;
-  
-  MapFormGeral();
-  
-  PageCadEmpregado.ActivePageIndex := 12;
   
   PageDadosHistoricos.ActivePageIndex := 5;
   
@@ -803,12 +767,9 @@ begin
   while not (DDTHistSalarios.EOF) do
   begin
     loadDPDadosHistSalarios(DDTHistSalarios.Name);
-    
-    SalarioIncBtn();
-    //SalarioIncBtn.Click();  
-    
-    NextLineGrid();
-    
+  
+    SalarioIncBtn.Click();
+  
     log.Checkpoint('Preenchendo Salários do Empregado');
     VerificaClickPreencheGrid(SalariosGrid, i, 'Data', SalariosDPData); 
     VerificaClickPreencheGrid(SalariosGrid, i, 'Moeda', SalariosDPMoeda); 
@@ -817,31 +778,20 @@ begin
     VerificaClickPreencheGrid(SalariosGrid, i, 'Data Retroativa', SalariosDPDtRetro); 
     VerificaClickPreencheGrid(SalariosGrid, i, 'Valor', SalariosDPValor); 
     VerificaClickPreencheGrid(SalariosGrid, i, 'Descrição da Alteração ou do Instrumento que a Gerou', SalariosDPDescAltInst); 
-    
-    //ClickColuna(SalariosGrid, i, 'Informações Adicionais'); 
+    ClickColuna(SalariosGrid, i, 'Informações Adicionais'); 
   
-//    MapHistSalariosInfosAdc(); 
-
-//    if Assigned(FormInfosAdc) then
-//    begin
-//      VerificaInsere(MmoInfosAdc, SalariosDPInfosAdc);
-//      BtnOkFormInfoAdc.Click();
-//    end;
+    MapHistSalariosInfosAdc(); 
+  
+    if Assigned(FormInfosAdc) then
+    begin
+      VerificaInsere(MmoInfosAdc, SalariosDPInfosAdc);
+      BtnOkFormInfoAdc.Click();
+    end;
     
     Inc(i);
     
-    SalarioSaveBtn.Click;
-    
     DDTHistSalarios.Next;
   end;
-  
-//  MapFormGeral();
-//
-//  BtnSalvEmpreGeral.Click;
-
-  SalvarEmpregado();  
-  
-  ActFechar(FormCadEmpregado);
   DDT.CloseDriver(DDTHistSalarios.Name);
 end;
 
@@ -944,9 +894,7 @@ begin
   //FormCadEmpregado.testeCompleteAbreHistorico('tsEst');
   //PageDadosHistoricos.ActivePageIndex := 8;
   PageDadosHistoricos.Click(649, 9);
-  
-  Delay(2000);
-  
+
   MapDadosHistEstabilidade();
   
   DDTHistEstabilidade := CarregaDDT(pathData, 'Dados Historicos-Estabilidade');
@@ -1190,15 +1138,15 @@ begin
   MapPageDadosHist();
   
   log.Checkpoint('Preenchendo Dados Históricos do Empregado');
-  //PreencheDadosHistFuncoes(pathData);
+  PreencheDadosHistFuncoes(pathData);
   PreencheDadosHistSituacoes(pathData);
-  //PreencheDadosHistLocais(pathData);
-  //PreencheDadosHistSindicato(pathData);
-  //PreencheDadosHistHorarios(pathData);
-  //PreencheDadosHistSalarios(pathData);
+  PreencheDadosHistLocais(pathData);
+  PreencheDadosHistSindicato(pathData);
+  PreencheDadosHistHorarios(pathData);
+  PreencheDadosHistSalarios(pathData);
   //PreencheDadosHistAvisoPrevio(pathData);
   //PreencheDadosHistAdvertencias(pathData);
-  PreencheDadosHistEstabilidade(pathData);
+  //PreencheDadosHistEstabilidade(pathData);
   //PreencheDadosHistSucessao(pathData);
   //PreencheDadosHistProcessos(pathData);
   //PreencheDadosHistCIPA(pathData);
@@ -1296,21 +1244,16 @@ begin
   begin
     MapFormGeral();
         
-    //log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
-    log.Checkpoint('Confere períodos aquisitivos!');
-    //InsereDados(pathData);
-    PreencheFeriasPeriodoAquisitivo(pathData);
-    log.Checkpoint('Confere Dados Históricos!');
-    PreencheDadosHistoricos(pathData);
+    log.Checkpoint('Cadastro de Empregados, com as informações obrigatórias');
+    InsereDados(pathData);        
       
-     
-    //SalvaEmpregado();
+    SalvaEmpregado();
         
     log.Checkpoint('Fechando Formulário de Cadastro de Empregados');
-    
     ActFechar(FormCadEmpregado);
   end;
 end;
+
 
 procedure CadastraEmpregado(pathData);
 var
@@ -1332,17 +1275,11 @@ begin
     MapGridConsulta(_ModuloFolha);
     
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Pessoa', DadosGeraisDPIdPess);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
-    ActConsulta(FormTelaConsultaForm);
-    //ActIncluir(FormTelaConsultaForm);
-    MapFormGeral();
-    
-    PreencheFeriasPeriodo(pathData); 
-    PreencheDadosHistSituacoes(pathData); 
-    PreencheDadosHistSalarios(pathData);
-    
+      ActIncluir(FormTelaConsultaForm);
       
+      InsereEmpregado(pathData);
     end;
     Delay(5000);
     

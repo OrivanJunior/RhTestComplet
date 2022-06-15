@@ -8,7 +8,7 @@ var
   FiltroConsForm, FiltroConsFormCBSelCons, FiltroConsFormCBCodigo, btnOkFiltroConsForm, 
   btnVazioFiltroConsForm, btnCancelFiltroConsForm,
   
-  FormCadEmpregado, PageCadEmpregado, BtnSalvEmpreGeral,
+  FormCadEmpregado, PageCadEmpregado,
   
   { Dados Gerais}
   DadosGeraisEstab, DadosGeraisIdEmp, DadosGeraisIdPess,
@@ -105,6 +105,10 @@ var
   { Períodos de Férias }
   PeriodoFeriasGrid, PerFerIncBtn, PerFerSaveBtn, 
   PerFerDesfBtn, PerFerExcBtn,
+    
+  FormPerFerias, PerFerEBDiasFaltas, PerFerEBDiasGozo, PerFerEBDataIni, 
+  PerFerEBPossuiAbo, PerFerEBAbonarNo, PerFerEBDiasAbo, 
+  PerFeriasSaveBtn, PerFeriasNotBtn, PerFeriasSairBtn: OleVariant;
   
   { MP - Prorrogação do pgto adicional de férias }
   FeriasMPGrid, FeriasMPIncBtn, FeriasMPSaveBtn, 
@@ -185,14 +189,10 @@ var
   { Mensagem Kit Admissional }
   TelaAtencao, BtnNo, BtnYes: OleVariant;
   
-  {btns aviso}
-  TelaAvisoBen, BtnSim, BtnNao: OleVariant;    
-  
 procedure MapFormGeral();
 begin
   FormCadEmpregado := Aliases.Folha.FRhEmpregado;
   PageCadEmpregado := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad;
-  BtnSalvEmpreGeral:= Aliases.Folha.FRhEmpregado.BSalvar;
 end;
 
 procedure MapFiltroEmpregados();
@@ -429,6 +429,22 @@ begin
   PerFerExcBtn  := Aliases.Folha.FRhEmpregado.bFeriasExc;
   
   PeriodoFeriasGrid := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsFerias.pgFerias.tsRhFerias.ScrollBox1.gFerias;
+end;
+
+procedure MapFeriasPeriodo();
+begin
+  FormPerFerias      := Aliases.Folha.FRhFerias;
+
+  PerFerEBDiasFaltas := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbFerias.EB_DIASFALTAS;
+  PerFerEBDiasGozo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DIASGOZO;
+  PerFerEBDataIni    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbGozoFerias.EB_DATAGOZINI;
+  PerFerEBPossuiAbo  := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_POSSUIABONO;
+  PerFerEBAbonarNo   := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_ABONARNO;
+  PerFerEBDiasAbo    := Aliases.Folha.FRhFerias.pnPrinc.sbHistReajuste.gbAbonoFerias.EB_DIASABONO;  
+  
+  PerFeriasSaveBtn  := Aliases.Folha.FRhFerias.tbSalvar;
+  PerFeriasNotBtn   := Aliases.Folha.FRhFerias.tbbNotes;
+  PerFeriasSairBtn  := Aliases.Folha.FRhFerias.BSair;
 end;
 
 procedure MapFeriasMP();
@@ -673,30 +689,3 @@ begin
 
   ExpCtbGrid    := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsRhHistExpCont.gRhHistExpCont;
 end;
-
-procedure MapTelaAviso();
-begin
-  TelaAvisoBen := Aliases.Folha.dlgAten_o2;
-  BtnSim       := Aliases.Folha.dlgAten_o2.btnSim;
-  BtnNao       := Aliases.Folha.dlgAten_o2.btnN_o;
-end;
-
-
-procedure NextLineGrid();
-var LineZr;
-begin
- LineZr := Aliases.Folha.FRhEmpregado.Page.TabNormal.pageCad.tsDadosHistoricos.pgDadosHistoricos.tsSalarios.sbSalarios.gSalarios.TcxGridSite_.Keys('0');
-end;
-
-
-procedure SalvarEmpregado();
-begin
-  Aliases.Folha.FRhEmpregado.BSalvar.Click();
-  
-  if Aliases.Folha.dlgAten_o2.Exists then
-  begin
-  BtnConfirmarCalc := Aliases.Folha.dlgAten_o2.btnOK;
-  BtnConfirmarCalc.ClickButton;
-  end;
-end;
-

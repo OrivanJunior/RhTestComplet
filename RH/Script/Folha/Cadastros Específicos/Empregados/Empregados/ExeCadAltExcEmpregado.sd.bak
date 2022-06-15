@@ -12,12 +12,9 @@ begin
   AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Empregados');
   
   log.Checkpoint('Filtro de empregados, sem parâmetros');
-  FiltraEmpregado(pathData);
+  FiltraEmpregado();
   
   CadastraEmpregado(pathData);
-  
-  
-  
 end;
 
 procedure ExecutaAltEmpregado(pathData);
@@ -41,6 +38,4 @@ begin
   
   ExcluiEmpregados(pathData);
 end;
-
-
 

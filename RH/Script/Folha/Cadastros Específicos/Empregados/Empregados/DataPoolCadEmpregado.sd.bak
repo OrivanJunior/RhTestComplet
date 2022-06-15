@@ -95,9 +95,6 @@ var
   SituaDPIndPensao, SituaDPVlrPensao, SituaDPPercPensao, SituaDPDissidio, SituaDPDtDissid,
   SituaDPVlrDissid, SituaDPRepVaga, SituaDPFGTSEmAtr, SituaDPRescFech: OleVariant;
   
-  {MIS INFO}
-  InfAdcDPCodCID,InfAdcDPIdMedAt,InfAdcDPNrCertObito,InfAdcDPTpAcidTran,InfAdcDPInfoMesmoMtv :OleVariant;
-  
   { Locais }
   LocaisDPData, LocaisDPLocal, LocaisDPDescComp: OleVariant;
   
@@ -361,14 +358,7 @@ begin
   DPSituacao          := DDT.DriverByName(nomeDriver).Value('SITUACAO');
   SituaDPCausa        := DDT.DriverByName(nomeDriver).Value('CAUSA'); 
   SituaDPDiasAt       := DDT.DriverByName(nomeDriver).Value('DIAS ATESTADO'); 
-  SituaDPMaisInfo     := DDT.DriverByName(nomeDriver).Value('MAIS INFOS');
-  //a partir daqui
-  InfAdcDPCodCID      := DDT.DriverByName(nomeDriver).Value('CODCID');
-  InfAdcDPIdMedAt     := DDT.DriverByName(nomeDriver).Value('MEDICO ATEST');
-  InfAdcDPNrCertObito := DDT.DriverByName(nomeDriver).Value('CERT OBT');
-  InfAdcDPTpAcidTran  := DDT.DriverByName(nomeDriver).Value('ACIDENTE TRANSITO');
-  InfAdcDPInfoMesmoMtv:= DDT.DriverByName(nomeDriver).Value('MESMO MOTIVO');
-  //até aqui
+  SituaDPMaisInfo     := DDT.DriverByName(nomeDriver).Value('MAIS INFOS'); 
   SituaDPDtAviso      := DDT.DriverByName(nomeDriver).Value('DATA AVISO'); 
   SituaDPIndCump      := DDT.DriverByName(nomeDriver).Value('IND CUMP AVISO'); 
   SituaDPDiasCump     := DDT.DriverByName(nomeDriver).Value('DIAS CUMPRIDOS'); 

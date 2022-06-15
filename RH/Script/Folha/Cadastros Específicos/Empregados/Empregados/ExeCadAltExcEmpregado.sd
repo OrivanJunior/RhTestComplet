@@ -15,9 +15,6 @@ begin
   FiltraEmpregado();
   
   CadastraEmpregado(pathData);
-  
-  
-  
 end;
 
 procedure ExecutaAltEmpregado(pathData);
@@ -41,6 +38,4 @@ begin
   
   ExcluiEmpregados(pathData);
 end;
-
-
 
