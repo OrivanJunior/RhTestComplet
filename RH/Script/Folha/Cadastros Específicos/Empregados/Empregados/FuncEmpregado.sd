@@ -507,7 +507,7 @@ begin
   begin
     loadDPFeriasPeriodo(DDTFeriasPeriodo.Name);
   
-    PerFerIncBtn.Click();
+    {PerFerIncBtn.Click();
   
     MapFeriasPeriodo();
   
@@ -535,7 +535,7 @@ begin
     
       btnOK := TelaAtencao.Window('Button', 'OK', 1);
       btnOK.Click();
-    end;
+    end;}
   DDTFeriasPeriodo.Next;
   end;
   DDT.CloseDriver(DDTFeriasPeriodo.Name);
@@ -622,7 +622,7 @@ begin
   begin
     loadDPDadosHistSituacoes(DDTHistSituacoes.Name);  
 
-    SituaIncBtn.Click();
+    {SituaIncBtn.Click();
   
     log.Checkpoint('Preenchendo Situações do Empregado');
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Data', SituaDPData);
@@ -650,7 +650,7 @@ begin
     VerificaClickPreencheGrid(SituacoesGrid, i, 'FGTS em Atraso', SituaDPFGTSEmAtr); 
     VerificaClickPreencheGrid(SituacoesGrid, i, 'Rescisão Fechada?', SituaDPRescFech);   
   
-    SituaSaveBtn.Click();
+    SituaSaveBtn.Click();}
     
     Inc(i);
     
@@ -1138,11 +1138,11 @@ begin
   MapPageDadosHist();
   
   log.Checkpoint('Preenchendo Dados Históricos do Empregado');
-  PreencheDadosHistFuncoes(pathData);
+//  PreencheDadosHistFuncoes(pathData);
   PreencheDadosHistSituacoes(pathData);
-  PreencheDadosHistLocais(pathData);
-  PreencheDadosHistSindicato(pathData);
-  PreencheDadosHistHorarios(pathData);
+//  PreencheDadosHistLocais(pathData);
+//  PreencheDadosHistSindicato(pathData);
+//  PreencheDadosHistHorarios(pathData);
   PreencheDadosHistSalarios(pathData);
   //PreencheDadosHistAvisoPrevio(pathData);
   //PreencheDadosHistAdvertencias(pathData);
@@ -1257,6 +1257,7 @@ end;
 
 procedure CadastraEmpregado(pathData);
 var
+  BtnOkCalcComp;
   DDTDadosGerais: OleVariant;
 begin
   DDTDadosGerais := CarregaDDT(pathData, 'Gerais');
@@ -1275,11 +1276,19 @@ begin
     MapGridConsulta(_ModuloFolha);
     
     FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Pessoa', DadosGeraisDPIdPess);
-    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     begin
-      ActIncluir(FormTelaConsultaForm);
+      ActConsulta(FormTelaConsultaForm);
+     {ActIncluir(FormTelaConsultaForm);}
+      PreencheFeriasPeriodo(pathData);
+      PreencheDadosHistoricos(pathData);
+      {InsereEmpregado(pathData);}
+      FormCadEmpregado.BSalvar.Click();
       
-      InsereEmpregado(pathData);
+      if Aliases.Folha.dlgAten_o2.Exists then
+      BtnOkCalcComp := Aliases.Folha.dlgAten_o2.btnOK;
+      BtnOkCalcComp.ClickButton;
+      
     end;
     Delay(5000);
     
