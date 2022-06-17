@@ -1,1 +1,44 @@
-﻿
+﻿var
+FormCadBase,
+CadEBIDbase,
+CadEBDescricao,
+CadEBTipoAcu,
+CadEBIsBaseIrrf,
+                
+BtnSalvarBase,
+BtnFecharBase,
+BtnSairBase,
+BtnExcluirBase,
+
+FormFiltroBase,
+FiltroBaseConsulta,
+FiltroBaseConsultaCb1,
+FiltroBaseConsultaItem,
+BtnFiltroBaseOK,
+BtnFiltroBaseCancelar  : OleVariant;
+
+procedure MapCadBase();
+begin
+FormCadBase           := Aliases.Folha.FFormPadraoRHEVEBASE;
+CadEBIDbase				    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDBASE;
+CadEBDescricao  	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadEBTipoAcu    	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOACU;
+CadEBIsBaseIrrf 		  := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ISBASEIRRF;
+
+BtnSalvarBase         :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSalvar;
+BtnFecharBase         :=  Aliases.Folha.FFormErros.Close;
+BtnSairBase           :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSair;
+BtnExcluirBase        :=  Aliases.Folha.FFormPadraoRHEVEBASE.BExcluir;
+end;
+
+procedure FiltroBase();
+begin
+FormFiltroBase        := Aliases.Folha.FFiltroConsultaCDS;
+FiltroBaseConsulta    := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroBaseConsultaCb1 := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroBaseConsultaItem:= Aliases.Folha.FFiltroConsultaCDS.PanComp.Item;
+BtnFiltroBaseOK       := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnFiltroBaseCancelar := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+end; 
+

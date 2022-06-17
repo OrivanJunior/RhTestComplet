@@ -54,6 +54,7 @@ begin
     end;
   end;
   ActFechar(FormTelaConsultaForm); 
+  DDT.CloseDriver(DDTContadores.Name);
 end;
 
 procedure ExeAlteraContadores(pathData);
@@ -85,6 +86,7 @@ begin
     end;
   end;  
   ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTContadores.Name);
 end;
 
 procedure ExeExcluirContadores(pathData);
@@ -109,4 +111,5 @@ begin
     ActFechar(FormCadContadores);
   end;  
   ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTContadores.Name);
 end;

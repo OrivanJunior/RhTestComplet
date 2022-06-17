@@ -1,1 +1,63 @@
-﻿
+﻿uses CommonsAll,CommonsObj,ObjCadBases,DataPoolCadBases,VarConsts;
+
+procedure FiltraSelBase();
+begin
+FiltroBase();
+FiltroBaseConsulta.SetText('Base por Código');
+FiltroBaseConsultaCb1.SetText('(Ignorar)');
+BtnFiltroBaseOK.ClickButton;
+end;
+
+procedure PreencheBase();
+begin
+MapCadBase();
+
+VerificaInsere(CadEBIDbase,CadDPIDbase);
+VerificaInsere(CadEBDescricao,CadDPDescricao);
+VerificaInsere(CadEBTipoAcu,CadDPTipoAcu);
+VerificaInsere(CadEBIsBaseIrrf,CadDPIsBaseIrrf);
+
+end;
+
+procedure CadastraBase(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
+
+FiltraSelBase();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadBase(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadBase();
+  
+  PreencheBase();
+  
+  ActSalvar(FormCadBase);
+  
+  DDTCadastrar.Next;
+  end;
+  ActFechar(FormCadBase);
+end;
+
+end;
+procedure ExcluirBase(pathData);
+begin
+  
+end;

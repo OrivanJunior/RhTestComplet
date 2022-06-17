@@ -61407,6 +61407,41 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="BExcluir" Key="{C540DA30-FC16-4D74-8498-7BBF81A4C8A2}">
+										<Image FileName="-1171103277" Left="149" Top="25" Right="176" Bottom="51" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BExcluir" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgEventosBasesDeC_lculo" Key="{04681A3D-739F-41A3-A338-713EC955C358}">
+								<Image FileName="1723042434" Left="0" Top="0" Right="209" Bottom="149" />
+								<TypeInfo Item0="{0C05312A-9E71-447A-AD6E-32060C909632}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnSim" Key="{2EF804F4-5CF3-422C-8C49-C303F7B7081A}">
+										<Image FileName="1492775526" Left="33" Top="114" Right="108" Bottom="137" />
+										<TypeInfo Item0="{3B2AC7BA-9153-41C8-8C92-5649CBCCE866}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Sim" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 						</Children>
@@ -83837,6 +83872,10 @@
 				</Child>
 				<Child Name="BSalvar" Owner="{4FBFD108-8D0B-4F00-BF06-0A5E6232B544}" />
 				<Child Name="BSair" Owner="{37B6E525-F187-4C8D-ADA6-1C3B30792DD0}" />
+				<Child Name="BExcluir" Owner="{C540DA30-FC16-4D74-8498-7BBF81A4C8A2}" />
+			</Child>
+			<Child Name="dlgEventosBasesDeC_lculo" Owner="{04681A3D-739F-41A3-A338-713EC955C358}">
+				<Child Name="btnSim" Owner="{2EF804F4-5CF3-422C-8C49-C303F7B7081A}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

@@ -7,7 +7,7 @@ var
   FormCadContadoresDPIdContador, FormCadContadoresDPIdPess, 
   FormCadContadoresDPTitulo, FormCadContadoresDPCrc: OleVariant;
 
-procedure LeDataPoolCadContadores(pathData, tab);
+procedure LeDataPoolCadContadores(nomeDriver);
 begin
   FormCadContadoresDPIdContador := DDT.DriverByName(nomeDriver).Value('IDCONTADOR');
   FormCadContadoresDPIdPess     := DDT.DriverByName(nomeDriver).Value('IDPESS');

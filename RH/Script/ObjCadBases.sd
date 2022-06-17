@@ -1,10 +1,42 @@
-﻿procedure Test1;
+﻿var
+FormCadBase,
+CadEBIDbase,
+CadEBDescricao,
+CadEBTipoAcu,
+CadEBIsBaseIrrf,
+                
+BtnSalvarBase,
+BtnSairBase,
+BtnExcluirBase,
+
+FormFiltroBase,
+FiltroBaseConsulta,
+FiltroBaseConsultaCb1,
+FiltroBaseConsultaItem,
+BtnFiltroBaseOK,
+BtnFiltroBaseCancelar  : OleVariant;
+
+procedure MapCadBase();
 begin
-  Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDBASE.Click(23, 11);
-  Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(27, 10);
-  Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOACU.DblClick(95, 16);
-  Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ISBASEIRRF.DblClick(34, 9);
-  Aliases.Folha.FFormPadraoRHEVEBASE.BSalvar.Click(13, 12);
-  Aliases.Folha.FFormErros.Close;
-  Aliases.Folha.FFormPadraoRHEVEBASE.BSair.Click(14, 8);
+FormCadBase           := Aliases.Folha.FFormPadraoRHEVEBASE;
+CadEBIDbase				    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDBASE;
+CadEBDescricao  	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadEBTipoAcu    	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOACU;
+CadEBIsBaseIrrf 		  := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ISBASEIRRF;
+
+BtnSalvarBase         :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSalvar;
+BtnSairBase           :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSair;
+BtnExcluirBase        :=  Aliases.Folha.FFormPadraoRHEVEBASE.BExcluir;
 end;
+
+procedure FiltroBase();
+begin
+FormFiltroBase        := Aliases.Folha.FFiltroConsultaCDS;
+FiltroBaseConsulta    := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroBaseConsultaCb1 := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroBaseConsultaItem:= Aliases.Folha.FFiltroConsultaCDS.PanComp.Item;
+BtnFiltroBaseOK       := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnFiltroBaseCancelar := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+end; 
+

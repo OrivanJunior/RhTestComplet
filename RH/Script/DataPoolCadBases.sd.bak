@@ -1,0 +1,13 @@
+﻿var
+CadDPIDbase,
+CadDPDescricao,
+CadDPTipoAcu,
+CadDPIsBaseIrrf : OleVariant;
+
+procedure LeDataPoolCadBase();
+begin
+CadDPIDbase				      := DDT.DriverByName(nomeDriver).Value('IDBASE');
+CadDPDescricao          := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadDPTipoAcu            := DDT.DriverByName(nomeDriver).Value('TIPOACU');
+CadDPIsBaseIrrf         := DDT.DriverByName(nomeDriver).Value('ISBASEIRRF');
+end;
