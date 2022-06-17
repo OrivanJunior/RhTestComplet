@@ -328,21 +328,57 @@
 							<child name="DatapoolCadEventos" key="{FCE47949-08B3-4BB0-9767-6209BFD9DC6A}" path="DatapoolCadEventos.sd" />
 							<child name="ObjCadEventos" key="{B0959CD1-6C7A-4011-8511-E8A5A1B06EAA}" path="ObjCadEventos.sd" />
 						</folder>
-						<folder name="Tipos" />
+						<folder name="Tipos">
+							<child name="ExeCadTipos" key="{215CBA77-EA1B-4A7A-B3AB-D3AD1576C6F9}" path="ExeCadTipos.sd" />
+							<child name="ObjCadTipos" key="{60D4BBE3-04F0-4F52-A733-CC95C7CC0087}" path="ObjCadTipos.sd" />
+							<child name="DataPoolCadTipos" key="{E1000D9C-5035-4782-B7FE-BE92D6B13436}" path="DataPoolCadTipos.sd" />
+						</folder>
 						<folder name="Bases">
 							<child name="ExeCadBases" key="{3DD4F720-56A2-4E70-BCA4-3E4387A89E12}" path="ExeCadBases.sd" />
 							<child name="ObjCadBases" key="{BF4638BA-647C-47E4-B11B-1DE2C08F99D6}" path="ObjCadBases.sd" />
 							<child name="DataPoolCadBases" key="{822786A1-F344-4BA1-97C5-EBAD0326CE4B}" path="DataPoolCadBases.sd" />
 						</folder>
-						<folder name="Valores sobre faixas" />
-						<folder name="Cálculos" />
-						<folder name="Cálculos - Parâmetros" />
-						<folder name="Conf.Eventos Para MANAD" />
+						<folder name="Valores sobre faixas">
+							<child name="ExeCadValorFaixas" key="{F80E5BC6-B354-4499-BB45-D8E66ABE767E}" path="ExeCadValorFaixas.sd" />
+							<child name="ObjCadValorFaixas" key="{7D8FBA4E-9E25-46E8-9E51-F8815157A7B4}" path="ObjCadValorFaixas.sd" />
+							<child name="DataPoolCadValorFaixas" key="{81398E5B-9648-4BB3-80EB-B29F49E5682E}" path="DataPoolCadValorFaixas.sd" />
+						</folder>
+						<folder name="Cálculos">
+							<child name="ExeCadCalculos" key="{2FD01253-F306-43B4-AC14-C4C065085ABB}" path="ExeCadCalculos.sd" />
+							<child name="ObjCadCalculos" key="{DC3B269C-2428-4E7D-8D96-1351B34DB227}" path="ObjCadCalculos.sd" />
+							<child name="DataPoolCadCalculos" key="{E2FECA34-9EA6-4CEA-BE5D-05CBD11D90DE}" path="DataPoolCadCalculos.sd" />
+						</folder>
+						<folder name="Cálculos - Parâmetros">
+							<child name="ExeCadCalcParam" key="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}" path="ExeCadCalcParam.sd" />
+							<child name="ObjCadCalcParam" key="{715C104A-21B1-4F4C-A0F3-993A56F75BB0}" path="ObjCadCalcParam.sd" />
+							<child name="DataPoolCadCalcParam" key="{4F407AFB-41C2-469E-963D-81E446727F03}" path="DataPoolCadCalcParam.sd" />
+						</folder>
+						<folder name="Conf.Eventos Para MANAD">
+							<child name="ExeCadEventosManad" key="{9E8994D7-3CF8-42AC-82E8-B7C51B0944EF}" path="ExeCadEventosManad.sd" />
+							<child name="ObjCadEventosManad" key="{A451F598-A39E-4306-B8A7-5BCC9EB4EDB0}" path="ObjCadEventosManad.sd" />
+							<child name="DataPoolCadEventosManad" key="{77C711A2-EF37-43FF-AB2F-CF9F65709E68}" path="DataPoolCadEventosManad.sd" />
+						</folder>
 						<folder name="eSocial">
-							<folder name="Incid.Trib. da Rubrica INSS" />
-							<folder name="Incid.Trib. da Rubrica IRRF" />
-							<folder name="Incid.Trib. da Rubrica FGTS" />
-							<folder name="Incid.Trib. da Rubrica Cont. Sind." />
+							<folder name="Incid.Trib. da Rubrica INSS">
+								<child name="ExeCadIncidTribInss" key="{48509F2E-F160-4F85-B307-23A7C5BBAC6E}" path="ExeCadIncidTribInss.sd" />
+								<child name="ObjCadIncidTribInss" key="{9BD8A35E-9A48-43EF-B68F-BED134D4C312}" path="ObjCadIncidTribInss.sd" />
+								<child name="DataPoolCadIncidTribInss" key="{55AC08B9-09E9-4ABC-A3C7-005630A24116}" path="DataPoolCadIncidTribInss.sd" />
+							</folder>
+							<folder name="Incid.Trib. da Rubrica IRRF">
+								<child name="ExeCadIncidTribIrrf" key="{3B2D5081-55BB-4E6A-A8CB-B4824878A930}" path="ExeCadIncidTribIrrf.sd" />
+								<child name="ObjCadIncidTribIrrf" key="{9B9FBF03-B8A0-49B2-BAE8-04D597D44E0E}" path="ObjCadIncidTribIrrf.sd" />
+								<child name="DataPoolCadIncidTribIrrf" key="{46A8488F-1026-43BC-B02A-80452C51B98C}" path="DataPoolCadIncidTribIrrf.sd" />
+							</folder>
+							<folder name="Incid.Trib. da Rubrica FGTS">
+								<child name="ExeCadIncidTribFgts" key="{C1BBA9DE-3F8A-4A89-AC41-2381BBFA0082}" path="ExeCadIncidTribFgts.sd" />
+								<child name="ObjCadIncidTribFgts" key="{DF35A1B6-DF35-4E52-A86E-820C409B3A50}" path="ObjCadIncidTribFgts.sd" />
+								<child name="DataPoolCadIncidTribFgts" key="{4152F941-3DB2-4D78-8479-62A4D2FA7BEB}" path="DataPoolCadIncidTribFgts.sd" />
+							</folder>
+							<folder name="Incid.Trib. da Rubrica Cont. Sind.">
+								<child name="ExeCadIncidTribContSind" key="{C6295B7E-4585-4A9A-B45F-AA734E7905E5}" path="ExeCadIncidTribContSind.sd" />
+								<child name="ObjCadIncidTribContSind" key="{6940A605-F839-4CEC-8746-AE328F2D1EC5}" path="ObjCadIncidTribContSind.sd" />
+								<child name="DataPoolCadIncidTribContSind" key="{2F423DD6-3C0C-4714-94C4-3E195AB348D9}" path="DataPoolCadIncidTribContSind.sd" />
+							</folder>
 						</folder>
 					</folder>
 				</folder>
