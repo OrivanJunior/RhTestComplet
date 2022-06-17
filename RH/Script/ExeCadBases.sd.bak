@@ -23,15 +23,13 @@ procedure CadastraBase(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-
-
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
-
-DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
 FiltraSelBase();
 
 MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
 LeDataPoolCadBase(DDTCadastrar.Name);
 
@@ -52,13 +50,17 @@ begin
   PreencheBase();
   
   ActSalvar(FormCadBase);
-  
-  DDTCadastrar.Next;
-  end;
   ActFechar(FormCadBase);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-end;
+
+
+
 procedure ExcluirBase(pathData);
 begin
   
