@@ -770,7 +770,7 @@ begin
   begin
     loadDPDadosHistSalarios(DDTHistSalarios.Name);
   
-    SalarioIncBtn.Click();
+    {SalarioIncBtn.Click();
     
     NextLineGrid();
   
@@ -790,7 +790,7 @@ begin
     begin
       VerificaInsere(MmoInfosAdc, SalariosDPInfosAdc);
       BtnOkFormInfoAdc.Click();
-    end;
+    end;}
     
     Inc(i);
     
@@ -1289,9 +1289,12 @@ begin
       {InsereEmpregado(pathData);}
       FormCadEmpregado.BSalvar.Click();
       Delay(2000);
+      
       if Aliases.Folha.dlgAten_o2.Exists then
+      begin
       BtnOkCalcComp := Aliases.Folha.dlgAten_o2.btnOK;
       BtnOkCalcComp.ClickButton;
+      end;
       
     end;
     Delay(2000);

@@ -171,12 +171,16 @@ begin
 end;
 
 procedure ExecutaReajusteValorInformado(pathData);
+var
+  DDTReajuste: OleVariant;
 begin
   AcessaReajusteValorInformado();
 
   MapReajusteValorInformado();
 
-  LeDataPoolReajusteValorInformado(pathData);
+  DDTReajuste := CarregaDDT(pathData, 'Filtro');
+  
+  LeDataPoolReajusteValorInformado(DDTReajuste.Name);
 
   FiltraEstab();
 
@@ -203,6 +207,10 @@ begin
     btnSalvar.Click();
 
     FechaMensagemProcessoConcluido();
+    
+    FechaMensagemProcessoConcluido2();
+    
+    FechaMensagemProcessoConcluido2();
   
     ActFechar(FormReajusteVlrInform)
   end;

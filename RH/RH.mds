@@ -1242,15 +1242,32 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="SEFIP/GRRF/PIS" key="{C9CF9298-71B4-4E5A-B2AC-554C52827305}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="SEFIP/GRRF/PIS" key="{C9CF9298-71B4-4E5A-B2AC-554C52827305}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="SEFIP" key="{861795A6-7E83-4BC9-BC64-F5ED0FB2A1FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Executa SEFIP" key="{14094AC3-4826-4861-8794-61BB8F75D925}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="2" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Executa SEFIP" key="{14094AC3-4826-4861-8794-61BB8F75D925}" group="False" parallel="False" enabled="True" testMoniker="{CE5C7D2F-458F-4F32-BE33-7B979DC56E29}ExecutaProcSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processos\SEFIP-GRRF-PIS\SEFIP\Sefip.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Reajustes Salariais" key="{15C629AE-F324-4E48-B519-625DC2E524F1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Valor Informado" key="{93CB9308-1E52-4C8F-8E4E-1F2E9E69C768}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Executa SEFIP_1" key="{E1FC00D3-CE60-46C7-A0B9-600BF611FDBE}" group="False" parallel="False" enabled="True" testMoniker="{D7269E29-28B6-4C66-BE95-F38639B0C22E}ExecutaReajusteValorInformado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processos\Reajustes Salariais\Valor Informado\ReajusteSalarialValorInformado.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

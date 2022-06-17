@@ -202,11 +202,15 @@ begin
   end
   else
   begin
+    Delay(2000);
     FechaMensagemProcessoConcluido();
-  
     btnSalvar.Click();
-
+     Delay(2000);
     FechaMensagemProcessoConcluido();
+     Delay(2000);
+    FechaMensagemProcessoConcluido2();
+     Delay(2000);
+    FechaMensagemProcessoConcluido2();
   
     ActFechar(FormReajusteVlrInform)
   end;
