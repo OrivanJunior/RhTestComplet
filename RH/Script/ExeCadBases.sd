@@ -81,14 +81,13 @@ begin
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  
-  ActExcluir(FormCadBase);
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
   
   ActFechar(FormCadBase);
-  
   end;
   DDTExcluir.Next;
- end;  
+end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTExcluir.Name);
 end;

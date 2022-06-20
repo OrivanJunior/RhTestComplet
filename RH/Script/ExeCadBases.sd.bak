@@ -59,9 +59,35 @@ end;
 end;
 
 
-
-
 procedure ExcluirBase(pathData);
+var
+DDTExcluir : Olevariant;
 begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
+
+FiltraSelBase();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+LeDataPoolCadBase(DDTExcluir.Name);
+while not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
   
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  
+  ActFechar(FormCadBase);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
 end;
