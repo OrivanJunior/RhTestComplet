@@ -870,19 +870,38 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Bases" key="{FA5C6494-8683-41C9-8271-83A6EA92773D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Bases" key="{FA5C6494-8683-41C9-8271-83A6EA92773D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Eventos_1" key="{98B4B1F6-8D90-4C5D-93E5-F646C2B1BA6D}" group="False" parallel="False" enabled="True" testMoniker="{3DD4F720-56A2-4E70-BCA4-3E4387A89E12}CadastraBase" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastra Bases" key="{98B4B1F6-8D90-4C5D-93E5-F646C2B1BA6D}" group="False" parallel="False" enabled="True" testMoniker="{3DD4F720-56A2-4E70-BCA4-3E4387A89E12}CadastraBase" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Bases\Bases.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Altera Eventos_1" key="{B6C5BA3E-7098-4733-877E-4AEFB224C05A}" group="False" parallel="False" enabled="True" testMoniker="{3DD4F720-56A2-4E70-BCA4-3E4387A89E12}ExcluirBase" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Exclui Bases" key="{B6C5BA3E-7098-4733-877E-4AEFB224C05A}" group="False" parallel="False" enabled="True" testMoniker="{3DD4F720-56A2-4E70-BCA4-3E4387A89E12}ExcluirBase" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Bases\Bases.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Cálculos" key="{77195A4D-A22B-432C-BB87-E91C88F91488}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Cálculos" key="{56DDB8A7-EC38-474E-9DB7-8BE501870237}" group="False" parallel="False" enabled="True" testMoniker="{2FD01253-F306-43B4-AC14-C4C065085ABB}CadastraCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos\Calculos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Cálculos" key="{E307A4A0-D9D8-4802-BC02-D946B2571A72}" group="False" parallel="False" enabled="True" testMoniker="{2FD01253-F306-43B4-AC14-C4C065085ABB}ExcluirCadCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos\Calculos.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -1658,10 +1677,10 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Complemento de Férias" key="{19C0DAF6-BF46-4209-B115-323F7AE822B2}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Complemento de Férias" key="{19C0DAF6-BF46-4209-B115-323F7AE822B2}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Adiantantamento Salarial_1" key="{0D31A0EC-661F-46F9-8248-9662D1A0C726}" group="False" parallel="False" enabled="True" testMoniker="{C5930256-6D32-434B-8082-6694FA8FB338}ExecutaProcCompFerias" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Complemento de Férias" key="{0D31A0EC-661F-46F9-8248-9662D1A0C726}" group="False" parallel="False" enabled="True" testMoniker="{C5930256-6D32-434B-8082-6694FA8FB338}ExecutaProcCompFerias" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters>
 													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Processamentos\Complemento de Férias\Complemento de Férias.xlsx" />
 												</testParameters>
