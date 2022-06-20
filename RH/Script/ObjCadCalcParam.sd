@@ -4,7 +4,7 @@
  Data: 20/06/2022}
  
 var
-FormPadraoCadCalParam,
+FormPadraoCadCalcParam,
 FormAbaPrincCadCalcParam,
 {Cadastro}
 CadCalcParamEBIdCalcReg,
@@ -28,7 +28,7 @@ CadCalcParamEBExpRet : OleVariant;
 
 procedure MapCadCalcParam();
 begin
-FormPadraoCadCalParam	      := Aliases.Folha.FFormPadraoRHCALCREGP;
+FormPadraoCadCalcParam	    := Aliases.Folha.FFormPadraoRHCALCREGP;
 FormAbaPrincCadCalcParam		:= Aliases.Folha.FFormPadraoRHCALCREGP.FFormPadraoCds_abPrinc;
 {Cadastro}
 CadCalcParamEBIdCalcReg		  := Aliases.Folha.FFormPadraoRHCALCREGP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCALCREG;

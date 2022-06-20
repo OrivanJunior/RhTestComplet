@@ -4,6 +4,7 @@ CommonsAll,CommonsObj,VarConsts,DataPoolCadCalcParam,ObjCadCalcParam;
 procedure PreencheCadParam();
 begin
 MapCadCalcParam();
+FormAbaPrincCadCalcParam.ActivePageIndex := 0;
 {Cadastro}
 VerificaConsultaF3Insere(_ModuloFolha,CadCalcParamEBIdCalcReg,CadCalcParamDPIdCalcReg);
 VerificaInsere(CadCalcParamEBSequencia,CadCalcParamDPSequencia);
@@ -24,6 +25,7 @@ end;
 procedure PreencheRelParam();
 begin
 MapCadCalcParam();
+FormAbaPrincCadCalcParam.ActivePageIndex := 1;
 {Relacionamento}                                                                                           
 VerificaInsere(CadCalcParamEBTabRel,CadCalcParamDPTabRel);
 VerificaInsere(CadCalcParamEBIndRel,CadCalcParamDPIndRel);
@@ -32,43 +34,31 @@ end;
 
 
 
-
-
-
-
-
-
-
-
-
-
-procedure CadastraBase(pathData);
+procedure CadastraCalcParam(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
-
-FiltraSelBase();
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Cálculos - Parâmetros');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadBase(DDTCadastrar.Name);
+LeDataPoolCadCalcParam(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCREGP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cálculo', CadDPIDbase );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadBase();
+  MapCadCalcParam();
   
   PreencheBase();
   
@@ -82,32 +72,30 @@ end;
 end;
 
 
-procedure ExcluirBase(pathData);
+procedure ExcluirCalcParam(pathData);
 var
 DDTExcluir : Olevariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
-
-FiltraSelBase();
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Cálculos - Parâmetros');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(pathData, _Excluir);
 
-LeDataPoolCadBase(DDTExcluir.Name);
+LeDataPoolCadCalcParam(DDTExcluir.Name);
 while not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCREGP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cálculo', CadCalcParamDPIdCalcReg );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   ActConsulta(FormTelaConsultaForm); 
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCREGP');
   
-  ActFechar(FormCadBase);
+  ActFechar(FormPadraoCadCalcParam);
   end;
   DDTExcluir.Next;
 end;
