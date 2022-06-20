@@ -33,7 +33,6 @@ VerificaInsere(CadCalcParamEBExpRet,CadCalcParamDPExpRet);
 end;		
 
 
-
 procedure CadastraCalcParam(pathData);
 var
 DDTCadastrar : OleVariant;
@@ -71,7 +70,6 @@ end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
-
 
 procedure ExcluirCalcParam(pathData);
 var

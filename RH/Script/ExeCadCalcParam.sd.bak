@@ -52,7 +52,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCREGP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cálculo', CadDPIDbase );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cálculo', CadCalcParamDPIdCalcReg );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
@@ -60,10 +60,11 @@ begin
   
   MapCadCalcParam();
   
-  PreencheBase();
+  PreencheCadParam();
+  PreencheRelParam();
   
-  ActSalvar(FormCadBase);
-  ActFechar(FormCadBase);
+  ActSalvar(FormPadraoCadCalcParam);
+  ActFechar(FormPadraoCadCalcParam);
   end;
   DDTCadastrar.Next;
 end;

@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{215CBA77-EA1B-4A7A-B3AB-D3AD1576C6F9}"/>
+				<Prp name="activity" type="S" value="{7D8FBA4E-9E25-46E8-9E51-F8815157A7B4}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -2485,16 +2485,16 @@
 							<Prp name="top" type="I" value="24"/>
 						</Node>
 						<Node name="2">
-							<Prp name="bottom" type="I" value="72"/>
+							<Prp name="bottom" type="I" value="71"/>
 							<Prp name="collapsed" type="B" value="-1"/>
-							<Prp name="top" type="I" value="36"/>
+							<Prp name="top" type="I" value="35"/>
 						</Node>
 						<Node name="3">
-							<Prp name="bottom" type="I" value="104"/>
-							<Prp name="collapsed" type="B" value="-1"/>
-							<Prp name="top" type="I" value="75"/>
+							<Prp name="bottom" type="I" value="102"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="73"/>
 						</Node>
-						<Prp name="bottom" type="I" value="104"/>
+						<Prp name="bottom" type="I" value="102"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -4118,7 +4118,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{46a8488f-1026-43bc-b02a-80452c51b98c}"/>
+					<Node name="{46a8488f-1026-43bc-b02a-80452c51b98c}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{47548020-0fb5-4368-bf0f-195fee2d2214}">
 						<Prp name="bottom" type="I" value="0"/>
 						<Prp name="collapsed" type="B" value="0"/>
@@ -14210,10 +14214,7 @@
 								<Node name="cadastros gerais">
 									<Node name="gerais">
 										<Node name="eventos">
-											<Node name="bases"/>
-											<Node name="cálculos"/>
-											<Node name="cálculos - parâmetros"/>
-											<Node name="tipos"/>
+											<Node name="valores sobre faixas"/>
 										</Node>
 									</Node>
 								</Node>
@@ -14221,9 +14222,7 @@
 						</Node>
 					</Node>
 				</Node>
-				<Node name="rh logs">
-					<Node name="rh logs"/>
-				</Node>
+				<Node name="rh logs"/>
 			</Node>
 		</Node>
 		<Prp name="signature" type="S" value="{8EBE6EB3-803D-4913-AD7A-D71552123A67}"/>
