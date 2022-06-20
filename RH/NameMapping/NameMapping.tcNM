@@ -61444,6 +61444,79 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FFormPadraoRHCALCREG" Key="{770A5E07-28BC-4AAC-AECC-8FAC1A44BBF5}">
+								<Image FileName="-162204104" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFFormPadraoCds" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FFormPadraoRHCALCREG" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="FFormPadraoCds_abPrinc" Key="{0BB262D9-0567-44EC-AFB6-6E0F3E44F70B}">
+										<Image FileName="-162204104" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TAutoBox" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="FFormPadraoCds_abPrinc" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="FFormPadraoCds_abPrinc_ts1" Key="{82526E64-5230-467F-B63E-3AE82532ECFE}">
+												<Image FileName="-162204104" Left="4" Top="59" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="FFormPadraoCds_abPrinc_ts1" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="TScrollBox" Key="{42639FFB-F748-4400-91BD-2C3EAF8CE729}">
+														<Image FileName="-162204104" Left="4" Top="59" Right="1580" Bottom="696" />
+														<Properties>
+															<Property Name="WndClass">
+																<Value Value="TScrollBox" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_IDCALCREG" Key="{449ED360-EC6E-48D8-98B5-C3120586FCFF}">
+																<Image FileName="-162204104" Left="64" Top="67" Right="115" Bottom="86" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNum" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDCALCREG" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DESCRICAO" Key="{95276D67-ED44-4C48-A613-124B9353A9A0}">
+																<Image FileName="-1145144444" Left="64" Top="94" Right="624" Bottom="113" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEdit" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DESCRICAO" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -83876,6 +83949,16 @@
 			</Child>
 			<Child Name="dlgEventosBasesDeC_lculo" Owner="{04681A3D-739F-41A3-A338-713EC955C358}">
 				<Child Name="btnSim" Owner="{2EF804F4-5CF3-422C-8C49-C303F7B7081A}" />
+			</Child>
+			<Child Name="FFormPadraoRHCALCREG" Owner="{770A5E07-28BC-4AAC-AECC-8FAC1A44BBF5}">
+				<Child Name="FFormPadraoCds_abPrinc" Owner="{0BB262D9-0567-44EC-AFB6-6E0F3E44F70B}">
+					<Child Name="FFormPadraoCds_abPrinc_ts1" Owner="{82526E64-5230-467F-B63E-3AE82532ECFE}">
+						<Child Name="TScrollBox" Owner="{42639FFB-F748-4400-91BD-2C3EAF8CE729}">
+							<Child Name="EB_IDCALCREG" Owner="{449ED360-EC6E-48D8-98B5-C3120586FCFF}" />
+							<Child Name="EB_DESCRICAO" Owner="{95276D67-ED44-4C48-A613-124B9353A9A0}" />
+						</Child>
+					</Child>
+				</Child>
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">

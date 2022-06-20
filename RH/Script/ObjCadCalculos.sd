@@ -11,5 +11,5 @@ procedure MapCadCalculos();
 begin
 FormPadraoCalcReg       := Aliases.Folha.FFormPadraoRHCALCREG;
 CadCalculosEBIdCalcReg  := Aliases.Folha.FFormPadraoRHCALCREG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCALCREG;
-CadCalculosEBDescricao  :=  Aliases.Folha.FFormPadraoRHCALCREG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadCalculosEBDescricao  := Aliases.Folha.FFormPadraoRHCALCREG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 end;
