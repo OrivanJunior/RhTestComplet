@@ -24,7 +24,7 @@ CadTipoEvenDPEveVariavel,
 CadTipoEvenDPCalcMensal,
 CadTipoEvenDPLicenPaternidade : OleVariant;
 
-procedure LeDataPoolCadTipoEventos();
+procedure LeDataPoolCadTipoEventos(nomeDriver);
 begin
 CadTipoEvenDPIdTipo  				        := DDT.DriverByName(nomeDriver).Value('IDTIPO');
 CadTipoEvenDPDescricao  	          := DDT.DriverByName(nomeDriver).Value('DESCRICAO');

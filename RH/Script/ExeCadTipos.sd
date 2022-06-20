@@ -1,41 +1,59 @@
 ﻿uses CommonsAll,CommonsObj,VarConsts,DataPoolCadTipos,ObjCadTipos;
 
+
+procedure FiltroCadTipo();
+begin
+
+FormFiltroTipo        :=  Aliases.Folha.FFiltroConsultaCDS;
+FiltroTipoConsulta    :=  Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroTipoConsultaCb1 :=  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnFiltroTipoOk       :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnFiltroTipoCancelar :=  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+FiltroTipoConsulta.SetText('Tipo do Evento Por Código');
+FiltroTipoConsultaCb1.SetText('(Ignorar)');
+BtnFiltroTipoOk.ClickButton;
+  
+end;
+
 procedure PreencheTiposEventos(); 
 begin
 
 MapCadTiposEventos();
 					
-VerifcaInsere(CadTipoEvenEBIdTipo,CadTipoEvenDPIdTipo);
-VerifcaInsere(CadTipoEvenEBDescricao,CadTipoEvenDPDescricao);
-VerifcaInsere(CadTipoEvenEBAfastDoenca,CadTipoEvenDPAfastDoenca);
-VerifcaInsere(CadTipoEvenEBAfastAcidente,CadTipoEvenDPAfastAcidente);
-VerifcaInsere(CadTipoEvenEBHorasServMilitar,CadTipoEvenDPHorasServMilitar);
-VerifcaInsere(CadTipoEvenEBHorasFerias,CadTipoEvenDPHorasFerias);
-VerifcaInsere(CadTipoEvenEBHorasNormais,CadTipoEvenDPHorasNormais);
-VerifcaInsere(CadTipoEvenEBHorasExtras,CadTipoEvenDPHorasExtras);
-VerifcaInsere(CadTipoEvenEBLicenMaternidade,CadTipoEvenDPLicenMaternidade);
-VerifcaInsere(CadTipoEvenEBHorasFaltas,CadTipoEvenDPHorasFaltas);
-VerifcaInsere(CadTipoEvenEBProLabore,CadTipoEvenDPProLabore);
-VerifcaInsere(CadTipoEvenEBSalDoFgts,CadTipoEvenDPSalDoFgts);
-VerifcaInsere(CadTipoEvenEBMultaResc,CadTipoEvenDPMultaResc);
-VerifcaInsere(CadTipoEvenEBFeriasResc,CadTipoEvenDPFeriasResc);
-VerifcaInsere(CadTipoEvenEBEveInss,CadTipoEvenDPEveInss);
-VerifcaInsere(CadTipoEvenEBEveIrrf,CadTipoEvenDPEveIrrf);
-VerifcaInsere(CadTipoEvenEBAvPrevioI,CadTipoEvenDPAvPrevioI);
-VerifcaInsere(CadTipoEvenEBMediaHrExt,CadTipoEvenDPMediaHrExt);
-VerifcaInsere(CadTipoEvenEBAdicFer,CadTipoEvenDPAdicFer);
-VerifcaInsere(CadTipoEvenEBIndenizAdic,CadTipoEvenDPIndenizAdic);
-VerifcaInsere(CadTipoEvenEBReclusao,CadTipoEvenDPReclusao);
-VerifcaInsere(CadTipoEvenEBEveVariavel,CadTipoEvenDPEveVariavel);
-VerifcaInsere(CadTipoEvenEBCalcMensal,CadTipoEvenDPCalcMensal);
-VerifcaInsere(CadTipoEvenEBLicenPaternidade,CadTipoEvenDPLicenPaternidade);
+VerificaInsere(CadTipoEvenEBIdTipo,CadTipoEvenDPIdTipo);
+VerificaInsere(CadTipoEvenEBDescricao,CadTipoEvenDPDescricao);
+VerificaInsere(CadTipoEvenEBAfastDoenca,CadTipoEvenDPAfastDoenca);
+VerificaInsere(CadTipoEvenEBAfastAcidente,CadTipoEvenDPAfastAcidente);
+VerificaInsere(CadTipoEvenEBHorasServMilitar,CadTipoEvenDPHorasServMilitar);
+VerificaInsere(CadTipoEvenEBHorasFerias,CadTipoEvenDPHorasFerias);
+VerificaInsere(CadTipoEvenEBHorasNormais,CadTipoEvenDPHorasNormais);
+VerificaInsere(CadTipoEvenEBHorasExtras,CadTipoEvenDPHorasExtras);
+VerificaInsere(CadTipoEvenEBLicenMaternidade,CadTipoEvenDPLicenMaternidade);
+VerificaInsere(CadTipoEvenEBHorasFaltas,CadTipoEvenDPHorasFaltas);
+VerificaInsere(CadTipoEvenEBProLabore,CadTipoEvenDPProLabore);
+VerificaInsere(CadTipoEvenEBSalDoFgts,CadTipoEvenDPSalDoFgts);
+VerificaInsere(CadTipoEvenEBMultaResc,CadTipoEvenDPMultaResc);
+VerificaInsere(CadTipoEvenEBFeriasResc,CadTipoEvenDPFeriasResc);
+VerificaInsere(CadTipoEvenEBEveInss,CadTipoEvenDPEveInss);
+VerificaInsere(CadTipoEvenEBEveIrrf,CadTipoEvenDPEveIrrf);
+VerificaInsere(CadTipoEvenEBAvPrevioI,CadTipoEvenDPAvPrevioI);
+VerificaInsere(CadTipoEvenEBMediaHrExt,CadTipoEvenDPMediaHrExt);
+VerificaInsere(CadTipoEvenEBAdicFer,CadTipoEvenDPAdicFer);
+VerificaInsere(CadTipoEvenEBIndenizAdic,CadTipoEvenDPIndenizAdic);
+VerificaInsere(CadTipoEvenEBReclusao,CadTipoEvenDPReclusao);
+VerificaInsere(CadTipoEvenEBEveVariavel,CadTipoEvenDPEveVariavel);
+VerificaInsere(CadTipoEvenEBCalcMensal,CadTipoEvenDPCalcMensal);
+VerificaInsere(CadTipoEvenEBLicenPaternidade,CadTipoEvenDPLicenPaternidade);
 end;
 
-procedure CadastraCalcParam(pathData);
+procedure CadastraTipo(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Tipos');
+
+FiltroCadTipo();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -69,11 +87,13 @@ end;
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirCalcParam(pathData);
+procedure ExcluirTipo(pathData);
 var
 DDTExcluir : Olevariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Tipos');
+
+FiltroCadTipo();
 
 MapGridConsulta(_ModuloFolha);
 

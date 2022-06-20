@@ -1,1 +1,54 @@
-﻿
+﻿var
+CadTipoEvenDPIdTipo,
+CadTipoEvenDPDescricao,
+CadTipoEvenDPAfastDoenca,
+CadTipoEvenDPAfastAcidente,
+CadTipoEvenDPHorasServMilitar,
+CadTipoEvenDPHorasFerias,
+CadTipoEvenDPHorasNormais,
+CadTipoEvenDPHorasExtras,
+CadTipoEvenDPLicenMaternidade,
+CadTipoEvenDPHorasFaltas,
+CadTipoEvenDPProLabore,
+CadTipoEvenDPSalDoFgts,
+CadTipoEvenDPMultaResc,
+CadTipoEvenDPFeriasResc,
+CadTipoEvenDPEveInss,
+CadTipoEvenDPEveIrrf,
+CadTipoEvenDPAvPrevioI,
+CadTipoEvenDPMediaHrExt,
+CadTipoEvenDPAdicFer,
+CadTipoEvenDPIndenizAdic,
+CadTipoEvenDPReclusao,
+CadTipoEvenDPEveVariavel,
+CadTipoEvenDPCalcMensal,
+CadTipoEvenDPLicenPaternidade : OleVariant;
+
+procedure LeDataPoolCadTipoEventos();
+begin
+CadTipoEvenDPIdTipo  				        := DDT.DriverByName(nomeDriver).Value('IDTIPO');
+CadTipoEvenDPDescricao  	          := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadTipoEvenDPAfastDoenca  	        := DDT.DriverByName(nomeDriver).Value('AFASTDOENCA');
+CadTipoEvenDPAfastAcidente          := DDT.DriverByName(nomeDriver).Value('AFASTACIDENTE');
+CadTipoEvenDPHorasServMilitar       := DDT.DriverByName(nomeDriver).Value('HORASSERVMILITAR');
+CadTipoEvenDPHorasFerias  	        := DDT.DriverByName(nomeDriver).Value('HORASFERIAS');
+CadTipoEvenDPHorasNormais  	        := DDT.DriverByName(nomeDriver).Value('HORASNORMAIS');
+CadTipoEvenDPHorasExtras  	        := DDT.DriverByName(nomeDriver).Value('HORASEXTRAS');
+CadTipoEvenDPLicenMaternidade       := DDT.DriverByName(nomeDriver).Value('LICENMATERNIDADE');
+CadTipoEvenDPHorasFaltas  	        := DDT.DriverByName(nomeDriver).Value('HORASFALTAS');
+CadTipoEvenDPProLabore  	          := DDT.DriverByName(nomeDriver).Value('PROLABORE');
+CadTipoEvenDPSalDoFgts  	          := DDT.DriverByName(nomeDriver).Value('SALDOFGTS');
+CadTipoEvenDPMultaResc  	          := DDT.DriverByName(nomeDriver).Value('MULTARESC');
+CadTipoEvenDPFeriasResc  	          := DDT.DriverByName(nomeDriver).Value('FERIASRESC');
+CadTipoEvenDPEveInss  		          := DDT.DriverByName(nomeDriver).Value('EVEINSS');
+CadTipoEvenDPEveIrrf  		          := DDT.DriverByName(nomeDriver).Value('EVEIRRF');
+CadTipoEvenDPAvPrevioI  	          := DDT.DriverByName(nomeDriver).Value('AVPREVIOI');
+CadTipoEvenDPMediaHrExt  	          := DDT.DriverByName(nomeDriver).Value('MEDIAHREXT');
+CadTipoEvenDPAdicFer  		          := DDT.DriverByName(nomeDriver).Value('ADICFER');
+CadTipoEvenDPIndenizAdic  	        := DDT.DriverByName(nomeDriver).Value('INDENIZADIC');
+CadTipoEvenDPReclusao 		          := DDT.DriverByName(nomeDriver).Value('RECLUSAO');
+CadTipoEvenDPEveVariavel  	        := DDT.DriverByName(nomeDriver).Value('EVEVARIAVEL');
+CadTipoEvenDPCalcMensal  	          := DDT.DriverByName(nomeDriver).Value('CALCMENSAL');
+CadTipoEvenDPLicenPaternidade       := DDT.DriverByName(nomeDriver).Value('LICENPATERNIDADE');
+end;
+

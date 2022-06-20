@@ -927,19 +927,19 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tipos" key="{7A31DF8D-464D-413A-8DAD-1B72762CCB68}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Tipos" key="{7A31DF8D-464D-413A-8DAD-1B72762CCB68}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Tipos" key="{DA5C70C0-E90B-4FC6-A5C3-3E7ED5EF7B1D}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastra Tipos" key="{DA5C70C0-E90B-4FC6-A5C3-3E7ED5EF7B1D}" group="False" parallel="False" enabled="True" testMoniker="{215CBA77-EA1B-4A7A-B3AB-D3AD1576C6F9}CadastraTipo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Tipos\Tipos.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui Tipos" key="{FE7A546B-733B-448E-8C2A-AA95F028D85F}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Exclui Tipos" key="{FE7A546B-733B-448E-8C2A-AA95F028D85F}" group="False" parallel="False" enabled="True" testMoniker="{215CBA77-EA1B-4A7A-B3AB-D3AD1576C6F9}ExcluirTipo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Tipos\Tipos.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

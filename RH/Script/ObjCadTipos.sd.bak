@@ -1,4 +1,8 @@
-﻿var
+﻿{Script para mapear tela de cadastro de Tipos dos Eventos
+ Módulo: Padrão
+ Autor: Orivan lemes dos Santos Junior
+ Data: 20/06/2022}
+var
 FormCadTiposEvento,
 CadTipoEvenEBIdTipo,
 CadTipoEvenEBDescricao,
@@ -54,5 +58,6 @@ CadTipoEvenEBReclusao 				  := Aliases.Folha.FFormPadraoRHEVETIPO.FFormPadraoCds
 CadTipoEvenEBEveVariavel  			:= Aliases.Folha.FFormPadraoRHEVETIPO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVEVARIAVEL;
 CadTipoEvenEBCalcMensal  			  := Aliases.Folha.FFormPadraoRHEVETIPO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CALCMENSAL;
 CadTipoEvenEBLicenPaternidade  	:= Aliases.Folha.FFormPadraoRHEVETIPO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LICENPATERNIDADE;
+
 end;
 
