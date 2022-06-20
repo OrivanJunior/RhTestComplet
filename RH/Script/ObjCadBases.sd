@@ -3,7 +3,7 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 17/06/2022}
 var
-FormCadBase,
+FormPadraoCadBase,
 CadEBIDbase,
 CadEBDescricao,
 CadEBTipoAcu,
@@ -22,7 +22,7 @@ BtnFiltroBaseCancelar  : OleVariant;
 
 procedure MapCadBase();
 begin
-FormCadBase           := Aliases.Folha.FFormPadraoRHEVEBASE;
+FormPadraoCadBase           := Aliases.Folha.FFormPadraoRHEVEBASE;
 CadEBIDbase				    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDBASE;
 CadEBDescricao  	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 CadEBTipoAcu    	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOACU;

@@ -1,25 +1,4 @@
-﻿uses CommonsAll,CommonsObj,ObjCadBases,DataPoolCadBases,VarConsts;
-
-procedure FiltraSelBase();
-begin
-FiltroBase();
-FiltroBaseConsulta.SetText('Base por Código');
-FiltroBaseConsultaCb1.SetText('(Ignorar)');
-BtnFiltroBaseOK.ClickButton;
-end;
-
-procedure PreencheBase();
-begin
-MapCadBase();
-Log.Checkpoint('Preenchendo Cadastro de Bases');
-VerificaInsere(CadEBIDbase,CadDPIDbase);
-VerificaInsere(CadEBDescricao,CadDPDescricao);
-VerificaInsere(CadEBTipoAcu,CadDPTipoAcu);
-VerificaInsere(CadEBIsBaseIrrf,CadDPIsBaseIrrf);
-
-end;
-
-procedure CadastraBase(pathData);
+﻿procedure CadastraBase(pathData);
 var
 DDTCadastrar : OleVariant;
 begin

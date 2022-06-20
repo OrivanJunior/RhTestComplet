@@ -1,1 +1,46 @@
-﻿
+﻿var
+{Cadastro}
+CadCalcParamDPIdCalcReg,
+CadCalcParamDPSequencia,
+CadCalcParamDPParam,
+CadCalcParamDPDescricao,
+CadCalcParamDPTipo,
+CadCalcParamDPInteiras,
+CadCalcParamDPDecimais,
+CadCalcParamDPItensCb,
+CadCalcParamDPMascara,
+CadCalcParamDPValPadrao,
+CadCalcParamDPObrigatorio,
+CadCalcParamDPVisibilidade,
+CadCalcParamDPGuia,
+CadCalcParamDPGuiaDesc,
+
+{Relacionamento}
+CadCalcParamDPTabRel,
+CadCalcParamDPIndRel,
+CadCalcParamDPExpRet : OleVariant;
+
+procedure LeDataPoolCadCalcParam(nomeDriver);
+begin
+{Cadastro}               
+CadCalcParamDPIdCalcReg			    := DDT.DriverbyName(nomeDriver).Value('IDCALCREG');
+CadCalcParamDPSequencia         := DDT.DriverbyName(nomeDriver).Value('SEQUENCIA');
+CadCalcParamDPParam             := DDT.DriverbyName(nomeDriver).Value('PARAM');
+CadCalcParamDPDescricao         := DDT.DriverbyName(nomeDriver).Value('DESCRICAO');
+CadCalcParamDPTipo              := DDT.DriverbyName(nomeDriver).Value('TIPO');
+CadCalcParamDPInteiras          := DDT.DriverbyName(nomeDriver).Value('INTEIRAS');
+CadCalcParamDPDecimais          := DDT.DriverbyName(nomeDriver).Value('DECIMAIS');
+CadCalcParamDPItensCb           := DDT.DriverbyName(nomeDriver).Value('ITENSCB');
+CadCalcParamDPMascara           := DDT.DriverbyName(nomeDriver).Value('MASCARA');
+CadCalcParamDPValPadrao         := DDT.DriverbyName(nomeDriver).Value('VALPADRAO');
+CadCalcParamDPObrigatorio       := DDT.DriverbyName(nomeDriver).Value('OBRIGATORIO');
+CadCalcParamDPVisibilidade      := DDT.DriverbyName(nomeDriver).Value('VISIBILIDADE');
+CadCalcParamDPGuia              := DDT.DriverbyName(nomeDriver).Value('GUIA');
+CadCalcParamDPGuiaDesc          := DDT.DriverbyName(nomeDriver).Value('GUIADESC');
+{Relacionamento}
+CadCalcParamDPTabRel			      := DDT.DriverbyName(nomeDriver).Value('TABREL');
+CadCalcParamDPIndRel            := DDT.DriverbyName(nomeDriver).Value('INDREL');
+CadCalcParamDPExpRet            := DDT.DriverbyName(nomeDriver).Value('EXPRET');
+end;
+
+

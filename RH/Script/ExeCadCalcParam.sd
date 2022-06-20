@@ -1,1 +1,116 @@
-﻿
+﻿uses
+CommonsAll,CommonsObj,VarConsts,DataPoolCadCalcParam,ObjCadCalcParam;
+
+procedure PreencheCadParam();
+begin
+MapCadCalcParam();
+{Cadastro}
+VerificaConsultaF3Insere(_ModuloFolha,CadCalcParamEBIdCalcReg,CadCalcParamDPIdCalcReg);
+VerificaInsere(CadCalcParamEBSequencia,CadCalcParamDPSequencia);
+VerificaInsere(CadCalcParamEBParam,CadCalcParamDPParam);
+VerificaInsere(CadCalcParamEBDescricao,CadCalcParamDPDescricao);
+VerificaInsere(CadCalcParamEBTipo,CadCalcParamDPTipo);
+VerificaInsere(CadCalcParamEBInteiras,CadCalcParamDPInteiras);
+VerificaInsere(CadCalcParamEBDecimais,CadCalcParamDPDecimais);
+VerificaInsere(CadCalcParamEBItensCb,CadCalcParamDPItensCb);
+VerificaInsere(CadCalcParamEBMascara,CadCalcParamDPMascara);
+VerificaInsere(CadCalcParamEBValPadrao,CadCalcParamDPValPadrao);
+VerificaInsere(CadCalcParamEBObrigatorio,CadCalcParamDPObrigatorio);
+VerificaInsere(CadCalcParamEBVisibilidade,CadCalcParamDPVisibilidade);
+VerificaInsere(CadCalcParamEBGuia,CadCalcParamDPGuia);
+VerificaInsere(CadCalcParamEBGuiaDesc,CadCalcParamDPGuiaDesc);
+end;
+
+procedure PreencheRelParam();
+begin
+MapCadCalcParam();
+{Relacionamento}                                                                                           
+VerificaInsere(CadCalcParamEBTabRel,CadCalcParamDPTabRel);
+VerificaInsere(CadCalcParamEBIndRel,CadCalcParamDPIndRel);
+VerificaInsere(CadCalcParamEBExpRet,CadCalcParamDPExpRet);
+end;		
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure CadastraBase(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
+
+FiltraSelBase();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadBase(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadBase();
+  
+  PreencheBase();
+  
+  ActSalvar(FormCadBase);
+  ActFechar(FormCadBase);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirBase(pathData);
+var
+DDTExcluir : Olevariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Bases');
+
+FiltraSelBase();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+LeDataPoolCadBase(DDTExcluir.Name);
+while not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
+  
+  ActFechar(FormCadBase);
+  end;
+  DDTExcluir.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;
