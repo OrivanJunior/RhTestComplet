@@ -1,0 +1,11 @@
+﻿{Script para mapear tela de cadastro de Cálculos
+ Módulo: Padrão
+ Autor: Orivan lemes dos Santos Junior
+ Data: 20/06/2022}
+procedure Map;
+begin
+  
+  Aliases.Folha.FFormPadraoRHCALCREG.Click(29, 10);
+  Aliases.Folha.FFormPadraoRHCALCREG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCALCREG.Click(30, 5);
+  Aliases.Folha.FFormPadraoRHCALCREG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(34, 11);
+end;

@@ -31,7 +31,7 @@ begin
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
-  ActIncluir(FormTelaConsultaForm);
+  ActIncluir(FormPadraoCalcReg);
   
   PreencheCadCalculos();
   
@@ -42,37 +42,5 @@ begin
 end;
 ActFechar(FormTelaConsultaForm);
 DDT.CloseDriver(DDTCadastrar.Name);
-end;
 
-procedure ExcluirCadCalculos(PathData);
-var
-DDTExcluir : OleVariant;
-begin
-AcessaItem(_ModuloFolha,'Cadastro Gerais', 'Gerais', 'Eventos', 'Cálculos');
-
-MapGridConsulta(_ModuloFolha);
-
-DDTExcluir := CarregaDDT(PathData, _Excluir);
-
-LeDataPoolCadCalc(DDTExcluir.Name);
-
-While not DDTExcluir.EOF do
-begin
-
-if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCREG');
-  
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadCalculosDPIdCalcReg );
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-  begin  
-  
-  ActConsulta(FormTelaConsultaForm);
-  
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCREG');
-  ActFechar(FormPadraoCalcReg);
-  end;
-  DDTExcluir.Next;
-end;
-ActFechar(FormTelaConsultaForm);
-DDT.CloseDriver(DDTExcluir.Name);
 end;

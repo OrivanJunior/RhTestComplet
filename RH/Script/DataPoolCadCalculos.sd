@@ -1,1 +1,9 @@
-﻿
+﻿var 
+CadCalculosDPIdCalcReg,
+CadCalculosDPDescricao : OleVariant;
+
+procedure LeDataPoolCadCalc(nomeDriver);
+begin
+CadCalculosDPIdCalcReg    := DDT.DriverByName(nomeDriver).Value('IDCALCREG');
+CadCalculosDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

@@ -6,7 +6,6 @@ CadEBTipoAcu,
 CadEBIsBaseIrrf,
                 
 BtnSalvarBase,
-BtnFecharBase,
 BtnSairBase,
 BtnExcluirBase,
 
@@ -26,7 +25,6 @@ CadEBTipoAcu    	    := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrin
 CadEBIsBaseIrrf 		  := Aliases.Folha.FFormPadraoRHEVEBASE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ISBASEIRRF;
 
 BtnSalvarBase         :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSalvar;
-BtnFecharBase         :=  Aliases.Folha.FFormErros.Close;
 BtnSairBase           :=  Aliases.Folha.FFormPadraoRHEVEBASE.BSair;
 BtnExcluirBase        :=  Aliases.Folha.FFormPadraoRHEVEBASE.BExcluir;
 end;
