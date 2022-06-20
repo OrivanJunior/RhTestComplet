@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{60D4BBE3-04F0-4F52-A733-CC95C7CC0087}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -3042,7 +3038,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{3b2d5081-55bb-4e6a-a8cb-b4824878a930}"/>
+					<Node name="{3b2d5081-55bb-4e6a-a8cb-b4824878a930}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{3bd976e0-8f3f-465b-a998-32b331516f22}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -4789,7 +4789,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{55ac08b9-09e9-4abc-a3c7-005630a24116}"/>
+					<Node name="{55ac08b9-09e9-4abc-a3c7-005630a24116}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{56035891-0300-493d-83db-36c7618882e6}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -9065,7 +9069,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{9b9fbf03-b8a0-49b2-bae8-04d597d44e0e}"/>
+					<Node name="{9b9fbf03-b8a0-49b2-bae8-04d597d44e0e}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{9bd8a35e-9a48-43ef-b68f-bed134d4c312}">
 						<Prp name="bottom" type="I" value="0"/>
 						<Prp name="collapsed" type="B" value="0"/>
@@ -14155,6 +14163,7 @@
 											<Node name="bases"/>
 											<Node name="cálculos"/>
 											<Node name="cálculos - parâmetros"/>
+											<Node name="tipos"/>
 										</Node>
 									</Node>
 								</Node>
