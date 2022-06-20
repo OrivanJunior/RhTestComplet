@@ -908,7 +908,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Cálculos - Parâmetros" key="{02CC6213-7DEF-48E0-98EB-3061F8E78B80}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cálculos - Parâmetros" key="{02CC6213-7DEF-48E0-98EB-3061F8E78B80}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Cálculos - Parâmetros" key="{0BF7B8DA-C870-4E5E-87A1-BEFA8EAE559B}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -924,6 +924,144 @@
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Tipos" key="{7A31DF8D-464D-413A-8DAD-1B72762CCB68}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Tipos" key="{DA5C70C0-E90B-4FC6-A5C3-3E7ED5EF7B1D}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Tipos" key="{FE7A546B-733B-448E-8C2A-AA95F028D85F}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf.Eventos Para MANAD" key="{7DF0E0A9-9A23-4B78-AD10-B994313CB8F2}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Cálculos - Conf.Eventos Para MANAD" key="{0F1350AA-6181-4150-B169-A41CFD6CE5DC}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui CálculosConf.Eventos Para MANAD" key="{408202F1-E081-482E-AEEB-E8FFF3A7924F}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Valores sobre faixas" key="{E1CD869B-C9B3-4424-B859-D4176B3A6BD4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Valores sobre faixas" key="{E3A680BE-55CA-45E9-A756-401334708639}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Valores sobre faixas" key="{FB79528C-93DF-4EF0-9F07-D62FCB2501F3}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="eSocial" key="{8564BBD5-0C67-4002-9D4A-F1D28239B1A0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Incid.Trib. da Rubrica INSS" key="{33DFE017-678B-4AF5-A712-0BD0B095D983}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Incid.Trib. da Rubrica INSS" key="{0AB7E98C-8D64-4A81-99B9-0FA6D14D2AF8}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Incid.Trib. da Rubrica INSS" key="{2A95BED2-6AA6-4213-8FF9-926DDF2DDAFE}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Incid.Trib. da Rubrica IRRF" key="{84755580-EE05-44A1-98CB-76F235267DFA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Incid.Trib. da Rubrica IRRF" key="{1DD838C8-CF54-4A99-9467-9DCFA77C2A53}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Incid.Trib. da Rubrica IRRF" key="{08C34E42-9D94-4FBC-BE78-636A6393FD47}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Incid.Trib. da Rubrica FGTS" key="{E824FAFC-3E09-4936-B909-593FB73A7730}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Incid.Trib. da Rubrica FGTS" key="{4BB9B0CA-2235-4DC6-B5E3-06002BEAC8C1}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Incid.Trib. da Rubrica FGTS" key="{E7D1F43F-784C-4DD6-8590-8FE220C2CBAA}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Incid.Trib. da Rubrica Cont. Sind" key="{0B5E41FB-68BE-4801-8A66-ABDE1A72E84B}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Incid.Trib. da Rubrica Cont. Sind" key="{64B24F82-8887-467F-8E61-2AD266DA23B1}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Incid.Trib. da Rubrica Cont. Sind" key="{260E345C-7B4F-491D-903E-F29E96BA6FF3}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
 															</testItem>
 														</children>
 													</testItem>
