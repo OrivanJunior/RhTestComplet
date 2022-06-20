@@ -4,6 +4,7 @@ CommonsAll,CommonsObj,VarConsts,DataPoolCadCalcParam,ObjCadCalcParam;
 procedure PreencheCadParam();
 begin
 MapCadCalcParam();
+FormAbaPrincCadCalcParam.ActivePageIndex := 0;
 {Cadastro}
 VerificaConsultaF3Insere(_ModuloFolha,CadCalcParamEBIdCalcReg,CadCalcParamDPIdCalcReg);
 VerificaInsere(CadCalcParamEBSequencia,CadCalcParamDPSequencia);
@@ -24,6 +25,7 @@ end;
 procedure PreencheRelParam();
 begin
 MapCadCalcParam();
+FormAbaPrincCadCalcParam.ActivePageIndex := 1;
 {Relacionamento}                                                                                           
 VerificaInsere(CadCalcParamEBTabRel,CadCalcParamDPTabRel);
 VerificaInsere(CadCalcParamEBIndRel,CadCalcParamDPIndRel);
@@ -38,13 +40,11 @@ DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','Cálculos - Parâmetros');
 
-FiltraSelBase();
-
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadBase(DDTCadastrar.Name);
+LeDataPoolCadCalcParam(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin
@@ -58,7 +58,7 @@ begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadBase();
+  MapCadCalcParam();
   
   PreencheBase();
   
