@@ -1,0 +1,71 @@
+﻿{Script para mapear tela de cadastro de Alíquotas
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 21/06/2022}
+ 
+var
+FormPadraoFpas,
+FormAbaPrincFpas,
+  
+CadFpasEBIdFpas,
+CadFpasEBFpas,
+CadFpasEBDescricao,
+CadFpasEBRateSocial,
+CadFpasEBAliqRat,
+CadFpasEBCodConvenio,
+CadFpasEBPercConvenio,
+CadFpasEBPercProLab,
+CadFpasEBPercEmpresa,
+CadFpasEBPercAutonomo,
+
+CadFpasEBSalEducacao,
+CadFpasEBIncra,
+CadFpasEBSenai,
+CadFpasEBSesi,
+CadFpasEBSenac,
+CadFpasEBSesc,
+CadFpasEBSebrae,
+CadFpasEBDpc,
+CadFpasEBFundoAeroviario,
+CadFpasEBSenar,
+CadFpasEBSest,
+CadFpasEBSenat,
+CadFpasEBSescoop : OleVariant;
+
+
+procedure MapCadAliquotas();
+begin
+
+FormPadraoFpas				  := Aliases.Folha.FFormPadraoRHFPAS;
+FormAbaPrincFpas			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc;
+
+{Dados gerais > FormAbaPrincFpas.ActivePageIndex := 0} 
+
+CadFpasEBIdFpas  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDFPAS;
+CadFpasEBFpas  				  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_FPAS;
+CadFpasEBDescricao  		:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadFpasEBRateSocial  		:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_RATESOCIAL;
+CadFpasEBAliqRat  			:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALIQRAT;
+CadFpasEBCodConvenio  	:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODCONVENIO;
+CadFpasEBPercConvenio  	:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PERCCONVENIO;
+CadFpasEBPercProLab  		:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PERCPROLAB;
+CadFpasEBPercEmpresa  	:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PERCEMPRESA;
+CadFpasEBPercAutonomo  	:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PERCAUTONOMO;
+
+{Outras entidades > FormAbaPrincFpas.ActivePageIndex := 1}
+  
+CadFpasEBSalEducacao  	:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SALEDUCACAO;
+CadFpasEBIncra  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_INCRA;
+CadFpasEBSenai  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SENAI;
+CadFpasEBSesi  				  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SESI;
+CadFpasEBSenac  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SENAC;
+CadFpasEBSesc  				  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SESC;
+CadFpasEBSebrae  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SEBRAE;
+CadFpasEBDpc  				  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_DPC;
+CadFpasEBFundoAeroviario:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_FUNDOAEROVIARIO;
+CadFpasEBSenar  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SENAR;
+CadFpasEBSest  				  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SEST;
+CadFpasEBSenat  			  := Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SENAT;
+CadFpasEBSescoop  			:= Aliases.Folha.FFormPadraoRHFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_SESCOOP;
+
+end;
