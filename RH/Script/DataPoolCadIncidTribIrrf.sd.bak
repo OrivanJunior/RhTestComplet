@@ -4,9 +4,9 @@ CadITDPDescricao,
 CadITDPDtInivalidade,
 CadITDPDtFinValidade   : OleVariant;
 
-procedure LeDataPoolCadITIrrf(nomeDriver);
+procedure LeDataPoolCadITInss(nomeDriver);
 begin
-CadITDPIdIncTribIrrf  := DDT.DriverByName(nomeDriver).Value('IDINCTRIBIRRF');
+CadITDPIdIncTribIrrf  := DDT.DriverByName(nomeDriver).Value('IDINCTRIBINSS');
 CadITDPDescricao      := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 
 CadITDPDtIniValidade  := DDT.DriverByName(nomeDriver).Value('DTINIVALIDADE');

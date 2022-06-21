@@ -12,7 +12,7 @@ CadITEBDtFinValidade   : Olevariant;
 procedure MapCadITIrrf();
 begin
 FormITIrrf            := Aliases.Folha.FFormPadraoRHINCTRIBIRRF;
-CadITEBIdIncTribIrrf  := Aliases.Folha.FFormPadraoRHINCTRIBIRRF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDINCTRIBIRRF;
+CadITEBIdIncTribIrrf  := Aliases.Folha.FFormPadraoRHINCTRIBIRRF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDINCTRIBIRFF;
 CadITEBDescricao      := Aliases.Folha.FFormPadraoRHINCTRIBIRRF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 
 CadITEBDtInivalidade  := Aliases.Folha.FFormPadraoRHINCTRIBIRRF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DTINIVALIDADE;

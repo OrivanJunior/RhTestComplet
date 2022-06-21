@@ -987,7 +987,7 @@
 													<testItem name="eSocial" key="{8564BBD5-0C67-4002-9D4A-F1D28239B1A0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Incid.Trib. da Rubrica INSS" key="{33DFE017-678B-4AF5-A712-0BD0B095D983}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Incid.Trib. da Rubrica INSS" key="{33DFE017-678B-4AF5-A712-0BD0B095D983}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="Cadastra Incid.Trib. da Rubrica INSS" key="{0AB7E98C-8D64-4A81-99B9-0FA6D14D2AF8}" group="False" parallel="False" enabled="True" testMoniker="{48509F2E-F160-4F85-B307-23A7C5BBAC6E}CadastraITInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1006,19 +1006,19 @@
 																	</testItem>
 																</children>
 															</testItem>
-															<testItem name="Incid.Trib. da Rubrica IRRF" key="{84755580-EE05-44A1-98CB-76F235267DFA}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Incid.Trib. da Rubrica IRRF" key="{84755580-EE05-44A1-98CB-76F235267DFA}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
-																	<testItem name="Cadastra Incid.Trib. da Rubrica IRRF" key="{1DD838C8-CF54-4A99-9467-9DCFA77C2A53}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																	<testItem name="Cadastra Incid.Trib. da Rubrica IRRF" key="{1DD838C8-CF54-4A99-9467-9DCFA77C2A53}" group="False" parallel="False" enabled="True" testMoniker="{3B2D5081-55BB-4E6A-A8CB-B4824878A930}CadastraITIrrf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																		<testParameters>
-																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\eSocial\Incid.Trib. da Rubrica IRRF\Incid.Trib. da Rubrica IRRF.xlsx" />
 																		</testParameters>
 																		<environments activeCloud="CBT" />
 																		<children />
 																	</testItem>
-																	<testItem name="Exclui Incid.Trib. da Rubrica IRRF" key="{08C34E42-9D94-4FBC-BE78-636A6393FD47}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																	<testItem name="Exclui Incid.Trib. da Rubrica IRRF" key="{08C34E42-9D94-4FBC-BE78-636A6393FD47}" group="False" parallel="False" enabled="True" testMoniker="{3B2D5081-55BB-4E6A-A8CB-B4824878A930}ExcluirITIrrf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																		<testParameters>
-																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\eSocial\Incid.Trib. da Rubrica IRRF\Incid.Trib. da Rubrica IRRF.xlsx" />
 																		</testParameters>
 																		<environments activeCloud="CBT" />
 																		<children />
