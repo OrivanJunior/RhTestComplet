@@ -1,1 +1,79 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolCadIncidTribInss,ObjCadIncidTribInss;
+
+procedure PreencheITInss();
+begin
+MapCadITInss();
+
+VerificaInsere(CadITEBIdIncTribInss,CadITDPIdIncTribInss);
+VerificaInsere(CadITEBDescricao,CadITDPDescricao);
+end;
+
+
+procedure CadastraITInss(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica INSS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadITInss(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadITDPIdIncTribInss);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadITInss();
+  
+  PreencheITInss();
+
+  ActSalvar(FormITInss);
+  ActFechar(FormITInss);
+  
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirITInss(pathData);
+var
+DDTExcluir : Olevariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica INSS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+LeDataPoolCadITInss(DDTExcluir.Name);
+while not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITDPIdIncTribInss);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
+  
+  ActFechar(FormITInss);
+  end;
+  DDTExcluir.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;

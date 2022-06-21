@@ -2,8 +2,10 @@
 
 procedure PreencheITFgts();
 begin
-VerificaInsere(CadITEBIdIncTribFgts,CadITEBIdIncTribFgts);
-VerificaInsere(CadITEBDescricao);
+MapCadITFGTS();
+
+VerificaInsere(CadITEBIdIncTribFgts,CadITDPIdIncTribFgts);
+VerificaInsere(CadITEBDescricao,CadITDPDescricao);
 end;
 
 procedure CadastraITFgts(pathData);
@@ -16,26 +18,26 @@ MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadITContSind(DDTCadastrar.Name);
+LeDataPoolCadITFgts(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBCS');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBFGTS');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadITContSindDPIdIncTribCs);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadITDPIdIncTribFgts);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadITContSind();
+  MapCadITFGTS();
   
-  PreencheITContSind();
+  PreencheITFgts();
 
-  ActSalvar(FormITContSind);
-  ActFechar(FormITContSind);
+  ActSalvar(FormITFgts);
+  ActFechar(FormITFgts);
   end;
   DDTCadastrar.Next;
 end;
@@ -47,20 +49,20 @@ procedure ExcluirITFgts(pathData);
 var
 DDTExcluir : Olevariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica Cont. Sind.');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica FGTS');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(pathData, _Excluir);
 
-LeDataPoolCadITContSind(DDTExcluir.Name);
+LeDataPoolCadITFgts(DDTExcluir.Name);
 while not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBCS');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBFGTS');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITContSindDPIdIncTribCs);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITDPIdIncTribFgts);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   ActConsulta(FormTelaConsultaForm); 

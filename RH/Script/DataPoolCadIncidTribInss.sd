@@ -1,1 +1,10 @@
-﻿
+﻿var
+CadITDPIdIncTribInss,
+CadITDPDescricao : OleVariant;
+
+procedure LeDataPoolCadITInss(nomeDriver);
+begin
+CadITDPIdIncTribInss  := DDT.DriverByName(nomeDriver).Value('IDINCTRIBINSS');
+CadITDPDescricao      := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
+

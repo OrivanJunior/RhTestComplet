@@ -97,15 +97,14 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadValFaixasDPIdValFaixas );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  ActConsulta(FormTelaConsultaForm);
   
-  ActExcluir(_ModuloFolha,'FRhValFaixas');
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FRhValFaixas');
   
-  ActFechar(FormCadValFaixas); 
-  
+  ActFechar(FormCadValFaixas);
   end;
   DDTExcluir.Next;
-  end;
+end;
   ActFechar(FormTelaConsultaForm);
-  DDT.CloseDriver(DDTExcluir.name);
+  DDT.CloseDriver(DDTExcluir.Name);
 end;

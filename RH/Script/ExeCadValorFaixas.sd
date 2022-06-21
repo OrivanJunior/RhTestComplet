@@ -22,13 +22,10 @@ PageCadTabNormalPg.ActivePageIndex := 0;
 
 BtnIncGridValFaixas.Click;
 
-VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor Inicial', CadValFaixasDPValIni);
-//TabValfaixasGrid.Keys('[Tab]');
-VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor Final', CadValFaixasDPValFin);
-//TabValfaixasGrid.Keys('[Tab]');
-VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor de Cálculo', CadValFaixasDPValCalc);
-//TabValfaixasGrid.Keys('[Tab]');
-VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Parcentual Cálculo', CadValFaixasDPPercCalc);
+VerificaClickPreencheGrid(TabValfaixasGrid, i,'Valor Inicial', CadValFaixasDPValIni);
+VerificaClickPreencheGrid(TabValfaixasGrid, i,'Valor Final', CadValFaixasDPValFin);
+VerificaClickPreencheGrid(TabValfaixasGrid, i,'Valor de Cálculo', CadValFaixasDPValCalc);
+VerificaClickPreencheGrid(TabValfaixasGrid, i,'Parcentual Cálculo', CadValFaixasDPPercCalc);
 
 
 TabValfaixasGrid.Click;
