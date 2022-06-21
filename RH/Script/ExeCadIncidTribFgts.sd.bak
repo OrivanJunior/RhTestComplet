@@ -2,10 +2,8 @@
 
 procedure PreencheITFgts();
 begin
-MapCadITFGTS();
-
-VerificaInsere(CadITEBIdIncTribFgts,CadITDPIdIncTribFgts);
-VerificaInsere(CadITEBDescricao,CadITDPDescricao);
+VerificaInsere(CadITEBIdIncTribFgts,CadITEBIdIncTribFgts);
+VerificaInsere(CadITEBDescricao);
 end;
 
 procedure CadastraITFgts(pathData);

@@ -1,0 +1,11 @@
+﻿var
+CadITEBDescricao,
+CadITEBIdIncTribFgts :OleVariant;
+
+
+procedure LeDataPoolCadITFgts(nomeDriver);
+begin
+CadITEBIdIncTribFgts    := DDT.DriverByName(nomeDriver).Value('IDINCTRIBFGTS');
+CadITEBDescricao        := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
+

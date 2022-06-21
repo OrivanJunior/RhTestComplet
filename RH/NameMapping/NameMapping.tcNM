@@ -62490,6 +62490,80 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FFormPadraoRHINCTRIBFGTS" Key="{C759FD9A-C592-44EF-B2B3-D598C593C53B}">
+								<Image FileName="-150315253" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<TypeInfo Item0="{0C05312A-9E71-447A-AD6E-32060C909632}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFFormPadraoCds" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FFormPadraoRHINCTRIBFGTS" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="FFormPadraoCds_abPrinc" Key="{469594B7-F44E-461B-AF89-C2583BBF9C69}">
+										<Image FileName="1331912992" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TAutoBox" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="FFormPadraoCds_abPrinc" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="FFormPadraoCds_abPrinc_ts1" Key="{A4C4C5CC-874D-41EE-8067-1F51B809853F}">
+												<Image FileName="1331912992" Left="4" Top="59" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="FFormPadraoCds_abPrinc_ts1" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="TScrollBox" Key="{9625948E-5AE7-40DF-9CA3-61421C5F9A13}">
+														<Image FileName="1331912992" Left="4" Top="59" Right="1580" Bottom="696" />
+														<Properties>
+															<Property Name="WndClass">
+																<Value Value="TScrollBox" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_IDINCTRIBFGTS" Key="{EFE68FEB-0F41-4B8E-BC67-D32FB3A4579C}">
+																<Image FileName="1331912992" Left="64" Top="67" Right="99" Bottom="86" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNum" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDINCTRIBFGTS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DESCRICAO" Key="{A38BF657-19B1-482D-A22F-1BC37F0AD1FC}">
+																<Image FileName="528077475" Left="64" Top="94" Right="1518" Bottom="113" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEdit" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DESCRICAO" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -85035,6 +85109,16 @@
 						<Child Name="TScrollBox" Owner="{88A2FE63-A700-4540-8A96-D041C26B5FEB}">
 							<Child Name="EB_IDINCTRIBCS" Owner="{6903BFB7-19FC-4767-9D06-D6028711BC53}" />
 							<Child Name="EB_DESCRICAO" Owner="{07282E75-2585-4E76-9700-49F474221FA5}" />
+						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="FFormPadraoRHINCTRIBFGTS" Owner="{C759FD9A-C592-44EF-B2B3-D598C593C53B}">
+				<Child Name="FFormPadraoCds_abPrinc" Owner="{469594B7-F44E-461B-AF89-C2583BBF9C69}">
+					<Child Name="FFormPadraoCds_abPrinc_ts1" Owner="{A4C4C5CC-874D-41EE-8067-1F51B809853F}">
+						<Child Name="TScrollBox" Owner="{9625948E-5AE7-40DF-9CA3-61421C5F9A13}">
+							<Child Name="EB_IDINCTRIBFGTS" Owner="{EFE68FEB-0F41-4B8E-BC67-D32FB3A4579C}" />
+							<Child Name="EB_DESCRICAO" Owner="{A38BF657-19B1-482D-A22F-1BC37F0AD1FC}" />
 						</Child>
 					</Child>
 				</Child>

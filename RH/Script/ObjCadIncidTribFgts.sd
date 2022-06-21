@@ -1,1 +1,17 @@
-﻿
+﻿{Script para mapear tela de Incidencia Tributária da Rubríca FGTS.
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 21/06/2022}
+ 
+var
+FormITFgts,
+CadITEBIdIncTribFgts,
+CadITEBDescricao  : OleVariant;
+
+  
+procedure MapCadITFGTS();
+begin
+FormITFgts            := Aliases.Folha.FFormPadraoRHINCTRIBFGTS;
+CadITEBIdIncTribFgts  := Aliases.Folha.FFormPadraoRHINCTRIBFGTS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDINCTRIBFGTS;
+CadITEBDescricao      := Aliases.Folha.FFormPadraoRHINCTRIBFGTS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;

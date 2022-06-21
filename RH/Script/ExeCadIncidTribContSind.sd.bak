@@ -3,8 +3,8 @@
 
 procedure PreencheITContSind();
 begin
-VerificaInsere(CadTribContSindEBIdIncTribCs,CadITContSindDPIdIncTribCs);
-VerificaInsere(CadTribContSindEBdescricao,CadITContSindDPdescricao);
+VerificaInsere(CadITCSEBIdIncTribCs,CadITContSindDPIdIncTribCs);
+VerificaInsere(CadITCSEBDescricao,CadITContSindDPdescricao);
 end;
 
 
