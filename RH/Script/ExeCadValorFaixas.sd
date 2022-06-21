@@ -20,12 +20,16 @@ MapCadFaixaCalc();
 
 PageCadTabNormalPg.ActivePageIndex := 0;
 
-IncluirGrid();
+BtnIncGridValFaixas.Click;
 
-VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor Inicial',CadValFaixasDPValIni);
-VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor Final',CadValFaixasDPValFin);
-VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor de Cálculo',CadValFaixasDPValCalc);
-VerificaClickPreencheGrid(TabValfaixasGrid,i,'Parcentual Cálculo',CadValFaixasDPPercCalc);
+VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor Inicial', CadValFaixasDPValIni);
+//TabValfaixasGrid.Keys('[Tab]');
+VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor Final', CadValFaixasDPValFin);
+//TabValfaixasGrid.Keys('[Tab]');
+VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Valor de Cálculo', CadValFaixasDPValCalc);
+//TabValfaixasGrid.Keys('[Tab]');
+VerificaClickPreencheGrid(TabValfaixasGrid, 0,'Parcentual Cálculo', CadValFaixasDPPercCalc);
+
 
 TabValfaixasGrid.Click;
 
@@ -37,7 +41,7 @@ procedure CadastraValFaixas(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastro Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -58,6 +62,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   ActIncluir(FormTelaConsultaForm);
   
   PreencheValFaixas();
+  PreencheVlrGrid();
   
   ActSalvar(FormCadValFaixas);
   ActFechar(FormCadValFaixas);
@@ -75,7 +80,7 @@ procedure ExcluirValFaixas(pathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastro Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -83,7 +88,7 @@ DDTExcluir := CarregaDDT(pathData, _Excluir);
 
 LeDataPoolCadValFaixas(DDTExcluir.name);
 
-while not DDTCadastrar.EOF do
+while not DDTExcluir.EOF do
 begin
  
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
@@ -92,16 +97,14 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadValFaixasDPIdValFaixas );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  ActConsulta(FormTelaConsultaForm);
   
-  ActExcluir(_ModuloFolha,'FRhValFaixas');
+  ActConsulta(FormTelaConsultaForm); 
+  ActExcluir(_ModuloFolha, 'FRhValFaixas');
   
-  ActFechar(FormCadValFaixas); 
-  
+  ActFechar(FormCadValFaixas);
   end;
   DDTExcluir.Next;
-  end;
-  ActFechar(FormTelaConsultaForm);
-  DDT.CloseDriver(DDTExcluir.name);
 end;
-
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.Name);
+end;

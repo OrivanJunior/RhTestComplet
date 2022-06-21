@@ -12,14 +12,9 @@ procedure LeDataPoolCadValFaixas(nomeDriver);
 begin
 CadValFaixasDPIdValFaixas := DDT.DriverByName(nomeDriver).Value('IDVALFAIXAS'); 
 CadValFaixasDPDescricao   := DDT.DriverByName(nomeDriver).Value('DESCRICAO'); 
+
+CadValFaixasDPValIni    := DDT.DriverByName(nomeDriver).Value('VALOR INICIAL');
+CadValFaixasDPValFin    := DDT.DriverByName(nomeDriver).Value('VALOR FINAL');
+CadValFaixasDPValCalc   := DDT.DriverByName(nomeDriver).Value('VALOR DE CALCULO');
+CadValFaixasDPPercCalc  := DDT.DriverByName(nomeDriver).Value('PERCENTUAL DE CALCULO');
 end;
-
-procedure LeDataPoolDetalhes(nomeDriver);
-begin
-CadValFaixasDPValIni    := DDT.DriverByName(nomeDriver).Value('Valor Inicial');
-CadValFaixasDPValFin    := DDT.DriverByName(nomeDriver).Value('Valor Final');
-CadValFaixasDPValCalc   := DDT.DriverByName(nomeDriver).Value('Valor de Cálculo');
-CadValFaixasDPPercCalc  := DDT.DriverByName(nomeDriver).Value('Parcentual Cálculo');
-end;
-
-

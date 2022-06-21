@@ -927,7 +927,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tipos" key="{7A31DF8D-464D-413A-8DAD-1B72762CCB68}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Tipos" key="{7A31DF8D-464D-413A-8DAD-1B72762CCB68}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Tipos" key="{DA5C70C0-E90B-4FC6-A5C3-3E7ED5EF7B1D}" group="False" parallel="False" enabled="True" testMoniker="{215CBA77-EA1B-4A7A-B3AB-D3AD1576C6F9}CadastraTipo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -965,19 +965,19 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Valores sobre faixas" key="{E1CD869B-C9B3-4424-B859-D4176B3A6BD4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Valores sobre faixas" key="{E1CD869B-C9B3-4424-B859-D4176B3A6BD4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Valores sobre faixas" key="{E3A680BE-55CA-45E9-A756-401334708639}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastra Valores sobre faixas" key="{E3A680BE-55CA-45E9-A756-401334708639}" group="False" parallel="False" enabled="True" testMoniker="{F80E5BC6-B354-4499-BB45-D8E66ABE767E}CadastraValFaixas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Valores sobre faixas\Valores sobre faixas.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui Valores sobre faixas" key="{FB79528C-93DF-4EF0-9F07-D62FCB2501F3}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Exclui Valores sobre faixas" key="{FB79528C-93DF-4EF0-9F07-D62FCB2501F3}" group="False" parallel="False" enabled="True" testMoniker="{F80E5BC6-B354-4499-BB45-D8E66ABE767E}ExcluirValFaixas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Valores sobre faixas\Valores sobre faixas.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
