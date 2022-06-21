@@ -1,0 +1,10 @@
+﻿var
+CadTribContSindDPIdIncTribCs,
+CadTribContSindDPdescricao :OleVaiant; 
+
+procedure LeDataPoolCadITContSind(nomeDriver);
+begin
+CadTribContSindDPIdIncTribCs    := DDT.DriverByName(nomeDriver).Value('IDINCTRIBCS');
+CadTribContSindDPdescricao      := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
+

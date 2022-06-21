@@ -2,5 +2,19 @@
  Módulo: Padrão
  Autor: Orivan lemes dos Santos Junior
  Data: 21/06/2022}
+var
+FormCadManad,
+
+CadManadEBIdEvento,
+CadManadEBIndBaseIrrf,
+CadManadEBIndBaseInss :OleVariant;
  
- 
+
+procedure MapCadManad();
+begin
+FormCadManad  := Aliases.Folha.FFormPadraoRHEVEMANAD;
+  
+CadManadEBIdEvento      := Aliases.Folha.FFormPadraoRHEVEMANAD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEVENTO;
+CadManadEBIndBaseIrrf   := Aliases.Folha.FFormPadraoRHEVEMANAD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDBASEIRRF;
+CadManadEBIndBaseInss   := Aliases.Folha.FFormPadraoRHEVEMANAD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDBASEINSS;
+end;
