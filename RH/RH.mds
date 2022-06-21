@@ -946,26 +946,26 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf.Eventos Para MANAD" key="{7DF0E0A9-9A23-4B78-AD10-B994313CB8F2}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf.Eventos Para MANAD" key="{7DF0E0A9-9A23-4B78-AD10-B994313CB8F2}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Cálculos - Conf.Eventos Para MANAD" key="{0F1350AA-6181-4150-B169-A41CFD6CE5DC}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}CadastraCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastra Cálculos - Conf.Eventos Para MANAD" key="{0F1350AA-6181-4150-B169-A41CFD6CE5DC}" group="False" parallel="False" enabled="True" testMoniker="{9E8994D7-3CF8-42AC-82E8-B7C51B0944EF}CadastraEveManad" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Conf.Eventos Para MANAD\Conf.EventosParaMANAD.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui CálculosConf.Eventos Para MANAD" key="{408202F1-E081-482E-AEEB-E8FFF3A7924F}" group="False" parallel="False" enabled="True" testMoniker="{2CA7FC30-D60B-404F-82C0-17B8BBF96493}ExcluirCalcParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Exclui CálculosConf.Eventos Para MANAD" key="{408202F1-E081-482E-AEEB-E8FFF3A7924F}" group="False" parallel="False" enabled="True" testMoniker="{9E8994D7-3CF8-42AC-82E8-B7C51B0944EF}ExcluirEveManad" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Cálculos - Parâmetros\Calculos - Parametros.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Eventos\Conf.Eventos Para MANAD\Conf.EventosParaMANAD.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Valores sobre faixas" key="{E1CD869B-C9B3-4424-B859-D4176B3A6BD4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Valores sobre faixas" key="{E1CD869B-C9B3-4424-B859-D4176B3A6BD4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Valores sobre faixas" key="{E3A680BE-55CA-45E9-A756-401334708639}" group="False" parallel="False" enabled="True" testMoniker="{F80E5BC6-B354-4499-BB45-D8E66ABE767E}CadastraValFaixas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

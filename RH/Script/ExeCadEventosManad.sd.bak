@@ -4,7 +4,7 @@
 
 procedure PreencheEveManad();
 begin
-VerificaConsultaF3Insere(_ModuloFolha,CadManadEBIdEvento,CadManadDPIdEvento);
+VerificaConsultaF3Insere(_ModuloFolha,CadManadDPIdEvento,CadManadDPIdEvento);
 VerificaInsere(CadManadEBIndBaseIrrf,CadManadDPIndBaseIrrf);
 VerificaInsere(CadManadEBIndBaseInss,CadManadDPIndBaseInss);
 end;

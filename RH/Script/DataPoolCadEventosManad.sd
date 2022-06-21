@@ -1,1 +1,12 @@
-﻿
+﻿var
+CadManadDPIdEvento,
+CadManadDPIndBaseIrrf,
+CadManadDPIndBaseInss :OleVariant;
+
+procedure LeDatapoolCadManad(nomeDriver);
+begin
+CadManadDPIdEvento      := DDT.DriverByName(nomeDriver).Value('IDEVENTO');  
+CadManadDPIndBaseIrrf   := DDT.DriverByName(nomeDriver).Value('INDBASEIRRF');
+CadManadDPIndBaseInss   := DDT.DriverByName(nomeDriver).Value('INDBASEINSS');
+end;
+
