@@ -1,1 +1,56 @@
-﻿
+﻿var
+CadFpasDPIdFpas,
+CadFpasDPFpas,
+CadFpasDPDescricao,
+CadFpasDPRateSocial,
+CadFpasDPAliqRat,
+CadFpasDPCodConvenio,
+CadFpasDPPercConvenio,
+CadFpasDPPercProLab,
+CadFpasDPPercEmpresa,
+CadFpasDPPercAutonomo,
+                        
+CadFpasDPSalEducacao,
+CadFpasDPIncra,
+CadFpasDPSenai,
+CadFpasDPSesi,
+CadFpasDPSenac,
+CadFpasDPSesc,
+CadFpasDPSebrae,
+CadFpasDPDpc,
+CadFpasDPFundoAeroviario,
+CadFpasDPSenar,
+CadFpasDPSest,
+CadFpasDPSenat,
+CadFpasDPSescoop : OleVariant;
+
+
+procedure leDataPoolCadFpas(nomeDriver);
+begin
+
+CadFpasDPIdFpas  						:= DDT.DriverbyName(nomeDriver).Value('IDFPAS');
+CadFpasDPFpas  		          := DDT.DriverbyName(nomeDriver).Value('FPAS');
+CadFpasDPDescricao          := DDT.DriverbyName(nomeDriver).Value('DESCRICAO');
+CadFpasDPRateSocial         := DDT.DriverbyName(nomeDriver).Value('RATESOCIAL');
+CadFpasDPAliqRat  	        := DDT.DriverbyName(nomeDriver).Value('ALIQRAT');
+CadFpasDPCodConvenio        := DDT.DriverbyName(nomeDriver).Value('CODCONVENIO');
+CadFpasDPPercConvenio       := DDT.DriverbyName(nomeDriver).Value('PERCCONVENIO');
+CadFpasDPPercProLab         := DDT.DriverbyName(nomeDriver).Value('PERCPROLAB');
+CadFpasDPPercEmpresa        := DDT.DriverbyName(nomeDriver).Value('PERCEMPRESA');
+CadFpasDPPercAutonomo       := DDT.DriverbyName(nomeDriver).Value('PERCAUTONOMO');
+
+CadFpasDPSalEducacao  	    := DDT.DriverbyName(nomeDriver).Value('SALEDUCACAO');
+CadFpasDPIncra  		        := DDT.DriverbyName(nomeDriver).Value('INCRA');
+CadFpasDPSenai  		        := DDT.DriverbyName(nomeDriver).Value('SENAI');
+CadFpasDPSesi  			        := DDT.DriverbyName(nomeDriver).Value('SESI');
+CadFpasDPSenac  		        := DDT.DriverbyName(nomeDriver).Value('SENAC');
+CadFpasDPSesc  			        := DDT.DriverbyName(nomeDriver).Value('SESC');
+CadFpasDPSebrae  		        := DDT.DriverbyName(nomeDriver).Value('SEBRAE');
+CadFpasDPDpc  			        := DDT.DriverbyName(nomeDriver).Value('DPC');
+CadFpasDPFundoAeroviario    := DDT.DriverbyName(nomeDriver).Value('FUNDOAEROVIARIO');
+CadFpasDPSenar  		        := DDT.DriverbyName(nomeDriver).Value('SENAR');
+CadFpasDPSest  			        := DDT.DriverbyName(nomeDriver).Value('SEST');
+CadFpasDPSenat  		        := DDT.DriverbyName(nomeDriver).Value('SENAT');
+CadFpasDPSescoop  		      := DDT.DriverbyName(nomeDriver).Value('SESCOOP');
+
+end;

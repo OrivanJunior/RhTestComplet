@@ -1,1 +1,52 @@
-﻿
+﻿uses CommonsAll,CommonsObj,ObjCadAliquotas,DataPoolCadAliquotas,VarConsts;
+
+
+procedure PreenchedadosGerais();
+begin
+MapCadAliquotas();
+
+FormAbaPrincFpas.ActivePageIndex := 0;
+
+VerificaInsere(CadFpasEBIdFpas,CadFpasDPIdFpas);            
+VerificaInsere(CadFpasEBFpas,CadFpasDPFpas);                
+VerificaInsere(CadFpasEBDescricao,CadFpasDPDescricao);      
+VerificaInsere(CadFpasEBRateSocial,CadFpasDPRateSocial);    
+VerificaInsere(CadFpasEBAliqRat,CadFpasDPAliqRat);          
+VerificaInsere(CadFpasEBCodConvenio,CadFpasDPCodConvenio);  
+VerificaInsere(CadFpasEBPercConvenio,CadFpasDPPercConvenio);
+VerificaInsere(CadFpasEBPercProLab,CadFpasDPPercProLab);    
+VerificaInsere(CadFpasEBPercEmpresa,CadFpasDPPercEmpresa);  
+VerificaInsere(CadFpasEBPercAutonomo,CadFpasDPPercAutonomo);
+end;
+
+
+procedure PreencheOutrasEntidades();
+begin
+FormAbaPrincFpas.ActivePageIndex := 1;
+
+VerificaInsere(CadFpasEBSalEducacao,CadFpasDPSalEducacao);
+VerificaInsere(CadFpasEBIncra,CadFpasDPIncra);
+VerificaInsere(CadFpasEBSenai,CadFpasDPSenai);
+VerificaInsere(CadFpasEBSesi,CadFpasDPSesi);
+VerificaInsere(CadFpasEBSenac,CadFpasDPSenac);
+VerificaInsere(CadFpasEBSesc,CadFpasDPSesc);
+VerificaInsere(CadFpasEBSebrae,CadFpasDPSebrae);
+VerificaInsere(CadFpasEBDpc,CadFpasDPDpc);
+VerificaInsere(CadFpasEBFundoAeroviario,CadFpasDPFundoAeroviario);
+VerificaInsere(CadFpasEBSenar,CadFpasDPSenar);
+VerificaInsere(CadFpasEBSest,CadFpasDPSest);
+VerificaInsere(CadFpasEBSenat,CadFpasDPSenat);
+VerificaInsere(CadFpasEBSescoop,CadFpasDPSescoop);
+
+end;
+
+
+
+
+
+
+
+
+
+														
+
