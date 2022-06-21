@@ -1,0 +1,42 @@
+﻿uses
+CommonsAll, CommonsObj, VarConsts, DataPoolCadValorFaixas, ObjCadValorFaixas;
+
+procedure PreencheValFaixas();
+begin
+MapCadFaixaCalc();
+
+VerificaInsere(CadValFaixasEBIdValFaixas,CadValFaixasDPIdValFaixas);
+VerificaInsere(CadValFaixasEBDescricao,CadValFaixasDPDescricao);
+end;
+
+
+procedure CadastraValFaixas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastro Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadValFaixas(DDTCadastrar.name);
+
+while not DDTCadastrar.EOF do
+begin
+ 
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhValFaixas');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadValFaixasDPIdValFaixas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  
+  end;
+  
+end;
+
+
+end;
+  

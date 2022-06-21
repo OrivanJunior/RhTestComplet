@@ -1,1 +1,35 @@
-﻿
+﻿{Script para mapear tela de cadastro de Valores de Faixas
+ Módulo: Padrão
+ Autor: Orivan lemes dos Santos Junior
+ Data: 20/06/2022}
+var 
+FormCadValFaixas,
+PageCadTabNormalCab,
+CadValFaixasEBIdValFaixas,
+CadValFaixasEBDescricao,
+                         
+                         
+PageCadTabNormalPg,
+BtnIncGridValFaixas,
+BtnProcGridValFaixas,
+BtnConsulGridValFaixas,
+BtnDesfGridValFaixas,
+BtnExcGridValFaixas,
+TabValfaixasGrid : OleVariant;
+
+procedure MapCadFaixaCalc();
+begin
+FormCadValFaixas  		  	:= Aliases.Folha.FRhValFaixas;
+PageCadTabNormalCab			  := Aliases.Folha.FRhValFaixas.Page.TabNormal.pnCab;
+CadValFaixasEBIdValFaixas	:= Aliases.Folha.FRhValFaixas.Page.TabNormal.pnCab.EB_IDVALFAIXAS;
+CadValFaixasEBDescricao  	:= Aliases.Folha.FRhValFaixas.Page.TabNormal.pnCab.EB_DESCRICAO;
+  
+  
+PageCadTabNormalPg		    := Aliases.Folha.FRhValFaixas.Page.TabNormal.pg;
+BtnIncGridValFaixas 	    := Aliases.Folha.FRhValFaixas.bInc;
+BtnProcGridValFaixas 	    := Aliases.Folha.FRhValFaixas.bProc;
+BtnConsulGridValFaixas    := Aliases.Folha.FRhValFaixas.bConsul;
+BtnDesfGridValFaixas 	    := Aliases.Folha.FRhValFaixas.bDesf;
+BtnExcGridValFaixas  	    := Aliases.Folha.FRhValFaixas.bExc;
+TabValfaixasGrid  		    := Aliases.Folha.FRhValFaixas.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gValFaixas.TcxGridSite;
+end;

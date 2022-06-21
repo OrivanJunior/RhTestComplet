@@ -1,1 +1,107 @@
-﻿
+﻿uses
+CommonsAll, CommonsObj, VarConsts, DataPoolCadValorFaixas, ObjCadValorFaixas;
+
+procedure PreencheValFaixas();
+begin
+MapCadFaixaCalc();
+
+VerificaInsere(CadValFaixasEBIdValFaixas,CadValFaixasDPIdValFaixas);
+VerificaInsere(CadValFaixasEBDescricao,CadValFaixasDPDescricao);
+
+end;
+
+procedure PreencheVlrGrid();
+var 
+i;
+begin
+i:=0;
+
+MapCadFaixaCalc();
+
+PageCadTabNormalPg.ActivePageIndex := 0;
+
+IncluirGrid();
+
+VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor Inicial',CadValFaixasDPValIni);
+VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor Final',CadValFaixasDPValFin);
+VerificaClickPreencheGrid(TabValfaixasGrid,i,'Valor de Cálculo',CadValFaixasDPValCalc);
+VerificaClickPreencheGrid(TabValfaixasGrid,i,'Parcentual Cálculo',CadValFaixasDPPercCalc);
+
+TabValfaixasGrid.Click;
+
+Inc(i);
+
+end;
+
+procedure CadastraValFaixas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastro Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadValFaixas(DDTCadastrar.name);
+
+while not DDTCadastrar.EOF do
+begin
+ 
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhValFaixas');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadValFaixasDPIdValFaixas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheValFaixas();
+  
+  ActSalvar(FormCadValFaixas);
+  ActFechar(FormCadValFaixas);
+  
+  end;
+  DDTCadastrar.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTCadastrar.name);
+
+end;
+
+
+procedure ExcluirValFaixas(pathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastro Gerais', 'Gerais', 'Eventos', 'Valores sobre faixas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(pathData, _Excluir);
+
+LeDataPoolCadValFaixas(DDTExcluir.name);
+
+while not DDTCadastrar.EOF do
+begin
+ 
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhValFaixas');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadValFaixasDPIdValFaixas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  ActConsulta(FormTelaConsultaForm);
+  
+  ActExcluir(_ModuloFolha,'FRhValFaixas');
+  
+  ActFechar(FormCadValFaixas); 
+  
+  end;
+  DDTExcluir.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTExcluir.name);
+end;
+

@@ -1,4 +1,8 @@
-﻿var 
+﻿{Script para mapear tela de cadastro de Valores de Faixas
+ Módulo: Padrão
+ Autor: Orivan lemes dos Santos Junior
+ Data: 20/06/2022}
+var 
 FormCadValFaixas,
 PageCadTabNormalCab,
 CadValFaixasEBIdValFaixas,
@@ -28,4 +32,13 @@ BtnConsulGridValFaixas    := Aliases.Folha.FRhValFaixas.bConsul;
 BtnDesfGridValFaixas 	    := Aliases.Folha.FRhValFaixas.bDesf;
 BtnExcGridValFaixas  	    := Aliases.Folha.FRhValFaixas.bExc;
 TabValfaixasGrid  		    := Aliases.Folha.FRhValFaixas.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gValFaixas.TcxGridSite;
+end;
+
+
+procedure IncluirGrid();
+var 
+FormTelaConsultaGrid;
+begin
+FormTelaConsultaGrid :=  Sys.Process('Folha').VCLObject('FRhValFaixas').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg');
+FormTelaConsultaGrid.ExecuteAction(IncluirGrid);
 end;

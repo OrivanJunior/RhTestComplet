@@ -1,1 +1,13 @@
-﻿
+﻿var
+CadValFaixasDPIdValFaixas,
+CadValFaixasDPDescricao : OleVariant;
+
+
+procedure LeDataPoolCadValFaixas(nomeDriver);
+begin
+CadValFaixasDPIdValFaixas := DDT.DriverByName(nomeDriver).Value('IDVALFAIXAS'); 
+CadValFaixasDPDescricao   := DDT.DriverByName(nomeDriver).Value('DESCRICAO'); 
+end;
+
+
+
