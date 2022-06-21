@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9BD8A35E-9A48-43EF-B68F-BED134D4C312}"/>
+				<Prp name="activity" type="S" value="{9B9FBF03-B8A0-49B2-BAE8-04D597D44E0E}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -257,16 +261,16 @@
 					<Node name="3">
 						<Node name="editor">
 							<Node name="{8c45957c-f4b3-4dd7-9212-49cbd350f69f}">
-								<Prp name="key" type="S" value="{FB0F776B-2244-4CDB-8EAC-A9EF29E15EE1}"/>
+								<Prp name="key" type="S" value="{67042DB2-BDB7-4080-8A5A-BE5020895FCF}"/>
 							</Node>
 							<Node name="{d0151f8e-51fe-49da-8534-008b9f1b7c45}">
-								<Prp name="col" type="I" value="29"/>
-								<Prp name="key" type="S" value="{44625B02-C25E-492B-8571-5E276D258520}"/>
-								<Prp name="line" type="I" value="27"/>
-								<Prp name="sellength" type="I" value="0"/>
-								<Prp name="selstart" type="I" value="983"/>
+								<Prp name="col" type="I" value="0"/>
+								<Prp name="key" type="S" value="{0D5CA048-701B-4767-B319-CA210AD878A5}"/>
+								<Prp name="line" type="I" value="21"/>
+								<Prp name="sellength" type="I" value="16"/>
+								<Prp name="selstart" type="I" value="498"/>
 								<Prp name="windowchar" type="I" value="0"/>
-								<Prp name="windowline" type="I" value="12"/>
+								<Prp name="windowline" type="I" value="0"/>
 							</Node>
 							<Prp name="editor" type="S" value="{A7E00CAB-1B18-43A5-A196-64380D44C9C3}"/>
 							<Prp name="focused" type="S" value="{44625B02-C25E-492B-8571-5E276D258520}"/>
@@ -14654,8 +14658,10 @@
 									<Node name="gerais">
 										<Node name="eventos">
 											<Node name="esocial">
+												<Node name="incid.trib. da rubrica cont. sind."/>
 												<Node name="incid.trib. da rubrica fgts"/>
 												<Node name="incid.trib. da rubrica inss"/>
+												<Node name="incid.trib. da rubrica irrf"/>
 											</Node>
 										</Node>
 									</Node>
