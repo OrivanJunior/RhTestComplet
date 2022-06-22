@@ -66,9 +66,9 @@ begin
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   ActConsulta(FormTelaConsultaForm); 
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBCS');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBFGTS');
   
-  ActFechar(FormITContSind);
+  ActFechar(FormITFgts);
   end;
   DDTExcluir.Next;
 end;

@@ -68,6 +68,9 @@ begin
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   ActConsulta(FormTelaConsultaForm); 
+  
+  MapCadITInss();
+  
   ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
   
   ActFechar(FormITInss);

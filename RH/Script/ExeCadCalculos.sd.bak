@@ -48,7 +48,7 @@ procedure ExcluirCadCalculos(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha,'Cadastro Gerais', 'Gerais', 'Eventos', 'Cálculos');
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Eventos','Cálculos');
 
 MapGridConsulta(_ModuloFolha);
 

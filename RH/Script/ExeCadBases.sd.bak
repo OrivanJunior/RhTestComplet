@@ -49,8 +49,8 @@ begin
   
   PreencheBase();
   
-  ActSalvar(FormCadBase);
-  ActFechar(FormCadBase);
+  ActSalvar(FormPadraoCadBase);
+  ActFechar(FormPadraoCadBase);
   end;
   DDTCadastrar.Next;
 end;
@@ -84,7 +84,7 @@ begin
   ActConsulta(FormTelaConsultaForm); 
   ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
   
-  ActFechar(FormCadBase);
+  ActFechar(FormPadraoCadBase);
   end;
   DDTExcluir.Next;
 end;

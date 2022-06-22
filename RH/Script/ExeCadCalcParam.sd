@@ -91,7 +91,10 @@ begin
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cálculo', CadCalcParamDPIdCalcReg );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  ActConsulta(FormTelaConsultaForm); 
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCalcParam();
+   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCREGP');
   
   ActFechar(FormPadraoCadCalcParam);

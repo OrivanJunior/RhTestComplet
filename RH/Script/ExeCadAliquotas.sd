@@ -1,7 +1,7 @@
 ﻿uses CommonsAll,CommonsObj,ObjCadAliquotas,DataPoolCadAliquotas,VarConsts;
 
 
-procedure PreenchedadosGerais();
+procedure PreencheDadosGerais();
 begin
 MapCadAliquotas();
 
@@ -18,7 +18,6 @@ VerificaInsere(CadFpasEBPercProLab,CadFpasDPPercProLab);
 VerificaInsere(CadFpasEBPercEmpresa,CadFpasDPPercEmpresa);  
 VerificaInsere(CadFpasEBPercAutonomo,CadFpasDPPercAutonomo);
 end;
-
 
 procedure PreencheOutrasEntidades();
 begin
@@ -40,13 +39,74 @@ VerificaInsere(CadFpasEBSescoop,CadFpasDPSescoop);
 
 end;
 
+procedure CadastraAliquotas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS','Alíquotas');
 
+MapGridConsulta(_ModuloFolha);
 
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
+leDataPoolCadFpas(DDTCadastrar.Name);
 
+while not DDTCadastrar.EOF do
+begin
 
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Identif.', CadFpasDPIdFpas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheDadosGerais();
+  PreencheOutrasEntidades();
+  
+  ActSalvar(FormPadraoFpas);
+  ActFechar(FormPadraoFpas);
+  end;
+  DDTCadastrar.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTCadastrar.Name);
+end;
 
+procedure ExcluirAliquotas(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS','Alíquotas');
 
+MapGridConsulta(_ModuloFolha);
 
-														
+DDTExcluir := CarregaDDT(PathData, _Excluir);
 
+leDataPoolCadFpas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Identif.', CadFpasDPIdFpas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAliquotas();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHFPAS');
+  
+  ActFechar(FormPadraoFpas);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

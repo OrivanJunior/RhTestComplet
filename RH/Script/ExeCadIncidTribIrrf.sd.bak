@@ -7,7 +7,8 @@ MapCadITIrrf();
 VerificaInsere(CadITEBIdIncTribIrrf,CadITDPIdIncTribIrrf);
 VerificaInsere(CadITEBDescricao,CadITDPDescricao);
 
-PreencheDatas()
+PreencheDatas(CadITEBDtInivalidade,CadITDPDtInivalidade);
+PreencheDatas(CadITEBDtFinValidade,CadITDPDtFinValidade);
 end;
 
 
@@ -39,8 +40,8 @@ begin
   
   PreencheITIrrf();
 
-  ActSalvar(FormITInss);
-  ActFechar(FormITInss);
+  ActSalvar(FormITIrrf);
+  ActFechar(FormITIrrf);
   
   end;
   DDTCadastrar.Next;
@@ -49,30 +50,30 @@ end;
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirITInss(pathData);
+procedure ExcluirITIrrf(pathData);
 var
 DDTExcluir : Olevariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica INSS');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Eventos','eSocial','Incid. Trib. da Rubrica IRRF');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(pathData, _Excluir);
 
-LeDataPoolCadITInss(DDTExcluir.Name);
+LeDataPoolCadITIrrf(DDTExcluir.Name);
 while not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINCTRIBIRRF');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITDPIdIncTribInss);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITDPIdIncTribIrrf);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   ActConsulta(FormTelaConsultaForm); 
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBINSS');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBIRRF');
   
-  ActFechar(FormITInss);
+  ActFechar(FormITIrrf);
   end;
   DDTExcluir.Next;
 end;

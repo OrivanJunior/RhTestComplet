@@ -841,7 +841,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Eventos" key="{C1FF9291-BF48-48DC-8105-7A3A7E019484}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Eventos" key="{C1FF9291-BF48-48DC-8105-7A3A7E019484}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Eventos" key="{6D10F695-C217-4784-988D-2BD4580E3552}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1064,6 +1064,25 @@
 																</children>
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="FPAS" key="{35BAB1EF-7E92-405C-B774-79B6A325AE20}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Alíquota" key="{01A84BCB-F59B-46CB-A787-E9E6529B2CCF}" group="False" parallel="False" enabled="True" testMoniker="{EA1362EC-244E-46A2-A38E-16A16468CDC6}CadastraAliquotas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\FPAS\Alíquotas\Alíquotas.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Alíquota" key="{B5F6AB6C-0F7D-437B-9A2C-7D8670872D23}" group="False" parallel="False" enabled="True" testMoniker="{EA1362EC-244E-46A2-A38E-16A16468CDC6}ExcluirAliquotas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\FPAS\Alíquotas\Alíquotas.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

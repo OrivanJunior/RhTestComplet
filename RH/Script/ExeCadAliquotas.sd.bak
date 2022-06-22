@@ -1,1 +1,110 @@
-﻿
+﻿uses CommonsAll,CommonsObj,ObjCadAliquotas,DataPoolCadAliquotas,VarConsts;
+
+
+procedure PreencheDadosGerais();
+begin
+MapCadAliquotas();
+
+FormAbaPrincFpas.ActivePageIndex := 0;
+
+VerificaInsere(CadFpasEBIdFpas,CadFpasDPIdFpas);            
+VerificaInsere(CadFpasEBFpas,CadFpasDPFpas);                
+VerificaInsere(CadFpasEBDescricao,CadFpasDPDescricao);      
+VerificaInsere(CadFpasEBRateSocial,CadFpasDPRateSocial);    
+VerificaInsere(CadFpasEBAliqRat,CadFpasDPAliqRat);          
+VerificaInsere(CadFpasEBCodConvenio,CadFpasDPCodConvenio);  
+VerificaInsere(CadFpasEBPercConvenio,CadFpasDPPercConvenio);
+VerificaInsere(CadFpasEBPercProLab,CadFpasDPPercProLab);    
+VerificaInsere(CadFpasEBPercEmpresa,CadFpasDPPercEmpresa);  
+VerificaInsere(CadFpasEBPercAutonomo,CadFpasDPPercAutonomo);
+end;
+
+procedure PreencheOutrasEntidades();
+begin
+FormAbaPrincFpas.ActivePageIndex := 1;
+
+VerificaInsere(CadFpasEBSalEducacao,CadFpasDPSalEducacao);
+VerificaInsere(CadFpasEBIncra,CadFpasDPIncra);
+VerificaInsere(CadFpasEBSenai,CadFpasDPSenai);
+VerificaInsere(CadFpasEBSesi,CadFpasDPSesi);
+VerificaInsere(CadFpasEBSenac,CadFpasDPSenac);
+VerificaInsere(CadFpasEBSesc,CadFpasDPSesc);
+VerificaInsere(CadFpasEBSebrae,CadFpasDPSebrae);
+VerificaInsere(CadFpasEBDpc,CadFpasDPDpc);
+VerificaInsere(CadFpasEBFundoAeroviario,CadFpasDPFundoAeroviario);
+VerificaInsere(CadFpasEBSenar,CadFpasDPSenar);
+VerificaInsere(CadFpasEBSest,CadFpasDPSest);
+VerificaInsere(CadFpasEBSenat,CadFpasDPSenat);
+VerificaInsere(CadFpasEBSescoop,CadFpasDPSescoop);
+
+end;
+
+procedure CadastraAliquotas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS','Alíquotas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+leDataPoolCadFpas(DDTCadastrar.Name);
+
+while not DDTCadastrar.EOF do
+begin
+
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Identif.', CadFpasDPIdFpas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheDadosGerais();
+  PreencheOutrasEntidades();
+  
+  ActSalvar(FormPadraoFpas);
+  ActFechar(FormPadraoFpas);
+  end;
+  DDTCadastrar.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAliquotas(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS','Alíquotas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+leDataPoolCadFpas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Identif.', CadFpasDPIdFpas );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHFPAS');
+  Delay(500);
+  ActFechar(FormPadraoFpas);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

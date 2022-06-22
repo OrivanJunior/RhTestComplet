@@ -65,7 +65,10 @@ begin
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadITContSindDPIdIncTribCs);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  ActConsulta(FormTelaConsultaForm); 
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadITContSind();
+   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHINCTRIBCS');
   
   ActFechar(FormITContSind);

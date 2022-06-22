@@ -111,7 +111,10 @@ begin
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   
-  ActConsulta(FormTelaConsultaForm); 
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadTiposEventos();
+   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHEVETIPO');
   
   ActFechar(FormCadTiposEvento);

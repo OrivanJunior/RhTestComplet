@@ -68,6 +68,8 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   
   ActConsulta(FormTelaConsultaForm);
   
+  MapCadCalculos();
+  
   ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCREG');
   ActFechar(FormPadraoCalcReg);
   end;

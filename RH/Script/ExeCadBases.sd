@@ -81,7 +81,10 @@ begin
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Base de Cálculo', CadDPIDbase );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
-  ActConsulta(FormTelaConsultaForm); 
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadBase();
+  
   ActExcluir(_ModuloFolha, 'FFormPadraoRHEVEBASE');
   
   ActFechar(FormPadraoCadBase);
