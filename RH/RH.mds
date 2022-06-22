@@ -1067,7 +1067,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="FPAS" key="{35BAB1EF-7E92-405C-B774-79B6A325AE20}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="FPAS" key="{35BAB1EF-7E92-405C-B774-79B6A325AE20}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Alíquotas" key="{6F163DB6-6460-4A13-9722-AD074C07CF1E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1089,7 +1089,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="FPAS" key="{64E176C7-719A-4ADA-BF83-D9510F2A871D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="FPAS" key="{64E176C7-719A-4ADA-BF83-D9510F2A871D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra FPAS" key="{EB307421-6096-4187-87BF-548C5CB83EF1}" group="False" parallel="False" enabled="True" testMoniker="{D70D70CB-053C-4377-855E-804D89F51057}CadastraFPAS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1107,6 +1107,25 @@
 																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="CBO" key="{3ACDA7BF-54FA-446D-AA08-CC9BEB7E2643}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Cbo" key="{B563DE50-B5E6-4290-9CF7-6265A117750C}" group="False" parallel="False" enabled="True" testMoniker="{5F511AFE-9521-4E2B-A0E7-CDC06BC8AF9D}CadastraCBO" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\CBO\CBO.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Cbo" key="{60B3942A-9ED5-4C0B-AE85-8D8A5B85D22F}" group="False" parallel="False" enabled="True" testMoniker="{5F511AFE-9521-4E2B-A0E7-CDC06BC8AF9D}ExcluirCBO" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\CBO\CBO.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

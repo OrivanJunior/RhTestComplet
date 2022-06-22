@@ -74,7 +74,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadFPAS();
+  MapCadCbo();
   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHCBO');
   ActFechar(FormPadraoCbo);

@@ -12,7 +12,7 @@ end;
 
 
 
-procedure CadastraBase(pathData);
+procedure CadastraCBO(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
@@ -50,7 +50,7 @@ end;
 end;
 
 
-procedure ExcluirCbo(PathData);
+procedure ExcluirCBO(PathData);
 var
 DDTExcluir : OleVariant;
 begin
