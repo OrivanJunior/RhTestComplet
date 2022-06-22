@@ -1,0 +1,19 @@
+﻿{Script para mapear tela de cadastro de CBO
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 22/06/2022}
+ 
+ 
+var
+FormPadraoCbo,
+CadEBCbo,
+CadEBDescricao : OleVariant;
+
+
+
+procedure MapCadCbo();
+begin
+FormPadraoCbo     := Aliases.Folha.FFormPadraoRHCBO;
+CadEBCbo          := Aliases.Folha.FFormPadraoRHCBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CBO;
+CadEBDescricao    := Aliases.Folha.FFormPadraoRHCBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;

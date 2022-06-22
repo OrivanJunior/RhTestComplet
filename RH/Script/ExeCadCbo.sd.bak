@@ -1,0 +1,87 @@
+﻿uses CommonsAll, CommonsObj,VarConsts,DataPoolCadCbo, ObjCadCbo;
+
+
+procedure PreencheCbo();
+begin
+MapCadCbo();
+
+VerificaInsere(CadEBCbo,CadDPCbo);
+VerificaInsere(CadEBDescricao,CadDPDescricao);
+end;
+
+
+
+
+procedure CadastraBase(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'CBO');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCbo(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CBO', CadDPCbo );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCbo();
+  
+  PreencheCbo();
+  
+  ActSalvar(FormPadraoCbo);
+  ActFechar(FormPadraoCbo);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirCbo(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'CBO');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCbo(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CBO', CadDPCBO );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFPAS();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCBO');
+  ActFechar(FormPadraoCbo);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

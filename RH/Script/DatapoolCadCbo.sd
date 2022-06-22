@@ -1,0 +1,10 @@
+﻿var 
+CadDPCbo,
+CadDPDescricao : OleVariant;
+
+
+procedure LeDataPoolCadCbo(nomeDriver);
+begin
+CadDPCbo        := DDT.DriverByName(nomeDriver).Value('CBO');
+CadDPDescricao  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
