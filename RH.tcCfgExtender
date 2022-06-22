@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{BCE8F908-6A29-405C-B3F8-354F9A828E57}"/>
+				<Prp name="activity" type="S" value="{6ADAF521-3825-4D4D-B507-6DFA6911C16B}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -5260,17 +5260,17 @@
 					<Node name="{5f511afe-9521-4e2b-a0e7-cdc06bc8af9d}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="9"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="3"/>
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="49"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="14"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="85"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="52"/>
 						</Node>
 						<Prp name="bottom" type="I" value="86"/>
@@ -5847,7 +5847,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{6adaf521-3825-4d4d-b507-6dfa6911c16b}"/>
+					<Node name="{6adaf521-3825-4d4d-b507-6dfa6911c16b}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="16"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="2"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="53"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="18"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="88"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="55"/>
+						</Node>
+						<Prp name="bottom" type="I" value="89"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{6b8c6265-a5a0-436c-948d-5874d2393692}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -14796,7 +14815,10 @@
 						<Node name="script">
 							<Node name="folha">
 								<Node name="cadastros gerais">
-									<Node name="gerais"/>
+									<Node name="gerais">
+										<Node name="cbo"/>
+										<Node name="cidades"/>
+									</Node>
 								</Node>
 							</Node>
 						</Node>

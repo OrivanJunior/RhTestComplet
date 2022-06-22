@@ -4,7 +4,7 @@
  Data: 22/06/2022}
 var 
 FormPadraoCidade,
-CadEBCidade,
+CadCidadeEBCidade,
 CadCidadeEBNome,
 CadCidadeEBUf,
 CadCidadeEBDdd,
@@ -17,7 +17,7 @@ CadCidadeEBCodDomicilio : OleVariant;
 procedure MapCadCidade();
 begin
 FormPadraoCidade 		    := Aliases.Folha.FFormPadraoCIDADE;                                                                             
-CadEBCidade		          := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
+CadCidadeEBCidade		    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
 CadCidadeEBNome			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME;
 CadCidadeEBUf			      := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UF;
 CadCidadeEBDdd			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DDD;
