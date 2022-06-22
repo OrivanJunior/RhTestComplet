@@ -1,0 +1,80 @@
+﻿uses CommonsAll,CommonsObj, VarConsts, ObjCadFpas, DataPoolCadFpas;
+
+procedure PreencheFPAS();
+begin
+PreencheFPAS();
+
+VerificaInsere(CadEBFPAS,CadDPFPAS);
+VerificaInsere(CadEBdescricao,CadDPDescricao);
+end;
+
+
+procedure CadastraFPAS(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS', 'FPAS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadFPAS(DDTCadastrar.Name);
+
+while not DDTCadastrar.EOF do
+begin
+
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCADFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'FPAS', CadDPFPAS );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheFPAS();
+  
+  ActSalvar(FormPadraoFPAS);
+  ActFechar(FormPadraoFPAS);
+  end;
+  DDTCadastrar.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirFPAS(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'FPAS', 'FPAS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadFPAS(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCADFPAS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'FPAS', CadDPFPAS );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFPAS();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCADFPAS');
+  ActFechar(FormPadraoFPAS);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

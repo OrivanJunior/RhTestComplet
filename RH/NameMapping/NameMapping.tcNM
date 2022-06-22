@@ -63111,6 +63111,79 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FFormPadraoRHCADFPAS" Key="{0AE50C33-E740-447B-8508-C0FA7E95099A}">
+								<Image FileName="174091406" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFFormPadraoCds" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FFormPadraoRHCADFPAS" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="FFormPadraoCds_abPrinc" Key="{6B694E76-FB0E-4896-93D2-4C0ECA4D2DC2}">
+										<Image FileName="485813513" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TAutoBox" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="FFormPadraoCds_abPrinc" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="FFormPadraoCds_abPrinc_ts1" Key="{BCF8851C-5F22-4FC3-8976-061BBCEEB803}">
+												<Image FileName="485813513" Left="4" Top="59" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="FFormPadraoCds_abPrinc_ts1" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="TScrollBox" Key="{20A6E4E6-9D35-4AC2-8280-6CB9E5CDD03A}">
+														<Image FileName="485813513" Left="4" Top="59" Right="1580" Bottom="696" />
+														<Properties>
+															<Property Name="WndClass">
+																<Value Value="TScrollBox" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_FPAS" Key="{A531BEA5-5326-4F03-9D4E-054CA1ED96F9}">
+																<Image FileName="485813513" Left="64" Top="67" Right="123" Bottom="86" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNum" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_FPAS" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DESCRICAO" Key="{576F15C3-D760-42C2-A6B7-96DEDAECBE9A}">
+																<Image FileName="-2058136541" Left="64" Top="94" Right="1518" Bottom="113" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEdit" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DESCRICAO" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -85726,6 +85799,16 @@
 							<Child Name="EB_SEST" Owner="{7828B043-0B86-4DC4-AC47-E83EFAAF4C71}" />
 							<Child Name="EB_SENAT" Owner="{F82FFB7B-FA19-4F29-A177-2D9EF175E5DF}" />
 							<Child Name="EB_SESCOOP" Owner="{C3A08E9B-F3D1-4774-ACFB-CB15FD4B9A47}" />
+						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="FFormPadraoRHCADFPAS" Owner="{0AE50C33-E740-447B-8508-C0FA7E95099A}">
+				<Child Name="FFormPadraoCds_abPrinc" Owner="{6B694E76-FB0E-4896-93D2-4C0ECA4D2DC2}">
+					<Child Name="FFormPadraoCds_abPrinc_ts1" Owner="{BCF8851C-5F22-4FC3-8976-061BBCEEB803}">
+						<Child Name="TScrollBox" Owner="{20A6E4E6-9D35-4AC2-8280-6CB9E5CDD03A}">
+							<Child Name="EB_FPAS" Owner="{A531BEA5-5326-4F03-9D4E-054CA1ED96F9}" />
+							<Child Name="EB_DESCRICAO" Owner="{576F15C3-D760-42C2-A6B7-96DEDAECBE9A}" />
 						</Child>
 					</Child>
 				</Child>

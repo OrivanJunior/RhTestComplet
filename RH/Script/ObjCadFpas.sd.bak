@@ -1,1 +1,10 @@
-﻿
+﻿{Script para mapear tela de cadastro de FPAS
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 21/06/2022}
+
+procedure Test1;
+begin
+  Aliases.Folha.FFormPadraoRHCADFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_FPAS.Click(18, 13);
+  Aliases.Folha.FFormPadraoRHCADFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(30, 7);
+end;

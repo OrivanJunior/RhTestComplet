@@ -2,3 +2,14 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 21/06/2022}
+var 
+FormPadraoFPAS,
+CadEBFPAS,
+CadEBdescricao : OleVariant;
+
+procedure MapCadFPAS();
+begin
+FormPadraoFPAS  := Aliases.Folha.FFormPadraoRHCADFPAS;
+CadEBFPAS       := Aliases.Folha.FFormPadraoRHCADFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_FPAS;
+CadEBDescricao  := Aliases.Folha.FFormPadraoRHCADFPAS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;

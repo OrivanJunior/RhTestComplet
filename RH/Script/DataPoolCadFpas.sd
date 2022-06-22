@@ -1,1 +1,9 @@
-﻿
+﻿var
+CadDPFPAS,
+CadDPDescricao : OleVariant;
+
+procedure LeDataPoolCadFPAS(nomeDriver);
+begin
+CadDPFPAS       := DDT.DriverByName(nomeDriver).Value('FPAS');    
+CadDPDescricao  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
