@@ -1110,7 +1110,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="CBO" key="{3ACDA7BF-54FA-446D-AA08-CC9BEB7E2643}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="CBO" key="{3ACDA7BF-54FA-446D-AA08-CC9BEB7E2643}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cadastra Cbo" key="{B563DE50-B5E6-4290-9CF7-6265A117750C}" group="False" parallel="False" enabled="True" testMoniker="{5F511AFE-9521-4E2B-A0E7-CDC06BC8AF9D}CadastraCBO" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1123,6 +1123,25 @@
 													<testItem name="Exclui Cbo" key="{60B3942A-9ED5-4C0B-AE85-8D8A5B85D22F}" group="False" parallel="False" enabled="True" testMoniker="{5F511AFE-9521-4E2B-A0E7-CDC06BC8AF9D}ExcluirCBO" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\CBO\CBO.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Cidades" key="{E9A5EABA-AC40-4954-817C-38F0F7E391A0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Cidade" key="{F2D4AF92-FFAB-444B-8D35-711C20540576}" group="False" parallel="False" enabled="True" testMoniker="{6ADAF521-3825-4D4D-B507-6DFA6911C16B}CadastraCidades" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Cidades\Cidades.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Cidade" key="{7259CC28-1D4C-449C-A21A-F41A99B10C1D}" group="False" parallel="False" enabled="True" testMoniker="{6ADAF521-3825-4D4D-B507-6DFA6911C16B}ExcluirCidades" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Cidades\Cidades.xlsx" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

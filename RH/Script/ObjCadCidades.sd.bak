@@ -12,7 +12,19 @@ CadCidadeEBOficial,
 CadCidadeEBCep,
 CadCidadeEBPais,
 CadCidadeEBIbge,
-CadCidadeEBCodDomicilio : OleVariant;
+CadCidadeEBCodDomicilio,
+
+FormFiltroCidade,
+                          
+FiltroCidadelistaConsultas,
+                          
+FiltroCidadeUF,
+FiltroCidadeItem,
+FiltroCidadeCidade,
+                          
+BtnFiltroCidadeOk,
+BtnFiltroCidadeVazio,
+BtnFiltroCidadeCancel      : OleVariant;
 
 procedure MapCadCidade();
 begin
@@ -28,3 +40,21 @@ CadCidadeEBIbge			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.
 CadCidadeEBCodDomicilio	:= Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODDOMICILIO;
 
 end;
+procedure FiltraCadCidades();
+begin
+FormFiltroCidade            := Aliases.Folha.FFiltroConsultaCDS;
+  
+FiltroCidadelistaConsultas  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  
+FiltroCidadeUF              := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroCidadeItem            := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+FiltroCidadeCidade          := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  
+BtnFiltroCidadeOk           := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnFiltroCidadeVazio        := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnFiltroCidadeCancel       := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+end;
+
+FiltraCep := Aliases.Folha.VCLObject('frmBuscarCEP');
+

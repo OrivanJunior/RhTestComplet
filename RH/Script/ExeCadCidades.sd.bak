@@ -16,11 +16,24 @@ VerificaInsere(CadCidadeEBCodDomicilio,CadCidadeDPCodDomicilio);
 
 end;
 
+procedure FiltroTelaInicialCidades();
+begin
+FiltraCadCidades();
+
+FiltroCidadelistaConsultas.SetText('(Cidade por UF)');
+FiltroCidadeUF.Keys('(Ignorar)');
+FiltroCidadeCidade.Keys('(Ignorar)');
+BtnFiltroCidadeOk.ClickButton;
+
+end;
+
 procedure CadastraCidades(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Cidades');
+
+FiltroTelaInicialCidades();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -34,7 +47,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoCIDADE');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nome da Cidade', CadDPCidade );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nome da Cidade', CadCidadeDPNome );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
@@ -59,11 +72,13 @@ DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Cidades');
 
+FiltroTelaInicialCidades();
+
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadCbo(DDTExcluir.Name);
+LeDataPoolCadCidades(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
@@ -71,7 +86,7 @@ begin
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoCIDADE');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nome da Cidade', CadDPCidade );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Nome da Cidade', CadCidadeDPNome );
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   

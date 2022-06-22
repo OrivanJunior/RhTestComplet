@@ -1,5 +1,5 @@
 ﻿var
-CadDPCidade,
+CadCidadeDPCidade,
 CadCidadeDPNome,
 CadCidadeDPUf,
 CadCidadeDPDdd,
@@ -11,7 +11,7 @@ CadCidadeDPCodDomicilio : OleVariant;
 
 procedure LeDataPoolCadCidades(nomeDriver);
 begin
-CadDPCidade		          := DDT.DriverByName(nomeDriver).Value('CIDADE');          
+CadCidadeDPCidade		    := DDT.DriverByName(nomeDriver).Value('CIDADE');          
 CadCidadeDPNome			    := DDT.DriverByName(nomeDriver).Value('NOME');            
 CadCidadeDPUf			      := DDT.DriverByName(nomeDriver).Value('UF');                
 CadCidadeDPDdd			    := DDT.DriverByName(nomeDriver).Value('DDD');             

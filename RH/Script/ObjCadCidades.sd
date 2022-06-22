@@ -4,7 +4,7 @@
  Data: 22/06/2022}
 var 
 FormPadraoCidade,
-CadEBCidade,
+CadCidadeEBCidade,
 CadCidadeEBNome,
 CadCidadeEBUf,
 CadCidadeEBDdd,
@@ -12,12 +12,24 @@ CadCidadeEBOficial,
 CadCidadeEBCep,
 CadCidadeEBPais,
 CadCidadeEBIbge,
-CadCidadeEBCodDomicilio : OleVariant;
+CadCidadeEBCodDomicilio,
+
+FormFiltroCidade,
+                          
+FiltroCidadelistaConsultas,
+                          
+FiltroCidadeUF,
+FiltroCidadeItem,
+FiltroCidadeCidade,
+                          
+BtnFiltroCidadeOk,
+BtnFiltroCidadeVazio,
+BtnFiltroCidadeCancel      : OleVariant;
 
 procedure MapCadCidade();
 begin
 FormPadraoCidade 		    := Aliases.Folha.FFormPadraoCIDADE;                                                                             
-CadEBCidade		          := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
+CadCidadeEBCidade		    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
 CadCidadeEBNome			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME;
 CadCidadeEBUf			      := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UF;
 CadCidadeEBDdd			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DDD;
@@ -26,5 +38,20 @@ CadCidadeEBCep			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.F
 CadCidadeEBPais			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PAIS;
 CadCidadeEBIbge			    := Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IBGE;
 CadCidadeEBCodDomicilio	:= Aliases.Folha.FFormPadraoCIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODDOMICILIO;
+
+end;
+procedure FiltraCadCidades();
+begin
+FormFiltroCidade            := Aliases.Folha.FFiltroConsultaCDS;
+  
+FiltroCidadelistaConsultas  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  
+FiltroCidadeUF              := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroCidadeItem            := Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+FiltroCidadeCidade          := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  
+BtnFiltroCidadeOk           := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnFiltroCidadeVazio        := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnFiltroCidadeCancel       := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
 
 end;
