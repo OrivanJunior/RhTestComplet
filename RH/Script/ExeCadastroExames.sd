@@ -2,6 +2,8 @@
 
 procedure PreencheCadExames();
 begin
+MapCadExames();
+
 VerificaInsere(CadExamesEBIdExame,CadExamesDPIdExame);  
 VerificaInsere(CadExamesEBDescricao,CadExamesDPDescricao);
 VerificaInsere(CadExamesEBNroSerie,CadExamesDPNroSerie); 
@@ -32,10 +34,12 @@ begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  PreencheFPAS();
+  PreencheCadExames();
   
-  ActSalvar(FormPadraoFPAS);
-  ActFechar(FormPadraoFPAS);
+  MapCadExames();
+  
+  ActSalvar(FormPadraoExames);
+  ActFechar(FormPadraoExames);
   end;
   DDTCadastrar.Next;
 end;
@@ -44,7 +48,7 @@ DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
 
-procedure ExcluirFPAS(PathData);
+procedure ExcluirExames(PathData);
 var
 DDTExcluir : OleVariant;
 begin
@@ -68,7 +72,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadFPAS();
+  MapCadExames();
   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHEXAME');
   ActFechar(FormPadraoExames);

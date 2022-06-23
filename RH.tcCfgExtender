@@ -1072,7 +1072,17 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{0e5cea41-5949-42a6-b141-b9f9f74391eb}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="3"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="0"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="16"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="11"/>
+						</Node>
+						<Prp name="bottom" type="I" value="16"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -7718,7 +7728,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{8c1c6a5c-500a-4813-83f8-626475766df6}"/>
+					<Node name="{8c1c6a5c-500a-4813-83f8-626475766df6}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="9"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="5"/>
+						</Node>
+						<Prp name="bottom" type="I" value="10"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{8cb6fe5e-b5bd-4b7b-8dde-d33ea354933c}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -15092,12 +15111,14 @@
 										<Node name="exames">
 											<Node name="cadastro de exames"/>
 										</Node>
-										<Node name="fpas">
-											<Node name="fpas"/>
+										<Node name="fpas"/>
+										<Node name="operador de plano de saúde"/>
+										<Node name="trct homolog">
+											<Node name="descrição"/>
 										</Node>
-										<Node name="tipo processamento"/>
-										<Node name="trct homolog"/>
 									</Node>
+									<Node name="sindicatos"/>
+									<Node name="tomadores"/>
 								</Node>
 							</Node>
 						</Node>

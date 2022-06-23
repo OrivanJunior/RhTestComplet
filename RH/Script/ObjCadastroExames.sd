@@ -2,11 +2,13 @@
 FormPadraoExames,
 CadExamesEBIdExame,
 CadExamesEBDescricao,
-CadExamesEBNroSerie: OleVariant;
+CadExamesEBNroSerie, 
+BtnSalvarExames: OleVariant;
 
 
 procedure MapCadExames();
 begin
+BtnSalvarExames     := Aliases.Folha.FFormPadraoRHEXAME.BSalvar;
 FormPadraoExames  	:= Aliases.Folha.FFormPadraoRHEXAME;
 CadExamesEBIdExame  := Aliases.Folha.FFormPadraoRHEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEXAME;
 CadExamesEBDescricao:= Aliases.Folha.FFormPadraoRHEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;

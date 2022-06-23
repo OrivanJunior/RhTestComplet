@@ -460,10 +460,10 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Exames" key="{E4B2E2C7-3DD4-4DDC-83F0-80BF7CC40F82}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Exames" key="{E4B2E2C7-3DD4-4DDC-83F0-80BF7CC40F82}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Tipo de Exames" key="{2DE6D994-2C5B-46CA-A855-5A6FEC1CAF6B}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Tipo de Exames" key="{2DE6D994-2C5B-46CA-A855-5A6FEC1CAF6B}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="Cadastra Tipo de Exames" key="{15BF0856-4786-49B5-9BD0-4F0FDAAD0AFB}" group="False" parallel="False" enabled="True" testMoniker="{ADFF6880-DA24-42D1-9D2C-1400D285ED8B}ExeCadastraTipoExame" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -489,7 +489,7 @@
 																	</testItem>
 																</children>
 															</testItem>
-															<testItem name="Resultado dos Exames" key="{3AEAD0D4-10B3-447C-9196-D4D168A89053}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Resultado dos Exames" key="{3AEAD0D4-10B3-447C-9196-D4D168A89053}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="Cadastra Resultados" key="{3184C3C6-604B-400C-939C-F74D4BAE9E3F}" group="False" parallel="False" enabled="True" testMoniker="{6CEDF69D-72D9-494D-958B-47197F8603F1}ExeCadastraResultadoExame" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -541,6 +541,25 @@
 																	</testItem>
 																</children>
 															</testItem>
+															<testItem name="Cadastro de Exames" key="{65A332E0-E3A4-4853-8A0B-991700BD44D3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Exames" key="{67933B09-7582-4BC4-9A5A-20C65A89C521}" group="False" parallel="False" enabled="True" testMoniker="{55120070-0F83-4582-B5E7-48DDC4CE0687}CadastraExames" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Exames\Cadastro de Exames\Cadastro de Exames.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Exames" key="{DD3420FC-E864-44E0-982B-11670808A137}" group="False" parallel="False" enabled="True" testMoniker="{55120070-0F83-4582-B5E7-48DDC4CE0687}ExcluirExames" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Exames\Cadastro de Exames\Cadastro de Exames.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
 														</children>
 													</testItem>
 													<testItem name="Operador de Plano Sáude" key="{23B81DE6-F401-443E-8A14-00767F3B887C}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -569,7 +588,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="TRCT Homolog" key="{A3F5C68A-FC06-4929-A661-2B9A1840F640}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="TRCT Homolog" key="{A3F5C68A-FC06-4929-A661-2B9A1840F640}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Eventos" key="{7C21AB07-9B7D-49F4-8669-057A68D79C8E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

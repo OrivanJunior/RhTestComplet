@@ -63871,6 +63871,29 @@
 											</Child>
 										</Children>
 									</Child>
+									<Child Name="BSalvar" Key="{4CD2EE1B-7BEC-4465-8F89-664B2FCAE90C}">
+										<Image FileName="-1881106661" Left="111" Top="25" Right="149" Bottom="51" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BSalvar" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="BExcluir" Key="{70E9B324-F2C9-49BE-B116-434A2DFA1EB7}">
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="BExcluir" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 						</Children>
@@ -86585,6 +86608,8 @@
 						</Child>
 					</Child>
 				</Child>
+				<Child Name="BSalvar" Owner="{4CD2EE1B-7BEC-4465-8F89-664B2FCAE90C}" />
+				<Child Name="BExcluir" Owner="{70E9B324-F2C9-49BE-B116-434A2DFA1EB7}" />
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
