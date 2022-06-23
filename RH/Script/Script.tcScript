@@ -447,7 +447,11 @@
 						<child name="FuncPessoa" key="{555C09AC-C231-4AEF-B36D-C1234F3F4EF3}" path="FuncPessoa.sd" />
 					</folder>
 				</folder>
-				<folder name="Configurações" />
+				<folder name="Config. Gerais por Empresa">
+					<child name="ExeConfigGeraisPEmpresa" key="{EC73E586-4205-4360-A44A-D804D27DBF5C}" path="ExeConfigGeraisPEmpresa.sd" />
+					<child name="DataPoolConfigGeraislPEmpresa" key="{F78EE6E5-2EB1-4332-A446-3BBD1AE24CDF}" path="DataPoolConfigGeraislPEmpresa.sd" />
+					<child name="ObjConfigGeraisPEmpresa" key="{C7132EE5-B06D-47FB-90EC-FAEAA3805604}" path="ObjConfigGeraisPEmpresa.sd" />
+				</folder>
 				<folder name="Empregados">
 					<folder name="Categoria">
 						<child name="ExeCadCategoria" key="{5858D54D-5D95-4B3D-A52A-60C6C9CA943E}" path="ExeCadCategoria.sd" />

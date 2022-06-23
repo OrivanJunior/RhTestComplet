@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{A39D979A-C461-41BD-B0E6-F753F1E856CB}"/>
+				<Prp name="activity" type="S" value="{F78EE6E5-2EB1-4332-A446-3BBD1AE24CDF}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -11289,6 +11289,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{c7132ee5-b06d-47fb-90ec-faeaa3805604}"/>
 					<Node name="{c81dd7a5-db13-4df9-933c-9fc1a82906ca}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="14"/>
@@ -13774,6 +13775,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{ec73e586-4205-4360-a44a-d804d27dbf5c}"/>
 					<Node name="{eca95d3a-256a-448e-bade-d21d73f612cf}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="61"/>
@@ -14464,6 +14466,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{f78ee6e5-2eb1-4332-a446-3bbd1ae24cdf}"/>
 					<Node name="{f80e5bc6-b354-4499-bb45-d8e66abe767e}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="10"/>
@@ -15106,17 +15109,7 @@
 							<Node name="commons"/>
 							<Node name="folha">
 								<Node name="cadastros gerais">
-									<Node name="empregados"/>
-									<Node name="gerais">
-										<Node name="exames">
-											<Node name="cadastro de exames"/>
-										</Node>
-										<Node name="trct homolog">
-											<Node name="descrição"/>
-										</Node>
-									</Node>
-									<Node name="sindicatos"/>
-									<Node name="tomadores"/>
+									<Node name="config. gerais por empresa"/>
 								</Node>
 							</Node>
 						</Node>

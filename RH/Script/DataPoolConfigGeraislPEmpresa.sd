@@ -1,0 +1,11 @@
+﻿var 
+CadConfigEmpresaDPEmpresa,
+CadConfigEmpresaDPGeracaoMatricula : OleVariant;
+
+procedure LeDataPoolCadConfigEmpresa(nomeDriver);
+begin
+CadConfigEmpresaDPEmpresa			      := DDT.DriverByName(nomeDriver).Value('DESCRICAO');     
+CadConfigEmpresaDPGeracaoMatricula	:= DDT.DriverByName(nomeDriver).Value('NROSERIE');
+end;
+
+

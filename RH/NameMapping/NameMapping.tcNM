@@ -63896,6 +63896,57 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhConfigEmpresa" Key="{62CD5BEF-51B9-4C52-AA0E-97312BBE31A6}">
+								<Image FileName="-1811284610" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<TypeInfo Item0="{0C05312A-9E71-447A-AD6E-32060C909632}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhConfigEmpresa" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhConfigEmpresa" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="ScrollBox1" Key="{F954469D-B824-4C6C-A37C-8766A7FD0470}">
+										<Image FileName="-1811284610" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TScrollBox" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="ScrollBox1" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="EB_EMPRESA" Key="{4E1747D9-F9A5-45B2-A0DE-3F0A12373A3E}">
+												<Image FileName="-1001973739" Left="136" Top="62" Right="497" Bottom="81" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditLookup" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_EMPRESA" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_GERACAOMATRICULA" Key="{E6F1EAE3-2AEE-4E04-B75C-3965D0019473}">
+												<Image FileName="-1373194208" Left="136" Top="87" Right="257" Bottom="108" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsComboRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_GERACAOMATRICULA" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -86610,6 +86661,12 @@
 				</Child>
 				<Child Name="BSalvar" Owner="{4CD2EE1B-7BEC-4465-8F89-664B2FCAE90C}" />
 				<Child Name="BExcluir" Owner="{70E9B324-F2C9-49BE-B116-434A2DFA1EB7}" />
+			</Child>
+			<Child Name="FRhConfigEmpresa" Owner="{62CD5BEF-51B9-4C52-AA0E-97312BBE31A6}">
+				<Child Name="ScrollBox1" Owner="{F954469D-B824-4C6C-A37C-8766A7FD0470}">
+					<Child Name="EB_EMPRESA" Owner="{4E1747D9-F9A5-45B2-A0DE-3F0A12373A3E}" />
+					<Child Name="EB_GERACAOMATRICULA" Owner="{E6F1EAE3-2AEE-4E04-B75C-3965D0019473}" />
+				</Child>
 			</Child>
 		</Child>
 		<Child Name="ViasoftServerRH_XE" Owner="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
