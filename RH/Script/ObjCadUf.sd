@@ -1,1 +1,28 @@
-﻿
+﻿{Script para mapear tela de cadastro de UF
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 23/06/2022}
+
+procedure MapCadUF();
+begin
+  Aliases.Folha.FFormPadraoUF.Click(32, 10);
+  Aliases.Folha.FFormPadraoUF.Click(32, 10);
+  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UF.Click(16, 9);
+  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME.Click(18, 4);
+  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PAISSIGLA.Click(15, 14);
+  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NACIONAL.DblClick(45, 13);
+  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO.Click(22, 8);
+end;
+
+procedure FiltroCadUF();
+begin
+  Aliases.Folha.FFiltroConsultaCDS;
+  
+  Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+  Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+  
+  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
