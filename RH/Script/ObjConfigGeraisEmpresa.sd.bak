@@ -1,0 +1,12 @@
+﻿var
+FormPadraoConfigEmpresa,
+CadConfigEmpresaEBEmpresa,
+CadConfigEmpresaEBGeracaoMatricula : OleVariant;
+
+procedure MapCadConfigEmpresa();
+begin
+FormPadraoConfigEmpresa				      := Aliases.Folha.FRhConfigEmpresa;
+CadConfigEmpresaEBEmpresa			      := Aliases.Folha.FRhConfigEmpresa.ScrollBox1.EB_EMPRESA;
+CadConfigEmpresaEBGeracaoMatricula	:= Aliases.Folha.FRhConfigEmpresa.ScrollBox1.EB_GERACAOMATRICULA;
+end;
+

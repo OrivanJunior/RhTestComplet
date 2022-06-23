@@ -1,0 +1,85 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolConfigGeraisEmpresa,
+  ObjConfigGeraisEmpresa,
+  VarConsts;
+
+procedure PreencheConfigEmpresa();
+begin
+MapCadConfigEmpresa();
+
+VerificaConsultaF3Insere(_ModuloFolha,CadConfigEmpresaEBEmpresa,CadConfigEmpresaDPEmpresa);
+VerificaInsere(CadConfigEmpresaEBGeracaoMatricula,CadConfigEmpresaDPGeracaoMatricula);
+end;
+
+procedure CadastraConfigEmpresa(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Conf. Gerais por Empresa');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadConfigEmpresa(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfigEmpresa');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Empresa',CadConfigEmpresaDPEmpresa);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheConfigEmpresa();
+  
+  ActSalvar(FormPadraoConfigEmpresa);
+  ActFechar(FormPadraoConfigEmpresa);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirConfigEmpresa(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Conf. Gerais por Empresa');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadConfigEmpresa(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfigEmpresa');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Empresa',CadConfigEmpresaDPEmpresa);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadConfigEmpresa();
+  
+  ActExcluir(_ModuloFolha, 'FRhConfigEmpresa');
+  ActFechar(FormPadraoConfigEmpresa);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
