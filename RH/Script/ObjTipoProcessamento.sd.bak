@@ -1,0 +1,13 @@
+﻿var 
+FormPadraoProc,
+CadProcEBIdCadProc,
+CadProcEBDescricao,
+CadProcEBCodManad : OleVariant;
+
+procedure MapCadProc();
+begin
+FormPadraoProc      := Aliases.Folha.FRhCadProc;
+CadProcEBIdCadProc  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_IDCADPROC;
+CadProcEBDescricao  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
+CadProcEBCodManad   := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_CODMANAD;
+end;

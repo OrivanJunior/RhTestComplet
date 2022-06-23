@@ -63624,6 +63624,95 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="FRhCadProc" Key="{1B6F2D51-D12E-4A0B-B8A2-CD430F1C59B5}">
+								<Image FileName="1637695609" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhCadProc" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRhCadProc" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Page" Key="{F22F1DA5-8B5E-4B7B-8EF1-65719952C2B6}">
+										<Image FileName="-746195568" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsPageControl" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="Page" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TabNormal" Key="{853DDB82-C8DE-40FA-AC70-08A3182C3A9F}">
+												<Image FileName="-746195568" Left="4" Top="59" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="TabNormal" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="ScrollBox1" Key="{BD427087-57AC-412B-83F2-985DB73445C8}">
+														<Image FileName="-746195568" Left="4" Top="59" Right="1580" Bottom="696" />
+														<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TScrollBox" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="ScrollBox1" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_IDCADPROC" Key="{394DAE47-7487-4A3F-99E9-5172DB0AF8D9}">
+																<Image FileName="-1864162641" Left="164" Top="63" Right="241" Bottom="82" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_IDCADPROC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_DESCRICAO" Key="{A679BDBD-9362-4BA2-A8A2-3ECAB6116235}">
+																<Image FileName="-1928736777" Left="163" Top="86" Right="613" Bottom="106" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsEditRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_DESCRICAO" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_CODMANAD" Key="{1F58A3CF-6F0F-41CF-808E-3610D3EF89C6}">
+																<Image FileName="-1128042675" Left="164" Top="109" Right="357" Bottom="130" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_CODMANAD" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -86301,6 +86390,17 @@
 							<Child Name="EB_PAISSIGLA" Owner="{B7FB0012-BCD6-477D-B087-D98A626B8D8C}" />
 							<Child Name="EB_NACIONAL" Owner="{23DEBDB4-A058-4E7F-BBDA-7452CA77109A}" />
 							<Child Name="EB_CODIGO" Owner="{68E00E36-9E36-418D-A8BB-58C128D523BA}" />
+						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="FRhCadProc" Owner="{1B6F2D51-D12E-4A0B-B8A2-CD430F1C59B5}">
+				<Child Name="Page" Owner="{F22F1DA5-8B5E-4B7B-8EF1-65719952C2B6}">
+					<Child Name="TabNormal" Owner="{853DDB82-C8DE-40FA-AC70-08A3182C3A9F}">
+						<Child Name="ScrollBox1" Owner="{BD427087-57AC-412B-83F2-985DB73445C8}">
+							<Child Name="EB_IDCADPROC" Owner="{394DAE47-7487-4A3F-99E9-5172DB0AF8D9}" />
+							<Child Name="EB_DESCRICAO" Owner="{A679BDBD-9362-4BA2-A8A2-3ECAB6116235}" />
+							<Child Name="EB_CODMANAD" Owner="{1F58A3CF-6F0F-41CF-808E-3610D3EF89C6}" />
 						</Child>
 					</Child>
 				</Child>

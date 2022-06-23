@@ -1,0 +1,85 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolTipoProcessamento, ObjTipoProcessamento;
+
+procedure PreencheTipoProc();
+begin
+
+MapCadProc();
+
+VerificaInsere(CadProcEBIdCadProc,CadProcDPIdCadProc);
+VerificaInsere(CadProcEBDescricao,CadProcDPDescricao);
+VerificaInsere(CadProcEBCodManad,CadProcDPCodManad);
+end;
+
+procedure CadastraTipoProc(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Tipo Processamentos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolTipoProc(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhCadProc');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Processamento', CadTipoProcDPIdCadProc );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadTipoProc();
+  
+  PreencheTipoProc();
+  
+  ActSalvar(FormPadraoTipoProc);
+  ActFechar(FormPadraoTipoProc);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirTipoProc(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Tipo Processamentos');
+
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolTipoProc(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhCadProc');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Processamento', CadTipoProcDPIdCadProc);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadTipoProc();
+  
+  ActExcluir(_ModuloFolha, 'FRhCadProc');
+  ActFechar(FormPadraoTipoProc);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

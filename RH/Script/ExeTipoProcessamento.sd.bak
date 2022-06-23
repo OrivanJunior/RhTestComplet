@@ -1,0 +1,12 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolTipoProcessamento, ObjTipoProcessamento;
+
+procedure PreencheTipoProc();
+begin
+
+MapCadProc();
+
+VerificaInsere(CadProcEBIdCadProc,CadProcDPIdCadProc);
+VerificaInsere(CadProcEBDescricao,CadProcDPDescricao);
+VerificaInsere(CadProcEBCodManad,CadProcDPCodManad);
+end;
+
