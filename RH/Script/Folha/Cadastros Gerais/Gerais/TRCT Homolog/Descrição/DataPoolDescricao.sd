@@ -1,1 +1,10 @@
-﻿
+﻿var 		
+CadHomolDescricaoDPCampo,
+CadHomolDescricaoDPDescricao : OleVariant;
+
+
+procedure LeDataPoolCadHomolDesc(nomeDriver);
+begin
+CadHomolDescricaoDPCampo	 		  := DDT.DriverByName(nomeDriver).Value('CAMPO');
+CadHomolDescricaoDPDescricao		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

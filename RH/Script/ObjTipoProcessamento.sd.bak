@@ -1,13 +1,13 @@
 ﻿var 
-FormPadraoProc,
-CadProcEBIdCadProc,
-CadProcEBDescricao,
-CadProcEBCodManad : OleVariant;
+FormPadraoTipoProc,
+CadTipoProcEBIdCadProc,
+CadTipoProcEBDescricao,
+CadTipoProcEBCodManad : OleVariant;
 
-procedure MapCadProc();
+procedure MapCadTipoProc();
 begin
-FormPadraoProc      := Aliases.Folha.FRhCadProc;
-CadProcEBIdCadProc  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_IDCADPROC;
-CadProcEBDescricao  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
-CadProcEBCodManad   := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_CODMANAD;
+FormPadraoTipoProc      := Aliases.Folha.FRhCadProc;
+CadTipoProcEBIdCadProc  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_IDCADPROC;
+CadTipoProcEBDescricao  := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_DESCRICAO;
+CadTipoProcEBCodManad   := Aliases.Folha.FRhCadProc.Page.TabNormal.ScrollBox1.EB_CODMANAD;
 end;

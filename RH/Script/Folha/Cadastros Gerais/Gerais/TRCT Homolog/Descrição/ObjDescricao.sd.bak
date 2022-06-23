@@ -1,1 +1,12 @@
-﻿
+﻿var 
+FormPadraoHomolDescr,
+CadHomolDescricaoEBCampo,
+CadHomolDescricaoEBDescricao : OleVariant;
+
+
+procedure MapCadHomolDescricao();
+begin
+FormPadraoHomolDescr  			  := Aliases.Folha.FFormPadraoRHTRCTHOMOLOGDESC;
+CadHomolDescricaoEBCampo	 		:= Aliases.Folha.FFormPadraoRHTRCTHOMOLOGDESC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CAMPO;
+CadHomolDescricaoEBDescricao  := Aliases.Folha.FFormPadraoRHTRCTHOMOLOGDESC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;
