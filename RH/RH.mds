@@ -569,10 +569,10 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="TRCT Homolog" key="{A3F5C68A-FC06-4929-A661-2B9A1840F640}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="TRCT Homolog" key="{A3F5C68A-FC06-4929-A661-2B9A1840F640}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Eventos" key="{7C21AB07-9B7D-49F4-8669-057A68D79C8E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Eventos" key="{7C21AB07-9B7D-49F4-8669-057A68D79C8E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="Cadastra Homolog" key="{DE0E9871-195B-4875-A177-AB8282D3267D}" group="False" parallel="False" enabled="True" testMoniker="{64DA734A-79D9-43C0-8074-7C11D2A70F29}ExeCadastraHomologEventos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
@@ -592,6 +592,25 @@
 																	<testItem name="Excluir Homolog" key="{2FB91DB8-F641-492F-BC53-D4DDD060D78A}" group="False" parallel="False" enabled="True" testMoniker="{64DA734A-79D9-43C0-8074-7C11D2A70F29}ExeExcluirHomologEventos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																		<testParameters>
 																			<param0 name="pathData" type="3" localVarName="" varType="8" value="C:\Users\camila.rocha\Desktop\RH TestComplete\DataPool\Folha\Cadastros Gerais\Gerais\TRCT Homolog\Eventos\CadHomologEventos.xls" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Descrição" key="{7738C83F-C73F-4D6B-B484-263E4C1284F5}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Descrição" key="{A39F134C-16E0-4431-8873-CEA86A171E7D}" group="False" parallel="False" enabled="True" testMoniker="{45662ECB-D936-48F3-8690-8E92238CEFAE}CadastraHomolDescr" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\TRCT Homolog\Descrição\Descrição.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Exclui Descrição" key="{27FD0DA5-B954-4416-859F-D3EFE6E5F02E}" group="False" parallel="False" enabled="True" testMoniker="{45662ECB-D936-48F3-8690-8E92238CEFAE}ExcluirHomolDescr" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\TRCT Homolog\Descrição\Descrição.xlsx" />
 																		</testParameters>
 																		<environments activeCloud="CBT" />
 																		<children />
@@ -945,7 +964,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tipo Processamentos" key="{1F87EB6F-62DE-4ED0-ADB3-54A029B4E5B3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Tipo Processamentos" key="{1F87EB6F-62DE-4ED0-ADB3-54A029B4E5B3}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra Tipo Proc" key="{C56DC2D4-405F-4517-ADB3-043B194AF2E3}" group="False" parallel="False" enabled="True" testMoniker="{630ECF0C-4B60-4126-98D1-BEBAF5CC2D0F}CadastraTipoProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

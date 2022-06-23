@@ -2,7 +2,7 @@
 
 procedure PreencheHomolDescr();
 begin
-MapCadHomolDescricao();
+MapCadHomolDescr();
 
 VerificaInsere(CadHomolDescricaoEBCampo,CadHomolDescricaoDPCampo);
 VerificaInsere(CadHomolDescricaoEBDescricao,CadHomolDescricaoDPDescricao);
@@ -13,7 +13,7 @@ procedure CadastraHomolDescr(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'TRCT Homolog','Decrição');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'TRCT Homolog','Descrição');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -50,7 +50,7 @@ procedure ExcluirHomolDescr(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'TRCT Homolog','Decrição');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'TRCT Homolog','Descrição');
 
 MapGridConsulta(_ModuloFolha);
 
