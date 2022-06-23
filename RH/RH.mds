@@ -926,7 +926,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="UF" key="{84C351EB-D622-4DFD-80C9-4D4B662045E7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="UF" key="{84C351EB-D622-4DFD-80C9-4D4B662045E7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra UF" key="{EB3381FD-70A4-4A51-83B2-AB684E65C65B}" group="False" parallel="False" enabled="True" testMoniker="{B921D4D1-1585-4C21-BAA2-06CDB45D1050}CadastrarUF" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -939,6 +939,25 @@
 															<testItem name="Exclui UF" key="{27E5DB64-C8A5-451E-BDDB-A8BFC675B97B}" group="False" parallel="False" enabled="True" testMoniker="{B921D4D1-1585-4C21-BAA2-06CDB45D1050}ExcluirUF" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\UF\UF.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Tipo Processamentos" key="{1F87EB6F-62DE-4ED0-ADB3-54A029B4E5B3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Tipo Proc" key="{C56DC2D4-405F-4517-ADB3-043B194AF2E3}" group="False" parallel="False" enabled="True" testMoniker="{630ECF0C-4B60-4126-98D1-BEBAF5CC2D0F}CadastraTipoProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tipo Processamentos\Tipo Processamentos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Tipo Proc" key="{872DB26C-F634-4F8F-A954-42C2832795FE}" group="False" parallel="False" enabled="True" testMoniker="{630ECF0C-4B60-4126-98D1-BEBAF5CC2D0F}ExcluirTipoProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tipo Processamentos\Tipo Processamentos.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

@@ -3,11 +3,11 @@
 procedure PreencheTipoProc();
 begin
 
-MapCadProc();
+MapCadTipoProc();
 
-VerificaInsere(CadProcEBIdCadProc,CadProcDPIdCadProc);
-VerificaInsere(CadProcEBDescricao,CadProcDPDescricao);
-VerificaInsere(CadProcEBCodManad,CadProcDPCodManad);
+VerificaInsere(CadTipoProcEBIdCadProc,CadTipoProcDPIdCadProc);
+VerificaInsere(CadTipoProcEBDescricao,CadTipoProcDPDescricao);
+VerificaInsere(CadTipoProcEBCodManad,CadTipoProcDPCodManad);
 end;
 
 procedure CadastraTipoProc(pathData);
@@ -52,7 +52,6 @@ var
 DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Tipo Processamentos');
-
 
 MapGridConsulta(_ModuloFolha);
 

@@ -4,7 +4,7 @@ CadTipoProcDPDescricao,
 CadTipoProcDPCodManad : OleVariant;
 
 
-procedure LeDataPoolTipoProc();
+procedure LeDataPoolTipoProc(nomeDriver);
 begin
 CadTipoProcDPIdCadProc    := DDT.DriverByName(nomeDriver).Value('IDCADPROC');
 CadTipoProcDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
