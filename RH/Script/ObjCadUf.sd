@@ -2,27 +2,41 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 23/06/2022}
+var 
+FormPadraoUF,
+CadUFEBUF,
+CadUFEBNome,
+CadUFEBPaisSigla,
+CadUFEBNacional,
+CadUFEBCodigo,
+
+FormFiltroUF,
+FiltraConsultaUF,
+FiltraVerifUF,
+FiltraVerifItemUF,
+FiltraVerifNome,
+BtnOKFiltroUF,
+BtnCancelaFiltroUF : OleVariant;
 
 procedure MapCadUF();
 begin
-  Aliases.Folha.FFormPadraoUF.Click(32, 10);
-  Aliases.Folha.FFormPadraoUF.Click(32, 10);
-  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UF.Click(16, 9);
-  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME.Click(18, 4);
-  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PAISSIGLA.Click(15, 14);
-  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NACIONAL.DblClick(45, 13);
-  Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO.Click(22, 8);
+
+FormPadraoUF		:= Aliases.Folha.FFormPadraoUF;
+CadUFEBUF			  := Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UF;
+CadUFEBNome			:= Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME;
+CadUFEBPaisSigla:= Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PAISSIGLA;
+CadUFEBNacional	:= Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NACIONAL;
+CadUFEBCodigo		:= Aliases.Folha.FFormPadraoUF.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO;
+
 end;
 
 procedure FiltroCadUF();
 begin
-  Aliases.Folha.FFiltroConsultaCDS;
-  
-  Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
-  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
-  Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
-  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
-  
-  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
-  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+FormFiltroUF  			:= Aliases.Folha.FFiltroConsultaCDS;
+FiltraConsultaUF  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltraVerifUF  			:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltraVerifItemUF  	:= Aliases.Folha.FFiltroConsultaCDS.PanComp.Item4;
+FiltraVerifNome  		:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOKFiltroUF  			:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnCancelaFiltroUF  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
 end;

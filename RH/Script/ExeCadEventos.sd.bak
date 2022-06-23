@@ -90,8 +90,7 @@ FiltraDadosAdicionais();
 
 ExecutaProcFixoGeral.Click;
 
-
-if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído!', 1, 5000).Exists) then
+if (Aliases.Folha.dlgProcessoConclu_do.Exists) then
       begin
       Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();
       end;

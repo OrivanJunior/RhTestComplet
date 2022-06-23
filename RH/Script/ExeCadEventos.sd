@@ -103,7 +103,7 @@ procedure FiltroTelaInicialEvento();
 begin
 FiltraCadEvento();
 FiltraConsultaEventos.Keys('Enter');
-FiltraEventos.SelectItem('(Ignorar)');
+FiltraVerifEventos.SelectItem('(Ignorar)');
 BtnOKFiltroEvento.ClickButton;
 end;
 

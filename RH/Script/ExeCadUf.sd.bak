@@ -1,1 +1,105 @@
-﻿
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadUF,
+  ObjCadUF,
+  VarConsts;
+
+procedure PreencheUF();
+begin
+
+MapCadUF();
+
+VerificaInsere(CadUFEBUF,CadUFDPUF);
+VerificaInsere(CadUFEBNome,CadUFDPNome);		
+VerificaInsere(CadUFEBPaisSigla,CadUFDPPaisSigla);
+VerificaInsere(CadUFEBNacional,CadUFDPNacional);	
+VerificaInsere(CadUFEBCodigo,CadUFDPCodigo);
+end;
+
+procedure FiltraTelaInicialUF();
+begin
+FiltroCadUF();
+
+FiltraConsultaUF.SetText('UF');
+FiltraVerifUF.keys('(Ignorar)');
+FiltraVerifNome.Keys('(Ignorar)');
+BtnOKFiltroUF.ClickButton();
+end;
+  
+procedure CadastrarUF(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'UF');
+
+FiltraTelaInicialUF();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadUF(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoUF');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'UF', CadUFDPUF );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadUF();
+  
+  PreencheUF();
+  
+  ActSalvar(FormPadraoUF);
+  ActFechar(FormPadraoUF);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirUF(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'UF');
+
+FiltraTelaInicialUF();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadUF(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoUF');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'UF', CadUFDPUF);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadPais();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoUF');
+  ActFechar(FormPadraoUF);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

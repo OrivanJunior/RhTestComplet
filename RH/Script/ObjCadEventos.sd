@@ -12,7 +12,7 @@ CadFormEventos,CadFormPage,CadFormParamOutros,CadFormPageValida,CadFormParam,Cad
 {Filtro Inicial}
 FormFiltroEventos, 		
 FiltraConsultaEventos,
-FiltraEventos,
+FiltraVerifEventos,
 SaveEventos;
 BtnOKFiltroEvento,
 BtnCancelaFiltroEvento,
@@ -110,7 +110,7 @@ procedure FiltraCadEvento();
 begin
 FormFiltroEventos 		  := Aliases.Folha.FFiltroConsultaCDS;
 FiltraConsultaEventos 	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
-FiltraEventos 			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltraVerifEventos 			:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
 BtnOKFiltroEvento		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
 BtnCancelaFiltroEvento	:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;

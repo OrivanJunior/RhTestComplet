@@ -1,1 +1,15 @@
-﻿
+﻿var 
+CadUFDPUF,
+CadUFDPNome,
+CadUFDPPaisSigla,
+CadUFDPNacional,
+CadUFDPCodigo : OleVariant;
+
+procedure LeDataPoolCadUF(nomeDriver);  		
+begin
+CadUFDPUF		    := DDT.DriverByName(nomeDriver).Value('UF');	
+CadUFDPNome		  := DDT.DriverByName(nomeDriver).Value('NOME');
+CadUFDPPaisSigla:= DDT.DriverByName(nomeDriver).Value('PAIS SIGLA');
+CadUFDPNacional	:= DDT.DriverByName(nomeDriver).Value('NACIONAL');
+CadUFDPCodigo	  := DDT.DriverByName(nomeDriver).Value('CÓDIGO');
+end;
