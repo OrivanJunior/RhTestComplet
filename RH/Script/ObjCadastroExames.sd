@@ -1,1 +1,14 @@
-﻿
+﻿var
+FormPadraoExames,
+CadExamesEBIdExame,
+CadExamesEBDescricao,
+CadExamesEBNroSerie: OleVariant;
+
+
+procedure MapCadExames();
+begin
+FormPadraoExames  	:= Aliases.Folha.FFormPadraoRHEXAME;
+CadExamesEBIdExame  := Aliases.Folha.FFormPadraoRHEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEXAME;
+CadExamesEBDescricao:= Aliases.Folha.FFormPadraoRHEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadExamesEBNroSerie := Aliases.Folha.FFormPadraoRHEXAME.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROSERIE;
+end;

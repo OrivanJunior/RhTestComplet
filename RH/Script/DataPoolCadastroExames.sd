@@ -1,1 +1,12 @@
-﻿
+﻿var
+CadExamesDPIdExame,
+CadExamesDPNroSerie,
+CadExamesDPDescricao : OleVariant;
+
+procedure LeDataPoolCadExames(nomeDriver);
+begin
+
+CadExamesDPIdExame  	  := DDT.DriverByName(nomeDriver).Value('IDEXAME');
+CadExamesDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadExamesDPNroSerie     := DDT.DriverByName(nomeDriver).Value('NROSERIE');
+end;
