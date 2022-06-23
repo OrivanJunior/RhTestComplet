@@ -2,5 +2,20 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 22/06/2022}
+var
+FormPadraoPais,
+CadPaisEBPais,
+CadPaisEBNome,
+CadPaisEBCodCaixa,
+CadPaisEBCodSisComEx : OleVariant;
  
- 
+
+procedure MapCadPais();
+begin
+
+FormPadraoPais        :=  Aliases.Folha.FFormPadraoPAIS;
+CadPaisEBPais         :=  Aliases.Folha.FFormPadraoPAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PAIS;
+CadPaisEBNome         :=  Aliases.Folha.FFormPadraoPAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME;
+CadPaisEBCodCaixa     :=  Aliases.Folha.FFormPadraoPAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODCAIXA;
+CadPaisEBCodSisComEx  :=  Aliases.Folha.FFormPadraoPAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODSISCOMEX;
+end;

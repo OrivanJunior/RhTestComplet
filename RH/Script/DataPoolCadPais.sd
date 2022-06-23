@@ -1,1 +1,17 @@
-﻿
+﻿var
+CadPaisDPPais,
+CadPaisDPNome,
+CadPaisDPCodCaixa,
+CadPaisDPCodSisComEx : OleVariant;
+
+
+procedure LeDataPoolCadPais(nomeDriver);
+begin
+CadPaisDPPais         := DDT.DriverByName(nomeDriver).Value('PAIS');      
+CadPaisDPNome         := DDT.DriverByName(nomeDriver).Value('NOME'); 
+CadPaisDPCodCaixa     := DDT.DriverByName(nomeDriver).Value('CODCAIXA');
+CadPaisDPCodSisComEx  := DDT.DriverByName(nomeDriver).Value('CODSISCOMEX');
+end; 
+
+
+
