@@ -9,9 +9,6 @@ VerificaInsere(CadEBCbo,CadDPCbo);
 VerificaInsere(CadEBDescricao,CadDPDescricao);
 end;
 
-
-
-
 procedure CadastraCBO(pathData);
 var
 DDTCadastrar : OleVariant;
