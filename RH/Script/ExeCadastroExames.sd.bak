@@ -1,1 +1,9 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,ObjCadastroExames, DataPoolCadastroExames;
+
+procedure PreencheCadExames();
+begin
+VerificaInsere(CadExamesEBIdExame,CadExamesDPIdExame);  
+VerificaInsere(CadExamesEBDescricao,CadExamesDPDescricao);
+VerificaInsere(CadExamesEBNroSerie,CadExamesDPNroSerie); 
+end;
+

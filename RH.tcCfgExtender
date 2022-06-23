@@ -4888,7 +4888,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{55120070-0f83-4582-b5e7-48ddc4ce0687}"/>
+					<Node name="{55120070-0f83-4582-b5e7-48ddc4ce0687}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="7"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="2"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="43"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="10"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="79"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="46"/>
+						</Node>
+						<Prp name="bottom" type="I" value="79"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{55530b17-7074-40e5-838d-c9deb80c1a0e}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="15"/>
@@ -15073,7 +15092,9 @@
 										<Node name="exames">
 											<Node name="cadastro de exames"/>
 										</Node>
-										<Node name="fpas"/>
+										<Node name="fpas">
+											<Node name="fpas"/>
+										</Node>
 										<Node name="tipo processamento"/>
 										<Node name="trct homolog"/>
 									</Node>

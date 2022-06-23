@@ -7,3 +7,74 @@ VerificaInsere(CadExamesEBDescricao,CadExamesDPDescricao);
 VerificaInsere(CadExamesEBNroSerie,CadExamesDPNroSerie); 
 end;
 
+
+procedure CadastraExames(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Exames', 'Cadastro de Exames');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadExames(DDTCadastrar.Name);
+
+while not DDTCadastrar.EOF do
+begin
+
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Exame', CadExamesDPIdExame);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  PreencheFPAS();
+  
+  ActSalvar(FormPadraoFPAS);
+  ActFechar(FormPadraoFPAS);
+  end;
+  DDTCadastrar.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirFPAS(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'Exames','Cadastro de Exames');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadExames(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHEXAME');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Exame', CadExamesDPIdExame);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFPAS();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHEXAME');
+  ActFechar(FormPadraoExames);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
