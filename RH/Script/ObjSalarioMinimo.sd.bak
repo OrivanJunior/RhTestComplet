@@ -1,1 +1,18 @@
-﻿
+﻿var 
+FormPadraoSalMin,
+CadSalMinEBData,
+CadSalMinEBDescSalMin,
+CadSalMinEBValor,
+CadSalMinEBIdMoeda,
+BtnExcluirSalMin : OleVariant;
+
+
+procedure MapCadSalarioMin();
+begin
+FormPadraoSalMin  		  := Aliases.Folha.FFormPadraoRHSALMIN;
+CadSalMinEBData  		    := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATA;
+CadSalMinEBDescSalMin  	:= Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCSALMIN;
+CadSalMinEBValor  		  := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR;
+CadSalMinEBIdMoeda  	  := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDMOEDA;
+BtnExcluirSalMin        := Aliases.Folha.FFormPadraoRHSALMIN.BExcluir.Enabled
+end;

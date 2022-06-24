@@ -1,1 +1,14 @@
-﻿
+﻿var
+CadSalMinDPData,
+CadSalMinDPDescSalMin,
+CadSalMinDPValor,
+CadSalMinDPIdMoeda : OleVariant;
+
+
+procedure LeDataPoolCadSalMin(nomeDriver);
+begin
+CadSalMinDPData  		    := DDT.DriverByName(nomeDriver).Value('DATA');
+CadSalMinDPDescSalMin  	:= DDT.DriverByName(nomeDriver).Value('DESCSALMIN');
+CadSalMinDPValor  		  := DDT.DriverByName(nomeDriver).Value('VALOR');
+CadSalMinDPIdMoeda      := DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+end; 	

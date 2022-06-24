@@ -1043,7 +1043,7 @@
 													<testItem name="Tabelas" key="{6125C171-E9AF-4A3A-83EF-94796F2EF51D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="INSS" key="{13B87B25-C5BD-4A74-9ACC-1F395B735018}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="INSS" key="{13B87B25-C5BD-4A74-9ACC-1F395B735018}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="CadastrarTabInss" key="{A7C92797-0859-4BC5-92CA-0203BAE0F145}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}CadastrarTabInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1056,6 +1056,25 @@
 																	<testItem name="ExcluirTabelaInss" key="{523120DA-F587-4E06-A01E-CA5C60A97DA8}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}ExcluirTabelaInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																		<testParameters>
 																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\INSS\INSS.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Sálario Mínimo" key="{2F1BA526-1D0F-4EF0-9175-B43AB91B3C61}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="Cadastra Sal Min" key="{1F6572C4-8C72-4AD6-A37B-4D2B28C24254}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}CadastrarSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="Excluir Sal Min" key="{D9A38676-7471-4B0B-8D1A-E5D97CCE4483}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}ExcluirSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
 																		</testParameters>
 																		<environments activeCloud="CBT" />
 																		<children />

@@ -1,8 +1,18 @@
-﻿procedure Test1;
+﻿var 
+FormPadraoSalMin,
+CadSalMinEBData,
+CadSalMinEBDescSalMin,
+CadSalMinEBValor,
+CadSalMinEBIdMoeda,
+BtnExcluirSalMin : OleVariant;
+
+
+procedure MapCadSalarioMin();
 begin
-  Aliases.Folha.FFormPadraoRHSALMIN.Click(155, 16);
-  Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATA.Click(37, 8);
-  Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCSALMIN.Click(40, 5);
-  Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR.Click(80, 12);
-  Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDMOEDA.TLabel.Click;
+FormPadraoSalMin  		  := Aliases.Folha.FFormPadraoRHSALMIN;
+CadSalMinEBData  		    := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATA;
+CadSalMinEBDescSalMin  	:= Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCSALMIN;
+CadSalMinEBValor  		  := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR;
+CadSalMinEBIdMoeda  	  := Aliases.Folha.FFormPadraoRHSALMIN.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDMOEDA;
+BtnExcluirSalMin        := Aliases.Folha.FFormPadraoRHSALMIN.BExcluir;
 end;

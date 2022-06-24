@@ -49,7 +49,6 @@ end;
 
 procedure ExcluirSalMin(PathData);
 var
-BtnOkErro,BtnConfExc;
 DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Tabelas', 'Salário Mínimo');
@@ -74,21 +73,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   
   MapCadSalarioMin();
   
-  BtnExcluirSalMin.Click;
-  
-  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
-begin
-BtnConfExc	:= Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim;
-BtnConfExc.Click;
-end;
-
-  if Aliases.Folha.FVsErrorDlg.Exists then
-Begin
-BtnOkErro := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
-BtnOkErro.ClickButton;
-end;
-  
-
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHSALMIN');
   ActFechar(FormPadraoSalMin);
   end;
   DDTExcluir.Next;
