@@ -495,14 +495,38 @@
 					<child name="DataPoolInconFixoGeral" key="{36FF7D0D-6919-409B-9E08-EFB04A5C117F}" path="DataPoolInconFixoGeral.sd" />
 				</folder>
 				<folder name="Tabelas">
-					<folder name="Salário Mínimo" />
-					<folder name="INSS" />
-					<folder name="IRRF" />
+					<folder name="Salário Mínimo">
+						<child name="ObjSalarioMinimo" key="{165734AF-B009-4ED0-A6E3-2D958462E395}" path="ObjSalarioMinimo.sd" />
+						<child name="ExeSalarioMinimo" key="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}" path="ExeSalarioMinimo.sd" />
+						<child name="DataPoolSalarioMinimo" key="{C7D0EE8F-F4D2-434D-B573-E829AA217E20}" path="DataPoolSalarioMinimo.sd" />
+					</folder>
+					<folder name="INSS">
+						<child name="ExeINSS" key="{597651D1-AD2C-437F-8766-145F8ADA7C20}" path="ExeINSS.sd" />
+						<child name="ObjINSS" key="{5D797A22-CD47-4534-9746-928DBD4BDB9A}" path="ObjINSS.sd" />
+						<child name="DataPoolINSS" key="{7BF5EF82-96A5-4261-9D68-F490FD51A380}" path="DataPoolINSS.sd" />
+					</folder>
+					<folder name="IRRF">
+						<child name="ObjIRRF" key="{81BF9DF7-30EA-4CEB-BD1D-5FF9164C41DE}" path="ObjIRRF.sd" />
+						<child name="ExeIRRF" key="{0224F477-0903-4EF4-A4A4-67C8E29B0398}" path="ExeIRRF.sd" />
+						<child name="DataPoolIRRF" key="{CE30D6EE-3510-46F2-8FC3-A5645C045240}" path="DataPoolIRRF.sd" />
+					</folder>
 				</folder>
 				<folder name="Empresas">
-					<folder name="Cat. Empregadores" />
-					<folder name="Grupos" />
-					<folder name="Classificação Tributária" />
+					<folder name="Cat. Empregadores">
+						<child name="ExeCatEmpregadores" key="{2D8CDE49-3548-49E0-9790-B77335F0983D}" path="ExeCatEmpregadores.sd" />
+						<child name="ObjCatEmpregadores" key="{6592E51E-9A45-47D3-9448-666A700F8930}" path="ObjCatEmpregadores.sd" />
+						<child name="DataPoolCatEmpregadores" key="{4A18ED58-4F62-4503-8CA0-948E4FF8C10D}" path="DataPoolCatEmpregadores.sd" />
+					</folder>
+					<folder name="Grupos">
+						<child name="ExeGrupos" key="{4BC38C41-244F-48FE-BB55-57E9628B9A4E}" path="ExeGrupos.sd" />
+						<child name="DataPoolGrupos" key="{00BB7E90-A3F2-40CD-A630-172224BBEFEE}" path="DataPoolGrupos.sd" />
+						<child name="ObjGrupos" key="{49FD5EC6-614F-472B-B2A1-989F5280B818}" path="ObjGrupos.sd" />
+					</folder>
+					<folder name="Classificação Tributária">
+						<child name="ExeClassTributaria" key="{63E3732B-16A3-4978-A88F-922F6E69D590}" path="ExeClassTributaria.sd" />
+						<child name="ObjClassTributaria" key="{01820EBC-673E-450B-93C8-06FD2729BBEA}" path="ObjClassTributaria.sd" />
+						<child name="DataPoolClassTributaria" key="{2F176AE0-BE9B-43AD-A90B-D8FEAC9C44B6}" path="DataPoolClassTributaria.sd" />
+					</folder>
 				</folder>
 			</folder>
 			<folder name="Cadastros Específicos">

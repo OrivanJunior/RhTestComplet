@@ -1,0 +1,141 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolINSS,ObjINSS;
+
+procedure PreencheCadInss();
+begin
+MapCadINSS();
+
+PreencheDatas(CadInssEBData,CadInssDPData);
+VerificaConsultaF3Insere(_ModuloFolha,CadInssEBIdMoeda,CadInssDPIdMoeda);
+VerificaInsere(CadInssEBDescInss,CadInssDPDescInss);
+end;
+
+procedure PreencheFaixaInss();
+begin
+
+MapCadINSSF();
+
+BtnIncFInss.Click;
+
+VerificaClickPreencheGrid(FormInssGridF,0,'Valor Inicial',CadInssfDPValorInicial);
+VerificaClickPreencheGrid(FormInssGridF,0,'Valor Final',CadInssfDPValorFinal);
+FormInssGridF.Keys('[Tab]');
+FormInssGridF.Keys('[Tab]');
+
+end;
+
+procedure PreencheFaixaSalFam();
+
+begin
+
+MapCadINSSFam();
+
+BtnIncFamInss.Click;
+
+VerificaClickPreencheGrid(FormInssGridFam,0,'Valor Inicial',CadInssFamDPValorInicial);
+VerificaClickPreencheGrid(FormInssGridFam,0,'Valor Final',CadInssFamDPValorFinal);
+VerificaClickPreencheGrid(FormInssGridFam,0,'Valor Da Cota',CadInssFamDPValorDaCota);
+
+end;
+
+procedure PreencheFaixaApEspecial();
+
+begin
+
+MapINSSApEsp();
+
+BtnIncApEsp.Click;
+
+VerificaClickPreencheGrid(FormInssGridApEsp,0,'Anos',CadApEspDPAnos);
+VerificaClickPreencheGrid(FormInssGridApEsp,0,'Acréscimo',CadApEspDPAcrescimos);
+
+end;
+
+procedure CadastrarTabInss(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Tabelas', 'INSS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadINSS(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', CadInssDPData);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadINSS();
+  
+  PreencheCadInss();
+  PreencheFaixaInss();
+  PreencheFaixaSalFam();
+  PreencheFaixaApEspecial();
+  
+  ActSalvar(FormPadraoInss);
+  ActFechar(FormPadraoInss);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirTabelaInss(PathData);
+var
+BtnOkErro;
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Tabelas', 'INSS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadINSS(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', CadInssDPData);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadINSS();
+  
+  BtnExcluirInss.Click;
+  
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+begin
+BtnConfExc	:= Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim;
+BtnConfExc.Click;
+end;
+
+  if Aliases.Folha.FVsErrorDlg.Exists then
+Begin
+BtnOkErro := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+BtnOkErro.ClickButton;
+end;
+
+  ActFechar(FormPadraoInss);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

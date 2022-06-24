@@ -1,0 +1,40 @@
+﻿var
+CadInssDPData,
+CadInssDPIdmoeda,
+CadInssDPRidmoeda,
+CadInssDPDescinss,
+
+
+CadInssfDPValorInicial,
+CadInssfDPValorFinal,
+CadInssfDPPorCento,
+CadInssfDPIrrf,
+
+CadInssFamDPValorInicial,
+CadInssFamDPValorFinal,
+CadInssFamDPValorDaCota,
+
+CadApEspDPAnos,
+CadApEspDPAcrescimos : OleVariant;	
+
+
+procedure LeDataPoolCadINSS(nomeDriver);
+begin
+
+CadInssDPData  				    := DDT.DriverByName(nomeDriver).Value('DATA');
+CadInssDPIdmoeda    		  := DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+CadInssDPDescinss   		  := DDT.DriverByName(nomeDriver).Value('DESCINSS');
+
+CadInssfDPValorInicial 		:= DDT.DriverByName(nomeDriver).Value('VALOR INICIAL F');
+CadInssfDPValorFinal		  := DDT.DriverByName(nomeDriver).Value('VALOR FINAL F');
+CadInssfDPPorCento			  := DDT.DriverByName(nomeDriver).Value(' ');
+CadInssfDPIrrf				    := DDT.DriverByName(nomeDriver).Value('IRRF');
+
+CadInssFamDPValorInicial	:= DDT.DriverByName(nomeDriver).Value('VALOR INICIAL FAM');
+CadInssFamDPValorFinal		:= DDT.DriverByName(nomeDriver).Value('VALOR FINAL FAM');
+CadInssFamDPValorDaCota		:= DDT.DriverByName(nomeDriver).Value('VALOR DA COTA');
+
+CadApEspDPAnos				    := DDT.DriverByName(nomeDriver).Value('ANOS');
+CadApEspDPAcrescimos		  := DDT.DriverByName(nomeDriver).Value('ACRÉSCIMOS');
+
+end;

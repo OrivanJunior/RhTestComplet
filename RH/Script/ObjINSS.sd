@@ -1,0 +1,74 @@
+﻿Var
+FormPadraoInss,
+                        
+CadInssEBData,
+CadInssEBIdmoeda,
+CadInssEBRidmoeda,
+CadInssEBDescinss,
+                        
+PageTabNormalgpInssF,
+FormInssGridF,
+                        
+BtnIncFInss,
+BtnDesfFInss,
+BtnExcFInss,
+                        
+                        
+PageTabNormalgpInssFam,
+FormInssGridFam,
+                        
+BtnIncFamInss,
+BtnDesFamInss,
+BtnExcFamInss,
+                        
+                        
+PageTabNormalgpInssApesp,
+FormInssGridApEsp,
+                        
+BtnIncApEsp,
+BtnDesFApEsp,
+BtnExcApEsp,
+BtnSalvarInss,
+BtnExcluirInss : OleVariant;
+
+procedure MapCadINSS();
+begin
+FormPadraoInss  		    := Aliases.Folha.FRhInss;
+  
+CadInssEBData  		      := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_DATA;
+CadInssEBIdmoeda  	    := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_IDMOEDA;
+CadInssEBDescinss  	    := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_DESCINSS;
+BtnSalvarInss           := Aliases.Folha.FRhInss.BSalvar;
+BtnExcluirInss          := Aliases.Folha.FRhInss.BExcluir;
+end;
+
+procedure MapCadINSSF();
+begin
+PageTabNormalgpInssF  	:= Aliases.Folha.FRhInss.Page.TabNormal.gbINSSF;
+FormInssGridF			      := Aliases.Folha.FRhInss.Page.TabNormal.gbINSSF.gINSSF;
+
+BtnIncFInss  			      := Aliases.Folha.FRhInss.bIncFInss;
+BtnDesfFInss 			      := Aliases.Folha.FRhInss.bDesfFInss;
+BtnExcFInss  			      := Aliases.Folha.FRhInss.bExcFInss;
+end;
+
+procedure MapCadINSSFam();
+begin
+PageTabNormalgpInssFam	:= Aliases.Folha.FRhInss.Page.TabNormal.gbINSSFAm;
+FormInssGridFam		  	  := Aliases.Folha.FRhInss.Page.TabNormal.gbINSSFAm.gINSSFAM;
+  
+BtnIncFamInss  			    := Aliases.Folha.FRhInss.bIncFAMINSS;
+BtnDesFamInss  			    := Aliases.Folha.FRhInss.bDesFAMINSS;
+BtnExcFamInss  			    := Aliases.Folha.FRhInss.bExcFAMINSS;
+end;
+  
+procedure MapINSSApEsp();
+begin
+PageTabNormalgpInssApesp:= Aliases.Folha.FRhInss.Page.TabNormal.gbINSSApEsp;
+FormInssGridApEsp	      := Aliases.Folha.FRhInss.Page.TabNormal.gbINSSApEsp.gINSSApEsp;
+  
+BtnIncApEsp   			    := Aliases.Folha.FRhInss.bIncApEsp;
+BtnDesFApEsp  			    := Aliases.Folha.FRhInss.bDesFApEsp;
+BtnExcApEsp   			    := Aliases.Folha.FRhInss.bExcApEsp;
+end;
+
