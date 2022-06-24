@@ -28,7 +28,8 @@ FormInssGridApEsp,
 BtnIncApEsp,
 BtnDesFApEsp,
 BtnExcApEsp,
-BtnSalvarInss : OleVariant;
+BtnSalvarInss,
+BtnExcluirInss : OleVariant;
 
 procedure MapCadINSS();
 begin
@@ -38,6 +39,7 @@ CadInssEBData  		      := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_DATA;
 CadInssEBIdmoeda  	    := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_IDMOEDA;
 CadInssEBDescinss  	    := Aliases.Folha.FRhInss.Page.TabNormal.pnCab.EB_DESCINSS;
 BtnSalvarInss           := Aliases.Folha.FRhInss.BSalvar;
+BtnExcluirInss          := Aliases.Folha.FRhInss.BExcluir;
 end;
 
 procedure MapCadINSSF();
