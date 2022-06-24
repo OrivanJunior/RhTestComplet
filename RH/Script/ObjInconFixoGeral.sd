@@ -1,1 +1,44 @@
-﻿
+﻿var 
+FormPadraoFixoGeralInc,
+CadIncoFixoGeralEBId,
+CadIncoFixoGeralEBValidaPor,
+  
+PageTabNormalpg,
+  
+FormIncoFixoGeralGrid,
+  
+BtnIncEveFixoGeral,
+BtnSaveEveFixoGeral,
+BtnDesEveFixoGeral,
+
+FormTelaColunaProc,
+CadTelaColunaProcEBTipoEve,
+CadTelaColunaProcEBDescricao,   
+PageColunaProcEvepg,
+FormColunaProcEveGrid      : OleVariant;
+
+procedure MapCadIncoFixoGeral();
+  		
+
+begin
+FormPadraoFixoGeralInc  	    := Aliases.Folha.fRHFIXOGERALINC;
+CadIncoFixoGeralEBId  		    := Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pnCab.EB_ID;
+CadIncoFixoGeralEBValidaPor   := Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pnCab.EB_VALIDAPOR;
+  
+PageTabNormalpg				        := Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg;
+  
+FormIncoFixoGeralGrid  		    := Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.tsRhFixoGeralInc.sbRhFixoGMes.gRhFixoGeralIncEve.TcxGridSite;
+  
+BtnIncEveFixoGeral  		      := Aliases.Folha.fRHFIXOGERALINC.bIncRhFixoGeralIncEve;
+BtnSaveEveFixoGeral			      := Aliases.Folha.fRHFIXOGERALINC.bSavRhFixoGeralIncEve;
+BtnDesEveFixoGeral  		      := Aliases.Folha.fRHFIXOGERALINC.bDesfRhFixoGeralIncEve;
+end;
+
+procedure MapColunaProcEve();
+begin
+FormTelaColunaProc          := Aliases.Folha.FRHFIXOGERALINCPROC;
+CadTelaColunaProcEBTipoEve  := Aliases.Folha.FRHFIXOGERALINCPROC.pnPrinc.EB_TIPOEVE;
+CadTelaColunaProcEBDescricao:= Aliases.Folha.FRHFIXOGERALINCPROC.pnPrinc.EB_DESCRICAO;
+PageColunaProcEvepg         := Aliases.Folha.FRHFIXOGERALINCPROC.pg;
+FormColunaProcEveGrid       := Aliases.Folha.FRHFIXOGERALINCPROC.pg.tsFaltas.sbFaltas.gRhFixoGeralIncProc.TcxGridSite;
+end;

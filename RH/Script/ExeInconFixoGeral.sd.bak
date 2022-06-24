@@ -1,1 +1,137 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts, ObjInconFixoGeral,DataPoolInconFixoGeral;
+
+procedure PreencheCadIncoFixoGeral();
+begin
+VerificaInsere(CadIncoFixoGeralEBId,CadIncoFixoGeralDPId);  		
+VerificaInsere(CadIncoFixoGeralEBValidaPor,CadIncoFixoGeralDPValidaPor);
+
+MapCadIncoFixoGeral();
+
+if CadIncoFixoGeralEBValidaPor = 'Tipo de Evento' then
+begin
+PreencheTipoEventoGrid();
+
+if CadIncoFixoGeralEBValidaPor = 'Código de Evento' then
+PreencheCodigoEventoGrid();
+end;
+
+end;
+
+procedure PreencheTipoEventoGrid();
+var i;
+begin
+i:=0;
+PageTabNormalpg.ActivePageIndex := 0;
+
+MapCadIncoFixoGeral();
+
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Tipo de Evento',CadIncoFixoGeralDPTipoEvento); 
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
+ClickColuna(FormIncoFixoGeralGrid,i,'Processamento');
+
+
+
+Inc(i);
+end;
+
+procedure PreencheCodigoEventoGrid();
+var i;
+begin
+i:=0;
+
+PageTabNormalpg.ActivePageIndex := 0;
+
+MapCadIncoFixoGeral();
+
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Código de Evento',CadIncoFixoGeralDPCodigoEvento);  
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Processamento',CadIncoFixoGeralDPProcessamento); //Coluna
+
+
+Inc(i);
+end;
+
+procedure PreencheColunaProc();
+begin
+
+MapColunaProcEve();
+
+VerificaInsere(CadTelaColunaProcEBTipoEve,CadTelaColunaProcDPTipoEve);
+VerificaInsere(CadTelaColunaProcEBDescricao,CadTelaColunaProcDPDescricao);
+
+end;
+
+
+procedure CadastraIncofixoGeral(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'CBO');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCbo(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CBO', CadDPCbo );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCbo();
+  
+  PreencheCbo();
+  
+  ActSalvar(FormPadraoCbo);
+  ActFechar(FormPadraoCbo);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirIncofixoGeral(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'CBO');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCbo(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CBO', CadDPCBO );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCbo();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCBO');
+  ActFechar(FormPadraoCbo);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

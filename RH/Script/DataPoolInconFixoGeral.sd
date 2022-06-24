@@ -1,1 +1,25 @@
-﻿
+﻿var
+CadIncoFixoGeralDPId,
+CadIncoFixoGeralDPValidaPor,
+	
+CadIncoFixoGeralDPCodigoEvento,
+CadIncoFixoGeralDPTipoEvento,
+CadIncoFixoGeralDPStatusInco,
+CadIncoFixoGeralDPProcessamento,
+
+CadTelaColunaProcDPDescricao,
+CadTelaColunaProcDPTipoEve : OleVariant;
+
+procedure LeDataPoolCadIncoFixoGeral(nomeDriver);
+begin
+CadIncoFixoGeralDPId  			    := DDT.DriverByName(nomeDriver).Value('ID');
+CadIncoFixoGeralDPValidaPor		  := DDT.DriverByName(nomeDriver).Value('VALIDAPOR');
+	
+CadIncoFixoGeralDPCodigoEvento	:= DDT.DriverByName(nomeDriver).Value('CODIGOEVENTO');
+CadIncoFixoGeralDPTipoEvento	  := DDT.DriverByName(nomeDriver).Value('TIPOEVENTO');
+CadIncoFixoGeralDPStatusInco	  := DDT.DriverByName(nomeDriver).Value('STATUSINCO');
+CadIncoFixoGeralDPProcessamento	:= DDT.DriverByName(nomeDriver).Value('PROCESSAMENTO');	
+
+CadTelaColunaProcDPTipoEve      := DDT.DriverByName(nomeDriver).Value('TIPOEVE');
+CadTelaColunaProcDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

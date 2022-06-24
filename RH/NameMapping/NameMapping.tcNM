@@ -63947,6 +63947,294 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="fRHFIXOGERALINC" Key="{354DA5ED-C71B-488C-A498-78E53A6D5820}">
+								<Image FileName="-340054412" Left="-8" Top="-8" Right="1592" Bottom="727" />
+								<TypeInfo Item0="{0C05312A-9E71-447A-AD6E-32060C909632}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TfRhFixoGeralInc" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="fRHFIXOGERALINC" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Page" Key="{950BE361-5E14-4823-AD74-E301EE245140}">
+										<Image FileName="6867680" Left="0" Top="53" Right="1584" Bottom="700" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsPageControl" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="Page" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TabNormal" Key="{EA7B02E7-AEEE-4264-9BC6-3176FE4F430C}">
+												<Image FileName="6867680" Left="4" Top="59" Right="1580" Bottom="696" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="TabNormal" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="pnCab" Key="{EF2BC033-3F34-405E-81E9-76FCEA098357}">
+														<Image FileName="6867680" Left="4" Top="59" Right="1580" Bottom="116" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TPanel" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="pnCab" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="EB_ID" Key="{627B94BE-EB08-4E43-BC57-C5BEAAD18AB7}">
+																<Image FileName="6867680" Left="579" Top="59" Right="990" Bottom="80" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsNumRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_ID" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="EB_VALIDAPOR" Key="{807AE450-4AE2-4C5A-8155-2D52A9798462}">
+																<Image FileName="312202012" Left="581" Top="86" Right="991" Bottom="107" />
+																<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TVsComboRight" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="EB_VALIDAPOR" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+													<Child Name="pg" Key="{4FCB769D-91A6-461F-B838-6458A147400F}">
+														<Image FileName="-253696338" Left="4" Top="116" Right="1580" Bottom="696" />
+														<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TVsPageControl" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="pg" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="tsRhFixoGeralInc" Key="{D7EF32D1-1C3E-42C5-ADD5-B5100FEC6363}">
+																<Image FileName="-230803419" Left="8" Top="140" Right="1576" Bottom="692" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TTabSheet" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="tsRhFixoGeralInc" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="sbRhFixoGMes" Key="{79B807D2-CC47-4406-A052-E665C163BA2C}">
+																		<Image FileName="-230803419" Left="8" Top="140" Right="1576" Bottom="692" />
+																		<Properties>
+																			<Property Name="ClassName">
+																				<Value Value="TScrollBox" />
+																			</Property>
+																			<Property Name="ObjectIdentifier">
+																				<Value Value="sbRhFixoGMes" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="gRhFixoGeralIncEve" Key="{9BBB3A27-C65F-4EB5-9083-89128D8D252E}">
+																				<Image FileName="-230803419" Left="35" Top="140" Right="1576" Bottom="691" />
+																				<Properties>
+																					<Property Name="ClassName">
+																						<Value Value="TcxGrid" />
+																					</Property>
+																					<Property Name="ObjectIdentifier">
+																						<Value Value="gRhFixoGeralIncEve" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TcxGridSite" Key="{7C4B047C-3B87-4D5D-941B-4027BCC9D674}">
+																						<Image FileName="-230803419" Left="36" Top="141" Right="1575" Bottom="690" />
+																						<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TcxGridSite" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="bIncRhFixoGeralIncEve" Key="{A510D0E5-1D80-4938-987B-7182F8E87D02}">
+										<Image FileName="1216643002" Left="10" Top="151" Right="33" Bottom="173" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bIncRhFixoGeralIncEve" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bSavRhFixoGeralIncEve" Key="{B7EE73F8-E404-4C67-9D82-DF2F37704D9C}">
+										<Image FileName="1077425380" Left="10" Top="173" Right="33" Bottom="195" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bSavRhFixoGeralIncEve" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="bDesfRhFixoGeralIncEve" Key="{E5034288-6F10-441B-85DB-0AAA2E8E16EE}">
+										<Image FileName="1566309293" Left="10" Top="201" Right="33" Bottom="223" />
+										<TypeInfo Item0="{FB8402FF-772C-49ED-91B3-38D02D9FF2B4}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TToolbarButton97" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="bDesfRhFixoGeralIncEve" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="FRHFIXOGERALINCPROC" Key="{49852D5F-B391-4165-9A29-67A0608FFEAD}">
+								<Image FileName="1836347850" Left="0" Top="0" Right="927" Bottom="688" />
+								<TypeInfo Item0="{0C05312A-9E71-447A-AD6E-32060C909632}" />
+								<Properties>
+									<Property Name="ClassName">
+										<Value Value="TFRhFixoGeralIncProc" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="FRHFIXOGERALINCPROC" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="pnPrinc" Key="{FF7E6EB9-5AF8-4814-9454-343D4C841D69}">
+										<Image FileName="977495152" Left="8" Top="61" Right="919" Bottom="104" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TPanel" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="pnPrinc" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="EB_TIPOEVE" Key="{1EFAAC16-609B-40BF-A0E6-B26A92AAEB93}">
+												<Image FileName="977495152" Left="179" Top="74" Right="258" Bottom="95" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsNumRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_TIPOEVE" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="EB_DESCRICAO" Key="{28CE4EE2-AF82-4313-95E3-5B7B8F580B63}">
+												<Image FileName="1481471986" Left="279" Top="74" Right="719" Bottom="95" />
+												<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TVsEditRight" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="EB_DESCRICAO" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="pg" Key="{884CDD3D-931F-48D7-B2CA-97FACCE7CF63}">
+										<Image FileName="405149354" Left="8" Top="104" Right="919" Bottom="661" />
+										<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+										<Properties>
+											<Property Name="ClassName">
+												<Value Value="TVsPageControl" />
+											</Property>
+											<Property Name="ObjectIdentifier">
+												<Value Value="pg" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="tsFaltas" Key="{B2508934-B3AE-4629-B764-F0BE15E3A8AA}">
+												<Image FileName="-481404754" Left="12" Top="128" Right="915" Bottom="657" />
+												<Properties>
+													<Property Name="ClassName">
+														<Value Value="TTabSheet" />
+													</Property>
+													<Property Name="ObjectIdentifier">
+														<Value Value="tsFaltas" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="sbFaltas" Key="{15052526-0089-4F82-8C6D-58A04666F9F3}">
+														<Image FileName="-481404754" Left="12" Top="128" Right="915" Bottom="657" />
+														<Properties>
+															<Property Name="ClassName">
+																<Value Value="TScrollBox" />
+															</Property>
+															<Property Name="ObjectIdentifier">
+																<Value Value="sbFaltas" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="gRhFixoGeralIncProc" Key="{FF6804F4-7C26-4FD8-B451-4A7E25CA32A4}">
+																<Image FileName="-481404754" Left="43" Top="128" Right="915" Bottom="656" />
+																<Properties>
+																	<Property Name="ClassName">
+																		<Value Value="TcxGrid" />
+																	</Property>
+																	<Property Name="ObjectIdentifier">
+																		<Value Value="gRhFixoGeralIncProc" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="TcxGridSite" Key="{A9134CB0-82AA-4EF0-9B89-56B53A1D1D2A}">
+																		<Image FileName="-481404754" Left="44" Top="129" Right="914" Bottom="655" />
+																		<TypeInfo Item0="{32AF33F4-5D16-48D8-B00A-D0DE0F8BEDAA}" />
+																		<Properties>
+																			<Property Name="WndClass">
+																				<Value Value="TcxGridSite" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ViasoftServerRH_XE" Key="{910C1266-D40D-4F43-AB05-3FF2B9E92C75}">
@@ -86666,6 +86954,43 @@
 				<Child Name="ScrollBox1" Owner="{F954469D-B824-4C6C-A37C-8766A7FD0470}">
 					<Child Name="EB_EMPRESA" Owner="{4E1747D9-F9A5-45B2-A0DE-3F0A12373A3E}" />
 					<Child Name="EB_GERACAOMATRICULA" Owner="{E6F1EAE3-2AEE-4E04-B75C-3965D0019473}" />
+				</Child>
+			</Child>
+			<Child Name="fRHFIXOGERALINC" Owner="{354DA5ED-C71B-488C-A498-78E53A6D5820}">
+				<Child Name="Page" Owner="{950BE361-5E14-4823-AD74-E301EE245140}">
+					<Child Name="TabNormal" Owner="{EA7B02E7-AEEE-4264-9BC6-3176FE4F430C}">
+						<Child Name="pnCab" Owner="{EF2BC033-3F34-405E-81E9-76FCEA098357}">
+							<Child Name="EB_ID" Owner="{627B94BE-EB08-4E43-BC57-C5BEAAD18AB7}" />
+							<Child Name="EB_VALIDAPOR" Owner="{807AE450-4AE2-4C5A-8155-2D52A9798462}" />
+						</Child>
+						<Child Name="pg" Owner="{4FCB769D-91A6-461F-B838-6458A147400F}">
+							<Child Name="tsRhFixoGeralInc" Owner="{D7EF32D1-1C3E-42C5-ADD5-B5100FEC6363}">
+								<Child Name="sbRhFixoGMes" Owner="{79B807D2-CC47-4406-A052-E665C163BA2C}">
+									<Child Name="gRhFixoGeralIncEve" Owner="{9BBB3A27-C65F-4EB5-9083-89128D8D252E}">
+										<Child Name="TcxGridSite" Owner="{7C4B047C-3B87-4D5D-941B-4027BCC9D674}" />
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+				</Child>
+				<Child Name="bIncRhFixoGeralIncEve" Owner="{A510D0E5-1D80-4938-987B-7182F8E87D02}" />
+				<Child Name="bSavRhFixoGeralIncEve" Owner="{B7EE73F8-E404-4C67-9D82-DF2F37704D9C}" />
+				<Child Name="bDesfRhFixoGeralIncEve" Owner="{E5034288-6F10-441B-85DB-0AAA2E8E16EE}" />
+			</Child>
+			<Child Name="FRHFIXOGERALINCPROC" Owner="{49852D5F-B391-4165-9A29-67A0608FFEAD}">
+				<Child Name="pnPrinc" Owner="{FF7E6EB9-5AF8-4814-9454-343D4C841D69}">
+					<Child Name="EB_TIPOEVE" Owner="{1EFAAC16-609B-40BF-A0E6-B26A92AAEB93}" />
+					<Child Name="EB_DESCRICAO" Owner="{28CE4EE2-AF82-4313-95E3-5B7B8F580B63}" />
+				</Child>
+				<Child Name="pg" Owner="{884CDD3D-931F-48D7-B2CA-97FACCE7CF63}">
+					<Child Name="tsFaltas" Owner="{B2508934-B3AE-4629-B764-F0BE15E3A8AA}">
+						<Child Name="sbFaltas" Owner="{15052526-0089-4F82-8C6D-58A04666F9F3}">
+							<Child Name="gRhFixoGeralIncProc" Owner="{FF6804F4-7C26-4FD8-B451-4A7E25CA32A4}">
+								<Child Name="TcxGridSite" Owner="{A9134CB0-82AA-4EF0-9B89-56B53A1D1D2A}" />
+							</Child>
+						</Child>
+					</Child>
 				</Child>
 			</Child>
 		</Child>
