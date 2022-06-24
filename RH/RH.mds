@@ -1021,6 +1021,25 @@
 															</testItem>
 														</children>
 													</testItem>
+													<testItem name="Inconsistências do Fixo Geral" key="{3833CDAB-5335-4D30-91C0-C7B3ED193379}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Inc FixoGeral" key="{F04C7A22-7E36-4512-8B83-2A4E6FBD3D5E}" group="False" parallel="False" enabled="True" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}CadastraIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Inc FixoGeral" key="{AC440DB3-CB18-42A9-9EA6-D30161D3F92C}" group="False" parallel="False" enabled="True" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}ExcluirIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
 												</children>
 											</testItem>
 											<testItem name="Prestadores de Serviço" key="{E0E66238-6D3C-4E7D-9239-25AAA6193AA5}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

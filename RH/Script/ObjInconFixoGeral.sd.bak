@@ -9,7 +9,13 @@ FormIncoFixoGeralGrid,
   
 BtnIncEveFixoGeral,
 BtnSaveEveFixoGeral,
-BtnDesEveFixoGeral : OleVariant;
+BtnDesEveFixoGeral,
+
+FormTelaColunaProc,
+CadTelaColunaProcEBTipoEve,
+CadTelaColunaProcEBDescricao,   
+PageColunaProcEvepg,
+FormColunaProcEveGrid      : OleVariant;
 
 procedure MapCadIncoFixoGeral();
   		
@@ -26,5 +32,15 @@ FormIncoFixoGeralGrid  		    := Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.
 BtnIncEveFixoGeral  		      := Aliases.Folha.fRHFIXOGERALINC.bIncRhFixoGeralIncEve;
 BtnSaveEveFixoGeral			      := Aliases.Folha.fRHFIXOGERALINC.bSavRhFixoGeralIncEve;
 BtnDesEveFixoGeral  		      := Aliases.Folha.fRHFIXOGERALINC.bDesfRhFixoGeralIncEve;
+
+
 end;
 
+procedure MapColunaProcEve();
+begin
+FormTelaColunaProc          := Aliases.Folha.FRHFIXOGERALINCPROC;
+CadTelaColunaProcEBTipoEve  := Aliases.Folha.FRHFIXOGERALINCPROC.pnPrinc.EB_TIPOEVE;
+CadTelaColunaProcEBDescricao:= Aliases.Folha.FRHFIXOGERALINCPROC.pnPrinc.EB_DESCRICAO;
+PageColunaProcEvepg         := Aliases.Folha.FRHFIXOGERALINCPROC.pg;
+FormColunaProcEveGrid       := Aliases.Folha.FRHFIXOGERALINCPROC.pg.tsFaltas.sbFaltas.gRhFixoGeralIncProc.TcxGridSite;
+end;

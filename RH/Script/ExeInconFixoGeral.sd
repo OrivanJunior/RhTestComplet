@@ -1,21 +1,40 @@
 ﻿uses CommonsAll,CommonsObj, VarConsts, ObjInconFixoGeral,DataPoolInconFixoGeral;
 
 procedure PreencheCadIncoFixoGeral();
+var i;
 begin
+i:=0;
 VerificaInsere(CadIncoFixoGeralEBId,CadIncoFixoGeralDPId);  		
 VerificaInsere(CadIncoFixoGeralEBValidaPor,CadIncoFixoGeralDPValidaPor);
 
-MapCadIncoFixoGeral();
-
-if CadIncoFixoGeralEBValidaPor = 'Tipo de Evento' then
+if CadIncoFixoGeralEBValidaPor.zText = 'Tipo de Evento' then
 begin
-PreencheTipoEventoGrid();
+MapCadIncoFixoGeral();
+PageTabNormalpg.ActivePageIndex := 0;
+BtnIncEveFixoGeral.Click;
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Tipo de Evento',CadIncoFixoGeralDPTipoEvento); 
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
+ClickColuna(FormIncoFixoGeralGrid,i,'Processamento');
 
-if CadIncoFixoGeralEBValidaPor = 'Código de Evento' then
+MapColunaProcEve();
+
+if FormTelaColunaProc.Exists then
+begin
+ActFechar(FormTelaColunaProc);
+end;
+
+BtnSaveEveFixoGeral.Click;
+
+Inc(i);
+
+end;
+
+
+if CadIncoFixoGeralEBValidaPor.zText = 'Código de Evento' then
 PreencheCodigoEventoGrid();
-end;
 
 end;
+
 
 procedure PreencheTipoEventoGrid();
 var i;
@@ -29,7 +48,14 @@ VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Tipo de Evento',CadIncoFixoGe
 VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
 ClickColuna(FormIncoFixoGeralGrid,i,'Processamento');
 
+MapColunaProcEve();
 
+if FRHFIXOGERALINCPROC.Exists then
+begin
+ActFechar(FormTelaColunaProc);
+end;
+
+BtnSaveEveFixoGeral.Click;
 
 Inc(i);
 end;
@@ -66,7 +92,7 @@ procedure CadastraIncofixoGeral(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Gerais', 'Inconsistências do Fixo Geral');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Inconsistências do Fixo Geral');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -104,7 +130,7 @@ procedure ExcluirIncofixoGeral(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Gerais', 'CBO');
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Inconsistências do Fixo Geral');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -116,18 +142,18 @@ While not DDTExcluir.EOF do
 begin
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCBO');
+    ValidaFormAberto(_ModuloFolha, 'fRHFIXOGERALINC');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'CBO', CadDPCBO );
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Fixo Geral',CadIncoFixoGeralDPId);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadCbo();
+  MapCadIncoFixoGeral();
   
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHCBO');
-  ActFechar(FormPadraoCbo);
+  ActExcluir(_ModuloFolha, 'fRHFIXOGERALINC');
+  ActFechar(FormPadraoFixoGeralInc);
   end;
   DDTExcluir.Next;
 end;

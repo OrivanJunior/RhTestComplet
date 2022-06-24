@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 6">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4724650347"/>
+			<Prp name="line no" type="I" value="183"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="id" type="I" value="6"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.472513206"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pnCab.EB_ID&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnCab').VCLObject('EB_ID'))"/>
+			<Prp name="id" type="I" value="7"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 0">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4723631018"/>
+			<Prp name="line no" type="I" value="418"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Inconsistências do Fixo Geral']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Inconsistências do Fixo Geral'])"/>
+			<Prp name="id" type="I" value="0"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 1" type="S" value="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}"/>
+			<Prp name="unit 0" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The 'Inconsistências do Fixo Geral' window was closed."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4724444444"/>
+			<Prp name="line no" type="I" value="49"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC'))"/>
+			<Prp name="id" type="I" value="1"/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4724632523"/>
+			<Prp name="line no" type="I" value="182"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="id" type="I" value="5"/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4724606134"/>
+			<Prp name="line no" type="I" value="225"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Up]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="id" type="I" value="3"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Cód. Fixo Geral', 0) was clicked with the left mouse button."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.472459456"/>
+			<Prp name="line no" type="I" value="224"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="id" type="I" value="2"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="message 8">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4725149421"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'T' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pnCab.EB_VALIDAPOR&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnCab').VCLObject('EB_VALIDAPOR'))"/>
+			<Prp name="id" type="I" value="8"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="date" type="D" value="44736.4724622106"/>
+			<Prp name="line no" type="I" value="226"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="id" type="I" value="4"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="line no" type="I" value="116"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraIncofixoGeral('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx')"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'A' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.tsRhFixoGeralInc.sbRhFixoGMes.gRhFixoGeralIncEve&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhFixoGeralInc').VCLObject('sbRhFixoGMes').VCLObject('gRhFixoGeralIncEve'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="date" type="D" value="44736.4727499537"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="line no" type="I" value="15"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadIncoFixoGeral"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="line no" type="I" value="116"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="CadastraIncofixoGeral('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx')"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (11, 11) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.bIncRhFixoGeralIncEve&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('bIncRhFixoGeralIncEve'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="13"/>
+			<Prp name="date" type="D" value="44736.4726673727"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="stacktext" type="S" value="VerificaClickPreencheGrid($4D02BF58,0,'Status de Inconsistencia','A')"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.tsRhFixoGeralInc.sbRhFixoGMes.gRhFixoGeralIncEve&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhFixoGeralInc').VCLObject('sbRhFixoGMes').VCLObject('gRhFixoGeralIncEve'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Processamento', 0) was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="341"/>
+			<Prp name="date" type="D" value="44736.4728140509"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+		</Node>
+		<Node name="item 5">
+			<Prp name="line no" type="I" value="20"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value=""/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="line no" type="I" value="20"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="stacktext" type="S" value="PreencheCadIncoFixoGeral"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="Total number of items: 7.&#xA;Items: 'Tipo de Evento', 'Código de Evento', 'Descrição', 'Status da Inconsistência', 'Usuário ativação/inativação', 'Data/hora ativação/inativação', 'Processamento'.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.tsRhFixoGeralInc.sbRhFixoGMes.gRhFixoGeralIncEve&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhFixoGeralInc').VCLObject('sbRhFixoGMes').VCLObject('gRhFixoGeralIncEve'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="The control item 'Status de Inconsistencia' not found."/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="date" type="D" value="44736.4727491319"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="stack end" type="I" value="2"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;DelphiScript runtime error.&lt;br /&gt;&lt;br /&gt;Undeclared identifier: FRHFIXOGERALINCPROC&lt;br /&gt;&lt;br /&gt;Error location:&lt;br /&gt;Unit: &quot;RH\RH\Script\ExeInconFixoGeral&quot;&lt;br /&gt;Line: 21 Column: 30.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;aqa-help://4074&quot;&gt;Learn more about the problem and possible solutions&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="Undeclared identifier: FRHFIXOGERALINCPROC"/>
+			<Prp name="line no" type="I" value="20"/>
+			<Prp name="stack beginning" type="I" value="3"/>
+			<Prp name="date" type="D" value="44736.4730341551"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="stack end" type="I" value="4"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="Possible reasons:&#xA; - An error or warning occurred during the test run. See the preceding log entries to locate and identify the error.&#xA; - The test run was stopped manually.&#xA; - The test run was terminated as a result of the Runner.Halt method call."/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="The script execution was interrupted."/>
+			<Prp name="line no" type="I" value="20"/>
+			<Prp name="stack beginning" type="I" value="5"/>
+			<Prp name="date" type="D" value="44736.4730365394"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="picture" type="S" value="Picture3.png"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="stack end" type="I" value="5"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.fRHFIXOGERALINC.Page.TabNormal.pg.tsRhFixoGeralInc.sbRhFixoGMes.gRhFixoGeralIncEve&#xA;(Sys.Process('Folha').VCLObject('fRHFIXOGERALINC').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhFixoGeralInc').VCLObject('sbRhFixoGMes').VCLObject('gRhFixoGeralIncEve'))"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Tipo de Evento', 0) was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="date" type="D" value="44736.4727009607"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>
