@@ -419,7 +419,7 @@
 					<Prp name="description" type="S" value=""/>
 					<Prp name="enabled" type="B" value="-1"/>
 					<Prp name="executable" type="B" value="-1"/>
-					<Prp name="line" type="I" value="18"/>
+					<Prp name="line" type="I" value="70"/>
 					<Prp name="owner" type="S" value="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
@@ -6691,36 +6691,31 @@
 					</Node>
 					<Node name="{7af9c1d5-21b6-4317-ada1-ceca80067879}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="17"/>
+							<Prp name="bottom" type="I" value="52"/>
 							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="2"/>
 						</Node>
 						<Node name="1">
-							<Prp name="bottom" type="I" value="34"/>
-							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="19"/>
+							<Prp name="bottom" type="I" value="63"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="55"/>
 						</Node>
 						<Node name="2">
-							<Prp name="bottom" type="I" value="51"/>
-							<Prp name="collapsed" type="B" value="-1"/>
-							<Prp name="top" type="I" value="36"/>
+							<Node name="0">
+								<Prp name="bottom" type="I" value="94"/>
+								<Prp name="collapsed" type="B" value="0"/>
+								<Prp name="top" type="I" value="90"/>
+							</Node>
+							<Prp name="bottom" type="I" value="102"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="66"/>
 						</Node>
 						<Node name="3">
-							<Prp name="bottom" type="I" value="61"/>
-							<Prp name="collapsed" type="B" value="-1"/>
-							<Prp name="top" type="I" value="53"/>
-						</Node>
-						<Node name="4">
-							<Prp name="bottom" type="I" value="99"/>
+							<Prp name="bottom" type="I" value="138"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="64"/>
+							<Prp name="top" type="I" value="105"/>
 						</Node>
-						<Node name="5">
-							<Prp name="bottom" type="I" value="135"/>
-							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="102"/>
-						</Node>
-						<Prp name="bottom" type="I" value="136"/>
+						<Prp name="bottom" type="I" value="139"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -15252,6 +15247,7 @@
 							</Node>
 							<Node name="viasoft3c"/>
 						</Node>
+						<Node name="testedapps"/>
 					</Node>
 				</Node>
 				<Node name="rh logs">

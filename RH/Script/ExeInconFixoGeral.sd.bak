@@ -10,6 +10,7 @@ VerificaInsere(CadIncoFixoGeralEBValidaPor,CadIncoFixoGeralDPValidaPor);
 if CadIncoFixoGeralEBValidaPor.zText = 'Tipo de Evento' then
 begin
 MapCadIncoFixoGeral();
+
 PageTabNormalpg.ActivePageIndex := 0;
 BtnIncEveFixoGeral.Click;
 VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Tipo de Evento',CadIncoFixoGeralDPTipoEvento); 
@@ -18,7 +19,7 @@ ClickColuna(FormIncoFixoGeralGrid,i,'Processamento');
 
 MapColunaProcEve();
 
-if FRHFIXOGERALINCPROC.Exists then
+if FormTelaColunaProc.Exists then
 begin
 ActFechar(FormTelaColunaProc);
 end;
@@ -29,28 +30,18 @@ Inc(i);
 
 end;
 
-
 if CadIncoFixoGeralEBValidaPor.zText = 'Código de Evento' then
-PreencheCodigoEventoGrid();
-
-end;
-
-
-procedure PreencheTipoEventoGrid();
-var i;
-begin
-i:=0;
-PageTabNormalpg.ActivePageIndex := 0;
-
 MapCadIncoFixoGeral();
 
-VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Tipo de Evento',CadIncoFixoGeralDPTipoEvento); 
+PageTabNormalpg.ActivePageIndex := 0;
+BtnIncEveFixoGeral.Click;
+VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Código de Evento',CadIncoFixoGeralDPCodigoEvento); 
 VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
 ClickColuna(FormIncoFixoGeralGrid,i,'Processamento');
 
 MapColunaProcEve();
 
-if FRHFIXOGERALINCPROC.Exists then
+if FormTelaColunaProc.Exists then
 begin
 ActFechar(FormTelaColunaProc);
 end;
@@ -58,24 +49,9 @@ end;
 BtnSaveEveFixoGeral.Click;
 
 Inc(i);
+
 end;
 
-procedure PreencheCodigoEventoGrid();
-var i;
-begin
-i:=0;
-
-PageTabNormalpg.ActivePageIndex := 0;
-
-MapCadIncoFixoGeral();
-
-VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Código de Evento',CadIncoFixoGeralDPCodigoEvento);  
-VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Status de Inconsistencia',CadIncoFixoGeralDPStatusInco); 
-VerificaClickPreencheGrid(FormIncoFixoGeralGrid,i,'Processamento',CadIncoFixoGeralDPProcessamento); //Coluna
-
-
-Inc(i);
-end;
 
 procedure PreencheColunaProc();
 begin
@@ -107,16 +83,17 @@ begin
     ValidaFormAberto(_ModuloFolha, 'fRHFIXOGERALINC');
   
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Fixo Geral',CadIncoFixoGeralDPId);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin
   
-  ActIncluir(FormTelaConsultaForm);
+  ActConsulta(FormTelaConsultaForm);
   
-  MapCadIncoFixoGeral();
-  
-  PreencheCadIncoFixoGeral();
-  
-  ActSalvar(FormPadraoFixoGeralInc);
+//  MapCadIncoFixoGeral();
+//  
+//  PreencheCadIncoFixoGeral();
+//  
+//  ActSalvar(FormPadraoFixoGeralInc);  SEM PERMISÃO PARA EXCLUIR
+
   ActFechar(FormPadraoFixoGeralInc);
   end;
   DDTCadastrar.Next;
