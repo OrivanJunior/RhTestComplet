@@ -460,7 +460,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Exames" key="{E4B2E2C7-3DD4-4DDC-83F0-80BF7CC40F82}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Exames" key="{E4B2E2C7-3DD4-4DDC-83F0-80BF7CC40F82}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Tipo de Exames" key="{2DE6D994-2C5B-46CA-A855-5A6FEC1CAF6B}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -541,7 +541,7 @@
 																	</testItem>
 																</children>
 															</testItem>
-															<testItem name="Cadastro de Exames" key="{65A332E0-E3A4-4853-8A0B-991700BD44D3}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastro de Exames" key="{65A332E0-E3A4-4853-8A0B-991700BD44D3}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="Cadastra Exames" key="{67933B09-7582-4BC4-9A5A-20C65A89C521}" group="False" parallel="False" enabled="True" testMoniker="{55120070-0F83-4582-B5E7-48DDC4CE0687}CadastraExames" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -996,6 +996,25 @@
 															<testItem name="Exclui Tipo Proc" key="{872DB26C-F634-4F8F-A954-42C2832795FE}" group="False" parallel="False" enabled="True" testMoniker="{630ECF0C-4B60-4126-98D1-BEBAF5CC2D0F}ExcluirTipoProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tipo Processamentos\Tipo Processamentos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. Gerais por Empresa" key="{1CDAF0B2-8B02-47AB-9A98-0CF1FC4BC67D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Cadastra Conf Gerais Empresa" key="{B93E8CE5-7AA3-4D85-A8E3-A4F85D6531A9}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}CadastraConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="Exclui Conf Gerais Empresa" key="{75F73287-4679-443D-A112-36C8B3DE8221}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}ExcluirConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
