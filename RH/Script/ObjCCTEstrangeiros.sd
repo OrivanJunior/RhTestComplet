@@ -1,1 +1,13 @@
-﻿
+﻿{Script para mapear tela de cadastro de Classf. Cond. Trab. Estrangeiros
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+ 
+ 
+
+procedure MapCadCCTEstrangeiro();
+begin
+FormPadraoCCTEstrangeiro  			    := Aliases.Folha.FFormPadraoRHCLASTRABEST;
+CadCCTEstrangeiroEBIdClasTrabEst  	:= Aliases.Folha.FFormPadraoRHCLASTRABEST.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCLASTRABEST;
+CadCCTEstrangeiroEBDescricao 		    := Aliases.Folha.FFormPadraoRHCLASTRABEST.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;
