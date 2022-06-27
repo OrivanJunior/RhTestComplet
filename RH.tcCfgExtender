@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{560639C0-B9C3-4306-A9D5-E123205DD110}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -2750,7 +2754,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="44"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="10"/>
 						</Node>
 						<Node name="2">
@@ -5677,7 +5681,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="45"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="13"/>
 						</Node>
 						<Node name="2">
@@ -10353,7 +10357,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{ab461880-362a-4b12-8a83-8385cade599e}"/>
+					<Node name="{ab461880-362a-4b12-8a83-8385cade599e}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{ab4ce998-36ec-4976-a997-20707ea988ff}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -15684,6 +15692,7 @@
 							<Node name="commons"/>
 							<Node name="folha">
 								<Node name="cadastros gerais">
+									<Node name="empresas"/>
 									<Node name="incons. do fixo geral"/>
 									<Node name="pessoas">
 										<Node name="estado cívil"/>

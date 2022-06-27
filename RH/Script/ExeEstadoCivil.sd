@@ -30,13 +30,16 @@ begin
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHESTADOCIVIL');
   
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estado Civil',CadEstadoCivilDPIdEstCivil);
-  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
-  ActConsulta(FormTelaConsultaForm);
+  ActIncluir(FormTelaConsultaForm);
   
   MapCadEstadoCivil();
-
+  
+  PreencheEstadoCivil();
+  
+  ActSalvar(FormPadraoEstadoCivil);
   ActFechar(FormPadraoEstadoCivil);
   end;
   DDTCadastrar.Next;
