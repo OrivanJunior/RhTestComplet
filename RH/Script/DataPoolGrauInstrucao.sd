@@ -1,1 +1,15 @@
-﻿
+﻿var
+CadInstrucaoDPIdInstrucao,
+CadInstrucaoDPDescricao,
+CadInstrucaoDPCodRais,
+CadInstrucaoDPCodCaged : OleVariant;
+
+
+procedure LeDataPoolCadGrauInstrucao(nomeDriver);
+begin
+CadInstrucaoDPIdInstrucao	:= DDT.DriverByName(nomeDriver).Value('IDINSTRUCAO');
+CadInstrucaoDPDescricao	  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadInstrucaoDPCodRais	    := DDT.DriverByName(nomeDriver).Value('CODRAIS');
+CadInstrucaoDPCodCaged	  := DDT.DriverByName(nomeDriver).Value('CODCAGED');
+end;
+

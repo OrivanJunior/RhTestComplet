@@ -1,1 +1,21 @@
-﻿
+﻿{Script para mapear tela de cadastro de Grau de Instrução
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+var
+FormPadraoInstrucao,
+CadInstrucaoEBIdInstrucao,
+CadInstrucaoEBDescricao,
+CadInstrucaoEBCodRais,
+CadInstrucaoEBCodCaged : OleVariant;
+
+
+
+procedure MapCadGrauInstrucao();
+begin
+FormPadraoInstrucao  	  	:= Aliases.Folha.FFormPadraoRHINSTRUCAO;
+CadInstrucaoEBIdInstrucao	:= Aliases.Folha.FFormPadraoRHINSTRUCAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDINSTRUCAO;
+CadInstrucaoEBDescricao   := Aliases.Folha.FFormPadraoRHINSTRUCAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
+CadInstrucaoEBCodRais  		:= Aliases.Folha.FFormPadraoRHINSTRUCAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODRAIS;
+CadInstrucaoEBCodCaged  	:= Aliases.Folha.FFormPadraoRHINSTRUCAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODCAGED;
+end;
