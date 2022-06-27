@@ -1,1 +1,10 @@
-﻿
+﻿var
+CadCatEmpregDPIdCatEmp,
+CadCatEmpregDPDescricao : OleVariant;
+
+
+procedure LeDataPoolCadCatEmpregadores(nomeDriver);
+begin
+CadCatEmpregDPIdCatEmp 			:= DDT.DriverbyName(nomeDriver).Value('IDCATEMP');
+CadCatEmpregDPDescricao 		:= DDT.DriverbyName(nomeDriver).Value('DESCRICAO');
+end;

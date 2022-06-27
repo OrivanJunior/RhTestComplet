@@ -1365,11 +1365,26 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Cat. Empregadores" key="{875C0C6E-4CF5-486A-9FF1-A92D58CCD842}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cat. Empregadores" key="{875C0C6E-4CF5-486A-9FF1-A92D58CCD842}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
-														<children />
+														<children>
+															<testItem name="CadastraCatEmpregadores" key="{D4F5D89E-B132-41D3-9468-AD15BC7C5CCE}" group="False" parallel="False" enabled="True" testMoniker="{2D8CDE49-3548-49E0-9790-B77335F0983D}CadastraCatEmpregadores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Cat.Empregadores\CatEmpregadores.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirCatEmpregadores" key="{DE85CA87-7130-4D40-A54A-CA876E0723BE}" group="False" parallel="False" enabled="True" testMoniker="{2D8CDE49-3548-49E0-9790-B77335F0983D}ExcluirCatEmpregadores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Cat.Empregadores\CatEmpregadores.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
-													<testItem name="Classificação Tributária" key="{7CBFA6E1-87D9-4261-A753-47B3DBB5A8B7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Classificação Tributária" key="{7CBFA6E1-87D9-4261-A753-47B3DBB5A8B7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraClasTribut" key="{B9663571-5214-4A0A-AE97-35E68A4CA696}" group="False" parallel="False" enabled="True" testMoniker="{63E3732B-16A3-4978-A88F-922F6E69D590}CadastraClasTribut" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

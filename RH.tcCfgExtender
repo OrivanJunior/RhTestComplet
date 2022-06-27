@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{63E3732B-16A3-4978-A88F-922F6E69D590}"/>
+				<Prp name="activity" type="S" value="{2D8CDE49-3548-49E0-9790-B77335F0983D}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -2722,7 +2722,22 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{2d8cde49-3548-49e0-9790-b77335f0983d}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="7"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="3"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="44"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="10"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="79"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="46"/>
+						</Node>
+						<Prp name="bottom" type="I" value="80"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -10913,16 +10928,21 @@
 					</Node>
 					<Node name="{b6f057f8-d9b4-4446-809f-4b56e77f3b57}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="36"/>
+							<Prp name="bottom" type="I" value="3"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="19"/>
+							<Prp name="top" type="I" value="0"/>
 						</Node>
 						<Node name="1">
-							<Prp name="bottom" type="I" value="45"/>
+							<Prp name="bottom" type="I" value="42"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="38"/>
+							<Prp name="top" type="I" value="25"/>
 						</Node>
-						<Prp name="bottom" type="I" value="45"/>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="51"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="44"/>
+						</Node>
+						<Prp name="bottom" type="I" value="51"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -14196,7 +14216,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="48"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="15"/>
 						</Node>
 						<Node name="2">
@@ -15562,16 +15582,8 @@
 									<Node name="conf. gerais por empresa"/>
 									<Node name="empresas">
 										<Node name="cat. empregadores"/>
-										<Node name="classificação tributária"/>
-										<Node name="grupos"/>
 									</Node>
-									<Node name="gerais">
-										<Node name="exames">
-											<Node name="tipo de exames"/>
-										</Node>
-										<Node name="uf"/>
-									</Node>
-									<Node name="incons. do fixo geral"/>
+									<Node name="gerais"/>
 								</Node>
 							</Node>
 							<Node name="viasoft3c"/>

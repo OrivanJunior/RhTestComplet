@@ -1,7 +1,13 @@
-﻿procedure Test1;
-begin
-  Aliases.Folha.FFormPadraoRHCATEMPREGA.Restore;
+﻿var 
+FormPadraoCatEmpregadores,
+CadCatEmpregEBIdCatEmp,
+CadCatEmpregEBDescricao : OleVariant;
 
-  Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDCATEMP.Click(17, 9);
-  Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO.Click(33, 7);
+ 
+procedure MapCadCatEmpregadores();
+begin
+FormPadraoCatEmpregadores 		:= Aliases.Folha.FFormPadraoRHCATEMPREGA;
+
+CadCatEmpregEBIdCatEmp  		  := Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDCATEMP;
+CadCatEmpregEBDescricao  		  := Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
 end;

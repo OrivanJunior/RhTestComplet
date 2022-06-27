@@ -1,1 +1,81 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolCatEmpregadores,ObjCatEmpregadores;
+
+
+procedure PreencheCatEmpregadores();
+begin
+VerificaInsere(CadCatEmpregEBIdCatEmp,CadCatEmpregDPIdCatEmp);  
+VerificaInsere(CadCatEmpregEBDescricao,CadCatEmpregDPDescricao);
+end;
+
+
+procedure CadastraCatEmpregadores(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empresas', 'Cat. Empregadores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCatEmpregadores(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEMPREGA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cat. Empregador',CadCatEmpregDPIdCatEmp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  MapCadCatEmpregadores();
+  
+  PreencheCatEmpregadores();
+  
+  ActSalvar(FormPadraoCatEmpregadores);
+  ActFechar(FormPadraoCatEmpregadores);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCatEmpregadores(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empresas', 'Cat. Empregadores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCatEmpregadores(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCATEMPREGA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cat. Empregador',CadCatEmpregDPIdCatEmp );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCatEmpregadores();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCATEMPREGA');
+  ActFechar(FormPadraoCatEmpregadores);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

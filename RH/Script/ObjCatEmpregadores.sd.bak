@@ -1,1 +1,13 @@
-﻿
+﻿var 
+FormPadraoCatEmpregadores,
+CadCatEmpregEBIdCatEmp,
+CadCatEmpregEBDescricao : OleVariant;
+
+ 
+procedure MapCadCatEmpregadores();
+begin
+FormPadraoCatEmpregadores 		:= Aliases.Folha.FFormPadraoRHCATEMPREGA.Restore;
+
+CadCatEmpregEBIdCatEmp  		  := Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDCATEMP;
+CadCatEmpregEBDescricao  		:= Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
+end;
