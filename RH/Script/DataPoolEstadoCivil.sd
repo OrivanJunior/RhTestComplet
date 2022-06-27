@@ -1,0 +1,15 @@
+﻿var
+CadEstadoCivilDPIdEstCivil,
+CadEstadoCivilDPDescricao,
+CadEstadoCivilDPCodCaixa,
+CadEstadoCivilDPCodeSocial : OleVariant;
+
+
+
+procedure LeDataPoolCadEstadoCivil(nomeDriver);
+begin
+CadEstadoCivilDPIdEstCivil			:= DDT.DriverByName(nomeDriver).Value('IDESTCIVIL');
+CadEstadoCivilDPDescricao 			:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadEstadoCivilDPCodCaixa  			:= DDT.DriverByName(nomeDriver).Value('CODCAIXA');
+CadEstadoCivilDPCodeSocial			:= DDT.DriverByName(nomeDriver).Value('CODESOCIAL');
+end;

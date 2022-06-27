@@ -1,0 +1,83 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolEstadoCivil,ObjEstadoCivil;
+
+
+procedure  PreencheEstadoCivil();
+begin
+VerificaInsere(CadEstadoCivilEBIdEstCivil,CadEstadoCivilDPIdEstCivil);
+VerificaInsere(CadEstadoCivilEBDescricao,CadEstadoCivilDPDescricao); 
+VerificaInsere(CadEstadoCivilEBCodCaixa,CadEstadoCivilDPCodCaixa);  
+VerificaInsere(CadEstadoCivilEBCodeSocial,CadEstadoCivilDPCodeSocial);
+end;
+
+
+
+procedure CadastraEstadoCivil(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Estado Civil');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEstadoCivil(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHESTADOCIVIL');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estado Civil',CadEstadoCivilDPIdEstCivil);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEstadoCivil();
+
+  ActFechar(FormPadraoEstadoCivil);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirEstadoCivil(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Pessoas', 'Estado Civil');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEstadoCivil(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHESTADOCIVIL');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estado Civil',CadEstadoCivilDPIdEstCivil);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEstadoCivil();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHESTADOCIVIL');
+  ActFechar(FormPadraoEstadoCivil);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
