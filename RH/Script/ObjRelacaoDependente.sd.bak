@@ -1,1 +1,14 @@
-﻿
+﻿var
+FormPadraoRelacaoDep,
+CadRelacaoDepEBIdRelacaoDep,
+CadRelacaoDepEBDescricao,
+CadRelacaoDepEBCodDirf	: OleVariant;
+
+
+procedure MapCadRelacaoDep();
+begin
+FormPadraoRelacaoDep			    := Aliases.Folha.FFormPadraoRHRELACAODEP;
+CadRelacaoDepEBIdRelacaoDep  	:= Aliases.Folha.FFormPadraoRHRELACAODEP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDRELACAODEP;
+CadRelacaoDepEBDescricao  		:= Aliases.Folha.FFormPadraoRHRELACAODEP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadRelacaoDepEBCodDirf  		  := Aliases.Folha.FFormPadraoRHRELACAODEP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODDIRF;
+end;
