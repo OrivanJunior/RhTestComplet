@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{165734AF-B009-4ED0-A6E3-2D958462E395}"/>
+				<Prp name="activity" type="S" value="{0224F477-0903-4EF4-A4A4-67C8E29B0398}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -7518,11 +7518,11 @@
 					</Node>
 					<Node name="{81bf9df7-30ea-4ceb-bd1d-5ff9164c41de}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="14"/>
-							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="0"/>
+							<Prp name="bottom" type="I" value="26"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="13"/>
 						</Node>
-						<Prp name="bottom" type="I" value="16"/>
+						<Prp name="bottom" type="I" value="27"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -15489,13 +15489,10 @@
 										<Node name="classificação tributária"/>
 										<Node name="grupos"/>
 									</Node>
-									<Node name="gerais">
-										<Node name="uf"/>
-									</Node>
+									<Node name="gerais"/>
 									<Node name="tabelas">
 										<Node name="inss"/>
 										<Node name="irrf"/>
-										<Node name="salário mínimo"/>
 									</Node>
 								</Node>
 							</Node>
@@ -15504,9 +15501,7 @@
 						<Node name="testedapps"/>
 					</Node>
 				</Node>
-				<Node name="rh logs">
-					<Node name="rh logs"/>
-				</Node>
+				<Node name="rh logs"/>
 			</Node>
 		</Node>
 		<Prp name="signature" type="S" value="{8EBE6EB3-803D-4913-AD7A-D71552123A67}"/>

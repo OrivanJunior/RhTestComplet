@@ -1,1 +1,19 @@
-﻿
+﻿var
+CadIrrfDPData,
+CadIrrfDPIdMoeda,
+CadIrrfDPEhPLR,
+CadIrrfDPDescIrrf,
+CadIrrfDPdaFaixa,
+CadIrrfDPValorInicial,
+CadIrrfDPValorFinal,
+CadIrrfDPDeducao : OleVariant;
+
+
+procedure LeDataPoolCadIRFF(nomeDriver);
+begin
+CadIrrfDPData  			    := DDT.DriverByName(nomedriver).Value('DATA');
+CadIrrfDPIdMoeda        := DDT.DriverByName(nomedriver).Value('IDMOEDA');
+CadIrrfDPEhPLR          := DDT.DriverByName(nomedriver).Value('EHPLR');
+CadIrrfDPDescIrrf       := DDT.DriverByName(nomedriver).Value('DESCIRRF');
+
+end;

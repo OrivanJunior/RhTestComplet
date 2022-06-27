@@ -1,16 +1,27 @@
-﻿procedure Test1;
-begin
-  Aliases.Folha.FRhIrrf.Click(63, 11);
+﻿var
+FormPadraoIrrf,
   
-  Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_DATA.Click(32, 11);
-  Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_IDMOEDA.Click(25, 6);
-  Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EBR_IDMOEDA.Click(28, 13);
-  Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_EHPLR.Click(40, 11);
-  Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_DESCIRRF.Click(37, 6);
+CadIrrfEBData,
+CadIrrfEBIdMoeda,
+CadIrrfEBEhPLR,
+CadIrrfEBDescIrrf,
   
-  Aliases.Folha.FRhIrrf.bInc.Click(9, 11);
-  Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.TcxGridSite.Click(445, 20);
-  Aliases.Folha.FRhIrrf.bDes.Click(7, 9);
-  Aliases.Folha.FRhIrrf.bExc.Click(7, 9);
-end;
+BtnIrrfInc,
+FormIrrfGrid,
+BtnIrrfDes,
+BtnIrrfExc : OleVariant;
 
+procedure MapCadIRRF();
+begin
+FormPadraoIrrf			:= Aliases.Folha.FRhIrrf;
+  
+CadIrrfEBData  			:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_DATA;
+CadIrrfEBIdMoeda  	:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_IDMOEDA;
+CadIrrfEBEhPLR  		:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_EHPLR;
+CadIrrfEBDescIrrf  	:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_DESCIRRF;
+  
+BtnIrrfInc  			  := Aliases.Folha.FRhIrrf.bInc;
+FormIrrfGrid  			:= Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.TcxGridSite;
+BtnIrrfDes  			  := Aliases.Folha.FRhIrrf.bDes;
+BtnIrrfExc  			  := Aliases.Folha.FRhIrrf.bExc;
+end;

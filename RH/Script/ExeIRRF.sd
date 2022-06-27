@@ -1,1 +1,29 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolIRRF,ObjIRRF;
+
+
+
+procedure prencheCadIRRF();
+begin
+PreencheDatas(CadIrrfEBData,CadIrrfDPData);
+VerificaConsultaF3Insere(_ModuloFolha,CadIrrfEBIdMoeda,CadIrrfDPIdMoeda);
+VerificaInsere(CadIrrfEBEhPLR,CadIrrfDPEhPLR);
+VerificaInsere(CadIrrfEBDescIrrf,CadIrrfDPDescIrrf);
+
+end;
+
+procedure PreencheGridIRRF();
+var i;
+begin
+i:= 0;
+BtnIrrfInc.Click;
+
+VerificaClickPreencheGrid(FormIrrfGrid,i,'% da Faixa',CadIrrfDPdaFaixa);
+VerificaClickPreencheGrid(FormIrrfGrid,i,'Vlr Inicial',CadIrrfDPValorInicial);
+VerificaClickPreencheGrid(FormIrrfGrid,i,'Vlr Final',CadIrrfDPValorFinal);
+VerificaClickPreencheGrid(FormIrrfGrid,i,'Dedução',CadIrrfDPDeducao);
+
+Inc(i);
+end;
+
+
+
