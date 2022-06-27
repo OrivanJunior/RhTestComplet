@@ -1023,7 +1023,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Tabelas" key="{6125C171-E9AF-4A3A-83EF-94796F2EF51D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Tabelas" key="{6125C171-E9AF-4A3A-83EF-94796F2EF51D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="INSS" key="{13B87B25-C5BD-4A74-9ACC-1F395B735018}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1064,7 +1064,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="IRRF" key="{1A8D807B-31C2-411A-B63D-9017B1F741BF}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="IRRF" key="{1A8D807B-31C2-411A-B63D-9017B1F741BF}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastra IRRF" key="{6A6BDBB2-1DEA-4EB7-94CB-60438B44B1D7}" group="False" parallel="False" enabled="True" testMoniker="{0224F477-0903-4EF4-A4A4-67C8E29B0398}CadastrarIrrf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1339,6 +1339,38 @@
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Níveis\CadNiveis.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Empresas" key="{E8BF2012-C0B8-4DC6-BB60-9143EA676EB1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Grupos" key="{FD8636C1-50D3-42DD-8A18-4CEADB1335DE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraGrupo" key="{34FB9A56-04F4-46A7-94EC-BEC39347EBA2}" group="False" parallel="False" enabled="True" testMoniker="{4BC38C41-244F-48FE-BB55-57E9628B9A4E}CadastraGrupo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Grupos\Grupos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirGrupo" key="{00DD4138-3E8F-489C-9D7F-9DA33FD0B312}" group="False" parallel="False" enabled="True" testMoniker="{4BC38C41-244F-48FE-BB55-57E9628B9A4E}ExcluirGrupo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Grupos\Grupos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Cat. Empregadores" key="{875C0C6E-4CF5-486A-9FF1-A92D58CCD842}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children />
+													</testItem>
+													<testItem name="Classificação Tributária" key="{7CBFA6E1-87D9-4261-A753-47B3DBB5A8B7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
 														<children />
 													</testItem>
 												</children>

@@ -1,1 +1,9 @@
-﻿
+﻿var  	
+CadGruposDPIdGrupo,
+CadGruposDPDescricao : OleVariant;
+
+procedure LeDataPoolCadGrupos(nomeDriver);
+begin
+CadGruposDPIdGrupo	 	  := DDT.DriverByName(nomedriver).Value('IDGRUPO');
+CadGruposDPDescricao  	:= DDT.DriverByName(nomedriver).Value('DESCRICAO');
+end;

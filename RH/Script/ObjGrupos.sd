@@ -1,6 +1,18 @@
-﻿procedure Test1;
+﻿{Script para mapear tela de cadastro de Grupos
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+
+var 
+FormPadraoGrupos,
+CadGruposEBIdGrupo,
+CadGruposEBDescricao : OleVariant;
+
+
+procedure MapCadGrupos();
 begin
-  Aliases.Folha.FFormPadraoRHGRUPOS.Click(156, 22);
-  Aliases.Folha.FFormPadraoRHGRUPOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDGRUPO.Click(28, 8);
-  Aliases.Folha.FFormPadraoRHGRUPOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(62, 9);
+FormPadraoGrupos  		  := Aliases.Folha.FFormPadraoRHGRUPOS;
+CadGruposEBIdGrupo	 	  := Aliases.Folha.FFormPadraoRHGRUPOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDGRUPO;
+CadGruposEBDescricao  	:= Aliases.Folha.FFormPadraoRHGRUPOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 end;
+
