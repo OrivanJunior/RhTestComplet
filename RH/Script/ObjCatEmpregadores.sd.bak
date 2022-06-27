@@ -1,4 +1,9 @@
-﻿var 
+﻿{Script para mapear tela de cadastro de Cat. Empregadores
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+
+var 
 FormPadraoCatEmpregadores,
 CadCatEmpregEBIdCatEmp,
 CadCatEmpregEBDescricao : OleVariant;
@@ -6,8 +11,8 @@ CadCatEmpregEBDescricao : OleVariant;
  
 procedure MapCadCatEmpregadores();
 begin
-FormPadraoCatEmpregadores 		:= Aliases.Folha.FFormPadraoRHCATEMPREGA.Restore;
+FormPadraoCatEmpregadores 		:= Aliases.Folha.FFormPadraoRHCATEMPREGA;
 
 CadCatEmpregEBIdCatEmp  		  := Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDCATEMP;
-CadCatEmpregEBDescricao  		:= Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
+CadCatEmpregEBDescricao  		  := Aliases.Folha.FFormPadraoRHCATEMPREGA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
 end;
