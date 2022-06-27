@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="ExcluirRelacaoDep [Script\ExeRelacaoDependente - ExcluirRelacaoDep]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="details" type="S" value="{97E99BE7-ED3D-4782-802F-891AD7C2FD8A}"/>
+				<Prp name="end time" type="D" value="44739.6772078588"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44739.6770558218"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="name" type="S" value="CadastraRelacaoDep [Script\ExeRelacaoDependente - CadastraRelacaoDep]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="details" type="S" value="{FE729F3B-A4EF-47FB-BD87-DC208FF008B7}"/>
+				<Prp name="end time" type="D" value="44739.6770556018"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44739.6768668981"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

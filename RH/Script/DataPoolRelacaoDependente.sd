@@ -1,1 +1,13 @@
-﻿
+﻿var 
+CadRelacaoDepDPIdRelacaoDep,
+CadRelacaoDepDPDescricao,
+CadRelacaoDepDPCodDirf : OleVariant;
+
+
+procedure LeDataPoolCadRelacaoDep(nomeDriver);
+begin
+CadRelacaoDepDPIdRelacaoDep   := DDT.DriverByName(nomeDriver).Value('IDRELACAODEP');
+CadRelacaoDepDPDescricao  	  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadRelacaoDepDPCodDirf  	    := DDT.DriverByName(nomeDriver).Value('CODDIRF');
+end;
+

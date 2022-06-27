@@ -1,1 +1,84 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolRelacaoDependente,ObjRelacaoDependente;
+
+
+procedure PreencheRelacaoDep();
+begin
+VerificaInsere(CadRelacaoDepEBIdRelacaoDep,CadRelacaoDepDPIdRelacaoDep);
+VerificaInsere(CadRelacaoDepEBDescricao,CadRelacaoDepDPDescricao);
+VerificaInsere(CadRelacaoDepEBCodDirf,CadRelacaoDepDPCodDirf);
+end;
+
+
+
+procedure CadastraRelacaoDep(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais','Pessoas','Relação de Dependente');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRelacaoDep(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRELACAODEP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadRelacaoDepDPIdRelacaoDep);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRelacaoDep();
+  
+  PreencheRelacaoDep();
+  
+  ActSalvar(FormPadraoRelacaoDep);
+  ActFechar(FormPadraoRelacaoDep);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRelacaoDep(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Pessoas', 'Relação de Dependente');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRelacaoDep(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRELACAODEP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadRelacaoDepDPIdRelacaoDep);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRelacaoDep();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHRELACAODEP');
+  ActFechar(FormPadraoRelacaoDep);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
