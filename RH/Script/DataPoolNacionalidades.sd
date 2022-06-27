@@ -1,1 +1,14 @@
-﻿
+﻿var
+CadNacionalidadesDPIdNacional,
+CadNacionalidadesDPDescricao,
+CadNacionalidadesDPCodRais,
+CadNacionalidadesDPPais : OleVariant;
+
+
+procedure LeDataPoolCadNacionalidades(nomeDriver);
+begin
+CadNacionalidadesDPIdNacional 	:= DDT.DriverByName(nomeDriver).Value('IDNACIONAL');
+CadNacionalidadesDPDescricao  	:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadNacionalidadesDPCodRais  	  := DDT.DriverByName(nomeDriver).Value('CODRAIS');
+CadNacionalidadesDPPais  		    := DDT.DriverByName(nomeDriver).Value('PAIS');
+end;

@@ -228,7 +228,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Grau de Instrução" key="{9A73BE4D-C83C-4048-8A86-02C358328E81}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Grau de Instrução" key="{9A73BE4D-C83C-4048-8A86-02C358328E81}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraGrauInstrucao" key="{FD61C9DA-0360-4166-84D9-7762E29C8945}" group="False" parallel="False" enabled="True" testMoniker="{48581BF9-3D72-44FA-A323-259C8577F96F}CadastraGrauInstrucao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -241,6 +241,25 @@
 															<testItem name="ExcluirGrauInstrucao" key="{28DC2441-5372-4444-B538-3DFE1D43A7EF}" group="False" parallel="False" enabled="True" testMoniker="{48581BF9-3D72-44FA-A323-259C8577F96F}ExcluirGrauInstrucao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Grau de Instrução\Grau de Instrução.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Nacionalidades" key="{E069F638-013B-4066-A9C4-6DCC56C04357}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraNacionalidades" key="{487ED38B-DA44-45D9-9E33-397080FF9B46}" group="False" parallel="False" enabled="True" testMoniker="{0D829461-B573-4B83-B967-2F5C770E3A62}CadastraNacionalidades" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Nacionalidades\Nacionalidades.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirNacionalidades" key="{7460DF0F-9CC6-470F-8F14-3BD9E52AC809}" group="False" parallel="False" enabled="True" testMoniker="{0D829461-B573-4B83-B967-2F5C770E3A62}ExcluirNacionalidades" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Nacionalidades\Nacionalidades.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
