@@ -36,8 +36,10 @@ begin
   ActIncluir(FormTelaConsultaForm);
   
   MapCadEstadoCivil();
+  
   PreencheEstadoCivil();
-
+  
+  ActSalvar(FormPadraoEstadoCivil);
   ActFechar(FormPadraoEstadoCivil);
   end;
   DDTCadastrar.Next;
