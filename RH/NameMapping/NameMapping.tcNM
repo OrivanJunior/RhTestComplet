@@ -64717,6 +64717,27 @@
 																				<Value Value="TcxGridSite" />
 																			</Property>
 																		</Properties>
+																		<Children>
+																			<Child Name="TcxMaskEdit" Key="{208863BF-45C1-4644-9BCC-59B4F7A73182}">
+																				<Image FileName="1082743210" Left="89" Top="163" Right="162" Bottom="178" />
+																				<Properties>
+																					<Property Name="WndClass">
+																						<Value Value="TcxMaskEdit" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="TcxCustomInnerTextEdit" Key="{CE431188-743E-492F-BA8F-4F3AC588B76E}">
+																						<Image FileName="1082743210" Left="90" Top="164" Right="162" Bottom="177" />
+																						<TypeInfo Item0="{99FF897C-AEAE-43D6-A99A-89E964B53377}" />
+																						<Properties>
+																							<Property Name="WndClass">
+																								<Value Value="TcxCustomInnerTextEdit" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
 																	</Child>
 																</Children>
 															</Child>
@@ -87920,7 +87941,11 @@
 						</Child>
 						<Child Name="Panel1" Owner="{A41FACC7-C606-477D-976E-CCB01F13C404}">
 							<Child Name="gIRRFF" Owner="{8B44C315-8F93-47EA-AC45-358337D0D562}">
-								<Child Name="TcxGridSite" Owner="{5040DB96-BADD-437F-B0DD-42FD74A6CC3D}" />
+								<Child Name="TcxGridSite" Owner="{5040DB96-BADD-437F-B0DD-42FD74A6CC3D}">
+									<Child Name="TcxMaskEdit" Owner="{208863BF-45C1-4644-9BCC-59B4F7A73182}">
+										<Child Name="TcxCustomInnerTextEdit" Owner="{CE431188-743E-492F-BA8F-4F3AC588B76E}" />
+									</Child>
+								</Child>
 							</Child>
 						</Child>
 					</Child>

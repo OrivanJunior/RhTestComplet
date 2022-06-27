@@ -249,7 +249,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Gerais" key="{501AB1E8-CE42-4B7B-B7D8-8AF795251BB9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Gerais" key="{501AB1E8-CE42-4B7B-B7D8-8AF795251BB9}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Banco" key="{DB288C8C-C876-463F-8CB7-6FC089119522}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1002,86 +1002,105 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. Gerais por Empresa" key="{1CDAF0B2-8B02-47AB-9A98-0CF1FC4BC67D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												</children>
+											</testItem>
+											<testItem name="Conf. Gerais por Empresa" key="{1CDAF0B2-8B02-47AB-9A98-0CF1FC4BC67D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Conf Gerais Empresa" key="{B93E8CE5-7AA3-4D85-A8E3-A4F85D6531A9}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}CadastraConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Conf Gerais Empresa" key="{75F73287-4679-443D-A112-36C8B3DE8221}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}ExcluirConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Tabelas" key="{6125C171-E9AF-4A3A-83EF-94796F2EF51D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="INSS" key="{13B87B25-C5BD-4A74-9ACC-1F395B735018}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Conf Gerais Empresa" key="{B93E8CE5-7AA3-4D85-A8E3-A4F85D6531A9}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}CadastraConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="CadastrarTabInss" key="{A7C92797-0859-4BC5-92CA-0203BAE0F145}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}CadastrarTabInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\INSS\INSS.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui Conf Gerais Empresa" key="{75F73287-4679-443D-A112-36C8B3DE8221}" group="False" parallel="False" enabled="True" testMoniker="{EC73E586-4205-4360-A44A-D804D27DBF5C}ExcluirConfigEmpresa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="ExcluirTabelaInss" key="{523120DA-F587-4E06-A01E-CA5C60A97DA8}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}ExcluirTabelaInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Conf. Gerais por Empresa\Conf. Gerais por Empresa.xlsx" />
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\INSS\INSS.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Inconsistências do Fixo Geral" key="{3833CDAB-5335-4D30-91C0-C7B3ED193379}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Sálario Mínimo" key="{2F1BA526-1D0F-4EF0-9175-B43AB91B3C61}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastra Inc FixoGeral" key="{F04C7A22-7E36-4512-8B83-2A4E6FBD3D5E}" group="False" parallel="False" enabled="True" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}CadastraIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Cadastra Sal Min" key="{1F6572C4-8C72-4AD6-A37B-4D2B28C24254}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}CadastrarSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Exclui Inc FixoGeral" key="{AC440DB3-CB18-42A9-9EA6-D30161D3F92C}" group="False" parallel="False" enabled="False" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}ExcluirIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Excluir Sal Min" key="{D9A38676-7471-4B0B-8D1A-E5D97CCE4483}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}ExcluirSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tabelas" key="{6125C171-E9AF-4A3A-83EF-94796F2EF51D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="IRRF" key="{1A8D807B-31C2-411A-B63D-9017B1F741BF}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="INSS" key="{13B87B25-C5BD-4A74-9ACC-1F395B735018}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																<testParameters />
-																<children>
-																	<testItem name="CadastrarTabInss" key="{A7C92797-0859-4BC5-92CA-0203BAE0F145}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}CadastrarTabInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																		<testParameters>
-																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\INSS\INSS.xlsx" />
-																		</testParameters>
-																		<environments activeCloud="CBT" />
-																		<children />
-																	</testItem>
-																	<testItem name="ExcluirTabelaInss" key="{523120DA-F587-4E06-A01E-CA5C60A97DA8}" group="False" parallel="False" enabled="True" testMoniker="{597651D1-AD2C-437F-8766-145F8ADA7C20}ExcluirTabelaInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																		<testParameters>
-																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\INSS\INSS.xlsx" />
-																		</testParameters>
-																		<environments activeCloud="CBT" />
-																		<children />
-																	</testItem>
-																</children>
+															<testItem name="Cadastra IRRF" key="{6A6BDBB2-1DEA-4EB7-94CB-60438B44B1D7}" group="False" parallel="False" enabled="True" testMoniker="{0224F477-0903-4EF4-A4A4-67C8E29B0398}CadastrarIrrf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\IRRF\IRRF.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
 															</testItem>
-															<testItem name="Sálario Mínimo" key="{2F1BA526-1D0F-4EF0-9175-B43AB91B3C61}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																<testParameters />
-																<children>
-																	<testItem name="Cadastra Sal Min" key="{1F6572C4-8C72-4AD6-A37B-4D2B28C24254}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}CadastrarSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																		<testParameters>
-																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
-																		</testParameters>
-																		<environments activeCloud="CBT" />
-																		<children />
-																	</testItem>
-																	<testItem name="Excluir Sal Min" key="{D9A38676-7471-4B0B-8D1A-E5D97CCE4483}" group="False" parallel="False" enabled="True" testMoniker="{CFC47BAA-DE60-49DF-98AE-EDF026ECCAA8}ExcluirSalMin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																		<testParameters>
-																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Gerais\Tabelas\Salário Mínimo\Salário Mínimo.xlsx" />
-																		</testParameters>
-																		<environments activeCloud="CBT" />
-																		<children />
-																	</testItem>
-																</children>
+															<testItem name="Excluir IRRF" key="{530AEC38-2C21-481E-880D-6B3DCE065DAC}" group="False" parallel="False" enabled="True" testMoniker="{0224F477-0903-4EF4-A4A4-67C8E29B0398}ExcluirIrrf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Tabelas\IRRF\IRRF.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Inconsistências do Fixo Geral" key="{3833CDAB-5335-4D30-91C0-C7B3ED193379}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Cadastra Inc FixoGeral" key="{F04C7A22-7E36-4512-8B83-2A4E6FBD3D5E}" group="False" parallel="False" enabled="True" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}CadastraIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="Exclui Inc FixoGeral" key="{AC440DB3-CB18-42A9-9EA6-D30161D3F92C}" group="False" parallel="False" enabled="False" testMoniker="{7AF9C1D5-21B6-4317-ADA1-CECA80067879}ExcluirIncofixoGeral" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Inconsistências do Fixo Geral\Inconsistências do Fixo Geral.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

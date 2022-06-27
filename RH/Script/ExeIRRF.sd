@@ -2,7 +2,7 @@
 
 
 
-procedure prencheCadIRRF();
+procedure preencheCadIRRF();
 begin
 PreencheDatas(CadIrrfEBData,CadIrrfDPData);
 VerificaConsultaF3Insere(_ModuloFolha,CadIrrfEBIdMoeda,CadIrrfDPIdMoeda);
@@ -15,15 +15,107 @@ procedure PreencheGridIRRF();
 var i;
 begin
 i:= 0;
-BtnIrrfInc.Click;
-
-VerificaClickPreencheGrid(FormIrrfGrid,i,'% da Faixa',CadIrrfDPdaFaixa);
+BtnIrrfGridInc.Click;
+FormIrrfGrid.Click;
+VerificaClickPreencheGrid(FormIrrfGrid,i,'% da Faixa',CadIrrfDPValorInicial);
 VerificaClickPreencheGrid(FormIrrfGrid,i,'Vlr Inicial',CadIrrfDPValorInicial);
 VerificaClickPreencheGrid(FormIrrfGrid,i,'Vlr Final',CadIrrfDPValorFinal);
 VerificaClickPreencheGrid(FormIrrfGrid,i,'Dedução',CadIrrfDPDeducao);
 
 Inc(i);
 end;
+
+
+procedure CadastrarIrrf(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Tabelas', 'IRRF');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadIRFF(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhIrrf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', CadIrrfDPData);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadIRRF();
+  
+  PreencheCadIrrf();
+  PreencheGridIRRF();
+  
+  ActSalvar(FormPadraoIrrf);
+  ActFechar(FormPadraoIrrf);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirIrrf(PathData);
+var
+BtnOkErro;
+BtnConfExc;
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Tabelas', 'IRRF');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadIRFF(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhIrrf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Data', CadIrrfDPData);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadIRRF();
+  BtnExcIrrf.Click;
+  
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+begin
+BtnConfExc	:= Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim;
+BtnConfExc.Click;
+end;
+
+  if Aliases.Folha.FVsErrorDlg.Exists then
+Begin
+BtnOkErro := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+BtnOkErro.ClickButton;
+end;
+
+  //ActExcluir(_ModuloFolha,'FRhIrrf');
+  ActFechar(FormPadraoIrrf);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
+
+
 
 
 

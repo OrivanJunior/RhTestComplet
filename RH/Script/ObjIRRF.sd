@@ -1,15 +1,15 @@
 ﻿var
-FormPadraoIrrf,
-  
+FormPadraoIrrf,BtnExcIrrf,
+CadGridEBDaFaixa,  
 CadIrrfEBData,
 CadIrrfEBIdMoeda,
 CadIrrfEBEhPLR,
 CadIrrfEBDescIrrf,
   
-BtnIrrfInc,
+BtnIrrfGridInc,
 FormIrrfGrid,
-BtnIrrfDes,
-BtnIrrfExc : OleVariant;
+BtnIrrfGridDes,
+BtnIrrfGridExc: OleVariant;
 
 procedure MapCadIRRF();
 begin
@@ -20,8 +20,20 @@ CadIrrfEBIdMoeda  	:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_IDMOEDA;
 CadIrrfEBEhPLR  		:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_EHPLR;
 CadIrrfEBDescIrrf  	:= Aliases.Folha.FRhIrrf.Page.TabNormal.pnCab.EB_DESCIRRF;
   
-BtnIrrfInc  			  := Aliases.Folha.FRhIrrf.bInc;
-FormIrrfGrid  			:= Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.TcxGridSite;
-BtnIrrfDes  			  := Aliases.Folha.FRhIrrf.bDes;
-BtnIrrfExc  			  := Aliases.Folha.FRhIrrf.bExc;
+BtnIrrfGridInc  			  := Aliases.Folha.FRhIrrf.bInc;
+FormIrrfGrid  			    := Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF;
+BtnIrrfGridDes  			  := Aliases.Folha.FRhIrrf.bDes;
+BtnIrrfGridExc  			  := Aliases.Folha.FRhIrrf.bExc;
+
+BtnExcIrrf              := Aliases.Folha.FBRowseCds.BExcluir;
+CadGridEBDaFaixa        := Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.TcxGridSite.TcxMaskEdit.TcxCustomInnerTextEdit;
+end;
+
+
+procedure IncGridPorCentoFaixa();
+begin
+  Aliases.Folha.FRhIrrf.bInc.Click();
+  Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.ClickCell(0, '% da Faixa', 0);
+  Aliases.Folha.FRhIrrf.Page.TabNormal.Panel1.gIRRFF.TcxGridSite.TcxMaskEdit.TcxCustomInnerTextEdit.SetText('5');
+
 end;

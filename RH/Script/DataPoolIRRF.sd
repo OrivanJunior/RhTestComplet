@@ -15,5 +15,9 @@ CadIrrfDPData  			    := DDT.DriverByName(nomedriver).Value('DATA');
 CadIrrfDPIdMoeda        := DDT.DriverByName(nomedriver).Value('IDMOEDA');
 CadIrrfDPEhPLR          := DDT.DriverByName(nomedriver).Value('EHPLR');
 CadIrrfDPDescIrrf       := DDT.DriverByName(nomedriver).Value('DESCIRRF');
+CadIrrfDPdaFaixa		    := DDT.DriverByName(nomedriver).Value('DAFAIXA');
+CadIrrfDPValorInicial	  := DDT.DriverByName(nomedriver).Value('VALORINICIAL');
+CadIrrfDPValorFinal		  := DDT.DriverByName(nomedriver).Value('VALORFINAL');
+CadIrrfDPDeducao        := DDT.DriverByName(nomedriver).Value('DEDUCAO');
 
 end;
