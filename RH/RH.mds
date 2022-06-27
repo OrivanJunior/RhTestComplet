@@ -266,7 +266,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Relação de Dependente" key="{DD367BF4-9EF4-47C7-A64C-BFA90116AF52}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Relação de Dependente" key="{DD367BF4-9EF4-47C7-A64C-BFA90116AF52}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraRelacaoDep" key="{C8D3FB94-E957-4C49-8691-7BD2AED88AFE}" group="False" parallel="False" enabled="True" testMoniker="{EABA5820-8717-47BC-9DAD-817BDF407ED1}CadastraRelacaoDep" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -279,6 +279,25 @@
 															<testItem name="ExcluirRelacaoDep" key="{42C483FD-4A06-4622-BDCB-D56FBD59CB63}" group="False" parallel="False" enabled="True" testMoniker="{EABA5820-8717-47BC-9DAD-817BDF407ED1}ExcluirRelacaoDep" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Relação de Dependente\Relação de Dependente.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Tipos de Logradouros" key="{35E53696-5C59-4A0B-B016-061C0047F87B}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraLogradouro" key="{3CAB09CD-B792-4FA7-998E-B921E1F7D2F3}" group="False" parallel="False" enabled="True" testMoniker="{98AD6F63-BD81-45AD-B5ED-9650F079CC7C}CadastraLogradouro" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Tipos de Logradouros\Tipos de Logradouros.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirLogradouro" key="{56C8430C-A8F9-45D3-95C0-0D8CA713CDD6}" group="False" parallel="False" enabled="True" testMoniker="{98AD6F63-BD81-45AD-B5ED-9650F079CC7C}ExcluirLogradouro" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Pessoas\Tipos de Logradouros\Tipos de Logradouros.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

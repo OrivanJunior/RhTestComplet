@@ -20,7 +20,7 @@ MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadLogradouro(DDTCadastrar.Name);
+LeDataPoolCadEstadoCivil(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin

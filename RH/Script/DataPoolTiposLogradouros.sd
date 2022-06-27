@@ -1,1 +1,13 @@
-﻿
+﻿var
+CadLogradouroDPIdTpLogadouro,
+CadLogradouroDPDescricao,
+CadLogradouroDPCodESocial : OleVariant;
+
+
+
+procedure LeDataPoolCadLogradouro(nomeDriver);
+begin
+CadLogradouroDPIdTpLogadouro	:= DDT.DriverbyName(nomeDriver).Value('IDTPLOGADOURO');
+CadLogradouroDPDescricao		  := DDT.DriverbyName(nomeDriver).Value('DESCRICAO');  
+CadLogradouroDPCodESocial		  := DDT.DriverbyName(nomeDriver).Value('CODESOCIAL');  
+end;

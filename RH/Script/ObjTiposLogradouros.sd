@@ -1,1 +1,13 @@
-﻿
+﻿var
+FormPadraoLogradouro,
+CadLogradouroEBIdTpLogadouro,
+CadLogradouroEBDescricao,
+CadLogradouroEBCodESocial : OleVariant;
+
+procedure MapCadLogradouros();
+begin
+FormPadraoLogradouro 			    := Aliases.Folha.FFormPadraoRHTPLOGADOURO;
+CadLogradouroEBIdTpLogadouro  := Aliases.Folha.FFormPadraoRHTPLOGADOURO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDTPLOGADOURO;
+CadLogradouroEBDescricao  		:= Aliases.Folha.FFormPadraoRHTPLOGADOURO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadLogradouroEBCodESocial  		:= Aliases.Folha.FFormPadraoRHTPLOGADOURO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODESOCIAL;
+end;	
