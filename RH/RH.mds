@@ -1346,7 +1346,7 @@
 											<testItem name="Empresas" key="{E8BF2012-C0B8-4DC6-BB60-9143EA676EB1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="Grupos" key="{FD8636C1-50D3-42DD-8A18-4CEADB1335DE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Grupos" key="{FD8636C1-50D3-42DD-8A18-4CEADB1335DE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraGrupo" key="{34FB9A56-04F4-46A7-94EC-BEC39347EBA2}" group="False" parallel="False" enabled="True" testMoniker="{4BC38C41-244F-48FE-BB55-57E9628B9A4E}CadastraGrupo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1369,9 +1369,24 @@
 														<testParameters />
 														<children />
 													</testItem>
-													<testItem name="Classificação Tributária" key="{7CBFA6E1-87D9-4261-A753-47B3DBB5A8B7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Classificação Tributária" key="{7CBFA6E1-87D9-4261-A753-47B3DBB5A8B7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
-														<children />
+														<children>
+															<testItem name="CadastraClasTribut" key="{B9663571-5214-4A0A-AE97-35E68A4CA696}" group="False" parallel="False" enabled="True" testMoniker="{63E3732B-16A3-4978-A88F-922F6E69D590}CadastraClasTribut" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Classificação Tributária\Classificação Tributária.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirClasTribut" key="{49743CD5-B1F0-49D9-AFEF-1C53C5E3F0C1}" group="False" parallel="False" enabled="True" testMoniker="{63E3732B-16A3-4978-A88F-922F6E69D590}ExcluirClasTribut" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empresas\Classificação Tributária\Classificação Tributária.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>

@@ -1,6 +1,15 @@
-﻿procedure Test1;
+﻿{Script para mapear tela de cadastro de Classificação Tributária
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+var
+FormPadraoClasTribut,
+CadClasTributEBIdTributacao,
+CadClasTributEBDescricao : OleVariant;
+
+procedure MapCadClasTributaria();
 begin
-  Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA.Click(186, 21);
-  Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDTRIBUTACAO.Click(61, 9);
-  Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(64, 8);
+FormPadraoClasTribut			    := Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA;
+CadClasTributEBIdTributacao  	:= Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDTRIBUTACAO;
+CadClasTributEBDescricao		  := Aliases.Folha.FFormPadraoRHCLASTRIBUTARIA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 end;

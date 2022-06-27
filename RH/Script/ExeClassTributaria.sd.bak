@@ -1,1 +1,79 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolClassTributaria,ObjClassTributaria;
+
+procedure PreencheClasTribut();
+begin
+VerificaInsere(CadClasTributEBIdTributacao,CadClasTributDPIdTributacao);	
+VerificaInsere(CadClasTributDPDescricao,CadClasTributDPDescricao);
+end;
+
+procedure CadastraClasTribut(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empresas','Classificação Tributária');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadClasTribut(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCLASTRIBUTARIA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Classificação T',CadClasTributDPIdTributacao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  MapCadClasTributaria();
+  
+  PreencheClasTribut();
+  
+  ActSalvar(FormPadraoClasTribut);
+  ActFechar(FormPadraoClasTribut);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirClasTribut(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empresas','Classificação Tributária');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadClasTribut(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHGRUPOS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Classificação T',CadClasTributDPIdTributacao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadClasTributaria();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCLASTRIBUTARIA');
+  ActFechar(FormPadraoClasTribut);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

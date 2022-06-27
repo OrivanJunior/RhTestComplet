@@ -1,1 +1,9 @@
-﻿
+﻿var 
+CadClasTributDPDescricao,
+CadClasTributDPIdTributacao : OleVariant;
+
+procedure LeDataPoolCadClasTribut(nomeDriver);
+begin
+CadClasTributDPIdTributacao			:= DDT.DriverByName(nomeDriver).Value('IDTRIBUTACAO');
+CadClasTributDPDescricao			  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
