@@ -1,0 +1,18 @@
+﻿{Script para mapear tela de cadastro de Orgão Emissor de Documentos
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 27/06/2022}
+var
+FormPadraoOrgaoEmissor,
+CadOrgaoEmissorEBIdOrgao,
+CadOrgaoEmissorEBSigla,
+CadOrgaoEmissorEBDescricao : OleVariant;
+ 
+
+procedure MapCadOrgEmDocumentos;
+begin
+FormPadraoOrgaoEmissor              := Aliases.Folha.FFormPadraoRHORGAOEMISSOR.Click(143, 9);
+CadOrgaoEmissorEBIdOrgao            := Aliases.Folha.FFormPadraoRHORGAOEMISSOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDORGAO.Click(42, 6);
+CadOrgaoEmissorEBSigla              := Aliases.Folha.FFormPadraoRHORGAOEMISSOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SIGLA.Click(48, 8);
+CadOrgaoEmissorEBDescricao          := Aliases.Folha.FFormPadraoRHORGAOEMISSOR.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(52, 5);
+end;

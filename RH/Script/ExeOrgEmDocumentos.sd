@@ -1,1 +1,83 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolOrgEmDocumentos,ObjOrgEmDocumentos;
+
+procedure PreencheOrgEmDocumentos();
+begin
+VerificaInsere(CadOrgaoEmissorEBIdOrgao,CadOrgaoEmissorDPIdOrgao);
+VerificaInsere(CadOrgaoEmissorEBSigla,CadOrgaoEmissorDPSigla);
+VerificaInsere(CadOrgaoEmissorEBDescricao,CadOrgaoEmissorDPDescricao);
+end;
+
+
+procedure CadastraOrgEmDocumentos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Órgão Emissor de Documentos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadOrgaoEmissor(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHORGAOEMISSOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadOrgaoEmissorDPIdOrgao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadOrgEmDocumentos();
+  
+  PreencheOrgEmDocumentos();
+  
+  ActSalvar(FormPadraoOrgaoEmissor);
+  ActFechar(FormPadraoOrgaoEmissor);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirOrgEmDocumentos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Pessoas', 'Órgão Emissor de Documentos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadOrgaoEmissor(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHORGAOEMISSOR');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadOrgaoEmissorDPIdOrgao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadOrgEmDocumentos();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHORGAOEMISSOR');
+  ActFechar(FormPadraoOrgaoEmissor);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

@@ -1,1 +1,13 @@
-﻿
+﻿var
+CadOrgaoEmissorDPIdOrgao,
+CadOrgaoEmissorDPSigla,
+CadOrgaoEmissorDPDescricao : OleVariant;
+
+
+procedure LeDataPoolCadOrgaoEmissor(nomeDriver);
+begin
+CadOrgaoEmissorDPIdOrgao    := DDT.DriverByName(nomeDriver).Value('IDORGAO');
+CadOrgaoEmissorDPSigla      := DDT.DriverByName(nomeDriver).Value('SIGLA');
+CadOrgaoEmissorDPDescricao  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
+
