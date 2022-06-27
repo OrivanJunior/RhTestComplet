@@ -1,1 +1,18 @@
-﻿
+﻿var
+FormPadraoEstadoCivil,
+PageTabPrincEstadoCivil,
+CadEstadoCivilEBIdEstCivil,
+CadEstadoCivilEBDescricao,
+CadEstadoCivilEBCodCaixa,
+CadEstadoCivilEBCodeSocial: OleVariant;
+
+
+procedure MapCadEstadoCivil();
+begin
+FormPadraoEstadoCivil  		  := Aliases.Folha.FFormPadraoRHESTADOCIVIL;
+PageTabPrincEstadoCivil		  := Aliases.Folha.FFormPadraoRHESTADOCIVIL.FFormPadraoCds_abPrinc;
+CadEstadoCivilEBIdEstCivil	:= Aliases.Folha.FFormPadraoRHESTADOCIVIL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDESTCIVIL;
+CadEstadoCivilEBDescricao 	:= Aliases.Folha.FFormPadraoRHESTADOCIVIL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
+CadEstadoCivilEBCodCaixa  	:= Aliases.Folha.FFormPadraoRHESTADOCIVIL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODCAIXA;
+CadEstadoCivilEBCodeSocial	:= Aliases.Folha.FFormPadraoRHESTADOCIVIL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODESOCIAL;
+end;

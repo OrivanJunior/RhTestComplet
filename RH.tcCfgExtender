@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{605A82BA-99D8-419D-A52D-A8EEDE4FDD78}"/>
+				<Prp name="activity" type="S" value="{560639C0-B9C3-4306-A9D5-E123205DD110}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -7674,7 +7674,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{81b24798-2ef0-41f5-b026-b59515ab3022}"/>
+					<Node name="{81b24798-2ef0-41f5-b026-b59515ab3022}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{81bf9df7-30ea-4ceb-bd1d-5ff9164c41de}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -15689,7 +15693,6 @@
 							<Node name="folha">
 								<Node name="cadastros gerais">
 									<Node name="empresas"/>
-									<Node name="incons. do fixo geral"/>
 									<Node name="pessoas">
 										<Node name="estado cívil"/>
 										<Node name="órgão emissor de documentos"/>
