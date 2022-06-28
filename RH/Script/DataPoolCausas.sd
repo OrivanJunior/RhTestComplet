@@ -1,1 +1,38 @@
-﻿
+﻿var 
+CadCausasDPIdCausa,
+CadCausasDPDescricao,
+CadCausasDPRescisao,
+CadCausasDPDRescisao1,
+CadCausasDPDRescisao2,
+CadCausasDPLiberaFgts,
+CadCausasDPAvisoPrevio,
+CadCausasDPAvPrevioEmp,
+CadCausasDPGeraSD,
+CadCausasDPDiasEstavel,
+CadCausasDPCodRescisao,
+CadCausasDPCodCaged,
+CadCausasDPCodRais,
+CadCausasDPCodsefip,
+CadCausasDPCodHomolognet,
+CadCausasDPCodESocial : OleVariant;
+
+
+procedure LeDataPoolCadCausas(nomeDriver);
+begin
+CadCausasDPIdCausa  		    := DDT.DriverByName(nomeDriver).Value('IDCAUSA');
+CadCausasDPDescricao  	    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadCausasDPRescisao  	      := DDT.DriverByName(nomeDriver).Value('RESCISAO');
+CadCausasDPDRescisao1  	    := DDT.DriverByName(nomeDriver).Value('DRESCISAO1');
+CadCausasDPDRescisao2  	    := DDT.DriverByName(nomeDriver).Value('DRESCISAO2');
+CadCausasDPLiberaFgts  	    := DDT.DriverByName(nomeDriver).Value('LIBERAFGTS');
+CadCausasDPAvisoPrevio      := DDT.DriverByName(nomeDriver).Value('AVISOPREVIO');
+CadCausasDPAvPrevioEmp      := DDT.DriverByName(nomeDriver).Value('AVPREVIOEMP');
+CadCausasDPGeraSD  		      := DDT.DriverByName(nomeDriver).Value('GERASD');
+CadCausasDPDiasEstavel      := DDT.DriverByName(nomeDriver).Value('DIASESTAVEL');
+CadCausasDPCodRescisao      := DDT.DriverByName(nomeDriver).Value('CODRESCISAO');
+CadCausasDPCodCaged  	      := DDT.DriverByName(nomeDriver).Value('CODCAGED');
+CadCausasDPCodRais  	      := DDT.DriverByName(nomeDriver).Value('CODRAIS');
+CadCausasDPCodsefip  	      := DDT.DriverByName(nomeDriver).Value('CODSEFIP');
+CadCausasDPCodHomolognet    := DDT.DriverByName(nomeDriver).Value('CODHOMOLOGNET');
+CadCausasDPCodESocial  	    := DDT.DriverByName(nomeDriver).Value('CODESOCIAL');
+end;

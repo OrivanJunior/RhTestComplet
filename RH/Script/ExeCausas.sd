@@ -1,1 +1,97 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,ObjCausas,DataPoolCausas;
+
+procedure PreencheCausas();
+begin
+VerificaInsere(CadCausasEBIdCausa,CadCausasDPIdCausa);
+VerificaInsere(CadCausasEBDescricao,CadCausasDPDescricao);
+VerificaInsere(CadCausasEBRescisao,CadCausasDPRescisao);
+VerificaInsere(CadCausasEBDRescisao1,CadCausasDPDRescisao1);
+VerificaInsere(CadCausasEBDRescisao2,CadCausasDPDRescisao2);
+VerificaInsere(CadCausasEBLiberaFgts,CadCausasDPLiberaFgts);
+VerificaInsere(CadCausasEBAvisoPrevio,CadCausasDPAvisoPrevio);
+VerificaInsere(CadCausasEBAvPrevioEmp,CadCausasDPAvPrevioEmp);
+VerificaInsere(CadCausasEBGeraSD,CadCausasDPGeraSD);
+VerificaInsere(CadCausasEBDiasEstavel,CadCausasDPDiasEstavel);
+VerificaInsere(CadCausasEBCodRescisao,CadCausasDPCodRescisao);
+VerificaInsere(CadCausasEBCodCaged,CadCausasDPCodCaged);
+VerificaInsere(CadCausasEBCodRais,CadCausasDPCodRais);
+VerificaInsere(CadCausasEBCodsefip,CadCausasDPCodsefip);
+VerificaInsere(CadCausasEBCodHomolognet,CadCausasDPCodHomolognet);
+VerificaInsere(CadCausasEBCodESocial,CadCausasDPCodESocial);
+end;
+
+
+procedure CadastraCausas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empregados', 'Causas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCausas(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAUSA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Causa', CadCausasDPIdCausa);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCausas();
+  
+  PreencheCausas();
+  
+  ActSalvar(FormPadraoCausas);
+  ActFechar(FormPadraoCausas);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCausas(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Causas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCausas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAUSA');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Causa',CadCausasDPIdCausa);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCausas();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCAUSA');
+
+  ActFechar(FormPadraoCausas);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
+
