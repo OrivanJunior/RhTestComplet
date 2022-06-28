@@ -1,10 +1,10 @@
 ﻿var
-CadMotivoReajDPDescricao,
-CadMotivoReajDPIdMotReaje : OleVariant;
+CadMotivosReajDPDescricao,
+CadMotivosReajDPIdMotReaje : OleVariant;
 
 
-procedure LeDataPoolCadMotivoReaj(nomeDriver);
+procedure LeDataPoolCadMotivosReaj(nomeDriver);
 begin
-CadMotivoReajDPDescricao 		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
-CadMotivoReajDPIdMotReaje		:= DDT.DriverByName(nomeDriver).Value('IDMOTREAJE');
+CadMotivosReajDPIdMotReaje		:= DDT.DriverByName(nomeDriver).Value('IDMOTREAJE');
+CadMotivosReajDPDescricao 		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 end;
