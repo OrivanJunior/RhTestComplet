@@ -2,3 +2,17 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
+
+var
+FormPadraoMotivoComp,
+CadMotivoCompEBIdMotivoComp,
+CadMotivoCompEBDescricao,
+CadMotivoCompEBMotivoComp : OleVariant;
+
+procedure MapCadMotivoComp();
+begin
+FormPadraoMotivoComp		    := Aliases.Folha.FFormPadraoRHMOTIVOCOMP;
+CadMotivoCompEBIdMotivoComp := Aliases.Folha.FFormPadraoRHMOTIVOCOMP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDMOTIVOCOMP;
+CadMotivoCompEBDescricao  	:= Aliases.Folha.FFormPadraoRHMOTIVOCOMP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadMotivoCompEBMotivoComp  	:= Aliases.Folha.FFormPadraoRHMOTIVOCOMP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MOTIVOCOMP;
+end;

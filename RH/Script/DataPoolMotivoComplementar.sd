@@ -1,1 +1,11 @@
-﻿
+﻿var
+CadMotivoCompDPIdMotivoComp,
+CadMotivoCompDPDescricao,
+CadMotivoCompDPMotivoComp : OleVariant;
+
+procedure LeDataPoolCadMotivoComp(nomeDriver);
+begin
+CadMotivoCompDPIdMotivoComp		:= DDT.DriverByName(nomeDriver).Value('IDMOTIVOCOMP');
+CadMotivoCompDPDescricao  		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadMotivoCompDPMotivoComp  		:= DDT.DriverByName(nomeDriver).Value('MOTIVOCOMP');
+end;

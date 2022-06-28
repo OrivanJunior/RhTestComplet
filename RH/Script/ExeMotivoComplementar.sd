@@ -1,1 +1,9 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolMotivoComplementar,ObjMotivoComplementar;
+
+
+procedure preencheMotivoComp();
+begin
+VerificaInsere(CadMotivoCompEBIdMotivoComp,CadMotivoCompDPIdMotivoComp);
+VerificaInsere(CadMotivoCompEBDescricao,CadMotivoCompDPDescricao);
+VerificaInsere(CadMotivoCompEBMotivoComp,CadMotivoCompDPMotivoComp);
+end;
