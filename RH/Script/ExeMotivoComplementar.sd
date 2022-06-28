@@ -1,9 +1,84 @@
 ﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolMotivoComplementar,ObjMotivoComplementar;
 
 
-procedure preencheMotivoComp();
+procedure PreencheMotivoComp();
 begin
 VerificaInsere(CadMotivoCompEBIdMotivoComp,CadMotivoCompDPIdMotivoComp);
 VerificaInsere(CadMotivoCompEBDescricao,CadMotivoCompDPDescricao);
 VerificaInsere(CadMotivoCompEBMotivoComp,CadMotivoCompDPMotivoComp);
 end;
+
+
+procedure CadastraMotivoComp(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empregados', 'Motivo Complementar');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadMotivoComp(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMOTIVOCOMP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Motivo', CadMotivoCompDPIdMotivoComp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadMotivoComp();
+  
+  PreencheMotivoComp();
+  
+  ActSalvar(FormPadraoMotivoComp);
+  ActFechar(FormPadraoMotivoComp);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirMotivoComp(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Motivo Complementar');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadMotivoComp(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMOTIVOCOMP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Motivo',CadMotivoCompDPIdMotivoComp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadMotivoComp();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHMOTIVOCOMP');
+
+  ActFechar(FormPadraoMotivoComp);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
