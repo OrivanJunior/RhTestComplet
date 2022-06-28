@@ -15,8 +15,8 @@ MapCadCargos();
 PageCargosTabNormal.ActivePageIndex := 0;
 BtnIncFuncCargos.Click;
 
-VerificaClickConsultaGrid(GridFuncCargos,i,'Função',CadCargosDPFuncao);
-VerificaClickConsultaGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao);
+VerificaClickPreencheGrid(GridFuncCargos,i,'Função',CadCargosDPFuncao);
+VerificaClickPreencheGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao);
 
 Inc(i);
 
@@ -87,6 +87,9 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   MapCadCargos();
   
   ActExcluir(_ModuloFolha, 'FRhCargo');
+//  if Aliases.Folha.VCLObject('FBRespRH').Exists then
+  
+  
   ActFechar(FormPadraoCargos);
   end;
   DDTExcluir.Next;

@@ -62,6 +62,7 @@ end;
 
 procedure ExcluirCargos(PathData);
 var
+BtnAtencaoSim;
 DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Cargos');
@@ -87,6 +88,13 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   MapCadCargos();
   
   ActExcluir(_ModuloFolha, 'FRhCargo');
+  
+ if Aliases.Folha.FBRespRH.Exists then
+  begin
+      BtnAtencaoSim  := Aliases.Folha.FBRespRH.Panel2.btSim;
+      BtnAtencaoSim.ClickButton;
+  end;
+
   ActFechar(FormPadraoCargos);
   end;
   DDTExcluir.Next;
