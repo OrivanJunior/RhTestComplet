@@ -1498,7 +1498,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Situações" key="{EA53F8C6-0829-40B1-A3B3-9FE05F153945}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Situações" key="{EA53F8C6-0829-40B1-A3B3-9FE05F153945}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraSituacoesEmp" key="{EB708C7A-7471-42F6-8194-5F936B5792F2}" group="False" parallel="False" enabled="True" testMoniker="{E2A50593-F407-4BCF-B208-758B320B1D95}CadastraSituacoesEmp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1511,6 +1511,25 @@
 															<testItem name="ExcluirSituacoesEmp" key="{E2C18C97-68C6-4782-B0FA-7E1A3BFDEDB6}" group="False" parallel="False" enabled="True" testMoniker="{E2A50593-F407-4BCF-B208-758B320B1D95}ExcluirSituacoesEmp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Situações\Situações.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Tipo de Admissão" key="{C5B28951-1C56-4F08-8851-2E87CFD85B88}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraTipoAdmissao" key="{BF1A2849-2614-47E1-8DF5-950531C6DEF1}" group="False" parallel="False" enabled="True" testMoniker="{CF482532-E351-47AF-905D-0AC78C18AE38}CadastraTipoAdmissao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Tipo de Admissão\Tipo de Admissão.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirTipoAdmissao" key="{29FAEB6C-36A6-41D3-BF92-C248A0135806}" group="False" parallel="False" enabled="True" testMoniker="{CF482532-E351-47AF-905D-0AC78C18AE38}ExcluirTipoAdmissao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Tipo de Admissão\Tipo de Admissão.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
