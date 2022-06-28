@@ -1,1 +1,31 @@
-﻿
+﻿var
+CadSituacaoEmpDPIdSituacao,
+CadSituacaoEmpDPDescricao,
+CadSituacaoEmpDPNeceCausa,
+CadSituacaoEmpDPRescisao,
+CadSituacaoEmpDPFerias,
+CadSituacaoEmpDPAfastamento,
+CadSituacaoEmpDPMaternidade,
+CadSituacaoEmpDPAuxDoenca,
+CadSituacaoEmpDPAcidTrabalho,
+CadSituacaoEmpDPDescMesAfast,
+CadSituacaoEmpDPIdCausa,
+CadSituacaoEmpDPMotPrisao : OleVariant;
+
+
+procedure LeDataPoolCadSituacaoEmp(nomeDriver);
+begin
+CadSituacaoEmpDPIdSituacao		:= DDT.DriverByName(nomeDriver).Value('IDSITUACAO');
+CadSituacaoEmpDPDescricao		  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadSituacaoEmpDPNeceCausa		  := DDT.DriverByName(nomeDriver).Value('NECECAUSA');
+CadSituacaoEmpDPRescisao		  := DDT.DriverByName(nomeDriver).Value('RESCISAO');
+CadSituacaoEmpDPFerias			  := DDT.DriverByName(nomeDriver).Value('FERIAS');
+CadSituacaoEmpDPAfastamento		:= DDT.DriverByName(nomeDriver).Value('AFASTAMENTO');
+CadSituacaoEmpDPMaternidade		:= DDT.DriverByName(nomeDriver).Value('MATERNIDADE');
+CadSituacaoEmpDPAuxDoenca		  := DDT.DriverByName(nomeDriver).Value('AUXDOENCA');
+CadSituacaoEmpDPAcidTrabalho	:= DDT.DriverByName(nomeDriver).Value('ACIDTRABALHO');
+CadSituacaoEmpDPDescMesAfast	:= DDT.DriverByName(nomeDriver).Value('DESCMESAFAST');
+CadSituacaoEmpDPIdCausa			  := DDT.DriverByName(nomeDriver).Value('IDCAUSA');
+CadSituacaoEmpDPMotPrisao		  := DDT.DriverByName(nomeDriver).Value('MOTPRISAO');
+end;
+

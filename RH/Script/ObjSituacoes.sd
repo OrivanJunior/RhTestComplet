@@ -2,3 +2,38 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
+ 
+
+var
+FormPadraoSituacaoEmp,
+CadSituacaoEmpEBIdSituacao,
+CadSituacaoEmpEBDescricao,
+CadSituacaoEmpEBNeceCausa,
+CadSituacaoEmpEBRescisao,
+CadSituacaoEmpEBFerias,
+CadSituacaoEmpEBAfastamento,
+CadSituacaoEmpEBMaternidade,
+CadSituacaoEmpEBAuxDoenca,
+CadSituacaoEmpEBAcidTrabalho,
+CadSituacaoEmpEBDescMesAfast,
+CadSituacaoEmpEBIdCausa,
+CadSituacaoEmpEBMotPrisao : OleVariant;
+
+
+
+procedure MapCadSituacaoEmp();
+begin
+FormPadraoSituacaoEmp  				:= Aliases.Folha.FFormPadraoRHSITUACAO;
+CadSituacaoEmpEBIdSituacao		:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDSITUACAO;
+CadSituacaoEmpEBDescricao			:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadSituacaoEmpEBNeceCausa			:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NECECAUSA;
+CadSituacaoEmpEBRescisao			:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_RESCISAO;
+CadSituacaoEmpEBFerias				:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_FERIAS;
+CadSituacaoEmpEBAfastamento		:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AFASTAMENTO;
+CadSituacaoEmpEBMaternidade		:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MATERNIDADE;
+CadSituacaoEmpEBAuxDoenca			:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AUXDOENCA;
+CadSituacaoEmpEBAcidTrabalho	:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ACIDTRABALHO;
+CadSituacaoEmpEBDescMesAfast	:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCMESAFAST;
+CadSituacaoEmpEBIdCausa				:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCAUSA;
+CadSituacaoEmpEBMotPrisao			:= Aliases.Folha.FFormPadraoRHSITUACAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MOTPRISAO;
+end;	

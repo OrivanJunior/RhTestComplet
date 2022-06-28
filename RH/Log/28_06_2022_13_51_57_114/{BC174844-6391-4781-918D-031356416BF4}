@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="end time" type="D" value="44740.5781722685"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44740.5780102315"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="name" type="S" value="ExcluirSituacoesEmp [Script\ExeSituacoes - ExcluirSituacoesEmp]"/>
+				<Prp name="details" type="S" value="{96A44E76-90F2-42A9-BA35-2CECB7010E8A}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="end time" type="D" value="44740.5780100579"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="start time" type="D" value="44740.5777447454"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="name" type="S" value="CadastraSituacoesEmp [Script\ExeSituacoes - CadastraSituacoesEmp]"/>
+				<Prp name="details" type="S" value="{5D1D7382-97EE-424D-A688-87098E74ABEB}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
