@@ -1422,7 +1422,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Cargos" key="{45C815A2-450D-4B61-8651-C11F2BE6F61E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Cargos" key="{45C815A2-450D-4B61-8651-C11F2BE6F61E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraCargos" key="{850DB818-97C0-414E-B876-9C9F7FEEA1E1}" group="False" parallel="False" enabled="True" testMoniker="{46A44EDF-FDC3-403A-90CD-A9E03C7F8FB8}CadastraCargos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1435,6 +1435,25 @@
 															<testItem name="ExcluirCargos" key="{C3C59103-7F48-454F-B67B-DA9A810F5551}" group="False" parallel="False" enabled="True" testMoniker="{46A44EDF-FDC3-403A-90CD-A9E03C7F8FB8}ExcluirCargos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Cargos\Cargos.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Causas" key="{BF6360FD-90D3-4419-A524-DFD1AD94A1B9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraCausas" key="{994463C3-3093-444D-992D-EE783E222402}" group="False" parallel="False" enabled="True" testMoniker="{E90D3561-B7E5-43AB-943C-43C24E7ACC79}CadastraCausas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Causas\Causas.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirCausas" key="{4CD8F78D-2BC3-4C7A-8DEC-02011CE3C041}" group="False" parallel="False" enabled="True" testMoniker="{E90D3561-B7E5-43AB-943C-43C24E7ACC79}ExcluirCausas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Causas\Causas.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
