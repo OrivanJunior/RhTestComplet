@@ -49,31 +49,31 @@ procedure ExcluirMotivosReaj(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Motivos de Reajustes');
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Motivo Complementar');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadMotivosReaj(DDTExcluir.Name);
+LeDataPoolCadMotivoComp(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMOTREAJU');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHMOTIVOCOMP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Motivo',CadMotivosReajDPIdMotReaje);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Motivo',CadMotivoCompDPIdMotivoComp);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadMotivosReaj();
+  MapCadMotivoComp();
   
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHMOTREAJU');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHMOTIVOCOMP');
 
-  ActFechar(FormPadraoMotivosReaj);
+  ActFechar(FormPadraoMotivoComp);
   end;
   DDTExcluir.Next;
 end;
