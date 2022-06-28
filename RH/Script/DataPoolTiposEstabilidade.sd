@@ -1,1 +1,10 @@
-﻿
+﻿var
+CadTipoEstabilidadeDPIdTpEstabilidade,
+CadTipoEstabilidadeDPDescricao : OleVariant;
+
+procedure LeDataPoolCadTipoEstabilidade(nomeDriver);
+begin
+CadTipoEstabilidadeDPIdTpEstabilidade	:= DDT.DriverByName(nomeDriver).Value('IDTPESTABILIDADE');
+CadTipoEstabilidadeDPDescricao			  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;
+

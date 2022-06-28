@@ -1,0 +1,84 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolTiposEstabilidade,ObjTiposEstabilidade;
+
+
+
+procedure PreencheTipoEstabilidade();
+begin
+VerificaInsere(CadTipoEstabilidadeEBIdTpEstabilidade,CadTipoEstabilidadeDPIdTpEstabilidade);
+VerificaInsere(CadTipoEstabilidadeEBDescricao,CadTipoEstabilidadeDPDescricao);
+end;
+
+
+procedure CadastraTipoEstabilidade(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empregados', 'Tipos de Estabilidade');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadTipoAdmissao(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTPADMISSAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadTipoEstabilidadeDPIdTpEstabilidade);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadTipoEstabilidade();
+  
+  PreencheTipoEstabilidade();
+  
+  ActSalvar(FormPadraoTipoEstabilidade);
+  ActFechar(FormPadraoTipoEstabilidade);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirTipoEstabilidade(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Tipos de Estabilidade');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadTipoEstabilidade(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTPESTABILIDADE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadTipoEstabilidadeDPIdTpEstabilidade);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadTipoEstabilidade();
+  
+  ActExcluir(_ModuloFolha,'FFormPadraoRHTPESTABILIDADE');
+  
+  ActFechar(FormPadraoTipoEstabilidade);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

@@ -1517,7 +1517,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tipo de Admissão" key="{C5B28951-1C56-4F08-8851-2E87CFD85B88}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Tipo de Admissão" key="{C5B28951-1C56-4F08-8851-2E87CFD85B88}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraTipoAdmissao" key="{BF1A2849-2614-47E1-8DF5-950531C6DEF1}" group="False" parallel="False" enabled="True" testMoniker="{CF482532-E351-47AF-905D-0AC78C18AE38}CadastraTipoAdmissao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1530,6 +1530,25 @@
 															<testItem name="ExcluirTipoAdmissao" key="{29FAEB6C-36A6-41D3-BF92-C248A0135806}" group="False" parallel="False" enabled="True" testMoniker="{CF482532-E351-47AF-905D-0AC78C18AE38}ExcluirTipoAdmissao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Tipo de Admissão\Tipo de Admissão.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Tipos de Estabilidade" key="{53ED1340-57BA-459D-A0F2-B1A9E7BF1316}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraTipoEstabilidade" key="{E5C77EC7-66F6-4F2F-A5E7-2AEC6140861C}" group="False" parallel="False" enabled="True" testMoniker="{45192F63-F285-467C-BCFD-E348602E9EB9}CadastraTipoEstabilidade" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Tipos de Estabilidade\Tipos de Estabilidade.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirTipoEstabilidade" key="{E0068EC1-3D1C-42F3-A133-38177E70A830}" group="False" parallel="False" enabled="True" testMoniker="{45192F63-F285-467C-BCFD-E348602E9EB9}ExcluirTipoEstabilidade" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Empregados\Tipos de Estabilidade\Tipos de Estabilidade.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

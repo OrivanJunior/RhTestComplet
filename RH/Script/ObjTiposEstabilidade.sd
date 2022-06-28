@@ -2,5 +2,15 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
- 
- 
+var
+FormPadraoTipoEstabilidade,
+CadTipoEstabilidadeEBIdTpEstabilidade,
+CadTipoEstabilidadeEBDescricao : OleVariant;
+
+
+procedure MapCadTipoEstabilidade;
+begin
+FormPadraoTipoEstabilidade				    := Aliases.Folha.FFormPadraoRHTPESTABILIDADE;
+CadTipoEstabilidadeEBIdTpEstabilidade	:= Aliases.Folha.FFormPadraoRHTPESTABILIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDTPESTABILIDADE;
+CadTipoEstabilidadeEBDescricao			  := Aliases.Folha.FFormPadraoRHTPESTABILIDADE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+end;

@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{CF482532-E351-47AF-905D-0AC78C18AE38}"/>
+				<Prp name="activity" type="S" value="{45192F63-F285-467C-BCFD-E348602E9EB9}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -4347,7 +4347,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{45192f63-f285-467c-bcfd-e348602e9eb9}"/>
+					<Node name="{45192f63-f285-467c-bcfd-e348602e9eb9}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="8"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="4"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="46"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="11"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="82"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="48"/>
+						</Node>
+						<Prp name="bottom" type="I" value="83"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{45610ec2-b58b-4a58-8673-95edbf7dacce}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="11"/>
@@ -16157,7 +16176,6 @@
 							<Node name="folha">
 								<Node name="cadastros gerais">
 									<Node name="empregados">
-										<Node name="motivos de reajustes"/>
 										<Node name="tipo de admissão"/>
 										<Node name="tipos de estabilidade"/>
 									</Node>
