@@ -1,0 +1,9 @@
+﻿var
+CadSefipDPCodSefipResp,
+CadSefipDPEstab : OleVariant;
+
+procedure LeDataPoolCadSefip(nomeDriver);
+begin
+CadSefipDPCodSefipResp		:= DDT.DriverByName(nomeDriver).Value('CODSEFIPRESP');
+CadSefipDPEstab  			    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+end;

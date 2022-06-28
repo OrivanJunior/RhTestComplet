@@ -1,0 +1,30 @@
+﻿{Script para mapear tela de cadastro de SEFIP
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 28/06/2022}
+var
+FormPadraoSefip,
+CadSefipEBCodSefipResp,
+CadSefipEBEstab,
+  
+FormFiltroSefip,
+FiltroListaConsultaSefip,
+FiltroListaRazaoSocial,
+BtnOkFiltroSefip : OleVariant;
+
+
+
+procedure MapCadSefip();
+begin
+FormPadraoSefip					    := Aliases.Folha.FFormPadraoRHSEFIPRESP;
+CadSefipEBCodSefipResp  		:= Aliases.Folha.FFormPadraoRHSEFIPRESP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODSEFIPRESP;
+CadSefipEBEstab  				    := Aliases.Folha.FFormPadraoRHSEFIPRESP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+end;
+
+procedure FiltroSefip();
+begin
+FormFiltroSefip  			      := Aliases.Folha.FFiltroConsultaCDS;
+FiltroListaConsultaSefip  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroListaRazaoSocial  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnOkFiltroSefip  			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;

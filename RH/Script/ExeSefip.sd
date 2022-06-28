@@ -1,0 +1,94 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolSefip,ObjSefip;
+
+procedure PreencheSefip();
+begin
+VerificaInsere(CadSefipEBCodSefipResp,CadSefipDPCodSefipResp); 
+VerificaInsere(CadSefipEBEstab,CadSefipDPEstab);
+end;
+
+procedure FiltraTelaInicialSefip();
+begin
+FiltroSefip();
+FiltroListaConsultaSefip.Keys('Por Descrição');
+FiltroListaRazaoSocial.Keys('(Ignorar)');
+BtnOkFiltroSefip.ClickButton;
+end;
+
+
+procedure CadastraSefip(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Responsáveis', 'SEFIP');
+
+FiltraTelaInicialSefip();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadSefip(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSEFIPRESP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Responsável',CadSefipDPCodSefipResp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadSefip();
+  
+  PreencheSefip();
+  
+  ActSalvar(FormPadraoSefip);
+  ActFechar(FormPadraoSefip);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirSefip(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Responsáveis', 'SEFIP');
+
+FiltroListaConsultaSefip();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadSefip(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSEFIPRESP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Resposável',CadSefipDPCodSefipResp);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadSefip();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHSEFIPRESP');
+
+  ActFechar(FormPadraoSefip);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
