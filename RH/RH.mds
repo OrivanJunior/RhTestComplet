@@ -5,7 +5,7 @@
 		<child name="NameMapping" key="{10D68CE0-F31B-4354-B4B5-D2AF951B35C3}" type="Name Mapping" typeId="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" pluginName="NameMapping" path="NameMapping\NameMapping.tcNM" />
 		<child name="Script" key="{BCE8F908-6A29-405C-B3F8-354F9A828E57}" type="Script" typeId="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" pluginName="Script" path="Script\Script.tcScript" />
 		<child name="TestedApps" key="{A3F42966-2775-4993-B6A9-1039696D1FFD}" type="Tested Applications" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" pluginName="" path="TestedApps\TestedApps.tcTAs" />
-		<child name="KeywordTests" key="{FFC2B55B-813C-43C2-B608-68074189AC8E}" type="Keyword Testing" typeId="{9576DAFD-0ADD-41A8-9897-C72F150AF6BB}" pluginName="Keyword Testing" path="KeywordTests\KeywordTests.tcKDT" />
+		<child />
 	</children>
 	<config language="{9E432E59-33EF-4EAA-95C6-63FC35AF69EE}" />
 	<testItems key="{E389BCCF-31E9-4EF8-9EEB-AC3D6F9523A4}" version="14">
@@ -1289,7 +1289,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Empregados" key="{3A4D798F-AAAD-4DFF-B6B5-048394B509B1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Empregados" key="{3A4D798F-AAAD-4DFF-B6B5-048394B509B1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Horários" key="{7067016C-8724-48D1-9A79-F65D4D96ED9E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1536,7 +1536,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Tipos de Estabilidade" key="{53ED1340-57BA-459D-A0F2-B1A9E7BF1316}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Tipos de Estabilidade" key="{53ED1340-57BA-459D-A0F2-B1A9E7BF1316}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraTipoEstabilidade" key="{E5C77EC7-66F6-4F2F-A5E7-2AEC6140861C}" group="False" parallel="False" enabled="True" testMoniker="{45192F63-F285-467C-BCFD-E348602E9EB9}CadastraTipoEstabilidade" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1554,6 +1554,25 @@
 																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Responsáveis" key="{77D4C094-6B20-42E3-9DC4-5E340B35A8E6}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraSefip" key="{C83E7311-5776-4F9A-903D-C3620B375A0E}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}CadastraSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirSefip" key="{36A852FD-B212-4F25-A401-2E7915289FC2}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}ExcluirSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

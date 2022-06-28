@@ -4,12 +4,14 @@ procedure PreencheSefip();
 begin
 VerificaInsere(CadSefipEBCodSefipResp,CadSefipDPCodSefipResp); 
 VerificaInsere(CadSefipEBEstab,CadSefipDPEstab);
+CadSefipEBEstab.Keys('[Enter]');
+
 end;
 
 procedure FiltraTelaInicialSefip();
 begin
 FiltroSefip();
-FiltroListaConsultaSefip.Keys('Por Descrição');
+FiltroListaConsultaSefip.SetText('Por Descrição');
 FiltroListaRazaoSocial.Keys('(Ignorar)');
 BtnOkFiltroSefip.ClickButton;
 end;
@@ -60,7 +62,7 @@ DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Responsáveis', 'SEFIP');
 
-FiltroListaConsultaSefip();
+FiltraTelaInicialSefip();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -74,7 +76,7 @@ begin
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSEFIPRESP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Resposável',CadSefipDPCodSefipResp);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Responsável',CadSefipDPCodSefipResp);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
