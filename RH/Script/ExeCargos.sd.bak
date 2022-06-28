@@ -4,7 +4,7 @@ procedure PreencheCargos();
 begin
 VerificaInsere(CadCargosEBIdCargos,CadCargosDPIdCargos);
 VerificaInsere(CadCargosEBDescricao,CadCargosDPDescricao);
-VerificaConsultaF3Insere(CadCargosEBIdCbo,CadCargosDPIdCbo);
+VerificaConsultaF3Insere(_ModuloFolha,CadCargosEBIdCbo,CadCargosDPIdCbo);
 end;
 
 procedure PreencheFuncoes();
@@ -22,7 +22,6 @@ Inc(i);
 
 end;
 
-
 procedure CadastraCargos(pathData);
 var
 DDTCadastrar : OleVariant;
@@ -33,7 +32,7 @@ MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCargos(DDTCadastrar.Name);
+LeDataPoolCadCargos(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin
@@ -77,18 +76,18 @@ While not DDTExcluir.EOF do
 begin
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINSTRUCAO');
+    ValidaFormAberto(_ModuloFolha, 'FRhCargo');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Instrução',CadInstrucaoDPIdInstrucao);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cargo',CadCargosDPIdCargos);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadGrauInstrucao();
+  MapCadCargos();
   
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHINSTRUCAO');
-  ActFechar(FormPadraoInstrucao);
+  ActExcluir(_ModuloFolha, 'FRhCargo');
+  ActFechar(FormPadraoCargos);
   end;
   DDTExcluir.Next;
 end;

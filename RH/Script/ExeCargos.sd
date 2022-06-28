@@ -4,7 +4,7 @@ procedure PreencheCargos();
 begin
 VerificaInsere(CadCargosEBIdCargos,CadCargosDPIdCargos);
 VerificaInsere(CadCargosEBDescricao,CadCargosDPDescricao);
-VerificaConsultaF3Insere(CadCargosEBIdCbo,CadCargosDPIdCbo);
+VerificaConsultaF3Insere(_ModuloFolha,CadCargosEBIdCbo,CadCargosDPIdCbo);
 end;
 
 procedure PreencheFuncoes();
@@ -15,13 +15,12 @@ MapCadCargos();
 PageCargosTabNormal.ActivePageIndex := 0;
 BtnIncFuncCargos.Click;
 
-VerificaClickConsultaGrid(GridFuncCargos,i,'Função',CadCargosDPFuncao);
-VerificaClickConsultaGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao);
+VerificaClickPreencheGrid(GridFuncCargos,i,'Função',CadCargosDPFuncao);
+VerificaClickPreencheGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao);
 
 Inc(i);
 
 end;
-
 
 procedure CadastraCargos(pathData);
 var
@@ -33,7 +32,7 @@ MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCargos(DDTCadastrar.Name);
+LeDataPoolCadCargos(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin

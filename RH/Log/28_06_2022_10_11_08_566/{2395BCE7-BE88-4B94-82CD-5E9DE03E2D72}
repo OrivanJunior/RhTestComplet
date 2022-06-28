@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 3">
+			<Prp name="line no" type="I" value="508"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4245626042"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'[F3]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_IDCBO&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('EB_IDCBO'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4246425463"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.pg.tsFuncoes.sbRhMovMassaMat.gRhFuncao&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('pg').VCLObject('tsFuncoes').VCLObject('sbRhMovMassaMat').VCLObject('gRhFuncao'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Função', 0) was clicked with the left mouse button."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4245810301"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'212430' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 7">
+			<Prp name="line no" type="I" value="15"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4246274653"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click at point (13, 11) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.bIncFunc&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('bIncFunc'))"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="line no" type="I" value="248"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.424600162"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="message 2">
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4245609028"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'Testador' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_DESCRICAO&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('EB_DESCRICAO'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4246533796"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.pg.tsFuncoes.sbRhMovMassaMat.gRhFuncao&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('pg').VCLObject('tsFuncoes').VCLObject('sbRhMovMassaMat').VCLObject('gRhFuncao'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Descrição', 0) was clicked with the left mouse button."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="line no" type="I" value="420"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4244706018"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Empregados'].Items.Item['Cargos']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Empregados'].Items.Item['Cargos'])"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 0" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+			<Prp name="unit 1" type="S" value="{46A44EDF-FDC3-403A-90CD-A9E03C7F8FB8}"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 5">
+			<Prp name="line no" type="I" value="245"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4245819213"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FProcRapidaCds.PanProc.EProcurar&#xA;(Sys.Process('Folha').VCLObject('FProcRapidaCds').VCLObject('PanProc').VCLObject('EProcurar'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4245580903"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'1' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_IDCARGO&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('EB_IDCARGO'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="44740.4246440509"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'12225' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.pg.tsFuncoes.sbRhMovMassaMat.gRhFuncao&#xA;(Sys.Process('Folha').VCLObject('FRhCargo').VCLObject('Page').VCLObject('tsTabNormal').VCLObject('ScrollBox1').VCLObject('pg').VCLObject('tsFuncoes').VCLObject('sbRhMovMassaMat').VCLObject('gRhFuncao'))"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="pictype" type="I" value="0"/>
+		</Node>
+		<Prp name="status" type="I" value="0"/>
+	</Node>
+</Nodes>
