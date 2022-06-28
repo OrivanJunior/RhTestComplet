@@ -1,1 +1,23 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolCargos,ObjCargos;
+
+procedure PreencheCargos();
+begin
+VerificaInsere(CadCargosEBIdCargos,CadCargosDPIdCargos);
+VerificaInsere(CadCargosEBDescricao,CadCargosDPDescricao);
+VerificaConsultaF3Insere(CadCargosEBIdCbo,CadCargosDPIdCbo);
+end;
+
+procedure PreencheFuncoes();
+var i;
+begin
+i := 0;
+MapCadCargos();
+PageCargosTabNormal.ActivePageIndex := 0;
+BtnIncFuncCargos.Click;
+
+VerificaClickConsultaGrid(GridFuncCargos,i,'Função',CadCargosDPFuncao);
+VerificaClickConsultaGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao);
+
+Inc(i);
+
+end;

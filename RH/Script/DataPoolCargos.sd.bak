@@ -1,0 +1,16 @@
+﻿var
+CadCargosDPIdCargo,
+CadCargosDPDescricao,
+CadCargosDPFuncao,
+CadCargosDPFunDescricao,
+CadCargosDPIdCbo : OleVariant;
+
+
+procedure LeDataPoolCargos(nomeDriver);
+begin
+CadCargosDPIdCargo		  := DDT.DriverByName(nomeDriver).Value('IDCARGO');
+CadCargosDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadCargosDPIdCbo        := DDT.DriverByName(nomeDriver).Value('IDCBO');
+CadCargosDPFuncao		    := DDT.DriverByName(nomeDriver).Value('FUNCAO');
+CadCargosDPFunDescricao	:= DDT.DriverByName(nomeDriver).Value('FUNDESCRICAO');
+end;

@@ -1,1 +1,38 @@
-﻿
+﻿{Script para mapear tela de cadastro de Cargos
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 28/06/2022}
+ 
+Var
+FormPadraoCargos,
+CadCargosEB,
+CadCargosEB,
+CadCargosEB,
+
+PageCargosTabNormal,
+  
+GridFuncCargos,
+  
+BtnIncFuncCargos,
+BtnProcFuncCargos,
+BtnDesfFuncCargos,
+BtnExcFuncCargos : OleVariant;
+
+
+procedure MapCadCargos;
+begin
+FormPadraoCargos  	:= Aliases.Folha.FRhCargo;
+
+CadCargosEB  		    := Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_IDCARGO;
+CadCargosEB  		    := Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_DESCRICAO;
+CadCargosEB  		    := Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.EB_IDCBO;
+
+PageCargosTabNormal	:= Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.pg;
+
+GridFuncCargos  	  := Aliases.Folha.FRhCargo.Page.tsTabNormal.ScrollBox1.pg.tsFuncoes.sbRhMovMassaMat.gRhFuncao;
+
+BtnIncFuncCargos  	:= Aliases.Folha.FRhCargo.bIncFunc;
+BtnProcFuncCargos  	:= Aliases.Folha.FRhCargo.bProcFunc;
+BtnDesfFuncCargos  	:= Aliases.Folha.FRhCargo.bDesfFunc;
+BtnExcFuncCargos  	:= Aliases.Folha.FRhCargo.bExcFunc;
+end;
