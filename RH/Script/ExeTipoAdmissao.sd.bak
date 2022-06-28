@@ -1,0 +1,12 @@
+﻿uses CommonsAll,CommonsObj,VarConsts,DataPoolTipoAdmissao,ObjTipoAdmissao;
+
+
+procedure PreencheTipoAdmissao();
+begin
+VerificaInsere(CadTipoAdmissaoEBIdTpAdm,CadTipoAdmissaoDPIdTpAdm);
+VerificaInsere(CadTipoAdmissaoEBDescricao,CadTipoAdmissaoDPDescricao);
+VerificaInsere(CadTipoAdmissaoEBCodCaged,CadTipoAdmissaoDPCodCaged);
+VerificaInsere(CadTipoAdmissaoEBCodRais,CadTipoAdmissaoDPCodRais);
+VerificaInsere(CadTipoAdmissaoEBCodESocial,CadTipoAdmissaoDPCodESocial);
+end;
+

@@ -2,3 +2,22 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
+var
+FormPadraoAdmissao,
+CadTipoAdmissaoEBIdTpAdm,
+CadTipoAdmissaoEBDescricao,
+CadTipoAdmissaoEBCodCaged,
+CadTipoAdmissaoEBCodRais,
+CadTipoAdmissaoEBCodESocial : OleVariant;
+
+
+
+procedure MapCadTipoAdmissao;
+begin
+FormPadraoAdmissao				    := Aliases.Folha.FFormPadraoRHTPADMISSAO;
+CadTipoAdmissaoEBIdTpAdm		  := Aliases.Folha.FFormPadraoRHTPADMISSAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_IDTPADM;
+CadTipoAdmissaoEBDescricao		:= Aliases.Folha.FFormPadraoRHTPADMISSAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_DESCRICAO;
+CadTipoAdmissaoEBCodCaged		  := Aliases.Folha.FFormPadraoRHTPADMISSAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODCAGED;
+CadTipoAdmissaoEBCodRais		  := Aliases.Folha.FFormPadraoRHTPADMISSAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODRAIS;
+CadTipoAdmissaoEBCodESocial		:= Aliases.Folha.FFormPadraoRHTPADMISSAO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts0.TScrollBox.EB_CODESOCIAL;
+end;

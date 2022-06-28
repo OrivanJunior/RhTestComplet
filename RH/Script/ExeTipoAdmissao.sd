@@ -1,1 +1,85 @@
-﻿
+﻿uses CommonsAll,CommonsObj,VarConsts,DataPoolTipoAdmissao,ObjTipoAdmissao;
+
+
+procedure PreencheTipoAdmissao();
+begin
+VerificaInsere(CadTipoAdmissaoEBIdTpAdm,CadTipoAdmissaoDPIdTpAdm);
+VerificaInsere(CadTipoAdmissaoEBDescricao,CadTipoAdmissaoDPDescricao);
+VerificaInsere(CadTipoAdmissaoEBCodCaged,CadTipoAdmissaoDPCodCaged);
+VerificaInsere(CadTipoAdmissaoEBCodRais,CadTipoAdmissaoDPCodRais);
+VerificaInsere(CadTipoAdmissaoEBCodESocial,CadTipoAdmissaoDPCodESocial);
+end;
+
+procedure CadastraTipoAdmissao(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empregados', 'Tipo de Admissão');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadTipoAdmissao(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTPADMISSAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo Admissão',CadTipoAdmissaoDPIdTpAdm);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadTipoAdmissao();
+  
+  PreencheTipoAdmissao();
+  
+  ActSalvar(FormPadraoAdmissao);
+  ActFechar(FormPadraoAdmissao);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirTipoAdmissao(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Tipo de Admissão');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadTipoAdmissao(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTPADMISSAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo Admissão', CadTipoAdmissaoDPIdTpAdm);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadTipoAdmissao();
+  
+  ActExcluir(_ModuloFolha,'FFormPadraoRHTPADMISSAO');
+  
+  ActFechar(FormPadraoAdmissao);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

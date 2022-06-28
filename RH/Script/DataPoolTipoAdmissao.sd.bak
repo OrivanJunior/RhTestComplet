@@ -1,0 +1,15 @@
+﻿var
+CadTipoAdmissaoDPIdTpAdm,
+CadTipoAdmissaoDPDescricao,
+CadTipoAdmissaoDPCodCaged,
+CadTipoAdmissaoDPCodRais,
+CadTipoAdmissaoDPCodESocial : OleVariant;
+
+procedure LeDataPoolCadTipoAdmissao(nomeDriver);
+begin
+CadTipoAdmissaoDPIdTpAdm	  := DDT.DriverByName(nomeDriver).Value('IDTPADM');
+CadTipoAdmissaoDPDescricao	:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadTipoAdmissaoDPCodCaged	  := DDT.DriverByName(nomeDriver).Value('CODCAGED');
+CadTipoAdmissaoDPCodRais	  := DDT.DriverByName(nomeDriver).Value('CODRAIS');
+CadTipoAdmissaoDPCodESocial := DDT.DriverByName(nomeDriver).Value('CODESOCIAL');
+end;
