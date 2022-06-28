@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{BCE8F908-6A29-405C-B3F8-354F9A828E57}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -16139,22 +16143,12 @@
 								<Node name="cadastros gerais">
 									<Node name="empregados">
 										<Node name="causas"/>
-										<Node name="situações"/>
 										<Node name="tipo de admissão"/>
 										<Node name="tipos de estabilidade"/>
 									</Node>
-									<Node name="gerais">
-										<Node name="uf"/>
-									</Node>
-									<Node name="pessoas"/>
-									<Node name="tabelas">
-										<Node name="inss"/>
-										<Node name="irrf"/>
-										<Node name="salário mínimo"/>
-									</Node>
+									<Node name="gerais"/>
 								</Node>
 							</Node>
-							<Node name="viasoft3c"/>
 						</Node>
 						<Node name="testedapps"/>
 					</Node>
