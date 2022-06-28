@@ -9,6 +9,13 @@ VerificaInsere(CadEstadoCivilEBCodCaixa,CadEstadoCivilDPCodCaixa);
 VerificaInsere(CadEstadoCivilEBCodeSocial,CadEstadoCivilDPCodeSocial);
 end;
 
+procedure PreenchePrincipal();
+begin
+PageTabPrincEstadoCivil.ActivePageIndex := 1;
+Delay(2000);
+PageTabPrincEstadoCivil.ActivePageIndex := 0;
+end;
+
 
 
 procedure CadastraEstadoCivil(pathData);
@@ -38,6 +45,7 @@ begin
   MapCadEstadoCivil();
   
   PreencheEstadoCivil();
+  PreenchePrincipal();
   
   ActSalvar(FormPadraoEstadoCivil);
   ActFechar(FormPadraoEstadoCivil);

@@ -1,1 +1,82 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolCCTEstrangeiros,ObjCCTEstrangeiros;
+
+procedure PreencheCCTEstrangeiro();
+begin
+VerificaInsere(CadCCTEstrangeiroEBIdClasTrabEst,CadCCTEstrangeiroDPIdClasTrabEst);
+VerificaInsere(CadCCTEstrangeiroEBDescricao,CadCCTEstrangeiroDPDescricao);
+end;
+
+
+procedure CadastraCCTEstrangeiro(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Pessoas', 'Classf. Cond. Trab. Estrangeiros');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCCTEstrangeiro(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCLASTRABEST');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadCCTEstrangeiroDPIdClasTrabEst);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCCTEstrangeiro();
+  
+  PreencheCCTEstrangeiro();
+  
+  ActSalvar(FormPadraoCCTEstrangeiro);
+  ActFechar(FormPadraoCCTEstrangeiro);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+
+procedure ExcluirCCTEstrangeiro(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Pessoas', 'Classf. Cond. Trab. Estrangeiros');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCCTEstrangeiro(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCLASTRABEST');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadCCTEstrangeiroDPIdClasTrabEst);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCCTEstrangeiro();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCLASTRABEST');
+  ActFechar(FormPadraoCCTEstrangeiro);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

@@ -1,1 +1,11 @@
-﻿
+﻿var
+CadCCTEstrangeiroDPIdClasTrabEst,
+CadCCTEstrangeiroDPDescricao : OleVariant;	
+
+
+
+procedure LeDataPoolCadCCTEstrangeiro(nomeDriver);
+begin
+CadCCTEstrangeiroDPIdClasTrabEst	:= DDT.DriverbyName(nomeDriver).Value('IDCLASTRABEST');	
+CadCCTEstrangeiroDPDescricao 		  := DDT.DriverbyName(nomeDriver).Value('DESCRICAO');
+end;

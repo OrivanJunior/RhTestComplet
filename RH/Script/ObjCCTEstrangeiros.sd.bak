@@ -7,7 +7,7 @@
 
 procedure MapCadCCTEstrangeiro();
 begin
-FormPadraoCCTEstrangeiro  			:= Aliases.Folha.FFormPadraoRHCLASTRABEST;
+FormPadraoCCTEstrangeiro  			    := Aliases.Folha.FFormPadraoRHCLASTRABEST;
 CadCCTEstrangeiroEBIdClasTrabEst  	:= Aliases.Folha.FFormPadraoRHCLASTRABEST.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCLASTRABEST;
-CadCCTEstrangeiroEBDescricao 		:= Aliases.Folha.FFormPadraoRHCLASTRABEST.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadCCTEstrangeiroEBDescricao 		    := Aliases.Folha.FFormPadraoRHCLASTRABEST.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
 end;
