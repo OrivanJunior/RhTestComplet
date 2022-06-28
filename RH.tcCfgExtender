@@ -4525,7 +4525,27 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{46a44edf-fdc3-403a-90cd-a9e03c7f8fb8}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="7"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="2"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="22"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="9"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="61"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="25"/>
+						</Node>
+						<Node name="3">
+							<Prp name="bottom" type="I" value="96"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="63"/>
+						</Node>
+						<Prp name="bottom" type="I" value="97"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -12347,7 +12367,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{cb30c35d-ace4-40c2-8280-9b0146f2635d}"/>
+					<Node name="{cb30c35d-ace4-40c2-8280-9b0146f2635d}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{cbf55f67-4dd4-467e-8494-d7764f026748}"/>
 					<Node name="{cd153f7a-e3df-40c0-b974-7db39b4862cd}">
 						<Node name="0">
@@ -15777,7 +15801,11 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{fcfd53df-e9b6-4762-ba4c-3864d306012d}"/>
+					<Node name="{fcfd53df-e9b6-4762-ba4c-3864d306012d}">
+						<Prp name="bottom" type="I" value="0"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{fe309ab0-8a97-4176-b7f8-5be72bec5721}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -15983,6 +16011,7 @@
 										<Node name="tipo de admissão"/>
 										<Node name="tipos de estabilidade"/>
 									</Node>
+									<Node name="pessoas"/>
 								</Node>
 							</Node>
 							<Node name="viasoft3c"/>

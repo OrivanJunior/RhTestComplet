@@ -2,14 +2,13 @@
 
 procedure PreencheCargos();
 begin
-VerificaInsere();
-VerificaInsere();
-VerificaConsultaF3Insere();
+VerificaInsere(CadCargosEBIdCargos,CadCargosDPIdCargos);
+VerificaInsere(CadCargosEBDescricao,CadCargosDPDescricao);
+VerificaConsultaF3Insere(CadCargosEBIdCbo,CadCargosDPIdCbo);
 end;
 
 procedure PreencheFuncoes();
-var
-i;
+var i;
 begin
 i := 0;
 MapCadCargos();
@@ -22,3 +21,78 @@ VerificaClickConsultaGrid(GridFuncCargos,i,'Descrição',CadCargosDPFunDescricao
 Inc(i);
 
 end;
+
+
+procedure CadastraCargos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Empregados', 'Cargos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCargos(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhCargo');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cargo', CadCargosDPIdCargos);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCargos();
+  
+  PreencheCargos();
+  PreencheFuncoes();
+  
+  ActSalvar(FormPadraoCargos);
+  ActFechar(FormPadraoCargos);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCargos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Empregados', 'Cargos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCargos(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHINSTRUCAO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Instrução',CadInstrucaoDPIdInstrucao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadGrauInstrucao();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHINSTRUCAO');
+  ActFechar(FormPadraoInstrucao);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

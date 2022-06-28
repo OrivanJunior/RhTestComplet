@@ -6,7 +6,7 @@ CadCargosDPFunDescricao,
 CadCargosDPIdCbo : OleVariant;
 
 
-procedure LeDataPoolCargos(nomeDriver);
+procedure LeDataPoolCadCargos(nomeDriver);
 begin
 CadCargosDPIdCargos     := DDT.DriverByName(nomeDriver).Value('IDCARGO');
 CadCargosDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
