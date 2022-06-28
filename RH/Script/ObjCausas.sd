@@ -2,3 +2,45 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
+ 
+var
+FormPadraoCausas,
+CadCausasEBIdCausa,
+CadCausasEBDescricao,
+CadCausasEBRescisao,
+CadCausasEBDRescisao1,
+CadCausasEBDRescisao2,
+CadCausasEBLiberaFgts,
+CadCausasEBAvisoPrevio,
+CadCausasEBAvPrevioEmp,
+CadCausasEBGeraSD,
+CadCausasEBDiasEstavel,
+CadCausasEBCodRescisao,
+CadCausasEBCodCaged,
+CadCausasEBCodRais,
+CadCausasEBCodsefip,
+CadCausasEBCodHomolognet,
+CadCausasEBCodESocial : OleVariant;
+
+
+
+procedure MapCadCausas;
+begin
+FormPadraoCausas  			  := Aliases.Folha.FFormPadraoRHCAUSA;
+CadCausasEBIdCausa  		  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCAUSA;
+CadCausasEBDescricao  		:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadCausasEBRescisao  		  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_RESCISAO;
+CadCausasEBDRescisao1  		:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DRESCISAO1;
+CadCausasEBDRescisao2  		:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DRESCISAO2;
+CadCausasEBLiberaFgts  		:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LIBERAFGTS;
+CadCausasEBAvisoPrevio  	:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AVISOPREVIO;
+CadCausasEBAvPrevioEmp  	:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AVPREVIOEMP;
+CadCausasEBGeraSD  			  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_GERASD;
+CadCausasEBDiasEstavel  	:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DIASESTAVEL;
+CadCausasEBCodRescisao  	:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODRESCISAO;
+CadCausasEBCodCaged  		  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODCAGED;
+CadCausasEBCodRais  		  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODRAIS;
+CadCausasEBCodsefip  		  := Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODSEFIP;
+CadCausasEBCodHomolognet	:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODHOMOLOGNET;
+CadCausasEBCodESocial  		:= Aliases.Folha.FFormPadraoRHCAUSA.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODESOCIAL;
+end;
