@@ -1,1 +1,98 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolCheques,ObjCheques;
+
+
+procedure PreencheLayCheques();
+begin
+VerificaInsere(CadLayChequesEBIdLayCheque,CadLayChequesDPIdLayCheque);
+VerificaInsere(CadLayChequesEBDescricao,CadLayChequesDPDescricao);
+VerificaInsere(CadLayChequesEBTamanhoFon,CadLayChequesDPTamanhoFon );
+VerificaInsere(CadLayChequesEBLargura,CadLayChequesDPLargura);
+VerificaInsere(CadLayChequesEBAltura,CadLayChequesDPAltura);
+VerificaInsere(CadLayChequesEBNroColExt,CadLayChequesDPNroColExt);
+VerificaInsere(CadLayChequesEBLCValor,CadLayChequesDPLCValor);
+VerificaInsere(CadLayChequesEBLCExtenso1,CadLayChequesDPLCExtenso1);
+VerificaInsere(CadLayChequesEBLCExtenso2,CadLayChequesDPLCExtenso2);
+VerificaInsere(CadLayChequesEBLCNominal,CadLayChequesDPLCNominal);
+VerificaInsere(CadLayChequesEBLCCidade,CadLayChequesDPLCCidade);
+VerificaInsere(CadLayChequesEBLCDia,CadLayChequesDPLCDia);
+VerificaInsere(CadLayChequesEBLCMes,CadLayChequesDPLCMes);
+VerificaInsere(CadLayChequesEBLCAno,CadLayChequesDPLCAno);
+VerificaInsere(CadLayChequesEBLPPChe,CadLayChequesDPLPPChe);
+VerificaInsere(CadLayChequesEBChPorFolha,CadLayChequesDPChPorFolha);
+VerificaInsere(CadLayChequesEBLCBomPara,CadLayChequesDPLCBomPara);
+end;
+
+
+
+procedure CadastraLayCheques(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Cheques');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadLayCheques(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYCHEQUE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadLayChequesDPIdLayCheque);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadLayCheques();
+  
+  PreencheLayCheques();
+  
+  ActSalvar(FormPadraoLayCheques);
+  ActFechar(FormPadraoLayCheques);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirLayCheques(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Cheques');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadLayCheques(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYCHEQUE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadLayChequesDPIdLayCheque);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadLayCheques();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYCHEQUE');
+
+  ActFechar(FormPadraoLayCheques);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

@@ -1557,7 +1557,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Responsáveis" key="{77D4C094-6B20-42E3-9DC4-5E340B35A8E6}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Responsáveis" key="{77D4C094-6B20-42E3-9DC4-5E340B35A8E6}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="SEFIP" key="{B9328F11-6FF3-4658-AB65-C4B2F73444C1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1579,7 +1579,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="CAGED" key="{88718DC1-A19E-4D5A-93CF-D56DC34D21E9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="CAGED" key="{88718DC1-A19E-4D5A-93CF-D56DC34D21E9}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraCaged" key="{72D64D1D-A82A-4EF7-A26E-6C0DB2464E34}" group="False" parallel="False" enabled="True" testMoniker="{CF20B039-B999-4AB6-A38A-57FE8D455A65}CadastraCaged" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1711,6 +1711,25 @@
 																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Layouts" key="{58B5CEFA-3AB0-4E7D-BE0D-31F14BFF23FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraLayCheques" key="{BF294046-224F-4F8D-8572-909D0E7DF125}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}CadastraLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirLayCheques" key="{CBB68BE6-993D-4D0E-8004-8464AD971A72}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}ExcluirLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

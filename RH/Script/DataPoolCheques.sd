@@ -1,1 +1,39 @@
-﻿
+﻿var
+CadLayChequesDPIdLayCheque,
+CadLayChequesDPDescricao,
+CadLayChequesDPTamanhoFon,
+CadLayChequesDPLargura,
+CadLayChequesDPAltura,
+CadLayChequesDPNroColExt,
+CadLayChequesDPLCValor,
+CadLayChequesDPLCExtenso1,
+CadLayChequesDPLCExtenso2,
+CadLayChequesDPLCNominal,
+CadLayChequesDPLCCidade,
+CadLayChequesDPLCDia,
+CadLayChequesDPLCMes,
+CadLayChequesDPLCAno,
+CadLayChequesDPLPPChe,
+CadLayChequesDPChPorFolha,
+CadLayChequesDPLCBomPara : OleVariant; 
+
+procedure LeDataPoolCadLayCheques(nomeDriver);
+begin
+CadLayChequesDPIdLayCheque	:= DDT.DriverByName(nomeDriver).Value('IDLAYCHEQUE');
+CadLayChequesDPDescricao    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadLayChequesDPTamanhoFon   := DDT.DriverByName(nomeDriver).Value('TAMANHOFON');
+CadLayChequesDPLargura  	  := DDT.DriverByName(nomeDriver).Value('LARGURA');
+CadLayChequesDPAltura  		  := DDT.DriverByName(nomeDriver).Value('ALTURA');
+CadLayChequesDPNroColExt    := DDT.DriverByName(nomeDriver).Value('NROCOLEXT');
+CadLayChequesDPLCValor  	  := DDT.DriverByName(nomeDriver).Value('LCVALOR');
+CadLayChequesDPLCExtenso1   := DDT.DriverByName(nomeDriver).Value('LCEXTENSO1');
+CadLayChequesDPLCExtenso2   := DDT.DriverByName(nomeDriver).Value('LCEXTENSO2');
+CadLayChequesDPLCNominal    := DDT.DriverByName(nomeDriver).Value('LCNOMINAL');
+CadLayChequesDPLCCidade     := DDT.DriverByName(nomeDriver).Value('LCCIDADE');
+CadLayChequesDPLCDia  		  := DDT.DriverByName(nomeDriver).Value('LCDIA');
+CadLayChequesDPLCMes  		  := DDT.DriverByName(nomeDriver).Value('LCMES');
+CadLayChequesDPLCAno  		  := DDT.DriverByName(nomeDriver).Value('LCANO');
+CadLayChequesDPLPPChe  		  := DDT.DriverByName(nomeDriver).Value('LPPCHE');
+CadLayChequesDPChPorFolha   := DDT.DriverByName(nomeDriver).Value('CHPORFOLHA');
+CadLayChequesDPLCBomPara    := DDT.DriverByName(nomeDriver).Value('LCBOMPARA');
+end;
