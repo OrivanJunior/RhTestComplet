@@ -1,1 +1,51 @@
-﻿
+﻿{Script para mapear tela de cadastro de Importação Ponto
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 29/06/2022}
+ 
+
+var
+FormPadraoImportPonto,
+CadImportPontoEBLayout,
+CadImportPontoEBDescricao,
+CadImportPontoEBUtiCod,
+CadImportPontoEBCodReg,
+CadImportPontoEBCodEmpN,
+CadImportPontoEBRegIni,
+CadImportPontoEBRegFin,
+CadImportPontoEBCodRegIni,
+CadImportPontoEBCodRegFin,
+CadImportPontoEBCodPeIni,
+CadImportPontoEBCodPeFin,
+CadImportPontoEBCodEventoIni,
+CadImportPontoEBCodEventoFin,
+CadImportPontoEBHoraIni,
+CadImportPontoEBHoraFin,
+CadImportPontoEBMinIni,
+CadImportPontoEBMinFin,
+CadImportPontoEBUtiMinFr : OleVariant;
+
+
+
+procedure MapCadImportPonto;
+begin
+FormPadraoImportPonto  			  := Aliases.Folha.FFormPadraoRHLAYIMPORT;
+CadImportPontoEBLayout  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LAYOUT;
+CadImportPontoEBDescricao  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadImportPontoEBUtiCod  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UTICOD;
+CadImportPontoEBCodReg  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODREG;
+CadImportPontoEBCodEmpN  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODEMPN;
+CadImportPontoEBRegIni  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_REGINI;
+CadImportPontoEBRegFin  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_REGFIN;
+CadImportPontoEBCodRegIni  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODREGINI;
+CadImportPontoEBCodRegFin  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODREGFIN;
+CadImportPontoEBCodPeIni  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODPEINI;
+CadImportPontoEBCodPeFin  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODPEFIN;
+CadImportPontoEBCodEventoIni  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODEVENTOINI;
+CadImportPontoEBCodEventoFin  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODEVENTOFIN;
+CadImportPontoEBHoraIni  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_HORAINI;
+CadImportPontoEBHoraFin  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_HORAFIN;
+CadImportPontoEBMinIni  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MININI;
+CadImportPontoEBMinFin  		  := Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MINFIN;
+CadImportPontoEBUtiMinFr  		:= Aliases.Folha.FFormPadraoRHLAYIMPORT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_UTIMINFR;
+end;
