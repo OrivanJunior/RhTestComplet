@@ -1,1 +1,131 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolReciboPagamento,ObjReciboPagamento;
+
+procedure PreencheRecPagamento();
+begin
+FormAbaPrincRecPagamento.ActivePageIndex :=0;
+VerificaInsere(CadRecPagamentoEBIdLayRecibo,CadRecPagamentoDPIdLayRecibo);
+VerificaInsere(CadRecPagamentoEBDescricao,CadRecPagamentoDPDescricao);
+VerificaInsere(CadRecPagamentoEBTamanhoFon,CadRecPagamentoDPTamanhoFon);
+VerificaInsere(CadRecPagamentoEBLargura,CadRecPagamentoDPLargura);
+VerificaInsere(CadRecPagamentoEBAltura,CadRecPagamentoDPAltura);
+VerificaInsere(CadRecPagamentoEBNEventPag,CadRecPagamentoDPNEventPag);
+VerificaInsere(CadRecPagamentoEBLPPRecibo,CadRecPagamentoDPLPPRecibo);
+VerificaInsere(CadRecPagamentoEBNroColunasExt,CadRecPagamentoDPNroColunasExt);
+
+FormAbaPrincRecPagamento.ActivePageIndex :=1;
+VerificaInsere(CadRecPagamentoEBLCRazaoSoc,CadRecPagamentoDPLCRazaoSoc);
+VerificaInsere(CadRecPagamentoEBLCCnpj,CadRecPagamentoDPLCCnpj);
+VerificaInsere(CadRecPagamentoEBLCCidade,CadRecPagamentoDPLCCidade);
+VerificaInsere(CadRecPagamentoEBLCProc,CadRecPagamentoDPLCProc);
+VerificaInsere(CadRecPagamentoEBLCDtReferencia,CadRecPagamentoDPLCDtReferencia);
+VerificaInsere(CadRecPagamentoEBLCIdEmpregado,CadRecPagamentoDPLCIdEmpregado);
+VerificaInsere(CadRecPagamentoEBLCNomeEmp,CadRecPagamentoDPLCNomeEmp);
+VerificaInsere(CadRecPagamentoEBLCAgencia,CadRecPagamentoDPLCAgencia);
+VerificaInsere(CadRecPagamentoEBLCConta,CadRecPagamentoDPLCConta);
+VerificaInsere(CadRecPagamentoEBLCCbo,CadRecPagamentoDPLCCbo);
+VerificaInsere(CadRecPagamentoEBLCCodlocal,CadRecPagamentoDPLCCodlocal);
+VerificaInsere(CadRecPagamentoEBLCDescLocal,CadRecPagamentoDPLCDescLocal);
+VerificaInsere(CadRecPagamentoEBLCCargo,CadRecPagamentoDPLCCargo);
+VerificaInsere(CadRecPagamentoEBLCFuncao,CadRecPagamentoDPLCFuncao);
+VerificaInsere(CadRecPagamentoEBLCDtAdm,CadRecPagamentoDPLCDtAdm);
+VerificaInsere(CadRecPagamentoEBLCPis,CadRecPagamentoDPLCPis);
+
+FormAbaPrincRecPagamento.ActivePageIndex :=2;
+VerificaInsere(CadRecPagamentoEBLCIdEvento,CadRecPagamentoDPLCIdEvento);
+VerificaInsere(CadRecPagamentoEBLCDescEvento,CadRecPagamentoDPLCDescEvento);
+VerificaInsere(CadRecPagamentoEBQtdeDescEve,CadRecPagamentoDPQtdeDescEve);
+VerificaInsere(CadRecPagamentoEBLCReferencia,CadRecPagamentoDPLCReferencia);
+VerificaInsere(CadRecPagamentoEBLCVencimentos,CadRecPagamentoDPLCVencimentos);
+VerificaInsere(CadRecPagamentoEBLCDescontos,CadRecPagamentoDPLCDescontos);
+VerificaInsere(CadRecPagamentoEBLCNeutros,CadRecPagamentoDPLCNeutros);
+
+FormAbaPrincRecPagamento.ActivePageIndex :=3;
+VerificaInsere(CadRecPagamentoEBLCTotvencimentos,CadRecPagamentoDPLCTotvencimentos);
+VerificaInsere(CadRecPagamentoEBLCTotdescontos,CadRecPagamentoDPLCTotdescontos);
+VerificaInsere(CadRecPagamentoEBLCVlrliquido,CadRecPagamentoDPLCVlrliquido);
+VerificaInsere(CadRecPagamentoEBLCSalario,CadRecPagamentoDPLCSalario);
+VerificaInsere(CadRecPagamentoEBLCBinss,CadRecPagamentoDPLCBinss);
+VerificaInsere(CadRecPagamentoEBLCBfgts,CadRecPagamentoDPLCBfgts);
+VerificaInsere(CadRecPagamentoEBLCVlrfgts,CadRecPagamentoDPLCVlrfgts);
+VerificaInsere(CadRecPagamentoEBLCBIrrf,CadRecPagamentoDPLCBIrrf);
+VerificaInsere(CadRecPagamentoEBLCFaixaIrrf,CadRecPagamentoDPLCFaixaIrrf);
+VerificaInsere(CadRecPagamentoEBLCMensagem,CadRecPagamentoDPLCMensagem);
+VerificaInsere(CadRecPagamentoEBQtdCaracteres,CadRecPagamentoDPQtdCaracteres);
+VerificaInsere(CadRecPagamentoEBLcRodape,CadRecPagamentoDPLcRodape);
+
+end;
+
+
+
+procedure CadastraRecPagamento(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Recibo de Pagamento');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRecPagamento(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IdLayRecibo',CadRecPagamentoDPIdLayRecibo);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRecPagamento();
+  
+  PreencheRecPagamento();
+  
+  ActSalvar(FormPadraoRecPagamento);
+  ActFechar(FormPadraoRecPagamento);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRecPagamento(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Recibo de Pagamento');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRecPagamento(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid','IdLayRecibo',CadRecPagamentoDPIdLayRecibo);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRecPagamento();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+
+  ActFechar(FormPadraoRecPagamento);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

@@ -1774,7 +1774,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Vales" key="{15E91D40-AAB5-46C2-9F0B-BDEF0D0F911B}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Vales" key="{15E91D40-AAB5-46C2-9F0B-BDEF0D0F911B}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraVales" key="{D4AEDC83-077C-4E1A-9870-16BC9E69BFF0}" group="False" parallel="False" enabled="True" testMoniker="{0040031D-C417-4AA3-B1F5-4F7D79B6742D}CadastraVales" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1787,6 +1787,25 @@
 															<testItem name="ExcluirVales" key="{84AF7237-79F7-44DA-8D6E-D4494A0C3DFE}" group="False" parallel="False" enabled="True" testMoniker="{0040031D-C417-4AA3-B1F5-4F7D79B6742D}ExcluirVales" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Vales\Vales.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Recibo de Pagamento" key="{55994241-75B9-4052-AE86-6BB6DFF72039}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraRecPagamento" key="{2C5C0E77-32B2-460E-B459-277E36A67E82}" group="False" parallel="False" enabled="True" testMoniker="{2346A5C6-B2C6-44CF-BDEA-0AF957266C7E}CadastraRecPagamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Recibo de Pagamento\Recibo de Pagamento.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirRecPagamento" key="{14A2B0F0-0314-4CAB-8808-3EA9A8620308}" group="False" parallel="False" enabled="True" testMoniker="{2346A5C6-B2C6-44CF-BDEA-0AF957266C7E}ExcluirRecPagamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Recibo de Pagamento\Recibo de Pagamento.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
