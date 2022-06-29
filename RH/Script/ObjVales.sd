@@ -1,1 +1,35 @@
-﻿
+﻿{Script para mapear tela de cadastro de Vale
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 29/06/2022}
+
+var
+FormPadraoVale,
+CadValeEBIdLayout,
+CadValeEBDescricao,
+CadValeEBLPP,
+CadValeEBIncIni,
+CadValeEBLcData,
+CadValeEBLcFornec,
+CadValeEBLcNome,
+CadValeEBLcValor,
+CadValeEBNroLinValor,
+CadValeEBNroCarac,
+CadValeEBIncFin  :OleVariant;
+
+
+procedure MapCadVale();
+begin
+FormPadraoVale  		  := Aliases.Folha.FFormPadraoRHLAYVALE;
+CadValeEBIdLayout	  	:= Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLAYOUT;
+CadValeEBDescricao  	:= Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadValeEBLPP  			  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LPP;
+CadValeEBIncIni  		  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INCINI;
+CadValeEBLcData  		  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDATA;
+CadValeEBLcFornec  		:= Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCFORNEC;
+CadValeEBLcNome  		  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME;
+CadValeEBLcValor  		:= Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCVALOR;
+CadValeEBNroLinValor  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROLINVALOR;
+CadValeEBNroCarac  		:= Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROCARAC;
+CadValeEBIncFin  		  := Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INCFIN;
+end;

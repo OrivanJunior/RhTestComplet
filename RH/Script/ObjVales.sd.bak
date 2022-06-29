@@ -1,0 +1,23 @@
+﻿{Script para mapear tela de cadastro de Vale
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 29/06/2022}
+ 
+ 
+
+procedure Test1;
+begin
+  Aliases.Folha.FFormPadraoRHLAYVALE.Click(143, 16);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLAYOUT.Click(26, 6);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Click(33, 10);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LPP.Click(30, 12);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INCINI.Click(21, 9);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDATA.Click(24, 5);
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDATA.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCFORNEC.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCVALOR.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROLINVALOR.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROCARAC.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYVALE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INCFIN.Keys('[Tab]');
+end;

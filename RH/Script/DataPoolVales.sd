@@ -1,1 +1,27 @@
-﻿
+﻿var
+CadValeDPIdLayout,
+CadValeDPDescricao,
+CadValeDPLPP,
+CadValeDPIncIni,
+CadValeDPLcData,
+CadValeDPLcFornec,
+CadValeDPLcNome,
+CadValeDPLcValor,
+CadValeDPNroLinValor,
+CadValeDPNroCarac,
+CadValeDPIncFin  :OleVariant;	
+
+procedure LeDataPoolCadVale(nomeDriver);
+begin
+CadValeDPIdLayout				    := DDT.DriverbyName(nomeDriver).Value('IDLAYOUT');
+CadValeDPDescricao          := DDT.DriverbyName(nomeDriver).Value('DESCRICAO');
+CadValeDPLPP  		          := DDT.DriverbyName(nomeDriver).Value('LPP');
+CadValeDPIncIni  	          := DDT.DriverbyName(nomeDriver).Value('INCINI');
+CadValeDPLcData  	          := DDT.DriverbyName(nomeDriver).Value('LCDATA');
+CadValeDPLcFornec  	        := DDT.DriverbyName(nomeDriver).Value('LCFORNEC');
+CadValeDPLcNome  	          := DDT.DriverbyName(nomeDriver).Value('LCNOME');
+CadValeDPLcValor  	        := DDT.DriverbyName(nomeDriver).Value('LCVALOR');
+CadValeDPNroLinValor        := DDT.DriverbyName(nomeDriver).Value('NROLINVALOR');
+CadValeDPNroCarac  	        := DDT.DriverbyName(nomeDriver).Value('NROCARAC');
+CadValeDPIncFin  	          := DDT.DriverbyName(nomeDriver).Value('INCFIN');
+end;

@@ -1,1 +1,91 @@
-﻿
+﻿uses CommonsAll,CommonsObj,VarConsts,DataPoolVales,ObjVales;
+
+procedure  PreencheVale();
+begin
+VerificaInsere(CadValeEBIdLayout,CadValeDPIdLayout);
+VerificaInsere(CadValeEBDescricao,CadValeDPDescricao);
+VerificaInsere(CadValeEBLPP,CadValeDPLPP);
+VerificaInsere(CadValeEBIncIni,CadValeDPIncIni);
+VerificaInsere(CadValeEBLcData,CadValeDPLcData);
+VerificaInsere(CadValeEBLcFornec,CadValeDPLcFornec);
+VerificaInsere(CadValeEBLcNome,CadValeDPLcNome);
+VerificaInsere(CadValeEBLcValor,CadValeDPLcValor);
+VerificaInsere(CadValeEBNroLinValor,CadValeDPNroLinValor);
+VerificaInsere(CadValeEBNroCarac,CadValeDPNroCarac);
+VerificaInsere(CadValeEBIncFin,CadValeDPIncFin);
+end;
+
+
+procedure CadastraVales(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Vales');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadVale(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYVALE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Layou',CadValeDPIdLayout);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadVale();
+  
+  PreencheVale();
+  
+  ActSalvar(FormPadraoVale);
+  ActFechar(FormPadraoVale);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirVales(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Vales');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadVale(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYVALE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Layou',CadValeDPIdLayout);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadVale();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYVALE');
+
+  ActFechar(FormPadraoVale);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
