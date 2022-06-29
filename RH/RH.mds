@@ -1560,19 +1560,43 @@
 											<testItem name="Responsáveis" key="{77D4C094-6B20-42E3-9DC4-5E340B35A8E6}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="CadastraSefip" key="{C83E7311-5776-4F9A-903D-C3620B375A0E}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}CadastraSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
+													<testItem name="SEFIP" key="{B9328F11-6FF3-4658-AB65-C4B2F73444C1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraSefip" key="{9CBE9C3F-9CDA-4937-948C-1C6A2D4D4B3F}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}CadastraSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirSefip" key="{3453AEFA-ABE3-4070-B7F1-A072DB5CE918}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}ExcluirSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
-													<testItem name="ExcluirSefip" key="{36A852FD-B212-4F25-A401-2E7915289FC2}" group="False" parallel="False" enabled="True" testMoniker="{FAC914BE-AE27-4D14-9971-101B6B402DB3}ExcluirSefip" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\SEFIP\SEFIP.xlsx" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
+													<testItem name="CAGED" key="{88718DC1-A19E-4D5A-93CF-D56DC34D21E9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraCaged" key="{72D64D1D-A82A-4EF7-A26E-6C0DB2464E34}" group="False" parallel="False" enabled="True" testMoniker="{CF20B039-B999-4AB6-A38A-57FE8D455A65}CadastraCaged" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\CAGED\CAGED.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirCaged" key="{A010E2BA-0495-4817-A151-7E65EC55E338}" group="False" parallel="False" enabled="True" testMoniker="{CF20B039-B999-4AB6-A38A-57FE8D455A65}ExcluirCaged" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Responsáveis\CAGED\CAGED.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>

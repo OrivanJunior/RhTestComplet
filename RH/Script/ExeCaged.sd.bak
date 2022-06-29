@@ -2,7 +2,7 @@
 
 procedure PreencheCaged();
 begin
-VerificaInsere(CadCagedEBCodCagedRes,CadCagedDPCodCagedRes);
+VerificaInsere(CadCagedEBCodCagedResp,CadCagedDPCodCagedResp);
 VerificaConsultaF3Insere(_ModuloFolha,CadCagedEBEstab,CadCagedDPEstab);
 VerificaInsere(CadCagedEBAutorizacao,CadCagedDPAutorizacao);
 end;
@@ -36,7 +36,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedRes);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedResp);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
@@ -75,13 +75,13 @@ begin
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedRes);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedResp);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadSefip();
+  MapCadCaged();
   
   ActExcluir(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
 

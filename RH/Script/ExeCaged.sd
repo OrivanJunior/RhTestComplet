@@ -16,7 +16,7 @@ BtnOkFiltroCaged.ClickButton;
 end;
 
 
-procedure CadastraSefip(pathData);
+procedure CadastraCaged(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
@@ -55,7 +55,7 @@ end;
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirSefip(PathData);
+procedure ExcluirCaged(PathData);
 var
 DDTExcluir : OleVariant;
 begin
