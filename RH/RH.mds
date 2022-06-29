@@ -1736,7 +1736,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Importação Ponto" key="{58C44157-6210-455B-B4F9-9D848F4D91F8}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Importação Ponto" key="{58C44157-6210-455B-B4F9-9D848F4D91F8}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraImportPonto" key="{3D6B96F8-0923-4B52-AB7D-B4AEA0913469}" group="False" parallel="False" enabled="True" testMoniker="{3C0430DD-C08A-4C27-8F7D-4DFB7CB608D0}CadastraImportPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1749,6 +1749,25 @@
 															<testItem name="ExcluirImportPonto" key="{E99DE59B-E797-4B6D-B639-75315F89F289}" group="False" parallel="False" enabled="True" testMoniker="{3C0430DD-C08A-4C27-8F7D-4DFB7CB608D0}ExcluirImportPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Importação Ponto\Importação Ponto.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Eventos do Ponto" key="{BE677A48-7680-4622-93EA-1CAE95B54CF4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraEvenPonto" key="{18B36207-8602-4269-A0C5-CD3CA1014193}" group="False" parallel="False" enabled="True" testMoniker="{95D035C3-0395-4BAA-A666-87DB83C5F5C0}CadastraEvenPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Eventos do Ponto\Eventos do Ponto.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirEvenPonto" key="{C355497A-0976-4568-9AAA-9098F420C6E2}" group="False" parallel="False" enabled="True" testMoniker="{95D035C3-0395-4BAA-A666-87DB83C5F5C0}ExcluirEvenPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Eventos do Ponto\Eventos do Ponto.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

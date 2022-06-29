@@ -1,1 +1,13 @@
-﻿
+﻿var
+CadEvenPontoDPLayout,
+CadEvenPontoDPIdEvento,
+CadEvenPontoDPIdEvePonto : OleVariant;
+
+
+
+procedure LeDataPoolCadEvenPonto(nomeDriver);
+begin
+CadEvenPontoDPLayout 		    := DDT.DriverByName(nomeDriver).Value('LAYOUT');
+CadEvenPontoDPIdEvento      := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+CadEvenPontoDPIdEvePonto    := DDT.DriverByName(nomeDriver).Value('IDEVEPONTO');
+end;

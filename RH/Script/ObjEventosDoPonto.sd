@@ -1,1 +1,18 @@
-﻿
+﻿{Script para mapear tela de cadastro de Eventos do Ponto
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 29/06/2022}
+var
+FormPadraoEvenPonto,
+CadEvenPontoEBLayout,
+CadEvenPontoEBIdEvento,
+CadEvenPontoEBIdEvePonto : OleVariant;
+
+
+procedure MapCadEvenPonto();
+begin
+FormPadraoEvenPonto  		  := Aliases.Folha.FFormPadraoRHEVEPONTO;
+CadEvenPontoEBLayout 		  := Aliases.Folha.FFormPadraoRHEVEPONTO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LAYOUT;
+CadEvenPontoEBIdEvento  	:= Aliases.Folha.FFormPadraoRHEVEPONTO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEVENTO;
+CadEvenPontoEBIdEvePonto  := Aliases.Folha.FFormPadraoRHEVEPONTO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEVEPONTO;
+end;
