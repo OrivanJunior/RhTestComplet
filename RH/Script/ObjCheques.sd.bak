@@ -1,0 +1,41 @@
+﻿var
+FormPadraoLayCheques,
+CadLayChequesEBIdLayCheque,
+CadLayChequesEBDescricao,
+CadLayChequesEBTamanhoFon,
+CadLayChequesEBLargura,
+CadLayChequesEBAltura,
+CadLayChequesEBNroColExt,
+CadLayChequesEBLCValor,
+CadLayChequesEBLCExtenso1,
+CadLayChequesEBLCExtenso2,
+CadLayChequesEBLCNominal,
+CadLayChequesEBLCCidade,
+CadLayChequesEBLCDia,
+CadLayChequesEBLCMes,
+CadLayChequesEBLCAno,
+CadLayChequesEBLPPChe,
+CadLayChequesEBChPorFolha,
+CadLayChequesEBLCBomPara : OleVariant;
+
+procedure MapCadLayCheques();
+begin
+FormPadraoLayCheques  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE;
+CadLayChequesEBIdLayCheque  := Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLAYCHEQUE;
+CadLayChequesEBDescricao  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadLayChequesEBTamanhoFon  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFON;
+CadLayChequesEBLargura  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LARGURA;
+CadLayChequesEBAltura  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA;
+CadLayChequesEBNroColExt  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROCOLEXT;
+CadLayChequesEBLCValor  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCVALOR;
+CadLayChequesEBLCExtenso1  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCEXTENSO1;
+CadLayChequesEBLCExtenso2  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCEXTENSO2;
+CadLayChequesEBLCNominal 	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMINAL;
+CadLayChequesEBLCCidade  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCIDADE;
+CadLayChequesEBLCDia  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDIA;
+CadLayChequesEBLCMes  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCMES;
+CadLayChequesEBLCAno  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCANO;
+CadLayChequesEBLPPChe  		:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LPPCHE;
+CadLayChequesEBChPorFolha 	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CHPORFOLHA;
+CadLayChequesEBLCBomPara  	:= Aliases.Folha.FFormPadraoRHLAYCHEQUE.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCBOMPARA;
+end;
