@@ -626,7 +626,11 @@
 						<child name="ObjEventosDoPonto" key="{CD441525-D7A2-4F1A-87DD-B660FC284469}" path="ObjEventosDoPonto.sd" />
 						<child name="DataPoolEventosDoPonto" key="{0AE59F49-8C79-469E-99BF-43BCD2F4E044}" path="DataPoolEventosDoPonto.sd" />
 					</folder>
-					<folder name="Recibo de Pagamento" />
+					<folder name="Recibo de Pagamento">
+						<child name="ExeReciboPagamento" key="{2346A5C6-B2C6-44CF-BDEA-0AF957266C7E}" path="ExeReciboPagamento.sd" />
+						<child name="ObjReciboPagamento" key="{0F5C35D0-49D8-4140-9B44-8D5A581B12AF}" path="ObjReciboPagamento.sd" />
+						<child name="DataPoolReciboPagamento" key="{C6F1A8AE-8CEF-4D92-A6F0-8655211A8A90}" path="DataPoolReciboPagamento.sd" />
+					</folder>
 					<folder name="Seguro Desemprego" />
 					<folder name="Vales">
 						<child name="ExeVales" key="{0040031D-C417-4AA3-B1F5-4F7D79B6742D}" path="ExeVales.sd" />

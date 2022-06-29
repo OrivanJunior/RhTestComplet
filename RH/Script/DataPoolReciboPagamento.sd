@@ -1,0 +1,98 @@
+﻿var
+CadRecPagamentoDPIdLayRecibo,
+CadRecPagamentoDPDescricao,
+CadRecPagamentoDPTamanhoFon,
+CadRecPagamentoDPLargura,
+CadRecPagamentoDPAltura,
+CadRecPagamentoDPNEventPag,
+CadRecPagamentoDPLPPRecibo,
+CadRecPagamentoDPNroColunasExt,
+
+CadRecPagamentoDPLCRazaoSoc,
+CadRecPagamentoDPLCCnpj,
+CadRecPagamentoDPLCCidade,
+CadRecPagamentoDPLCProc,
+CadRecPagamentoDPLCDtReferencia,
+CadRecPagamentoDPLCIdEmpregado,
+CadRecPagamentoDPLCNomeEmp,
+CadRecPagamentoDPLCAgencia,
+CadRecPagamentoDPLCConta,
+CadRecPagamentoDPLCCbo,
+CadRecPagamentoDPLCCodlocal,
+CadRecPagamentoDPLCDescLocal,
+CadRecPagamentoDPLCCargo,
+CadRecPagamentoDPLCFuncao,
+CadRecPagamentoDPLCDtAdm,
+CadRecPagamentoDPLCPis,
+
+CadRecPagamentoDPLCIdEvento,
+CadRecPagamentoDPLCDescEvento,
+CadRecPagamentoDPQtdeDescEve,
+CadRecPagamentoDPLCReferencia,
+CadRecPagamentoDPLCVencimentos,
+CadRecPagamentoDPLCDescontos,
+CadRecPagamentoDPLCNeutros,
+
+CadRecPagamentoDPLCTotvencimentos,
+CadRecPagamentoDPLCTotdescontos,
+CadRecPagamentoDPLCVlrliquido,
+CadRecPagamentoDPLCSalario,
+CadRecPagamentoDPLCBinss,
+CadRecPagamentoDPLCBfgts,
+CadRecPagamentoDPLCVlrfgts,
+CadRecPagamentoDPLCBIrrf,
+CadRecPagamentoDPLCFaixaIrrf,
+CadRecPagamentoDPLCMensagem,
+CadRecPagamentoDPQtdCaracteres,
+CadRecPagamentoDPLcRodape : OleVariant;
+
+
+procedure LeDataPoolCadRecPagamento(nomeDriver);
+begin
+CadRecPagamentoDPIdLayRecibo  		:= DDT.DriverByName(nomeDriver).Value('IDLAYRECIBO');
+CadRecPagamentoDPDescricao  		  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadRecPagamentoDPTamanhoFon  		  := DDT.DriverByName(nomeDriver).Value('TAMANHOFON');
+CadRecPagamentoDPLargura  			  := DDT.DriverByName(nomeDriver).Value('LARGURA');
+CadRecPagamentoDPAltura  			    := DDT.DriverByName(nomeDriver).Value('ALTURA');
+CadRecPagamentoDPNEventPag  		  := DDT.DriverByName(nomeDriver).Value('NEVENTPAG');
+CadRecPagamentoDPLPPRecibo  		  := DDT.DriverByName(nomeDriver).Value('LPPRECIBO');
+CadRecPagamentoDPNroColunasExt		:= DDT.DriverByName(nomeDriver).Value('NROCOLUNASEXT');
+
+CadRecPagamentoDPLCRazaoSoc  		  := DDT.DriverByName(nomeDriver).Value('LCRAZAOSOC');
+CadRecPagamentoDPLCCnpj  			    := DDT.DriverByName(nomeDriver).Value('LCCNPJ');
+CadRecPagamentoDPLCCidade  			  := DDT.DriverByName(nomeDriver).Value('LCCIDADE');
+CadRecPagamentoDPLCProc  			    := DDT.DriverByName(nomeDriver).Value('LCPROC');
+CadRecPagamentoDPLCDtReferencia 	:= DDT.DriverByName(nomeDriver).Value('LCDTREFERENCIA');
+CadRecPagamentoDPLCIdEmpregado  	:= DDT.DriverByName(nomeDriver).Value('LCIDEMPREGADO');
+CadRecPagamentoDPLCNomeEmp  		  := DDT.DriverByName(nomeDriver).Value('LCNOMEEMP');
+CadRecPagamentoDPLCAgencia  		  := DDT.DriverByName(nomeDriver).Value('LCAGENCIA');
+CadRecPagamentoDPLCConta  			  := DDT.DriverByName(nomeDriver).Value('LCCONTA');
+CadRecPagamentoDPLCCbo  			    := DDT.DriverByName(nomeDriver).Value('LCCBO');
+CadRecPagamentoDPLCCodlocal  		  := DDT.DriverByName(nomeDriver).Value('LCCODLOCAL');
+CadRecPagamentoDPLCDescLocal  		:= DDT.DriverByName(nomeDriver).Value('LCDESCLOCAL');
+CadRecPagamentoDPLCCargo  			  := DDT.DriverByName(nomeDriver).Value('LCCARGO');
+CadRecPagamentoDPLCFuncao  			  := DDT.DriverByName(nomeDriver).Value('LCFUNCAO');
+CadRecPagamentoDPLCDtAdm  			  := DDT.DriverByName(nomeDriver).Value('LCDTADM');
+CadRecPagamentoDPLCPis  			    := DDT.DriverByName(nomeDriver).Value('LCPIS');
+
+CadRecPagamentoDPLCIdEvento  		  := DDT.DriverByName(nomeDriver).Value('LCIDEVENTO');
+CadRecPagamentoDPLCDescEvento  		:= DDT.DriverByName(nomeDriver).Value('LCDESCEVENTO');
+CadRecPagamentoDPQtdeDescEve  		:= DDT.DriverByName(nomeDriver).Value('QTDEDESCEVE');
+CadRecPagamentoDPLCReferencia  		:= DDT.DriverByName(nomeDriver).Value('LCREFERENCIA');
+CadRecPagamentoDPLCVencimentos  	:= DDT.DriverByName(nomeDriver).Value('LCVENCIMENTOS');
+CadRecPagamentoDPLCDescontos  		:= DDT.DriverByName(nomeDriver).Value('LCDESCONTOS');
+CadRecPagamentoDPLCNeutros  		  := DDT.DriverByName(nomeDriver).Value('LCNEUTROS');
+
+CadRecPagamentoDPLCTotvencimentos := DDT.DriverByName(nomeDriver).Value('LCTOTVENCIMENTOS');
+CadRecPagamentoDPLCTotdescontos 	:= DDT.DriverByName(nomeDriver).Value('LCTOTDESCONTOS');
+CadRecPagamentoDPLCVlrliquido  		:= DDT.DriverByName(nomeDriver).Value('LCVLRLIQUIDO');
+CadRecPagamentoDPLCSalario  		  := DDT.DriverByName(nomeDriver).Value('LCSALARIO');
+CadRecPagamentoDPLCBinss  			  := DDT.DriverByName(nomeDriver).Value('LCBINSS');
+CadRecPagamentoDPLCBfgts  			  := DDT.DriverByName(nomeDriver).Value('LCBFGTS');
+CadRecPagamentoDPLCVlrfgts  		  := DDT.DriverByName(nomeDriver).Value('LCVLRFGTS');
+CadRecPagamentoDPLCBIrrf  			  := DDT.DriverByName(nomeDriver).Value('LCBIRRF');
+CadRecPagamentoDPLCFaixaIrrf  		:= DDT.DriverByName(nomeDriver).Value('LCFAIXAIRRF');
+CadRecPagamentoDPLCMensagem  		  := DDT.DriverByName(nomeDriver).Value('LCMENSAGEM');
+CadRecPagamentoDPQtdCaracteres  	:= DDT.DriverByName(nomeDriver).Value('QTDCARACTERES');
+CadRecPagamentoDPLcRodape  			  := DDT.DriverByName(nomeDriver).Value('LCRODAPE');
+end;

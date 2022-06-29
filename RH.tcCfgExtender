@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{C6F1A8AE-8CEF-4D92-A6F0-8655211A8A90}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -1286,6 +1286,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{0f5c35d0-49d8-4140-9b44-8d5a581b12af}"/>
 					<Node name="{0f8258c4-391c-4efe-83db-d37f6e38e38a}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -2436,6 +2437,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{2346a5c6-b2c6-44cf-bdea-0af957266c7e}"/>
 					<Node name="{23bfa8b1-a2a0-4a23-84b0-45afe9a4dd30}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="13"/>
@@ -3346,7 +3348,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{371a9120-86f6-45a5-9b6d-f1f0db268e14}"/>
+					<Node name="{371a9120-86f6-45a5-9b6d-f1f0db268e14}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="38"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="19"/>
+						</Node>
+						<Prp name="bottom" type="I" value="39"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{381b1c4d-8fec-4d6f-8880-8b647731e477}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="8"/>
@@ -12232,6 +12243,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{c6f1a8ae-8cef-4d92-a6f0-8655211a8a90}"/>
 					<Node name="{c6f52484-9537-4d89-a9ad-b9a3e6cc3538}">
 						<Prp name="bottom" type="I" value="28"/>
 						<Prp name="collapsed" type="B" value="0"/>
@@ -16454,9 +16466,7 @@
 										<Node name="situações"/>
 									</Node>
 									<Node name="layouts">
-										<Node name="cheques"/>
-										<Node name="eventos do ponto"/>
-										<Node name="vales"/>
+										<Node name="recibo de pagamento"/>
 									</Node>
 								</Node>
 							</Node>
@@ -16464,7 +16474,9 @@
 						<Node name="testedapps"/>
 					</Node>
 				</Node>
-				<Node name="rh logs"/>
+				<Node name="rh logs">
+					<Node name="rh logs"/>
+				</Node>
 			</Node>
 		</Node>
 		<Prp name="signature" type="S" value="{8EBE6EB3-803D-4913-AD7A-D71552123A67}"/>
