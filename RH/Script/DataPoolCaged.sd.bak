@@ -1,0 +1,12 @@
+﻿var
+CadCagedDPCodCagedRes,
+CadCagedDPEstab,
+CadCagedDPAutorizacao : OleVariant;
+
+
+procedure LeDataPoolCadCaged(nomeDriver);
+begin
+CadCagedDPCodCagedRes	:= DDT.DriverByName(nomeDriver).Value('CODCAGEDRESP');
+CadCagedDPEstab  		  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadCagedDPAutorizacao	:= DDT.DriverByName(nomeDriver).Value('AUTORIZACAO');
+end;

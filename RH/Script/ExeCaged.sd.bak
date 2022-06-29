@@ -1,0 +1,95 @@
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolCaged,ObjCaged;
+
+procedure PreencheCaged();
+begin
+VerificaInsere(CadCagedEBCodCagedRes,CadCagedDPCodCagedRes);
+VerificaConsultaF3Insere(_ModuloFolha,CadCagedEBEstab,CadCagedDPEstab);
+VerificaInsere(CadCagedEBAutorizacao,CadCagedDPAutorizacao);
+end;
+
+procedure FiltraTelaInicialCaged();
+begin
+FiltroCaged();
+FiltroListaConsultaCaged.SetText('Por Descrição');
+FiltroListaRazaoSocial.Keys('(Ignorar)');
+BtnOkFiltroCaged.ClickButton;
+end;
+
+
+procedure CadastraSefip(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Responsáveis', 'CAGED');
+
+FiltraTelaInicialCaged();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCaged(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedRes);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCaged();
+  
+  PreencheCaged();
+  
+  ActSalvar(FormPadraoCaged);
+  ActFechar(FormPadraoCaged);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirSefip(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Responsáveis', 'CAGED');
+
+FiltraTelaInicialCaged();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCaged(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód. Resp.',CadCagedDPCodCagedRes);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadSefip();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCAGEDRESP');
+
+  ActFechar(FormPadraoCaged);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

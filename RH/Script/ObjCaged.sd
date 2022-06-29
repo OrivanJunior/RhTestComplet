@@ -3,4 +3,30 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 28/06/2022}
  
+var
+FormPadraoCaged,
+CadCagedEBCodCagedResp,
+CadCagedEBEstab,
+CadCagedEBAutorizacao,
+  
+FormFiltroCaged,
+FiltroListaConsultaCaged,
+FiltroListaRazaoSocial,
+BtnOkFiltroCaged : OleVariant;
+	
+procedure MapCadCaged();
+begin
+FormPadraoCaged  			    := Aliases.Folha.FFormPadraoRHCAGEDRESP;
+CadCagedEBCodCagedResp  	:= Aliases.Folha.FFormPadraoRHCAGEDRESP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODCAGEDRESP;
+CadCagedEBEstab  			    := Aliases.Folha.FFormPadraoRHCAGEDRESP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadCagedEBAutorizacao  		:= Aliases.Folha.FFormPadraoRHCAGEDRESP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AUTORIZACAO;
  
+end;
+
+procedure FiltroCaged();
+begin
+FormFiltroCaged  		      := Aliases.Folha.FFiltroConsultaCDS;
+FiltroListaConsultaCaged  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroListaRazaoSocial    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnOkFiltroCaged		      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
