@@ -1,1 +1,42 @@
-﻿
+﻿var
+CadImportPontoDPLayout,
+CadImportPontoDPDescricao,
+CadImportPontoDPUtiCod,
+CadImportPontoDPCodReg,
+CadImportPontoDPCodEmpN,
+CadImportPontoDPRegIni,
+CadImportPontoDPRegFin,
+CadImportPontoDPCodRegIni,
+CadImportPontoDPCodRegFin,
+CadImportPontoDPCodPeIni,
+CadImportPontoDPCodPeFin,
+CadImportPontoDPCodEventoIni,
+CadImportPontoDPCodEventoFin,
+CadImportPontoDPHoraIni,
+CadImportPontoDPHoraFin,
+CadImportPontoDPMinIni,
+CadImportPontoDPMinFin,
+CadImportPontoDPUtiMinFr :OleVariant;
+
+
+procedure LeDataPoolCadImportPonto(nomeDriver);
+begin
+CadImportPontoDPLayout  		  := DDT.DriverByName(nomeDriver).Value('LAYOUT');
+CadImportPontoDPDescricao  	  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadImportPontoDPUtiCod  	    := DDT.DriverByName(nomeDriver).Value('UTICOD');
+CadImportPontoDPCodReg  	    := DDT.DriverByName(nomeDriver).Value('CODREG');
+CadImportPontoDPCodEmpN  	    := DDT.DriverByName(nomeDriver).Value('CODEMPN');
+CadImportPontoDPRegIni  	    := DDT.DriverByName(nomeDriver).Value('REGINI');
+CadImportPontoDPRegFin  	    := DDT.DriverByName(nomeDriver).Value('REGFIN');
+CadImportPontoDPCodRegIni  	  := DDT.DriverByName(nomeDriver).Value('CODREGINI');
+CadImportPontoDPCodRegFin  	  := DDT.DriverByName(nomeDriver).Value('CODREGFIN');
+CadImportPontoDPCodPeIni  	  := DDT.DriverByName(nomeDriver).Value('CODPEINI');
+CadImportPontoDPCodPeFin  	  := DDT.DriverByName(nomeDriver).Value('CODPEFIN');
+CadImportPontoDPCodEventoIni  := DDT.DriverByName(nomeDriver).Value('CODEVENTOINI');
+CadImportPontoDPCodEventoFin  := DDT.DriverByName(nomeDriver).Value('CODEVENTOFIN');
+CadImportPontoDPHoraIni  	    := DDT.DriverByName(nomeDriver).Value('HORAINI');
+CadImportPontoDPHoraFin  	    := DDT.DriverByName(nomeDriver).Value('HORAFIN');
+CadImportPontoDPMinIni  	    := DDT.DriverByName(nomeDriver).Value('MININI');
+CadImportPontoDPMinFin  	    := DDT.DriverByName(nomeDriver).Value('MINFIN');
+CadImportPontoDPUtiMinFr  	  := DDT.DriverByName(nomeDriver).Value('UTIMINFR');
+end;

@@ -1,1 +1,98 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,ObjImportacaoPonto,DataPoolImportacaoPonto;
+
+
+procedure PreencheImportPonto();
+begin
+VerificaInsere(CadImportPontoEBLayout,CadImportPontoDPLayout);
+VerificaInsere(CadImportPontoEBDescricao,CadImportPontoDPDescricao);
+VerificaInsere(CadImportPontoEBUtiCod,CadImportPontoDPUtiCod);
+VerificaInsere(CadImportPontoEBCodReg,CadImportPontoDPCodReg);
+VerificaInsere(CadImportPontoEBCodEmpN,CadImportPontoDPCodEmpN);
+VerificaInsere(CadImportPontoEBRegIni,CadImportPontoDPRegIni);
+VerificaInsere(CadImportPontoEBRegFin,CadImportPontoDPRegFin);
+VerificaInsere(CadImportPontoEBCodRegIni,CadImportPontoDPCodRegIni);
+VerificaInsere(CadImportPontoEBCodRegFin,CadImportPontoDPCodRegFin);
+VerificaInsere(CadImportPontoEBCodPeIni,CadImportPontoDPCodPeIni);
+VerificaInsere(CadImportPontoEBCodPeFin,CadImportPontoDPCodPeFin);
+VerificaInsere(CadImportPontoEBCodEventoIni,CadImportPontoDPCodEventoIni);
+VerificaInsere(CadImportPontoEBCodEventoFin,CadImportPontoDPCodEventoFin);
+VerificaInsere(CadImportPontoEBHoraIni,CadImportPontoDPHoraIni);
+VerificaInsere(CadImportPontoEBHoraFin,CadImportPontoDPHoraFin);
+VerificaInsere(CadImportPontoEBMinIni,CadImportPontoDPMinIni);
+VerificaInsere(CadImportPontoEBMinFin,CadImportPontoDPMinFin);
+VerificaInsere(CadImportPontoEBUtiMinFr,CadImportPontoDPUtiMinFr);
+end;
+
+
+procedure CadastraImportPonto(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Importação Ponto');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadImportPonto(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYIMPORT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cod Layout',CadImportPontoDPLayout);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadImportPonto();
+  
+  PreencheImportPonto();
+  
+  ActSalvar(FormPadraoImportPonto);
+  ActFechar(FormPadraoImportPonto);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirImportPonto(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Importação Ponto');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadImportPonto(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYIMPORT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cod Layout',CadImportPontoDPLayout);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadImportPonto();
+  
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYIMPORT');
+
+  ActFechar(FormPadraoImportPonto);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

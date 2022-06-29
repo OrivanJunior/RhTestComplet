@@ -1717,19 +1717,43 @@
 											<testItem name="Layouts" key="{58B5CEFA-3AB0-4E7D-BE0D-31F14BFF23FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="CadastraLayCheques" key="{BF294046-224F-4F8D-8572-909D0E7DF125}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}CadastraLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
+													<testItem name="Cheques" key="{A6685E05-2BE0-474B-932F-6832C6DAF568}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraLayCheques" key="{AD05B265-B43F-461A-888E-BD78C618D7F7}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}CadastraLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirLayCheques" key="{5C1202DD-1003-45E2-AA5D-17C716C63A0E}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}ExcluirLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
-													<testItem name="ExcluirLayCheques" key="{CBB68BE6-993D-4D0E-8004-8464AD971A72}" group="False" parallel="False" enabled="True" testMoniker="{A9AE00A8-0DC4-46BD-A279-FC09D470A254}ExcluirLayCheques" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Cheques\Cheques.xlsx" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
+													<testItem name="Importação Ponto" key="{58C44157-6210-455B-B4F9-9D848F4D91F8}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraImportPonto" key="{3D6B96F8-0923-4B52-AB7D-B4AEA0913469}" group="False" parallel="False" enabled="True" testMoniker="{3C0430DD-C08A-4C27-8F7D-4DFB7CB608D0}CadastraImportPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Importação Ponto\Importação Ponto.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirImportPonto" key="{E99DE59B-E797-4B6D-B639-75315F89F289}" group="False" parallel="False" enabled="True" testMoniker="{3C0430DD-C08A-4C27-8F7D-4DFB7CB608D0}ExcluirImportPonto" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Importação Ponto\Importação Ponto.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>
