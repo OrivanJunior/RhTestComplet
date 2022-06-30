@@ -1,1 +1,9 @@
-﻿
+﻿var
+FormPadraoPlugins,
+PagePrincPlugin : OleVariant;
+
+procedure MapCadPlugins();
+begin
+FormPadraoPlugins := Aliases.Folha.FRhProcVsPlugin;
+PagePrincPlugin   := Aliases.Folha.FRhProcVsPlugin.page;
+end;
