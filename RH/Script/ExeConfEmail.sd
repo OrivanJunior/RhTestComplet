@@ -1,1 +1,90 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolConfEmail,ObjConfEmail;
+
+procedure PreencheEmail();
+begin
+VerificaInsere(CadEmailEBIdconfig,CadEmailDPIdconfig);
+VerificaInsere(CadEmailEBDescricao,CadEmailDPDescricao);
+VerificaInsere(CadEmailEBHost,CadEmailDPHost);
+VerificaInsere(CadEmailEBPorta,CadEmailDPPorta);
+VerificaInsere(CadEmailEBReqAut,CadEmailDPReqAut);
+VerificaInsere(CadEmailEBConexaoSegura,CadEmailDPConexaoSegura);
+VerificaInsere(CadEmailEBSsltipo,CadEmailDPSsltipo);	
+VerificaInsere(CadEmailEBUsuario,CadEmailDPUsuario);	
+VerificaInsere(CadEmailEBSEnha,CadEmailDPSenha);
+CadEmailMask.Click;
+VerificaInsere(CadEmailEBEmail,CadEmailDPEmail);	
+end;
+
+  
+procedure CadastrarEmail(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. E-Mail');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEmail(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfigMail');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadEmailDPIdconfig );
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadEmail();
+  
+  PreencheEmail();
+  
+  ActSalvar(FormPadraoEmail);
+  ActFechar(FormPadraoEmail);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirEmail(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. E-Mail');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEmail(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfigMail');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código', CadEmailDPIdconfig);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadUF();
+  
+  ActExcluir(_ModuloFolha, 'FRhConfigMail');
+  ActFechar(FormPadraoEmail);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
