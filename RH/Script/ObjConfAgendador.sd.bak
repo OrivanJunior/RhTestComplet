@@ -1,5 +1,6 @@
 ﻿var
 FormPadraoAgendador,
+BtnSalvarAgendador,
 CadAgendadorEBId,
 CadAgendadorEBRotina,
 CadAgendadorEBIdConfig,
@@ -19,8 +20,7 @@ BtnCheckDiaMesT,
 						
 FormCheckHoras,
 BtnCheckHorasT,
-  
-  
+
 FormGrpMinutos,
 CadAgendadorEBMinutos,
 CadAgendadorEBConsiderar,
@@ -78,6 +78,7 @@ BtnCh31 : OleVariant;
 procedure MapCadAgendador();
 begin
 FormPadraoAgendador 		:= Aliases.Folha.FAgendador;
+BtnSalvarAgendador      := Aliases.Folha.FAgendador.BSalvar;
 CadAgendadorEBId  			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_ID;
 CadAgendadorEBRotina  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_ROTINA;
 CadAgendadorEBIdConfig  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_IDCONFIG;
