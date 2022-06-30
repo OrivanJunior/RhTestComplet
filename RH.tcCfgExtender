@@ -10091,7 +10091,12 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{992c7c8f-f502-44dd-a3bc-01642f6217b6}">
-						<Prp name="bottom" type="I" value="311"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="123"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="65"/>
+						</Node>
+						<Prp name="bottom" type="I" value="128"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>

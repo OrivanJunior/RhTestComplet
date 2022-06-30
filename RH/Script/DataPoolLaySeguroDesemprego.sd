@@ -1,1 +1,114 @@
-﻿
+﻿var
+CadSegDesDPCodigo,
+CadSegDesDPDescricao,
+CadSegDesDPLcnome,
+CadSegDesDPLcnomemae,
+CadSegDesDPLccbo,
+CadSegDesDPLcocupacao,
+CadSegDesDPLcdtadmissao,
+CadSegDesDPLcdtdemis,
+CadSegDesDPLcsexo,
+CadSegDesDPLcgrauinst,
+CadSegDesDPLcdtnascim,
+CadSegDesDPLcavprevioind,
+CadSegDesDPQtdebrancos,
+CadSegDesDPSepmilhar,
+CadSegDesDPLccarrazaosocial,
+CadSegDesDPLccarcnpj,
+CadSegDesDPLccarendereco,
+CadSegDesDPLccarcidade,
+CadSegDesDPLccaruf,
+CadSegDesDPLccarcep,
+CadSegDesDPLcnomerodape,
+CadSegDesDPLcpisrodape,
+CadSegDesDPTamanhofonte,
+CadSegDesDPAltura,
+
+CadSegDesDPLcpis,
+CadSegDesDPLcctpsnum,
+CadSegDesDPLcctpsserie,
+CadSegDesDPLcctpsuf,
+CadSegDesDPLccpf,
+
+CadSegDesDPLcendereco,
+CadSegDesDPLccomplemento,
+CadSegDesDPLccep,
+CadSegDesDPLcuf,
+CadSegDesDPLcfone,
+
+CadSegDesDPLchrsem,
+CadSegDesDPLcantmes,
+CadSegDesDPLcantsal,
+CadSegDesDPLcpenmes,
+CadSegDesDPLcpensal,
+CadSegDesDPLcultmes,
+CadSegDesDPLcultsal,
+CadSegDesDPLcsoma3sal,
+CadSegDesDPLcbanco,
+CadSegDesDPLcagencia,
+CadSegDesDPLcdigagencia,
+CadSegDesDPLcvinculo36,
+CadSegDesDPLcsalario6,
+
+CadSegDesDPLctipoinsc,
+CadSegDesDPLcinscricao,
+CadSegDesDPLcativecon : OleVariant;
+
+procedure LeDataPoolCadLaySegDes(nomeDriver);
+begin
+CadSegDesDPCodigo  							      := DDT.DriverByName(nomeDriver).Value('CODIGO');
+CadSegDesDPDescricao  		            := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadSegDesDPLcnome  		                := DDT.DriverByName(nomeDriver).Value('LCNOME');
+CadSegDesDPLcnomemae  		            := DDT.DriverByName(nomeDriver).Value('LCNOMEMAE');
+CadSegDesDPLccbo  			              := DDT.DriverByName(nomeDriver).Value('LCCBO');
+CadSegDesDPLcocupacao  	              := DDT.DriverByName(nomeDriver).Value('LCOCUPACAO');
+CadSegDesDPLcdtadmissao  	            := DDT.DriverByName(nomeDriver).Value('LCDTADMISSAO');
+CadSegDesDPLcdtdemis  		            := DDT.DriverByName(nomeDriver).Value('LCDTDEMIS');
+CadSegDesDPLcsexo  		                := DDT.DriverByName(nomeDriver).Value('LCSEXO');
+CadSegDesDPLcgrauinst  	              := DDT.DriverByName(nomeDriver).Value('LCGRAUINST');
+CadSegDesDPLcdtnascim  	              := DDT.DriverByName(nomeDriver).Value('LCDTNASCIM');
+CadSegDesDPLcavprevioind  	          := DDT.DriverByName(nomeDriver).Value('LCAVPREVIOIND');
+CadSegDesDPQtdebrancos  	            := DDT.DriverByName(nomeDriver).Value('QTDEBRANCOS');
+CadSegDesDPSepmilhar  		            := DDT.DriverByName(nomeDriver).Value('SEPMILHAR');
+CadSegDesDPLccarrazaosocial           := DDT.DriverByName(nomeDriver).Value('LCCARRAZAOSOCIAL');
+CadSegDesDPLccarcnpj  			          := DDT.DriverByName(nomeDriver).Value('LCCARCNPJ');
+CadSegDesDPLccarendereco  		        := DDT.DriverByName(nomeDriver).Value('LCCARENDERECO');
+CadSegDesDPLccarcidade  		          := DDT.DriverByName(nomeDriver).Value('LCCARCIDADE');
+CadSegDesDPLccaruf  			            := DDT.DriverByName(nomeDriver).Value('LCCARUF');
+CadSegDesDPLccarcep  			            := DDT.DriverByName(nomeDriver).Value('LCCARCEP');
+CadSegDesDPLcnomerodape  		          := DDT.DriverByName(nomeDriver).Value('LCNOMERODAPE');
+CadSegDesDPLcpisrodape  		          := DDT.DriverByName(nomeDriver).Value('LCPISRODAPE');
+CadSegDesDPTamanhofonte  		          := DDT.DriverByName(nomeDriver).Value('TAMANHOFONTE');
+CadSegDesDPAltura  			              := DDT.DriverByName(nomeDriver).Value('ALTURA');
+																				   
+CadSegDesDPLcpis  				            := DDT.DriverByName(nomeDriver).Value('LCPIS');
+CadSegDesDPLcctpsnum  			          := DDT.DriverByName(nomeDriver).Value('LCCTPSNUM');
+CadSegDesDPLcctpsserie  		          := DDT.DriverByName(nomeDriver).Value('LCCTPSSERIE');
+CadSegDesDPLcctpsuf  			            := DDT.DriverByName(nomeDriver).Value('LCCTPSUF');
+CadSegDesDPLccpf  				            := DDT.DriverByName(nomeDriver).Value('LCCPF');
+											
+CadSegDesDPLcendereco  		            := DDT.DriverByName(nomeDriver).Value('LCENDERECO');
+CadSegDesDPLccomplemento  		        := DDT.DriverByName(nomeDriver).Value('LCCOMPLEMENTO');
+CadSegDesDPLccep  				            := DDT.DriverByName(nomeDriver).Value('LCCEP');
+CadSegDesDPLcuf  				              := DDT.DriverByName(nomeDriver).Value('LCUF');
+CadSegDesDPLcfone  			              := DDT.DriverByName(nomeDriver).Value('LCFONE');
+																				   
+CadSegDesDPLchrsem  			            := DDT.DriverByName(nomeDriver).Value('LCHRSEM');
+CadSegDesDPLcantmes  			            := DDT.DriverByName(nomeDriver).Value('LCANTMES');
+CadSegDesDPLcantsal  			            := DDT.DriverByName(nomeDriver).Value('LCANTSAL');
+CadSegDesDPLcpenmes  			            := DDT.DriverByName(nomeDriver).Value('LCPENMES');
+CadSegDesDPLcpensal  			            := DDT.DriverByName(nomeDriver).Value('LCPENSAL');
+CadSegDesDPLcultmes  			            := DDT.DriverByName(nomeDriver).Value('LCULTMES');
+CadSegDesDPLcultsal  			            := DDT.DriverByName(nomeDriver).Value('LCULTSAL');
+CadSegDesDPLcsoma3sal  		            := DDT.DriverByName(nomeDriver).Value('LCSOMA3SAL');
+CadSegDesDPLcbanco  			            := DDT.DriverByName(nomeDriver).Value('LCBANCO');
+CadSegDesDPLcagencia  			          := DDT.DriverByName(nomeDriver).Value('LCAGENCIA');
+CadSegDesDPLcdigagencia  		          := DDT.DriverByName(nomeDriver).Value('LCDIGAGENCIA');
+CadSegDesDPLcvinculo36  		          := DDT.DriverByName(nomeDriver).Value('LCVINCULO36');
+CadSegDesDPLcsalario6  		            := DDT.DriverByName(nomeDriver).Value('LCSALARIO6');
+										
+CadSegDesDPLctipoinsc  		            := DDT.DriverByName(nomeDriver).Value('LCTIPOINSC');
+CadSegDesDPLcinscricao  		          := DDT.DriverByName(nomeDriver).Value('LCINSCRICAO');
+CadSegDesDPLcativecon                 := DDT.DriverByName(nomeDriver).Value('LCATIVECON');                                                            
+end;
+	

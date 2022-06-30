@@ -1,68 +1,128 @@
-﻿{Script para mapear tela de cadastro de Layout Para Seguro Desemprego
- Módulo: Padrao
- Autor: Orivan lemes dos Santos Junior
- Data: 29/06/2022}
- 
+﻿
+var
+FormPadraoSegDes,
+FormAbaPrincLaySegDes,
+CadSegDesEBCodigo,
+CadSegDesEBDescricao,
+CadSegDesEBLcnome,
+CadSegDesEBLcnomemae,
+CadSegDesEBLccbo,
+CadSegDesEBLcocupacao,
+CadSegDesEBLcdtadmissao,
+CadSegDesEBLcdtdemis,
+CadSegDesEBLcsexo,
+CadSegDesEBLcgrauinst,
+CadSegDesEBLcdtnascim,
+CadSegDesEBLcavprevioind,
+CadSegDesEBQtdebrancos,
+CadSegDesEBSepmilhar,
+CadSegDesEBLccarrazaosocial,
+CadSegDesEBLccarcnpj,
+CadSegDesEBLccarendereco,
+CadSegDesEBLccarcidade,
+CadSegDesEBLccaruf,
+CadSegDesEBLccarcep,
+CadSegDesEBLcnomerodape,
+CadSegDesEBLcpisrodape,
+CadSegDesEBTamanhofonte,
+CadSegDesEBAltura,
+           
+           
+CadSegDesEBLcpis,
+CadSegDesEBLcctpsnum,
+CadSegDesEBLcctpsserie,
+CadSegDesEBLcctpsuf,
+CadSegDesEBLccpf,
+           
+CadSegDesEBLcendereco,
+CadSegDesEBLccomplemento,
+CadSegDesEBLccep,
+CadSegDesEBLcuf,
+CadSegDesEBLcfone,
+           
+           
+CadSegDesEBLchrsem,
+CadSegDesEBLcantmes,
+CadSegDesEBLcantsal,
+CadSegDesEBLcpenmes,
+CadSegDesEBLcpensal,
+CadSegDesEBLcultmes,
+CadSegDesEBLcultsal,
+CadSegDesEBLcsoma3sal,
+CadSegDesEBLcbanco,
+CadSegDesEBLcagencia,
+CadSegDesEBLcdigagencia,
+CadSegDesEBLcvinculo36,
+CadSegDesEBLcsalario6,
+           
+           
+CadSegDesEBLctipoinsc,
+CadSegDesEBLcinscricao,
+CadSegDesEBLcativecon : OleVariant;
 
-procedure Test1;
+
+
+
+procedure MapCadLaySegDesemprego();
 begin
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.Click(77, 15);
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMEMAE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCBO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCOCUPACAO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTADMISSAO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTDEMIS.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCSEXO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCGRAUINST.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTNASCIM.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCAVPREVIOIND.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_QTDEBRANCOS.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEPMILHAR.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARRAZAOSOCIAL.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCNPJ.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARENDERECO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCIDADE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARUF.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCEP.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMERODAPE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCPISRODAPE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFONTE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA.Keys('[Tab]');
-
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPIS.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSNUM.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSSERIE.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSUF.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCPF.Keys('[Tab]');
-
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCENDERECO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCOMPLEMENTO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCEP.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCUF.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCFONE.Keys('[Tab]');
-
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCHRSEM.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTMES.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTSAL.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENMES.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENSAL.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTMES.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTSAL.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSOMA3SAL.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBANCO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCAGENCIA.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCDIGAGENCIA.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVINCULO36.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSALARIO6.Keys('[Tab]');
-
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCTIPOINSC.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCINSCRICAO.Keys('[Tab]');
-  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCATIVECON.Keys('[Tab]');
+FormPadraoSegDes  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES;
+FormAbaPrincLaySegDes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc;
+CadSegDesEBCodigo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO
+CadSegDesEBDescricao  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO
+CadSegDesEBLcnome  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME
+CadSegDesEBLcnomemae  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMEMAE
+CadSegDesEBLccbo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCBO
+CadSegDesEBLcocupacao  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCOCUPACAO
+CadSegDesEBLcdtadmissao  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTADMISSAO
+CadSegDesEBLcdtdemis  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTDEMIS
+CadSegDesEBLcsexo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCSEXO
+CadSegDesEBLcgrauinst  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCGRAUINST
+CadSegDesEBLcdtnascim  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTNASCIM
+CadSegDesEBLcavprevioind  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCAVPREVIOIND
+CadSegDesEBQtdebrancos  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_QTDEBRANCOS
+CadSegDesEBSepmilhar  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEPMILHAR
+CadSegDesEBLccarrazaosocial  	:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARRAZAOSOCIAL
+CadSegDesEBLccarcnpj  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCNPJ
+CadSegDesEBLccarendereco  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARENDERECO
+CadSegDesEBLccarcidade  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCIDADE
+CadSegDesEBLccaruf  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARUF
+CadSegDesEBLccarcep  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCEP
+CadSegDesEBLcnomerodape  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMERODAPE
+CadSegDesEBLcpisrodape  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCPISRODAPE
+CadSegDesEBTamanhofonte  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFONTE
+CadSegDesEBAltura  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA
+           
+CadSegDesEBLcpis  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPIS
+CadSegDesEBLcctpsnum  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSNUM
+CadSegDesEBLcctpsserie  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSSERIE
+CadSegDesEBLcctpsuf  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSUF
+CadSegDesEBLccpf  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCPF
+           
+CadSegDesEBLcendereco  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCENDERECO
+CadSegDesEBLccomplemento  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCOMPLEMENTO
+CadSegDesEBLccep  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCEP
+CadSegDesEBLcuf  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCUF
+CadSegDesEBLcfone  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCFONE
+           
+CadSegDesEBLchrsem  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCHRSEM
+CadSegDesEBLcantmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTMES
+CadSegDesEBLcantsal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTSAL
+CadSegDesEBLcpenmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENMES
+CadSegDesEBLcpensal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENSAL
+CadSegDesEBLcultmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTMES
+CadSegDesEBLcultsal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTSAL
+CadSegDesEBLcsoma3sal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSOMA3SAL
+CadSegDesEBLcbanco  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBANCO
+CadSegDesEBLcagencia  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCAGENCIA
+CadSegDesEBLcdigagencia  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCDIGAGENCIA
+CadSegDesEBLcvinculo36  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVINCULO36
+CadSegDesEBLcsalario6  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSALARIO6
+           
+CadSegDesEBLctipoinsc  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCTIPOINSC
+CadSegDesEBLcinscricao  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCINSCRICAO
+CadSegDesEBLcativecon  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCATIVECON
 end;
+
+
+	
+
