@@ -1,1 +1,113 @@
-﻿
+﻿var
+FormPadraoRecPagamento,
+FormAbaPrincRecPagamento,
+
+CadRecPagamentoEBIdLayRecibo,
+CadRecPagamentoEBDescricao,
+CadRecPagamentoEBTamanhoFon,
+CadRecPagamentoEBLargura,
+CadRecPagamentoEBAltura,
+CadRecPagamentoEBNEventPag,
+CadRecPagamentoEBLPPRecibo,
+CadRecPagamentoEBNroColunasExt,
+					
+				
+CadRecPagamentoEBLCRazaoSoc,
+CadRecPagamentoEBLCCnpj,
+CadRecPagamentoEBLCCidade,
+CadRecPagamentoEBLCProc,
+CadRecPagamentoEBLCDtReferencia,
+CadRecPagamentoEBLCIdEmpregado,
+CadRecPagamentoEBLCNomeEmp,
+CadRecPagamentoEBLCAgencia,
+CadRecPagamentoEBLCConta,
+CadRecPagamentoEBLCCbo,
+CadRecPagamentoEBLCCodlocal,
+CadRecPagamentoEBLCDescLocal,
+CadRecPagamentoEBLCCargo,
+CadRecPagamentoEBLCFuncao,
+CadRecPagamentoEBLCDtAdm,
+CadRecPagamentoEBLCPis,
+
+
+CadRecPagamentoEBLCIdEvento,
+CadRecPagamentoEBLCDescEvento,
+CadRecPagamentoEBQtdeDescEve,
+CadRecPagamentoEBLCReferencia,
+CadRecPagamentoEBLCVencimentos,
+CadRecPagamentoEBLCDescontos,
+CadRecPagamentoEBLCNeutros,
+
+
+CadRecPagamentoEBLCTotvencimentos,
+CadRecPagamentoEBLCTotdescontos,
+CadRecPagamentoEBLCVlrliquido,
+CadRecPagamentoEBLCSalario,
+CadRecPagamentoEBLCBinss,
+CadRecPagamentoEBLCBfgts,
+CadRecPagamentoEBLCVlrfgts,
+CadRecPagamentoEBLCBIrrf,
+CadRecPagamentoEBLCFaixaIrrf,
+CadRecPagamentoEBLCMensagem,
+CadRecPagamentoEBQtdCaracteres,
+CadRecPagamentoEBLcRodape : OleVariant;
+
+
+
+procedure MapCadRecPagamento();
+begin
+FormPadraoRecPagamento  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO;
+FormAbaPrincRecPagamento			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc;
+
+{FormAbaPrincRecPagamento.ActivePageIndex :=0;}	
+CadRecPagamentoEBIdLayRecibo  	:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLAYRECIBO;
+CadRecPagamentoEBDescricao  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadRecPagamentoEBTamanhoFon  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFON;
+CadRecPagamentoEBLargura  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LARGURA;
+CadRecPagamentoEBAltura  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA;
+CadRecPagamentoEBNEventPag  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NEVENTPAG;
+CadRecPagamentoEBLPPRecibo  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LPPRECIBO;
+CadRecPagamentoEBNroColunasExt  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NROCOLUNASEXT;
+					
+					
+{FormAbaPrincRecPagamento.ActivePageIndex :=1;}						
+CadRecPagamentoEBLCRazaoSoc  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCRAZAOSOC;
+CadRecPagamentoEBLCCnpj  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCNPJ;
+CadRecPagamentoEBLCCidade  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCIDADE;
+CadRecPagamentoEBLCProc  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPROC;
+CadRecPagamentoEBLCDtReferencia := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCDTREFERENCIA;
+CadRecPagamentoEBLCIdEmpregado  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCIDEMPREGADO;
+CadRecPagamentoEBLCNomeEmp  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCNOMEEMP;
+CadRecPagamentoEBLCAgencia  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCAGENCIA;
+CadRecPagamentoEBLCConta  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCONTA;
+CadRecPagamentoEBLCCbo  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCBO;
+CadRecPagamentoEBLCCodlocal  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCODLOCAL;
+CadRecPagamentoEBLCDescLocal  	:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCDESCLOCAL;
+CadRecPagamentoEBLCCargo  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCARGO;
+CadRecPagamentoEBLCFuncao  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCFUNCAO;
+CadRecPagamentoEBLCDtAdm  			:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCDTADM;
+CadRecPagamentoEBLCPis  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPIS;
+
+{FormAbaPrincRecPagamento.ActivePageIndex :=2;}						
+CadRecPagamentoEBLCIdEvento  		  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCIDEVENTO;
+CadRecPagamentoEBLCDescEvento  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCDESCEVENTO;
+CadRecPagamentoEBQtdeDescEve  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_QTDEDESCEVE;
+CadRecPagamentoEBLCReferencia  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCREFERENCIA;
+CadRecPagamentoEBLCVencimentos  	:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCVENCIMENTOS;
+CadRecPagamentoEBLCDescontos  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCDESCONTOS;
+CadRecPagamentoEBLCNeutros  		  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCNEUTROS;
+
+{FormAbaPrincRecPagamento.ActivePageIndex :=3;}						
+CadRecPagamentoEBLCTotvencimentos := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCTOTVENCIMENTOS;
+CadRecPagamentoEBLCTotdescontos 	:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCTOTDESCONTOS;
+CadRecPagamentoEBLCVlrliquido  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVLRLIQUIDO;
+CadRecPagamentoEBLCSalario  		  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSALARIO;
+CadRecPagamentoEBLCBinss  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBINSS;
+CadRecPagamentoEBLCBfgts  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBFGTS;
+CadRecPagamentoEBLCVlrfgts  		  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVLRFGTS;
+CadRecPagamentoEBLCBIrrf  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBIRRF;
+CadRecPagamentoEBLCFaixaIrrf  		:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCFAIXAIRRF;
+CadRecPagamentoEBLCMensagem  		  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCMENSAGEM;
+CadRecPagamentoEBQtdCaracteres  	:= Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_QTDCARACTERES;
+CadRecPagamentoEBLcRodape  			  := Aliases.Folha.FFormPadraoRHLAYRECIBO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCRODAPE;
+end;

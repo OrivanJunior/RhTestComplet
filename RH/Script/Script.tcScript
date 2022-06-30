@@ -631,7 +631,11 @@
 						<child name="ObjReciboPagamento" key="{0F5C35D0-49D8-4140-9B44-8D5A581B12AF}" path="ObjReciboPagamento.sd" />
 						<child name="DataPoolReciboPagamento" key="{C6F1A8AE-8CEF-4D92-A6F0-8655211A8A90}" path="DataPoolReciboPagamento.sd" />
 					</folder>
-					<folder name="Seguro Desemprego" />
+					<folder name="Seguro Desemprego">
+						<child name="ExeLaySeguroDesemprego" key="{4E119642-B647-4458-B1CF-EB82DDF2BDF0}" path="ExeLaySeguroDesemprego.sd" />
+						<child name="ObjLaySeguroDesemprego" key="{992C7C8F-F502-44DD-A3BC-01642F6217B6}" path="ObjLaySeguroDesemprego.sd" />
+						<child name="DataPoolLaySeguroDesemprego" key="{DAC6B824-7A3A-4033-8461-1F9EA09B537F}" path="DataPoolLaySeguroDesemprego.sd" />
+					</folder>
 					<folder name="Vales">
 						<child name="ExeVales" key="{0040031D-C417-4AA3-B1F5-4F7D79B6742D}" path="ExeVales.sd" />
 						<child name="ObjVales" key="{939903AB-0C31-48D9-8CF2-91B0E2884FB7}" path="ObjVales.sd" />

@@ -1,0 +1,68 @@
+﻿{Script para mapear tela de cadastro de Layout Para Seguro Desemprego
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 29/06/2022}
+ 
+
+procedure Test1;
+begin
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.Click(77, 15);
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMEMAE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCBO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCOCUPACAO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTADMISSAO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTDEMIS.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCSEXO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCGRAUINST.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTNASCIM.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCAVPREVIOIND.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_QTDEBRANCOS.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEPMILHAR.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARRAZAOSOCIAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCNPJ.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARENDERECO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCIDADE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARUF.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCEP.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMERODAPE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCPISRODAPE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFONTE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA.Keys('[Tab]');
+
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPIS.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSNUM.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSSERIE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSUF.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCPF.Keys('[Tab]');
+
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCENDERECO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCOMPLEMENTO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCEP.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCUF.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCFONE.Keys('[Tab]');
+
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCHRSEM.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTMES.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTSAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENMES.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENSAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTMES.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTSAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSOMA3SAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBANCO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCAGENCIA.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCDIGAGENCIA.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVINCULO36.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSALARIO6.Keys('[Tab]');
+
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCTIPOINSC.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCINSCRICAO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCATIVECON.Keys('[Tab]');
+end;

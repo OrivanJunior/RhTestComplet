@@ -1,0 +1,312 @@
+﻿
+var
+FormPadraoSegDes,
+FormAbaPrincLaySegDes,
+CadSegDesEBCodigo,
+CadSegDesEBDescricao,
+CadSegDesEBLcnome,
+CadSegDesEBLcnomemae,
+CadSegDesEBLccbo,
+CadSegDesEBLcocupacao,
+CadSegDesEBLcdtadmissao,
+CadSegDesEBLcdtdemis,
+CadSegDesEBLcsexo,
+CadSegDesEBLcgrauinst,
+CadSegDesEBLcdtnascim,
+CadSegDesEBLcavprevioind,
+CadSegDesEBQtdebrancos,
+CadSegDesEBSepmilhar,
+CadSegDesEBLccarrazaosocial,
+CadSegDesEBLccarcnpj,
+CadSegDesEBLccarendereco,
+CadSegDesEBLccarcidade,
+CadSegDesEBLccaruf,
+CadSegDesEBLccarcep,
+CadSegDesEBLcnomerodape,
+CadSegDesEBLcpisrodape,
+CadSegDesEBTamanhofonte,
+CadSegDesEBAltura,
+           
+           
+CadSegDesEBLcpis,
+CadSegDesEBLcctpsnum,
+CadSegDesEBLcctpsserie,
+CadSegDesEBLcctpsuf,
+CadSegDesEBLccpf,
+           
+CadSegDesEBLcendereco,
+CadSegDesEBLccomplemento,
+CadSegDesEBLccep,
+CadSegDesEBLcuf,
+CadSegDesEBLcfone,
+           
+           
+CadSegDesEBLchrsem,
+CadSegDesEBLcantmes,
+CadSegDesEBLcantsal,
+CadSegDesEBLcpenmes,
+CadSegDesEBLcpensal,
+CadSegDesEBLcultmes,
+CadSegDesEBLcultsal,
+CadSegDesEBLcsoma3sal,
+CadSegDesEBLcbanco,
+CadSegDesEBLcagencia,
+CadSegDesEBLcdigagencia,
+CadSegDesEBLcvinculo36,
+CadSegDesEBLcsalario6,
+           
+           
+CadSegDesEBLctipoinsc,
+CadSegDesEBLcinscricao,
+CadSegDesEBLcativecon : OleVariant;
+
+
+
+
+procedure MapCadLaySegDesemprego();
+begin
+FormPadraoSegDes  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES;
+FormAbaPrincLaySegDes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc;
+CadSegDesEBCodigo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIGO
+CadSegDesEBDescricao  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO
+CadSegDesEBLcnome  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOME
+CadSegDesEBLcnomemae  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMEMAE
+CadSegDesEBLccbo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCBO
+CadSegDesEBLcocupacao  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCOCUPACAO
+CadSegDesEBLcdtadmissao  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTADMISSAO
+CadSegDesEBLcdtdemis  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTDEMIS
+CadSegDesEBLcsexo  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCSEXO
+CadSegDesEBLcgrauinst  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCGRAUINST
+CadSegDesEBLcdtnascim  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCDTNASCIM
+CadSegDesEBLcavprevioind  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCAVPREVIOIND
+CadSegDesEBQtdebrancos  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_QTDEBRANCOS
+CadSegDesEBSepmilhar  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEPMILHAR
+CadSegDesEBLccarrazaosocial  	:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARRAZAOSOCIAL
+CadSegDesEBLccarcnpj  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCNPJ
+CadSegDesEBLccarendereco  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARENDERECO
+CadSegDesEBLccarcidade  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCIDADE
+CadSegDesEBLccaruf  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARUF
+CadSegDesEBLccarcep  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCCARCEP
+CadSegDesEBLcnomerodape  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCNOMERODAPE
+CadSegDesEBLcpisrodape  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_LCPISRODAPE
+CadSegDesEBTamanhofonte  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TAMANHOFONTE
+CadSegDesEBAltura  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ALTURA
+           
+CadSegDesEBLcpis  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCPIS
+CadSegDesEBLcctpsnum  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSNUM
+CadSegDesEBLcctpsserie  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSSERIE
+CadSegDesEBLcctpsuf  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCTPSUF
+CadSegDesEBLccpf  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_LCCPF
+           
+CadSegDesEBLcendereco  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCENDERECO
+CadSegDesEBLccomplemento  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCOMPLEMENTO
+CadSegDesEBLccep  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCCEP
+CadSegDesEBLcuf  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCUF
+CadSegDesEBLcfone  				:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_LCFONE
+           
+CadSegDesEBLchrsem  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCHRSEM
+CadSegDesEBLcantmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTMES
+CadSegDesEBLcantsal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCANTSAL
+CadSegDesEBLcpenmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENMES
+CadSegDesEBLcpensal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCPENSAL
+CadSegDesEBLcultmes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTMES
+CadSegDesEBLcultsal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCULTSAL
+CadSegDesEBLcsoma3sal  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSOMA3SAL
+CadSegDesEBLcbanco  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCBANCO
+CadSegDesEBLcagencia  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCAGENCIA
+CadSegDesEBLcdigagencia  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCDIGAGENCIA
+CadSegDesEBLcvinculo36  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCVINCULO36
+CadSegDesEBLcsalario6  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_LCSALARIO6
+           
+CadSegDesEBLctipoinsc  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCTIPOINSC
+CadSegDesEBLcinscricao  		:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCINSCRICAO
+CadSegDesEBLcativecon  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_LCATIVECON
+end;
+
+var
+CadSegDesDPCodigo  		
+CadSegDesDPDescricao  		
+CadSegDesDPLcnome  		
+CadSegDesDPLcnomemae  		
+CadSegDesDPLccbo  			
+CadSegDesDPLcocupacao  	
+CadSegDesDPLcdtadmissao  	
+CadSegDesDPLcdtdemis  		
+CadSegDesDPLcsexo  		
+CadSegDesDPLcgrauinst  	
+CadSegDesDPLcdtnascim  	
+CadSegDesDPLcavprevioind  	
+CadSegDesDPQtdebrancos  	
+CadSegDesDPSepmilhar  		
+CadSegDesDPLccarrazaosocial
+CadSegDesDPLccarcnpj  		
+CadSegDesDPLccarendereco  	
+CadSegDesDPLccarcidade  	
+CadSegDesDPLccaruf  		
+CadSegDesDPLccarcep  		
+CadSegDesDPLcnomerodape  	
+CadSegDesDPLcpisrodape  	
+CadSegDesDPTamanhofonte  	
+CadSegDesDPAltura  		
+
+CadSegDesDPLcpis  			
+CadSegDesDPLcctpsnum  		
+CadSegDesDPLcctpsserie  	
+CadSegDesDPLcctpsuf  		
+CadSegDesDPLccpf  			
+
+CadSegDesDPLcendereco  	
+CadSegDesDPLccomplemento  	
+CadSegDesDPLccep  			
+CadSegDesDPLcuf  			
+CadSegDesDPLcfone  		
+
+CadSegDesDPLchrsem  		
+CadSegDesDPLcantmes  		
+CadSegDesDPLcantsal  		
+CadSegDesDPLcpenmes  		
+CadSegDesDPLcpensal  		
+CadSegDesDPLcultmes  		
+CadSegDesDPLcultsal  		
+CadSegDesDPLcsoma3sal  	
+CadSegDesDPLcbanco  		
+CadSegDesDPLcagencia  		
+CadSegDesDPLcdigagencia  	
+CadSegDesDPLcvinculo36  	
+CadSegDesDPLcsalario6  	
+
+CadSegDesDPLctipoinsc  	
+CadSegDesDPLcinscricao  	
+CadSegDesDPLcativecon : OleVariant;
+
+procedure LeDataPoolCadLaySegDes(nomeDriver);
+begin
+CadSegDesDPCodigo  							      := DDT.DriverByName(nomeDriver).Value('CODIGO');
+CadSegDesDPDescricao  		            := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadSegDesDPLcnome  		                := DDT.DriverByName(nomeDriver).Value('LCNOME');
+CadSegDesDPLcnomemae  		            := DDT.DriverByName(nomeDriver).Value('LCNOMEMAE');
+CadSegDesDPLccbo  			              := DDT.DriverByName(nomeDriver).Value('LCCBO');
+CadSegDesDPLcocupacao  	              := DDT.DriverByName(nomeDriver).Value('LCOCUPACAO');
+CadSegDesDPLcdtadmissao  	            := DDT.DriverByName(nomeDriver).Value('LCDTADMISSAO');
+CadSegDesDPLcdtdemis  		            := DDT.DriverByName(nomeDriver).Value('LCDTDEMIS');
+CadSegDesDPLcsexo  		                := DDT.DriverByName(nomeDriver).Value('LCSEXO');
+CadSegDesDPLcgrauinst  	              := DDT.DriverByName(nomeDriver).Value('LCGRAUINST');
+CadSegDesDPLcdtnascim  	              := DDT.DriverByName(nomeDriver).Value('LCDTNASCIM');
+CadSegDesDPLcavprevioind  	          := DDT.DriverByName(nomeDriver).Value('LCAVPREVIOIND');
+CadSegDesDPQtdebrancos  	            := DDT.DriverByName(nomeDriver).Value('QTDEBRANCOS');
+CadSegDesDPSepmilhar  		            := DDT.DriverByName(nomeDriver).Value('SEPMILHAR');
+CadSegDesDPLccarrazaosocial           := DDT.DriverByName(nomeDriver).Value('LCCARRAZAOSOCIAL');
+CadSegDesDPLccarcnpj  			          := DDT.DriverByName(nomeDriver).Value('LCCARCNPJ');
+CadSegDesDPLccarendereco  		        := DDT.DriverByName(nomeDriver).Value('LCCARENDERECO');
+CadSegDesDPLccarcidade  		          := DDT.DriverByName(nomeDriver).Value('LCCARCIDADE');
+CadSegDesDPLccaruf  			            := DDT.DriverByName(nomeDriver).Value('LCCARUF');
+CadSegDesDPLccarcep  			            := DDT.DriverByName(nomeDriver).Value('LCCARCEP');
+CadSegDesDPLcnomerodape  		          := DDT.DriverByName(nomeDriver).Value('LCNOMERODAPE');
+CadSegDesDPLcpisrodape  		          := DDT.DriverByName(nomeDriver).Value('LCPISRODAPE');
+CadSegDesDPTamanhofonte  		          := DDT.DriverByName(nomeDriver).Value('TAMANHOFONTE');
+CadSegDesDPAltura  			              := DDT.DriverByName(nomeDriver).Value('ALTURA');
+																				   
+CadSegDesDPLcpis  				            := DDT.DriverByName(nomeDriver).Value('LCPIS');
+CadSegDesDPLcctpsnum  			          := DDT.DriverByName(nomeDriver).Value('LCCTPSNUM');
+CadSegDesDPLcctpsserie  		          := DDT.DriverByName(nomeDriver).Value('LCCTPSSERIE');
+CadSegDesDPLcctpsuf  			            := DDT.DriverByName(nomeDriver).Value('LCCTPSUF');
+CadSegDesDPLccpf  				            := DDT.DriverByName(nomeDriver).Value('LCCPF');
+											
+CadSegDesDPLcendereco  		            := DDT.DriverByName(nomeDriver).Value('LCENDERECO');
+CadSegDesDPLccomplemento  		        := DDT.DriverByName(nomeDriver).Value('LCCOMPLEMENTO');
+CadSegDesDPLccep  				            := DDT.DriverByName(nomeDriver).Value('LCCEP');
+CadSegDesDPLcuf  				              := DDT.DriverByName(nomeDriver).Value('LCUF');
+CadSegDesDPLcfone  			              := DDT.DriverByName(nomeDriver).Value('LCFONE');
+																				   
+CadSegDesDPLchrsem  			            := DDT.DriverByName(nomeDriver).Value('LCHRSEM');
+CadSegDesDPLcantmes  			            := DDT.DriverByName(nomeDriver).Value('LCANTMES');
+CadSegDesDPLcantsal  			            := DDT.DriverByName(nomeDriver).Value('LCANTSAL');
+CadSegDesDPLcpenmes  			            := DDT.DriverByName(nomeDriver).Value('LCPENMES');
+CadSegDesDPLcpensal  			            := DDT.DriverByName(nomeDriver).Value('LCPENSAL');
+CadSegDesDPLcultmes  			            := DDT.DriverByName(nomeDriver).Value('LCULTMES');
+CadSegDesDPLcultsal  			            := DDT.DriverByName(nomeDriver).Value('LCULTSAL');
+CadSegDesDPLcsoma3sal  		            := DDT.DriverByName(nomeDriver).Value('LCSOMA3SAL');
+CadSegDesDPLcbanco  			            := DDT.DriverByName(nomeDriver).Value('LCBANCO');
+CadSegDesDPLcagencia  			          := DDT.DriverByName(nomeDriver).Value('LCAGENCIA');
+CadSegDesDPLcdigagencia  		          := DDT.DriverByName(nomeDriver).Value('LCDIGAGENCIA');
+CadSegDesDPLcvinculo36  		          := DDT.DriverByName(nomeDriver).Value('LCVINCULO36');
+CadSegDesDPLcsalario6  		            := DDT.DriverByName(nomeDriver).Value('LCSALARIO6');
+										
+CadSegDesDPLctipoinsc  		            := DDT.DriverByName(nomeDriver).Value('LCTIPOINSC');
+CadSegDesDPLcinscricao  		          := DDT.DriverByName(nomeDriver).Value('LCINSCRICAO');
+CadSegDesDPLcativecon                 := DDT.DriverByName(nomeDriver).Value('LCATIVECON');                                                            
+end;
+	
+	
+	
+procedure PreencheLaySegDes();
+begin
+{Geral}
+FormAbaPrincLaySegDes.ActivePageIndex := 0;
+
+VerificaInsere(CadSegDesEBCodigo,CadSegDesDPCodigo)						
+VerificaInsere(CadSegDesEBDescricao,CadSegDesDPDescricao);
+VerificaInsere(CadSegDesEBLcnome,CadSegDesDPLcnome);	
+VerificaInsere(CadSegDesEBLcnomemae,CadSegDesDPLcnomemae);
+VerificaInsere(CadSegDesEBLccbo,CadSegDesDPLccbo);
+VerificaInsere(CadSegDesEBLcocupacao,CadSegDesDPLcocupacao);	
+VerificaInsere(CadSegDesEBLcdtadmissao,CadSegDesDPLcdtadmissao);
+VerificaInsere(CadSegDesEBLcdtdemis,CadSegDesDPLcdtdemis);
+VerificaInsere(CadSegDesEBLcsexo,CadSegDesDPLcsexo);	
+VerificaInsere(CadSegDesEBLcgrauinst,CadSegDesDPLcgrauinst);	
+VerificaInsere(CadSegDesEBLcdtnascim,CadSegDesDPLcdtnascim);	
+VerificaInsere(CadSegDesEBLcavprevioind,CadSegDesDPLcavprevioind);
+VerificaInsere(CadSegDesEBQtdebrancos,CadSegDesDPQtdebrancos);
+VerificaInsere(CadSegDesEBSepmilhar,CadSegDesDPSepmilhar);
+VerificaInsere(CadSegDesEBLccarrazaosocial,CadSegDesDPLccarrazaosocial);
+VerificaInsere(CadSegDesEBLccarcnpj,CadSegDesDPLccarcnpj);
+VerificaInsere(CadSegDesEBLccarendereco,CadSegDesDPLccarcidade);
+VerificaInsere(CadSegDesEBLccaruf,CadSegDesDPLccaruf);
+VerificaInsere(CadSegDesEBLccarcep,CadSegDesDPLccarcep);
+VerificaInsere(CadSegDesEBLcnomerodape,CadSegDesDPLcnomerodape);
+VerificaInsere(CadSegDesEBLcpisrodape,CadSegDesDPLcpisrodape);
+VerificaInsere(CadSegDesEBTamanhofonte,CadSegDesDPTamanhofonte);
+VerificaInsere(CadSegDesEBAltura,CadSegDesDPAltura);	
+
+{Doc}
+FormAbaPrincLaySegDes.ActivePageIndex := 1;	
+																
+VerificaInsere(CadSegDesEBLcpis,CadSegDesDPLcpis);
+VerificaInsere(CadSegDesEBLcctpsnum,CadSegDesDPLcctpsnum);
+VerificaInsere(CadSegDesEBLcctpsserie,CadSegDesDPLcctpsserie);
+VerificaInsere(CadSegDesEBLcctpsuf,CadSegDesDPLcctpsuf);
+VerificaInsere(CadSegDesEBLccpf,CadSegDesDPLccpf);
+
+{Endereços}
+FormAbaPrincLaySegDes.ActivePageIndex := 2;
+																	
+VerificaInsere(CadSegDesEBLcendereco,CadSegDesDPLcendereco);	
+VerificaInsere(CadSegDesEBLccomplemento,CadSegDesDPLccomplemento);
+VerificaInsere(CadSegDesEBLccep,CadSegDesDPLccep);
+VerificaInsere(CadSegDesEBLcuf,CadSegDesDPLcuf);
+VerificaInsere(CadSegDesEBLcfone,CadSegDesDPLcfone);	
+
+{salários}
+FormAbaPrincLaySegDes.ActivePageIndex := 3;	
+																
+VerificaInsere(CadSegDesEBLchrsem,CadSegDesDPLchrsem);
+VerificaInsere(CadSegDesEBLcantmes,CadSegDesDPLcantmes);
+VerificaInsere(CadSegDesEBLcantsal,CadSegDesDPLcantsal);
+VerificaInsere(CadSegDesEBLcpenmes,CadSegDesDPLcpenmes);
+VerificaInsere(CadSegDesEBLcpensal,CadSegDesDPLcpensal);
+VerificaInsere(CadSegDesEBLcultmes,CadSegDesDPLcultmes);
+VerificaInsere(CadSegDesEBLcultsal,CadSegDesDPLcultsal);
+VerificaInsere(CadSegDesEBLcsoma3sal,CadSegDesDPLcsoma3sal);	
+VerificaInsere(CadSegDesEBLcbanco,CadSegDesDPLcbanco);
+VerificaInsere(CadSegDesEBLcagencia,CadSegDesDPLcagencia);
+VerificaInsere(CadSegDesEBLcdigagencia,CadSegDesDPLcdigagencia);
+VerificaInsere(CadSegDesEBLcvinculo36,CadSegDesDPLcvinculo36);
+VerificaInsere(CadSegDesEBLcsalario6,CadSegDesDPLcsalario6);	
+
+{Empresas}
+FormAbaPrincLaySegDes.ActivePageIndex := 4;
+																	
+VerificaInsere(CadSegDesEBLctipoinsc,CadSegDesDPLctipoinsc);	
+VerificaInsere(CadSegDesEBLcinscricao,CadSegDesDPLcinscricao);
+VerificaInsere(CadSegDesEBLcativecon,CadSegDesDPLcativecon);
+end;	
