@@ -77,7 +77,7 @@ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadUF();
+  MapCadEmail();
   
   ActExcluir(_ModuloFolha, 'FRhConfigMail');
   ActFechar(FormPadraoEmail);

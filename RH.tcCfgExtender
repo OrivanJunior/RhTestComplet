@@ -3022,7 +3022,12 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{2ea93f89-3fd8-4cdb-8ca8-042ad2b6c44c}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="24"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="12"/>
+						</Node>
+						<Prp name="bottom" type="I" value="26"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -3809,7 +3814,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="53"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="18"/>
 						</Node>
 						<Node name="2">
