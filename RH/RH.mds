@@ -1793,7 +1793,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Recibo de Pagamento" key="{55994241-75B9-4052-AE86-6BB6DFF72039}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Recibo de Pagamento" key="{55994241-75B9-4052-AE86-6BB6DFF72039}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraRecPagamento" key="{2C5C0E77-32B2-460E-B459-277E36A67E82}" group="False" parallel="False" enabled="True" testMoniker="{2346A5C6-B2C6-44CF-BDEA-0AF957266C7E}CadastraRecPagamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1806,6 +1806,25 @@
 															<testItem name="ExcluirRecPagamento" key="{14A2B0F0-0314-4CAB-8808-3EA9A8620308}" group="False" parallel="False" enabled="True" testMoniker="{2346A5C6-B2C6-44CF-BDEA-0AF957266C7E}ExcluirRecPagamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Recibo de Pagamento\Recibo de Pagamento.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Seguro Desemprego" key="{E0520A18-E94F-4314-866F-AEE3B53CDF43}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraLaySegDes" key="{9C3A88B6-CC26-4357-AC10-A48D07C22F4F}" group="False" parallel="False" enabled="True" testMoniker="{4E119642-B647-4458-B1CF-EB82DDF2BDF0}CadastraLaySegDes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Seguro Desemprego\Seguro Desemprego.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirLaySegDes" key="{D69F3D02-3D92-4D57-BA96-7479418C658F}" group="False" parallel="False" enabled="True" testMoniker="{4E119642-B647-4458-B1CF-EB82DDF2BDF0}ExcluirLaySegDes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Seguro Desemprego\Seguro Desemprego.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

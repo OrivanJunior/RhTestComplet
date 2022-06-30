@@ -63,7 +63,7 @@ CadSegDesEBLcativecon : OleVariant;
 
 
 
-procedure MapCadLaySegDesemprego();
+procedure MapCadLaySegDes();
 begin
 FormPadraoSegDes  				  := Aliases.Folha.FFormPadraoRHLAYSEGDES;
 FormAbaPrincLaySegDes  			:= Aliases.Folha.FFormPadraoRHLAYSEGDES.FFormPadraoCds_abPrinc;

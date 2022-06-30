@@ -74,36 +74,36 @@ VerificaInsere(CadSegDesEBLcativecon,CadSegDesDPLcativecon);
 end;	
 
 
-procedure CadastraRecPagamento(pathData);
+procedure CadastraLaySegDes(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Recibo de Pagamento');
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Layouts', 'Seguro Desemprego');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadRecPagamento(DDTCadastrar.Name);
+LeDataPoolCadLaySegDes(DDTCadastrar.Name);
 
 While not DDTCadastrar.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYSEGDES');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'IdLayRecibo',CadRecPagamentoDPIdLayRecibo);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadSegDesDPCodigo);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadRecPagamento();
+  MapCadLaySegDes();
   
-  PreencheRecPagamento();
+  PreencheLaySegDes();
   
-  ActSalvar(FormPadraoRecPagamento);
-  ActFechar(FormPadraoRecPagamento);
+  ActSalvar(FormPadraoSegDes);
+  ActFechar(FormPadraoSegDes);
   end;
   DDTCadastrar.Next;
 end;
@@ -111,35 +111,35 @@ end;
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirRecPagamento(PathData);
+procedure ExcluirLaySegDes(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Recibo de Pagamento');
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Layouts', 'Seguro Desemprego');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadRecPagamento(DDTExcluir.Name);
+LeDataPoolCadLaySegDes(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
 if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHLAYSEGDES');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid','IdLayRecibo',CadRecPagamentoDPIdLayRecibo);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid','Código',CadSegDesDPCodigo);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadRecPagamento();
+  MapCadLaySegDes();
   
-  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYRECIBO');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHLAYSEGDES');
 
-  ActFechar(FormPadraoRecPagamento);
+  ActFechar(FormPadraoSegDes);
   end;
   DDTExcluir.Next;
 end;

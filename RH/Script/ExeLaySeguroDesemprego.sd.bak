@@ -1,4 +1,6 @@
-﻿	
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolLaySeguroDesemprego,ObjLaySeguroDesemprego;
+
+
 procedure PreencheLaySegDes();
 begin
 {Geral}
@@ -70,7 +72,6 @@ VerificaInsere(CadSegDesEBLctipoinsc,CadSegDesDPLctipoinsc);
 VerificaInsere(CadSegDesEBLcinscricao,CadSegDesDPLcinscricao);
 VerificaInsere(CadSegDesEBLcativecon,CadSegDesDPLcativecon);
 end;	
-
 
 
 procedure CadastraRecPagamento(pathData);
