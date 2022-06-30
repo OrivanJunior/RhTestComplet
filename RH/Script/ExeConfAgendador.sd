@@ -1,1 +1,131 @@
-﻿
+﻿uses CommonsAll,CommonsObj, VarConsts,DataPoolConfAgendador,ObjConfAgendador;
+
+procedure PreencheAgendador();
+begin
+VerificaInsere(CadAgendadorEBId,CadAgendadorDPId);
+VerificaConsultaF3Insere(_ModuloFolha,CadAgendadorEBRotina,CadAgendadorDPRotina); 
+VerificaConsultaF3Insere(_ModuloFolha,CadAgendadorEBIdConfig,CadAgendadorDPIdConfig);  
+VerificaInsere(CadAgendadorEBEmail,CadAgendadorDPEmail); 
+EscolheMetodoDeInsercao(CadAgendadorEBDirAfd,CadAgendadorDPDirAfd); 
+EscolheMetodoDeInsercao(CadAgendadorEBDirLog,CadAgendadorDPDirLog); 
+VerificaConsultaF3Insere(_ModuloFolha,CadAgendadorEBIdRep,CadAgendadorDPIdRep);
+//VerificaInsere(CadAgendadorEBMinutos,CadAgendadorDPMinutos);	
+//VerificaInsere(CadAgendadorEBConsiderar,CadAgendadorDPConsiderar);
+end;
+
+procedure PreencheMesAno();
+begin
+if ( BtnCheckMesAnosT.EditValue = True) then
+  begin
+  BtnCheckMesAnosT.Click;
+	BtnChJan.Click;
+	BtnChMar.Click;
+	BtnChAbr.Click;
+	BtnChMai.Click;
+	BtnChJun.Click;
+	BtnChJul.Click;
+  end;
+end;
+
+procedure PreencheDiasDoMes();
+begin 
+if ( BtnCheckDiaMesT.EditValue = True) then
+  begin
+  BtnCheckDiaMesT.Click;
+  BtnCh10.Click;
+  BtnCh11.Click;
+  BtnCh12.Click;
+  BtnCh13.Click;
+  BtnCh14.Click;
+  BtnCh15.Click;
+  BtnCh16.Click;
+  BtnCh17.Click;
+  BtnCh18.Click;
+  BtnCh19.Click;
+  end;
+end;
+
+
+procedure CadastraAgendador(pathData);
+var
+BtnProcExec;
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. do Agendador');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAgendador(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FAgendador');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id',CadAgendadorDPId);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAgendador();
+  
+  PreencheAgendador();
+  PreencheMesAno();
+  PreencheDiasDoMes();
+  
+  BtnSalvarAgendador.Click;
+  
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+  begin
+  BtnProcExec := Aliases.Folha.dlgEventosBasesDeC_lculo.btnOK;
+  BtnProcExec.ClickButton;
+  end;
+  
+  ActFechar(FormPadraoAgendador);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAgendador(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. do Agendador');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAgendador(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FAgendador');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id',CadAgendadorDPId);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAgendador();
+  
+  ActExcluir(_ModuloFolha, 'FAgendador');
+
+  ActFechar(FormPadraoAgendador);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 

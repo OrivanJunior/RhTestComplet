@@ -1,1 +1,154 @@
-﻿
+﻿var
+FormPadraoAgendador,
+BtnSalvarAgendador,
+CadAgendadorEBId,
+CadAgendadorEBRotina,
+CadAgendadorEBIdConfig,
+CadAgendadorEBEmail,
+CadAgendadorEBDirAfd,
+CadAgendadorEBDirLog,
+CadAgendadorEBIdRep,
+  
+FormCheckMAnos,
+BtnCheckMesAnosT,
+						
+FormCheckDiaSemana,
+BtnCheckDiaSemanaT,
+						
+FormCheckDiaMes,
+BtnCheckDiaMesT,
+						
+FormCheckHoras,
+BtnCheckHorasT,
+
+FormGrpMinutos,
+CadAgendadorEBMinutos,
+CadAgendadorEBConsiderar,
+BtnCheckMinutosT,
+BtnChJan,
+BtnChFev,
+BtnChMar,
+BtnChAbr,
+BtnChMai,
+BtnChJun,
+BtnChJul,
+BtnChAgo,
+BtnChSet,
+BtnChOut,
+BtnChNov,
+BtnChDez,
+
+BtnCh1,
+BtnCh2,
+BtnCh3,
+BtnCh4,
+BtnCh5,
+BtnCh6,
+BtnCh7,
+BtnCh8,
+BtnCh9,
+BtnCh10,
+BtnCh11,
+BtnCh12,
+BtnCh13,
+BtnCh14,
+BtnCh15,
+BtnCh16,
+BtnCh17,
+BtnCh18,
+BtnCh19,
+BtnCh20,
+BtnCh21,
+BtnCh22,
+BtnCh23,
+BtnCh24,
+BtnCh25,
+BtnCh26,
+BtnCh27,
+BtnCh28,
+BtnCh29,
+BtnCh30,
+BtnCh31 : OleVariant;
+
+
+
+
+
+
+procedure MapCadAgendador();
+begin
+FormPadraoAgendador 		:= Aliases.Folha.FAgendador;
+BtnSalvarAgendador      := Aliases.Folha.FAgendador.BSalvar;
+CadAgendadorEBId  			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_ID;
+CadAgendadorEBRotina  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_ROTINA;
+CadAgendadorEBIdConfig  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_IDCONFIG;
+CadAgendadorEBEmail  		:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_EMAIL;
+CadAgendadorEBDirAfd  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_DIRAFD;
+CadAgendadorEBDirLog  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_DIRLOG;
+CadAgendadorEBIdRep  		:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.pnCabecalho.EB_IDREP;
+  
+FormCheckMAnos  			  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses;
+BtnCheckMesAnosT  			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton;
+							
+FormCheckDiaSemana 			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaSemana;
+BtnCheckDiaSemanaT   		:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaSemana.TcxCheckGroupButton;
+							
+FormCheckDiaMes  			  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes;
+BtnCheckDiaMesT  			  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton;
+							
+FormCheckHoras  			  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgHoras;
+BtnCheckHorasT    			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgHoras.TcxCheckGroupButton;
+  
+  
+FormGrpMinutos  			  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cxGroupBox1;
+CadAgendadorEBMinutos  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cxGroupBox1.EB_MINUTOS;
+CadAgendadorEBConsiderar:= Aliases.Folha.FAgendador.lbConsiderar;
+
+BtnCheckMinutosT  			:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cxGroupBox1.chTodosMinutos;
+
+BtnChJan                := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton2;
+BtnChFev                := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton3;
+BtnChMar  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton4;
+BtnChAbr  := Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton5;
+BtnChMai	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton6;
+BtnChJun	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton7;
+BtnChJul	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton8;
+BtnChAgo	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton9;
+BtnChSet 	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton10;
+BtnChOut 	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton11;
+BtnChNov 	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton12;
+BtnChDez 	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgMeses.TcxCheckGroupButton13;
+
+BtnCh1  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton2;
+BtnCh2  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton3;
+BtnCh3  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton4;
+BtnCh4  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton5;
+BtnCh5  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton6;
+BtnCh6  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton7;
+BtnCh7  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton8;
+BtnCh8  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton9;
+BtnCh9  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton10;
+BtnCh10  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton11;
+BtnCh11  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton12;
+BtnCh12  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton13;
+BtnCh13  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton14;
+BtnCh14  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton15;
+BtnCh15  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton16;
+BtnCh16  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton17;
+BtnCh17  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton18;
+BtnCh18  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton19;
+BtnCh19  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton20;
+BtnCh20  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton21;
+BtnCh21  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton22;
+BtnCh22  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton23;
+BtnCh23  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton24;
+BtnCh24  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton25;
+BtnCh25  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton26;
+BtnCh26  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton27;
+BtnCh27  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton28;
+BtnCh28  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton29;
+BtnCh29  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton30;
+BtnCh30  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton31;
+BtnCh31  	:= Aliases.Folha.FAgendador.Page.TabNormal.pnDetalhe.ScrollBox1.cgDiaMes.TcxCheckGroupButton32;
+
+end;

@@ -1,1 +1,24 @@
-﻿
+﻿var
+CadAgendadorDPId,
+CadAgendadorDPRotina,
+CadAgendadorDPIdConfig,
+CadAgendadorDPEmail,
+CadAgendadorDPDirAfd,
+CadAgendadorDPDirLog,
+CadAgendadorDPIdRep,
+CadAgendadorDPMinutos,
+CadAgendadorDPConsiderar : OleVariant;
+
+
+procedure LeDataPoolCadAgendador(nomeDriver);
+begin
+CadAgendadorDPId  			    := DDT.DriverByName(nomeDriver).Value('ID');
+CadAgendadorDPRotina  	    := DDT.DriverByName(nomeDriver).Value('ROTINA');
+CadAgendadorDPIdConfig      := DDT.DriverByName(nomeDriver).Value('IDCONFIG');
+CadAgendadorDPEmail  	      := DDT.DriverByName(nomeDriver).Value('EMAIL');
+CadAgendadorDPDirAfd  	    := DDT.DriverByName(nomeDriver).Value('DIRAFD');
+CadAgendadorDPDirLog  	    := DDT.DriverByName(nomeDriver).Value('DIRLOG');
+CadAgendadorDPIdRep  	      := DDT.DriverByName(nomeDriver).Value('IDREP');
+CadAgendadorDPMinutos  		  := DDT.DriverByName(nomeDriver).Value('MINUTOS');
+CadAgendadorDPConsiderar    := DDT.DriverByName(nomeDriver).Value('CONSIDERAR');
+end;

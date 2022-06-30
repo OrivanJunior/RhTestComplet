@@ -1714,7 +1714,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Layouts" key="{58B5CEFA-3AB0-4E7D-BE0D-31F14BFF23FB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Layouts" key="{58B5CEFA-3AB0-4E7D-BE0D-31F14BFF23FB}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Cheques" key="{A6685E05-2BE0-474B-932F-6832C6DAF568}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1812,7 +1812,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Seguro Desemprego" key="{E0520A18-E94F-4314-866F-AEE3B53CDF43}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Seguro Desemprego" key="{E0520A18-E94F-4314-866F-AEE3B53CDF43}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraLaySegDes" key="{9C3A88B6-CC26-4357-AC10-A48D07C22F4F}" group="False" parallel="False" enabled="True" testMoniker="{4E119642-B647-4458-B1CF-EB82DDF2BDF0}CadastraLaySegDes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1825,6 +1825,30 @@
 															<testItem name="ExcluirLaySegDes" key="{D69F3D02-3D92-4D57-BA96-7479418C658F}" group="False" parallel="False" enabled="True" testMoniker="{4E119642-B647-4458-B1CF-EB82DDF2BDF0}ExcluirLaySegDes" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Layouts\Seguro Desemprego\Seguro Desemprego.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Configurações" key="{1104EA7A-40A9-4084-9542-AD38D8DE4B03}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Conf. do Agendador" key="{668305AE-C9E9-4842-9751-40B129798201}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraAgendador" key="{66F16223-8D1C-4E7E-B7A5-DFFBF3A98C6C}" group="False" parallel="False" enabled="True" testMoniker="{BCE0AF9E-4B1A-4157-A199-3985B2D33AA3}CadastraAgendador" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. do Agendador\Conf.do Agendador.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirAgendador" key="{1C77EE72-DCA4-4BDF-8D3B-43DAA54C0BF4}" group="False" parallel="False" enabled="True" testMoniker="{BCE0AF9E-4B1A-4157-A199-3985B2D33AA3}ExcluirAgendador" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. do Agendador\Conf.do Agendador.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

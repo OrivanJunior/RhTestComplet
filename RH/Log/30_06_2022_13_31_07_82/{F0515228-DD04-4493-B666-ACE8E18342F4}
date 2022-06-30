@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="start time" type="D" value="44742.56370875"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44742.5638846065"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="name" type="S" value="ExcluirAgendador [Script\ExeConfAgendador - ExcluirAgendador]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value="{052C2A28-2781-4A9E-AD7F-B01F06DE8B36}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="start time" type="D" value="44742.563288125"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44742.5637084375"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="name" type="S" value="CadastraAgendador [Script\ExeConfAgendador - CadastraAgendador]"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value="{6B9BADB3-A7A5-455C-859A-5283490A7074}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

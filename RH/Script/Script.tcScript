@@ -642,6 +642,60 @@
 						<child name="DataPoolVales" key="{B9E14ABF-18F5-4E8E-AA74-E97B1B65D7EE}" path="DataPoolVales.sd" />
 					</folder>
 				</folder>
+				<folder name="Configurações">
+					<folder name="Conf.RAIS">
+						<child name="ExeRAIS" key="{645740AC-5462-4681-8977-C1DAB6EF2682}" path="ExeRAIS.sd" />
+						<child name="ObjRAIS" key="{618286AA-8B8B-4D8A-98EB-AD397AF9B6C9}" path="ObjRAIS.sd" />
+						<child name="DataPoolRAIS" key="{E013474E-36E8-4B40-B601-9AFD16A324E3}" path="DataPoolRAIS.sd" />
+					</folder>
+					<folder name="Exportação Contábill">
+						<folder name="Contas contábeis analíticas">
+							<child name="ExeCCAnaliticas" key="{935DAF17-E5D8-4971-80E1-BA95F1F604F5}" path="ExeCCAnaliticas.sd" />
+							<child name="ObjCCAnaliticas" key="{682DBE7D-2E92-42C9-9995-C7FA8BA45CDA}" path="ObjCCAnaliticas.sd" />
+							<child name="DataPoolCCAnaliticas" key="{713666B4-7312-447D-B37A-E65EAE6A01AC}" path="DataPoolCCAnaliticas.sd" />
+						</folder>
+						<folder name="Conf.Exp. Contábil">
+							<child name="ExeConfExpContabil" key="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}" path="ExeConfExpContabil.sd" />
+							<child name="ObjConfExpContabil" key="{F2FA54AE-E215-4E8F-8064-1AE3A0B99DA9}" path="ObjConfExpContabil.sd" />
+							<child name="DataPoolConfExpContabil" key="{D74FA24C-AD1B-4E88-8D03-CA7899D32615}" path="DataPoolConfExpContabil.sd" />
+						</folder>
+					</folder>
+					<folder name="Conf.Relação de Salários">
+						<child name="ExeConfRelSalarios" key="{AE391C38-893D-4C14-8CCC-F6D73B6959C3}" path="ExeConfRelSalarios.sd" />
+						<child name="ObjConfRelSalarios" key="{F2427267-4EC2-4B67-A276-5D1818664DBB}" path="ObjConfRelSalarios.sd" />
+						<child name="DataPoolConfRelSalarios" key="{AE8946BC-F137-4C6F-AC31-0B17AC1D2F96}" path="DataPoolConfRelSalarios.sd" />
+					</folder>
+					<folder name="Conf.Valor Padrão">
+						<child name="ExeConfValorPadrao" key="{EA5D0D65-9326-4ADB-A47A-8D95481CD0B2}" path="ExeConfValorPadrao.sd" />
+						<child name="DataPoolConfValorPadrao" key="{AFF05B57-2633-4BEC-84B9-2FE32893B0C5}" path="DataPoolConfValorPadrao.sd" />
+						<child name="ObjConfValorPadrao" key="{1E0729C8-1B16-4657-93D0-81DBF8DBC18D}" path="ObjConfValorPadrao.sd" />
+					</folder>
+					<folder name="Conf.E-Mail">
+						<child name="ExeConfEmail" key="{3DA38649-572D-4DEC-93FB-FB452594027F}" path="ExeConfEmail.sd" />
+						<child name="ObjConfEmail" key="{F0FF0F3B-FA79-4813-B626-4C95E244B38A}" path="ObjConfEmail.sd" />
+						<child name="DataPoolConfEmail" key="{2EA93F89-3FD8-4CDB-8CA8-042AD2B6C44C}" path="DataPoolConfEmail.sd" />
+					</folder>
+					<folder name="Conf.HomologNet">
+						<child name="ExeConfHomologNet" key="{E3C9ADB7-38E0-4505-A926-6F3844C69DA5}" path="ExeConfHomologNet.sd" />
+						<child name="objConfHomologNet" key="{5DA9E86F-4C92-4637-95D0-C18E4C868D3E}" path="objConfHomologNet.sd" />
+						<child name="DataPoolConfHomologNet" key="{30F023EB-6FC9-4F44-862F-F0C7ABEBED18}" path="DataPoolConfHomologNet.sd" />
+					</folder>
+					<folder name="Conf.Exportação Financeiro">
+						<child name="ExeConfExpFinanceiro" key="{AA6C8D09-6B63-459D-BBED-46FE0BAFE382}" path="ExeConfExpFinanceiro.sd" />
+						<child name="ObjConfExpFinanceiro" key="{528848A8-F6D6-415B-8A9F-0685DC92D373}" path="ObjConfExpFinanceiro.sd" />
+						<child name="DataPoolConfExpFinanceiro" key="{2B4ECB51-7500-4BDA-B26E-844ACE0C8B0F}" path="DataPoolConfExpFinanceiro.sd" />
+					</folder>
+					<folder name="Conf.de Plugins">
+						<child name="ExeCConfPlugins" key="{275BE5FE-69FA-485B-B6DF-03817EA86354}" path="ExeCConfPlugins.sd" />
+						<child name="ObjCConfPlugins" key="{06382992-2DD1-4A25-B65B-9253247AAEB2}" path="ObjCConfPlugins.sd" />
+						<child name="DataPoolCConfPlugins" key="{60551B43-FA2F-487B-84A8-2F8902D6C486}" path="DataPoolCConfPlugins.sd" />
+					</folder>
+					<folder name="Conf. do Agendador">
+						<child name="ExeConfAgendador" key="{BCE0AF9E-4B1A-4157-A199-3985B2D33AA3}" path="ExeConfAgendador.sd" />
+						<child name="ObjConfAgendador" key="{7BECD18F-1FDE-4A30-AE8A-188592E123EE}" path="ObjConfAgendador.sd" />
+						<child name="DataPoolConfAgendador" key="{4F91547D-CF97-44CE-865A-FE0E151D4319}" path="DataPoolConfAgendador.sd" />
+					</folder>
+				</folder>
 			</folder>
 			<folder name="Cadastros Específicos">
 				<folder name="Feriados">
