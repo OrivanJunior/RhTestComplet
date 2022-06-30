@@ -1,1 +1,26 @@
-﻿
+﻿var
+CadEmailDPIdconfig,
+CadEmailDPDescricao,
+CadEmailDPHost,
+CadEmailDPPorta,
+CadEmailDPReqAut,
+CadEmailDPConexaoSegura,
+CadEmailDPSsltipo,
+CadEmailDPUsuario,
+CadEmailDPSenha,
+CadEmailDPEmail : OleVariant;
+
+procedure LeDataPoolCadEmail(nomeDriver);
+begin 
+CadEmailDPIdconfig  	:= DDT.DriverByName(nomeDriver).Value('IDCONFIG');
+CadEmailDPDescricao 	:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadEmailDPHost  		  := DDT.DriverByName(nomeDriver).Value('HOST');
+CadEmailDPPorta  		  := DDT.DriverByName(nomeDriver).Value('PORTA');
+CadEmailDPReqAut  		:= DDT.DriverByName(nomeDriver).Value('REQAUT');
+CadEmailDPConexaoSegura := DDT.DriverByName(nomeDriver).Value('CONEXAOSEGURA');
+CadEmailDPSsltipo  		:= DDT.DriverByName(nomeDriver).Value('SSLTIPO');
+CadEmailDPUsuario  		:= DDT.DriverByName(nomeDriver).Value('USUARIO');
+CadEmailDPSenha  			:= DDT.DriverByName(nomeDriver).Value('SENHA');
+CadEmailDPEmail			  := DDT.DriverByName(nomeDriver).Value('EMAIL');
+end;
+
