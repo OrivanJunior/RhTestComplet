@@ -1,1 +1,30 @@
-﻿
+﻿var
+FormPadraoEmail,
+CadEmailEBIdconfig,
+CadEmailEBDescricao,
+CadEmailEBHost,
+CadEmailEBPorta,
+CadEmailEBReqAut,
+CadEmailEBConexaoSegura,
+CadEmailEBSsltipo,
+CadEmailEBUsuario,
+CadEmailEBSenha,
+CadEmailMask,
+CadEmailEBEmail : OleVariant;
+
+procedure MapCadEmail;
+begin
+FormPadraoEmail  		  := Aliases.Folha.FRhConfigMail;
+CadEmailEBIdconfig  	:= Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_IDCONFIG;
+CadEmailEBDescricao 	:= Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadEmailEBHost  		  := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_HOST;
+CadEmailEBPorta  		  := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_PORTA;
+CadEmailEBReqAut  		:= Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_REQAUT;
+CadEmailEBConexaoSegura := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_CONEXAOSEGURA;
+CadEmailEBSsltipo  		:= Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_SSLTIPO;
+CadEmailEBUsuario  		:= Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_USUARIO;
+CadEmailEBSenha  			    := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_SENHA;
+CadEmailMask  			  := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.chkMascarar;
+CadEmailEBEmail			  := Aliases.Folha.FRhConfigMail.Page.TabNormal.pnCab.EB_EMAIL;
+
+end;
