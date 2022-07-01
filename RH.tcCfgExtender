@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{F0FF0F3B-FA79-4813-B626-4C95E244B38A}"/>
+				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -3809,20 +3809,20 @@
 					<Node name="{3da38649-572d-4dec-93fb-fb452594027f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="15"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="2"/>
 						</Node>
 						<Node name="1">
-							<Prp name="bottom" type="I" value="53"/>
-							<Prp name="collapsed" type="B" value="-1"/>
-							<Prp name="top" type="I" value="18"/>
+							<Prp name="bottom" type="I" value="52"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="17"/>
 						</Node>
 						<Node name="2">
-							<Prp name="bottom" type="I" value="88"/>
-							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="55"/>
+							<Prp name="bottom" type="I" value="87"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="54"/>
 						</Node>
-						<Prp name="bottom" type="I" value="89"/>
+						<Prp name="bottom" type="I" value="88"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -16773,9 +16773,11 @@
 								<Node name="cadastros gerais">
 									<Node name="configurações">
 										<Node name="conf.e-mail"/>
+										<Node name="conf.exportação financeiro"/>
+										<Node name="conf.homolognet"/>
+										<Node name="conf.rais"/>
 										<Node name="conf.relação de salários"/>
 									</Node>
-									<Node name="gerais"/>
 									<Node name="tabelas">
 										<Node name="inss"/>
 										<Node name="salário mínimo"/>

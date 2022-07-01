@@ -14,8 +14,7 @@ VerificaInsere(CadEmailEBSEnha,CadEmailDPSenha);
 CadEmailMask.Click;
 VerificaInsere(CadEmailEBEmail,CadEmailDPEmail);	
 end;
-
-  
+ 
 procedure CadastrarEmail(pathData);
 var
 DDTCadastrar : OleVariant;
