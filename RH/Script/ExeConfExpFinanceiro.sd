@@ -1,1 +1,154 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolConfExpFinanceiro, ObjConfExpFinanceiro;
+
+procedure PreencheExpFin();
+begin
+VerificaInsere(CadExpFinEBIdExpFin,CadExpFinDPIdExpFin);
+VerificaInsere(CadExpFinEBDescricao,CadExpFinDPDescricao);
+VerificaInsere(CadExpFinEBInssFornecedor,CadExpFinDPInssFornecedor);	
+VerificaInsere(CadExpFinEBInssAnalitica,CadExpFinDPInssAnalitica);
+VerificaInsere(CadExpFinEBInssCentroCusto,CadExpFinDPInssCentroCusto);
+VerificaInsere(CadExpFinEBSituacaoFinInss,CadExpFinDPSituacaoFinInss);
+VerificaInsere(CadExpFinEBFornFinUnif,CadExpFinDPFornFinUnif);
+end;
+
+
+procedure PreencheExpFinDet();
+var i;
+begin
+i:=0;
+MapCadExpFinanc();
+PageTabNormalExpFin.ActivePageIndex :=1;
+
+BtnIncDet.Click;
+
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Processamento',CadExpFinFinDetDPProcessamento);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Fgts Fornecedor',CadExpFinFinDetDPFgtsFornecedor);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Fgts Analítica',CadExpFinFinDetDPFgtsAnalitica);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Fgts Centro de Custo',CadExpFinFinDetDPFgtsCentrodeCusto);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Analítica Líquido',CadExpFinFinDetDPAnaliticaLiquido);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Fgts Situacao',CadExpFinFinDetDPFgtsSituacao);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Centro de Custo Líquido',CadExpFinFinDetDPCentroeCustoLiquido);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Situação Líquido',CadExpFinFinDetDPSituacaoLiquido);
+VerificaClickPreencheGrid(FormGridExpFinDet,i,'Percentual de Rateio',CadExpFinFinDetDPPercentualdeRateio);
+
+inc(i);
+end;
+
+
+procedure PreencheExpFinEve();
+var i;
+begin
+i:=0;
+MapCadExpFinanc();
+PageTabNormalExpFin.ActivePageIndex :=1;
+
+BtnIncEve.Click;
+
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Cod. Evento',CadExpFinEveDPCodEvento);
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Fornecedor',CadExpFinEveDPFornecedor);
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Analítica',CadExpFinEveDPAnalitica);
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Centro de Custo',CadExpFinEveDPCentrodeCusto);
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Situação',CadExpFinEveDPSituacao);
+VerificaClickPreencheGrid(FormGridExpFinEve,i,'Dia Venc.',CadExpFinEveDPDiaVenc);
+
+inc(i);
+end;
+
+
+procedure PreencheExpFinProg();
+var i;
+begin
+i:=0;
+MapCadExpFinanc();
+PageTabNormalExpFin.ActivePageIndex :=1;
+
+BtnIncProg.Click;
+
+VerificaClickPreencheGrid(FormGridExpFinProg,i,'Cod. Evento',CadExpFinProgDPCodEvento);
+VerificaClickPreencheGrid(FormGridExpFinProg,i,'Fornecedor',CadExpFinProgDPFornecedor);
+VerificaClickPreencheGrid(FormGridExpFinProg,i,'Analítica',CadExpFinProgDPAnalitica);
+VerificaClickPreencheGrid(FormGridExpFinProg,i,'Centro de Custo',CadExpFinProgDPCentrodeCusto);
+VerificaClickPreencheGrid(FormGridExpFinProg,i,'Situação',CadExpFinProgDPSituacao);
+
+inc(i);
+end;
+
+
+
+procedure CadastraExpFin(pathData);
+var
+BtnProcExec;
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. Exportação Financeiro');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadExpFin(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfExpFin');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadExpFinDPIdExpFin);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadExpFinanc();
+  
+  PreencheExpFin();
+  PreencheExpFinDet();
+  PreencheExpFinEve();
+  PreencheExpFinProg();
+  
+  
+  ActSalvar(FormPadraoExpFin);
+  ActFechar(FormPadraoExpFin);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirExpFin(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. Exportação Financeiro');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadExpFin(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfExpFin');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadExpFinDPIdExpFin);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadExpFinanc();
+  
+  ActExcluir(_ModuloFolha, 'FRhConfExpFin');
+
+  ActFechar(FormPadraoExpFin);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
