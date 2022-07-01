@@ -1867,7 +1867,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. E-Mail" key="{C22947EA-8E7D-4A30-BEBA-CAEDE4B59673}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. E-Mail" key="{C22947EA-8E7D-4A30-BEBA-CAEDE4B59673}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastrarEmail" key="{E207DE7F-3111-40A8-BEF5-57F5B57AE252}" group="False" parallel="False" enabled="True" testMoniker="{3DA38649-572D-4DEC-93FB-FB452594027F}CadastrarEmail" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1880,6 +1880,25 @@
 															<testItem name="ExcluirEmail" key="{2E4F699E-8385-4E16-9129-DBD94D90238C}" group="False" parallel="False" enabled="True" testMoniker="{3DA38649-572D-4DEC-93FB-FB452594027F}ExcluirEmail" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. E-Mail\Conf. E-Mail.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. Exportação Financeiro" key="{E64338BE-E865-4B65-ADEE-14192C47BBDC}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraExpFin" key="{B317218C-1327-440F-AE80-0F53746BF248}" group="False" parallel="False" enabled="True" testMoniker="{AA6C8D09-6B63-459D-BBED-46FE0BAFE382}CadastraExpFin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Exportação Financeiro\Conf. Exportação Financeiro.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirExpFin" key="{8865FDA3-F4F4-4568-9418-E28224A80155}" group="False" parallel="False" enabled="True" testMoniker="{AA6C8D09-6B63-459D-BBED-46FE0BAFE382}ExcluirExpFin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Exportação Financeiro\Conf. Exportação Financeiro.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

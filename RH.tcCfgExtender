@@ -2792,7 +2792,12 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{2b4ecb51-7500-4bda-b26e-844ace0c8b0f}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="68"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="34"/>
+						</Node>
+						<Prp name="bottom" type="I" value="69"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -11038,35 +11043,35 @@
 					<Node name="{aa6c8d09-6b63-459d-bbed-46fe0bafe382}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="11"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="2"/>
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="34"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="14"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="54"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="37"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="73"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="57"/>
 						</Node>
 						<Node name="4">
 							<Prp name="bottom" type="I" value="117"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="77"/>
 						</Node>
 						<Node name="5">
-							<Prp name="bottom" type="I" value="153"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="bottom" type="I" value="160"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="119"/>
 						</Node>
-						<Prp name="bottom" type="I" value="154"/>
+						<Prp name="bottom" type="I" value="161"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -16822,7 +16827,6 @@
 							<Node name="folha">
 								<Node name="cadastros gerais">
 									<Node name="configurações">
-										<Node name="conf. do agendador"/>
 										<Node name="conf.exportação financeiro"/>
 										<Node name="conf.homolognet"/>
 										<Node name="conf.rais"/>

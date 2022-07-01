@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="name" type="S" value="ExcluirExpFin [Script\ExeConfExpFinanceiro - ExcluirExpFin]"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44743.6772731018"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="end time" type="D" value="44743.6773708102"/>
+				<Prp name="details" type="S" value="{FE8DB786-C5FF-4F4E-A550-0B5660BB8301}"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="name" type="S" value="CadastraExpFin [Script\ExeConfExpFinanceiro - CadastraExpFin]"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44743.6767689005"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="end time" type="D" value="44743.6772729282"/>
+				<Prp name="details" type="S" value="{541C4942-6387-492C-B0E3-D1C53830E9A7}"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
