@@ -1,1 +1,83 @@
-﻿
+﻿var
+BtnSalvarExpFin,
+BtnExcExpFin,
+  
+FormPadraoExpFin,
+CadExpFinEBIdExpFin,
+CadExpFinEBDescricao,
+CadExpFinEBInssFornecedor,
+CadExpFinEBInssAnalitica,
+CadExpFinEBInssCentroCusto,
+CadExpFinEBSituacaoFinInss,
+CadExpFinEBFornFinUnif,
+  
+PageTabNormalExpFin,
+					
+FormGridExpFinDet,
+BtnIncDet,
+BtnProcDet,
+BtnConsDet,
+BtnDesfDet,
+BtnExcDet,
+					
+					
+FormGridExpFinEve,
+BtnIncEve,
+BtnProEve,
+BtnConEve,
+BtnDesfEve,
+BtnExcEve,
+					
+					
+FormGridExpFinProg,
+BtnIncProg,
+BtnProcProg,
+BtnConsProg,
+BtnDesfProg,
+BtnExcProg	: OleVariant;				
+
+
+
+
+
+
+procedure MapCadExpFinanc();
+begin
+BtnSalvarExpFin  						:= Aliases.Folha.FRhConfExpFin.BSalvar;
+BtnExcExpFin  							:= Aliases.Folha.FRhConfExpFin.BExcluir;
+  
+FormPadraoExpFin  					:= Aliases.Folha.FRhConfExpFin;
+CadExpFinEBIdExpFin  				:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_IDEXPFIN;
+CadExpFinEBDescricao  			:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadExpFinEBInssFornecedor  	:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSFORNECEDOR;
+CadExpFinEBInssAnalitica  	:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSANALITICA;
+CadExpFinEBInssCentroCusto  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSCENTROCUSTO;
+CadExpFinEBSituacaoFinInss  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_SITUACAOFININSS;
+CadExpFinEBFornFinUnif  		:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_FORNFINUNIF;
+  
+PageTabNormalExpFin				  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg;
+					
+FormGridExpFinDet  					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsRhConfExpFin.sbRHExpDet.gRhConfExpFinDet;
+BtnIncDet 								  := Aliases.Folha.FRhConfExpFin.bIncConfExpFinDet;
+BtnProcDet  							  := Aliases.Folha.FRhConfExpFin.bProcConfExpFinDet;
+BtnConsDet  							  := Aliases.Folha.FRhConfExpFin.bConsulConfExpFinDet	;
+BtnDesfDet  							  := Aliases.Folha.FRhConfExpFin.bDesfConfExpFinDet;
+BtnExcDet 								  := Aliases.Folha.FRhConfExpFin.bExcConfExpFinDet;
+					
+					
+FormGridExpFinEve  					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEvento.ScrollBox1.gRhExpFinEve;
+BtnIncEve 								  := Aliases.Folha.FRhConfExpFin.bInc;
+BtnProEve 								  := Aliases.Folha.FRhConfExpFin.bProc;
+BtnConEve 								  := Aliases.Folha.FRhConfExpFin.bConsul;
+BtnDesfEve								  := Aliases.Folha.FRhConfExpFin.bDesf;
+BtnExcEve 								  := Aliases.Folha.FRhConfExpFin.bExc;
+					
+					
+FormGridExpFinProg  				:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEventoProgramado.ScrollBox2.gRhExpFinEveProg;
+BtnIncProg								  := Aliases.Folha.FRhConfExpFin.bIncEveProg;
+BtnProcProg 							  := Aliases.Folha.FRhConfExpFin.bProcEveProg;
+BtnConsProg 							  := Aliases.Folha.FRhConfExpFin.bConsulEveProg;
+BtnDesfProg 							  := Aliases.Folha.FRhConfExpFin.bDesfEveProg;
+BtnExcProg								  := Aliases.Folha.FRhConfExpFin.bExcEveProg;
+
+end;

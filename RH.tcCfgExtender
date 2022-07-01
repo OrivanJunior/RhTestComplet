@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{528848A8-F6D6-415B-8A9F-0685DC92D373}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -105,16 +105,16 @@
 					<Node name="13">
 						<Node name="editor">
 							<Node name="{8c45957c-f4b3-4dd7-9212-49cbd350f69f}">
-								<Prp name="key" type="S" value="{6B1E41BC-B8C3-4F31-992A-A1778FD007AD}"/>
+								<Prp name="key" type="S" value="{AA726686-5080-410D-AF6C-CFF7B3B34DFE}"/>
 							</Node>
 							<Node name="{d0151f8e-51fe-49da-8534-008b9f1b7c45}">
 								<Prp name="col" type="I" value="0"/>
-								<Prp name="key" type="S" value="{5F05F615-FBDC-4DDF-95F8-5444F6FF00FF}"/>
+								<Prp name="key" type="S" value="{2CDFE480-A92C-4727-9B47-15A0BBDB62AE}"/>
 								<Prp name="line" type="I" value="0"/>
 								<Prp name="sellength" type="I" value="0"/>
 								<Prp name="selstart" type="I" value="0"/>
 								<Prp name="windowchar" type="I" value="0"/>
-								<Prp name="windowline" type="I" value="0"/>
+								<Prp name="windowline" type="I" value="12"/>
 							</Node>
 							<Prp name="editor" type="S" value="{C47FD3D4-CDD5-4A24-A223-17D4C8F71AD6}"/>
 							<Prp name="focused" type="S" value="{670E8655-097B-4CF3-8665-0B6DC7CB1AC8}"/>
@@ -246,7 +246,7 @@
 					<Node name="5">
 						<Node name="editor">
 							<Node name="{531ace08-e68e-400b-9eb9-e24763725fd8}">
-								<Prp name="key" type="S" value="{3A46F430-5E95-452A-8FCE-43384D1B9D99}"/>
+								<Prp name="key" type="S" value="{9FA86F75-C560-4A4D-B370-A96670256A61}"/>
 							</Node>
 							<Prp name="editor" type="S" value="{99CBFF32-8336-419C-8095-128CFB65AA5E}"/>
 							<Prp name="focused" type="S" value="{7F0CC07E-6768-4A78-BAB5-E36438412778}"/>
@@ -5442,7 +5442,22 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{528848a8-f6d6-415b-8a9f-0685dc92d373}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="25"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="0"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="36"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="28"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="46"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="38"/>
+						</Node>
+						<Prp name="bottom" type="I" value="48"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -7545,11 +7560,16 @@
 					</Node>
 					<Node name="{7becd18f-1fde-4a30-ae8a-188592e123ee}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="152"/>
+							<Prp name="bottom" type="I" value="3"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="77"/>
+							<Prp name="top" type="I" value="0"/>
 						</Node>
-						<Prp name="bottom" type="I" value="153"/>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="157"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="81"/>
+						</Node>
+						<Prp name="bottom" type="I" value="158"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -16772,21 +16792,15 @@
 							<Node name="folha">
 								<Node name="cadastros gerais">
 									<Node name="configurações">
-										<Node name="conf.e-mail"/>
 										<Node name="conf.exportação financeiro"/>
 										<Node name="conf.homolognet"/>
 										<Node name="conf.rais"/>
 										<Node name="conf.relação de salários"/>
 									</Node>
-									<Node name="tabelas">
-										<Node name="inss"/>
-										<Node name="salário mínimo"/>
-									</Node>
+									<Node name="gerais"/>
+									<Node name="tabelas"/>
 								</Node>
 							</Node>
-						</Node>
-						<Node name="stores">
-							<Node name="dbtables"/>
 						</Node>
 						<Node name="testedapps"/>
 					</Node>
