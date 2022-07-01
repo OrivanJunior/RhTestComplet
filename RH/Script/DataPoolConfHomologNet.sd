@@ -1,1 +1,33 @@
-﻿
+﻿var
+CadHomologDPIdconf,
+CadHomologDPDescricao,
+CadHomologDPEvento13,
+CadHomologDPEventoFaltadiur,
+CadHomologDPEventoFaltanoturn,
+CadHomologDPEventoAdiant,
+CadHomologDPEventoValetrans,
+CadHomologDPEventoValealimen,
+CadHomologDPEventoEmprestimo,
+CadHomologDPEventoIndenizacao,
+CadHomologDPEventoContPrevPriv,
+CadHomologDPEventoContriFapi,
+CadHomologDPEventoContriSind,
+CadHomologDPTipoAdiant13 		: OleVariant;	
+
+procedure LeDataPoolCadHomolog(nomeDriver);
+begin
+CadHomologDPIdconf 				    := DDT.DriverByName(nomeDriver).Value('IDCONF');
+CadHomologDPDescricao 			  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadHomologDPEvento13 			    := DDT.DriverByName(nomeDriver).Value('EVENTO13');
+CadHomologDPEventoFaltadiur 	:= DDT.DriverByName(nomeDriver).Value('EVENTOFALTADIUR');
+CadHomologDPEventoFaltanoturn := DDT.DriverByName(nomeDriver).Value('EVENTOFALTANOTURN');
+CadHomologDPEventoAdiant 		  := DDT.DriverByName(nomeDriver).Value('EVENTOADIANT');
+CadHomologDPEventoValetrans 	:= DDT.DriverByName(nomeDriver).Value('EVENTOVALETRANS');
+CadHomologDPEventoValealimen 	:= DDT.DriverByName(nomeDriver).Value('EVENTOVALEALIMEN');
+CadHomologDPEventoEmprestimo 	:= DDT.DriverByName(nomeDriver).Value('EVENTOEMPRESTIMO');
+CadHomologDPEventoIndenizacao := DDT.DriverByName(nomeDriver).Value('EVENTOINDENIZACAO');
+CadHomologDPEventoContPrevPriv:= DDT.DriverByName(nomeDriver).Value('EVENTOCONTPREVPRIV');
+CadHomologDPEventoContriFapi 	:= DDT.DriverByName(nomeDriver).Value('EVENTOCONTRIFAPI');
+CadHomologDPEventoContriSind 	:= DDT.DriverByName(nomeDriver).Value('EVENTOCONTRISIND');
+CadHomologDPTipoAdiant13 		  := DDT.DriverByName(nomeDriver).Value('TIPOADIANT13');
+end;

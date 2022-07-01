@@ -1886,7 +1886,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. Exportação Financeiro" key="{E64338BE-E865-4B65-ADEE-14192C47BBDC}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. Exportação Financeiro" key="{E64338BE-E865-4B65-ADEE-14192C47BBDC}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraExpFin" key="{B317218C-1327-440F-AE80-0F53746BF248}" group="False" parallel="False" enabled="True" testMoniker="{AA6C8D09-6B63-459D-BBED-46FE0BAFE382}CadastraExpFin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1899,6 +1899,25 @@
 															<testItem name="ExcluirExpFin" key="{8865FDA3-F4F4-4568-9418-E28224A80155}" group="False" parallel="False" enabled="True" testMoniker="{AA6C8D09-6B63-459D-BBED-46FE0BAFE382}ExcluirExpFin" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Exportação Financeiro\Conf. Exportação Financeiro.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. HomologNet" key="{4BF0DB62-B791-480E-B7A2-8963F4140012}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraHomolog" key="{4DBD9993-EA64-45FF-8CF5-015119877B7F}" group="False" parallel="False" enabled="True" testMoniker="{E3C9ADB7-38E0-4505-A926-6F3844C69DA5}CadastraHomolog" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. HomologNet\Conf. HomologNet.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirHomolog" key="{66382AFE-6440-45B4-93DD-27857548BFAF}" group="False" parallel="False" enabled="True" testMoniker="{E3C9ADB7-38E0-4505-A926-6F3844C69DA5}ExcluirHomolog" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. HomologNet\Conf. HomologNet.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
