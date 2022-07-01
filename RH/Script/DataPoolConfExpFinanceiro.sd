@@ -1,1 +1,69 @@
-﻿
+﻿var
+CadExpFinDPIdExpFin,
+CadExpFinDPDescricao,
+CadExpFinDPInssFornecedor,
+CadExpFinDPInssAnalitica,
+CadExpFinDPInssCentroCusto,
+CadExpFinDPSituacaoFinInss,
+CadExpFinDPFornFinUnif,
+
+CadExpFinFinDetDPProcessamento,
+CadExpFinFinDetDPFgtsFornecedor,
+CadExpFinFinDetDPFgtsAnalitica,
+CadExpFinFinDetDPFgtsCentrodeCusto,
+CadExpFinFinDetDPAnaliticaLiquido,
+CadExpFinFinDetDPFgtsSituacao,
+CadExpFinFinDetDPCentroeCustoLiquido,
+CadExpFinFinDetDPSituacaoLiquido,
+CadExpFinFinDetDPPercentualdeRateio,
+
+CadExpFinEveDPCodEvento,
+CadExpFinEveDPFornecedor,
+CadExpFinEveDPAnalitica,
+CadExpFinEveDPCentrodeCusto,
+CadExpFinEveDPSituacao,
+CadExpFinEveDPDiaVenc,
+
+CadExpFinProgDPCodEvento,
+CadExpFinProgDPFornecedor,
+CadExpFinProgDPAnalitica,
+CadExpFinProgDPCentrodeCusto,
+CadExpFinProgDPSituacao : OleVariant;
+
+
+
+procedure LeDataPoolCadExpFin(nomeDriver);
+begin
+CadExpFinDPIdExpFin  					      := DDT.DriverByName(nomeDriver).Value('IDEXPFIN');
+CadExpFinDPDescricao  		    		  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadExpFinDPInssFornecedor  	    		:= DDT.DriverByName(nomeDriver).Value('INSSFORNECEDOR');
+CadExpFinDPInssAnalitica  	    		:= DDT.DriverByName(nomeDriver).Value('INSSANALITICA');
+CadExpFinDPInssCentroCusto      		:= DDT.DriverByName(nomeDriver).Value('INSSCENTROCUSTO');
+CadExpFinDPSituacaoFinInss      		:= DDT.DriverByName(nomeDriver).Value('SITUACAOFININSS');
+CadExpFinDPFornFinUnif 		    		  := DDT.DriverByName(nomeDriver).Value('FORNFINUNIF');
+
+CadExpFinFinDetDPProcessamento			:= DDT.DriverByName(nomeDriver).Value('PROCESSAMENTO');
+CadExpFinFinDetDPFgtsFornecedor			:= DDT.DriverByName(nomeDriver).Value('FGTSFORNECEDOR');
+CadExpFinFinDetDPFgtsAnalitica	    := DDT.DriverByName(nomeDriver).Value('FGTSANALÍTICA');
+CadExpFinFinDetDPFgtsCentrodeCusto  := DDT.DriverByName(nomeDriver).Value('FGTSCENTRODECUSTO');
+CadExpFinFinDetDPAnaliticaLiquido	  := DDT.DriverByName(nomeDriver).Value('ANALÍTICALÍQUIDO');
+CadExpFinFinDetDPFgtsSituacao	      := DDT.DriverByName(nomeDriver).Value('FGTSSITUACAO');
+CadExpFinFinDetDPCentroeCustoLiquido:= DDT.DriverByName(nomeDriver).Value('CENTROECUSTOLÍQUIDO');
+CadExpFinFinDetDPSituacaoLiquido	  := DDT.DriverByName(nomeDriver).Value('SITUAÇÃOLÍQUIDO');
+CadExpFinFinDetDPPercentualdeRateio := DDT.DriverByName(nomeDriver).Value('PERCENTUALDERATEIO');
+
+
+CadExpFinEveDPCodEvento	            := DDT.DriverByName(nomeDriver).Value('CODEVENTO');
+CadExpFinEveDPFornecedor	          := DDT.DriverByName(nomeDriver).Value('FORNECEDOR');
+CadExpFinEveDPAnalitica	            := DDT.DriverByName(nomeDriver).Value('ANALÍTICA');
+CadExpFinEveDPCentrodeCusto         := DDT.DriverByName(nomeDriver).Value('CENTRODECUSTO');
+CadExpFinEveDPSituacao	            := DDT.DriverByName(nomeDriver).Value('SITUAÇÃO');
+CadExpFinEveDPDiaVenc               := DDT.DriverByName(nomeDriver).Value('DIAVENC');
+
+CadExpFinProgDPCodEvento	      		:= DDT.DriverByName(nomeDriver).Value('PROGCODEVENTO');
+CadExpFinProgDPFornecedor	  		    := DDT.DriverByName(nomeDriver).Value('PROGFORNECEDOR');
+CadExpFinProgDPAnalitica	      		:= DDT.DriverByName(nomeDriver).Value('PROGANALITICA');
+CadExpFinProgDPCentrodeCusto   		  := DDT.DriverByName(nomeDriver).Value('PROGCENTRODECUSTO');
+CadExpFinProgDPSituacao	      		  := DDT.DriverByName(nomeDriver).Value('PROGSITUAÇÃO');
+
+end;

@@ -1,4 +1,5 @@
-﻿var
+﻿
+var
 BtnSalvarExpFin,
 BtnExcExpFin,
   
@@ -55,7 +56,7 @@ CadExpFinEBInssCentroCusto  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.
 CadExpFinEBSituacaoFinInss  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_SITUACAOFININSS;
 CadExpFinEBFornFinUnif  		:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_FORNFINUNIF;
   
-PageTabNormalExpFin				  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg;
+PageTabNormalExpFin					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg;
 					
 FormGridExpFinDet  					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsRhConfExpFin.sbRHExpDet.gRhConfExpFinDet;
 BtnIncDet 								  := Aliases.Folha.FRhConfExpFin.bIncConfExpFinDet;
@@ -81,3 +82,6 @@ BtnDesfProg 							  := Aliases.Folha.FRhConfExpFin.bDesfEveProg;
 BtnExcProg								  := Aliases.Folha.FRhConfExpFin.bExcEveProg;
 
 end;
+
+
+

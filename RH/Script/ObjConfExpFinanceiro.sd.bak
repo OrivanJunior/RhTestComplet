@@ -1,48 +1,83 @@
-﻿procedure Test1;
+﻿var
+BtnSalvarExpFin,
+BtnExcExpFin,
+  
+FormPadraoExpFin,
+CadExpFinEBIdExpFin,
+CadExpFinEBDescricao,
+CadExpFinEBInssFornecedor,
+CadExpFinEBInssAnalitica,
+CadExpFinEBInssCentroCusto,
+CadExpFinEBSituacaoFinInss,
+CadExpFinEBFornFinUnif,
+  
+PageTabNormalExpFin,
+					
+FormGridExpFinDet,
+BtnIncDet,
+BtnProcDet,
+BtnConsDet,
+BtnDesfDet,
+BtnExcDet,
+					
+					
+FormGridExpFinEve,
+BtnIncEve,
+BtnProEve,
+BtnConEve,
+BtnDesfEve,
+BtnExcEve,
+					
+					
+FormGridExpFinProg,
+BtnIncProg,
+BtnProcProg,
+BtnConsProg,
+BtnDesfProg,
+BtnExcProg	: OleVariant;				
+
+
+
+
+
+
+procedure MapCadExpFinanc();
 begin
-  Aliases.Folha.FRhConfExpFin.BSalvar.Click(10, 14);
-  Aliases.Folha.FRhConfExpFin.BExcluir.Click(13, 15);
+BtnSalvarExpFin  						:= Aliases.Folha.FRhConfExpFin.BSalvar;
+BtnExcExpFin  							:= Aliases.Folha.FRhConfExpFin.BExcluir;
   
+FormPadraoExpFin  					:= Aliases.Folha.FRhConfExpFin;
+CadExpFinEBIdExpFin  				:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_IDEXPFIN;
+CadExpFinEBDescricao  			:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadExpFinEBInssFornecedor  	:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSFORNECEDOR;
+CadExpFinEBInssAnalitica  	:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSANALITICA;
+CadExpFinEBInssCentroCusto  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSCENTROCUSTO;
+CadExpFinEBSituacaoFinInss  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_SITUACAOFININSS;
+CadExpFinEBFornFinUnif  		:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_FORNFINUNIF;
   
-  Aliases.Folha.FRhConfExpFin.Click(353, 19);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_IDEXPFIN.Click(58, 4);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_DESCRICAO.Click(60, 4);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSFORNECEDOR.Click(56, 6);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSANALITICA.Click(51, 12);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_INSSCENTROCUSTO.Click(52, 8);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_SITUACAOFININSS.Click(52, 8);
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pnCab.EB_FORNFINUNIF.Click(55, 9);
-  
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.Click(67, 10);
-  
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsRhConfExpFin.sbRHExpDet.gRhConfExpFinDet.TcxGridSite.Click(41, 44);
-  Aliases.Folha.FRhConfExpFin.bIncConfExpFinDet.Click(14, 10);
-  Aliases.Folha.FRhConfExpFin.bProcConfExpFinDet.Click(14, 10);
-  Aliases.Folha.FRhConfExpFin.bConsulConfExpFinDet.Click(14, 5);
-  Aliases.Folha.FRhConfExpFin.bDesfConfExpFinDet.Click(10, 8);
-  Aliases.Folha.FRhConfExpFin.bExcConfExpFinDet.Click(13, 9);
-  
+PageTabNormalExpFin				  := Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg;
+					
+FormGridExpFinDet  					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsRhConfExpFin.sbRHExpDet.gRhConfExpFinDet;
+BtnIncDet 								  := Aliases.Folha.FRhConfExpFin.bIncConfExpFinDet;
+BtnProcDet  							  := Aliases.Folha.FRhConfExpFin.bProcConfExpFinDet;
+BtnConsDet  							  := Aliases.Folha.FRhConfExpFin.bConsulConfExpFinDet	;
+BtnDesfDet  							  := Aliases.Folha.FRhConfExpFin.bDesfConfExpFinDet;
+BtnExcDet 								  := Aliases.Folha.FRhConfExpFin.bExcConfExpFinDet;
+					
+					
+FormGridExpFinEve  					:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEvento.ScrollBox1.gRhExpFinEve;
+BtnIncEve 								  := Aliases.Folha.FRhConfExpFin.bInc;
+BtnProEve 								  := Aliases.Folha.FRhConfExpFin.bProc;
+BtnConEve 								  := Aliases.Folha.FRhConfExpFin.bConsul;
+BtnDesfEve								  := Aliases.Folha.FRhConfExpFin.bDesf;
+BtnExcEve 								  := Aliases.Folha.FRhConfExpFin.bExc;
+					
+					
+FormGridExpFinProg  				:= Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEventoProgramado.ScrollBox2.gRhExpFinEveProg;
+BtnIncProg								  := Aliases.Folha.FRhConfExpFin.bIncEveProg;
+BtnProcProg 							  := Aliases.Folha.FRhConfExpFin.bProcEveProg;
+BtnConsProg 							  := Aliases.Folha.FRhConfExpFin.bConsulEveProg;
+BtnDesfProg 							  := Aliases.Folha.FRhConfExpFin.bDesfEveProg;
+BtnExcProg								  := Aliases.Folha.FRhConfExpFin.bExcEveProg;
 
 end;
-
-
-procedure Test2;
-begin
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEvento.ScrollBox1.gRhExpFinEve.TcxGridSite.Click(142, 64);
-  Aliases.Folha.FRhConfExpFin.bInc.Click(15, 7);
-  Aliases.Folha.FRhConfExpFin.bProc.Click(16, 7);
-  Aliases.Folha.FRhConfExpFin.bConsul.Click(17, 6);
-  Aliases.Folha.FRhConfExpFin.bDesf.Click(9, 7);
-  Aliases.Folha.FRhConfExpFin.bExc.Click(12, 9);
-end;
-
-procedure Test3;
-begin
-  Aliases.Folha.FRhConfExpFin.Page.TabNormal.pg.tsEventoProgramado.ScrollBox2.gRhExpFinEveProg.TcxGridSite.Click(74, 38);
-  Aliases.Folha.FRhConfExpFin.bIncEveProg.Click(11, 9);
-  Aliases.Folha.FRhConfExpFin.bProcEveProg.Click(13, 4);
-  Aliases.Folha.FRhConfExpFin.bConsulEveProg.Click(15, 7);
-  Aliases.Folha.FRhConfExpFin.bDesfEveProg.Click(13, 8);
-  Aliases.Folha.FRhConfExpFin.bExcEveProg.Click(11, 5);
-end;
-
