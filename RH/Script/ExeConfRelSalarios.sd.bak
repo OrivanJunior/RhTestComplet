@@ -49,6 +49,9 @@ DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
 LeDataPoolCadRelSal(DDTCadastrar.Name);
 
+While not DDTCadastrar.EOF do
+begin
+
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhRelSalConf');
   
@@ -62,7 +65,8 @@ LeDataPoolCadRelSal(DDTCadastrar.Name);
 
   ActFechar(FormPadraRelSalario);
   end;
-  
+
+ end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;

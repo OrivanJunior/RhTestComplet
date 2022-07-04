@@ -19,7 +19,7 @@ CadRelSalarioDPDescricao    	:=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 
 CadRelSalDPSequencia			    :=DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
 CadRelSalDPConfValorPadrao    :=DDT.DriverByName(nomeDriver).Value('CONFVALORPADRAO');
-CadRelSalDPRelDescricao	      :=DDT.DriverByName(nomeDriver).Value('RELDESCRICAO');
+CadRelSalDPRelDescricao	        :=DDT.DriverByName(nomeDriver).Value('RELDESCRICAO');
 CadRelSalDPNomedaColuna	      :=DDT.DriverByName(nomeDriver).Value('NOMEDACOLUNA');
 CadRelSalDPOrdemdasColunas    :=DDT.DriverByName(nomeDriver).Value('ORDEMDASCOLUNAS');
 end;
