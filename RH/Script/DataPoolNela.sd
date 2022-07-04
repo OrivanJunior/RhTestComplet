@@ -1,0 +1,17 @@
+﻿var
+CadNelaDPDescricao,
+CadNelaDPLocal,
+CadNelaDPCodigo,
+CadNelaDPCargo,
+CadNelaDPApi,
+CadNelaDPToken : OleVariant;
+
+procedure LeDataPoolCadNela(nomeDriver);
+begin
+CadNelaDPCodigo     :=DDT.DriverByName(nomeDriver).Value('CODIGO');
+CadNelaDPDescricao	:=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadNelaDPLocal  	  :=DDT.DriverByName(nomeDriver).Value('LOCAL');
+CadNelaDPCargo  	  :=DDT.DriverByName(nomeDriver).Value('CARGO');
+CadNelaDPApi  		  :=DDT.DriverByName(nomeDriver).Value('API');
+CadNelaDPToken	    :=DDT.DriverByName(nomeDriver).Value('TOKEN');
+end;

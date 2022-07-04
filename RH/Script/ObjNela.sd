@@ -1,0 +1,32 @@
+﻿{Script para mapear tela de cadastro de Conf. Nela
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 01/07/2022}
+ 
+var
+FormPadraoNela,
+CadNelaEBCodigo,
+CadNelaEBDescricao,
+CadNelaEBLocal,
+CadNelaEBCargo,
+
+CadNelaEBSinc11,
+CadNelaEBApi,
+CadNelaEBtoken,
+BtnTeste : OleVariant;
+
+
+procedure MapCadNela();
+begin
+FormPadraoNela  	  := Aliases.Folha.FRhConfNela;
+CadNelaEBCodigo     := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_CODIGO;
+CadNelaEBDescricao  := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_DESCRICAO;
+CadNelaEBLocal  	  := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_LOCAL;
+CadNelaEBCargo  	  := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_CARGO;
+
+CadNelaEBSinc11		  := Aliases.Folha.FRhConfNela.pnl1.grp1.VsComboRight1;
+CadNelaEBApi  		  := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_API;
+CadNelaEBToken		  := Aliases.Folha.FRhConfNela.pnl1.grp1.EB_TOKEN;
+BtnTeste	  		    := Aliases.Folha.FRhConfNela.pnl1.grp1.btnComunicacao;
+end;
+

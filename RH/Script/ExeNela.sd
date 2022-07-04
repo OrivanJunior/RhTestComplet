@@ -1,0 +1,88 @@
+﻿uses CommonsAll,CommonsObj, VarConsts, DataPoolNela, ObjNela;
+
+
+procedure PreencheNela();
+begin
+VerificaInsere(CadNelaEBCodigo,CadNelaDPCodigo);
+VerificaInsere(CadNelaEBDescricao,CadNelaDPDescricao);
+VerificaInsere(CadNelaEBLocal,CadNelaDPLocal);
+VerificaInsere(CadNelaEBCargo,CadNelaDPCargo);
+CadNelaEBSinc11.SetText('Sim');
+VerificaInsere(CadNelaEBApi,CadNelaDPApi);
+VerificaInsere(CadNelaEBToken,CadNelaDPToken);
+
+BtnTeste.Click;
+end;
+
+procedure CadastraNela(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. Nela');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadNela(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfNela');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadNelaDPCodigo);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadNela();
+  
+  PreencheNela();
+  ActSalvar(FormPadraoNela);
+  ActFechar(FormPadraoNela);
+  end;
+  DDTCadastrar.Next;
+end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirNela(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. Nela');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadNela(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfNela');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadNelaDPCodigo);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadNela();
+  
+  ActExcluir(_ModuloFolha, 'FRhConfNela');
+
+  ActFechar(FormPadraoNela);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+ 
