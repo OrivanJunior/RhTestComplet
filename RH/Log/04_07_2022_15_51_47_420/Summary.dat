@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="ExcluirVlrPadrao"/>
+						<Prp name="starttime" type="D" value="44746.66156875"/>
+						<Prp name="status" type="I" value="3"/>
+						<Prp name="duration" type="I" value="0"/>
+						<Prp name="durationwithoutchildren" type="I" value="0"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings">
+							<Node name="warning0">
+								<Prp name="msg" type="S" value="The action may be performed incorrectly, because the control is disabled."/>
+							</Node>
+						</Node>
+						<Node name="errors">
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The grid row 1 not found."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The grid row 1 not found."/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="CadastraVlrPadrao"/>
+						<Prp name="starttime" type="D" value="44746.6609669792"/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBDAEQAQwA5ADgAMwAxAEIALQAzADgANQA4AC0ANABCADYARAAtAEEANAA1ADkALQBEADgAMwBDADcAQgAxADgAMABDADMAQwB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="51957"/>
+						<Prp name="durationwithoutchildren" type="I" value="51957"/>
+					</Node>
+				</Node>
+				<Prp name="incompletedtests" type="I" value="1"/>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="starttime" type="D" value="44746.6609669792"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="duration" type="I" value="51957"/>
+			</Node>
+		</Node>
+		<Prp name="stop" type="D" value="44746.661573206"/>
+		<Prp name="starttime" type="D" value="44746.6609656944"/>
+		<Prp name="tests" type="I" value="2"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="incompletedtests" type="I" value="1"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="key" type="S" value="{2EB17616-7D47-4665-9F78-18EA9C98D214}"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+	</Node>
+</Nodes>

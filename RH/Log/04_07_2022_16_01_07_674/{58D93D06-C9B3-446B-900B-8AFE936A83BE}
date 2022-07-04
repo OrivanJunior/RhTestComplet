@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="stack"/>
+		<Node name="message 6">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'4' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_IDVLRPADRAO&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnCab').VCLObject('EB_IDVLRPADRAO'))"/>
+			<Prp name="date" type="D" value="44746.6676526042"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="225"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Up]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="date" type="D" value="44746.6676035301"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="message 7">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'Teste' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_DESCRICAO&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnCab').VCLObject('EB_DESCRICAO'))"/>
+			<Prp name="date" type="D" value="44746.6676556713"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="183"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="date" type="D" value="44746.667607419"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="7"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (176, 10) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_FORMULA&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pnCab').VCLObject('EB_FORMULA'))"/>
+			<Prp name="date" type="D" value="44746.6676572569"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="224"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="date" type="D" value="44746.6676024421"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="message" type="S" value="The grid cell (0, 'Código', 0) was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="182"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'4' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="date" type="D" value="44746.6676057292"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="226"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FBRowseCds.BGrid&#xA;(Sys.Process('Folha').VCLObject('FBRowseCds').VCLObject('BGrid'))"/>
+			<Prp name="date" type="D" value="44746.6676047569"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="29"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (11, 11) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.bIncVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('bIncVlrPadraoDet'))"/>
+			<Prp name="date" type="D" value="44746.6676713542"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="line no" type="I" value="420"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.VsMenu.TdxDockControl.wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Configurações'].Items.Item['Conf. Valor Padrão']&#xA;(Sys.Process('Folha').VCLObject('VsMenu').Window('TdxDockControl', '', 1).wItems.Item['Menu'].Items.Item['Cadastros Gerais'].Items.Item['Configurações'].Items.Item['Conf. Valor Padrão'])"/>
+			<Prp name="date" type="D" value="44746.6675240625"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="message" type="S" value="The bar item was clicked with the left mouse button."/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 1" type="S" value="{EA5D0D65-9326-4ADB-A47A-8D95481CD0B2}"/>
+			<Prp name="unit 0" type="S" value="{7DF5FA0C-B7E8-4978-930C-7FF5659D6DC0}"/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="stacktext" type="S" value="PreencheVlrPadraoGrid('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx')"/>
+			<Prp name="line no" type="I" value="33"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="29"/>
+			<Prp name="date" type="D" value="44746.6680913426"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click at point (11, 11) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.bIncVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('bIncVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="30"/>
+			<Prp name="date" type="D" value="44746.6681111921"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="item 4">
+			<Prp name="stacktext" type="S" value="CadastraVlrPadrao('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx')"/>
+			<Prp name="line no" type="I" value="69"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="message" type="S" value="The grid cell (0, 'Evento', 0) was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="date" type="D" value="44746.6679354977"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="stacktext" type="S" value="PreencheVlrPadraoGrid('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx')"/>
+			<Prp name="line no" type="I" value="32"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="34"/>
+			<Prp name="date" type="D" value="44746.6679877083"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click at point (770, 245) with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="stacktext" type="S" value="VerificaClickPreencheGrid($F06BF58,1,'Evento','2')"/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="unit id" type="I" value="0"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="stack end" type="I" value="2"/>
+			<Prp name="message" type="S" value="The grid row 1 not found."/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="date" type="D" value="44746.6681497569"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="Total number of rows: 1.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="stack end" type="I" value="4"/>
+			<Prp name="message" type="S" value="The script execution was interrupted."/>
+			<Prp name="line no" type="I" value="33"/>
+			<Prp name="date" type="D" value="44746.6681921759"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="Possible reasons:&#xA; - An error or warning occurred during the test run. See the preceding log entries to locate and identify the error.&#xA; - The test run was stopped manually.&#xA; - The test run was terminated as a result of the Runner.Halt method call."/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="stack beginning" type="I" value="3"/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="message" type="S" value="The grid cell (0, 'Incidência', 0) was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="331"/>
+			<Prp name="date" type="D" value="44746.6679601389"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="30"/>
+			<Prp name="date" type="D" value="44746.6678072222"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'[Tab]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="date" type="D" value="44746.6679363657"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'1' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="173"/>
+			<Prp name="date" type="D" value="44746.6681504167"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="remarks" type="S" value="'2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet&#xA;(Sys.Process('Folha').VCLObject('FRhVlrPadrao').VCLObject('Page').VCLObject('TabNormal').VCLObject('pg').VCLObject('tsRhVlrPadraoDet').VCLObject('sbRHExpDet').VCLObject('gRhVlrPadraoDet'))"/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="stacktext" type="S" value="CadastraVlrPadrao('D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx')"/>
+			<Prp name="line no" type="I" value="69"/>
+			<Prp name="unit id" type="I" value="1"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

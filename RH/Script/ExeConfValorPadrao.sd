@@ -28,10 +28,17 @@ begin
 LeDataPoolCadVlrPadrao(DDTEveConsiderar.Name);
 
 BtnIncVlrPadraoDet.Click;
-FormGridVlrPadrao.Click;
+FormGridVlrPadrao.Keys('[Tab]');
+FormGridVlrPadrao.Keys('[Tab]');
+FormGridVlrPadrao.Keys('[Tab]');
+FormGridVlrPadrao.Keys('[Tab]');
 
 VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Evento', CadVlrPadraoDPEvento);
 VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Incidência', CadVlrPadraoDPIncidencia);
+FormGridVlrPadrao.Click;
+
+ActSalvar(FormPadraVlrPadrao);
+
 DDTEveConsiderar.Next;
 Inc(i);
 end;
