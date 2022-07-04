@@ -18,6 +18,8 @@ PageTabNormalRelSal.ActivePageIndex :=0;
 
 	While not (DDTRelSalGrid.EOF) do
 	begin
+  LeDataPoolCadRelSal(DDTRelSalGrid.Name);
+  
 	BtnIncRelSal.Click;
 	
 	VerificaClickPreencheGrid(FormGridRelSal, i, 'Sequência', CadRelSalDPSequencia);

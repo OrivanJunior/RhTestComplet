@@ -5,12 +5,14 @@ begin
 VerificaInsere(CadVlrPadraoEBIdVlrPadrao,CadVlrPadraoDPIdVlrPadrao);
 VerificaInsere(CadVlrPadraoEBDescricao,CadVlrPadraoDPDescricao);
 VerificaInsere(CadVlrPadraoEBFormula,CadVlrPadraoDPFormula);
+CadVlrPadraoEBFormula.Click;
 end;
 
 
 procedure PreencheVlrPadraoGrid(pathData);
 var 
-i, DDTEveConsiderar :OleVariant;
+DDTEveConsiderar :OleVariant;
+i;
 begin
 i:= 0;
 
@@ -22,13 +24,14 @@ PageTabNormalVlrPadrao.ActivePageIndex:=0;
 
 While not (DDTEveConsiderar.EOF) do
 begin
+
+LeDataPoolCadVlrPadrao(DDTEveConsiderar.Name);
+
 BtnIncVlrPadraoDet.Click;
+FormGridVlrPadrao.Click;
 
 VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Evento', CadVlrPadraoDPEvento);
 VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Incidência', CadVlrPadraoDPIncidencia);
-
-FormGridVlrPadrao.Click;
-
 DDTEveConsiderar.Next;
 Inc(i);
 end;
@@ -62,7 +65,7 @@ LeDataPoolCadVlrPadrao(DDTCadastrar.Name);
   PreencheVlrPadrao();
   PreencheVlrPadraoGrid(pathData);
   
-
+  ActSalvar(FormPadraVlrPadrao);
   ActFechar(FormPadraVlrPadrao);
   end;
   
