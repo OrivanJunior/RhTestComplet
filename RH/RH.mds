@@ -1943,7 +1943,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. Relação de Salários" key="{7B3527A1-20B2-41B0-8FA0-9C8E361858F5}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. Relação de Salários" key="{7B3527A1-20B2-41B0-8FA0-9C8E361858F5}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraRelSal" key="{32E2373D-1804-4E98-A70C-41676E32094E}" group="False" parallel="False" enabled="True" testMoniker="{AE391C38-893D-4C14-8CCC-F6D73B6959C3}CadastraRelSal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1956,6 +1956,25 @@
 															<testItem name="ExcluirRelSal" key="{566AA638-7E3B-420C-8E66-7DC8234EE74D}" group="False" parallel="False" enabled="False" testMoniker="{AE391C38-893D-4C14-8CCC-F6D73B6959C3}ExcluirRelSal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Relação de Salários\Conf. Relação de Salários.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. Valor Padrão" key="{5E254CE2-06B0-4071-9DC4-FCBD2219A888}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraVlrPadrao" key="{E9A634C1-B889-4E84-A62C-0D12BB559E6C}" group="False" parallel="False" enabled="True" testMoniker="{EA5D0D65-9326-4ADB-A47A-8D95481CD0B2}CadastraVlrPadrao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirVlrPadrao" key="{F053F6B0-C363-4F82-BF6D-FF9D9DE7DCE2}" group="False" parallel="False" enabled="True" testMoniker="{EA5D0D65-9326-4ADB-A47A-8D95481CD0B2}ExcluirVlrPadrao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Valor Padrão\Conf. Valor Padrão.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

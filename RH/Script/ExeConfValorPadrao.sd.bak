@@ -1,1 +1,99 @@
-﻿
+﻿procedure PreencheVlrPadrao();
+begin
+VerificaInsere(CadVlrPadraoEBIdVlrPadrao,CadVlrPadraoDPIdVlrPadrao);
+VerificaInsere(CadVlrPadraoEBDescricao,CadVlrPadraoDPDescricao);
+VerificaInsere(CadVlrPadraoEBFormula,CadVlrPadraoDPFormula);
+end;
+
+
+procedure PreencheVlrPadraoGrid(pathData);
+var 
+i, DDTEveConsiderar :OleVariant;
+begin
+i:= 0;
+
+MapCadVlrPadrao();
+
+DDTEveConsiderar := CarregaDDT(pathData, 'EveConsidera');
+
+PageTabNormalVlrPadrao.ActivePageIndex:=0;
+
+While not (EveConsiderar.EOF) do
+begin
+BtnIncVlrPadraoDet.Click;
+
+VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Evento', CadVlrPadraoDPEvento);
+VerificaClickPreencheGrid(FormGridVlrPadrao, i, 'Incidência', CadVlrPadraoDPIncidencia);
+
+DDTEveConsiderar.Next;
+Inc(i);
+end;
+DDT.CloseDriver(DDTEveConsiderar.Name);
+end;
+
+
+procedure CadastraVlrPadrao(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. Valor Padrão');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRelSal(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRelSalConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadRelSalarioDPIdConf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRelSalario();
+
+  ActFechar(FormPadraRelSalario);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirVlrPadrao(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. Relação de Salários');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRelSal(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRelSalConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadRelSalarioDPIdConf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRelSalario();
+
+  ActExcluir(_ModuloFolha, 'FRhRelSalConf');
+
+  ActFechar(FormPadraRelSalario);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
