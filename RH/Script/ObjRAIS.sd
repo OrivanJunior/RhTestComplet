@@ -6,6 +6,8 @@
 
 var 
 FormPadraoRais,
+BtnSalvarRais,
+BtnRefreshRais,
 CadRaisEBIdRais,
 CadRaisEBDescricao,
 
@@ -23,6 +25,8 @@ BtnExcRaisEve : OleVariant;
 procedure MapCadRais();
 begin
 FormPadraoRais			  := Aliases.Folha.FRhRaisConf;
+BtnSalvarRais         := Aliases.Folha.FRhRaisConf.BSalvar;
+BtnRefreshRais        := Aliases.Folha.FRhRaisConf.BRefresh;
 CadRaisEBIdRais		  	:= Aliases.Folha.FRhRaisConf.Page.TabNormal.pnCab.EB_IDRAIS;			
 CadRaisEBDescricao  	:= Aliases.Folha.FRhRaisConf.Page.TabNormal.pnCab.EB_DESCRICAO;		
 

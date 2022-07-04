@@ -54,7 +54,6 @@ end;
 procedure ActSalvar(Form: OleVariant);
 begin
    Form.ActSalvar.Execute();
-   break; 
 end;
 
 procedure ActSalvarNota(Form: OleVariant);

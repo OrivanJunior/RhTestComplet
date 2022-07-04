@@ -8,33 +8,39 @@ VerificaInsere(CadRaisEBDescricao,CadRaisDPDescricao);
 end;
 
 
-procedure PreencheGridRaisEve();
+procedure PreencheGridRaisEve(pathData);
 var i;
-DDTCadastrar;
+DDTRaisEve : Olevariant;
 begin
 i:=0;
-MapCadRais();
 PageTabNormalRais.ActivePageIndex:=0;
-DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-While not DDTCadastrar.EOF do
-begin
+MapCadRais();
 
-BtnIncRaisEve.Click;
-VerificaClickPreencheGrid(FormGridRais,i,'Evento',CadRaisDPEvento);
-VerificaClickPreencheGrid(FormGridRais,i,'Descrição',CadRaisDPDescricao);
-VerificaClickPreencheGrid(FormGridRais,i,'Incidência',CadRaisDPIncidencia);
-VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assoc 01',CadRaisDPContribAssoc01);
-VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assoc 02',CadRaisDPContribAssoc02);
-VerificaClickPreencheGrid(FormGridRais,i,'Contrib Sind',CadRaisDPContribSind);
-VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assist',CadRaisDPContribAssist);
-VerificaClickPreencheGrid(FormGridRais,i,'Contrib Confed',CadRaisDPContribConfed);
-VerificaClickPreencheGrid(FormGridRais,i,'Compõe Rem. PAT?',CadRaisDPCompoeRemPAT);
+DDTRaisEve := CarregaDDT(pathData, 'RaisEve');
 
-Inc(i);
-DDTCadastrar.Next;
-end;
+  while not (DDTRaisEve.EOF) do
+  begin
 
+  LeDataPoolCadRais(DDTRaisEve.Name);
+  
+  
+  BtnIncRaisEve.Click;
+  VerificaClickPreencheGrid(FormGridRais,i,'Evento',CadRaisDPEvento);
+  VerificaClickPreencheGrid(FormGridRais,i,'Incidência',CadRaisDPIncidencia);
+  VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assoc 01',CadRaisDPContribAssoc01);
+  VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assoc 02',CadRaisDPContribAssoc02);
+  VerificaClickPreencheGrid(FormGridRais,i,'Contrib Sind',CadRaisDPContribSind);
+  VerificaClickPreencheGrid(FormGridRais,i,'Contrib Assist',CadRaisDPContribAssist);
+  VerificaClickPreencheGrid(FormGridRais,i,'Contrib Confed',CadRaisDPContribConfed);
+  VerificaClickPreencheGrid(FormGridRais,i,'Compõe Rem. PAT?',CadRaisDPCompoeRemPAT);
+  FormGridRais.Click;
+  BtnSalvarRais.Click;
+  
+  DDTRaisEve.Next;
+  Inc(i);
+  end;
+DDT.CloseDriver(DDTRaisEve.Name)
 end;
 
 
@@ -50,6 +56,9 @@ DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
 LeDataPoolCadRais(DDTCadastrar.Name);
 
+While not DDTCadastrar.EOF do
+begin
+
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhRaisConf');
   
@@ -62,11 +71,13 @@ LeDataPoolCadRais(DDTCadastrar.Name);
   MapCadRais();
   
   PreencheRais();
-  PreencheGridRaisEve(); 
+  PreencheGridRaisEve(pathData); 
   
   ActSalvar(FormPadraoRais);
   ActFechar(FormPadraoRais);
   end;
+  DDTCadastrar.Next;
+ end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;

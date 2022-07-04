@@ -3,7 +3,6 @@ CadRaisDPIdRais,
 CadRaisDPDescricao,
 CadRaisDPEvento,
 CadRaisDPIncidencia,
-CadRaisDPEveDescricao,
 CadRaisDPContribAssoc01,
 CadRaisDPContribAssoc02,
 CadRaisDPContribSind,
@@ -19,7 +18,6 @@ begin
 CadRaisDPIdRais				      :=DDT.DriverByName(nomeDriver).Value('IDRAIS');
 CadRaisDPDescricao      	  :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 CadRaisDPEvento				      :=DDT.DriverByName(nomeDriver).Value('EVENTO');
-CadRaisDPEveDescricao	      :=DDT.DriverByName(nomeDriver).Value('EVEDESCRICAO');
 CadRaisDPIncidencia	        :=DDT.DriverByName(nomeDriver).Value('INCIDENCIA');
 CadRaisDPContribAssoc01     :=DDT.DriverByName(nomeDriver).Value('CONTRIBASSOC01');
 CadRaisDPContribAssoc02     :=DDT.DriverByName(nomeDriver).Value('CONTRIBASSOC02');
