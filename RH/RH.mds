@@ -1924,7 +1924,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. RAIS" key="{481BCE01-32CF-4726-A0BB-17B5225E6ED0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. RAIS" key="{481BCE01-32CF-4726-A0BB-17B5225E6ED0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraRais" key="{C77994DD-BF5A-4A7B-A51F-740DDDA89553}" group="False" parallel="False" enabled="True" testMoniker="{645740AC-5462-4681-8977-C1DAB6EF2682}CadastraRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1937,6 +1937,25 @@
 															<testItem name="ExcluirRais" key="{4CEDCC78-F42F-4953-998B-BDBC6182773C}" group="False" parallel="False" enabled="True" testMoniker="{645740AC-5462-4681-8977-C1DAB6EF2682}ExcluirRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. RAIS\Conf. RAIS.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. Relação de Salários" key="{7B3527A1-20B2-41B0-8FA0-9C8E361858F5}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraRelSal" key="{32E2373D-1804-4E98-A70C-41676E32094E}" group="False" parallel="False" enabled="True" testMoniker="{AE391C38-893D-4C14-8CCC-F6D73B6959C3}CadastraRelSal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Relação de Salários\Conf. Relação de Salários.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirRelSal" key="{566AA638-7E3B-420C-8E66-7DC8234EE74D}" group="False" parallel="False" enabled="False" testMoniker="{AE391C38-893D-4C14-8CCC-F6D73B6959C3}ExcluirRelSal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="False">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. Relação de Salários\Conf. Relação de Salários.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
