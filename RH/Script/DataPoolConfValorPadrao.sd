@@ -1,1 +1,21 @@
-﻿
+﻿var
+CadVlrPadraoDPIdVlrPadrao,
+CadVlrPadraoDPDescricao,
+CadVlrPadraoDPFormula,
+
+CadVlrPadraoDPEvento,
+CadVlrPadraoDPIncidencia : OleVariant;
+
+
+
+
+procedure LeDataPoolCadVlrPadrao(nomeDriver);
+begin
+CadVlrPadraoDPIdVlrPadrao  	:=DDT.DriverByName(nomeDriver).Value('IDVLRPADRAO');
+CadVlrPadraoDPDescricao  	  :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadVlrPadraoDPFormula  		  :=DDT.DriverByName(nomeDriver).Value('FORMULA');
+
+CadVlrPadraoDPEvento		    :=DDT.DriverByName(nomeDriver).Value('EVENTO');
+CadVlrPadraoDPIncidencia    :=DDT.DriverByName(nomeDriver).Value('INCIDÊNCIA');
+							
+end;

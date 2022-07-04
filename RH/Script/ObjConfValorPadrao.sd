@@ -1,1 +1,48 @@
-﻿
+﻿{Script para mapear tela de cadastro de Conf. Valor Padrão
+ Módulo: Padrao
+ Autor: Orivan lemes dos Santos Junior
+ Data: 01/07/2022}
+ 
+ 
+
+var
+FormPadraVlrPadrao,
+CadVlrPadraoEBIdVlrPadrao,
+CadVlrPadraoEBDescricao,
+CadVlrPadraoEBFormula,
+  
+  
+PageTabNormalVlrPadrao,
+FormGridVlrPadrao,
+  
+BtnIncVlrPadraoDet,
+BtnProcVlrPadraoDet,
+BtnConsulVlrPadraoDet,
+BtnDesfVlrPadraoDet,
+BtnExcVlrPadraoDet,
+	
+BtnSalvarVlrPadrao,
+BtnExcluirVlrpadrao : OleVariant;
+
+
+
+procedure MapCadVlrPadrao();
+begin
+FormPadraVlrPadrao  		    := Aliases.Folha.FRhVlrPadrao;
+CadVlrPadraoEBIdVlrPadrao  	:= Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_IDVLRPADRAO;
+CadVlrPadraoEBDescricao  	  := Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadVlrPadraoEBFormula  		  := Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pnCab.EB_FORMULA;
+  
+  
+PageTabNormalVlrPadrao  	  := Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg;
+FormGridVlrPadrao			      := Aliases.Folha.FRhVlrPadrao.Page.TabNormal.pg.tsRhVlrPadraoDet.sbRHExpDet.gRhVlrPadraoDet;
+  
+BtnIncVlrPadraoDet  		    := Aliases.Folha.FRhVlrPadrao.bIncVlrPadraoDet;
+BtnProcVlrPadraoDet  		    := Aliases.Folha.FRhVlrPadrao.bProcVlrPadraoDet;
+BtnConsulVlrPadraoDet  		  := Aliases.Folha.FRhVlrPadrao.bConsulVlrPadraoDet;
+BtnDesfVlrPadraoDet  		    := Aliases.Folha.FRhVlrPadrao.bDesfVlrPadraoDet;
+BtnExcVlrPadraoDet  		    := Aliases.Folha.FRhVlrPadrao.bExcVlrPadraoDet;
+	
+BtnSalvarVlrPadrao 			    := Aliases.Folha.FRhVlrPadrao.BSalvar;
+BtnExcluirVlrpadrao  		    := Aliases.Folha.FRhVlrPadrao.BExcluir;
+end;
