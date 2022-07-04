@@ -2,3 +2,38 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 04/07/2022}
+
+var
+FormPadraRelSalario,
+BtnSalvarRelSal,
+CadRelSalarioEBIdConf,
+CadRelSalarioEBDescricao,
+
+PageTabNormalRelSal,
+
+FormGridRelSal,
+
+BtnIncRelSal,
+BtnProcRelSal,
+BtnConsulRelSal,
+BtnDesfRelSal,
+BtnExcRelSal : OleVariant;
+
+
+procedure MapCadRelSalario();
+begin
+FormPadraRelSalario			:= Aliases.Folha.FRhRelSalConf;
+CadRelSalarioEBIdConf  	:= Aliases.Folha.FRhRelSalConf.Page.TabNormal.pnCab.EB_IDCONF;
+CadRelSalarioEBDescricao:= Aliases.Folha.FRhRelSalConf.Page.TabNormal.pnCab.EB_DESCRICAO;
+BtnSalvarRelSal					:= Aliases.Folha.FRhRelSalConf.BSalvar;
+
+PageTabNormalRelSal  		:= Aliases.Folha.FRhRelSalConf.Page.TabNormal.pg;
+
+FormGridRelSal					:= Aliases.Folha.FRhRelSalConf.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhRelSal;
+
+BtnIncRelSal  					:= Aliases.Folha.FRhRelSalConf.bIncRelSal;
+BtnProcRelSal  					:= Aliases.Folha.FRhRelSalConf.bProcRelSal;
+BtnConsulRelSal 				:= Aliases.Folha.FRhRelSalConf.bConsulRelSal;
+BtnDesfRelSal  					:= Aliases.Folha.FRhRelSalConf.bDesfRelSal;
+BtnExcRelSal  					:= Aliases.Folha.FRhRelSalConf.bExcRelSal;
+end;
