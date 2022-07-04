@@ -22,7 +22,6 @@ end;
 
 procedure CadastraHomolog(pathData);
 var
-BtnProcExec;
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. HomologNet');

@@ -1905,7 +1905,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. HomologNet" key="{4BF0DB62-B791-480E-B7A2-8963F4140012}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. HomologNet" key="{4BF0DB62-B791-480E-B7A2-8963F4140012}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraHomolog" key="{4DBD9993-EA64-45FF-8CF5-015119877B7F}" group="False" parallel="False" enabled="True" testMoniker="{E3C9ADB7-38E0-4505-A926-6F3844C69DA5}CadastraHomolog" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1918,6 +1918,25 @@
 															<testItem name="ExcluirHomolog" key="{66382AFE-6440-45B4-93DD-27857548BFAF}" group="False" parallel="False" enabled="True" testMoniker="{E3C9ADB7-38E0-4505-A926-6F3844C69DA5}ExcluirHomolog" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. HomologNet\Conf. HomologNet.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Conf. RAIS" key="{481BCE01-32CF-4726-A0BB-17B5225E6ED0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraRais" key="{C77994DD-BF5A-4A7B-A51F-740DDDA89553}" group="False" parallel="False" enabled="True" testMoniker="{645740AC-5462-4681-8977-C1DAB6EF2682}CadastraRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. RAIS\Conf. RAIS.xlsx" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirRais" key="{4CEDCC78-F42F-4953-998B-BDBC6182773C}" group="False" parallel="False" enabled="True" testMoniker="{645740AC-5462-4681-8977-C1DAB6EF2682}ExcluirRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Conf. RAIS\Conf. RAIS.xlsx" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

@@ -39,22 +39,18 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONFHOMOLOG');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadExpFinDPIdExpFin);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cod Conf',CadHomologDPIdconf);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadExpFinanc();
+  MapCadHomologNet();
   
-  PreencheExpFin();
-  PreencheExpFinDet();
-  PreencheExpFinEve();
-  PreencheExpFinProg();
+  PreencheHomolog(); 
   
-  
-  ActSalvar(FormPadraoExpFin);
-  ActFechar(FormPadraoExpFin);
+  ActSalvar(FormPadraoHomolog);
+  ActFechar(FormPadraoHomolog);
   end;
   DDTCadastrar.Next;
 end;
@@ -66,31 +62,31 @@ procedure ExcluirHomolog(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. Exportação Financeiro');
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. HomologNet');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadExpFin(DDTExcluir.Name);
+LeDataPoolCadHomolog(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhConfExpFin');
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONFHOMOLOG');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadExpFinDPIdExpFin);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cod Conf',CadHomologDPIdconf);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadExpFinanc();
+  MapCadHomologNet();
 
-  ActExcluir(_ModuloFolha, 'FRhConfExpFin');
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCONFHOMOLOG');
 
-  ActFechar(FormPadraoExpFin);
+  ActFechar(FormPadraoHomolog);
   end;
   DDTExcluir.Next;
 end;
