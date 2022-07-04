@@ -1,4 +1,37 @@
 ﻿{Script para mapear tela de cadastro de Conf.RAIS
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
- Data: 30/06/2022}
+ Data: 04/07/2022}
+ 
+
+var 
+FormPadraoRais,
+CadRaisEBIdRais,
+CadRaisEBDescricao,
+
+PageTabNormalRais,
+FormGridRais,
+  
+BtnIncRaisEve,
+BtnProcRaisEve,
+BtnConsulRaisEve,
+BtnDesfRaisEve,
+BtnExcRaisEve : OleVariant;
+
+
+
+procedure MapCadRais();
+begin
+FormPadraoRais			  := Aliases.Folha.FRhRaisConf;
+CadRaisEBIdRais		  	:= Aliases.Folha.FRhRaisConf.Page.TabNormal.pnCab.EB_IDRAIS;			
+CadRaisEBDescricao  	:= Aliases.Folha.FRhRaisConf.Page.TabNormal.pnCab.EB_DESCRICAO;		
+
+PageTabNormalRais  		:= Aliases.Folha.FRhRaisConf.Page.TabNormal.pg;
+FormGridRais  			  := Aliases.Folha.FRhRaisConf.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhRaisEve;
+  
+BtnIncRaisEve  			  := Aliases.Folha.FRhRaisConf.bIncRaisEve;
+BtnProcRaisEve  		  := Aliases.Folha.FRhRaisConf.bProcRaisEve;
+BtnConsulRaisEve  		:= Aliases.Folha.FRhRaisConf.bConsulRaisEve;
+BtnDesfRaisEve  		  := Aliases.Folha.FRhRaisConf.bDesfRaisEve;
+BtnExcRaisEve  			  := Aliases.Folha.FRhRaisConf.bExcRaisEve;
+end;

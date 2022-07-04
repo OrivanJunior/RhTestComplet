@@ -2,5 +2,39 @@
  Módulo: Padrao
  Autor: Orivan lemes dos Santos Junior
  Data: 01/07/2022}
- 
- 
+
+var
+FormPadraoHomolog,
+CadHomologEBIdconf,
+CadHomologEBDescricao,
+CadHomologEBEvento13,
+CadHomologEBEventoFaltadiur,
+CadHomologEBEventoFaltanoturn,
+CadHomologEBEventoAdiant,
+CadHomologEBEventoValetrans,
+CadHomologEBEventoValealimen,
+CadHomologEBEventoEmprestimo,
+CadHomologEBEventoIndenizacao,
+CadHomologEBEventoContPrevPriv,
+CadHomologEBEventoContriFapi,
+CadHomologEBEventoContriSind,
+CadHomologEBTipoAdiant13 			: OleVariant;	
+
+procedure MapCadHomologNet();
+begin
+FormPadraoHomolog  									:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG;
+CadHomologEBIdconf 									:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCONF;
+CadHomologEBDescricao 							:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DESCRICAO;
+CadHomologEBEvento13 								:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTO13;
+CadHomologEBEventoFaltadiur 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOFALTADIUR;
+CadHomologEBEventoFaltanoturn 			:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOFALTANOTURN;
+CadHomologEBEventoAdiant 						:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOADIANT;
+CadHomologEBEventoValetrans 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOVALETRANS;
+CadHomologEBEventoValealimen 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOVALEALIMEN;
+CadHomologEBEventoEmprestimo 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOEMPRESTIMO;
+CadHomologEBEventoIndenizacao 			:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOINDENIZACAO;
+CadHomologEBEventoContPrevPriv 			:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOCONTPREVPRIV;
+CadHomologEBEventoContriFapi 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOCONTRIFAPI;
+CadHomologEBEventoContriSind 				:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_EVENTOCONTRISIND;
+CadHomologEBTipoAdiant13 						:= Aliases.Folha.FFormPadraoRHCONFHOMOLOG.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOADIANT13;
+end;
