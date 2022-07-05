@@ -1,0 +1,19 @@
+﻿
+
+procedure PreencheExpConf();
+begin
+VerificaInsere(CadExpConfEBIdExpconf,CadExpConfDPIdExpconf);		
+VerificaInsere(CadExpConfEBDescricao,CadExpConfDPDescricao);		
+VerificaInsere(CadExpConfEBConexport,CadExpConfDPConexport);		
+VerificaInsere(CadExpConfEBConconfig,CadExpConfDPConconfig);		
+VerificaInsere(CadExpConfEBCodhist,CadExpConfDPCodhist);
+VerificaInsere(CadExpConfEBCencusdeb,CadExpConfDPCencusdeb);		
+VerificaInsere(CadExpConfEBFixacencus,CadExpConfDPFixacencus);
+PreencheData(CadExpConfEBDtincalt,CadExpConfDPDtincalt);
+VerificaInsere(CadExpConfEBComphist,CadExpConfDPComphist);
+VerificaInsere(CadExpConfEBCencuscred,CadExpConfDPCencuscred);
+VerificaInsere(CadExpConfEBTransf13,CadExpConfDPTransf13);
+VerificaInsere(CadExpConfEBTransfferias,CadExpConfDPTransfferias);
+VerificaInsere(CadExpConfEBCctransf13,CadExpConfDPCctransf13);
+VerificaInsere(CadExpConfEBCctransfferias,CadExpConfEBCctransfferias);
+end;

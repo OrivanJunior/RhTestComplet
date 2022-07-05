@@ -1,1 +1,66 @@
-﻿
+﻿var
+CadExpConfDPIdExpconf,
+CadExpConfDPDescricao,
+CadExpConfDPConexport,
+CadExpConfDPConconfig,
+CadExpConfDPCodhist,
+CadExpConfDPCencusdeb,
+CadExpConfDPFixacencus,
+CadExpConfDPDtincalt,
+CadExpConfDPComphist,
+CadExpConfDPCencuscred,
+		  
+CadExpConfDPTransf13,
+CadExpConfDPTransfferias,
+CadExpConfDPCctransf13,
+CadExpConfDPCctransfferias,
+
+CadExpConfDPEvento,
+CadExpConfDPOrdem,
+CadExpConfDPLote,
+CadExpConfDPContaDebito,
+CadExpConfDPCCDebito,
+CadExpConfDPContaCredito,
+CadExpConfDPCCCredito,
+CadExpConfDPHistorico,
+CadExpConfDPComplemento,
+CadExpConfDPFixaHistorico,
+CadExpConfDPIdArquivoDD,
+CadExpConfDPCCustoparaArqDD,
+CadExpConfDPIdArquivoDC,
+CadExpConfDPCCustoparaArqDC : OleVariant;
+
+
+procedure LeDataPoolCadExpConf();
+begin
+CadExpConfDPIdExpconf  		  :=DDT.DriverByName(nomeDriver).Value('IDEXPCONF');
+CadExpConfDPDescricao  		  :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadExpConfDPConexport  		  :=DDT.DriverByName(nomeDriver).Value('CONEXPORT');
+CadExpConfDPConconfig  		  :=DDT.DriverByName(nomeDriver).Value('CONCONFIG');
+CadExpConfDPCodhist  		    :=DDT.DriverByName(nomeDriver).Value('CODHIST');
+CadExpConfDPCencusdeb  		  :=DDT.DriverByName(nomeDriver).Value('CENCUSDEB');
+CadExpConfDPFixacencus  	  :=DDT.DriverByName(nomeDriver).Value('FIXACENCUS');
+CadExpConfDPDtincalt  		  :=DDT.DriverByName(nomeDriver).Value('DTINCALT');
+CadExpConfDPComphist  		  :=DDT.DriverByName(nomeDriver).Value('COMPHIST');
+CadExpConfDPCencuscred  	  :=DDT.DriverByName(nomeDriver).Value('CENCUSCRED');
+CadExpConfDPTransf13  		  :=DDT.DriverByName(nomeDriver).Value('TRANSF13');
+CadExpConfDPTransfferias    :=DDT.DriverByName(nomeDriver).Value('TRANSFFERIAS');
+CadExpConfDPCctransf13  	  :=DDT.DriverByName(nomeDriver).Value('CCTRANSF13');
+CadExpConfDPCctransfferias  :=DDT.DriverByName(nomeDriver).Value('CCTRANSFFERIAS');
+
+CadExpConfDPEvento				      :=DDT.DriverByName(nomeDriver).Value('EVENTO');
+CadExpConfDPOrdem	              :=DDT.DriverByName(nomeDriver).Value('ORDEM');
+CadExpConfDPLote	              :=DDT.DriverByName(nomeDriver).Value('LOTE');
+CadExpConfDPContaDebito	        :=DDT.DriverByName(nomeDriver).Value('CONTADÉBITO');
+CadExpConfDPCCDebito	          :=DDT.DriverByName(nomeDriver).Value('CCDÉBITO');
+CadExpConfDPContaCredito	      :=DDT.DriverByName(nomeDriver).Value('CONTACRÉDITO');
+CadExpConfDPCCCredito	          :=DDT.DriverByName(nomeDriver).Value('CCCRÉDITO');
+CadExpConfDPHistorico	          :=DDT.DriverByName(nomeDriver).Value('HISTÓRICO');
+CadExpConfDPComplemento	        :=DDT.DriverByName(nomeDriver).Value('COMPLEMENTO');
+CadExpConfDPFixaHistorico       :=DDT.DriverByName(nomeDriver).Value('FIXAHISTÓRICO');
+CadExpConfDPIdArquivoDD	        :=DDT.DriverByName(nomeDriver).Value('IDARQUIVODD');
+CadExpConfDPCCustoparaArqDD     :=DDT.DriverByName(nomeDriver).Value('CCUSTOPARAARQDD');
+CadExpConfDPIdArquivoDC         :=DDT.DriverByName(nomeDriver).Value('IDARQUIVODC');
+CadExpConfDPCCustoparaArqDC     :=DDT.DriverByName(nomeDriver).Value('CCUSTOPARAARQDC');
+
+end;

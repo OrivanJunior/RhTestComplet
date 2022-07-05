@@ -1,0 +1,54 @@
+﻿var
+FormPadraoExpConf,
+CadExpConfEBIdExpconf,
+CadExpConfEBDescricao,
+CadExpConfEBConexport,
+CadExpConfEBConconfig,
+CadExpConfEBCodhist,
+CadExpConfEBCencusdeb,
+CadExpConfEBFixacencus,
+CadExpConfEBDtincalt,
+CadExpConfEBComphist,
+CadExpConfEBCencuscred,
+
+CadExpConfEBTransf13,
+CadExpConfEBTransfferias,
+CadExpConfEBCctransf13,
+CadExpConfEBCctransfferias,
+
+PageTabNormalExpConf,
+FormGridExpConf,
+BtnIncDet,
+BtnProcDet,
+BtnConsulDet,
+BtnDesfDet,
+BtnExcDet : OleVariant;
+
+
+procedure MapCad;
+begin
+FormPadraoExpConf  			  := Aliases.Folha.FRhExpConf;
+CadExpConfEBIdExpconf  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_IDEXPCONF;
+CadExpConfEBDescricao  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadExpConfEBConexport  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CONEXPORT;
+CadExpConfEBConconfig  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CONCONFIG;
+CadExpConfEBCodhist  		  := Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CODHIST;
+CadExpConfEBCencusdeb  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CENCUSDEB;
+CadExpConfEBFixacencus  	:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_FIXACENCUS;
+CadExpConfEBDtincalt  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_DTINCALT;
+CadExpConfEBComphist  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_COMPHIST;
+CadExpConfEBCencuscred  	:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CENCUSCRED;
+
+CadExpConfEBTransf13  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_TRANSF13;
+CadExpConfEBTransfferias  := Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_TRANSFFERIAS;
+CadExpConfEBCctransf13  	:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_CCTRANSF13;
+CadExpConfEBCctransfferias:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_CCTRANSFFERIAS;
+
+PageTabNormalExpConf  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pg;
+FormGridExpConf				    := Aliases.Folha.FRhExpConf.Page.TabNormal.pg.tsRhExpDet.sbRHExpDet.gRhExpDet;
+BtnIncDet  					      := Aliases.Folha.FRhExpConf.bIncDet;
+BtnProcDet  				      := Aliases.Folha.FRhExpConf.bProcDet;
+BtnConsulDet  				    := Aliases.Folha.FRhExpConf.bConsulDet;
+BtnDesfDet  				      := Aliases.Folha.FRhExpConf.bDesfDet;
+BtnExcDet  					      := Aliases.Folha.FRhExpConf.bExcDet;
+end;

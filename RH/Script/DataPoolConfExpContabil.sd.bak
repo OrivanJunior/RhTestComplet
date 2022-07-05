@@ -1,0 +1,35 @@
+﻿var
+CadExpConfDPIdExpconf,
+CadExpConfDPDescricao,
+CadExpConfDPConexport,
+CadExpConfDPConconfig,
+CadExpConfDPCodhist,
+CadExpConfDPCencusdeb,
+CadExpConfDPFixacencus,
+CadExpConfDPDtincalt,
+CadExpConfDPComphist,
+CadExpConfDPCencuscred,
+		  
+CadExpConfDPTransf13,
+CadExpConfDPTransfferias,
+CadExpConfDPCctransf13,
+CadExpConfDPCctransfferias : OleVariant;
+
+
+procedure LeDataPoolCadExpConf(nomeDriver);
+begin
+CadExpConfDPIdExpconf  		:=DDT.DriverByName(nomeDriver).Value('IDEXPCONF');
+CadExpConfDPDescricao  		:=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadExpConfDPConexport  		:=DDT.DriverByName(nomeDriver).Value('CONEXPORT');
+CadExpConfDPConconfig  		:=DDT.DriverByName(nomeDriver).Value('CONCONFIG');
+CadExpConfDPCodhist  		  :=DDT.DriverByName(nomeDriver).Value('CODHIST');
+CadExpConfDPCencusdeb  		:=DDT.DriverByName(nomeDriver).Value('CENCUSDEB');
+CadExpConfDPFixacencus  	:=DDT.DriverByName(nomeDriver).Value('FIXACENCUS');
+CadExpConfDPDtincalt  		:=DDT.DriverByName(nomeDriver).Value('DTINCALT');
+CadExpConfDPComphist  		:=DDT.DriverByName(nomeDriver).Value('COMPHIST');
+CadExpConfDPCencuscred  	:=DDT.DriverByName(nomeDriver).Value('CENCUSCRED');
+CadExpConfDPTransf13  		:=DDT.DriverByName(nomeDriver).Value('TRANSF13');
+CadExpConfDPTransfferias  :=DDT.DriverByName(nomeDriver).Value('TRANSFFERIAS');
+CadExpConfDPCctransf13  	:=DDT.DriverByName(nomeDriver).Value('CCTRANSF13');
+CadExpConfDPCctransfferias:=DDT.DriverByName(nomeDriver).Value('CCTRANSFFERIAS');
+end;
