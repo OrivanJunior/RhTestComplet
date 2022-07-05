@@ -1,1 +1,43 @@
-﻿
+﻿{Script para mapear o Cadastro de Cheques
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 05/07/2022}
+
+var
+FormPadraHistMp,
+CadHistMpEBTipoadesao,
+CadHistMpEBIdEmpregado,
+CadHistMpEBDataAcordo,
+CadHistMpEBDias,
+CadHistMpEBExcluir,
+BtnHitMpSSalvar	: OleVariant;
+
+
+procedure MapCadHistMp();
+begin
+FormPadraHistMp  		    := Aliases.Folha.FRhHistMP936;
+CadHistMpEBTipoAdesao  	:= Aliases.Folha.FRhHistMP936.Page.TabNormal.ScrollBox1.GB_ADESAO.EB_TIPOADESAO;
+CadHistMpEBIdEmpregado  := Aliases.Folha.FRhHistMP936.Page.TabNormal.ScrollBox1.GB_ADESAO.EB_IDEMPREGADO;
+CadHistMpEBDataAcordo  	:= Aliases.Folha.FRhHistMP936.Page.TabNormal.ScrollBox1.GB_ADESAO.EB_DATAACORDO;
+CadHistMpEBDias  		    := Aliases.Folha.FRhHistMP936.Page.TabNormal.ScrollBox1.GB_ADESAO.EB_DIAS;
+CadHistMpEBExcluir		  := Aliases.Folha.FRhHistMP936.BExcluir;
+BtnHitMpSSalvar         := Aliases.Folha.FRhHistMP936.BSalvar;
+end;
+
+
+procedure FechaTelasAdvertencias();
+begin
+
+{Informação de exclusão no esocial}
+if (Aliases.Folha.dlgAten_o.Exists) then
+Aliases.Folha.dlgAten_o.btnOK.ClickButton;
+
+{Confirma exclusão histórico}
+if (Aliases.Folha.dlgAten_o.Exists) then
+Aliases.Folha.dlgAten_o.btnSim.ClickButton;
+
+{Tela de erro}
+if (Aliases.Folha.FVsErrorDlg.Exists) then
+Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.ClickButton;
+
+end;

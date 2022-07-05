@@ -1,1 +1,88 @@
-﻿
+﻿uses VarConsts, CommonsAll, CommonsObj, DataPoolAdesaoMP, ObjAdesaoMP;
+
+procedure PreencheHistMp();
+begin
+VerificaInsere(CadHistMpEBTipoadesao,CadHistMpDPTipoadesao);	
+VerificaInsere(CadHistMpEBIdEmpregado,CadHistMpDPIdEmpregado);
+PreencheDatas(CadHistMpEBDataAcordo,CadHistMpDPDataAcordo);	
+VerificaInsere(CadHistMpEBDias,CadHistMpDPDias);
+end;
+
+
+
+procedure CadastraHistMp(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Empregados', 'Adesão MP 1.045/2021');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadHistMp(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhHistMP936');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadHistMpDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadHistMp();
+  
+  PreencheHistMp();
+  
+  BtnHitMpSSalvar.Click;
+  
+  {Atenção! Inclusão histórico esocial}
+
+  if (Aliases.Folha.dlgAten_o.Exists) then
+  Aliases.Folha.dlgAten_o.btnN_o.ClickButton;
+  
+  ActFechar(FormPadraHistMp);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirHistMp(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Específicos', 'Empregados', 'Adesão MP 1.045/2021');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadHistMp(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhHistMP936');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadHistMpDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadHistMp();
+
+  ActExcluir(_ModuloFolha, 'FRhHistMP936');
+  
+  FechaTelasAdvertencias();
+
+  ActFechar(FormPadraHistMp);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

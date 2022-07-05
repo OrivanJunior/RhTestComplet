@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The object &quot;btnSim&quot; does not exist."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="ExcluirHistMp"/>
+						<Prp name="starttime" type="D" value="44747.5971475231"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBGADMANgBBADkAOQBFAEUALQA1AEYAMwAxAC0ANABDADUAMwAtAEIANgBCAEMALQBCAEYAMAAzAEEANAAxADQANQA1AEYAQQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="duration" type="I" value="27064"/>
+						<Prp name="durationwithoutchildren" type="I" value="27064"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="CadastraHistMp"/>
+						<Prp name="starttime" type="D" value="44747.596892037"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBCAEYANAA3AEQAQwA4ADMALQAxADIAOQA0AC0ANAAzAEIAQgAtAEEANAAwAEEALQA2ADEAMwA2ADQARgBEAEEAMgBFAEQAQwB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="0"/>
+						<Prp name="duration" type="I" value="22051"/>
+						<Prp name="durationwithoutchildren" type="I" value="22051"/>
+					</Node>
+				</Node>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="starttime" type="D" value="44747.596892037"/>
+				<Prp name="failedtests" type="I" value="1"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="duration" type="I" value="49115"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="starttime" type="D" value="44747.5968917361"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="key" type="S" value="{6FF0505D-DAF0-4A56-9632-258C52A33F32}"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="stop" type="D" value="44747.5974620949"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="tests" type="I" value="2"/>
+	</Node>
+</Nodes>

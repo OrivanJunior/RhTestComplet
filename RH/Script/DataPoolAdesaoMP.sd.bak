@@ -1,0 +1,13 @@
+﻿var
+CadHistMpDPTipoAdesao,
+CadHistMpDPIdEmpregado,
+CadHistMpDPDataAcordo,
+CadHistMpDPDias : OleVariant;
+
+procedure LeDataPoolCadHistMp(nomeDriver);
+begin
+CadHistMpDPTipoAdesao  	:= DDT.DriverByName(nomeDriver).Value('TIPOADESAO');
+CadHistMpDPIdEmpregado 	:= DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadHistMpDPDataAcordo  	:= DDT.DriverByName(nomeDriver).Value('DATAACORDO');
+CadHistMpDPDias			    := DDT.DriverByName(nomeDriver).Value('DIAS');
+end;
