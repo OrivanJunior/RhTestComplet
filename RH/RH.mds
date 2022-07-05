@@ -2003,7 +2003,7 @@
 													<testItem name="Exportação Contábil" key="{59B590EA-FAD1-488F-AE25-5F5162836542}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Conf. Exp. Contábil" key="{F9932214-553B-4EDB-AF52-2F264094064E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="Conf. Exp. Contábil" key="{F9932214-553B-4EDB-AF52-2F264094064E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters />
 																<children>
 																	<testItem name="CadastraExpConf" key="{7226A0D1-5D73-4CAF-9FE7-1A00B45F2C6B}" group="False" parallel="False" enabled="True" testMoniker="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}CadastraExpConf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2016,6 +2016,25 @@
 																	<testItem name="ExcluirExpConf" key="{908C5712-2889-4E2D-8A8C-9B251E3B8125}" group="False" parallel="False" enabled="True" testMoniker="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}ExcluirExpConf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																		<testParameters>
 																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Exportação Contábil\Conf. Exp. Contábil\Conf. Exp. Contábil.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
+															</testItem>
+															<testItem name="Contas contábeis analíticas" key="{DF8C86A4-1BA1-4935-81B9-9586D6D869F1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="CadastraCCAnaliticas" key="{8957171B-826D-4E22-B452-8CF66139AE48}" group="False" parallel="False" enabled="True" testMoniker="{935DAF17-E5D8-4971-80E1-BA95F1F604F5}CadastraCCAnaliticas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Exportação Contábil\Contas contábeis analíticas\Contas contábeis analíticas.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="ExcluirCCAnaliticas" key="{273E1C9A-38CC-4F4F-A548-2086633BBC59}" group="False" parallel="False" enabled="True" testMoniker="{935DAF17-E5D8-4971-80E1-BA95F1F604F5}ExcluirCCAnaliticas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Exportação Contábil\Contas contábeis analíticas\Contas contábeis analíticas.xlsx" />
 																		</testParameters>
 																		<environments activeCloud="CBT" />
 																		<children />

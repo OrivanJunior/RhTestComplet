@@ -1,1 +1,11 @@
-﻿
+﻿var
+CadCCAnaliticaDPIdContaAnalitica,
+CadCCAnaliticaDPReduzida,
+CadCCAnaliticaDPDescricao : OleVariant;
+
+procedure LeDataPoolCadCCAnaliticas(nomeDriver);
+begin
+CadCCAnaliticaDPIdContaAnalitica	:= DDT.DriverByName(nomeDriver).Value('IDCONTAANALITICA');
+CadCCAnaliticaDPReduzida  			  := DDT.DriverByName(nomeDriver).Value('REDUZIDA');
+CadCCAnaliticaDPDescricao  			  := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+end;

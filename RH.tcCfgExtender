@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{F2FA54AE-E215-4E8F-8064-1AE3A0B99DA9}"/>
+				<Prp name="activity" type="S" value="{935DAF17-E5D8-4971-80E1-BA95F1F604F5}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -8545,7 +8545,21 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{87030cdd-3f3d-4ecb-878f-95ec8ab02559}"/>
+					<Node name="{87030cdd-3f3d-4ecb-878f-95ec8ab02559}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="3"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="0"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="30"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="18"/>
+						</Node>
+						<Prp name="bottom" type="I" value="32"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{8753d9fb-f64c-4fef-b72e-9a0a540a068f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="28"/>
@@ -8967,7 +8981,22 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{935daf17-e5d8-4971-80e1-ba95f1f604f5}">
-						<Prp name="bottom" type="I" value="0"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="7"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="2"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="41"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="10"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="77"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="43"/>
+						</Node>
+						<Prp name="bottom" type="I" value="77"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -9004,7 +9033,7 @@
 					<Node name="{949d9dc9-756e-4c00-bdf9-9e0ee6865010}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="22"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="2"/>
 						</Node>
 						<Node name="1">
@@ -9014,12 +9043,12 @@
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="103"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="71"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="139"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="105"/>
 						</Node>
 						<Prp name="bottom" type="I" value="140"/>
@@ -17038,6 +17067,7 @@
 									<Node name="configurações">
 										<Node name="exportação contábill">
 											<Node name="conf.exp. contábil"/>
+											<Node name="contas contábeis analíticas"/>
 										</Node>
 									</Node>
 									<Node name="gerais">

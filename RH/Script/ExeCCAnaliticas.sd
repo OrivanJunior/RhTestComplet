@@ -1,1 +1,78 @@
-﻿
+﻿uses CommonsAll, CommonsObj,VarConsts,DataPoolCCAnaliticas,ObjCCAnaliticas;
+
+procedure preencheCCAnalitica();
+begin
+VerificaInsere(CadCCAnaliticaEBIdContaAnalitica,CadCCAnaliticaDPIdContaAnalitica);
+VerificaInsere(CadCCAnaliticaEBReduzida,CadCCAnaliticaDPReduzida);
+VerificaInsere(CadCCAnaliticaEBDescricao,CadCCAnaliticaDPDescricao);
+end;
+
+
+procedure CadastraCCAnaliticas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Exportação Contábil', 'Contas contábeis analíticas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCCAnaliticas(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhContaAnalitica');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Conta Analítica',CadCCAnaliticaDPIdContaAnalitica);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCCAnalitica();
+  
+  preencheCCAnalitica();
+  
+  ActSalvar(FormPadraoCCAnalitica);
+  ActFechar(FormPadraoCCAnalitica);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCCAnaliticas(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Exportação Contábil', 'Contas contábeis analíticas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCCAnaliticas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhContaAnalitica');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Conta Analítica',CadCCAnaliticaDPIdContaAnalitica);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCCAnalitica();
+
+  ActExcluir(_ModuloFolha, 'FRhContaAnalitica');
+
+  ActFechar(FormPadraoCCAnalitica);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

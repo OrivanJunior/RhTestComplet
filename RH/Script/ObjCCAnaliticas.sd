@@ -1,7 +1,13 @@
-﻿procedure Test1;
+﻿var
+FormPadraoCCAnalitica,  			
+CadCCAnaliticaEBIdContaAnalitica,
+CadCCAnaliticaEBReduzida,  		
+CadCCAnaliticaEBDescricao  : OleVariant;	
+
+procedure MapCadCCAnalitica;
 begin
-  Aliases.Folha.FRhContaAnalitica.Click(223, 14);
-  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_IDCONTAANALITICA.Click(76, 12);
-  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_REDUZIDA.Click(77, 6);
-  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_DESCRICAO.Click(77, 8);
+FormPadraoCCAnalitica  				      := Aliases.Folha.FRhContaAnalitica;
+CadCCAnaliticaEBIdContaAnalitica  	:= Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_IDCONTAANALITICA;
+CadCCAnaliticaEBReduzida  			    := Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_REDUZIDA;
+CadCCAnaliticaEBDescricao  			    := Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_DESCRICAO;
 end;

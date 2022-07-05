@@ -1,1 +1,7 @@
-﻿
+﻿procedure Test1;
+begin
+  Aliases.Folha.FRhContaAnalitica.Click(223, 14);
+  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_IDCONTAANALITICA.Click(76, 12);
+  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_REDUZIDA.Click(77, 6);
+  Aliases.Folha.FRhContaAnalitica.pnlPrincipal.EB_DESCRICAO.Click(77, 8);
+end;
