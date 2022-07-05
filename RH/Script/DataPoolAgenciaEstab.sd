@@ -1,0 +1,32 @@
+﻿var
+CadAgencEstabDPEstab,
+CadAgencEstabDPIdAgConv,
+CadAgencEstabDPIdExpFin,
+CadAgencEstabDPCodConvenio,
+CadAgencEstabDPNroconta,
+CadAgencEstabDPDigConta,
+CadAgencEstabDPRazaosoc,
+CadAgencEstabDPCnpj,
+CadAgencEstabDPPortador,
+
+CadAgencEstabDPNumeroConta,
+CadAgencEstabDPDigitoConta,
+CadAgencEstabDPContaPadrao : OleVariant;
+
+
+procedure LeDataPoolCadAgencEstab(nomeDriver);
+begin
+CadAgencEstabDPEstab		    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadAgencEstabDPIdAgConv	    := DDT.DriverByName(nomeDriver).Value('IDAGCONV');
+CadAgencEstabDPIdExpFin	    := DDT.DriverByName(nomeDriver).Value('IDEXPFIN');
+CadAgencEstabDPCodConvenio  := DDT.DriverByName(nomeDriver).Value('CODCONVENIO');
+CadAgencEstabDPNroconta	    := DDT.DriverByName(nomeDriver).Value('NROCONTA');
+CadAgencEstabDPDigConta	    := DDT.DriverByName(nomeDriver).Value('DIGCONTA');
+CadAgencEstabDPRazaosoc	    := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+CadAgencEstabDPCnpj		      := DDT.DriverByName(nomeDriver).Value('CNPJ'); 						
+CadAgencEstabDPPortador	    := DDT.DriverByName(nomeDriver).Value('PORTADOR');
+
+CadAgencEstabDPNumeroConta	:= DDT.DriverByName(nomeDriver).Value('NUMEROCONTA');
+CadAgencEstabDPDigitoConta  := DDT.DriverByName(nomeDriver).Value('DIGITOCONTA');
+CadAgencEstabDPContaPadrao  := DDT.DriverByName(nomeDriver).Value('CONTAPADRAO');
+end;

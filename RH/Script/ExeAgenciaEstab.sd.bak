@@ -1,0 +1,119 @@
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolAgenciaEstab, ObjAgenciaEstab;
+
+procedure PreencheAgencEstab();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadAgencEstabEBEstab,CadAgencEstabDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadAgencEstabEBIdAgConv,CadAgencEstabDPIdAgConv);	    
+VerificaConsultaF3Insere(_ModuloFolha,CadAgencEstabEBIdExpFin,CadAgencEstabDPIdExpFin);	    
+VerificaInsere(CadAgencEstabEBCodConvenio,CadAgencEstabDPCodConvenio);  
+VerificaInsere(CadAgencEstabEBNroconta,CadAgencEstabDPNroconta);	    
+VerificaInsere(CadAgencEstabEBDigConta,CadAgencEstabDPDigConta);	    
+VerificaInsere(CadAgencEstabEBRazaosoc,CadAgencEstabDPRazaosoc);	    
+VerificaInsere(CadAgencEstabEBCnpj,CadAgencEstabDPCnpj);	    
+VerificaInsere(CadAgencEstabEBPortador,CadAgencEstabDPPortador);	   
+end;
+
+procedure PreencheAgencEstabGrid(pathData);
+var 
+DDTAgencEstab :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalExpConf.ActivePageIndex:=0;
+
+MapCadAgencEstab();
+
+DDTAgencEstab := CarregaDDT(pathData, 'AgencEstab');
+
+While not (DDTAgencEstab.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadAgencEstab(DDTAgencEstab.Name);
+
+ if (FormGridAgencEstab.ActiveView.ViewData.RowCount < 1) then
+ BtnInc.Click;
+
+VerificaClickPreencheGrid(FormGridAgencEstab, i,'Nro. Conta', CadAgencEstabDPNroConta);	
+VerificaClickPreencheGrid(FormGridAgencEstab, i,'Dig. Conta', CadAgencEstabDPDigConta);     
+VerificaClickPreencheGrid(FormGridAgencEstab, i,'90', CadAgencEstabDPContaPadrao);
+
+
+FormGridAgencEstab.Keys('[Tab]');
+Inc(i);
+
+DDTAgencEstab.Next;
+end;
+DDT.CloseDriver(DDTAgencEstab.Name);
+end;
+
+procedure CadastraAgencEstab(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agências do Estabelecimento');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAgencEstab(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAgencFilial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAgencEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAgencEstab();
+  
+  PreencheAgencEstab();
+  PreencheAgencEstabGrid(pathData);
+
+  ActSalvar(FormPadraoAgencEstab);
+  ActFechar(FormPadraoAgencEstab);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAgencEstab(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Agências do Estabelecimento');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAgencEstab(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAgencFilial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAgencEstabDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAgencEstab();
+
+  ActExcluir(_ModuloFolha, 'FRhAgencFilial');
+
+  ActFechar(FormPadraoAgencEstab);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
