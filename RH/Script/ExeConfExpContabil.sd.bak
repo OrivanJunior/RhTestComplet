@@ -41,7 +41,7 @@ MapGridConsulta(_ModuloFolha);
 
 LeDataPoolCadExpConf(DDTExpConf.Name);
 
- if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+ if (FormGridExpConf.ActiveView.ViewData.RowCount < 1) then
  BtnIncDet.Click;
 
 VerificaClickPreencheGrid(FormGridExpConf, i, 'Evento', CadExpConfDPEvento);
