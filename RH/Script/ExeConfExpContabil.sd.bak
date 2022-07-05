@@ -1,4 +1,4 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolConfExpContabil,ObjConfExpContabil;
 
 procedure PreencheExpConf();
 begin
@@ -9,11 +9,132 @@ VerificaInsere(CadExpConfEBConconfig,CadExpConfDPConconfig);
 VerificaInsere(CadExpConfEBCodhist,CadExpConfDPCodhist);
 VerificaInsere(CadExpConfEBCencusdeb,CadExpConfDPCencusdeb);		
 VerificaInsere(CadExpConfEBFixacencus,CadExpConfDPFixacencus);
-PreencheData(CadExpConfEBDtincalt,CadExpConfDPDtincalt);
+PreencheDatas(CadExpConfEBDtincalt,CadExpConfDPDtincalt);
 VerificaInsere(CadExpConfEBComphist,CadExpConfDPComphist);
 VerificaInsere(CadExpConfEBCencuscred,CadExpConfDPCencuscred);
+
+if (FormContTrans.Minimizado = True) then
+Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.vsContasTransit10.Click;
+
 VerificaInsere(CadExpConfEBTransf13,CadExpConfDPTransf13);
 VerificaInsere(CadExpConfEBTransfferias,CadExpConfDPTransfferias);
 VerificaInsere(CadExpConfEBCctransf13,CadExpConfDPCctransf13);
-VerificaInsere(CadExpConfEBCctransfferias,CadExpConfEBCctransfferias);
+VerificaInsere(CadExpConfEBCctransfferias,CadExpConfDPCctransfferias);
+end;
+
+procedure PreencheExpConfGrid(pathData);
+var 
+DDTExpConf :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalExpConf.ActivePageIndex:=0;
+
+MapCadExpConf();
+
+DDTExpConf := CarregaDDT(pathData, 'ExpConf');
+
+While not (DDTExpConf.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadExpConf(DDTExpConf.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+ BtnIncDet.Click;
+
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Evento', CadExpConfDPEvento);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Ordem', CadExpConfDPOrdem);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Lote', CadExpConfDPLote);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Conta Débito'	, CadExpConfDPContaDebito	);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'CC Débito', CadExpConfDPCCDebito);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Conta Crédito', CadExpConfDPContaCredito);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'CC Crédito', CadExpConfDPCCCredito);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Histórico', CadExpConfDPHistorico);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Complemento', CadExpConfDPComplemento);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Fixa Histórico', CadExpConfDPFixaHistorico);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Id. Arquivo Digital Débito', CadExpConfDPIdArquivoDD);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'C. Custo para Arq. Digital Débito', CadExpConfDPCCustoparaArqDD);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'Id. Arquivo Digital Crédito', CadExpConfDPIdArquivoDC);
+VerificaClickPreencheGrid(FormGridExpConf, i, 'C. Custo para Arq. Digital Crédito', CadExpConfDPCCustoparaArqDC);
+
+FormGridExpConf.Keys('[Tab]');
+Inc(i);
+
+DDTExpConf.Next;
+end;
+DDT.CloseDriver(DDTExpConf.Name);
+end;
+
+
+
+procedure CadastraExpConf(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Exportação Contábil', 'Conf. Exp. Contábil');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadExpConf(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhExpConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id da Conf.',CadExpConfDPIdExpconf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadExpConf();
+  
+  PreencheExpConf();
+  PreencheExpConfGrid(pathData);
+  
+  ActSalvar(FormPadraoExpConf);
+  ActFechar(FormPadraoExpConf);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirExpConf(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Exportação Contábil', 'Conf. Exp. Contábil');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadExpConf(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhExpConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id da Conf.',CadExpConfDPIdExpconf);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadExpConf();
+
+  ActExcluir(_ModuloFolha, 'FRhExpConf');
+
+  ActFechar(FormPadraoExpConf);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
 end;

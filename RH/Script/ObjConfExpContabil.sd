@@ -11,6 +11,7 @@ CadExpConfEBDtincalt,
 CadExpConfEBComphist,
 CadExpConfEBCencuscred,
 
+FormContTrans,
 CadExpConfEBTransf13,
 CadExpConfEBTransfferias,
 CadExpConfEBCctransf13,
@@ -39,6 +40,7 @@ CadExpConfEBDtincalt  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_DTIN
 CadExpConfEBComphist  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_COMPHIST;
 CadExpConfEBCencuscred  	:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_CENCUSCRED;
 
+FormContTrans             := Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit;
 CadExpConfEBTransf13  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_TRANSF13;
 CadExpConfEBTransfferias  := Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_TRANSFFERIAS;
 CadExpConfEBCctransf13  	:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.EB_CCTRANSF13;

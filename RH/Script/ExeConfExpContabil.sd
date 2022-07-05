@@ -12,26 +12,37 @@ VerificaInsere(CadExpConfEBFixacencus,CadExpConfDPFixacencus);
 PreencheDatas(CadExpConfEBDtincalt,CadExpConfDPDtincalt);
 VerificaInsere(CadExpConfEBComphist,CadExpConfDPComphist);
 VerificaInsere(CadExpConfEBCencuscred,CadExpConfDPCencuscred);
+
+if (FormContTrans.Minimizado = True) then
+Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.vsContasTransit.vsContasTransit10.Click;
+
 VerificaInsere(CadExpConfEBTransf13,CadExpConfDPTransf13);
 VerificaInsere(CadExpConfEBTransfferias,CadExpConfDPTransfferias);
 VerificaInsere(CadExpConfEBCctransf13,CadExpConfDPCctransf13);
-VerificaInsere(CadExpConfEBCctransfferias,CadExpConfEBCctransfferias);
+VerificaInsere(CadExpConfEBCctransfferias,CadExpConfDPCctransfferias);
 end;
 
 procedure PreencheExpConfGrid(pathData);
 var 
-i, DDTExpConf :OleVariant;
+DDTExpConf :OleVariant;
+i : integer;
 begin
 i:= 0;
+
+PageTabNormalExpConf.ActivePageIndex:=0;
 
 MapCadExpConf();
 
 DDTExpConf := CarregaDDT(pathData, 'ExpConf');
-PageTabNormalExpConf.ActivePageIndex:=0;
 
 While not (DDTExpConf.EOF) do
 begin
-BtnIncDet.Click;
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadExpConf(DDTExpConf.Name);
+
+ if (FormGridExpConf.ActiveView.ViewData.RowCount < 1) then
+ BtnIncDet.Click;
 
 VerificaClickPreencheGrid(FormGridExpConf, i, 'Evento', CadExpConfDPEvento);
 VerificaClickPreencheGrid(FormGridExpConf, i, 'Ordem', CadExpConfDPOrdem);
@@ -48,8 +59,10 @@ VerificaClickPreencheGrid(FormGridExpConf, i, 'C. Custo para Arq. Digital Débit
 VerificaClickPreencheGrid(FormGridExpConf, i, 'Id. Arquivo Digital Crédito', CadExpConfDPIdArquivoDC);
 VerificaClickPreencheGrid(FormGridExpConf, i, 'C. Custo para Arq. Digital Crédito', CadExpConfDPCCustoparaArqDC);
 
-DDTExpConf.Next;
+FormGridExpConf.Keys('[Tab]');
 Inc(i);
+
+DDTExpConf.Next;
 end;
 DDT.CloseDriver(DDTExpConf.Name);
 end;
@@ -106,7 +119,7 @@ While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FormPadraoExpConf');
+    ValidaFormAberto(_ModuloFolha, 'FRhExpConf');
   
   FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id da Conf.',CadExpConfDPIdExpconf);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
@@ -116,7 +129,7 @@ begin
   
   MapCadExpConf();
 
-  ActExcluir(_ModuloFolha, 'FormPadraoExpConf');
+  ActExcluir(_ModuloFolha, 'FRhExpConf');
 
   ActFechar(FormPadraoExpConf);
   end;

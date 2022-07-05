@@ -377,7 +377,18 @@
 				</Node>
 				<Prp name="history" type="S" value="FormTelaConsultaGrid.ActiveView.ViewData.RowCount&#xA;(Qry.FieldByName(Qry.Field[i].FieldName).Value)&#xA;Aliases.Folha.FRhEmpregado.Page.TabNormal.pg.tsDadosHistoricos.pgDadosHistoricos.FActivePage&#xA;DDTOutrasConfig&#xA;DDTDadosGerais&#xA;DDTDadosPessoais&#xA;DDTContrib&#xA;DDTHistFuncoes&#xA;DDTDadosPessoais.Name&#xA;Assigned(DDTContrib)&#xA;DDT.CurrentDriver.Name&#xA;DDTDadosGerais.Value('ESTAB')&#xA;Assigned(data)&#xA;Subitem&#xA;Sys.Process('Folha').VCLObject('VsMenu')&#xA;Sys.Process('Folha).VCLObject('VsMenu')&#xA;DDT.CurrentDriver&#xA;LoginServidor.zText&#xA;FormCadPessoa.VCLObject('bIncDepIRRF')&#xA;Assigned(FormErrosPanel1.VCLObject('BFechar'))&#xA;FormErrosPanel1.VCLObject('BFechar').Exists&#xA;FormCadPessoa.ActSalvar&#xA;LoginConexao.Text&#xA;LoginServidor.Text&#xA;FormExpImpBaseTsExp.VCLObject('bExportar');&#xA;Modulo.VCLObject('VsMenu').Window('TdxDockControl', '', 1).ClickItem('Menu|Processos|Importação|Importação/Exportação da Base')&#xA;not (Modulo.VCLObject('VsMenu').Enabled)&#xA;LoginServidor.Keys"/>
 			</Node>
-			<Node name="{86873e45-42bf-4c44-8fbd-d6bdfbfd5189}"/>
+			<Node name="{86873e45-42bf-4c44-8fbd-d6bdfbfd5189}">
+				<Node name="0">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="43"/>
+					<Prp name="owner" type="S" value="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
+			</Node>
 			<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 				<Node name="{90fe4d39-229d-4887-ac6f-07b02ce523fc}">
 					<Node name="{795028ed-d480-441f-ae5c-24b40b7ff4c9}\testdata">
@@ -5348,7 +5359,7 @@
 						</Node>
 						<Node name="4">
 							<Prp name="bottom" type="I" value="92"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="70"/>
 						</Node>
 						<Node name="5">
@@ -9003,26 +9014,26 @@
 					</Node>
 					<Node name="{949d9dc9-756e-4c00-bdf9-9e0ee6865010}">
 						<Node name="0">
-							<Prp name="bottom" type="I" value="18"/>
+							<Prp name="bottom" type="I" value="22"/>
 							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="2"/>
 						</Node>
 						<Node name="1">
-							<Prp name="bottom" type="I" value="54"/>
+							<Prp name="bottom" type="I" value="61"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="20"/>
+							<Prp name="top" type="I" value="24"/>
 						</Node>
 						<Node name="2">
-							<Prp name="bottom" type="I" value="90"/>
+							<Prp name="bottom" type="I" value="97"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="58"/>
+							<Prp name="top" type="I" value="65"/>
 						</Node>
 						<Node name="3">
-							<Prp name="bottom" type="I" value="126"/>
+							<Prp name="bottom" type="I" value="133"/>
 							<Prp name="collapsed" type="B" value="0"/>
-							<Prp name="top" type="I" value="92"/>
+							<Prp name="top" type="I" value="99"/>
 						</Node>
-						<Prp name="bottom" type="I" value="127"/>
+						<Prp name="bottom" type="I" value="134"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -13959,7 +13970,7 @@
 						</Node>
 						<Node name="6">
 							<Prp name="bottom" type="I" value="130"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="108"/>
 						</Node>
 						<Node name="7">
@@ -15111,7 +15122,7 @@
 						</Node>
 						<Node name="10">
 							<Prp name="bottom" type="I" value="305"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="274"/>
 						</Node>
 						<Node name="11">
@@ -16143,7 +16154,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{f53e9ef6-1f60-42ea-a0bb-70d5c460875b}"/>
+					<Node name="{f53e9ef6-1f60-42ea-a0bb-70d5c460875b}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="16"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="8"/>
+						</Node>
+						<Prp name="bottom" type="I" value="16"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{f5718298-16b0-4248-a041-d106296537fd}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="9"/>
@@ -17027,17 +17047,27 @@
 								<Node name="cadastros específicos"/>
 								<Node name="cadastros gerais">
 									<Node name="configurações">
-										<Node name="conf.valor padrão"/>
 										<Node name="exportação contábill">
 											<Node name="conf.exp. contábil"/>
-											<Node name="contas contábeis analíticas"/>
 										</Node>
 									</Node>
-									<Node name="gerais"/>
+									<Node name="gerais">
+										<Node name="eventos">
+											<Node name="eventos"/>
+										</Node>
+									</Node>
 								</Node>
 								<Node name="processos">
 									<Node name="gps">
 										<Node name="gps"/>
+									</Node>
+									<Node name="pagamento eletrônico">
+										<Node name="banco do brasil">
+											<Node name="previdência privada"/>
+										</Node>
+									</Node>
+									<Node name="reajustes salariais">
+										<Node name="percentual"/>
 									</Node>
 									<Node name="transferência de empregados"/>
 									<Node name="transferência de local"/>

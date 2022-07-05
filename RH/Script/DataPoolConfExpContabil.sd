@@ -31,7 +31,7 @@ CadExpConfDPIdArquivoDC,
 CadExpConfDPCCustoparaArqDC : OleVariant;
 
 
-procedure LeDataPoolCadExpConf();
+procedure LeDataPoolCadExpConf(nomeDriver);
 begin
 CadExpConfDPIdExpconf  		  :=DDT.DriverByName(nomeDriver).Value('IDEXPCONF');
 CadExpConfDPDescricao  		  :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');

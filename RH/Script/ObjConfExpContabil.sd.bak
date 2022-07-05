@@ -25,7 +25,7 @@ BtnDesfDet,
 BtnExcDet : OleVariant;
 
 
-procedure MapCad;
+procedure MapCadExpConf();
 begin
 FormPadraoExpConf  			  := Aliases.Folha.FRhExpConf;
 CadExpConfEBIdExpconf  		:= Aliases.Folha.FRhExpConf.Page.TabNormal.pnCab.EB_IDEXPCONF;

@@ -1981,7 +1981,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Conf. Nela" key="{94B98968-279D-472C-B815-24B529ED6713}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Conf. Nela" key="{94B98968-279D-472C-B815-24B529ED6713}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraNela" key="{F665A4A5-B533-45E0-A1E1-059D932FC94B}" group="False" parallel="False" enabled="True" testMoniker="{BF7A7B41-7A68-4BC4-8F20-1439EFE81034}CadastraNela" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -1997,6 +1997,30 @@
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Exportação Contábil" key="{59B590EA-FAD1-488F-AE25-5F5162836542}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="Conf. Exp. Contábil" key="{F9932214-553B-4EDB-AF52-2F264094064E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters />
+																<children>
+																	<testItem name="CadastraExpConf" key="{7226A0D1-5D73-4CAF-9FE7-1A00B45F2C6B}" group="False" parallel="False" enabled="True" testMoniker="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}CadastraExpConf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Exportação Contábil\Conf. Exp. Contábil\Conf. Exp. Contábil.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																	<testItem name="ExcluirExpConf" key="{908C5712-2889-4E2D-8A8C-9B251E3B8125}" group="False" parallel="False" enabled="True" testMoniker="{949D9DC9-756E-4C00-BDF9-9E0EE6865010}ExcluirExpConf" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																		<testParameters>
+																			<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Gerais\Configurações\Exportação Contábil\Conf. Exp. Contábil\Conf. Exp. Contábil.xlsx" />
+																		</testParameters>
+																		<environments activeCloud="CBT" />
+																		<children />
+																	</testItem>
+																</children>
 															</testItem>
 														</children>
 													</testItem>

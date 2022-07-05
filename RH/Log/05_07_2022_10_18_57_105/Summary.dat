@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error2">
+								<Prp name="msg" type="S" value="Unable to find the object VCLObject(FormPadraoExpConf). See Details for additional information."/>
+							</Node>
+							<Node name="error5">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject(FormPadraoExpConf)&quot; does not exist."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The object &quot;VCLObject(FormPadraoExpConf)&quot; does not exist."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="Unable to find the object VCLObject(FormPadraoExpConf). See Details for additional information."/>
+							</Node>
+							<Node name="error6">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+							<Node name="error4">
+								<Prp name="msg" type="S" value="Cannot obtain the window with the window class '#32770', window caption '' and index 1. See Details for additional information."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="ExcluirExpConf"/>
+						<Prp name="durationwithoutchildren" type="I" value="52540"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBBADgAQgBGADMAMwAyAEIALQA0AEQAOABCAC0ANABGAEEAMgAtAEEARAA5ADQALQA1AEIANAAyADUANABBAEYAMgBGADYAMgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="duration" type="I" value="52540"/>
+						<Prp name="starttime" type="D" value="44747.4309016088"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings">
+							<Node name="warning0">
+								<Prp name="msg" type="S" value="The action may be performed incorrectly, because the control is disabled."/>
+							</Node>
+						</Node>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="CadastraExpConf"/>
+						<Prp name="durationwithoutchildren" type="I" value="92741"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAwAEMARQA4ADQAOQA5ADgALQA3ADAAQwAzAC0ANAAwADkAQwAtADkANwBFADkALQAyAEUAMAA4ADkARQA0ADIAQgBCADIAOAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="status" type="I" value="1"/>
+						<Prp name="duration" type="I" value="92741"/>
+						<Prp name="starttime" type="D" value="44747.429827963"/>
+					</Node>
+				</Node>
+				<Prp name="name" type="S" value="RH"/>
+				<Prp name="warningtests" type="I" value="1"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="starttime" type="D" value="44747.429827963"/>
+				<Prp name="duration" type="I" value="145281"/>
+				<Prp name="failedtests" type="I" value="1"/>
+			</Node>
+		</Node>
+		<Prp name="warningtests" type="I" value="1"/>
+		<Prp name="testname" type="S" value="RH"/>
+		<Prp name="failedtests" type="I" value="1"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="warningtestwithretries" type="I" value="0"/>
+		<Prp name="starttime" type="D" value="44747.4298277199"/>
+		<Prp name="tests" type="I" value="2"/>
+		<Prp name="key" type="S" value="{72603DF2-8A68-477F-888B-273430AB0425}"/>
+		<Prp name="host" type="S" value="DW165"/>
+		<Prp name="name" type="S" value="RH"/>
+		<Prp name="user" type="S" value="orivan.junior"/>
+		<Prp name="successtestwithretries" type="I" value="0"/>
+		<Prp name="stop" type="D" value="44747.4315137616"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+	</Node>
+</Nodes>
