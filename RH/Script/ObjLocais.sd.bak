@@ -88,7 +88,6 @@ CadLcDarfPisEBDarfPisComp,
 FormGridGestores,
 BtnIncGestor,
 BtnSaveGestor,
-BtnSaveGestor,
 BtnDesfGestor,
 BtnExcGestor,
 
@@ -128,7 +127,12 @@ BtnExcRhFixoLMesAno,
 
 CadFixoLEBInforme,
 CadFixoLEBReferencia,
-CadFixoLEBPropBaseHoras : OleVariant;
+CadFixoLEBPropBaseHoras,
+
+FormTelaFiltroLc,
+ListaConsultaLc,
+FiltroPanCompLc,
+BtnOkFiltroLc    : OleVariant;
 
 procedure MapCadLocais();
 begin
@@ -228,7 +232,6 @@ begin
 FormGridGestores  								:= Aliases.Folha.FRhLocal.Page.tsGestores.gRhLocalGestores;
 BtnIncGestor  										:= Aliases.Folha.FRhLocal.bIncGestor;
 BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
-BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnDesfGestor 										:= Aliases.Folha.FRhLocal.bDesfGestor;
 BtnExcGestor	  									:= Aliases.Folha.FRhLocal.bExcGestor;
 end;
@@ -274,4 +277,12 @@ CadLcESocialEBTpInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.Scro
 CadLcESocialEBNrInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCCONTRAT;
 CadLcESocialEBTpInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCPROP;
 CadLcESocialEBNrInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCPROP;
+end;
+
+procedure MapCadFiltroLocais();
+begin
+FormTelaFiltroLc  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaLc   := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroPanCompLc   := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnOkFiltroLc     := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;

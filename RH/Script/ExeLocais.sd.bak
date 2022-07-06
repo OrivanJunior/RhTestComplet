@@ -99,9 +99,9 @@ PageLocal.ActivePageIndex:=3;
 
 MapCadLcDarfPis();
 
-VerificaConsultaF3Insere(_ModuloFolhaCadLcDarfPisEBCDebDarFpis,CadLcDarfPisDPCDebDarFpis);
+VerificaConsultaF3Insere(_ModuloFolha,CadLcDarfPisEBCDebDarFpis,CadLcDarfPisDPCDebDarFpis);
 VerificaInsere(CadLcDarfPisEBCCDebDarfPis,CadLcDarfPisDPCCDebDarfPis);
-VerificaConsultaF3Insere(_ModuloFolhaCadLcDarfPisEBCCredDarfPis,CadLcDarfPisDPCCredDarfPis);
+VerificaConsultaF3Insere(_ModuloFolha,CadLcDarfPisEBCCredDarfPis,CadLcDarfPisDPCCredDarfPis);
 VerificaInsere(CadLcDarfPisEBCCCredDarfPis,CadLcDarfPisDPCCCredDarfPis);
 VerificaInsere(CadLcDarfPisEBDarfPisHist,CadLcDarfPisDPDarfPisHist);
 VerificaInsere(CadLcDarfPisEBDarfPisComp,CadLcDarfPisDPDarfPisComp);
@@ -118,21 +118,19 @@ PageLocal.ActivePageIndex:=5;
 
 MapCadLcGestoresGrid();
 
-DDTExpConf := CarregaDDT(pathData, 'Gestores');
+DDTGestores := CarregaDDT(pathData, 'Gestores');
 
 While not (DDTGestores.EOF) do
 begin
-MapGridConsulta(_ModuloFolha);
 
-LeDataPoolCadExpConf(DDTGestores.Name);
+LeDataPoolCadLocais(DDTGestores.Name);
 
- if (FormGridGestores.ActiveView.ViewData.RowCount < 1) then
- BtnInc.Click;
+BtnIncGestor.Click;
 
 VerificaClickPreencheGrid(FormGridGestores, i, 'Pessoa', CadLcGestoresDPPessoa);
-VerificaClickPreencheGrid(FormGridGestores, i, 'Nome', CadLcGestoresDPNome);
 
-FormGridGestores.Keys('[Tab]');
+BtnSaveGestor.Click;
+
 Inc(i);
 
 DDTGestores.Next;
@@ -252,12 +250,21 @@ VerificaInsere(CadLcESocialEBTpInscProp,CadLcESocialDPTpInscProp);
 VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
 end;
 
+procedure FiltraTelaIniLocal();
+begin
+MapCadFiltroLocais();
+ListaConsultaLc.SetText('Local por Id');
+FiltroPanCompLc.Keys('(Ignorar)');
+BtnOkFiltroLc.ClickButton;
+end;
 
 procedure CadastraLocais(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Locais');
+
+FiltraTelaIniLocal();
 
 MapGridConsulta(_ModuloFolha);
 

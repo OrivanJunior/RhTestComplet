@@ -79,7 +79,6 @@ CadLcDarfPisDPDarfPisComp,
 
 //Grid Gestores Gerar DDT
 CadLcGestoresDPPessoa,
-CadLcGestoresDPNome,
 //Esocial
 CadLcESocialDPIdTipoLotacaoTrib,
 CadLcESocialDPIdFpas,
@@ -175,7 +174,6 @@ CadLcDarfPisDPDarfPisHist	                := DDT.DriverByName(nomeDriver).Value(
 CadLcDarfPisDPDarfPisComp	                := DDT.DriverByName(nomeDriver).Value('DARFPISCOMP');
 //Grid Gestores Gerar DDT                
 CadLcGestoresDPPessoa						          := DDT.DriverByName(nomeDriver).Value('PESSOA');
-CadLcGestoresDPNome							          := DDT.DriverByName(nomeDriver).Value('NOME');
 //Esocial                                   
 CadLcESocialDPIdTipoLotacaoTrib           := DDT.DriverByName(nomeDriver).Value('IDTIPOLOTACAOTRIB');
 CadLcESocialDPIdFpas  			              := DDT.DriverByName(nomeDriver).Value('IDFPAS');

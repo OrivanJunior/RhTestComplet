@@ -2390,6 +2390,25 @@
 													</testItem>
 												</children>
 											</testItem>
+											<testItem name="Locais" key="{4D78A0BA-62A2-4FA9-8248-44B49C2AF85F}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraLocais" key="{8E04F98B-8D20-4329-B344-EA5BCF59E5F7}" group="False" parallel="False" enabled="True" testMoniker="{355A2574-37D5-4AA4-B6BE-B50D402CDB2D}CadastraLocais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Locais\Locais.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirLocal" key="{11A8242D-3122-4E25-BFAE-650F53BB9DD0}" group="False" parallel="False" enabled="True" testMoniker="{355A2574-37D5-4AA4-B6BE-B50D402CDB2D}ExcluirLocal" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Locais\Locais.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
 										</children>
 									</testItem>
 									<testItem name="Relatórios" key="{7C3AD300-1563-45DF-84B0-BEEA0D94A301}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
