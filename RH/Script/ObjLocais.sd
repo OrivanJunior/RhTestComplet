@@ -129,8 +129,6 @@ CadFixoLEBInforme,
 CadFixoLEBReferencia,
 CadFixoLEBPropBaseHoras : OleVariant;
 
-
-
 procedure MapCadLocais();
 begin
 FormPadraoLocais  								  := Aliases.Folha.FRhLocal;
@@ -148,7 +146,6 @@ CadLocaisEBInativo	  							:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_IN
 CadLocaisEBDtFechamento	  					:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_DTFECHAMENTO;
 CadLocaisEBDtIdExpFin							  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_IDEXPFIN;
 end;
-
 
 procedure MapCadLcGps();
 begin 
@@ -185,7 +182,6 @@ CadLcGpsEBCccreditopad		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_
 CadLcGpsEBInsscccreditoret	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITORET;
 CadLcGpsEBInssHistRet								:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSHISTRET;
 end;
-
 
 procedure MapCadLcRpa();
 begin 
@@ -225,7 +221,6 @@ CadLcDarfPisEBDarfPisHist							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollB
 CadLcDarfPisEBDarfPisComp							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_DARFPISCOMP;
 end;
 
-
 procedure MapCadLcGestoresGrid();
 begin  
 
@@ -235,22 +230,6 @@ BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnDesfGestor 										:= Aliases.Folha.FRhLocal.bDesfGestor;
 BtnExcGestor	  									:= Aliases.Folha.FRhLocal.bExcGestor;
-end;
-
- 
-
-
-procedure MapCadLcESocial();
-begin  
-
-CadLcESocialEBIdTipoLotacaoTrib  			  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDTIPOLOTACAOTRIB;
-CadLcESocialEBIdFpas  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDFPAS;
-CadLcESocialEBTpInsc  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSC;
-CadLcESocialEBNrInscLotacao  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCLOTACAO;
-CadLcESocialEBTpInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCCONTRAT;
-CadLcESocialEBNrInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCCONTRAT;
-CadLcESocialEBTpInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCPROP;
-CadLcESocialEBNrInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCPROP;
 end;
 
 procedure MapCadFixoLocal();
@@ -280,4 +259,17 @@ BtnExcRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bExcRhFixoLMesAno;
 CadFixoLEBInforme  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_INFORME;
 CadFixoLEBReferencia  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_REFERENCIA;
 CadFixoLEBPropBaseHoras  	:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_PROPBASEHORAS;
+end;
+
+procedure MapCadLcESocial();
+begin  
+
+CadLcESocialEBIdTipoLotacaoTrib  			  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDTIPOLOTACAOTRIB;
+CadLcESocialEBIdFpas  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDFPAS;
+CadLcESocialEBTpInsc  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSC;
+CadLcESocialEBNrInscLotacao  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCLOTACAO;
+CadLcESocialEBTpInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCCONTRAT;
+CadLcESocialEBNrInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCCONTRAT;
+CadLcESocialEBTpInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCPROP;
+CadLcESocialEBNrInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCPROP;
 end;
