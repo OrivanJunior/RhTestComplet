@@ -1,1 +1,55 @@
-﻿
+﻿var
+FormPadraoAgencEstab,
+CadAgencEstabEBEstab,
+CadAgencEstabEBIdAgConv,
+CadAgencEstabEBIdExpFin,
+CadAgencEstabEBCodConvenio,
+CadAgencEstabEBNroconta,
+CadAgencEstabEBDigConta,
+CadAgencEstabEBRazaosoc,
+CadAgencEstabEBCnpj,
+CadAgencEstabEBPortador,
+
+
+PageTabNormalExpConf,
+FormGridAgencEstab,
+  
+BtnInc,
+BtnProc,
+BtnConsul,
+BtnDesf,
+BtnExc,
+BtnSalvar,
+BtnExcluir : OleVariant;
+
+
+
+procedure MapCadAgencEstab();
+begin
+FormPadraoAgencEstab  		:= Aliases.Folha.FRhAgencFilial;
+CadAgencEstabEBEstab		  := Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_ESTAB;
+CadAgencEstabEBIdAgConv		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_IDAGCONV;
+CadAgencEstabEBIdExpFin		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_IDEXPFIN;
+CadAgencEstabEBCodConvenio:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_CODCONVENIO;
+CadAgencEstabEBNroconta		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_NROCONTA;
+CadAgencEstabEBDigConta		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_DIGCONTA;
+CadAgencEstabEBRazaosoc		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_RAZAOSOC;
+CadAgencEstabEBCnpj			  := Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_CNPJ;
+CadAgencEstabEBPortador		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pnCab.EB_PORTADOR;
+
+
+PageTabNormalExpConf		:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pg;
+FormGridAgencEstab			:= Aliases.Folha.FRhAgencFilial.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gAgencFilial;
+  
+BtnInc 						      := Aliases.Folha.FRhAgencFilial.bInc;
+BtnProc 					      := Aliases.Folha.FRhAgencFilial.bProc;
+BtnConsul 					    := Aliases.Folha.FRhAgencFilial.bConsul;
+BtnDesf 					      := Aliases.Folha.FRhAgencFilial.bDesf;
+BtnExc 						      := Aliases.Folha.FRhAgencFilial.bExc;
+
+BtnSalvar 					    := Aliases.Folha.FRhAgencFilial.BSalvar;
+BtnExcluir 					    := Aliases.Folha.FRhAgencFilial.BExcluir;
+
+end;
+
+

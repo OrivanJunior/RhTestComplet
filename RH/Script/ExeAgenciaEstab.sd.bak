@@ -37,7 +37,7 @@ LeDataPoolCadAgencEstab(DDTAgencEstab.Name);
 
 VerificaClickPreencheGrid(FormGridAgencEstab, i,'Nro. Conta', CadAgencEstabDPNroConta);	
 VerificaClickPreencheGrid(FormGridAgencEstab, i,'Dig. Conta', CadAgencEstabDPDigConta);     
-VerificaClickPreencheGrid(FormGridAgencEstab, i,'90', CadAgencEstabDPContaPadrao);
+VerificaClickPreencheGrid(FormGridAgencEstab, i,'Conta Padrão?', CadAgencEstabDPContaPadrao);
 
 
 FormGridAgencEstab.Keys('[Tab]');
@@ -107,6 +107,10 @@ begin
   ActConsulta(FormTelaConsultaForm);
   
   MapCadAgencEstab();
+  
+  
+  BtnExc.DblClick();
+  
 
   ActExcluir(_ModuloFolha, 'FRhAgencFilial');
 
@@ -117,3 +121,4 @@ end;
 ActFechar(FormTelaConsultaForm);
 DDT.CloseDriver(DDTExcluir.Name);
 end;
+
