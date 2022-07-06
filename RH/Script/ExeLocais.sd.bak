@@ -3,8 +3,10 @@
 {Locais}
 procedure PreencheLocais();
 begin
-MapCadLocais();
+
 PageLocal.ActivePageIndex:=0;
+
+MapCadLocais();
 
 VerificaInsere(CadLocaisEBEstab,CadLocaisDPEstab);
 VerificaInsere(CadLocaisEBIdlocal,CadLocaisDPIdlocal);
@@ -92,8 +94,10 @@ end;
 
 procedure PreencheLcDarfPis();
 begin
-MapCadLcDarfPis();
+
 PageLocal.ActivePageIndex:=3;
+
+MapCadLcDarfPis();
 
 VerificaConsultaF3Insere(_ModuloFolhaCadLcDarfPisEBCDebDarFpis,CadLcDarfPisDPCDebDarFpis);
 VerificaInsere(CadLcDarfPisEBCCDebDarfPis,CadLcDarfPisDPCCDebDarfPis);
@@ -144,34 +148,74 @@ PageLocal.ActivePageIndex:=6;
 
 BtnIncFixo.Click;
 
-
 MapCadFixoLocal();
-
 
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBEstab,CadFixoLDPEstab); 
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdLocal,CadFixoLDPIdLocal);
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdEvento,CadFixoLDPIdEvento);
+
+CadFixoLEBIdEvento.Keys('[Tab]');
 end;
 
 procedure PreencheGridPMes(pathData);
 begin
+FormPageTabNormalFixoLc.ActivePageIndex := 0;
 
-VerificaClickPreencheGrid(FormGridFixoMes, i, 'Mês',CadFixoLDPMMes);
+BtnIncTRhFixoLMes.Click;
+
+//VerificaClickPreencheGrid(FormGridFixoMes, i, 'Mês',CadFixoLDPMMes);
 end;
 
 procedure PreencheGridPMesAno(pathData);
+var 
+DDTMesAno : OleVariant;
+i : integer;
 begin
+i:= 0;
+
+FormPageTabNormalFixoLc.ActivePageIndex := 1;
+
+DDTMesAno := CarregaDDT(pathData, 'MesAno');
+
+While not (DDTMesAno.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadFixoLocal(DDTExpConf.Name);
+
+ if (FormGridFixoMesAno.ActiveView.ViewData.RowCount < 1) then
+ 
+BtnIncRhFixoLMesAno.Click;
+
 VerificaClickPreencheGrid(FormGridFixoMesAno, i, 'Mês', CadFixoLDPMAMes);
 VerificaClickPreencheGrid(FormGridFixoMesAno, i, 'Ano', CadFixoLDPMAAno);
+
+FormGridFixoMesAno.Keys('[Tab]');
+Inc(i);
+
+DDTMesAno.Next;
+end;
+DDT.CloseDriver(DDTMesAno.Name);
 end;
 							
 procedure PreencheParametros(pathData);
 begin
+FormPageTabNormalFixoLc.ActivePageIndex := 1;
+
 VerificaInsere(CadFixoLEBInforme,CadFixoLDPInforme);
 VerificaInsere(CadFixoLEBReferencia,CadFixoLDPReferencia);
 VerificaInsere(CadFixoLEBPropBaseHoras,CadFixoLDPPropBaseHoras);
 end;
 
+procedure SalvarESairFixoL();
+begin
+ActSalvar(FormPadraoFixoL)
+end;
+
+procedure EntrarEExcluirFixoL();
+begin
+
+end;
 
 procedure PreencheESocial();
 begin
