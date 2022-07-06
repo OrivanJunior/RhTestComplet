@@ -143,6 +143,7 @@ end;
 {Fixo por Local}
 
 procedure PreencheDadosGeraisFixoLocal(pathData);
+var DDTFixoLocal :OleVariant;
 begin
 PageLocal.ActivePageIndex:=6;
 
@@ -150,16 +151,30 @@ BtnIncFixo.Click;
 
 MapCadFixoLocal();
 
+DDTFixoLocal := CarregaDDT(pathData, 'FixoLocal');
+
+LeDataPoolCadFixoLocal(DDTFixoLocal.Name);
+
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBEstab,CadFixoLDPEstab); 
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdLocal,CadFixoLDPIdLocal);
 VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdEvento,CadFixoLDPIdEvento);
 
 CadFixoLEBIdEvento.Keys('[Tab]');
+
+DDT.CloseDriver(DDTFixoLocal.Name);
 end;
 
-procedure PreencheGridPMes(pathData);
+procedure PreencheGridPMes();
+//var DDTMes :OleVariant;
 begin
+MapCadFixoLocal();
+
 FormPageTabNormalFixoLc.ActivePageIndex := 0;
+
+
+//DDTFixoLocal := CarregaDDT(pathData, 'Mes');
+//
+//LeDataPoolCadFixoLocal(DDTFixoLocal.Name);
 
 BtnIncTRhFixoLMes.Click;
 
@@ -199,8 +214,15 @@ DDT.CloseDriver(DDTMesAno.Name);
 end;
 							
 procedure PreencheParametros(pathData);
+Var DDTParametros : OleVariant;
 begin
-FormPageTabNormalFixoLc.ActivePageIndex := 1;
+FormPageTabNormalFixoLc.ActivePageIndex := 2;
+
+MapCadFixoLocal();
+
+DDTParametros := CarregaDDT(pathData, 'Parametros');
+
+LeDataPoolCadFixoLocal(DDTParametros.Name);
 
 VerificaInsere(CadFixoLEBInforme,CadFixoLDPInforme);
 VerificaInsere(CadFixoLEBReferencia,CadFixoLDPReferencia);
@@ -209,12 +231,9 @@ end;
 
 procedure SalvarESairFixoL();
 begin
-ActSalvar(FormPadraoFixoL)
-end;
-
-procedure EntrarEExcluirFixoL();
-begin
-
+ActSalvar(FormPadraoFixoL);
+ActFechar(FormPadraoFixoL);
+ActFechar(FormTelaConsultaForm);
 end;
 
 procedure PreencheESocial();
@@ -232,3 +251,88 @@ VerificaInsere(CadLcESocialEBNrInscContrat,CadLcESocialDPNrInscContrat);
 VerificaInsere(CadLcESocialEBTpInscProp,CadLcESocialDPTpInscProp);
 VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
 end;
+
+
+procedure CadastraAgencEstab(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Locais');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadLocais(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhLocal');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadLocaisDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadLocais();
+  
+  PreencheLocais();
+  PreencheLcGps();
+  PreencheLcRpa();
+  PreencheLcDarfPis();
+  PreencheLcGestoresGrid(pathData);
+  
+  PreencheDadosGeraisFixoLocal(pathData);
+  PreencheGridPMes();
+  PreencheGridPMesAno(pathData);
+  PreencheParametros(pathData);
+  SalvarESairFixoL();
+  PreencheESocial();
+
+
+  ActSalvar(FormPadraoLocais);
+  ActFechar(FormPadraoLocais);
+  end;
+  
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirLocal(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Local');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAgencEstab(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhLocal');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFixoLDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadLocais();
+  
+  ActSalvar(FormPadraoLocais);
+
+  ActExcluir(_ModuloFolha, 'FRhLocal');
+
+  ActFechar(FormPadraoLocais);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
