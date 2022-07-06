@@ -1,1 +1,184 @@
-﻿
+﻿var
+//Locais
+CadLocaisDPEstab,
+CadLocaisDPIdlocal,
+CadLocaisDPDescricao,
+CadLocaisDPNivel1,
+CadLocaisDPNivel2,
+CadLocaisDPNivel3,
+CadLocaisDPCodTomador,
+CadLocaisDPDtIncAlt,
+CadLocaisDPInativo,
+CadLocaisDPDtFechamento,
+CadLocaisDPDtIdExpFin,
+//GPS
+CadLcGpsDPIdExpconf,
+CadLcGpsDPExpctb,
+CadLcGpsDPInssDebitocomp,
+CadLcGpsDPInssexpctb,
+CadLcGpsDPInssccDebitoComp,
+CadLcGpsDPInssDebito,
+CadLcGpsDPInssCreditoComp,
+CadLcGpsDPInssccdebito,
+CadLcGpsDPInsscccreditocomp,
+CadLcGpsDPInssCredito,
+CadLcGpsDPInsshistcomp,
+CadLcGpsDPInsscccredito,
+CadLcGpsDPInssdebitocomp13,
+CadLcGpsDPInsshist,
+CadLcGpsDPInssccdebitocomp13,
+CadLcGpsDPInssdebito13,
+CadLcGpsDPInsscreditocomp13,
+CadLcGpsDPInssccdebito13,
+CadLcGpsDPInsscccreditocomp13,
+CadLcGpsDPInsscredito13,
+CadLcGpsDPditright1,
+CadLcGpsDPInsscccredito13,
+CadLcGpsDPInssdebitoret,
+CadLcGpsDPInsshist13,
+CadLcGpsDPInssccdebitoret,
+CadLcGpsDPCcdebitopad,
+CadLcGpsDPInsscreditoret,
+CadLcGpsDPCccreditopad,
+CadLcGpsDPInsscccreditoret,
+CadLcGpsDPInssHistRet,
+
+//RPA
+CadLcRpaDPCCredinss
+CadLcRpaDPCCCredInss,
+CadLcRpaDPCDEBInss,
+CadLcRpaDPCCDebInss,
+CadLcRpaDPCCredIrrf,
+CadLcRpaDPCCCredIrrf,
+CadLcRpaDPCDebIrrf,
+CadLcRpaDPCCDebIrrf,
+CadLcRpaDPCCredTer,
+CadLcRpaDPCCCredTer,
+CadLcRpaDPCDebTer,
+CadLcRpaDPCCDebTer,
+CadLcRpaDPCCredLiq,
+CadLcRpaDPCCCredLiq,
+CadLcRpaDPCDebLiq,
+CadLcRpaDPCCDebLiq,
+CadLcRpaDPCCredVlrDesc,
+CadLcRpaDPCCDebVlrDesc,
+CadLcRpaDPCDebVlrDesc,
+CadLcRpaDPCCCredVlrDesc,
+CadLcRpaDPCCExpFinRpa,
+CadLcRpaDPCCredIss,
+CadLcRpaDPCCCrediss,
+
+//DarfPis
+
+CadLcDarfPisDPCDebDarFpis,
+CadLcDarfPisDPCCDebDarfPis,
+CadLcDarfPisDPCCredDarfPis,
+CadLcDarfPisDPCCCredDarfPis,
+CadLcDarfPisDPDarfPisHist,
+CadLcDarfPisDPDarfPisComp,
+
+//Grid Gestores Gerar DDT
+CadLcGestoresDPPessoa,
+CadLcGestoresDPNome,
+//Esocial
+CadLcESocialDPIdTipoLotacaoTrib,
+CadLcESocialDPIdFpas,
+CadLcESocialDPTpInsc,
+CadLcESocialDPNrInscLotacao,
+CadLcESocialDPTpInscContrat,
+CadLcESocialDPNrInscContrat,
+CadLcESocialDPTpInscProp,
+CadLcESocialDPNrInscProp : OleVariant;	
+
+
+procedure LeDataPoolCadLocais(nomeDriver);
+begin
+
+//Locais
+CadLocaisDPEstab							            := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadLocaisDPIdlocal	  	                  := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+CadLocaisDPDescricao	                    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadLocaisDPNivel1	  	                    := DDT.DriverByName(nomeDriver).Value('NIVEL1');
+CadLocaisDPNivel2	  	                    := DDT.DriverByName(nomeDriver).Value('NIVEL2');
+CadLocaisDPNivel3	  	                    := DDT.DriverByName(nomeDriver).Value('NIVEL3');
+CadLocaisDPCodTomador	                    := DDT.DriverByName(nomeDriver).Value('CODTOMADOR');
+CadLocaisDPDtIncAlt	  	                  := DDT.DriverByName(nomeDriver).Value('DTINCALT');
+CadLocaisDPInativo	  	                  := DDT.DriverByName(nomeDriver).Value('INATIVO');
+CadLocaisDPDtFechamento	                  := DDT.DriverByName(nomeDriver).Value('DTFECHAMENTO');
+CadLocaisDPDtIdExpFin						          := DDT.DriverByName(nomeDriver).Value('IDEXPFIN');	
+//GPS                                      
+CadLcGpsDPIdExpconf  				              := DDT.DriverByName(nomeDriver).Value('IDEXPCONF');
+CadLcGpsDPExpctb  					              := DDT.DriverByName(nomeDriver).Value('EXPCTB');
+CadLcGpsDPInssDebitocomp  			          := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP');
+CadLcGpsDPInssexpctb			  	            := DDT.DriverByName(nomeDriver).Value('INSSEXPCTB');
+CadLcGpsDPInssccDebitoComp	  		        := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP');
+CadLcGpsDPInssDebito			  	            := DDT.DriverByName(nomeDriver).Value('INSSDEBITO');
+CadLcGpsDPInssCreditoComp	  		          := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP');
+CadLcGpsDPInssccdebito		  		          = DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO');
+CadLcGpsDPInsscccreditocomp	  		        := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP');
+CadLcGpsDPInssCredito		  		            := DDT.DriverByName(nomeDriver).Value('INSSCREDITO');
+CadLcGpsDPInsshistcomp		  		          := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP');
+CadLcGpsDPInsscccredito		  		          := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO');
+CadLcGpsDPInssdebitocomp13	  		        := DDT.DriverByName(nomeDriver).Value('INSSDEBITOCOMP13');
+CadLcGpsDPInsshist			  		            := DDT.DriverByName(nomeDriver).Value('INSSHIST');
+CadLcGpsDPInssccdebitocomp13	  	        := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP13');
+CadLcGpsDPInssdebito13		  		          := DDT.DriverByName(nomeDriver).Value('INSSDEBITO13');
+CadLcGpsDPInsscreditocomp13	  		        := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP13');
+CadLcGpsDPInssccdebito13		  	          := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO13');
+CadLcGpsDPInsscccreditocomp13  		        := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP13');
+CadLcGpsDPInsscredito13		  		          := DDT.DriverByName(nomeDriver).Value('INSSCREDITO13');
+CadLcGpsDPditright1			  		            := DDT.DriverByName(nomeDriver).Value('DITRIGHT1');
+CadLcGpsDPInsscccredito13	  		          := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITO13');
+CadLcGpsDPInssdebitoret		  		          := DDT.DriverByName(nomeDriver).Value('INSSDEBITORET');
+CadLcGpsDPInsshist13			  	            := DDT.DriverByName(nomeDriver).Value('INSSHIST13');
+CadLcGpsDPInssccdebitoret	  		          := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITORET');
+CadLcGpsDPCcdebitopad		  		            := DDT.DriverByName(nomeDriver).Value('CCDEBITOPAD');
+CadLcGpsDPInsscreditoret		  	          := DDT.DriverByName(nomeDriver).Value('INSSCREDITORET');
+CadLcGpsDPCccreditopad		  		          := DDT.DriverByName(nomeDriver).Value('CCCREDITOPAD');
+CadLcGpsDPInsscccreditoret	  		        := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITORET');
+CadLcGpsDPInssHistRet						          := DDT.DriverByName(nomeDriver).Value('INSSHISTRET');
+//RPA    
+CadLcRpaDPCCredinss                       := DDT.DriverByName(nomeDriver).Value('CCREDINSS');        
+CadLcRpaDPCCCredInss	                    := DDT.DriverByName(nomeDriver).Value('CCCREDINSS');
+CadLcRpaDPCDEBInss	  	                  := DDT.DriverByName(nomeDriver).Value('CDEBINSS');
+CadLcRpaDPCCDebInss	  	                  := DDT.DriverByName(nomeDriver).Value('CCDEBINSS');
+CadLcRpaDPCCredIrrf	  	                  := DDT.DriverByName(nomeDriver).Value('CCREDIRRF');
+CadLcRpaDPCCCredIrrf	                    := DDT.DriverByName(nomeDriver).Value('CCCREDIRRF');
+CadLcRpaDPCDebIrrf	  	                  := DDT.DriverByName(nomeDriver).Value('CDEBIRRF');
+CadLcRpaDPCCDebIrrf	  	                  := DDT.DriverByName(nomeDriver).Value('CCDEBIRRF');
+CadLcRpaDPCCredTer	  	                  := DDT.DriverByName(nomeDriver).Value('CCREDTER');
+CadLcRpaDPCCCredTer	  	                  := DDT.DriverByName(nomeDriver).Value('CCCREDTER');
+CadLcRpaDPCDebTer	  	                    := DDT.DriverByName(nomeDriver).Value('CDEBTER');
+CadLcRpaDPCCDebTer	  	                  := DDT.DriverByName(nomeDriver).Value('CCDEBTER');
+CadLcRpaDPCCredLiq	  	                  := DDT.DriverByName(nomeDriver).Value('CCREDLIQ');
+CadLcRpaDPCCCredLiq	  	                  := DDT.DriverByName(nomeDriver).Value('CCCREDLIQ');
+CadLcRpaDPCDebLiq	  	                    := DDT.DriverByName(nomeDriver).Value('CDEBLIQ');
+CadLcRpaDPCCDebLiq	  	                  := DDT.DriverByName(nomeDriver).Value('CCDEBLIQ');
+CadLcRpaDPCCredVlrDesc	                  := DDT.DriverByName(nomeDriver).Value('CCREDVLRDESC');
+CadLcRpaDPCCDebVlrDesc	                  := DDT.DriverByName(nomeDriver).Value('CCDEBVLRDESC');
+CadLcRpaDPCDebVlrDesc	                    := DDT.DriverByName(nomeDriver).Value('CDEBVLRDESC');
+CadLcRpaDPCCCredVlrDesc	                  := DDT.DriverByName(nomeDriver).Value('CCCREDVLRDESC');
+CadLcRpaDPCCExpFinRpa	                    := DDT.DriverByName(nomeDriver).Value('CCEXPFINRPA');
+CadLcRpaDPCCredIss	  	                  := DDT.DriverByName(nomeDriver).Value('CCREDISS');
+CadLcRpaDPCCCrediss	  	                  := DDT.DriverByName(nomeDriver).Value('CCCREDISS');
+//DarfPis            
+CadLcDarfPisDPCDebDarFpis	                := DDT.DriverByName(nomeDriver).Value('CDEBDARFPIS');
+CadLcDarfPisDPCCDebDarfPis	              := DDT.DriverByName(nomeDriver).Value('CCDEBDARFPIS');
+CadLcDarfPisDPCCredDarfPis	              := DDT.DriverByName(nomeDriver).Value('CCREDDARFPIS');
+CadLcDarfPisDPCCCredDarfPis	              := DDT.DriverByName(nomeDriver).Value('CCCREDDARFPIS');
+CadLcDarfPisDPDarfPisHist	                := DDT.DriverByName(nomeDriver).Value('DARFPISHIST');
+CadLcDarfPisDPDarfPisComp	                := DDT.DriverByName(nomeDriver).Value('DARFPISCOMP');
+//Grid Gestores Gerar DDT                
+CadLcGestoresDPPessoa						          := DDT.DriverByName(nomeDriver).Value('PESSOA');
+CadLcGestoresDPNome							          := DDT.DriverByName(nomeDriver).Value('NOME');
+//Esocial                                   
+CadLcESocialDPIdTipoLotacaoTrib           := DDT.DriverByName(nomeDriver).Value('IDTIPOLOTACAOTRIB');
+CadLcESocialDPIdFpas  			              := DDT.DriverByName(nomeDriver).Value('IDFPAS');
+CadLcESocialDPTpInsc  			              := DDT.DriverByName(nomeDriver).Value('TPINSC');
+CadLcESocialDPNrInscLotacao  	            := DDT.DriverByName(nomeDriver).Value('NRINSCLOTACAO');
+CadLcESocialDPTpInscContrat  	            := DDT.DriverByName(nomeDriver).Value('TPINSCCONTRAT');
+CadLcESocialDPNrInscContrat  	            := DDT.DriverByName(nomeDriver).Value('NRINSCCONTRAT');
+CadLcESocialDPTpInscProp  		            := DDT.DriverByName(nomeDriver).Value('TPINSCPROP');
+CadLcESocialDPNrInscProp  		            := DDT.DriverByName(nomeDriver).Value('NRINSCPROP');
+
+end;

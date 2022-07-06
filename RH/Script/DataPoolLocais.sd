@@ -44,7 +44,7 @@ CadLcGpsDPInsscccreditoret,
 CadLcGpsDPInssHistRet,
 
 //RPA
-CadLcRpaDPCCredinss
+CadLcRpaDPCCredinss,
 CadLcRpaDPCCCredInss,
 CadLcRpaDPCDEBInss,
 CadLcRpaDPCCDebInss,
@@ -88,7 +88,12 @@ CadLcESocialDPNrInscLotacao,
 CadLcESocialDPTpInscContrat,
 CadLcESocialDPNrInscContrat,
 CadLcESocialDPTpInscProp,
-CadLcESocialDPNrInscProp : OleVariant;	
+CadLcESocialDPNrInscProp,
+
+CadFixoLDPEstab,CadFixoLDPIdLocal,CadFixoLDPIdEvento,
+                       
+CadFixoLDPMMes,CadFixoLDPMAMes,CadFixoLDPMAAno,CadFixoLDPInforme,
+CadFixoLDPReferencia,CadFixoLDPPropBaseHoras: OleVariant;	
 
 
 procedure LeDataPoolCadLocais(nomeDriver);
@@ -114,7 +119,7 @@ CadLcGpsDPInssexpctb			  	            := DDT.DriverByName(nomeDriver).Value('INS
 CadLcGpsDPInssccDebitoComp	  		        := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITOCOMP');
 CadLcGpsDPInssDebito			  	            := DDT.DriverByName(nomeDriver).Value('INSSDEBITO');
 CadLcGpsDPInssCreditoComp	  		          := DDT.DriverByName(nomeDriver).Value('INSSCREDITOCOMP');
-CadLcGpsDPInssccdebito		  		          = DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO');
+CadLcGpsDPInssccdebito		  		          := DDT.DriverByName(nomeDriver).Value('INSSCCDEBITO');
 CadLcGpsDPInsscccreditocomp	  		        := DDT.DriverByName(nomeDriver).Value('INSSCCCREDITOCOMP');
 CadLcGpsDPInssCredito		  		            := DDT.DriverByName(nomeDriver).Value('INSSCREDITO');
 CadLcGpsDPInsshistcomp		  		          := DDT.DriverByName(nomeDriver).Value('INSSHISTCOMP');
@@ -180,5 +185,24 @@ CadLcESocialDPTpInscContrat  	            := DDT.DriverByName(nomeDriver).Value(
 CadLcESocialDPNrInscContrat  	            := DDT.DriverByName(nomeDriver).Value('NRINSCCONTRAT');
 CadLcESocialDPTpInscProp  		            := DDT.DriverByName(nomeDriver).Value('TPINSCPROP');
 CadLcESocialDPNrInscProp  		            := DDT.DriverByName(nomeDriver).Value('NRINSCPROP');
+
+end;
+
+
+procedure LeDataPoolCadFixoLocal(nomeDriver);
+begin
+
+CadFixoLDPEstab				      := DDT.DriverByName(nomeDriver).Value('ESTAB');	
+CadFixoLDPIdLocal           := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+CadFixoLDPIdEvento          := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+
+CadFixoLDPMMes				      := DDT.DriverByName(nomeDriver).Value('MMES');
+
+CadFixoLDPMAMes				      := DDT.DriverByName(nomeDriver).Value('MAMES');
+CadFixoLDPMAAno     		    := DDT.DriverByName(nomeDriver).Value('MAANO');
+
+CadFixoLDPInforme  			    := DDT.DriverByName(nomeDriver).Value('INFORME');
+CadFixoLDPReferencia  	    := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+CadFixoLDPPropBaseHoras     := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
 
 end;
