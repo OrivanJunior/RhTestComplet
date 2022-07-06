@@ -122,17 +122,15 @@ DDTExpConf := CarregaDDT(pathData, 'Gestores');
 
 While not (DDTGestores.EOF) do
 begin
-MapGridConsulta(_ModuloFolha);
 
-LeDataPoolCadExpConf(DDTGestores.Name);
+LeDataPoolCadLocais(DDTGestores.Name);
 
- if (FormGridGestores.ActiveView.ViewData.RowCount < 1) then
- BtnInc.Click;
+BtnInc.Click;
 
 VerificaClickPreencheGrid(FormGridGestores, i, 'Pessoa', CadLcGestoresDPPessoa);
-VerificaClickPreencheGrid(FormGridGestores, i, 'Nome', CadLcGestoresDPNome);
 
-FormGridGestores.Keys('[Tab]');
+BtnSaveGestor.Click;
+
 Inc(i);
 
 DDTGestores.Next;

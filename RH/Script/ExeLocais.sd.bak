@@ -253,7 +253,7 @@ VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
 end;
 
 
-procedure CadastraAgencEstab(pathData);
+procedure CadastraLocais(pathData);
 var
 DDTCadastrar : OleVariant;
 begin

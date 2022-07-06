@@ -88,7 +88,6 @@ CadLcDarfPisEBDarfPisComp,
 FormGridGestores,
 BtnIncGestor,
 BtnSaveGestor,
-BtnSaveGestor,
 BtnDesfGestor,
 BtnExcGestor,
 
@@ -227,7 +226,6 @@ begin
 
 FormGridGestores  								:= Aliases.Folha.FRhLocal.Page.tsGestores.gRhLocalGestores;
 BtnIncGestor  										:= Aliases.Folha.FRhLocal.bIncGestor;
-BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnDesfGestor 										:= Aliases.Folha.FRhLocal.bDesfGestor;
 BtnExcGestor	  									:= Aliases.Folha.FRhLocal.bExcGestor;

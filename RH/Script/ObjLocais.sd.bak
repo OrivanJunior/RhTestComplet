@@ -115,9 +115,10 @@ CadFixoLEBIdLocal,
 CadFixoLEBIdEvento,
 
 FormGridFixoMes,
-IncRhFixoLMes,
-DesfRhFixoLMes,
-ExcRhFixoLMes,
+BtnIncRhFixoLMes,
+BtnIncTRhFixoLMes,
+BtnDesfRhFixoLMes,
+BtnExcRhFixoLMes ,
 
 
 FormGridFixoMesAno,
@@ -239,16 +240,17 @@ BtnIncFixo  					  := Aliases.Folha.FRhLocal.bIncFixo;
 BtnExcluirFixo  				:= Aliases.Folha.FRhLocal.bSaveFixo;
 
 FormPadraoFixoL					:= Aliases.Folha.fRhFixoL;
-FormPageTabNormalFixoLc := Aliases.Folha.fRhFixoL.Page.TabNormal;
+FormPageTabNormalFixoLc := Aliases.Folha.fRhFixoL.Page.TabNormal.pg;
   
 CadFixoLEBEstab  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_ESTAB;
 CadFixoLEBIdLocal  		  := Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDLOCAL;
 CadFixoLEBIdEvento  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDEVENTO;
 
 FormGridFixoMes  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMes.sbRhFixoGMes.gMes;
-IncRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bIncRhFixoLMes;
-DesfRhFixoLMes  				:= Aliases.Folha.fRhFixoL.bDesfRhFixoLMes;
-ExcRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bExcRhFixoLMes;
+BtnIncRhFixoLMes  			:= Aliases.Folha.fRhFixoL.bIncRhFixoLMes;
+BtnIncTRhFixoLMes       := Aliases.Folha.fRhFixoL.bIncTRhFixoLMes;
+BtnDesfRhFixoLMes  			:= Aliases.Folha.fRhFixoL.bDesfRhFixoLMes;
+BtnExcRhFixoLMes  			:= Aliases.Folha.fRhFixoL.bExcRhFixoLMes;
 
 
 FormGridFixoMesAno  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno;
