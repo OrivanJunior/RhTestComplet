@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="name" type="S" value="ExcluirAgencEstab [Script\ExeAgenciaEstab - ExcluirAgencEstab]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="44748.3588913542"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{4D8BC2B4-C6EB-4EA8-A5FC-D81FC7725462}"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44748.3587044097"/>
+				<Prp name="index" type="I" value="1"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="name" type="S" value="CadastraAgencEstab [Script\ExeAgenciaEstab - CadastraAgencEstab]"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="44748.3587040741"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="details" type="S" value="{64379DA7-F170-4164-8EC7-CD34503C37DB}"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="start time" type="D" value="44748.3582896528"/>
+				<Prp name="index" type="I" value="0"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>
