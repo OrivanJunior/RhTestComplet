@@ -1,4 +1,7 @@
-﻿procedure PreencheLocais();
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolLocais,ObjLocais;
+
+{Locais}
+procedure PreencheLocais();
 begin
 MapCadLocais();
 PageLocal.ActivePageIndex:=0;
@@ -16,11 +19,12 @@ PreencheDatas(CadLocaisEBDtFechamento,CadLocaisDPDtFechamento);
 VerificaConsultaF3Insere(_ModuloFolha,CadLocaisEBDtIdExpFin,CadLocaisDPDtIdExpFin);
 end;
 
-
 procedure PreencheLcGps();
 begin
-MapCadLcGps();
+
 PageLocal.ActivePageIndex:=1;
+
+MapCadLcGps();
 
 VerificaConsultaF3Insere(_ModuloFolha,CadLcGpsEBIdExpconf,CadLcGpsDPIdExpconf);	
 VerificaInsere(CadLcGpsEBExpctb,CadLcGpsDPExpctb);
@@ -54,11 +58,12 @@ VerificaInsere(CadLcGpsEBInsscccreditoret,CadLcGpsDPInsscccreditoret);
 VerificaInsere(CadLcGpsEBInssHistRet,CadLcGpsDPInssHistRet);
 end;
 
-
 procedure PreencheLcRpa();
 begin
-MapCadLcRpa();
+
 PageLocal.ActivePageIndex:=2;
+
+MapCadLcRpa();
 
 VerificaConsultaF3Insere(_ModuloFolha,CadLcRpaEBCCredinss,CadLcRpaDPCCredinss);
 VerificaInsere(CadLcRpaEBCCCredInss,CadLcRpaDPCCCredInss);
@@ -78,11 +83,11 @@ VerificaConsultaF3Insere(_ModuloFolha,CadLcRpaEBCDebLiq,CadLcRpaDPCDebLiq);
 VerificaInsere(CadLcRpaEBCCDebLiq,CadLcRpaDPCCDebLiq);
 VerificaConsultaF3Insere(_ModuloFolha,CadLcRpaEBCCredVlrDesc,CadLcRpaDPCCredVlrDesc);
 VerificaInsere(CadLcRpaEBCCDebVlrDesc,CadLcRpaDPCCDebVlrDesc);
-VerificaConsultaF3Insere(_ModuloFolha,(CadLcRpaEBCDebVlrDesc,CadLcRpaDPCDebVlrDesc);
+VerificaConsultaF3Insere(_ModuloFolha,CadLcRpaEBCDebVlrDesc,CadLcRpaDPCDebVlrDesc);
 VerificaInsere(CadLcRpaEBCCCredVlrDesc,CadLcRpaDPCCCredVlrDesc);
 VerificaInsere(CadLcRpaEBCCExpFinRpa,CadLcRpaDPCCExpFinRpa);
 VerificaConsultaF3Insere(_ModuloFolha,CadLcRpaEBCCredIss,CadLcRpaDPCCredIss);
-VerificaInsere((CadLcRpaEBCCCrediss,CadLcRpaDPCCCrediss);
+VerificaInsere(CadLcRpaEBCCCrediss,CadLcRpaDPCCCrediss);
 end;
 
 procedure PreencheLcDarfPis();
@@ -98,8 +103,6 @@ VerificaInsere(CadLcDarfPisEBDarfPisHist,CadLcDarfPisDPDarfPisHist);
 VerificaInsere(CadLcDarfPisEBDarfPisComp,CadLcDarfPisDPDarfPisComp);
 end;
 
-
-
 procedure PreencheLcGestoresGrid(pathData);
 var 
 DDTGestores :OleVariant;
@@ -107,7 +110,7 @@ i : integer;
 begin
 i:= 0;
 
-PageLocal.ActivePageIndex:=4;
+PageLocal.ActivePageIndex:=5;
 
 MapCadLcGestoresGrid();
 
@@ -133,20 +136,21 @@ end;
 DDT.CloseDriver(DDTGestores.Name);
 end;
 
-
-
-
-
-
-
-
-
+{Fixo por Local}
 
 procedure PreencheDadosGeraisFixoLocal(pathData);
 begin
-VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBEstab,		CadFixoLDPEstab); 
-VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdLocal,	CadFixoLDPIdLocal);
-VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdEvento,	CadFixoLDPIdEvento);
+PageLocal.ActivePageIndex:=6;
+
+BtnIncFixo.Click;
+
+
+MapCadFixoLocal();
+
+
+VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBEstab,CadFixoLDPEstab); 
+VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdLocal,CadFixoLDPIdLocal);
+VerificaConsultaF3Insere(_ModuloFolha,CadFixoLEBIdEvento,CadFixoLDPIdEvento);
 end;
 
 procedure PreencheGridPMes(pathData);
@@ -166,4 +170,21 @@ begin
 VerificaInsere(CadFixoLEBInforme,CadFixoLDPInforme);
 VerificaInsere(CadFixoLEBReferencia,CadFixoLDPReferencia);
 VerificaInsere(CadFixoLEBPropBaseHoras,CadFixoLDPPropBaseHoras);
+end;
+
+
+procedure PreencheESocial();
+begin
+PageLocal.ActivePageIndex:=7;
+
+MapCadLcESocial();
+
+VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdTipoLotacaoTrib,CadLcESocialDPIdTipoLotacaoTrib);
+VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdFpas,CadLcESocialDPIdFpas);
+VerificaInsere(CadLcESocialEBTpInsc,CadLcESocialDPTpInsc);
+VerificaInsere(CadLcESocialEBNrInscLotacao,CadLcESocialDPNrInscLotacao);
+VerificaInsere(CadLcESocialEBTpInscContrat,CadLcESocialDPTpInscContrat);
+VerificaInsere(CadLcESocialEBNrInscContrat,CadLcESocialDPNrInscContrat);
+VerificaInsere(CadLcESocialEBTpInscProp,CadLcESocialDPTpInscProp);
+VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
 end;
