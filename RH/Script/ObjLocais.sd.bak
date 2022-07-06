@@ -2,8 +2,6 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 06/07/2022}
- 
-
 
 var
 FormPadraoLocais,
@@ -137,7 +135,7 @@ procedure MapCadLocais();
 begin
 FormPadraoLocais  								  := Aliases.Folha.FRhLocal;
 PageLocal  										      := Aliases.Folha.FRhLocal.Page;
-		
+
 CadLocaisEBEstab		  						  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_ESTAB;
 CadLocaisEBIdlocal	  							:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_IDLOCAL;
 CadLocaisEBDescricao	  						:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_DESCRICAO;

@@ -218,9 +218,9 @@ procedure MapCadLcDarfPis();
 begin 
 
 CadLcDarfPisEBCDebDarFpis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CDEBDARFPIS;
-CadLcDarfPisEBCCDebDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCDEBDARFPIS;
-CadLcDarfPisEBCCredDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCREDDARFPIS;
-CadLcDarfPisEBCCCredDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCCREDDARFPIS;
+CadLcDarfPisEBCCDebDarfPis						:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCDEBDARFPIS;
+CadLcDarfPisEBCCredDarfPis						:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCREDDARFPIS;
+CadLcDarfPisEBCCCredDarfPis						:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCCREDDARFPIS;
 CadLcDarfPisEBDarfPisHist							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_DARFPISHIST;
 CadLcDarfPisEBDarfPisComp							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_DARFPISCOMP;
 end;
@@ -229,7 +229,7 @@ end;
 procedure MapCadLcGestoresGrid();
 begin  
 
-FormGridGestores  									:= Aliases.Folha.FRhLocal.Page.tsGestores.gRhLocalGestores;
+FormGridGestores  								:= Aliases.Folha.FRhLocal.Page.tsGestores.gRhLocalGestores;
 BtnIncGestor  										:= Aliases.Folha.FRhLocal.bIncGestor;
 BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
 BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
@@ -243,9 +243,9 @@ end;
 procedure MapCadLcESocial();
 begin  
 
-CadLcESocialEBIdTipoLotacaoTrib  					:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDTIPOLOTACAOTRIB;
-CadLcESocialEBIdFpas  								:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDFPAS;
-CadLcESocialEBTpInsc  								:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSC;
+CadLcESocialEBIdTipoLotacaoTrib  			  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDTIPOLOTACAOTRIB;
+CadLcESocialEBIdFpas  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDFPAS;
+CadLcESocialEBTpInsc  								  := Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSC;
 CadLcESocialEBNrInscLotacao  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCLOTACAO;
 CadLcESocialEBTpInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCCONTRAT;
 CadLcESocialEBNrInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCCONTRAT;
@@ -256,15 +256,15 @@ end;
 procedure MapCadFixoLocal();
 begin
 FormFixoGrid  					:= Aliases.Folha.FRhLocal.Page.tsFixoLocal.ScrollBox4.gFixo;
-BtnIncFixo  					:= Aliases.Folha.FRhLocal.bIncFixo;
+BtnIncFixo  					  := Aliases.Folha.FRhLocal.bIncFixo;
 BtnExcluirFixo  				:= Aliases.Folha.FRhLocal.bSaveFixo;
 
 FormPadraoFixoL					:= Aliases.Folha.fRhFixoL;
-FormPageTabNormalFixoLc  		:= Aliases.Folha.fRhFixoL.Page.TabNormal;
+FormPageTabNormalFixoLc := Aliases.Folha.fRhFixoL.Page.TabNormal;
   
-CadFixoLEBEstab  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_ESTAB
-CadFixoLEBIdLocal  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDLOCAL
-CadFixoLEBIdEvento  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDEVENTO
+CadFixoLEBEstab  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_ESTAB;
+CadFixoLEBIdLocal  		  := Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDLOCAL;
+CadFixoLEBIdEvento  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDEVENTO;
 
 FormGridFixoMes  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMes.sbRhFixoGMes.gMes;
 IncRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bIncRhFixoLMes;
@@ -275,9 +275,9 @@ ExcRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bExcRhFixoLMes;
 FormGridFixoMesAno  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno;
 BtnIncRhFixoLMesAno  			:= Aliases.Folha.fRhFixoL.bIncRhFixoLMesAno;
 BtnDesfRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bDesfRhFixoLMesAno;
-BtnExcRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bExcRhFixoLMesAno.;
+BtnExcRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bExcRhFixoLMesAno;
 
 CadFixoLEBInforme  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_INFORME;
-CadFixoLEBReferencia  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_REFERENCIA;
-CadFixoLEBPropBaseHoras  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_PROPBASEHORAS;
+CadFixoLEBReferencia  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_REFERENCIA;
+CadFixoLEBPropBaseHoras  	:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_PROPBASEHORAS;
 end;
