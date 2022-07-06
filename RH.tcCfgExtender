@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{8DEA85FC-0947-4B5F-A2AE-2886CB62E823}"/>
+				<Prp name="activity" type="S" value="{C0A79B67-091F-4E77-A3F8-306174AC2253}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -1404,7 +1400,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{10cb815c-ec2a-4f0c-8999-a14a41677cce}"/>
+					<Node name="{10cb815c-ec2a-4f0c-8999-a14a41677cce}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="31"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="16"/>
+						</Node>
+						<Prp name="bottom" type="I" value="32"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{10d3615e-ea78-4102-90dc-a3717e13d6cf}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -3410,6 +3415,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{355a2574-37d5-4aa4-b6be-b50d402cdb2d}"/>
 					<Node name="{35d34cfd-c783-4cbb-9e90-a0b1d4233bba}">
 						<Prp name="bottom" type="I" value="66"/>
 						<Prp name="collapsed" type="B" value="0"/>
@@ -3980,7 +3986,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{3fdd1cc8-a63f-4a74-b4ab-0fd8a6d9bbab}"/>
+					<Node name="{3fdd1cc8-a63f-4a74-b4ab-0fd8a6d9bbab}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="52"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="26"/>
+						</Node>
+						<Prp name="bottom" type="I" value="53"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{403eb9e2-1fa5-4658-8689-66a30b77ac4f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="21"/>
@@ -12476,6 +12491,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{c0a79b67-091f-4e77-a3f8-306174ac2253}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="3"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="0"/>
+						</Node>
+						<Prp name="bottom" type="I" value="285"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{c110d40f-f666-4398-85c7-49f673db3a03}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -13581,6 +13606,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{d2a240dc-9720-4b1b-bd9b-cc34976ca484}"/>
 					<Node name="{d328417f-4b25-46f4-a54b-4808c3c9e575}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -16891,7 +16917,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="31"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="16"/>
 						</Node>
 						<Node name="2">
@@ -17138,9 +17164,16 @@
 						<Node name="script">
 							<Node name="commons"/>
 							<Node name="folha">
-								<Node name="cadastros específicos"/>
+								<Node name="cadastros específicos">
+									<Node name="fixo por empregado"/>
+									<Node name="locais"/>
+								</Node>
 								<Node name="cadastros gerais">
-									<Node name="configurações"/>
+									<Node name="configurações">
+										<Node name="exportação contábill">
+											<Node name="conf.exp. contábil"/>
+										</Node>
+									</Node>
 								</Node>
 							</Node>
 						</Node>

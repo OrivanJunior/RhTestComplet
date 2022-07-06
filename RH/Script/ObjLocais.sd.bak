@@ -1,0 +1,285 @@
+﻿{Script para mapear o Cadastro de Locais
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 06/07/2022}
+ 
+
+
+var
+FormPadraoLocais,
+PageLocal,
+		
+CadLocaisEBEstab,
+CadLocaisEBIdlocal,
+CadLocaisEBDescricao,
+CadLocaisEBNivel1,
+CadLocaisEBNivel2,
+CadLocaisEBNivel3,
+CadLocaisEBCodTomador,
+CadLocaisEBDtIncAlt,
+CadLocaisEBInativo,
+CadLocaisEBDtFechamento,
+CadLocaisEBDtIdExpFin,
+//GPS
+CadLcGpsEBIdExpconf,
+CadLcGpsEBExpctb,
+CadLcGpsEBInssDebitocomp,
+CadLcGpsEBInssexpctb,
+CadLcGpsEBInssccDebitoComp,
+CadLcGpsEBInssDebito,
+CadLcGpsEBInssCreditoComp,
+CadLcGpsEBInssccdebito,
+CadLcGpsEBInsscccreditocomp,
+CadLcGpsEBInssCredito,
+CadLcGpsEBInsshistcomp,
+CadLcGpsEBInsscccredito,
+CadLcGpsEBInssdebitocomp13,
+CadLcGpsEBInsshist,
+CadLcGpsEBInssccdebitocomp13,
+CadLcGpsEBInssdebito13,
+CadLcGpsEBInsscreditocomp13,
+CadLcGpsEBInssccdebito13,
+CadLcGpsEBInsscccreditocomp13,
+CadLcGpsEBInsscredito13,
+CadLcGpsEBditright1,
+CadLcGpsEBInsscccredito13,
+CadLcGpsEBInssdebitoret,
+CadLcGpsEBInsshist13,
+CadLcGpsEBInssccdebitoret,
+CadLcGpsEBCcdebitopad,
+CadLcGpsEBInsscreditoret,
+CadLcGpsEBCccreditopad,
+CadLcGpsEBInsscccreditoret,
+CadLcGpsEBInssHistRet,
+
+//RPA
+CadLcRpaEBCCredinss,
+CadLcRpaEBCCCredInss,
+CadLcRpaEBCDEBInss,
+CadLcRpaEBCCDebInss,
+CadLcRpaEBCCredIrrf,
+CadLcRpaEBCCCredIrrf,
+CadLcRpaEBCDebIrrf,
+CadLcRpaEBCCDebIrrf,
+CadLcRpaEBCCredTer,
+CadLcRpaEBCCCredTer,
+CadLcRpaEBCDebTer,
+CadLcRpaEBCCDebTer,
+CadLcRpaEBCCredLiq,
+CadLcRpaEBCCCredLiq,
+CadLcRpaEBCDebLiq,
+CadLcRpaEBCCDebLiq,
+CadLcRpaEBCCredVlrDesc,
+CadLcRpaEBCCDebVlrDesc,
+CadLcRpaEBCDebVlrDesc,
+CadLcRpaEBCCCredVlrDesc,
+CadLcRpaEBCCExpFinRpa,
+CadLcRpaEBCCredIss,
+CadLcRpaEBCCCrediss,
+
+//DarfPis
+
+CadLcDarfPisEBCDebDarFpis,
+CadLcDarfPisEBCCDebDarfPis,
+CadLcDarfPisEBCCredDarfPis,
+CadLcDarfPisEBCCCredDarfPis,
+CadLcDarfPisEBDarfPisHist,
+CadLcDarfPisEBDarfPisComp,
+
+//Grid Gestores
+FormGridGestores,
+BtnIncGestor,
+BtnSaveGestor,
+BtnSaveGestor,
+BtnDesfGestor,
+BtnExcGestor,
+
+//Esocial
+CadLcESocialEBIdTipoLotacaoTrib,
+CadLcESocialEBIdFpas,
+CadLcESocialEBTpInsc,
+CadLcESocialEBNrInscLotacao,
+CadLcESocialEBTpInscContrat,
+CadLcESocialEBNrInscContrat,
+CadLcESocialEBTpInscProp,
+CadLcESocialEBNrInscProp,
+ 		
+//Fixo Local
+FormFixoGrid,
+BtnIncFixo,
+BtnExcluirFixo,
+
+FormPadraoFixoL,
+FormPageTabNormalFixoLc,
+  
+CadFixoLEBEstab,
+CadFixoLEBIdLocal,
+CadFixoLEBIdEvento,
+
+FormGridFixoMes,
+IncRhFixoLMes,
+DesfRhFixoLMes,
+ExcRhFixoLMes,
+
+
+FormGridFixoMesAno,
+BtnIncRhFixoLMesAno,
+BtnDesfRhFixoLMesAno,
+BtnExcRhFixoLMesAno,
+
+CadFixoLEBInforme,
+CadFixoLEBReferencia,
+CadFixoLEBPropBaseHoras : OleVariant;
+
+
+
+procedure MapCadLocais();
+begin
+FormPadraoLocais  								  := Aliases.Folha.FRhLocal;
+PageLocal  										      := Aliases.Folha.FRhLocal.Page;
+		
+CadLocaisEBEstab		  						  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_ESTAB;
+CadLocaisEBIdlocal	  							:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_IDLOCAL;
+CadLocaisEBDescricao	  						:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadLocaisEBNivel1	  							  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_NIVEL1;
+CadLocaisEBNivel2	  							  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_NIVEL2;
+CadLocaisEBNivel3	  							  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_NIVEL3;
+CadLocaisEBCodTomador	  						:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_CODTOMADOR;
+CadLocaisEBDtIncAlt	  							:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_DTINCALT;
+CadLocaisEBInativo	  							:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_INATIVO;
+CadLocaisEBDtFechamento	  					:= Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_DTFECHAMENTO;
+CadLocaisEBDtIdExpFin							  := Aliases.Folha.FRhLocal.Page.TabNormal.pnCab.EB_IDEXPFIN;
+end;
+
+
+procedure MapCadLcGps();
+begin 
+
+
+CadLcGpsEBIdExpconf  								:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_IDEXPCONF;
+CadLcGpsEBExpctb  									:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_EXPCTB;
+CadLcGpsEBInssDebitocomp  					:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSDEBITOCOMP;
+CadLcGpsEBInssexpctb			  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSEXPCTB;
+CadLcGpsEBInssccDebitoComp	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCDEBITOCOMP;
+CadLcGpsEBInssDebito			  			  := Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSDEBITO;
+CadLcGpsEBInssCreditoComp	  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCREDITOCOMP;
+CadLcGpsEBInssccdebito		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCDEBITO;
+CadLcGpsEBInsscccreditocomp	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITOCOMP;
+CadLcGpsEBInssCredito		  					:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCREDITO;
+CadLcGpsEBInsshistcomp		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSHISTCOMP;
+CadLcGpsEBInsscccredito		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITO;
+CadLcGpsEBInssdebitocomp13	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSDEBITOCOMP13;
+CadLcGpsEBInsshist			  					:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSHIST;
+CadLcGpsEBInssccdebitocomp13	  		:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCDEBITOCOMP13;
+CadLcGpsEBInssdebito13		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSDEBITO13;
+CadLcGpsEBInsscreditocomp13	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCREDITOCOMP13;
+CadLcGpsEBInssccdebito13		  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCDEBITO13;
+CadLcGpsEBInsscccreditocomp13  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITOCOMP13;
+CadLcGpsEBInsscredito13		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCREDITO13;
+CadLcGpsEBditright1			  				  := Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.VsEditRight1;
+CadLcGpsEBInsscccredito13	  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITO13;
+CadLcGpsEBInssdebitoret		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSDEBITORET;
+CadLcGpsEBInsshist13			  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSHIST13;
+CadLcGpsEBInssccdebitoret	  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCDEBITORET;
+CadLcGpsEBCcdebitopad		  					:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_CCDEBITOPAD;
+CadLcGpsEBInsscreditoret		  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCREDITORET;
+CadLcGpsEBCccreditopad		  				:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_CCCREDITOPAD;
+CadLcGpsEBInsscccreditoret	  			:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSCCCREDITORET;
+CadLcGpsEBInssHistRet								:= Aliases.Folha.FRhLocal.Page.tbExpGps.Panel1.EB_INSSHISTRET;
+end;
+
+
+procedure MapCadLcRpa();
+begin 
+CadLcRpaEBCCredinss									  := Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDINSS;
+CadLcRpaEBCCCredInss	  							:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDINSS;
+CadLcRpaEBCDEBInss	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CDEBINSS;
+CadLcRpaEBCCDebInss	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCDEBINSS;
+CadLcRpaEBCCredIrrf	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDIRRF;
+CadLcRpaEBCCCredIrrf	  							:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDIRRF;
+CadLcRpaEBCDebIrrf	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CDEBIRRF;
+CadLcRpaEBCCDebIrrf	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCDEBIRRF;
+CadLcRpaEBCCredTer	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDTER;
+CadLcRpaEBCCCredTer	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDTER;
+CadLcRpaEBCDebTer	  								  := Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CDEBTER;
+CadLcRpaEBCCDebTer	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCDEBTER;
+CadLcRpaEBCCredLiq	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDLIQ;
+CadLcRpaEBCCCredLiq	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDLIQ;
+CadLcRpaEBCDebLiq	  								  := Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CDEBLIQ;
+CadLcRpaEBCCDebLiq	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCDEBLIQ;
+CadLcRpaEBCCredVlrDesc	  						:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDVLRDESC;
+CadLcRpaEBCCDebVlrDesc	  						:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCDEBVLRDESC;
+CadLcRpaEBCDebVlrDesc	  							:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CDEBVLRDESC;
+CadLcRpaEBCCCredVlrDesc	  						:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDVLRDESC;
+CadLcRpaEBCCExpFinRpa	  							:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCEXPFINRPA;
+CadLcRpaEBCCredIss	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCREDISS;
+CadLcRpaEBCCCrediss	  								:= Aliases.Folha.FRhLocal.Page.tabExpRpa.z.EB_CCCREDISS;
+end;
+
+procedure MapCadLcDarfPis();
+begin 
+
+CadLcDarfPisEBCDebDarFpis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CDEBDARFPIS;
+CadLcDarfPisEBCCDebDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCDEBDARFPIS;
+CadLcDarfPisEBCCredDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCREDDARFPIS;
+CadLcDarfPisEBCCCredDarfPis							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_CCCREDDARFPIS;
+CadLcDarfPisEBDarfPisHist							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_DARFPISHIST;
+CadLcDarfPisEBDarfPisComp							:= Aliases.Folha.FRhLocal.Page.tsDarfPis.ScrollBox1.EB_DARFPISCOMP;
+end;
+
+
+procedure MapCadLcGestoresGrid();
+begin  
+
+FormGridGestores  									:= Aliases.Folha.FRhLocal.Page.tsGestores.gRhLocalGestores;
+BtnIncGestor  										:= Aliases.Folha.FRhLocal.bIncGestor;
+BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
+BtnSaveGestor  										:= Aliases.Folha.FRhLocal.bSaveGestor;
+BtnDesfGestor 										:= Aliases.Folha.FRhLocal.bDesfGestor;
+BtnExcGestor	  									:= Aliases.Folha.FRhLocal.bExcGestor;
+end;
+
+ 
+
+
+procedure MapCadLcESocial();
+begin  
+
+CadLcESocialEBIdTipoLotacaoTrib  					:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDTIPOLOTACAOTRIB;
+CadLcESocialEBIdFpas  								:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_IDFPAS;
+CadLcESocialEBTpInsc  								:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSC;
+CadLcESocialEBNrInscLotacao  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCLOTACAO;
+CadLcESocialEBTpInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCCONTRAT;
+CadLcESocialEBNrInscContrat  						:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCCONTRAT;
+CadLcESocialEBTpInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_TPINSCPROP;
+CadLcESocialEBNrInscProp  							:= Aliases.Folha.FRhLocal.Page.tsESocial.ScrollBox3.EB_NRINSCPROP;
+end;
+
+procedure MapCadFixoLocal();
+begin
+FormFixoGrid  					:= Aliases.Folha.FRhLocal.Page.tsFixoLocal.ScrollBox4.gFixo;
+BtnIncFixo  					:= Aliases.Folha.FRhLocal.bIncFixo;
+BtnExcluirFixo  				:= Aliases.Folha.FRhLocal.bSaveFixo;
+
+FormPadraoFixoL					:= Aliases.Folha.fRhFixoL;
+FormPageTabNormalFixoLc  		:= Aliases.Folha.fRhFixoL.Page.TabNormal;
+  
+CadFixoLEBEstab  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_ESTAB
+CadFixoLEBIdLocal  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDLOCAL
+CadFixoLEBIdEvento  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pnCab.EB_IDEVENTO
+
+FormGridFixoMes  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMes.sbRhFixoGMes.gMes;
+IncRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bIncRhFixoLMes;
+DesfRhFixoLMes  				:= Aliases.Folha.fRhFixoL.bDesfRhFixoLMes;
+ExcRhFixoLMes  					:= Aliases.Folha.fRhFixoL.bExcRhFixoLMes;
+
+
+FormGridFixoMesAno  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsRhFixoGMesAno.sbRhFixoGMesAno.gMesAno;
+BtnIncRhFixoLMesAno  			:= Aliases.Folha.fRhFixoL.bIncRhFixoLMesAno;
+BtnDesfRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bDesfRhFixoLMesAno;
+BtnExcRhFixoLMesAno 			:= Aliases.Folha.fRhFixoL.bExcRhFixoLMesAno.;
+
+CadFixoLEBInforme  				:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_INFORME;
+CadFixoLEBReferencia  			:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_REFERENCIA;
+CadFixoLEBPropBaseHoras  		:= Aliases.Folha.fRhFixoL.Page.TabNormal.pg.tsParams.TScrollBox.EB_PROPBASEHORAS;
+end;
