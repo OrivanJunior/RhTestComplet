@@ -123,7 +123,7 @@ DDTGestores := CarregaDDT(pathData, 'Gestores');
 While not (DDTGestores.EOF) do
 begin
 
-LeDataPoolCadLocais(DDTGestores.Name);
+LeDataPoolCadGestores(DDTGestores.Name);
 
 BtnIncGestor.Click;
 
@@ -170,7 +170,7 @@ MapCadFixoLocal();
 FormPageTabNormalFixoLc.ActivePageIndex := 0;
 
 
-//DDTFixoLocal := CarregaDDT(pathData, 'Mes');
+//DDTMes := CarregaDDT(pathData, 'Mes');
 //
 //LeDataPoolCadFixoLocal(DDTFixoLocal.Name);
 
@@ -194,7 +194,7 @@ While not (DDTMesAno.EOF) do
 begin
 MapGridConsulta(_ModuloFolha);
 
-LeDataPoolCadFixoLocal(DDTExpConf.Name);
+LeDataPoolCadMesAno(DDTExpConf.Name);
 
  if (FormGridFixoMesAno.ActiveView.ViewData.RowCount < 1) then
  
@@ -220,7 +220,7 @@ MapCadFixoLocal();
 
 DDTParametros := CarregaDDT(pathData, 'Parametros');
 
-LeDataPoolCadFixoLocal(DDTParametros.Name);
+LeDataPoolCadParametros(DDTParametros.Name);
 
 VerificaInsere(CadFixoLEBInforme,CadFixoLDPInforme);
 VerificaInsere(CadFixoLEBReferencia,CadFixoLDPReferencia);
@@ -231,7 +231,9 @@ procedure SalvarESairFixoL();
 begin
 ActSalvar(FormPadraoFixoL);
 ActFechar(FormPadraoFixoL);
-ActFechar(FormTelaConsultaForm);
+if Aliases.Folha.FBRowseCds_1.Exists then
+Aliases.Folha.FBRowseCds_1.Close;
+
 end;
 
 procedure PreencheESocial();
@@ -275,7 +277,7 @@ LeDataPoolCadLocais(DDTCadastrar.Name);
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhLocal');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadLocaisDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Local',CadLocaisDPIdlocal);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
@@ -288,19 +290,17 @@ LeDataPoolCadLocais(DDTCadastrar.Name);
   PreencheLcRpa();
   PreencheLcDarfPis();
   PreencheLcGestoresGrid(pathData);
+  PreencheESocial();
+  ActSalvar(FormPadraoLocais);
   
   PreencheDadosGeraisFixoLocal(pathData);
   PreencheGridPMes();
   PreencheGridPMesAno(pathData);
   PreencheParametros(pathData);
   SalvarESairFixoL();
-  PreencheESocial();
-
-
-  ActSalvar(FormPadraoLocais);
+  
   ActFechar(FormPadraoLocais);
   end;
-  
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
@@ -309,13 +309,15 @@ procedure ExcluirLocal(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Local');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Locais');
+
+FiltraTelaIniLocal();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadAgencEstab(DDTExcluir.Name);
+LeDataPoolCadLocais(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
@@ -323,7 +325,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhLocal');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFixoLDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Local',CadLocaisDPIdlocal);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   

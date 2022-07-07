@@ -172,8 +172,7 @@ CadLcDarfPisDPCCredDarfPis	              := DDT.DriverByName(nomeDriver).Value('
 CadLcDarfPisDPCCCredDarfPis	              := DDT.DriverByName(nomeDriver).Value('CCCREDDARFPIS');
 CadLcDarfPisDPDarfPisHist	                := DDT.DriverByName(nomeDriver).Value('DARFPISHIST');
 CadLcDarfPisDPDarfPisComp	                := DDT.DriverByName(nomeDriver).Value('DARFPISCOMP');
-//Grid Gestores Gerar DDT                
-CadLcGestoresDPPessoa						          := DDT.DriverByName(nomeDriver).Value('PESSOA');
+
 //Esocial                                   
 CadLcESocialDPIdTipoLotacaoTrib           := DDT.DriverByName(nomeDriver).Value('IDTIPOLOTACAOTRIB');
 CadLcESocialDPIdFpas  			              := DDT.DriverByName(nomeDriver).Value('IDFPAS');
@@ -187,20 +186,35 @@ CadLcESocialDPNrInscProp  		            := DDT.DriverByName(nomeDriver).Value('N
 end;
 
 
+procedure LeDataPoolCadGestores(nomeDriver);
+begin
+//Grid Gestores Gerar DDT                
+CadLcGestoresDPPessoa						          := DDT.DriverByName(nomeDriver).Value('PESSOA');
+end;
+
+
 procedure LeDataPoolCadFixoLocal(nomeDriver);
 begin
 
 CadFixoLDPEstab				      := DDT.DriverByName(nomeDriver).Value('ESTAB');	
 CadFixoLDPIdLocal           := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
 CadFixoLDPIdEvento          := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+end;
 
+procedure LeDataPoolCadMes(nomeDriver);
+begin
 CadFixoLDPMMes				      := DDT.DriverByName(nomeDriver).Value('MMES');
+end;
 
+procedure LeDataPoolCadMesAno(nomeDriver);
+begin
 CadFixoLDPMAMes				      := DDT.DriverByName(nomeDriver).Value('MAMES');
 CadFixoLDPMAAno     		    := DDT.DriverByName(nomeDriver).Value('MAANO');
+end;
 
+procedure LeDataPoolCadParametros(nomeDriver);
+begin
 CadFixoLDPInforme  			    := DDT.DriverByName(nomeDriver).Value('INFORME');
 CadFixoLDPReferencia  	    := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
 CadFixoLDPPropBaseHoras     := DDT.DriverByName(nomeDriver).Value('PROPBASEHORAS');
-
 end;
