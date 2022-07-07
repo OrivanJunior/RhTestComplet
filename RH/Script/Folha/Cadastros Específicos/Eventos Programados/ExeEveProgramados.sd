@@ -1,1 +1,26 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolEveProgramados, ObjEveProgramados;
+
+procedure PreencheEveProg();
+begin
+
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProgrEBEstab,CadEveProgrDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProgrEBIdEmpregado,CadEveProgrDPIdEmpregado);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProgrEBIdprocesso,CadEveProgrDPIdprocesso);		
+PreencheDatas(CadEveProgrEBDtReferencia,CadEveProgrDPDtReferencia);
+VerificaInsere(CadEveProgrEBVlrTotal,CadEveProgrDPVlrTotal);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProgrEBIdmoeda,CadEveProgrDPIdmoeda);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProgrEBIdEvento,CadEveProgrDPIdEvento);
+VerificaInsere(CadEveProgrEBMotivoFechamento,CadEveProgrDPMotivoFechamento);
+VerificaInsere(CadEveProgrEBCalcularAfastado,CadEveProgrDPCalcularAfastado);
+VerificaInsere(CadEveProgrEBCalcFerias,CadEveProgrDPCalcFerias);		
+VerificaInsere(CadEveProgrEBObservacoes,CadEveProgrDPObservacoes);
+VerificaInsere(CadEveProgrEBFornecedor,CadEveProgrDPFornecedor);		
+BtnGerar.Click;
+VerificaInsere(CadEveProgrEBQtdeParc,CadEveProgrDPQtdeParc);
+PreencheDatas(CadEveProgrEBMesAno,CadEveProgrDPMesAno);
+ActSalvar(FormPadraoEveProg);
+VerificaInsere(CadEveProgrEBIdLayout,CadEveProgrDPIdLayout);
+PreencheDatas(CadEveProgrEBData,CadEveProgrDPData);
+BtnVisualizar.Click;
+end;
+
