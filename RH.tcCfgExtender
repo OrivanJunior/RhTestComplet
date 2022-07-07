@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{355A2574-37D5-4AA4-B6BE-B50D402CDB2D}"/>
+				<Prp name="activity" type="S" value="{BCE8F908-6A29-405C-B3F8-354F9A828E57}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -17296,19 +17300,6 @@
 					<Node name="rh">
 						<Node name="script">
 							<Node name="commons"/>
-							<Node name="folha">
-								<Node name="cadastros específicos">
-									<Node name="agências do estabelecimento"/>
-									<Node name="locais"/>
-								</Node>
-								<Node name="cadastros gerais">
-									<Node name="configurações">
-										<Node name="exportação contábill">
-											<Node name="conf.exp. contábil"/>
-										</Node>
-									</Node>
-								</Node>
-							</Node>
 						</Node>
 						<Node name="testedapps"/>
 					</Node>
