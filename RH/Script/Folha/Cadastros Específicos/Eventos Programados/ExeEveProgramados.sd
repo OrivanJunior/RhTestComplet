@@ -22,5 +22,92 @@ ActSalvar(FormPadraoEveProg);
 VerificaInsere(CadEveProgrEBIdLayout,CadEveProgrDPIdLayout);
 PreencheDatas(CadEveProgrEBData,CadEveProgrDPData);
 BtnVisualizar.Click;
+Delay(500);
+
+if Aliases.Folha.FDirectPrintPreview.Exists then
+ Aliases.Folha.FDirectPrintPreview.Close;
+ 
 end;
+
+procedure FiltraTelaInicialEveProg();
+begin
+FiltroEveProg();
+ListaConsultaEveProg.SetText('Por Empregado/Evento');
+FiltraCodEmpregado.Keys('(Ignorar)');
+FiltraEvento.Keys('(Ignorar)');
+
+end;
+
+procedure CadastraEveProgramado(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Eventos Programados');
+
+FiltraTelaInicialEveProg();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEveProg(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEveProg');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrEBIdEmpregado);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadEveProg();
+  
+  PreencheEveProg();
+ 
+  ActSalvar(FormPadraoEveProg);
+  ActFechar(FormPadraoEveProg);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirEveProgramado(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Eventos Programados');
+
+FiltraTelaInicialEveProg();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEveProg(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEveProg');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrEBIdEmpregado);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEveProg();
+
+  ActExcluir(_ModuloFolha, 'FRhEveProg');
+
+  ActFechar(FormPadraoEveProg);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
 

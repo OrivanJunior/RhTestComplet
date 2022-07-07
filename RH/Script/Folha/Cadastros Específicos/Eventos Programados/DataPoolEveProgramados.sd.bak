@@ -1,1 +1,46 @@
-﻿
+﻿var
+CadEveProgrDPEstab,
+CadEveProgrDPIdEmpregado,
+CadEveProgrDPIdprocesso,
+CadEveProgrDPDtReferencia,
+CadEveProgrDPVlrTotal,
+CadEveProgrDPIdmoeda,
+CadEveProgrDPIdEvento,
+CadEveProgrDPMotivoFechamento,
+CadEveProgrDPCalcularAfastado,
+CadEveProgrDPCalcFerias,
+CadEveProgrDPObservacoes,
+CadEveProgrDPFornecedor,
+
+CadEveProgrDPQtdeParc,
+CadEveProgrDPMesAno,
+
+CadEveProgrDPIdLayout,
+CadEveProgrDPData : OleVariant;
+
+
+
+
+procedure LeDataPoolCadEveProc(nomeDriver);
+begin
+
+CadEveProgrDPEstab								:= DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadEveProgrDPIdEmpregado				  := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadEveProgrDPIdprocesso						:= DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+CadEveProgrDPDtReferencia					:= DDT.DriverByName(nomeDriver).Value('DTREFERENCIA');
+CadEveProgrDPVlrTotal							:= DDT.DriverByName(nomeDriver).Value('VLRTOTAL');
+CadEveProgrDPIdmoeda							:= DDT.DriverByName(nomeDriver).Value('IDMOEDA');
+CadEveProgrDPIdEvento							:= DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+CadEveProgrDPMotivoFechamento			:= DDT.DriverByName(nomeDriver).Value('MOTIVOFECHAMENTO');
+CadEveProgrDPCalcularAfastado			:= DDT.DriverByName(nomeDriver).Value('CALCULARAFASTADO');
+CadEveProgrDPCalcFerias						:= DDT.DriverByName(nomeDriver).Value('CALCFERIAS');
+CadEveProgrDPObservacoes					:= DDT.DriverByName(nomeDriver).Value('OBSERVACOES');
+CadEveProgrDPFornecedor						:= DDT.DriverByName(nomeDriver).Value('FORNECEDOR');
+
+CadEveProgrDPQtdeParc 	        	:= DDT.DriverByName(nomeDriver).Value('QTDEPARC');
+CadEveProgrDPMesAno 	        		:= DDT.DriverByName(nomeDriver).Value('MESANO');
+
+CadEveProgrDPIdLayout 	        	:= DDT.DriverByName(nomeDriver).Value('IDLAYOUT');
+CadEveProgrDPData 		        		:= DDT.DriverByName(nomeDriver).Value('DATA');
+
+end;

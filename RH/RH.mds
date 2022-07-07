@@ -2409,12 +2409,31 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Percentual Desoneração" key="{05E9DADD-CACD-4893-96AC-C831B138598E}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Percentual Desoneração" key="{05E9DADD-CACD-4893-96AC-C831B138598E}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="ConsultaDesoneracao" key="{94C2A632-1F7F-49C2-ABBE-0CA8C3F7E605}" group="False" parallel="False" enabled="True" testMoniker="{3D68A7BA-7BAB-40A9-9C78-A468101A360F}ConsultaDesoneracao" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="11" value="True" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Eventos Programados" key="{848CAACD-9CC2-4D0D-84DE-23DDAB372D45}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraEveProgramado" key="{CF3E21C3-A8F9-4D55-A7F2-9F7598CAA792}" group="False" parallel="False" enabled="True" testMoniker="{056F5C7A-B106-48E4-9394-944C45D430D1}CadastraEveProgramado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Eventos Programados\Eventos Programados.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirEveProgramado" key="{AF6EF57F-8346-4211-85F2-351694CCA835}" group="False" parallel="False" enabled="True" testMoniker="{056F5C7A-B106-48E4-9394-944C45D430D1}ExcluirEveProgramado" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Eventos Programados\Eventos Programados.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

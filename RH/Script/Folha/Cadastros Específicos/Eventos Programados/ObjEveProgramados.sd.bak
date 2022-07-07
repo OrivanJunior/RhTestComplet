@@ -2,5 +2,72 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 07/07/2022}
- 
- 
+
+var
+FormPadraoEveProg,
+	
+CadEveProgrEBEstab,
+CadEveProgrEBIdEmpregado,
+CadEveProgrEBIdprocesso,
+CadEveProgrEBDtReferencia,
+CadEveProgrEBVlrTotal,
+CadEveProgrEBIdmoeda,
+CadEveProgrEBIdEvento,
+CadEveProgrEBMotivoFechamento,
+CadEveProgrEBCalcularAfastado,
+CadEveProgrEBCalcFerias,
+CadEveProgrEBObservacoes,
+CadEveProgrEBFornecedor,
+  
+CadEveProgrEBQtdeParc,
+CadEveProgrEBMesAno,
+BtnGerar,
+
+CadEveProgrEBIdLayout,
+CadEveProgrEBData,
+BtnVisualizar, 
+
+FormListaConsultaEveProg,
+ListaConsultaEveProg,                   
+FiltraCodEmpregado,
+FiltraEvento,              
+BtnOkFiltro : OleVariant;
+
+
+
+procedure MapCadEveProg();
+begin
+FormPadraoEveProg  					  := Aliases.Folha.FRhEveProg;
+	
+CadEveProgrEBEstab					  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_ESTAB;
+CadEveProgrEBIdEmpregado			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDEMPREGADO;
+CadEveProgrEBIdprocesso				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDPROCESSO;
+CadEveProgrEBDtReferencia			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_DTREFERENCIA;
+CadEveProgrEBVlrTotal				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_VLRTOTAL;
+CadEveProgrEBIdmoeda				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDMOEDA;
+CadEveProgrEBIdEvento				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDEVENTO;
+CadEveProgrEBMotivoFechamento	:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_MOTIVOFECHAMENTO;
+CadEveProgrEBCalcularAfastado	:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_CALCULARAFASTADO;
+CadEveProgrEBCalcFerias				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_CALCFERIAS;
+CadEveProgrEBObservacoes			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_OBSERVACOES;
+CadEveProgrEBFornecedor				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_FORNECEDOR;
+  
+CadEveProgrEBQtdeParc 				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.EB_QtdeParc;
+CadEveProgrEBMesAno 				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.EB_MesAno;
+BtnGerar	  						      := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.BtnGerar;
+
+CadEveProgrEBIdLayout 				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.EB_IDLAYOUT;
+CadEveProgrEBData 					  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.EB_Data;
+BtnVisualizar 						    := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.btn_Visualizar;
+end;	
+
+procedure FiltroEveProg();
+begin
+FormListaConsultaEveProg  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaEveProg      := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+
+FiltraCodEmpregado        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltraEvento              := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+  
+BtnOkFiltro               := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;

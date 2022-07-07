@@ -21,7 +21,7 @@ CadEveProgrDPData : OleVariant;
 
 
 
-procedure LeDataPoolCadEveProc(nomeDriver);
+procedure LeDataPoolCadEveProg(nomeDriver);
 begin
 
 CadEveProgrDPEstab								:= DDT.DriverByName(nomeDriver).Value('ESTAB');

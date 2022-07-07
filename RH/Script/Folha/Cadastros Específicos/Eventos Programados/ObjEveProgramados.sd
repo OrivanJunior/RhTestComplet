@@ -2,8 +2,6 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 07/07/2022}
- 
- 
 
 var
 FormPadraoEveProg,
@@ -27,11 +25,17 @@ BtnGerar,
 
 CadEveProgrEBIdLayout,
 CadEveProgrEBData,
-BtnVisualizar : OleVariant;
+BtnVisualizar, 
+
+FormListaConsultaEveProg,
+ListaConsultaEveProg,                   
+FiltraCodEmpregado,
+FiltraEvento,              
+BtnOkFiltro : OleVariant;
 
 
 
-procedure MapCadEveProgramados;
+procedure MapCadEveProg();
 begin
 FormPadraoEveProg  					  := Aliases.Folha.FRhEveProg;
 	
@@ -56,3 +60,19 @@ CadEveProgrEBIdLayout 				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1
 CadEveProgrEBData 					  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.EB_Data;
 BtnVisualizar 						    := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.btn_Visualizar;
 end;	
+
+procedure FiltroEveProg();
+begin
+FormListaConsultaEveProg  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaEveProg      := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+
+FiltraCodEmpregado        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltraEvento              := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+  
+BtnOkFiltro               := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+
+procedure Test1;
+begin
+  Aliases.Folha.FDirectPrintPreview.Close;
+end;
