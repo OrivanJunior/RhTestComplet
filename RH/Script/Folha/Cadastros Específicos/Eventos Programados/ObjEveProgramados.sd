@@ -1,0 +1,58 @@
+﻿{Script para mapear o Cadastro de Eventos Programados
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 07/07/2022}
+ 
+ 
+
+var
+FormPadraoEveProg,
+	
+CadEveProgrEBEstab,
+CadEveProgrEBIdEmpregado,
+CadEveProgrEBIdprocesso,
+CadEveProgrEBDtReferencia,
+CadEveProgrEBVlrTotal,
+CadEveProgrEBIdmoeda,
+CadEveProgrEBIdEvento,
+CadEveProgrEBMotivoFechamento,
+CadEveProgrEBCalcularAfastado,
+CadEveProgrEBCalcFerias,
+CadEveProgrEBObservacoes,
+CadEveProgrEBFornecedor,
+  
+CadEveProgrEBQtdeParc,
+CadEveProgrEBMesAno,
+BtnGerar,
+
+CadEveProgrEBIdLayout,
+CadEveProgrEBData,
+BtnVisualizar : OleVariant;
+
+
+
+procedure MapCadEveProgramados;
+begin
+FormPadraoEveProg  					  := Aliases.Folha.FRhEveProg;
+	
+CadEveProgrEBEstab					  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_ESTAB;
+CadEveProgrEBIdEmpregado			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDEMPREGADO;
+CadEveProgrEBIdprocesso				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDPROCESSO;
+CadEveProgrEBDtReferencia			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_DTREFERENCIA;
+CadEveProgrEBVlrTotal				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_VLRTOTAL;
+CadEveProgrEBIdmoeda				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDMOEDA;
+CadEveProgrEBIdEvento				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_IDEVENTO;
+CadEveProgrEBMotivoFechamento	:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_MOTIVOFECHAMENTO;
+CadEveProgrEBCalcularAfastado	:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_CALCULARAFASTADO;
+CadEveProgrEBCalcFerias				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_CALCFERIAS;
+CadEveProgrEBObservacoes			:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_OBSERVACOES;
+CadEveProgrEBFornecedor				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.EB_FORNECEDOR;
+  
+CadEveProgrEBQtdeParc 				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.EB_QtdeParc;
+CadEveProgrEBMesAno 				  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.EB_MesAno;
+BtnGerar	  						      := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.Panel2.WhichGerar.BtnGerar;
+
+CadEveProgrEBIdLayout 				:= Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.EB_IDLAYOUT;
+CadEveProgrEBData 					  := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.EB_Data;
+BtnVisualizar 						    := Aliases.Folha.FRhEveProg.Page.TabNormal.Panel7.grp1.btn_Visualizar;
+end;	
