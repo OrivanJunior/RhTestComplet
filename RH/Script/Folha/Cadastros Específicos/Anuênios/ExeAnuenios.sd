@@ -1,4 +1,14 @@
-﻿procedure PreencheGridAnuenio(pathData);
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolAnuenios, ObjAnuenios;
+
+procedure PreencheAnuenios();
+begin	
+VerificaConsultaF3Insere(_ModuloFolha,CadAnuenioEBEstab,CadAnuenioDPEstab);				
+VerificaInsere(CadAnuenioEBIdTabanuenio,CadAnuenioDPIdTabanuenio);
+VerificaInsere(CadAnuenioEBDescricao,CadAnuenioDPDescricao);
+VerificaInsere(CadAnuenioEBVlrTetoCalc,CadAnuenioDPVlrTetoCalc);
+end; 
+
+procedure PreencheGridAnuenio(pathData);
 var 
 DDTAnuenio :OleVariant;
 i : integer;
@@ -34,3 +44,75 @@ DDTAnuenio.Next;
 end;
 DDT.CloseDriver(DDTAnuenio.Name);
 end;
+
+procedure CadastraAnuenios(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAnuenios(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  PreencheAnuenios();
+  PreencheGridAnuenio(pathData);
+  
+  ActSalvar(FormPadraoAnuenios);
+  ActFechar(FormPadraoAnuenios);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAnuenios(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAnuenios(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  ActSalvar(FormPadraoAnuenios);
+
+  ActExcluir(_ModuloFolha, 'FRhAnuenios');
+
+  ActFechar(FormPadraoAnuenios);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

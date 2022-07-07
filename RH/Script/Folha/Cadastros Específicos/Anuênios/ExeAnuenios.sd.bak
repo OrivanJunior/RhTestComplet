@@ -1,1 +1,121 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolAnuenios, ObjAnuenios;
+
+procedure PreencheAnuenios();
+begin	
+VerificaConsultaF3Insere(_ModuloFolha,CadAnuenioEBEstab,CadAnuenioDPEstab);				
+VerificaInsere(CadAnuenioEBIdTabanuenio,CadAnuenioDPIdTabanuenio);
+VerificaInsere(CadAnuenioEBDescricao,CadAnuenioDPDescricao);
+VerificaInsere(CadAnuenioEBVlrTetoCalc,CadAnuenioDPVlrTetoCalc);
+end; 
+
+procedure PreencheGridAnuenio(pathData);
+var 
+DDTAnuenio :OleVariant;
+i : integer;
+begin
+
+i:= 0;
+
+PageTabNormalAnuenios.ActivePageIndex:=0;
+
+MapCadAnuenios();
+
+DDTAnuenio := CarregaDDT(pathData, 'Anuenio');
+
+While not (DDTAnuenio.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadExpConf(DDTAnuenio.Name);
+
+ if (FormGridAnuenios.ActiveView.ViewData.RowCount < 1) then
+ BtnAnInc.Click;
+
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Quantidade Anos Inicial', CadAnuenioDPQntAnosInicial);	
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Quantidade Anos Final', CadAnuenioDPQntAnosFinal);
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Percentual Anuênios', CadAnuenioDPPercAnuenios);
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Valor do Anuênio', CadAnuenioDPValordoAnuenio);
+
+
+FormGridAnuenios.Keys('[Tab]');
+Inc(i);
+
+DDTAnuenio.Next;
+end;
+DDT.CloseDriver(DDTAnuenio.Name);
+end;
+
+procedure CadastraAnuenios(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAnuenios(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadLocais();
+  
+  PreencheAnuenios();
+  PreencheGridAnuenio(pathData);
+  
+  
+  ActSalvar(FormPadraoAnuenios);
+  ActFechar(FormPadraoAnuenios);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAnuenios(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Locais');
+
+FiltraTelaIniLocal();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadLocais(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhLocal');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Local',CadLocaisDPIdlocal);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadLocais();
+  
+  ActSalvar(FormPadraoLocais);
+
+  ActExcluir(_ModuloFolha, 'FRhLocal');
+
+  ActFechar(FormPadraoLocais);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
