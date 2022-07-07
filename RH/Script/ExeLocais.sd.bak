@@ -317,7 +317,7 @@ MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadAgencEstab(DDTExcluir.Name);
+LeDataPoolCadLocais(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin

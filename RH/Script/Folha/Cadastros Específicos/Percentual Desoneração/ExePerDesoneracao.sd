@@ -1,1 +1,11 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,ObjPerDesoneracao;
+
+
+procedure ConsultaDesoneracao(pathData);
+
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Percentual Desoneração');
+  
+  AcessaConsultaExit();
+
+end;

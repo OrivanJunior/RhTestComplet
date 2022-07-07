@@ -1,0 +1,15 @@
+﻿var
+FormPadraoFaturamento: OleVariant;
+
+procedure MapCadFaturamento();
+begin
+FormPadraoFaturamento := Aliases.Folha.FFormPadraoRHFATURAMENTO;
+end;
+
+procedure AcessaConsultaExit();
+begin
+  Aliases.Folha.FBRowseCds.BForm.Click(9, 15);
+  Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.ClickButton;
+  Aliases.Folha.FFormPadraoRHFATURAMENTO.BSair.Click(17, 13);
+  Aliases.Folha.FBRowseCds.Close;
+end;

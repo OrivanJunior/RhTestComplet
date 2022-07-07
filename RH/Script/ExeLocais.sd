@@ -138,6 +138,22 @@ end;
 DDT.CloseDriver(DDTGestores.Name);
 end;
 
+procedure PreencheESocial();
+begin
+PageLocal.ActivePageIndex:=7;
+
+MapCadLcESocial();
+
+VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdTipoLotacaoTrib,CadLcESocialDPIdTipoLotacaoTrib);
+VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdFpas,CadLcESocialDPIdFpas);
+VerificaInsere(CadLcESocialEBTpInsc,CadLcESocialDPTpInsc);
+VerificaInsere(CadLcESocialEBNrInscLotacao,CadLcESocialDPNrInscLotacao);
+VerificaInsere(CadLcESocialEBTpInscContrat,CadLcESocialDPTpInscContrat);
+VerificaInsere(CadLcESocialEBNrInscContrat,CadLcESocialDPNrInscContrat);
+VerificaInsere(CadLcESocialEBTpInscProp,CadLcESocialDPTpInscProp);
+VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
+end;
+
 {Fixo por Local}
 
 procedure PreencheDadosGeraisFixoLocal(pathData);
@@ -236,22 +252,6 @@ Aliases.Folha.FBRowseCds_1.Close;
 
 end;
 
-procedure PreencheESocial();
-begin
-PageLocal.ActivePageIndex:=7;
-
-MapCadLcESocial();
-
-VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdTipoLotacaoTrib,CadLcESocialDPIdTipoLotacaoTrib);
-VerificaConsultaF3Insere(_ModuloFolha,CadLcESocialEBIdFpas,CadLcESocialDPIdFpas);
-VerificaInsere(CadLcESocialEBTpInsc,CadLcESocialDPTpInsc);
-VerificaInsere(CadLcESocialEBNrInscLotacao,CadLcESocialDPNrInscLotacao);
-VerificaInsere(CadLcESocialEBTpInscContrat,CadLcESocialDPTpInscContrat);
-VerificaInsere(CadLcESocialEBNrInscContrat,CadLcESocialDPNrInscContrat);
-VerificaInsere(CadLcESocialEBTpInscProp,CadLcESocialDPTpInscProp);
-VerificaInsere(CadLcESocialEBNrInscProp,CadLcESocialDPNrInscProp);
-end;
-
 procedure FiltraTelaIniLocal();
 begin
 MapCadFiltroLocais();
@@ -260,6 +260,7 @@ FiltroPanCompLc.Keys('(Ignorar)');
 BtnOkFiltroLc.ClickButton;
 end;
 
+{Cadastra/Exclui}
 procedure CadastraLocais(pathData);
 var
 DDTCadastrar : OleVariant;

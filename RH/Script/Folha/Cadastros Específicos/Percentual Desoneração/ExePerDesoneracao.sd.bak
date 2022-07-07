@@ -1,0 +1,15 @@
+﻿uses CommonsAll, CommonsObj, VarConsts,ObjPerDesoneracao;
+
+
+procedure ConsultaDesoneracao(pathData);
+
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Percentual Desoneração');
+  
+  
+
+  ActFechar(FormPadraoFaturamento);
+  
+  ActFechar(FormTelaConsultaForm);
+
+end;
