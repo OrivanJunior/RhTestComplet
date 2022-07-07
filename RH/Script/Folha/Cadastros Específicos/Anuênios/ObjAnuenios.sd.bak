@@ -1,25 +1,44 @@
-﻿procedure Test1;
+﻿var
+FormPadraoAnuenios,
+CadAnuenioEBEstab,
+CadAnuenioEBIdTabanuenio,
+CadAnuenioEBDescricao,
+CadAnuenioEBVlrTetoCalc,
+
+PageTabNormalAnuenios,
+  
+FormGridAnuenios,
+BtnAnInc,
+BtnAnProc,
+BtnAnConsul,
+BtnAnDesf,
+BtnAnExc,
+  
+  
+BtnSalvarAnuenios,
+BtnSalvarAnuenios : OleVariant;
+
+
+
+procedure MapCadAnuenios();
 begin
-  Aliases.Folha.FRhAnuenios.Click(279, 16);
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_ESTAB.Click(61, 10);
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_ESTAB.Keys('[Tab]');
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_IDTABANUENIO.Keys('[Tab]');
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_DESCRICAO.Keys('[Tab]');
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pg.Click(28, 11);
-  Aliases.Folha.FRhAnuenios.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.cxGAnuenio.TcxGridSite.Click(65, 40);
-  Aliases.Folha.FRhAnuenios.bInc.Click(9, 9);
-  Aliases.Folha.FRhAnuenios.bProc.Click(13, 5);
-  Aliases.Folha.FRhAnuenios.bConsul.Click(12, 12);
-  Aliases.Folha.FRhAnuenios.bDesf.Click(15, 9);
-  Aliases.Folha.FRhAnuenios.bExc.Click(13, 8);
+FormPadraoAnuenios  		  := Aliases.Folha.FRhAnuenios;
+CadAnuenioEBEstab			    := Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_ESTAB;
+CadAnuenioEBIdTabanuenio	:= Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_IDTABANUENIO;
+CadAnuenioEBDescricao		  := Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_DESCRICAO;
+CadAnuenioEBVlrTetoCalc		:= Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_VLRTETOCALC;
+
+PageTabNormalAnuenios		  := Aliases.Folha.FRhAnuenios.Page.TabNormal.pg;
+  
+FormGridAnuenios  			  := Aliases.Folha.FRhAnuenios.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.cxGAnuenio;
+BtnAnInc  					      := Aliases.Folha.FRhAnuenios.bInc;
+BtnAnProc  					      := Aliases.Folha.FRhAnuenios.bProc;
+BtnAnConsul 				      := Aliases.Folha.FRhAnuenios.bConsul;
+BtnAnDesf  					      := Aliases.Folha.FRhAnuenios.bDesf;
+BtnAnExc  					      := Aliases.Folha.FRhAnuenios.bExc;
   
   
-  Aliases.Folha.FRhAnuenios.BSalvar.Click(12, 11);
-  Aliases.Folha.FRhAnuenios.BExcluir.Click(14, 12);
-  
-  
-  Quantidade Anos Inicial	Quantidade Anos Final	Percentual Anuênios	Valor do Anuênio
-  
+BtnSalvarAnuenios			    := Aliases.Folha.FRhAnuenios.BSalvar;
+BtnSalvarAnuenios			    := Aliases.Folha.FRhAnuenios.BExcluir;
   
 end;
-

@@ -10,7 +10,7 @@ end;
 
 procedure PreencheGridAnuenio(pathData);
 var 
-DDTAnuenio :OleVariant;
+DDTAnuenios :OleVariant;
 i : integer;
 begin
 
@@ -20,13 +20,13 @@ PageTabNormalAnuenios.ActivePageIndex:=0;
 
 MapCadAnuenios();
 
-DDTAnuenio := CarregaDDT(pathData, 'Anuenio');
+DDTAnuenios := CarregaDDT(pathData, 'Anuenios');
 
-While not (DDTAnuenio.EOF) do
+While not (DDTAnuenios.EOF) do
 begin
 MapGridConsulta(_ModuloFolha);
 
-LeDataPoolCadExpConf(DDTAnuenio.Name);
+LeDataPoolCadGridAnuenios(DDTAnuenios.Name);
 
  if (FormGridAnuenios.ActiveView.ViewData.RowCount < 1) then
  BtnAnInc.Click;
@@ -40,9 +40,9 @@ VerificaClickPreencheGrid(FormGridAnuenios, i, 'Valor do Anuênio', CadAnuenioDP
 FormGridAnuenios.Keys('[Tab]');
 Inc(i);
 
-DDTAnuenio.Next;
+DDTAnuenios.Next;
 end;
-DDT.CloseDriver(DDTAnuenio.Name);
+DDT.CloseDriver(DDTAnuenios.Name);
 end;
 
 procedure CadastraAnuenios(pathData);

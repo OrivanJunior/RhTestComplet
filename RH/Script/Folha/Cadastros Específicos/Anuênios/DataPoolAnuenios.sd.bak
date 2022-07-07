@@ -1,1 +1,25 @@
-﻿
+﻿var
+CadAnuenioDPEstab,
+CadAnuenioDPIdTabanuenio,
+CadAnuenioDPDescricao,
+CadAnuenioDPVlrTetoCalc,
+CadAnuenioDPQntAnosInicial,
+CadAnuenioDPQntAnosFinal,
+CadAnuenioDPPercAnuenios,
+CadAnuenioDPValordoAnuenio : OleVariant;
+
+
+procedure LeDataPoolCadAnuenios(nomeDriver);
+begin
+CadAnuenioDPEstab			      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadAnuenioDPIdTabanuenio	  := DDT.DriverByName(nomeDriver).Value('IDTABANUENIO');
+CadAnuenioDPDescricao		    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadAnuenioDPVlrTetoCalc	    := DDT.DriverByName(nomeDriver).Value('VLRTETOCALC');
+
+
+CadAnuenioDPQntAnosInicial	:= DDT.DriverByName(nomeDriver).Value('QNTANOSINICIAL');
+CadAnuenioDPQntAnosFinal	  := DDT.DriverByName(nomeDriver).Value('QNTANOSFINAL');
+CadAnuenioDPPercAnuenios	  := DDT.DriverByName(nomeDriver).Value('PERCANUENIOS');
+CadAnuenioDPValordoAnuenio  := DDT.DriverByName(nomeDriver).Value('VALORDOANUENIO');
+
+end;

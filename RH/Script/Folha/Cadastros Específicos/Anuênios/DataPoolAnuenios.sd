@@ -15,8 +15,10 @@ CadAnuenioDPEstab			      := DDT.DriverByName(nomeDriver).Value('ESTAB');
 CadAnuenioDPIdTabanuenio	  := DDT.DriverByName(nomeDriver).Value('IDTABANUENIO');
 CadAnuenioDPDescricao		    := DDT.DriverByName(nomeDriver).Value('DESCRICAO');
 CadAnuenioDPVlrTetoCalc	    := DDT.DriverByName(nomeDriver).Value('VLRTETOCALC');
+end;
 
-
+procedure LeDataPoolCadGridAnuenios(nomeDriver);
+begin
 CadAnuenioDPQntAnosInicial	:= DDT.DriverByName(nomeDriver).Value('QNTANOSINICIAL');
 CadAnuenioDPQntAnosFinal	  := DDT.DriverByName(nomeDriver).Value('QNTANOSFINAL');
 CadAnuenioDPPercAnuenios	  := DDT.DriverByName(nomeDriver).Value('PERCANUENIOS');

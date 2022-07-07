@@ -10,7 +10,7 @@ end;
 
 procedure PreencheGridAnuenio(pathData);
 var 
-DDTAnuenio :OleVariant;
+DDTAnuenios :OleVariant;
 i : integer;
 begin
 
@@ -20,13 +20,13 @@ PageTabNormalAnuenios.ActivePageIndex:=0;
 
 MapCadAnuenios();
 
-DDTAnuenio := CarregaDDT(pathData, 'Anuenio');
+DDTAnuenios := CarregaDDT(pathData, 'Anuenios');
 
-While not (DDTAnuenio.EOF) do
+While not (DDTAnuenios.EOF) do
 begin
 MapGridConsulta(_ModuloFolha);
 
-LeDataPoolCadExpConf(DDTAnuenio.Name);
+LeDataPoolCadGridAnuenios(DDTAnuenios.Name);
 
  if (FormGridAnuenios.ActiveView.ViewData.RowCount < 1) then
  BtnAnInc.Click;
@@ -66,11 +66,10 @@ LeDataPoolCadAnuenios(DDTCadastrar.Name);
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadLocais();
+  MapCadAnuenios();
   
   PreencheAnuenios();
   PreencheGridAnuenio(pathData);
-  
   
   ActSalvar(FormPadraoAnuenios);
   ActFechar(FormPadraoAnuenios);
@@ -83,35 +82,33 @@ procedure ExcluirAnuenios(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Locais');
-
-FiltraTelaIniLocal();
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadLocais(DDTExcluir.Name);
+LeDataPoolCadAnuenios(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhLocal');
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código do Local',CadLocaisDPIdlocal);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadLocais();
+  MapCadAnuenios();
   
-  ActSalvar(FormPadraoLocais);
+  ActSalvar(FormPadraoAnuenios);
 
-  ActExcluir(_ModuloFolha, 'FRhLocal');
+  ActExcluir(_ModuloFolha, 'FRhAnuenios');
 
-  ActFechar(FormPadraoLocais);
+  ActFechar(FormPadraoAnuenios);
   end;
   DDTExcluir.Next;
 end;
