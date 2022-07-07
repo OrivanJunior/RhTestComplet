@@ -1,0 +1,41 @@
+﻿var 
+FormPadraoPlanos,
+
+CadPlanosEBEstab,
+CadPlanosEBIdEmpregado,
+PageTabNormalPlanos,
+  
+PageTabNormalPlanos,
+  
+FormGridEmpregado,
+BtnIncPlanoEmp,
+BtnDesfPlanoEmp,
+BtnExcPlanoEmp,
+  
+FormGridDependentes,
+BtnIncDep,
+BtnDesfDep,
+BtnExcDep : OleVariant;				
+
+
+
+procedure MapCadPlanos();
+begin
+FormPadraoPlanos		    := Aliases.Folha.FRhPlano;
+
+CadPlanosEBEstab  		  := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB;
+CadPlanosEBIdEmpregado  := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+CadPlanosEBIdOpSaude    := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDOPSAUDE;
+
+PageTabNormalPlanos		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg;
+  
+FormGridEmpregado  		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhPlanoEmp;
+BtnIncPlanoEmp  		    := Aliases.Folha.FRhPlano.bIncPlanoEmp;
+BtnDesfPlanoEmp  		    := Aliases.Folha.FRhPlano.bDesfPlanoEmp;
+BtnExcPlanoEmp  		    := Aliases.Folha.FRhPlano.bExcPlanoEmp;
+  
+FormGridDependentes		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhPlanoDet;
+BtnIncDep  				      := Aliases.Folha.FRhPlano.bInc;
+BtnDesfDep  			      := Aliases.Folha.FRhPlano.bDesf;
+BtnExcDep  				      := Aliases.Folha.FRhPlano.bExc;
+end;

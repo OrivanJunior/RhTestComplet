@@ -1,0 +1,19 @@
+﻿procedure Test1;
+begin
+  Aliases.Folha.FRhPlano.Click(275, 14);
+  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB.Click(59, 10);
+  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB.Keys('[Tab]');
+  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDEMPREGADO.Keys('[Tab]');
+  
+  Aliases.Folha.FRhPlano.Page.TabNormal.pg.Click(46, 10);
+  
+  Aliases.Folha.FRhPlano.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhPlanoEmp.TcxGridSite.Click(36, 41);
+  Aliases.Folha.FRhPlano.bIncPlanoEmp.Click(12, 12);
+  Aliases.Folha.FRhPlano.bDesfPlanoEmp.Click(9, 4);
+  Aliases.Folha.FRhPlano.bExcPlanoEmp.Click(13, 10);
+  
+  Aliases.Folha.FRhPlano.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhPlanoDet.TcxGridSite.Drag(181, 43, 3, -5);
+  Aliases.Folha.FRhPlano.bInc.Click(18, 7);
+  Aliases.Folha.FRhPlano.bDesf.Click(10, 5);
+  Aliases.Folha.FRhPlano.bExc.Click(10, 12);
+end;

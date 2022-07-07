@@ -1,0 +1,173 @@
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolCadPlanos, ObjCadPlanos;
+
+procedure PreenchePlano();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBEstab,CadPlanosDPEstab); 		
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBIdEmpregado,CadPlanosDPIdEmpregado);   
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBIdOpSaude,CadPlanosDPIdOpSaude); 	
+end;
+
+procedure PreencheGridEmpregados(pathData);
+var DDTEmpregado : OleVariant;
+i : Interger;
+begin
+i :=0;
+
+PageTabNormalPlanos.ActivePageIndex:=0;
+
+MapCadEmpregados();
+
+DDTEmpregados := CarregaDDT(pathData, 'Empregados');
+
+While not (DDTEmpregados.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadEmpregados(DDTEmpregados.Name);
+
+ if (FormGridEmpregado.ActiveView.ViewData.RowCount < 1) then
+ BtnIncPlanoEmp.Click;
+ 
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Ano', CadPlanosDPAno);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Cód. Evento' ,CadPlanosDPCodEvento);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Descrição  ' ,CadPlanosDPDescricao);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Jan.'	,CadPlanosDPVlrJan);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Fev'	,CadPlanosDPVlrFev);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Mar.'	,CadPlanosDPVlrMar);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Abr.'	,CadPlanosDPVlrAbr);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Mai.'	,CadPlanosDPVlrMai);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Jun.'	,CadPlanosDPVlrJun);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Jul.'	,CadPlanosDPVlrJul);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Ago.'	,CadPlanosDPVlrAgo);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Set.'	,CadPlanosDPVlrSet);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Out.'	,CadPlanosDPVlrOut);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Nov.'	,CadPlanosDPVlrNov);
+VerificaClickPreencheGrid(FormGridEmpregado, i, 'Vlr. Dez.'	,CadPlanosDPVlrDez);
+
+FormGridEmpregado.Keys('[Tab]');
+Inc(i);
+
+DDTEmpregado.Next;
+end;
+DDT.CloseDriver(DDTEmpregado.Name);
+end;
+
+procedure PreencheGridDependentes(pathData);
+var DDTDependentes : OleVariant;
+i : Integer;
+begin
+i := 0;
+
+PageTabNormalPlanos.ActivePageIndex:=0;
+
+MapCadPlanos();
+
+DDTDependentes := CarregaDDT(pathData, 'Dependentes');
+
+While not (DDTDependentes.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadDependentes(DDTDependentes.Name);
+
+ if (FormGridDependentes.ActiveView.ViewData.RowCount < 1) then
+BtnIncDep.Click;
+
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Cód. Dep.', CadDepDPCodDep);				
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Nome', CadDepDPNome);
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Ano.', CadDepDPAnoCod);
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Cód. Evento', CadDepDPCodEvento);
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Descrição', CadDepDPDescricao);
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Jan.', CadDepDPVlrJan);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Fev' , CadDepDPVlrFev);
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Mar.', CadDepDPVlrMar);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Abr.', CadDepDPVlrAbr);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Mai.', CadDepDPVlrMai);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Jun.', CadDepDPVlrJun);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Jul.', CadDepDPVlrJul);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Ago.', CadDepDPVlrAgo);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Set.', CadDepDPVlrSet);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Out.', CadDepDPVlrOut);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Nov.', CadDepDPVlrNov);	
+VerificaClickPreencheGrid(FormGridDependentes, i, 'Vlr. Dez.', CadDepDPVlrDez);
+
+
+FormGridDependentes.Keys('[Tab]');
+Inc(i);
+
+DDTDependentes.Next;
+end;
+DDT.CloseDriver(DDTDependentes.Name);
+end;
+
+
+procedure CadastraPlanos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cadastros de Planos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadPlanos(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPlano');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado',CadPlanosDPIdEmpregado);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  PreencheAnuenios();
+  PreencheGridAnuenio(pathData);
+  
+  ActSalvar(FormPadraoAnuenios);
+  ActFechar(FormPadraoAnuenios);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirPlanos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAnuenios(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  ActSalvar(FormPadraoAnuenios);
+
+  ActExcluir(_ModuloFolha, 'FRhAnuenios');
+
+  ActFechar(FormPadraoAnuenios);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

@@ -1,0 +1,86 @@
+﻿var
+CadPlanosDPEstab,
+CadPlanosDPIdEmpregado,
+CadPlanosDPIdOpSaude,
+
+CadDepDPCodDep,
+CadDepDPNome,
+CadDepDPAnoCod,
+CadDepDPCodEvento,
+CadDepDPDescricao,
+CadDepDPVlrJan,
+CadDepDPVlrFev,
+CadDepDPVlrMar,
+CadDepDPVlrAbr,
+CadDepDPVlrMai,
+CadDepDPVlrJun,
+CadDepDPVlrJul,
+CadDepDPVlrAgo,
+CadDepDPVlrSet,
+CadDepDPVlrOut,
+CadDepDPVlrNov,
+CadDepDPVlrDez,
+
+CadEmpDPAno,
+CadEmpDPCodEvento,
+CadEmpDPDescricao,
+CadEmpDPVlrJan,
+CadEmpDPVlrFev,
+CadEmpDPVlrMar,
+CadEmpDPVlrAbr,
+CadEmpDPVlrMai,
+CadEmpDPVlrJun,
+CadEmpDPVlrJul,
+CadEmpDPVlrAgo,
+CadEmpDPVlrSet,
+CadEmpDPVlrOut,
+CadEmpDPVlrNov,
+CadEmpDPVlrDez : OleVariant;
+
+
+procedure LeDataPoolCadPlanos(nomeDriver);
+begin
+CadPlanosDPEstab  		  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadPlanosDPIdEmpregado  := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadPlanosDPIdOpSaude	  := DDT.DriverByName(nomeDriver).Value('IDOPSAUDE');
+end;
+
+procedure LeDataPoolCadEmpregados(nomeDriver);
+begin
+CadEmpDPAno				    := DDT.DriverByName(nomeDriver).Value('ANO');
+CadEmpDPCodEvento    	:= DDT.DriverByName(nomeDriver).Value('CODEVENTO');
+CadEmpDPDescricao    	:= DDT.DriverByName(nomeDriver).Value('DESCRIÇÃO');
+CadEmpDPVlrJan	    	:= DDT.DriverByName(nomeDriver).Value('VLRJAN');
+CadEmpDPVlrFev       	:= DDT.DriverByName(nomeDriver).Value('VLRFEV');
+CadEmpDPVlrMar	    	:= DDT.DriverByName(nomeDriver).Value('VLRMAR');
+CadEmpDPVlrAbr	    	:= DDT.DriverByName(nomeDriver).Value('VLRABR');
+CadEmpDPVlrMai	    	:= DDT.DriverByName(nomeDriver).Value('VLRMAI');
+CadEmpDPVlrJun	    	:= DDT.DriverByName(nomeDriver).Value('VLRJUN');
+CadEmpDPVlrJul	    	:= DDT.DriverByName(nomeDriver).Value('VLRJUL');
+CadEmpDPVlrAgo	    	:= DDT.DriverByName(nomeDriver).Value('VLRAGO');
+CadEmpDPVlrSet	    	:= DDT.DriverByName(nomeDriver).Value('VLRSET');
+CadEmpDPVlrOut	    	:= DDT.DriverByName(nomeDriver).Value('VLROUT');
+CadEmpDPVlrNov	    	:= DDT.DriverByName(nomeDriver).Value('VLRNOV');
+CadEmpDPVlrDez       	:= DDT.DriverByName(nomeDriver).Value('VLRDEZ');
+end;
+
+procedure LeDataPoolCadDependentes(nomeDriver);
+begin
+CadDepDPCodDep			:= DDT.DriverByName(nomeDriver).Value('CODDEP');
+CadDepDPNome			  := DDT.DriverByName(nomeDriver).Value('NOME');
+CadDepDPAnoCod			:= DDT.DriverByName(nomeDriver).Value('ANOCOD');
+CadDepDPCodEvento		:= DDT.DriverByName(nomeDriver).Value('CODEVENTO');
+CadDepDPDescricao		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadDepDPVlrJan			:= DDT.DriverByName(nomeDriver).Value('VLRJAN');
+CadDepDPVlrFev			:= DDT.DriverByName(nomeDriver).Value('VLRFEV');
+CadDepDPVlrMar			:= DDT.DriverByName(nomeDriver).Value('VLRMAR');
+CadDepDPVlrAbr			:= DDT.DriverByName(nomeDriver).Value('VLRABR');
+CadDepDPVlrMai			:= DDT.DriverByName(nomeDriver).Value('VLRMAI');
+CadDepDPVlrJun			:= DDT.DriverByName(nomeDriver).Value('VLRJUN');
+CadDepDPVlrJul			:= DDT.DriverByName(nomeDriver).Value('VLRJUL');
+CadDepDPVlrAgo			:= DDT.DriverByName(nomeDriver).Value('VLRAGO');
+CadDepDPVlrSet			:= DDT.DriverByName(nomeDriver).Value('VLRSET');
+CadDepDPVlrOut			:= DDT.DriverByName(nomeDriver).Value('VLROUT');
+CadDepDPVlrNov			:= DDT.DriverByName(nomeDriver).Value('VLRNOV');
+CadDepDPVlrDez			:= DDT.DriverByName(nomeDriver).Value('VLRDEZ');
+end;
