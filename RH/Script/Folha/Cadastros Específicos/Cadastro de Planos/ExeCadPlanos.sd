@@ -124,9 +124,6 @@ LeDataPoolCadPlanos(DDTCadastrar.Name);
   
   MapCadAnuenios();
   
-  PreencheAnuenios();
-  PreencheGridAnuenio(pathData);
-  
   ActSalvar(FormPadraoAnuenios);
   ActFechar(FormPadraoAnuenios);
   end;
@@ -138,7 +135,7 @@ procedure ExcluirPlanos(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cadastros de Planos');
 
 MapGridConsulta(_ModuloFolha);
 
@@ -152,7 +149,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado',CadPlanosDPIdEmpregado);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   

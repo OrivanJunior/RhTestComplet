@@ -1,4 +1,13 @@
-﻿procedure PreencheGridEmpregados(pathData);
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolCadPlanos, ObjCadPlanos;
+
+procedure PreenchePlano();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBEstab,CadPlanosDPEstab); 		
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBIdEmpregado,CadPlanosDPIdEmpregado);   
+VerificaConsultaF3Insere(_ModuloFolha,CadPlanosEBIdOpSaude,CadPlanosDPIdOpSaude); 	
+end;
+
+procedure PreencheGridEmpregados(pathData);
 var DDTEmpregado : OleVariant;
 i : Interger;
 begin
@@ -43,8 +52,7 @@ end;
 DDT.CloseDriver(DDTEmpregado.Name);
 end;
 
-
-procedure PreencheGridDependentes();
+procedure PreencheGridDependentes(pathData);
 var DDTDependentes : OleVariant;
 i : Integer;
 begin
@@ -90,4 +98,76 @@ Inc(i);
 DDTDependentes.Next;
 end;
 DDT.CloseDriver(DDTDependentes.Name);
+end;
+
+
+procedure CadastraPlanos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cadastros de Planos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadPlanos(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPlano');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Empregado',CadPlanosDPIdEmpregado);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  PreencheAnuenios();
+  PreencheGridAnuenio(pathData);
+  
+  ActSalvar(FormPadraoAnuenios);
+  ActFechar(FormPadraoAnuenios);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirPlanos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAnuenios(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAnuenios();
+  
+  ActSalvar(FormPadraoAnuenios);
+
+  ActExcluir(_ModuloFolha, 'FRhAnuenios');
+
+  ActFechar(FormPadraoAnuenios);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
 end;
