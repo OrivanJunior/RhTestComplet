@@ -16,7 +16,7 @@ BtnAnExc,
   
   
 BtnSalvarAnuenios,
-BtnSalvarAnuenios : OleVariant;
+BtnExcluirAnuenios : OleVariant;
 
 
 
@@ -39,6 +39,6 @@ BtnAnExc  					      := Aliases.Folha.FRhAnuenios.bExc;
   
   
 BtnSalvarAnuenios			    := Aliases.Folha.FRhAnuenios.BSalvar;
-BtnSalvarAnuenios			    := Aliases.Folha.FRhAnuenios.BExcluir;
+BtnExcluirAnuenios			    := Aliases.Folha.FRhAnuenios.BExcluir;
   
 end;
