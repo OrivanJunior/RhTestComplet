@@ -1,0 +1,25 @@
+﻿procedure Test1;
+begin
+  Aliases.Folha.FRhAnuenios.Click(279, 16);
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_ESTAB.Click(61, 10);
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_ESTAB.Keys('[Tab]');
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_IDTABANUENIO.Keys('[Tab]');
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pnCab.EB_DESCRICAO.Keys('[Tab]');
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pg.Click(28, 11);
+  Aliases.Folha.FRhAnuenios.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.cxGAnuenio.TcxGridSite.Click(65, 40);
+  Aliases.Folha.FRhAnuenios.bInc.Click(9, 9);
+  Aliases.Folha.FRhAnuenios.bProc.Click(13, 5);
+  Aliases.Folha.FRhAnuenios.bConsul.Click(12, 12);
+  Aliases.Folha.FRhAnuenios.bDesf.Click(15, 9);
+  Aliases.Folha.FRhAnuenios.bExc.Click(13, 8);
+  
+  
+  Aliases.Folha.FRhAnuenios.BSalvar.Click(12, 11);
+  Aliases.Folha.FRhAnuenios.BExcluir.Click(14, 12);
+  
+  
+  Quantidade Anos Inicial	Quantidade Anos Final	Percentual Anuênios	Valor do Anuênio
+  
+  
+end;
+

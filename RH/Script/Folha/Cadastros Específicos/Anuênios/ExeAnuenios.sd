@@ -1,1 +1,36 @@
-﻿
+﻿procedure PreencheGridAnuenio(pathData);
+var 
+DDTAnuenio :OleVariant;
+i : integer;
+begin
+
+i:= 0;
+
+PageTabNormalAnuenios.ActivePageIndex:=0;
+
+MapCadAnuenios();
+
+DDTAnuenio := CarregaDDT(pathData, 'Anuenio');
+
+While not (DDTAnuenio.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadExpConf(DDTAnuenio.Name);
+
+ if (FormGridAnuenios.ActiveView.ViewData.RowCount < 1) then
+ BtnAnInc.Click;
+
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Quantidade Anos Inicial', CadAnuenioDPQntAnosInicial);	
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Quantidade Anos Final', CadAnuenioDPQntAnosFinal);
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Percentual Anuênios', CadAnuenioDPPercAnuenios);
+VerificaClickPreencheGrid(FormGridAnuenios, i, 'Valor do Anuênio', CadAnuenioDPValordoAnuenio);
+
+
+FormGridAnuenios.Keys('[Tab]');
+Inc(i);
+
+DDTAnuenio.Next;
+end;
+DDT.CloseDriver(DDTAnuenio.Name);
+end;
