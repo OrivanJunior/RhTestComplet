@@ -14,14 +14,19 @@ VerificaInsere(CadEveProgrEBMotivoFechamento,CadEveProgrDPMotivoFechamento);
 VerificaInsere(CadEveProgrEBCalcularAfastado,CadEveProgrDPCalcularAfastado);
 VerificaInsere(CadEveProgrEBCalcFerias,CadEveProgrDPCalcFerias);		
 VerificaInsere(CadEveProgrEBObservacoes,CadEveProgrDPObservacoes);
-VerificaInsere(CadEveProgrEBFornecedor,CadEveProgrDPFornecedor);		
-BtnGerar.Click;
+VerificaInsere(CadEveProgrEBFornecedor,CadEveProgrDPFornecedor);
 VerificaInsere(CadEveProgrEBQtdeParc,CadEveProgrDPQtdeParc);
 PreencheDatas(CadEveProgrEBMesAno,CadEveProgrDPMesAno);
+BtnGerar.Click;
 ActSalvar(FormPadraoEveProg);
 VerificaInsere(CadEveProgrEBIdLayout,CadEveProgrDPIdLayout);
 PreencheDatas(CadEveProgrEBData,CadEveProgrDPData);
 BtnVisualizar.Click;
+Delay(500);
+
+if Aliases.Folha.FDirectPrintPreview.Exists then
+ Aliases.Folha.FDirectPrintPreview.Close;
+ 
 end;
 
 procedure FiltraTelaInicialEveProg();
@@ -30,6 +35,7 @@ FiltroEveProg();
 ListaConsultaEveProg.SetText('Por Empregado/Evento');
 FiltraCodEmpregado.Keys('(Ignorar)');
 FiltraEvento.Keys('(Ignorar)');
+BtnOkFiltro.ClickButton;
 
 end;
 
@@ -50,7 +56,7 @@ LeDataPoolCadEveProg(DDTCadastrar.Name);
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhEveProg');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrEBIdEmpregado);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrDPIdEmpregado);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
@@ -87,7 +93,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhEveProg');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrEBIdEmpregado);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Id. Empregado',CadEveProgrDPIdEmpregado);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
