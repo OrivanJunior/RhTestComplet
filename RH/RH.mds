@@ -2440,7 +2440,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Anuênios" key="{5A4130D6-121F-4A96-B9B9-A599B932F764}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Anuênios" key="{5A4130D6-121F-4A96-B9B9-A599B932F764}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraAnuenios" key="{947A489C-8E51-4DD8-A1B6-823E652B45B4}" group="False" parallel="False" enabled="True" testMoniker="{8E16F124-09BD-4D45-A682-D962DDC6E8A9}CadastraAnuenios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2453,6 +2453,25 @@
 													<testItem name="ExcluirAnuenios" key="{555DA7BD-8F1F-436E-A902-04541CA3E176}" group="False" parallel="False" enabled="True" testMoniker="{8E16F124-09BD-4D45-A682-D962DDC6E8A9}ExcluirAnuenios" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Anuênios\Anuênios.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Cadastro de Planos" key="{70F9D7F1-720B-4F60-AF5A-28400CF2BBC1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraPlanos" key="{203FA626-99E6-4EDC-B3E8-E98F9DC0C391}" group="False" parallel="False" enabled="True" testMoniker="{7E91D476-61CA-44EF-8CBA-550B61BC3856}CadastraPlanos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cadastro de Planos\Cadastro de Planos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirPlanos" key="{405401D0-A442-459A-99B8-D9907D723AE9}" group="False" parallel="False" enabled="True" testMoniker="{7E91D476-61CA-44EF-8CBA-550B61BC3856}ExcluirPlanos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cadastro de Planos\Cadastro de Planos.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

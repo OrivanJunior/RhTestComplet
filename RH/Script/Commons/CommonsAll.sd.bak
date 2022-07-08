@@ -331,7 +331,7 @@ begin
     begin
     grid.ClickCell(linha, coluna, 0);
     EscolheMetodoDeInsercao(grid, informacao);
-    //grid.Keys('[Enter]')
+    grid.Keys('[Enter]')
   end;
 end;
 

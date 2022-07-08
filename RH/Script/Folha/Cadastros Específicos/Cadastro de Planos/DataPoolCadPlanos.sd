@@ -49,7 +49,7 @@ procedure LeDataPoolCadEmpregados(nomeDriver);
 begin
 CadEmpDPAno				    := DDT.DriverByName(nomeDriver).Value('ANO');
 CadEmpDPCodEvento    	:= DDT.DriverByName(nomeDriver).Value('CODEVENTO');
-CadEmpDPDescricao    	:= DDT.DriverByName(nomeDriver).Value('DESCRIÇÃO');
+
 CadEmpDPVlrJan	    	:= DDT.DriverByName(nomeDriver).Value('VLRJAN');
 CadEmpDPVlrFev       	:= DDT.DriverByName(nomeDriver).Value('VLRFEV');
 CadEmpDPVlrMar	    	:= DDT.DriverByName(nomeDriver).Value('VLRMAR');
@@ -67,10 +67,10 @@ end;
 procedure LeDataPoolCadDependentes(nomeDriver);
 begin
 CadDepDPCodDep			:= DDT.DriverByName(nomeDriver).Value('CODDEP');
-CadDepDPNome			  := DDT.DriverByName(nomeDriver).Value('NOME');
+
 CadDepDPAnoCod			:= DDT.DriverByName(nomeDriver).Value('ANOCOD');
 CadDepDPCodEvento		:= DDT.DriverByName(nomeDriver).Value('CODEVENTO');
-CadDepDPDescricao		:= DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+
 CadDepDPVlrJan			:= DDT.DriverByName(nomeDriver).Value('VLRJAN');
 CadDepDPVlrFev			:= DDT.DriverByName(nomeDriver).Value('VLRFEV');
 CadDepDPVlrMar			:= DDT.DriverByName(nomeDriver).Value('VLRMAR');

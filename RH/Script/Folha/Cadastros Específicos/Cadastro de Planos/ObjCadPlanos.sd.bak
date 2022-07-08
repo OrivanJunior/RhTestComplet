@@ -1,19 +1,52 @@
-﻿procedure Test1;
+﻿var 
+FormPadraoPlanos,
+
+CadPlanosEBEstab,
+CadPlanosEBIdEmpregado,
+PageTabNormalPlanos,
+  
+FormGridEmpregado,
+BtnIncPlanoEmp,
+BtnDesfPlanoEmp,
+BtnExcPlanoEmp,
+  
+FormGridDependentes,
+BtnIncDep,
+BtnDesfDep,
+BtnExcDep, 
+
+FormFiltroPlanos,
+FiltroListaConsulta,
+FiltroEmpregado,
+BtnFiltroOk  : OleVariant;				
+
+
+
+procedure MapCadPlanos();
 begin
-  Aliases.Folha.FRhPlano.Click(275, 14);
-  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB.Click(59, 10);
-  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB.Keys('[Tab]');
-  Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDEMPREGADO.Keys('[Tab]');
+FormPadraoPlanos		    := Aliases.Folha.FRhPlano;
+
+CadPlanosEBEstab  		  := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_ESTAB;
+CadPlanosEBIdEmpregado  := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDEMPREGADO;
+CadPlanosEBIdOpSaude    := Aliases.Folha.FRhPlano.Page.TabNormal.pnCab.EB_IDOPSAUDE;
+
+PageTabNormalPlanos		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg;
   
-  Aliases.Folha.FRhPlano.Page.TabNormal.pg.Click(46, 10);
+FormGridEmpregado  		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhPlanoEmp;
+BtnIncPlanoEmp  		    := Aliases.Folha.FRhPlano.bIncPlanoEmp;
+BtnDesfPlanoEmp  		    := Aliases.Folha.FRhPlano.bDesfPlanoEmp;
+BtnExcPlanoEmp  		    := Aliases.Folha.FRhPlano.bExcPlanoEmp;
   
-  Aliases.Folha.FRhPlano.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhPlanoEmp.TcxGridSite.Click(36, 41);
-  Aliases.Folha.FRhPlano.bIncPlanoEmp.Click(12, 12);
-  Aliases.Folha.FRhPlano.bDesfPlanoEmp.Click(9, 4);
-  Aliases.Folha.FRhPlano.bExcPlanoEmp.Click(13, 10);
-  
-  Aliases.Folha.FRhPlano.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhPlanoDet.TcxGridSite.Drag(181, 43, 3, -5);
-  Aliases.Folha.FRhPlano.bInc.Click(18, 7);
-  Aliases.Folha.FRhPlano.bDesf.Click(10, 5);
-  Aliases.Folha.FRhPlano.bExc.Click(10, 12);
+FormGridDependentes		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg.tsRhRaisEve.sbRHExpDet.gRhPlanoDet;
+BtnIncDep  				      := Aliases.Folha.FRhPlano.bInc;
+BtnDesfDep  			      := Aliases.Folha.FRhPlano.bDesf;
+BtnExcDep  				      := Aliases.Folha.FRhPlano.bExc;
+end;
+
+procedure FiltraPlanos();
+begin
+FormFiltroPlanos    := Aliases.Folha.FFiltroConsultaCDS;
+FiltroListaConsulta := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEmpregado     := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnFiltroOk         := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;

@@ -3,8 +3,7 @@ FormPadraoPlanos,
 
 CadPlanosEBEstab,
 CadPlanosEBIdEmpregado,
-PageTabNormalPlanos,
-  
+CadPlanosEBIdOpSaude,
 PageTabNormalPlanos,
   
 FormGridEmpregado,
@@ -15,7 +14,12 @@ BtnExcPlanoEmp,
 FormGridDependentes,
 BtnIncDep,
 BtnDesfDep,
-BtnExcDep : OleVariant;				
+BtnExcDep, 
+
+FormFiltroPlanos,
+FiltroListaConsulta,
+FiltroEmpregado,
+BtnFiltroOk  : OleVariant;				
 
 
 
@@ -38,4 +42,12 @@ FormGridDependentes		  := Aliases.Folha.FRhPlano.Page.TabNormal.pg.tsRhRaisEve.s
 BtnIncDep  				      := Aliases.Folha.FRhPlano.bInc;
 BtnDesfDep  			      := Aliases.Folha.FRhPlano.bDesf;
 BtnExcDep  				      := Aliases.Folha.FRhPlano.bExc;
+end;
+
+procedure FiltraPlanos();
+begin
+FormFiltroPlanos    := Aliases.Folha.FFiltroConsultaCDS;
+FiltroListaConsulta := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEmpregado     := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnFiltroOk         := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;
