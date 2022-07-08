@@ -15,11 +15,25 @@ VerificaInsere(CadDarfsEBVlrJuros,CadDarfsDPVlrJuros);
 VerificaInsere(CadDarfsEBVlrTotal,CadDarfsDPVlrTotal);
 end;
 
+procedure FiltroTelaInicialDarfs();
+begin
+FiltraDarfs();
+
+FiltroListaConsulta.SetText('Darf Por Código de Receita');
+FiltroCodReceita.Keys('(Ignorar)');		
+BtnOkDarfs.ClickButton;
+end;
+			 
+
+
+
 procedure CadastraDarfs(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
+
+FiltroTelaInicialDarfs();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -53,6 +67,8 @@ DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
 
+FiltroTelaInicialDarfs();
+
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
@@ -72,10 +88,11 @@ begin
   ActConsulta(FormTelaConsultaForm);
   
   MapCadDarfs();
-  
-  ActSalvar(FormPadraoDarfs);
 
   ActExcluir(_ModuloFolha, 'FRhDarf');
+  
+  if Aliases.Folha.FVsErrorDlg.Exists then
+  Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.Click;
 
   ActFechar(FormPadraoDarfs);
   end;

@@ -16,7 +16,12 @@ CadDarfsEBNroReferencia,
 CadDarfsEBVlrPrincipal,
 CadDarfsEBVlrMulta,
 CadDarfsEBVlrJuros,
-CadDarfsEBVlrTotal 			: OleVariant; 
+CadDarfsEBVlrTotal, 
+
+FormFiltroDarfs,
+FiltroListaConsulta,
+FiltroCodReceita,
+BtnOkDarfs				  			: OleVariant; 
 		
 procedure MapCadDarfs();
 begin
@@ -34,4 +39,18 @@ CadDarfsEBVlrMulta   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRMULTA
 CadDarfsEBVlrJuros   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRJUROS;
 CadDarfsEBVlrTotal 			:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRTOTAL;
 end;
+
+procedure FiltraDarfs();
+begin
+
+FormFiltroDarfs			  := Aliases.Folha.FFiltroConsultaCDS;
+FiltroListaConsulta		:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroCodReceita		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOkDarfs				    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+
+end;
+
+
+
+
 

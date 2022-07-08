@@ -15,34 +15,47 @@ VerificaInsere(CadDarfsEBVlrJuros,CadDarfsDPVlrJuros);
 VerificaInsere(CadDarfsEBVlrTotal,CadDarfsDPVlrTotal);
 end;
 
-procedure CadastraDarfs();
+procedure FiltroTelaInicialDarfs();
+begin
+FiltraDarfs();
+
+FiltroListaConsulta.SetText('Darf Por Código de Receita');
+FiltroCodReceita.Keys('(Ignorar)');		
+BtnOkDarfs.ClickButton;
+end;
+			 
+
+
+
+procedure CadastraDarfs(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
 
+FiltroTelaInicialDarfs();
+
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadAnuenios(DDTCadastrar.Name);
+LeDataPoolCadDarfs(DDTCadastrar.Name);
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+    ValidaFormAberto(_ModuloFolha, 'FRhDarf');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadDarfsDPSequencia);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadAnuenios();
+  MapCadDarfs();
+
+  PreencheDarfs();
   
-  PreencheAnuenios();
-  PreencheGridAnuenio(pathData);
-  
-  ActSalvar(FormPadraoAnuenios);
-  ActFechar(FormPadraoAnuenios);
+  ActSalvar(FormPadraoDarfs);
+  ActFechar(FormPadraoDarfs);
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
@@ -52,33 +65,35 @@ procedure ExcluirDarfs(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Anuênios');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
+
+FiltroTelaInicialDarfs();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadAnuenios(DDTExcluir.Name);
+LeDataPoolCadDarfs(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhAnuenios');
+    ValidaFormAberto(_ModuloFolha, 'FRhDarf');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tabela de Anuên',CadAnuenioDPIdTabanuenio);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadDarfsDPSequencia);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadAnuenios();
+  MapCadDarfs();
+
+  ActExcluir(_ModuloFolha, 'FRhDarf');
   
-  ActSalvar(FormPadraoAnuenios);
+  
 
-  ActExcluir(_ModuloFolha, 'FRhAnuenios');
-
-  ActFechar(FormPadraoAnuenios);
+  ActFechar(FormPadraoDarfs);
   end;
   DDTExcluir.Next;
 end;
