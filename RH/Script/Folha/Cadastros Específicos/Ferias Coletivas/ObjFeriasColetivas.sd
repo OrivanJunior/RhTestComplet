@@ -3,3 +3,25 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 08/07/2022}
  
+
+procedure Test1;
+begin
+  Aliases.Folha.FRhFerCol.Click(578, 13);
+  
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_ESTAB.Click(48, 12);
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DIASGOZO.Click(45, 6);
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DTINICIAL.Click(37, 15);
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DTFINAL.Click(34, 7);
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_RECLICENCA.Click(28, 8);
+  
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pg.Click(48, 12);
+  Aliases.Folha.FRhFerCol.Page.TabNormal.pg.tsRhFerColEmp.sbRHFerColEmp.gRhFerColEmp.TcxGridSite.Click(51, 41);
+  
+  Aliases.Folha.FRhFerCol.bIncEmp.Click(16, 13);
+  Aliases.Folha.FRhFerCol.bProcEmp.Click(14, 5);
+  Aliases.Folha.FRhFerCol.bConsulEmp.Click(11, 13);
+  Aliases.Folha.FRhFerCol.bDesfEmp.Click(12, 14);
+  
+  
+end;
+
