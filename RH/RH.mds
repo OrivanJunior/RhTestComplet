@@ -2459,7 +2459,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Cadastro de Planos" key="{70F9D7F1-720B-4F60-AF5A-28400CF2BBC1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Cadastro de Planos" key="{70F9D7F1-720B-4F60-AF5A-28400CF2BBC1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraPlanos" key="{203FA626-99E6-4EDC-B3E8-E98F9DC0C391}" group="False" parallel="False" enabled="True" testMoniker="{7E91D476-61CA-44EF-8CBA-550B61BC3856}CadastraPlanos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2472,6 +2472,25 @@
 													<testItem name="ExcluirPlanos" key="{405401D0-A442-459A-99B8-D9907D723AE9}" group="False" parallel="False" enabled="True" testMoniker="{7E91D476-61CA-44EF-8CBA-550B61BC3856}ExcluirPlanos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cadastro de Planos\Cadastro de Planos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Férias Coletivas" key="{FCD49BC2-6729-4785-8186-1D7940A06E03}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraFerColetivas" key="{94531365-8393-470A-9F4A-B5C04792BB1C}" group="False" parallel="False" enabled="True" testMoniker="{322E05A7-2F00-41DA-B032-44E3908D4394}CadastraFerColetivas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Férias Coletivas\Férias Coletivas.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirFerColetivas" key="{B2B6D953-66C5-45C8-91AE-16B606461E5F}" group="False" parallel="False" enabled="True" testMoniker="{322E05A7-2F00-41DA-B032-44E3908D4394}ExcluirFerColetivas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Férias Coletivas\Férias Coletivas.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

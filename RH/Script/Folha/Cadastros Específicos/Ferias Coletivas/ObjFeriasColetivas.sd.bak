@@ -2,4 +2,47 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 08/07/2022}
- 
+
+var
+FormPadraoFerColetivas,
+  
+CadFerColetivasEBEstab,
+CadFerColetivasEBDiasGozo,
+CadFerColetivasEBDtInicial,
+CadFerColetivasEBDtFinal,
+CadFerColetivasEBRecLicenca,
+		
+PageTabNormalEmpregados,
+FormGridEmpregados,
+  
+BtnIncEmp,
+BtnFilEmp,
+BtnProcEmp,
+BtnConsulEmp,
+BtnDesfEmp,
+BtnExcEmp,
+BtnExcAllEmp : OleVariant;
+
+procedure MapCadFeriasColetivas();
+begin
+
+FormPadraoFerColetivas  				:=	Aliases.Folha.FRhFerCol;
+
+CadFerColetivasEBEstab					:=  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_ESTAB;
+CadFerColetivasEBDiasGozo				:=  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DIASGOZO;
+CadFerColetivasEBDtInicial		  :=  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DTINICIAL;
+CadFerColetivasEBDtFinal				:=  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_DTFINAL;
+CadFerColetivasEBRecLicenca			:=  Aliases.Folha.FRhFerCol.Page.TabNormal.pnCab.EB_RECLICENCA;
+
+PageTabNormalEmpregados					:=  Aliases.Folha.FRhFerCol.Page.TabNormal.pg;
+FormGridEmpregados						  := 	Aliases.Folha.FRhFerCol.Page.TabNormal.pg.tsRhFerColEmp.sbRHFerColEmp.gRhFerColEmp;
+
+BtnIncEmp  								      := 	Aliases.Folha.FRhFerCol.bIncEmp;
+BtnFilEmp  								      := 	Aliases.Folha.FRhFerCol.bFilEmp;
+BtnProcEmp  							      := 	Aliases.Folha.FRhFerCol.bProcEmp;
+BtnConsulEmp							      := 	Aliases.Folha.FRhFerCol.bConsulEmp;
+BtnDesfEmp  							      := 	Aliases.Folha.FRhFerCol.bDesfEmp;
+BtnExcEmp  								      := 	Aliases.Folha.FRhFerCol.bExcEmp;
+BtnExcAllEmp							      := 	Aliases.Folha.FRhFerCol.bExcAllEmp;
+
+end;

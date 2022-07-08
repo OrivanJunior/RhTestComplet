@@ -1,1 +1,128 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolFeriasColetivas, ObjFeriasColetivas;
+
+procedure PreencheFeriasColetivas();
+begin
+
+VerificaConsultaF3Insere(_ModuloFolha,CadFerColetivasEBEstab,CadFerColetivasDPEstab);
+VerificaInsere(CadFerColetivasEBDiasGozo,CadFerColetivasDPDiasGozo);
+PreencheDatas(CadFerColetivasEBDtInicial,CadFerColetivasDPDtInicial);
+VerificaInsere(CadFerColetivasEBDtFinal,CadFerColetivasDPDtFinal);
+VerificaInsere(CadFerColetivasEBRecLicenca,CadFerColetivasDPRecLicenca);
+
+ActSalvar(FormPadraoFerColetivas);
+
+end;
+
+
+procedure PreencheGridEmpregados(pathData);
+var DDTEmpregado : OleVariant;
+i : Integer;
+begin
+i := 0;
+
+PageTabNormalEmpregados.ActivePageIndex := 0;
+
+MapCadFeriasColetivas();
+
+DDTEmpregado := CarregaDDT(pathData, 'Empregados');
+
+While not (DDTEmpregado.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadEmpregados(DDTEmpregado.Name);
+
+ if (FormGridEmpregados.ActiveView.ViewData.RowCount < 1) then
+BtnIncEmp.Click;
+
+VerificaClickPreencheGrid(FormGridEmpregados, i, 'Empregado', CadEmpDPEmpregado);
+
+FormGridEmpregados.Keys('[Tab]');
+Inc(i);
+
+DDTEmpregado.Next;
+end;
+DDT.CloseDriver(DDTEmpregado.Name);
+end;
+
+
+procedure CadastraFerColetivas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Férias Coletivas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadFeriasColetivas(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFerCol');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFerColetivasDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadFeriasColetivas();
+  
+  PreencheFeriasColetivas();
+  PreencheGridEmpregados(pathData);  
+  
+  BtnSalvarFerColetivas.Click;
+  
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+  Aliases.Folha.dlgEventosBasesDeC_lculo.Close;
+  
+  ActFechar(FormPadraoFerColetivas);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirFerColetivas(PathData);
+var
+BtnSim,
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Férias Coletivas');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadFeriasColetivas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhFerCol');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFerColetivasDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFeriasColetivas();
+
+  ActExcluir(_ModuloFolha, 'FRhFerCol');
+  
+  
+  if Aliases.Folha.TMessageForm_.Exists then
+  Aliases.Folha.TMessageForm_.Close;
+  
+ 
+  ActFechar(FormPadraoFerColetivas);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

@@ -1,1 +1,25 @@
-﻿
+﻿var 
+CadFerColetivasDPEstab,
+CadFerColetivasDPDiasGozo,
+CadFerColetivasDPDtInicial,
+CadFerColetivasDPDtFinal,
+CadFerColetivasDPRecLicenca,
+
+CadEmpDPEmpregado : OleVariant;
+
+procedure LeDataPoolCadEmpregados(nomeDriver);
+begin
+CadEmpDPEmpregado			:=DDT.DriverByName(nomeDriver).Value('EMPREGADO');
+end;
+
+
+procedure LeDataPoolCadFeriasColetivas(nomeDriver);
+begin
+
+CadFerColetivasDPEstab				:=DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadFerColetivasDPDiasGozo	    :=DDT.DriverByName(nomeDriver).Value('DIASGOZO');
+CadFerColetivasDPDtInicial	  :=DDT.DriverByName(nomeDriver).Value('DTINICIAL');
+CadFerColetivasDPDtFinal	    :=DDT.DriverByName(nomeDriver).Value('DTFINAL');
+CadFerColetivasDPRecLicenca   :=DDT.DriverByName(nomeDriver).Value('RECLICENCA');
+
+end;
