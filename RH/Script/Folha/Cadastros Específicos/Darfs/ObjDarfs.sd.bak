@@ -1,0 +1,37 @@
+﻿ 
+{Script para mapear o Cadastro de Darfs
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 08/07/2022}
+var
+FormPadraoDarfs,
+
+CadDarfsEBEstab,
+CadDarfsEBDataVenc,
+CadDarfsEBCodReceita,
+CadDarfsEBSequencia,
+CadDarfsEBDataApur,
+CadDarfsEBIdentifica,
+CadDarfsEBNroReferencia,
+CadDarfsEBVlrPrincipal,
+CadDarfsEBVlrMulta,
+CadDarfsEBVlrJuros,
+CadDarfsEBVlrTotal 			: OleVariant; 
+		
+procedure MapCadDarfs();
+begin
+FormPadraoDarfs				  := Aliases.Folha.FRhDarf;
+
+CadDarfsEBEstab   			:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_ESTAB;
+CadDarfsEBDataVenc   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_DATAVENC;
+CadDarfsEBCodReceita   	:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_CODRECEITA;
+CadDarfsEBSequencia   	:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_SEQUENCIA;
+CadDarfsEBDataApur   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_DATAAPUR;
+CadDarfsEBIdentifica   	:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_IDENTIFICA;
+CadDarfsEBNroReferencia := Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_NROREFERENCIA;
+CadDarfsEBVlrPrincipal  := Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRPRINCIPAL;
+CadDarfsEBVlrMulta   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRMULTA;
+CadDarfsEBVlrJuros   		:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRJUROS;
+CadDarfsEBVlrTotal 			:= Aliases.Folha.FRhDarf.Page.TabNormal.pnCab.EB_VLRTOTAL;
+end;
+ 

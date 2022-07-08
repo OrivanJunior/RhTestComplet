@@ -1,0 +1,87 @@
+﻿uses CommonsAll, CommonsObj, VarConsts,ObjDarfs, DataPoolDarfs;
+
+procedure PreencheDarfs();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadDarfsEBEstab,CadDarfsDPEstab);  		
+PreencheDatas (CadDarfsEBDataVenc,CadDarfsDPDataVenc);
+VerificaInsere(CadDarfsEBCodReceita,CadDarfsDPCodReceita);
+VerificaInsere(CadDarfsEBSequencia,CadDarfsDPSequencia);
+PreencheDatas (CadDarfsEBDataApur,CadDarfsDPDataApur);
+VerificaInsere(CadDarfsEBIdentifica,CadDarfsDPIdentifica);
+VerificaInsere(CadDarfsEBNroReferencia, CadDarfsDPNroReferencia);
+VerificaInsere(CadDarfsEBVlrPrincipal, CadDarfsDPVlrPrincipal);
+VerificaInsere(CadDarfsEBVlrMulta,CadDarfsDPVlrMulta);
+VerificaInsere(CadDarfsEBVlrJuros,CadDarfsDPVlrJuros);
+VerificaInsere(CadDarfsEBVlrTotal,CadDarfsDPVlrTotal);
+end;
+
+procedure CadastraDarfs(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadDarfs(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhDarf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadDarfsDPSequencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadDarfs();
+
+  PreencheDarfs();
+  
+  ActSalvar(FormPadraoDarfs);
+  ActFechar(FormPadraoDarfs);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirDarfs(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Darf''s');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadDarfs(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhDarf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadDarfsDPSequencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadDarfs();
+  
+  ActSalvar(FormPadraoDarfs);
+
+  ActExcluir(_ModuloFolha, 'FRhDarf');
+
+  ActFechar(FormPadraoDarfs);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

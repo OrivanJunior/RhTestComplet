@@ -731,6 +731,10 @@
 						<child name="ExeRPA" key="{0A90296F-BB6E-4AE4-A1FC-2B77313FCC87}" path="Folha\Cadastros Específicos\RPA\RPA\ExeRPA.sd" />
 						<child name="ObjRPA" key="{F5C5D3D9-5D33-4A98-BF11-7BFE45C10EAC}" path="Folha\Cadastros Específicos\RPA\RPA\ObjRPA.sd" />
 					</folder>
+					<folder name="Importação de RPA - Prestadores">
+						<child name="ExeImportaRpaPrestadores" key="{A37929E4-8872-431A-AC67-29876D5DC7E2}" path="Folha\Cadastros Específicos\RPA\Importação de RPA - Prestadores\ExeImportaRpaPrestadores.sd" />
+						<child name="ObjImportaRpaPrestadores" key="{C5B9F8A3-1063-4B79-891A-4623251F98B8}" path="Folha\Cadastros Específicos\RPA\Importação de RPA - Prestadores\ObjImportaRpaPrestadores.sd" />
+					</folder>
 				</folder>
 				<folder name="Fixo Geral">
 					<child name="ObjCadFixoGeral" key="{99D62C60-46DC-44A5-98BA-002A4FE687A6}" path="Folha\Cadastros Específicos\Fixo Geral\ObjCadFixoGeral.sd" />
@@ -801,7 +805,11 @@
 					<child name="DataPoolFeriasColetivas" key="{DF7444B4-FC96-4F79-B70E-3FF4B904DAA2}" path="Folha\Cadastros Específicos\Ferias Coletivas\DataPoolFeriasColetivas.sd" />
 					<child name="ObjFeriasColetivas" key="{F3518D09-DD5C-45D1-8FD7-309AD64D8D72}" path="Folha\Cadastros Específicos\Ferias Coletivas\ObjFeriasColetivas.sd" />
 				</folder>
-				<folder name="Darfs" />
+				<folder name="Darfs">
+					<child name="ExeDarfs" key="{00FF90C5-735B-41CA-A9EA-F7E8751DEBE3}" path="Folha\Cadastros Específicos\Darfs\ExeDarfs.sd" />
+					<child name="DataPoolDarfs" key="{C532C68F-5EF1-467F-858C-42B62148293F}" path="Folha\Cadastros Específicos\Darfs\DataPoolDarfs.sd" />
+					<child name="ObjDarfs" key="{CD174A01-4627-4B0E-AB8F-7A290219CF84}" path="Folha\Cadastros Específicos\Darfs\ObjDarfs.sd" />
+				</folder>
 				<folder name="RAIS" />
 				<folder name="Rendimento" />
 				<folder name="Sefip - Outras Inf." />

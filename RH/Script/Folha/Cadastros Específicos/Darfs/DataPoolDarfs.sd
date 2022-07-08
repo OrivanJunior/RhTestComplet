@@ -1,0 +1,30 @@
+﻿var
+
+CadDarfsDPEstab,
+CadDarfsDPDataVenc,
+CadDarfsDPCodReceita,
+CadDarfsDPSequencia,
+CadDarfsDPDataApur,
+CadDarfsDPIdentifica,
+CadDarfsDPNroReferencia,
+CadDarfsDPVlrPrincipal,
+CadDarfsDPVlrMulta,
+CadDarfsDPVlrJuros,
+CadDarfsDPVlrTotal : OleVariant; 
+
+
+
+procedure LeDataPoolCadDarfs(nomeDriver);
+begin
+CadDarfsDPEstab   			  :=DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadDarfsDPDataVenc   	    :=DDT.DriverByName(nomeDriver).Value('DATAVENC');
+CadDarfsDPCodReceita   	  :=DDT.DriverByName(nomeDriver).Value('CODRECEITA');
+CadDarfsDPSequencia   	  :=DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
+CadDarfsDPDataApur   	    :=DDT.DriverByName(nomeDriver).Value('DATAAPUR');
+CadDarfsDPIdentifica   	  :=DDT.DriverByName(nomeDriver).Value('IDENTIFICA');
+CadDarfsDPNroReferencia   :=DDT.DriverByName(nomeDriver).Value('NROREFERENCIA');
+CadDarfsDPVlrPrincipal    :=DDT.DriverByName(nomeDriver).Value('VLRPRINCIPAL');
+CadDarfsDPVlrMulta   	    :=DDT.DriverByName(nomeDriver).Value('VLRMULTA');
+CadDarfsDPVlrJuros   	    :=DDT.DriverByName(nomeDriver).Value('VLRJUROS');
+CadDarfsDPVlrTotal 		    :=DDT.DriverByName(nomeDriver).Value('VLRTOTAL');
+end;

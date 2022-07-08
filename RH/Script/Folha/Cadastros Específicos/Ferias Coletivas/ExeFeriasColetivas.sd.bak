@@ -115,11 +115,10 @@ begin
   
   
   if Aliases.Folha.TMessageForm_.Exists then
-  begin
-    BtnSim   := Aliases.Folha.TMessageForm_.Yes;
-    BtnSim.ClickButton;
-  end;
+  Aliases.Folha.TMessageForm_.No.ClickButton;
   
+  if Aliases.Folha.dlgAten_o2.Exists then 
+  Aliases.Folha.dlgAten_o2.btnOK.ClickButton;
  
   ActFechar(FormPadraoFerColetivas);
   end;

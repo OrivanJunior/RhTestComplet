@@ -1,0 +1,17 @@
+﻿{Script para mapear o Cadastro de Importação de RPA - Prestadores
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 08/07/2022}
+
+var
+FormPadraoImportaRPA,
+BtnExecutar, 
+BtnSalvar : OleVariant;
+ 
+
+procedure MapCadImportaRPA();
+begin
+FormPadraoImportaRPA    := Aliases.Folha.FRhProcImportaRPA;
+BtnExecutar             := Aliases.Folha.FRhProcImportaRPA.bExecutar;
+BtnSalvar               := Aliases.Folha.FRhProcImportaRPA.tbSalvar;
+end;

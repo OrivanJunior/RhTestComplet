@@ -2478,7 +2478,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Férias Coletivas" key="{FCD49BC2-6729-4785-8186-1D7940A06E03}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Férias Coletivas" key="{FCD49BC2-6729-4785-8186-1D7940A06E03}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraFerColetivas" key="{94531365-8393-470A-9F4A-B5C04792BB1C}" group="False" parallel="False" enabled="True" testMoniker="{322E05A7-2F00-41DA-B032-44E3908D4394}CadastraFerColetivas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2491,6 +2491,25 @@
 													<testItem name="ExcluirFerColetivas" key="{B2B6D953-66C5-45C8-91AE-16B606461E5F}" group="False" parallel="False" enabled="True" testMoniker="{322E05A7-2F00-41DA-B032-44E3908D4394}ExcluirFerColetivas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Férias Coletivas\Férias Coletivas.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Darf&apos;s" key="{3161F1E2-12AB-42B5-A570-9C54BC1E9725}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraDarfs" key="{86B2C692-70A3-4815-9E41-08629F9EB55D}" group="False" parallel="False" enabled="True" testMoniker="{00FF90C5-735B-41CA-A9EA-F7E8751DEBE3}CadastraDarfs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Darf&apos;s\Darf&apos;s.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirDarfs" key="{FEF21AF7-9660-413C-8AFD-C99E0B066FD3}" group="False" parallel="False" enabled="True" testMoniker="{00FF90C5-735B-41CA-A9EA-F7E8751DEBE3}ExcluirDarfs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Darf&apos;s\Darf&apos;s.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

@@ -71,3 +71,8 @@ FiltraEvento              := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
   
 BtnOkFiltro               := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;
+
+procedure Test1;
+begin
+  Aliases.Folha.FDirectPrintPreview.Close;
+end;

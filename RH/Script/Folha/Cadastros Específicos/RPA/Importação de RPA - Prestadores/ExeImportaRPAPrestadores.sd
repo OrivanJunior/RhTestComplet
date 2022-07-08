@@ -1,0 +1,23 @@
+﻿uses CommonsAll, CommonsObj, VarConsts,ObjImportaRpaPrestadores;
+
+
+procedure ConsultaDesoneracao();
+
+begin
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'RPA', 'Importação de RPA/Prestadores');
+  
+  MapCadImportaRPA();
+  
+  BtnExecutar.Click;
+  
+  if Aliases.Folha.dlgProcessoConclu_do2.Exists then
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.ClickButton;
+  
+BtnSalvar.Click;
+ 
+  if Aliases.Folha.dlgProcessoConclu_do2.Exists then
+    Aliases.Folha.dlgProcessoConclu_do2.btnOK.ClickButton;
+ 
+ ActFechar(FormPadraoImportaRPA);
+  
+end;

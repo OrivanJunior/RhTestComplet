@@ -115,10 +115,11 @@ begin
   
   
   if Aliases.Folha.TMessageForm_.Exists then
-  Aliases.Folha.TMessageForm_.Close;
+  Aliases.Folha.TMessageForm_.No.ClickButton;
   
+  if Aliases.Folha.dlgAten_o2.Exists then 
+  Aliases.Folha.dlgAten_o2.btnOK.ClickButton;
  
-  ActFechar(FormPadraoFerColetivas);
   end;
   DDTExcluir.Next;
 end;
