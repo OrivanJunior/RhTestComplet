@@ -2340,10 +2340,10 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="GPS" key="{5CAA8DEB-1B82-4420-9DC4-467511DB8E17}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="GPS" key="{5CAA8DEB-1B82-4420-9DC4-467511DB8E17}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="Cadastrar GPS" key="{7349217C-820D-4A7E-B13D-7D4F87B72ECC}" group="False" parallel="False" enabled="True" testMoniker="{82FDAF1B-A07D-493B-83C9-7131A01403AA}CadastraGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2371,7 +2371,22 @@
 													</testItem>
 													<testItem name="GPS - PS" key="{BA72DEBC-AAAE-4EEB-9499-B2FC9D640F7D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
-														<children />
+														<children>
+															<testItem name="CadastraGpsPs" key="{ADAF841A-84D8-475F-BE84-85D3D7DDAC58}" group="False" parallel="False" enabled="True" testMoniker="{9E37DE54-7481-4AAA-BD1F-4CD8560B532B}CadastraGpsPs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS - PS\GPS - PS.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirGpsPs" key="{B4F614D0-A797-4715-8797-47EC59BC1ABE}" group="False" parallel="False" enabled="True" testMoniker="{9E37DE54-7481-4AAA-BD1F-4CD8560B532B}ExcluirGpsPs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS - PS\GPS - PS.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>
@@ -2501,7 +2516,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Darf&apos;s" key="{3161F1E2-12AB-42B5-A570-9C54BC1E9725}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Darf&apos;s" key="{3161F1E2-12AB-42B5-A570-9C54BC1E9725}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraDarfs" key="{86B2C692-70A3-4815-9E41-08629F9EB55D}" group="False" parallel="False" enabled="True" testMoniker="{00FF90C5-735B-41CA-A9EA-F7E8751DEBE3}CadastraDarfs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

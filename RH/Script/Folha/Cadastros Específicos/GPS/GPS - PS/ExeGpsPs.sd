@@ -1,6 +1,16 @@
 ﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsPs, ObjGpsPs;
 
 
+procedure FiltraTelaInicialGpsPs();
+begin
+MapCadFiltroGpsPs();
+ListaConsultaGpsPs.SetText('GPS PS por Mês/Ano');
+FiltraMesGpsPs.Keys('(Ignorar)');
+FiltraAnoGpsPs.Keys('(Ignorar)');
+BtnOkGpsPs.ClickButton;
+end;
+
+
 procedure PreencheGpsPs();
 begin
 VerificaConsultaF3Insere(_ModuloFolha,CadGpsPsEBEstab,CadGpsPsDPEstab);
@@ -28,6 +38,8 @@ var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
+
+FiltraTelaInicialGpsPs();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -62,6 +74,8 @@ DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
 
+FiltraTelaInicialGpsPs();
+
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
@@ -80,10 +94,11 @@ begin
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadFeriasColetivas();
+  MapCadFiltroGpsPs();
 
   ActExcluir(_ModuloFolha, 'FRhGpsE');
-   
+  
+  ActFechar(FormPadraoGpsPs);
   end;
   DDTExcluir.Next;
 end;

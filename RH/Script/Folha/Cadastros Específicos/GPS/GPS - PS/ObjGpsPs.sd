@@ -24,7 +24,13 @@ CadGpsPsEBVlrTerceiros,
 CadGpsPsEBTotLiq,
 CadGpsPsEBVlrAtuMonet,
 CadGpsPsEBVlrJurMul,
-CadGpsPsEBTotGuia : OleVariant;
+CadGpsPsEBTotGuia,
+
+FormFiltroGpsPs,
+ListaConsultaGpsPs,
+FiltraMesGpsPs,
+FiltraAnoGpsPs,
+BtnOkGpsPs : OleVariant;
 
 
 
@@ -50,4 +56,13 @@ CadGpsPsEBTotLiq 			  := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB
 CadGpsPsEBVlrAtuMonet 	:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLRATUMONET;
 CadGpsPsEBVlrJurMul 		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLRJURMUL;
 CadGpsPsEBTotGuia 			:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_TOTGUIA;
+end;
+
+procedure MapCadFiltroGpsPs();
+begin
+FormFiltroGpsPs     := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaGpsPs  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltraMesGpsPs      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltraAnoGpsPs      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOkGpsPs          := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;

@@ -1,6 +1,16 @@
 ﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsPs, ObjGpsPs;
 
 
+procedure FiltraTelaInicialGpsPs();
+begin
+MapCadFiltroGpsPs();
+ListaConsultaGpsPs.SetText('GPS PS por Mês/Ano');
+FiltraMesGpsPs.Keys('(Ignorar)');
+FiltraAnoGpsPs.Keys('(Ignorar)');
+BtnOkGpsPs.ClickButton;
+end;
+
+
 procedure PreencheGpsPs();
 begin
 VerificaConsultaF3Insere(_ModuloFolha,CadGpsPsEBEstab,CadGpsPsDPEstab);
@@ -23,81 +33,71 @@ VerificaInsere(CadGpsPsEBVlrJurMul,CadGpsPsDPVlrJurMul);
 VerificaInsere(CadGpsPsEBTotGuia,CadGpsPsDPTotGuia);
 end;
 
-
-procedure CadastraFerColetivas(pathData);
+procedure CadastraGpsPs(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Férias Coletivas');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
+
+FiltraTelaInicialGpsPs();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadFeriasColetivas(DDTCadastrar.Name);
+LeDataPoolCadGpsPs(DDTCadastrar.Name);
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhFerCol');
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsE');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFerColetivasDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsPsDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadFeriasColetivas();
+  MapCadGpsPs();
   
-  PreencheFeriasColetivas();
-  PreencheGridEmpregados(pathData);  
+  PreencheGpsPs();
   
-  BtnSalvarFerColetivas.Click;
-  
-  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
-  Aliases.Folha.dlgEventosBasesDeC_lculo.Close;
-  
-  ActFechar(FormPadraoFerColetivas);
+  ActSalvar(FormPadraoGpsPs);
+  ActFechar(FormPadraoGpsPs);
   
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirFerColetivas(PathData);
+procedure ExcluirGpsPs(PathData);
 var
-BtnSim,
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Férias Coletivas');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
+
+FiltraTelaInicialGpsPs();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadFeriasColetivas(DDTExcluir.Name);
+LeDataPoolCadGpsPs(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhFerCol');
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsE');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadFerColetivasDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsPsDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadFeriasColetivas();
+  MapCadFiltroGpsPs();
 
-  ActExcluir(_ModuloFolha, 'FRhFerCol');
-  
-  
-  if Aliases.Folha.TMessageForm_.Exists then
-  Aliases.Folha.TMessageForm_.No.ClickButton;
-  
-  if Aliases.Folha.dlgAten_o2.Exists then 
-  Aliases.Folha.dlgAten_o2.btnOK.ClickButton;
- 
+  ActExcluir(_ModuloFolha, 'FRhGpsE');
+   
   end;
   DDTExcluir.Next;
 end;
