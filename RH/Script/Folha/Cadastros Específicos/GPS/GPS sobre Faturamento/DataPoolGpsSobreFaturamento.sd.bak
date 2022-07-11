@@ -1,1 +1,79 @@
 ﻿
+var
+CadGpsFaturaDPEstab,
+CadGpsFaturaDPMes,
+CadGpsFaturaDPAno,
+CadGpsFaturaDPDtVencimento,
+CadGpsFaturaDPIdLocal,
+CadGpsFaturaDPSequencia,
+CadGpsFaturaDPIdFpas,
+CadGpsFaturaDPCnpj,
+CadGpsFaturaDPCodGps,
+CadGpsFaturaDPDescGuia,
+CadGpsFaturaDPNroEmpregados,
+CadGpsFaturaDPVlrBaseAut,
+CadGpsFaturaDPApespec,
+CadGpsFaturaDPRecolhida,
+CadGpsFaturaDPMesRec,
+CadGpsFaturaDPAnoRec,
+CadGpsFaturaDPVlrRetenc,
+CadGpsFaturaDPVlrComp,
+CadGpsFaturaDPPcGrauRisco,
+CadGpsFaturaDPPcTerceiros,
+CadGpsFaturaDPVlrDesonerado,
+CadGpsFaturaDPVlrBaseEmpreg,
+CadGpsFaturaDPVlrBaseProlab,
+CadGpsFaturaDPVlrSegurados,
+CadGpsFaturaDPVlrEmpresa,
+CadGpsFaturaDPVlrGrauRisco,
+CadGpsFaturaDPVlrApEspecial,
+CadGpsFaturaDPVlrPgCoop,
+CadGpsFaturaDPCodTerceiro,
+CadGpsFaturaDPVlrTerceiros,
+CadGpsFaturaDPTotDeduc,
+CadGpsFaturaDPTotLiq,
+CadGpsFaturaDPVlrAtuMonet,
+CadGpsFaturaDPVlrJurMul,
+CadGpsFaturaDPTotGuia : OleVariant;
+
+
+
+procedure LeDataPoolCadGpsFatura(nomeDriver);
+begin	
+CadGpsFaturaDPEstab					:= DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPMes				    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPAno				    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPDtVencimento		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPIdLocal			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPSequencia			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPIdFpas			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPCnpj				    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPCodGps			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPDescGuia			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPNroEmpregados		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrBaseAut		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPApespec			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPRecolhida			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPMesRec			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPAnoRec			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrRetenc			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrComp			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPPcGrauRisco		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPPcTerceiros		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrDesonerado		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrBaseEmpreg		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrBaseProlab		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrSegurados		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrEmpresa		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrGrauRisco		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrApEspecial		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrPgCoop			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPCodTerceiro		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrTerceiros		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPTotDeduc			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPTotLiq			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrAtuMonet		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPVlrJurMul			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+CadGpsFaturaDPTotGuia			    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+
+end;

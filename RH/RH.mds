@@ -2407,7 +2407,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="GPS - Empregado Doméstico" key="{E787632F-A0DF-4969-9B0D-6FF955A4FE4A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="GPS - Empregado Doméstico" key="{E787632F-A0DF-4969-9B0D-6FF955A4FE4A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraGpsED" key="{FAF90B77-3625-497B-836D-EE2950E8460A}" group="False" parallel="False" enabled="True" testMoniker="{DB98698C-3CB3-40A2-A241-59E61B8E0971}CadastraGpsED" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2420,6 +2420,25 @@
 															<testItem name="ExcluirGpsED" key="{A212CD79-C470-41E3-BDB5-B8D4D91ED2D9}" group="False" parallel="False" enabled="True" testMoniker="{DB98698C-3CB3-40A2-A241-59E61B8E0971}ExcluirGpsED" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS - Empregado Doméstico\GPS - Empregado Doméstico.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="GPS sobre Faturamento" key="{9DA4DF14-282A-441A-96EA-7C8B30AA3A23}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraGpsFaturamento" key="{FE1842D8-DE5F-4673-B8E5-7597CFFB1B0F}" group="False" parallel="False" enabled="True" testMoniker="{917154DB-6DA3-4C64-8374-24BB11CAB3DA}CadastraGpsFaturamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS sobre Faturamento\GPS sobre Faturamento.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirGpsFaturamento" key="{C479A475-C8F8-4612-8001-3422C93933D2}" group="False" parallel="False" enabled="True" testMoniker="{917154DB-6DA3-4C64-8374-24BB11CAB3DA}ExcluirGpsFaturamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS sobre Faturamento\GPS sobre Faturamento.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
