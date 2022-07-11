@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{D2A828A8-32FC-48D3-87B0-044C12D33335}"/>
+				<Prp name="activity" type="S" value="{9E37DE54-7481-4AAA-BD1F-4CD8560B532B}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -3359,12 +3359,12 @@
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="84"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="48"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="127"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="86"/>
 						</Node>
 						<Prp name="bottom" type="I" value="129"/>
@@ -11192,7 +11192,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{9e37de54-7481-4aaa-bd1f-4cd8560b532b}"/>
+					<Node name="{9e37de54-7481-4aaa-bd1f-4cd8560b532b}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="23"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="3"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="56"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="25"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="91"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="58"/>
+						</Node>
+						<Prp name="bottom" type="I" value="92"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{9e63c6b7-b011-4ec2-ad46-c97b422adbff}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="56"/>
@@ -17703,6 +17722,7 @@
 							<Node name="folha">
 								<Node name="cadastros específicos">
 									<Node name="anuênios"/>
+									<Node name="férias coletivas"/>
 									<Node name="gps">
 										<Node name="gps - ps"/>
 									</Node>

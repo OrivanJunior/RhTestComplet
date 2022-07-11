@@ -2,3 +2,52 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 11/07/2022}
+
+var
+FormPadraoGpsPs,
+	
+CadGpsPsEBEstab,
+CadGpsPsEBMes,
+CadGpsPsEBAno,
+CadGpsPsEBSequencia,
+CadGpsPsEBIdentificador,
+CadGpsPsEBDescGuia,
+CadGpsPsEBCodPagGps,
+CadGpsPsEBRecolhida,
+CadGpsPsEBMesRec,
+CadGpsPsEBAnoRec,
+CadGpsPsEBBaseprestador,
+
+CadGpsPsEBVlrEmpresa,
+CadGpsPsEBCodTerceiro,
+CadGpsPsEBVlrTerceiros,
+CadGpsPsEBTotLiq,
+CadGpsPsEBVlrAtuMonet,
+CadGpsPsEBVlrJurMul,
+CadGpsPsEBTotGuia : OleVariant;
+
+
+
+procedure MapCadGpsPs();
+begin
+FormPadraoGpsPs				  := Aliases.Folha.FRhGpsE;
+	
+CadGpsPsEBEstab  			  := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_ESTAB;
+CadGpsPsEBMes  				  := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_MES;
+CadGpsPsEBAno  				  := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_ANO;
+CadGpsPsEBSequencia  		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_SEQUENCIA;
+CadGpsPsEBIdentificador := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_IDENTIFICADOR;
+CadGpsPsEBDescGuia  		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_DESCGUIA;
+CadGpsPsEBCodPagGps  		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_CODPAGGPS;
+CadGpsPsEBRecolhida  		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_RECOLHIDA;
+CadGpsPsEBMesRec  			:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_MESREC;
+CadGpsPsEBAnoRec  			:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_ANOREC;
+CadGpsPsEBBaseprestador := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.EB_BASEPRESTADOR;
+CadGpsPsEBVlrEmpresa 		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLREMPRESA;
+CadGpsPsEBCodTerceiro 	:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_CODTERCEIRO;
+CadGpsPsEBVlrTerceiros 	:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLRTERCEIROS;
+CadGpsPsEBTotLiq 			  := Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_TOTLIQ;
+CadGpsPsEBVlrAtuMonet 	:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLRATUMONET;
+CadGpsPsEBVlrJurMul 		:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_VLRJURMUL;
+CadGpsPsEBTotGuia 			:= Aliases.Folha.FRhGpsE.Page.TabNormal.pnCab.pnCalcula.EB_TOTGUIA;
+end;

@@ -1,1 +1,92 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsPs, ObjGpsPs;
+
+
+procedure PreencheGpsPs();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsPsEBEstab,CadGpsPsDPEstab);
+VerificaInsere(CadGpsPsEBMes,CadGpsPsDPMes);
+VerificaInsere(CadGpsPsEBAno,CadGpsPsDPAno);
+VerificaInsere(CadGpsPsEBSequencia,CadGpsPsDPSequencia);
+VerificaInsere(CadGpsPsEBIdentificador,CadGpsPsDPIdentificador);
+VerificaInsere(CadGpsPsEBDescGuia,CadGpsPsDPDescGuia);
+VerificaInsere(CadGpsPsEBCodPagGps,CadGpsPsDPCodPagGps);
+VerificaInsere(CadGpsPsEBRecolhida,CadGpsPsDPRecolhida);
+VerificaInsere(CadGpsPsEBMesRec,CadGpsPsDPMesRec);
+VerificaInsere(CadGpsPsEBAnoRec,CadGpsPsDPAnoRec);
+VerificaInsere(CadGpsPsEBBaseprestador,CadGpsPsDPBaseprestador);
+VerificaInsere(CadGpsPsEBVlrEmpresa,CadGpsPsDPVlrEmpresa);
+VerificaInsere(CadGpsPsEBCodTerceiro,CadGpsPsDPCodTerceiro);
+VerificaInsere(CadGpsPsEBVlrTerceiros,CadGpsPsDPVlrTerceiros);
+VerificaInsere(CadGpsPsEBTotLiq,CadGpsPsDPTotLiq);
+VerificaInsere(CadGpsPsEBVlrAtuMonet,CadGpsPsDPVlrAtuMonet);
+VerificaInsere(CadGpsPsEBVlrJurMul,CadGpsPsDPVlrJurMul);
+VerificaInsere(CadGpsPsEBTotGuia,CadGpsPsDPTotGuia);
+end;
+
+procedure CadastraGpsPs(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadGpsPs(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsPsDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadGpsPs();
+  
+  PreencheGpsPs();
+  
+  ActSalvar(FormPadraoGpsPs);
+  ActFechar(FormPadraoGpsPs);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirGpsPs(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - PS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadGpsPs(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsE');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsPsDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFeriasColetivas();
+
+  ActExcluir(_ModuloFolha, 'FRhGpsE');
+   
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
