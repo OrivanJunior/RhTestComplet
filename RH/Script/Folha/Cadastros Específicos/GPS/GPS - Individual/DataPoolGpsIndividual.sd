@@ -1,0 +1,48 @@
+﻿var 
+CadGpsIDPEstab,
+CadGpsIDPMes,
+CadGpsIDPAno,
+CadGpsIDPIdPreserv,
+CadGpsIDPSequencia,
+CadGpsIDPdescGps,
+CadGpsIDPCodPagGps,
+CadGpsIDPRecolhida,
+CadGpsIDPMesRec,
+CadGpsIDPAnoRec,
+CadGpsIDPBaseContrib,
+  
+CadGpsIDPVlrInss,
+CadGpsIDPVlrEmpresa,
+CadGpsIDPCodTerceiro,
+CadGpsIDPVlrTerceiros,
+CadGpsIDPTotDeduc,
+CadGpsIDPTotLiq,
+CadGpsIDPVlrAtuMonet,
+CadGpsIDPVlrJurMul,
+CadGpsIDPTotGuia :OleVariant;
+
+
+procedure LeDataPoolCadGpsI(nomeDriver);
+begin
+
+CadGpsIDPEstab   			  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadGpsIDPMes     		    := DDT.DriverByName(nomeDriver).Value('MES');
+CadGpsIDPAno   			    := DDT.DriverByName(nomeDriver).Value('ANO');
+CadGpsIDPIdPreserv  	  := DDT.DriverByName(nomeDriver).Value('IDPRESERV');
+CadGpsIDPSequencia 		  := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
+CadGpsIDPdescGps		    := DDT.DriverByName(nomeDriver).Value('DESCGPS');
+CadGpsIDPCodPagGps  	  := DDT.DriverByName(nomeDriver).Value('CODPAGGPS');
+CadGpsIDPRecolhida  	  := DDT.DriverByName(nomeDriver).Value('RECOLHIDA');
+CadGpsIDPMesRec  		    := DDT.DriverByName(nomeDriver).Value('MESREC');
+CadGpsIDPAnoRec  		    := DDT.DriverByName(nomeDriver).Value('ANOREC');
+CadGpsIDPBaseContrib	  := DDT.DriverByName(nomeDriver).Value('BASECONTRIB');
+CadGpsIDPVlrInss		    := DDT.DriverByName(nomeDriver).Value('VLRINSS');
+CadGpsIDPVlrEmpresa   	:= DDT.DriverByName(nomeDriver).Value('VLREMPRESA');
+CadGpsIDPCodTerceiro  	:= DDT.DriverByName(nomeDriver).Value('CODTERCEIRO');
+CadGpsIDPVlrTerceiros  	:= DDT.DriverByName(nomeDriver).Value('VLRTERCEIROS');
+CadGpsIDPTotDeduc		    := DDT.DriverByName(nomeDriver).Value('TOTDEDUC');
+CadGpsIDPTotLiq 		    := DDT.DriverByName(nomeDriver).Value('TOTLIQ');
+CadGpsIDPVlrAtuMonet	  := DDT.DriverByName(nomeDriver).Value('VLRATUMONET');
+CadGpsIDPVlrJurMul 		  := DDT.DriverByName(nomeDriver).Value('VLRJURMUL');
+CadGpsIDPTotGuia 		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+end;

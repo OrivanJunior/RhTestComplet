@@ -1,0 +1,25 @@
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsIndividual, ObjGpsIndividual;
+
+procedure PreencheGpsI();
+Begin
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsIEBEstab,CadGpsIDPEstab);		
+VerificaInsere(CadGpsIEBMes,CadGpsIDPMes);
+VerificaInsere(CadGpsIEBAno,CadGpsIDPAno);
+VerificaInsere(CadGpsIEBIdPreserv,CadGpsIDPIdPreserv);
+VerificaInsere(CadGpsIEBSequencia,CadGpsIDPSequencia);
+VerificaInsere(CadGpsIEBdescGps,CadGpsIDPdescGps);
+VerificaInsere(CadGpsIEBCodPagGps,CadGpsIDPCodPagGps);
+VerificaInsere(CadGpsIEBRecolhida,CadGpsIDPRecolhida);
+VerificaInsere(CadGpsIEBMesRec,CadGpsIDPMesRec);
+VerificaInsere(CadGpsIEBAnoRec,CadGpsIDPAnoRec);
+VerificaInsere(CadGpsIEBBaseContrib,CadGpsIDPBaseContrib);            
+VerificaInsere(CadGpsIEBVlrInss,CadGpsIDPVlrInss);
+VerificaInsere(CadGpsIEBVlrEmpresa,CadGpsIDPVlrEmpresa);
+VerificaInsere(CadGpsIEBCodTerceiro,CadGpsIDPCodTerceiro);
+VerificaInsere(CadGpsIEBVlrTerceiros,CadGpsIDPVlrTerceiros);
+VerificaInsere(CadGpsIEBTotDeduc,CadGpsIDPTotDeduc);
+VerificaInsere(CadGpsIEBTotLiq,CadGpsIDPTotLiq);
+VerificaInsere(CadGpsIEBVlrAtuMonet,CadGpsIDPVlrAtuMonet);
+VerificaInsere(CadGpsIEBVlrJurMul,CadGpsIDPVlrJurMul);
+VerificaInsere(CadGpsIEBTotGuia,CadGpsIDPTotGuia);
+end;

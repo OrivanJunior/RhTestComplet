@@ -1,0 +1,85 @@
+﻿ {Script para mapear o Cadastro de GPS - Individual
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 11/07/2022}
+ 
+ 
+
+var
+FormPadraoGpsI,
+  
+CadGpsIEBEstab,
+CadGpsIEBMes,
+CadGpsIEBAno,
+CadGpsIEBIdPreserv,
+CadGpsIEBSequencia,
+CadGpsIEBdescGps,
+CadGpsIEBCodPagGps,
+CadGpsIEBRecolhida,
+CadGpsIEBMesRec,
+CadGpsIEBAnoRec,
+CadGpsIEBBaseContrib,
+  
+CadGpsIEBVlrInss,
+CadGpsIEBVlrEmpresa,
+CadGpsIEBCodTerceiro,
+CadGpsIEBVlrTerceiros,
+CadGpsIEBTotDeduc,
+CadGpsIEBTotLiq,
+CadGpsIEBVlrAtuMonet,
+CadGpsIEBVlrJurMul,
+CadGpsIEBTotGuia,
+
+FormFiltrGpsI,
+ListaConsultaGpsI,
+FiltraGpsIMes,
+FiltraGpsIAno,
+BtnOkFiltroGpsI : OleVariant;
+
+
+
+
+
+
+
+  
+Procedure MapCadGpsI();
+begin  
+
+FormPadraoGpsI						:= Aliases.Folha.FRhGpsI;
+  
+CadGpsIEBEstab   					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
+CadGpsIEBMes     					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_MES;
+CadGpsIEBAno   						:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+CadGpsIEBIdPreserv  			:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_IDPRESERV;
+CadGpsIEBSequencia 				:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
+CadGpsIEBdescGps		  		:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_DESCGPS;
+CadGpsIEBCodPagGps  			:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_CODPAGGPS;
+CadGpsIEBRecolhida  			:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_RECOLHIDA;
+CadGpsIEBMesRec  					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_MESREC;
+CadGpsIEBAnoRec  					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_ANOREC;
+CadGpsIEBBaseContrib				:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.EB_BASECONTRIB;
+  
+CadGpsIEBVlrInss					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRINSS;
+CadGpsIEBVlrEmpresa   		:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLREMPRESA;
+CadGpsIEBCodTerceiro  		:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_CODTERCEIROS;
+CadGpsIEBVlrTerceiros  		:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRTERCEIROS;
+CadGpsIEBTotDeduc					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTDEDUC;
+CadGpsIEBTotLiq 					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTLIQ;
+CadGpsIEBVlrAtuMonet			:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRATMONET;
+CadGpsIEBVlrJurMul 				:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRJURMUL;
+CadGpsIEBTotGuia 					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTGUIA;
+  
+end;
+	
+	
+
+
+procedure MapCadFiltroGpsI();
+begin
+FormFiltrGpsI		:= Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaGpsI  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltraGpsIMes  		:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltraGpsIAno  		:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOkFiltroGpsI		:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
