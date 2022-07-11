@@ -37,11 +37,6 @@ FiltraGpsIAno,
 BtnOkFiltroGpsI : OleVariant;
 
 
-
-
-
-
-
   
 Procedure MapCadGpsI();
 begin  
@@ -71,15 +66,13 @@ CadGpsIEBVlrJurMul 				:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.
 CadGpsIEBTotGuia 					:= Aliases.Folha.FRhGpsI.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTGUIA;
   
 end;
-	
-	
-
 
 procedure MapCadFiltroGpsI();
 begin
-FormFiltrGpsI		:= Aliases.Folha.FFiltroConsultaCDS;
-ListaConsultaGpsI  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FormFiltrGpsI		  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaGpsI := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
 FiltraGpsIMes  		:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
 FiltraGpsIAno  		:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
 BtnOkFiltroGpsI		:= Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;
+
