@@ -36,3 +36,41 @@ BtnRendimentosProc,
 BtnRendimentosConsul,
 BtnRendimentosDesf,
 BtnRendimentosExc  			: OleVariant;	
+
+
+procedure MapCadRendimentos;
+begin
+FormPadraoRendimentos							:= Aliases.Folha.FRhRendimentos;
+
+CadRendimentosEBEstab  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
+CadRendimentosEBIdEmpregado  					:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_IDEMPREGADO;
+CadRendimentosEBAno  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+CadRendimentosEBNatureza  						:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_NATUREZA;
+CadRendimentosEBData  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_DATA;
+CadRendimentosEBIdPess  						:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_IDPESS;
+CadRendimentosEBC3L1  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L1;
+CadRendimentosEBC3L2  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L2;
+CadRendimentosEBC3L3  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L3;
+CadRendimentosEBC3L4  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L4;
+CadRendimentosEBC3L5  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L5;
+CadRendimentosEBC4L1  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L1;
+CadRendimentosEBC4L2  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L2;
+CadRendimentosEBC4L3  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L3;
+CadRendimentosEBC4L4  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L4;
+CadRendimentosEBC4L5  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L5;
+CadRendimentosEBC4L6  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L6;
+CadRendimentosEBC4L7  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C4L7;
+CadRendimentosEBC5L1  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C5L1;
+CadRendimentosEBC5L2  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C5L2;
+CadRendimentosEBC7L1  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C7L1;
+CadRendimentosEBObservacoes  				:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_OBSERVACOES;
+
+  
+PageTabNormalRendimentos  					:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.pg;
+FormGridRendimentos								  := Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.pg.tsRhRendAcu.sbRHRendAcu.gRhrRendAcu;
+BtnRendimentosInc  								  := Aliases.Folha.FRhRendimentos.bInc;
+BtnRendimentosProc  							  := Aliases.Folha.FRhRendimentos.bProc;
+BtnRendimentosConsul  							:= Aliases.Folha.FRhRendimentos.bConsul;
+BtnRendimentosDesf  							  := Aliases.Folha.FRhRendimentos.bDesf;
+BtnRendimentosExc  								  := Aliases.Folha.FRhRendimentos.bExc;
+end;
