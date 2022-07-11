@@ -767,9 +767,16 @@
 					<child name="DataPoolCadConfiguracaoEstab" key="{0C2EE035-1837-4D99-8A75-4604AB3C2656}" path="DataPoolCadConfiguracaoEstab.sd" />
 				</folder>
 				<folder name="GPS">
-					<child name="ExeEsGPS" key="{82FDAF1B-A07D-493B-83C9-7131A01403AA}" path="ExeEsGPS.sd" />
-					<child name="DataPoolEsGPS" key="{233256CC-EA2E-4AE6-BD68-6D1615130F2E}" path="DataPoolEsGPS.sd" />
-					<child name="ObjEsGPS" key="{ED316301-D631-41C9-98EA-E0C4E4324893}" path="ObjEsGPS.sd" />
+					<folder name="GPS - PS">
+						<child name="ExeGpsPs" key="{9E37DE54-7481-4AAA-BD1F-4CD8560B532B}" path="Folha\Cadastros Específicos\GPS\GPS - PS\ExeGpsPs.sd" />
+						<child name="ObjGpsPs" key="{D2A828A8-32FC-48D3-87B0-044C12D33335}" path="Folha\Cadastros Específicos\GPS\GPS - PS\ObjGpsPs.sd" />
+						<child name="DataPoolGpsPs" key="{80BAADFB-E17E-4832-B661-C74B0853D71C}" path="Folha\Cadastros Específicos\GPS\GPS - PS\DataPoolGpsPs.sd" />
+					</folder>
+					<folder name="GPS">
+						<child name="DataPoolEsGPS" key="{233256CC-EA2E-4AE6-BD68-6D1615130F2E}" path="DataPoolEsGPS.sd" />
+						<child name="ExeEsGPS" key="{82FDAF1B-A07D-493B-83C9-7131A01403AA}" path="ExeEsGPS.sd" />
+						<child name="ObjEsGPS" key="{ED316301-D631-41C9-98EA-E0C4E4324893}" path="ObjEsGPS.sd" />
+					</folder>
 				</folder>
 				<folder name="Locais">
 					<child name="ExeLocais" key="{355A2574-37D5-4AA4-B6BE-B50D402CDB2D}" path="ExeLocais.sd" />
