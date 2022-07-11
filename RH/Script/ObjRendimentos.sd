@@ -1,0 +1,38 @@
+﻿ {Script para mapear o Cadastro de Rendimentos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 11/07/2022}
+
+var 
+FormPadraoRendimentos,
+
+CadRendimentosEBEstab,
+CadRendimentosEBIdEmpregado,
+CadRendimentosEBAno,
+CadRendimentosEBNatureza,
+CadRendimentosEBData,
+CadRendimentosEBIdPess,
+CadRendimentosEBC3L1,
+CadRendimentosEBC3L2,
+CadRendimentosEBC3L3,
+CadRendimentosEBC3L4,
+CadRendimentosEBC3L5,
+CadRendimentosEBC4L1,
+CadRendimentosEBC4L2,
+CadRendimentosEBC4L3,
+CadRendimentosEBC4L4,
+CadRendimentosEBC4L5,
+CadRendimentosEBC4L6,
+CadRendimentosEBC4L7,		
+CadRendimentosEBC5L1,
+CadRendimentosEBC5L2,
+CadRendimentosEBC7L1,
+CadRendimentosEBObservacoes,
+  
+PageTabNormalRendimentos,
+FormGridRendimentos,
+BtnRendimentosInc,
+BtnRendimentosProc,
+BtnRendimentosConsul,
+BtnRendimentosDesf,
+BtnRendimentosExc  			: OleVariant;	

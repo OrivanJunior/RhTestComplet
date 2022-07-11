@@ -833,8 +833,16 @@
 					<child name="ObjDarfs" key="{CD174A01-4627-4B0E-AB8F-7A290219CF84}" path="Folha\Cadastros Específicos\Darfs\ObjDarfs.sd" />
 				</folder>
 				<folder name="RAIS" />
-				<folder name="Rendimento" />
-				<folder name="Sefip - Outras Inf." />
+				<folder name="Rendimentos">
+					<child name="ExeRendimentos" key="{1693017E-6D23-4FD9-B8B9-4A875CA03365}" path="Folha\Cadastros Específicos\Rendimentos\ExeRendimentos.sd" />
+					<child name="ObjRendimentos" key="{484A96FC-D01A-4B47-93BB-FC4335EAA1CF}" path="ObjRendimentos.sd" />
+					<child name="DataPoolRendimentos" key="{F8700FB8-DA5B-460B-95C5-6E1A2DB7FCB5}" path="DataPoolRendimentos.sd" />
+				</folder>
+				<folder name="Sefip - Outras Inf.">
+					<child name="ExeSefipInfo" key="{6414D98B-403A-4ADC-B366-12CD23541013}" path="Folha\Cadastros Específicos\Sefip - Outras Inf\ExeSefipInfo.sd" />
+					<child name="ObjSefipInfo" key="{9E04CFE7-00E7-4BE7-A87D-0F1406FB451C}" path="Folha\Cadastros Específicos\Sefip - Outras Inf\ObjSefipInfo.sd" />
+					<child name="DataPoolSefipInfo" key="{1380DC4A-E0F0-4FA5-B1FF-B8F87993146E}" path="Folha\Cadastros Específicos\Sefip - Outras Inf\DataPoolSefipInfo.sd" />
+				</folder>
 				<folder name="Cálculos" />
 				<folder name="Portal">
 					<folder name="Comunicados" />
