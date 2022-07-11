@@ -3,8 +3,6 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 24/05/2022 alterado 11/07/22}
 var 
-CadFormGps,
-
 FormFiltro,  
 FormConsulta,
 FormCodLocal,
@@ -12,7 +10,47 @@ BtnOk,
 BtnVazio,
 BtnCancelar,CadFormPage,
 
-CadEBSequencia : OleVariant;
+FormPadraoGps,
+
+CadGpsEBEstab,
+CadGpsEBMes,
+CadGpsEBAno,
+CadGpsEBDtVencimento,
+CadGpsEBIdLocal,
+CadGpsEBSequencia,
+CadGpsEBIdFpas,
+CadGpsEBCnpj,
+CadGpsEBCodGps,
+CadGpsEBDescGuia,
+CadGpsEBNroEmpregados,
+CadGpsEBVlrBaseAut,
+CadGpsEBApEspec,
+CadGpsEBRecolhida,
+CadGpsEBMesRec,
+CadGpsEBAnoRec,
+CadGpsEBVlrRetenc,
+CadGpsEBVlrComp,
+CadGpsEBPcGrauRisco,
+CadGpsEBPcTerceiros,
+CadGpsEBVlrBaseEmpreg,
+CadGpsEBVlrBaseProlab,
+
+
+CadGpsEBBaseApEsp15,
+CadGpsEBBaseApEsp20,
+CadGpsEBBaseApEsp25,
+CadGpsEBVlrSegurados,
+CadGpsEBVlrEmpresa,
+CadGpsEBVlrGraurisco,
+CadGpsEBVlrApespecial,
+CadGpsEBVlrPgCoop,
+CadGpsEBVlrTerceiros,
+CadGpsEBTotDeduc,
+CadGpsEBTotLiq,
+CadGpsEBVlrAtuMonet,
+CadGpsEBVlrJurMul,
+CadGpsEBTotGuia,
+CadGpsEBCodTerceiro  : OleVariant;
 
 
 procedure FiltroGps();
@@ -24,9 +62,6 @@ BtnOk         :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 BtnVazio      :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
 BtnCancelar   :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
 
-FormConsulta.SetText('GPS');
-FormCodLocal.SelectItem('(Ignorar)');
-BtnOk.ClickButton;
 end;
 
 procedure MapCadGps();
