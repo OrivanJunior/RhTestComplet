@@ -2343,24 +2343,17 @@
 											<testItem name="GPS" key="{5CAA8DEB-1B82-4420-9DC4-467511DB8E17}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
-															<testItem name="Cadastrar GPS" key="{7349217C-820D-4A7E-B13D-7D4F87B72ECC}" group="False" parallel="False" enabled="True" testMoniker="{82FDAF1B-A07D-493B-83C9-7131A01403AA}CadastraGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="CadastraGPS" key="{BAC54A1B-0D6D-4473-BDC6-6807AE510114}" group="False" parallel="False" enabled="True" testMoniker="{82FDAF1B-A07D-493B-83C9-7131A01403AA}CadastraGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS\GPS.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
 															</testItem>
-															<testItem name="Alterar GPS" key="{4494EBAB-95A4-4436-AD81-8EDC66D071DE}" group="False" parallel="False" enabled="False" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}AlteraTarefas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-																<testParameters>
-																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS\GPS.xls" />
-																</testParameters>
-																<environments activeCloud="CBT" />
-																<children />
-															</testItem>
-															<testItem name="Excluir GPS" key="{2B4A9472-962D-46FD-AE34-75C3680BE918}" group="False" parallel="False" enabled="False" testMoniker="{FBE72F94-3770-42F2-BB8C-1354A208F46F}ExcluirTarefas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+															<testItem name="ExcluirGPS" key="{DCA0BA64-3D7F-41B9-BEF7-76798AF51712}" group="False" parallel="False" enabled="True" testMoniker="{82FDAF1B-A07D-493B-83C9-7131A01403AA}ExcluirGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS\GPS.xls" />
 																</testParameters>
@@ -2400,7 +2393,7 @@
 															</testItem>
 															<testItem name="ExcluirGpsIndividual" key="{E16672D1-5AC5-4EB6-9F76-3148C1F840FB}" group="False" parallel="False" enabled="True" testMoniker="{BCC452A4-A83B-4E24-8A9B-6A2EA7CFD22F}ExcluirGpsIndividual" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
-																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\GPS\GPS - Individual\GPS - Individual.xls" />
+																	<param0 name="pathData" type="3" localVarName="" varType="0" value="" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />
@@ -2426,7 +2419,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="GPS sobre Faturamento" key="{9DA4DF14-282A-441A-96EA-7C8B30AA3A23}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="GPS sobre Faturamento" key="{9DA4DF14-282A-441A-96EA-7C8B30AA3A23}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraGpsFaturamento" key="{FE1842D8-DE5F-4673-B8E5-7597CFFB1B0F}" group="False" parallel="False" enabled="True" testMoniker="{917154DB-6DA3-4C64-8374-24BB11CAB3DA}CadastraGpsFaturamento" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

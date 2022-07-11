@@ -74,7 +74,7 @@ begin
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
       ValidaFormAberto(_ModuloFolha, 'FRhGps');
 
-    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Local da Guia',CadGpsDPIdLocal);
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsDPEstab);
     if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
     begin
         ActIncluir(FormTelaConsultaForm);
@@ -113,7 +113,7 @@ begin
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhGps');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Local da Guia',CadGpsDPIdLocal);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
