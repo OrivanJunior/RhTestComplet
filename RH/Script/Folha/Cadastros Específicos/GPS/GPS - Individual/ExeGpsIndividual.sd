@@ -70,7 +70,7 @@ LeDataPoolCadGpsI(DDTCadastrar.Name);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
 
-procedure ExcluirGpsIndividual(PathData);
+procedure ExcluirGpsIndividual(pathData);
 var
 DDTExcluir : OleVariant;
 begin

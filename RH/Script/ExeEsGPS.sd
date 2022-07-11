@@ -1,0 +1,132 @@
+﻿uses
+  DataPoolEsGPS, ObjEsGPS, CommonsAll, CommonsObj, VarConsts;
+
+
+procedure FiltraTelaPrincipalGps();
+begin
+FiltroGps();
+FormConsulta.SetText('GPS');
+FormCodLocal.SelectItem('(Ignorar)');
+BtnOk.ClickButton;
+end;
+
+
+procedure PreencheGps(); 
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsEBEstab,CadGpsDPEstab);
+VerificaInsere(CadGpsEBMes,CadGpsDPMes);
+VerificaInsere(CadGpsEBAno,CadGpsDPAno);
+PreencheDatas(CadGpsEBDtVencimento,CadGpsDPDtVencimento);
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsEBIdLocal,CadGpsDPIdLocal);
+VerificaInsere(CadGpsEBSequencia,CadGpsDPSequencia);
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsEBIdFpas,CadGpsDPIdFpas);
+VerificaInsere(CadGpsEBCnpj,CadGpsDPCnpj);
+VerificaInsere(CadGpsEBCodGps,CadGpsDPCodGps);
+VerificaInsere(CadGpsEBDescGuia,CadGpsDPDescGuia);
+VerificaInsere(CadGpsEBNroEmpregados,CadGpsDPNroEmpregados);
+VerificaInsere(CadGpsEBVlrBaseAut,CadGpsDPVlrBaseAut);
+VerificaInsere(CadGpsEBApEspec,CadGpsDPApEspec);
+VerificaInsere(CadGpsEBRecolhida,CadGpsDPRecolhida);
+VerificaInsere(CadGpsEBMesRec,CadGpsDPMesRec);
+VerificaInsere(CadGpsEBAnoRec,CadGpsDPAnoRec);
+VerificaInsere(CadGpsEBVlrRetenc,CadGpsDPVlrRetenc);
+VerificaInsere(CadGpsEBVlrComp,CadGpsDPVlrComp);
+VerificaInsere(CadGpsEBPcGrauRisco,CadGpsDPPcGrauRisco);
+VerificaInsere(CadGpsEBPcTerceiros,CadGpsDPPcTerceiros);
+VerificaInsere(CadGpsEBVlrBaseEmpreg,CadGpsDPVlrBaseEmpreg);
+VerificaInsere(CadGpsEBVlrBaseProlab,CadGpsDPVlrBaseProlab);
+VerificaInsere(CadGpsEBBaseApEsp15,CadGpsDPBaseApEsp15);
+VerificaInsere(CadGpsEBBaseApEsp20,CadGpsDPBaseApEsp20);
+VerificaInsere(CadGpsEBBaseApEsp25,CadGpsDPBaseApEsp25);
+VerificaInsere(CadGpsEBVlrSegurados,CadGpsDPVlrSegurados);
+VerificaInsere(CadGpsEBVlrEmpresa,CadGpsDPVlrEmpresa);
+VerificaInsere(CadGpsEBVlrGraurisco,CadGpsDPVlrGraurisco);
+VerificaInsere(CadGpsEBVlrApespecial,CadGpsDPVlrApespecial);
+VerificaInsere(CadGpsEBVlrPgCoop,CadGpsDPVlrPgCoop);
+VerificaInsere(CadGpsEBVlrTerceiros,CadGpsDPVlrTerceiros);
+VerificaInsere(CadGpsEBTotDeduc,CadGpsDPTotDeduc);
+VerificaInsere(CadGpsEBTotLiq,CadGpsDPTotLiq);
+VerificaInsere(CadGpsEBVlrAtuMonet,CadGpsDPVlrAtuMonet);
+VerificaInsere(CadGpsEBVlrJurMul,CadGpsDPVlrJurMul);
+VerificaInsere(CadGpsEBTotGuia,CadGpsDPTotGuia);
+VerificaInsere(CadGpsEBCodTerceiro,CadGpsDPCodTerceiro);
+
+end;
+
+
+
+procedure CadastraGPS(pathData);
+var
+  DDTCadastrar;
+begin
+  DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+  AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS');
+  
+  FiltroGps();
+  
+    while not(DDTCadastrar.EOF) do
+  begin
+    LeDataPoolCadGps(DDTCadastrar.Name);
+  
+    MapGridConsulta(_ModuloFolha);
+  
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+      ValidaFormAberto(_ModuloFolha, 'FRhGps');
+
+    FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Sequência',CadGpsDPSequencia);
+    if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    begin
+        ActConsulta(FormTelaConsultaForm);
+      
+        MapCadGps();
+
+        PreencheGps(); 
+  
+        ActSalvar(FormPadraoGps);
+        ActFechar(FormPadraoGps);
+        
+    end;
+    DDTCadastrar.Next;
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirGPS(pathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS');
+
+FiltraTelaPrincipalGps();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadGpsI(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsI');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsIDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadGpsI();
+
+  ActExcluir(_ModuloFolha, 'FRhGpsI');
+  
+  ActFechar(FormPadraoGpsI);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
