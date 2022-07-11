@@ -1,0 +1,105 @@
+﻿ {Script para mapear o Cadastro de GPS sobre Faturamento.
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 11/07/2022}
+var 
+FormPadraoGpsFatura,
+CadGpsFaturaEBEstab,
+CadGpsFaturaEBMes,
+CadGpsFaturaEBAno,
+CadGpsFaturaEBDtVencimento,
+CadGpsFaturaEBIdLocal,
+CadGpsFaturaEBSequencia,
+CadGpsFaturaEBIdFpas,
+CadGpsFaturaEBCnpj,
+CadGpsFaturaEBCodGps,
+CadGpsFaturaEBDescGuia,
+CadGpsFaturaEBNroEmpregados,
+CadGpsFaturaEBVlrBaseAut,
+CadGpsFaturaEBApespec,
+CadGpsFaturaEBRecolhida,
+CadGpsFaturaEBMesRec,
+CadGpsFaturaEBAnoRec,
+CadGpsFaturaEBVlrRetenc,
+CadGpsFaturaEBVlrComp,
+CadGpsFaturaEBPcGrauRisco,
+CadGpsFaturaEBPcTerceiros,
+CadGpsFaturaEBVlrDesonerado,
+ 
+CadGpsFaturaEBVlrBaseEmpreg,
+CadGpsFaturaEBVlrBaseProlab,
+
+CadGpsFaturaEBVlrSegurados,
+CadGpsFaturaEBVlrEmpresa,
+CadGpsFaturaEBVlrGrauRisco,
+CadGpsFaturaEBVlrApEspecial,
+CadGpsFaturaEBVlrPgCoop,
+CadGpsFaturaEBCodTerceiro,
+CadGpsFaturaEBVlrTerceiros,
+CadGpsFaturaEBTotDeduc,
+CadGpsFaturaEBTotLiq,
+CadGpsFaturaEBVlrAtuMonet,
+CadGpsFaturaEBVlrJurMul,
+CadGpsFaturaEBTotGuia, 
+
+FormFiltroGpsFatura,
+ListaConsultaGpsFatura,
+FiltroGpsFaturaMes,
+FiltroGpsFaturaAno,
+BtnOkFiltroFatura		    : OleVariant;
+
+
+
+procedure MapCadFiltroGpsFatura();
+begin
+FormFiltroGpsFatura		    := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaGpsFatura	  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroGpsFaturaMes		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroGpsFaturaAno 		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+BtnOkFiltroFatura		      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+
+
+
+procedure MapCadGpsFatura();
+begin
+FormPadraoGpsFatura  									  := Aliases.Folha.FRhGpsFaturamento;
+CadGpsFaturaEBEstab									  	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
+CadGpsFaturaEBMes									  	  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_MES;
+CadGpsFaturaEBAno									  	  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+CadGpsFaturaEBDtVencimento							:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_DTVENCIMENTO;
+CadGpsFaturaEBIdLocal									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_IDLOCAL;
+CadGpsFaturaEBSequencia									:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
+CadGpsFaturaEBIdFpas									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_IDFPAS;
+CadGpsFaturaEBCnpj									  	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_CNPJ;
+CadGpsFaturaEBCodGps									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_CodGPS;
+CadGpsFaturaEBDescGuia									:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_DESCGUIA;
+CadGpsFaturaEBNroEmpregados							:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_NROEMPREGADOS;
+CadGpsFaturaEBVlrBaseAut								:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEAUT;
+CadGpsFaturaEBApespec									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_APESPEC;
+CadGpsFaturaEBRecolhida									:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_RECOLHIDA;
+CadGpsFaturaEBMesRec									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_MESREC;
+CadGpsFaturaEBAnoRec									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_ANOREC;
+CadGpsFaturaEBVlrRetenc									:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRRETENC;
+CadGpsFaturaEBVlrComp									  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRCOMP;
+CadGpsFaturaEBPcGrauRisco								:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_PCGRAURISCO;
+CadGpsFaturaEBPcTerceiros								:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_PCTERCEIROS;
+CadGpsFaturaEBVlrDesonerado							:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRDESONERADO;
+ 
+CadGpsFaturaEBVlrBaseEmpreg							:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEEMPREG;
+CadGpsFaturaEBVlrBaseProlab							:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.EB_VLRBASEPROLAB;
+
+CadGpsFaturaEBVlrSegurados						 	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRSEGURADOS;
+CadGpsFaturaEBVlrEmpresa						  	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLREMPRESA;
+CadGpsFaturaEBVlrGrauRisco						  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRGRAURISCO;
+CadGpsFaturaEBVlrApEspecial						  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRAPESPECIAL;
+CadGpsFaturaEBVlrPgCoop						  	  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRPGCOOP;
+CadGpsFaturaEBCodTerceiro						  	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_CODTERCEIRO;
+CadGpsFaturaEBVlrTerceiros						  := Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRTERCEIROS;
+CadGpsFaturaEBTotDeduc						  		:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTDEDUC;
+CadGpsFaturaEBTotLiq						  			:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTLIQ;
+CadGpsFaturaEBVlrAtuMonet						  	:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRATUMONET;
+CadGpsFaturaEBVlrJurMul						  		:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRJURMUL;
+CadGpsFaturaEBTotGuia						  			:= Aliases.Folha.FRhGpsFaturamento.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTGUIA;
+
+end;
