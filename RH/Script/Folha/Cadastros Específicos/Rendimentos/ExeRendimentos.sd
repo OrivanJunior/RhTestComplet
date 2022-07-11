@@ -1,1 +1,25 @@
-﻿
+﻿procedure PreencheRendimentos();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBEstab,CadRendimentosDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdEmpregado,CadRendimentosDPIdEmpregado);
+VerificaInsere(CadRendimentosEBAno,CadRendimentosDPAno);
+VerificaInsere(CadRendimentosEBNatureza,CadRendimentosDPNatureza);
+PreencheDatas(CadRendimentosEBData,CadRendimentosDPData);
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdPess,CadRendimentosDPIdPess);
+VerificaInsere(CadRendimentosEBC3L1,CadRendimentosDPC3L1);  		
+VerificaInsere(CadRendimentosEBC3L2,CadRendimentosDPC3L2);  		
+VerificaInsere(CadRendimentosEBC3L3,CadRendimentosDPC3L3);  		
+VerificaInsere(CadRendimentosEBC3L4,CadRendimentosDPC3L4);  		
+VerificaInsere(CadRendimentosEBC3L5,CadRendimentosDPC3L5);  		
+VerificaInsere(CadRendimentosEBC4L1,CadRendimentosDPC4L1);  		
+VerificaInsere(CadRendimentosEBC4L2,CadRendimentosDPC4L2);  		
+VerificaInsere(CadRendimentosEBC4L3,CadRendimentosDPC4L3);  		
+VerificaInsere(CadRendimentosEBC4L4,CadRendimentosDPC4L4);  		
+VerificaInsere(CadRendimentosEBC4L5,CadRendimentosDPC4L5);  		
+VerificaInsere(CadRendimentosEBC4L6,CadRendimentosDPC4L6);  		
+VerificaInsere(CadRendimentosEBC4L7,CadRendimentosDPC4L7);  		
+VerificaInsere(CadRendimentosEBC5L1,CadRendimentosDPC5L1);  		
+VerificaInsere(CadRendimentosEBC5L2,CadRendimentosDPC5L2);  		
+VerificaInsere(CadRendimentosEBC7L1,CadRendimentosDPC7L1);  		
+VerificaInsere(CadRendimentosEBObservacoes,CadRendimentosDPObservacoes);
+end;

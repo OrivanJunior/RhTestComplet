@@ -40,12 +40,12 @@ BtnRendimentosExc  			: OleVariant;
 
 procedure MapCadRendimentos;
 begin
-FormPadraoRendimentos							:= Aliases.Folha.FRhRendimentos;
+FormPadraoRendimentos							  := Aliases.Folha.FRhRendimentos;
 
 CadRendimentosEBEstab  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
-CadRendimentosEBIdEmpregado  					:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_IDEMPREGADO;
-CadRendimentosEBAno  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
-CadRendimentosEBNatureza  						:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_NATUREZA;
+CadRendimentosEBIdEmpregado  				:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_IDEMPREGADO;
+CadRendimentosEBAno  							  := Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+CadRendimentosEBNatureza  					:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_NATUREZA;
 CadRendimentosEBData  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_DATA;
 CadRendimentosEBIdPess  						:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_IDPESS;
 CadRendimentosEBC3L1  							:= Aliases.Folha.FRhRendimentos.Page.TabNormal.pnCab.ScrollBox1.EB_C3L1;
