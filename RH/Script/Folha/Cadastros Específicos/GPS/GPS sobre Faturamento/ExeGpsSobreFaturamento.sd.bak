@@ -1,1 +1,51 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsSobreFaturamento, ObjGpsSobreFaturamento;
+
+procedure PreencheGpsFatura();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsFaturaEBEstab,CadGpsFaturaDPEstab);
+VerificaInsere(CadGpsFaturaEBMes,CadGpsFaturaDPMes);
+VerificaInsere(CadGpsFaturaEBAno,CadGpsFaturaDPAno);
+PreencheDatas(CadGpsFaturaEBDtVencimento,CadGpsFaturaDPDtVencimento);
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsFaturaEBIdLocal,CadGpsFaturaDPIdLocal);	
+VerificaInsere(CadGpsFaturaEBSequencia,CadGpsFaturaDPSequencia);
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsFaturaEBIdFpas,CadGpsFaturaDPIdFpas);	
+VerificaInsere(CadGpsFaturaEBCnpj,CadGpsFaturaDPCnpj);
+VerificaInsere(CadGpsFaturaEBCodGps,CadGpsFaturaDPCodGps);
+VerificaInsere(CadGpsFaturaEBDescGuia,CadGpsFaturaDPDescGuia);
+VerificaInsere(CadGpsFaturaEBNroEmpregados,CadGpsFaturaDPNroEmpregados);
+VerificaInsere(CadGpsFaturaEBVlrBaseAut,CadGpsFaturaDPVlrBaseAut);
+VerificaInsere(CadGpsFaturaEBApespec,CadGpsFaturaDPApespec);
+VerificaInsere(CadGpsFaturaEBRecolhida,CadGpsFaturaDPRecolhida);
+VerificaInsere(CadGpsFaturaEBMesRec,CadGpsFaturaDPMesRec);
+VerificaInsere(CadGpsFaturaEBAnoRec,CadGpsFaturaDPAnoRec);
+VerificaInsere(CadGpsFaturaEBVlrRetenc,CadGpsFaturaDPVlrRetenc);
+VerificaInsere(CadGpsFaturaEBVlrComp,CadGpsFaturaDPVlrComp);
+VerificaInsere(CadGpsFaturaEBPcGrauRisco,CadGpsFaturaDPPcGrauRisco);
+VerificaInsere(CadGpsFaturaEBPcTerceiros,CadGpsFaturaDPPcTerceiros);
+VerificaInsere(CadGpsFaturaEBVlrDesonerado,CadGpsFaturaDPVlrDesonerado);
+VerificaInsere(CadGpsFaturaEBVlrBaseEmpreg,CadGpsFaturaDPVlrBaseEmpreg);
+VerificaInsere(CadGpsFaturaEBVlrBaseProlab,CadGpsFaturaDPVlrBaseProlab);
+VerificaInsere(CadGpsFaturaEBVlrSegurados,CadGpsFaturaDPVlrSegurados);
+VerificaInsere(CadGpsFaturaEBVlrEmpresa	,CadGpsFaturaDPVlrEmpresa);
+VerificaInsere(CadGpsFaturaEBVlrGrauRisco,CadGpsFaturaDPVlrGrauRisco);
+VerificaInsere(CadGpsFaturaEBVlrApEspecial,CadGpsFaturaDPVlrApEspecial);
+VerificaInsere(CadGpsFaturaEBVlrPgCoop,CadGpsFaturaDPVlrPgCoop);
+VerificaInsere(CadGpsFaturaEBCodTerceiro,CadGpsFaturaDPCodTerceiro);
+VerificaInsere(CadGpsFaturaEBVlrTerceiros,CadGpsFaturaDPVlrTerceiros);
+VerificaInsere(CadGpsFaturaEBTotDeduc,CadGpsFaturaDPTotDeduc);
+VerificaInsere(CadGpsFaturaEBTotLiq,CadGpsFaturaDPTotLiq);
+VerificaInsere(CadGpsFaturaEBVlrAtuMonet,CadGpsFaturaDPVlrAtuMonet);
+VerificaInsere(CadGpsFaturaEBVlrJurMul,CadGpsFaturaDPVlrJurMul);
+VerificaInsere(CadGpsFaturaEBTotGuia,CadGpsFaturaDPTotGuia);
+end;
+
+procedure FiltraTelaInicialFaturamento();
+begin
+MapCadFiltroGpsFatura();
+ListaConsultaGpsFatura.SetText('GPS Faturamento por Mês/Ano');
+FiltroGpsFaturaMes.Keys('(Ignorar)');
+FiltroGpsFaturaAno.Keys('(Ignorar)');
+BtnOkFiltroFatura.ClickButton;
+
+end;
+

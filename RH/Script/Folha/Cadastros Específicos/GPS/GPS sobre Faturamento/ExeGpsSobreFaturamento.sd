@@ -39,7 +39,7 @@ VerificaInsere(CadGpsFaturaEBVlrJurMul,CadGpsFaturaDPVlrJurMul);
 VerificaInsere(CadGpsFaturaEBTotGuia,CadGpsFaturaDPTotGuia);
 end;
 
-procedure FiltraTelaInicialFaturamento();
+procedure FiltraTelaInicialGpsFaturamento();
 begin
 MapCadFiltroGpsFatura();
 ListaConsultaGpsFatura.SetText('GPS Faturamento por Mês/Ano');
@@ -49,3 +49,75 @@ BtnOkFiltroFatura.ClickButton;
 
 end;
 
+procedure CadastraGpsFaturamento(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS sobre Faturamento');
+
+FiltraTelaInicialGpsFaturamento();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadGpsFatura(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadGpsFatura();
+  
+  PreencheGpsFatura();
+  
+  ActSalvar(FormPadraoGpsFatura);
+  ActFechar(FormPadraoGpsFatura);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirGpsFaturamento(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS sobre Faturamento');
+
+FiltraTelaInicialGpsFaturamento();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadGpsFatura(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadGpsFatura();
+
+  ActExcluir(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  ActFechar(FormPadraoGpsFatura);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
