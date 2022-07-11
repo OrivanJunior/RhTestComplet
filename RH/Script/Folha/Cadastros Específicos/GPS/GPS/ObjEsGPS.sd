@@ -1,0 +1,39 @@
+﻿{Script para mapear o Cadastro GPS - Cadastros específicos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 24/05/2022}
+var 
+CadFormGps,
+
+FormFiltro,  
+FormConsulta,
+FormCodLocal,
+BtnOk,
+BtnVazio,
+BtnCancelar,CadFormPage,
+
+CadEBSequencia : OleVariant;
+
+
+procedure FiltroGps();
+begin
+FormFiltro    :=    Aliases.Folha.FFiltroConsultaCDS;
+FormConsulta  :=    Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FormCodLocal  :=    Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOk         :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnVazio      :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnCancelar   :=    Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+
+FormConsulta.SetText('GPS');
+FormCodLocal.SelectItem('(Ignorar)');
+BtnOk.ClickButton;
+
+end;
+
+procedure MapCadGps();
+begin
+CadFormGps      := Aliases.Folha.FRhGps;
+CadFormPage     := Aliases.Folha.FRhGps.Page;
+CadEBSequencia  := Aliases.Folha.FRhGps.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
+end;
+
