@@ -1,0 +1,98 @@
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolGpsEmpDomestico, ObjGpsEmpDomestico;
+
+procedure PreencheGpsEd();
+Begin
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsEdEBEstab,CadGpsEdDPEstab);		
+VerificaInsere(CadGpsEdEBMes,CadGpsEdDPMes);
+VerificaInsere(CadGpsEdEBAno,CadGpsEdDPAno);
+PreencheDatas(CadGpsEdEBDtVencimento,CadGpsEdDPDtVencimento);
+InsereContribuinte2();
+VerificaContribuinte.Keys('2[Enter]');
+//VerificaConsultaF3Insere(_ModuloFolha,CadGpsEdEBIdEmpregado,CadGpsEdDPIdEmpregado);
+VerificaInsere(CadGpsEdEBSequencia,CadGpsEdDPSequencia);
+VerificaInsere(CadGpsEdEBdescGps,CadGpsEdDPdescGps);
+VerificaInsere(CadGpsEdEBCodPagGps,CadGpsEdDPCodPagGps);
+VerificaInsere(CadGpsEdEBRecolhida,CadGpsEdDPRecolhida);
+VerificaInsere(CadGpsEdEBMesRec,CadGpsEdDPMesRec);
+VerificaInsere(CadGpsEdEBAnoRec,CadGpsEdDPAnoRec);
+VerificaInsere(CadGpsEdEBBaseContrib,CadGpsEdDPBaseContrib);            
+VerificaInsere(CadGpsEdEBVlrInss,CadGpsEdDPVlrInss);
+VerificaInsere(CadGpsEdEBVlrEmpresa,CadGpsEdDPVlrEmpresa);
+VerificaInsere(CadGpsEdEBCodTerceiro,CadGpsEdDPCodTerceiro);
+VerificaInsere(CadGpsEdEBVlrTerceiros,CadGpsEdDPVlrTerceiros);
+VerificaInsere(CadGpsEdEBTotDeduc,CadGpsEdDPTotDeduc);
+VerificaInsere(CadGpsEdEBTotLiq,CadGpsEdDPTotLiq);
+VerificaInsere(CadGpsEdEBVlrAtuMonet,CadGpsEdDPVlrAtuMonet);
+VerificaInsere(CadGpsEdEBVlrJurMul,CadGpsEdDPVlrJurMul);
+VerificaInsere(CadGpsEdEBTotGuia,CadGpsEdDPTotGuia);
+end;
+
+
+procedure CadastraGpsED(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - Empregado Doméstico');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadGpsEd(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsED');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsEdDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadGpsEd();
+  
+  PreencheGpsEd();
+  
+  ActSalvar(FormPadraoGpsEd);
+  ActFechar(FormPadraoGpsEd);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirGpsED(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS - Empregado Doméstico');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadGpsEd(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsED');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsEdDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadGpsEd();
+
+  ActExcluir(_ModuloFolha, 'FRhGpsED');
+  
+  ActFechar(FormPadraoGpsEd);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

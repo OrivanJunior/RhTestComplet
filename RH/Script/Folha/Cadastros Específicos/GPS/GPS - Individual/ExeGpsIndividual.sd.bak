@@ -16,7 +16,7 @@ Begin
 VerificaConsultaF3Insere(_ModuloFolha,CadGpsIEBEstab,CadGpsIDPEstab);		
 VerificaInsere(CadGpsIEBMes,CadGpsIDPMes);
 VerificaInsere(CadGpsIEBAno,CadGpsIDPAno);
-VerificaInsere(CadGpsIEBIdPreserv,CadGpsIDPIdPreserv);
+VerificaConsultaF3Insere(_ModuloFolha,CadGpsIEBIdPreserv,CadGpsIDPIdPreserv);
 VerificaInsere(CadGpsIEBSequencia,CadGpsIDPSequencia);
 VerificaInsere(CadGpsIEBdescGps,CadGpsIDPdescGps);
 VerificaInsere(CadGpsIEBCodPagGps,CadGpsIDPCodPagGps);

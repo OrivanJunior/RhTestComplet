@@ -1,0 +1,49 @@
+﻿var 
+CadGpsEdDPEstab,
+CadGpsEdDPMes,
+CadGpsEdDPAno,
+CadGpsEdDPDtVencimento,
+CadGpsEdDPIdEmpregado,
+CadGpsEdDPSequencia,
+CadGpsEdDPdescGps,
+CadGpsEdDPCodPagGps,
+CadGpsEdDPRecolhida,
+CadGpsEdDPMesRec,
+CadGpsEdDPAnoRec,
+CadGpsEdDPBaseContrib,
+CadGpsEdDPVlrInss,
+CadGpsEdDPVlrEmpresa,
+CadGpsEdDPCodTerceiro,
+CadGpsEdDPVlrTerceiros,
+CadGpsEdDPTotDeduc,
+CadGpsEdDPTotLiq,
+CadGpsEdDPVlrAtuMonet,
+CadGpsEdDPVlrJurMul,
+CadGpsEdDPTotGuia : OleVariant;
+
+		
+procedure LeDataPoolCadGpsEd(nomeDriver);
+begin
+
+CadGpsEdDPEstab   			  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadGpsEdDPMes     		    := DDT.DriverByName(nomeDriver).Value('MES');
+CadGpsEdDPAno   			    := DDT.DriverByName(nomeDriver).Value('ANO');
+CadGpsEdDPDtVencimento		:= DDT.DriverByName(nomeDriver).Value('DTVENCIMENTO');
+CadGpsEdDPIdEmpregado	    := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadGpsEdDPSequencia 		  := DDT.DriverByName(nomeDriver).Value('SEQUENCIA');
+CadGpsEdDPdescGps		      := DDT.DriverByName(nomeDriver).Value('DESCGPS');
+CadGpsEdDPCodPagGps  	    := DDT.DriverByName(nomeDriver).Value('CODPAGGPS');
+CadGpsEdDPRecolhida  	    := DDT.DriverByName(nomeDriver).Value('RECOLHIDA');
+CadGpsEdDPMesRec  		    := DDT.DriverByName(nomeDriver).Value('MESREC');
+CadGpsEdDPAnoRec  		    := DDT.DriverByName(nomeDriver).Value('ANOREC');
+CadGpsEdDPBaseContrib	    := DDT.DriverByName(nomeDriver).Value('BASECONTRIB');
+CadGpsEdDPVlrInss		      := DDT.DriverByName(nomeDriver).Value('VLRINSS');
+CadGpsEdDPVlrEmpresa   	  := DDT.DriverByName(nomeDriver).Value('VLREMPRESA');
+CadGpsEdDPCodTerceiro  	  := DDT.DriverByName(nomeDriver).Value('CODTERCEIRO');
+CadGpsEdDPVlrTerceiros  	:= DDT.DriverByName(nomeDriver).Value('VLRTERCEIROS');
+CadGpsEdDPTotDeduc		    := DDT.DriverByName(nomeDriver).Value('TOTDEDUC');
+CadGpsEdDPTotLiq 		      := DDT.DriverByName(nomeDriver).Value('TOTLIQ');
+CadGpsEdDPVlrAtuMonet	    := DDT.DriverByName(nomeDriver).Value('VLRATUMONET');
+CadGpsEdDPVlrJurMul 		  := DDT.DriverByName(nomeDriver).Value('VLRJURMUL');
+CadGpsEdDPTotGuia 		    := DDT.DriverByName(nomeDriver).Value('TOTGUIA');
+end;

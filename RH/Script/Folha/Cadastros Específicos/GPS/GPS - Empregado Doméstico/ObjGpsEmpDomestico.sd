@@ -1,0 +1,67 @@
+﻿ {Script para mapear o Cadastro de GPS - Empregado Doméstico
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 11/07/2022}
+
+var 
+FormPadraoGpsEd,
+
+CadGpsEdEBEstab,
+CadGpsEdEBMes,
+CadGpsEdEBAno,
+CadGpsEdEBDtVencimento,
+CadGpsEdEBIdEmpregado,
+CadGpsEdEBSequencia,
+CadGpsEdEBdescGps,
+CadGpsEdEBCodPagGps,
+CadGpsEdEBRecolhida,
+CadGpsEdEBMesRec,
+CadGpsEdEBAnoRec,
+CadGpsEdEBBaseContrib,
+  
+CadGpsEdEBVlrInss,
+CadGpsEdEBVlrEmpresa,
+CadGpsEdEBCodTerceiro,
+CadGpsEdEBVlrTerceiros,
+CadGpsEdEBTotDeduc,
+CadGpsEdEBTotLiq,
+CadGpsEdEBVlrAtuMonet,
+CadGpsEdEBVlrJurMul,
+CadGpsEdEBTotGuia, 
+
+VerificaContribuinte  : OleVariant;
+
+
+
+procedure MapCadGpsEd();
+begin
+FormPadraoGpsEd					    := Aliases.Folha.FRhGpsED;
+
+CadGpsEdEBEstab   	  			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_ESTAB;
+CadGpsEdEBMes     	  			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_MES;
+CadGpsEdEBAno   		  		  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_ANO;
+CadGpsEdEBDtVencimento			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_DTVENCIMENTO;
+CadGpsEdEBIdEmpregado    	  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_IDEMPREGADO;
+CadGpsEdEBSequencia 	  		:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_SEQUENCIA;
+CadGpsEdEBdescGps	  			  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_DESCGPS;
+CadGpsEdEBCodPagGps    			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_CODPAGGPS;
+CadGpsEdEBRecolhida    			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_RECOLHIDA;
+CadGpsEdEBMesRec  	  			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_MESREC;
+CadGpsEdEBAnoRec  	  			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_ANOREC;
+CadGpsEdEBBaseContrib  			:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_BASECONTRIB;
+  
+CadGpsEdEBVlrInss		  		  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRINSS;
+CadGpsEdEBVlrEmpresa   	  	:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLREMPRESA;
+CadGpsEdEBCodTerceiro  	  	:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_CODTERCEIROS;
+CadGpsEdEBVlrTerceiros  		:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRTERCEIROS;
+CadGpsEdEBTotDeduc		  		:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTDEDUC;
+CadGpsEdEBTotLiq 		  		  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTLIQ;
+CadGpsEdEBVlrAtuMonet	  		:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRATMONET;
+CadGpsEdEBVlrJurMul 			  := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_VLRJURMUL;
+CadGpsEdEBTotGuia 		  		:= Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.pnCalcula.EB_TOTGUIA;
+end;
+
+procedure InsereContribuinte2();
+begin
+VerificaContribuinte      := Aliases.Folha.FRhGpsED.Page.TabNormal.pnCab.ScrollBox1.EB_IDEMPREGADO;
+end;
