@@ -1,1 +1,25 @@
-﻿
+﻿var 
+
+CadComunicadosDPEstab,
+CadComunicadosDPSequencial,
+CadComunicadosDPTitulo,
+CadComunicadosDPDataIni,
+CadComunicadosDPTvsHora,
+CadComunicadosDPDataFin,
+CadComunicadosDPTvsHora2,
+CadComunicadosDPMensagem,
+CadComunicadosDPStatus	: OleVariant;
+
+
+procedure LeDataPoolCadComunicados(nomeDriver);
+begin
+CadComunicadosDPEstab			    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadComunicadosDPSequencial	  := DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadComunicadosDPTitulo		    := DDT.DriverByName(nomeDriver).Value('TITULO');
+CadComunicadosDPDataIni	      := DDT.DriverByName(nomeDriver).Value('DATAINI');
+CadComunicadosDPTvsHora	      := DDT.DriverByName(nomeDriver).Value('TVSHORA');
+CadComunicadosDPDataFin	      := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+CadComunicadosDPTvsHora2	    := DDT.DriverByName(nomeDriver).Value('TVSHORA2');
+CadComunicadosDPMensagem	    := DDT.DriverByName(nomeDriver).Value('MENSAGEM');
+CadComunicadosDPStatus		    := DDT.DriverByName(nomeDriver).Value('STATUS');
+end;
