@@ -1,1 +1,69 @@
-﻿
+﻿{Script para mapear o Cadastro de Sefip outras Info.
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 12/07/2022}
+ 
+
+var
+FormFiltroSefipInfo,
+ListaConsultaSefipInfo,
+FiltroLocalSefipInfo,
+btnOkSefipInfo,
+
+FormPadraoSefipInfo,
+CadSefipInfoEBEstab,
+CadSefipInfoEBMes,
+CadSefipInfoEBAno,
+CadSefipInfoEBIdLocal,
+CadSefipInfoEBPercIsFilant,
+CadSefipInfoEBVlrRetenc,
+CadSefipInfoEBVlrFateMit,
+CadSefipInfoEBVlrProdruralpf,
+CadSefipInfoEBVlrProdruralpj,
+CadSefipInfoEBOutProcesso,
+CadSefipInfoEBOutProcAno,
+CadSefipInfoEBOutVara,
+CadSefipInfoEBOutPerIni,
+CadSefipInfoEBOutPerFin,
+CadSefipInfoEBVlrcomp,
+CadSefipInfoEBCompDtIni,
+CadSefipInfoEBCompDtFin,
+CadSefipInfoEBVlrCoopTrab,
+CadSefipInfoEBVlrFaturamento,
+CadSefipInfoEBVlrOutrasAtividades  : OleVariant;
+
+procedure MapCadSefipInfo();
+begin
+
+FormPadraoSefipInfo  					  := Aliases.Folha.FFormPadraoRHSEFIP;
+  
+CadSefipInfoEBEstab  					  := Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadSefipInfoEBMes  						  := Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MES;
+CadSefipInfoEBAno  						  := Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANO;
+CadSefipInfoEBIdLocal   				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLOCAL;
+CadSefipInfoEBPercIsFilant  		:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_PERCISFILANT;
+CadSefipInfoEBVlrRetenc  				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRRETENC;
+CadSefipInfoEBVlrFateMit  			:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRFATEMIT;
+CadSefipInfoEBVlrProdruralpf  	:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRPRODRURALPF;
+CadSefipInfoEBVlrProdruralpj  	:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRPRODRURALPJ;
+CadSefipInfoEBOutProcesso  			:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_OUTPROCESSO;
+CadSefipInfoEBOutProcAno  			:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_OUTPROCANO;
+CadSefipInfoEBOutVara  					:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_OUTVARA;
+CadSefipInfoEBOutPerIni  				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_OUTPERINI;
+CadSefipInfoEBOutPerFin  				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_OUTPERFIN;
+CadSefipInfoEBVlrcomp  					:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRCOMP;
+CadSefipInfoEBCompDtIni  				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_COMPDTINI;
+CadSefipInfoEBCompDtFin  				:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_COMPDTFIN;
+CadSefipInfoEBVlrCoopTrab  			:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRCOOPTRAB;
+CadSefipInfoEBVlrFaturamento  	:= Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRFATURAMENTO;
+CadSefipInfoEBVlrOutrasAtividades := Aliases.Folha.FFormPadraoRHSEFIP.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLROUTRASATIVIDADES;
+end;
+
+
+procedure FiltroSefipInfo();
+begin
+FormFiltroSefipInfo     := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaSefipInfo  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroLocalSefipInfo    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+btnOkSefipInfo          := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;

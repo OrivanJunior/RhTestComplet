@@ -2623,7 +2623,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Cálculos" key="{93027441-1886-48EF-8E3E-16649C533FE9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Cálculos" key="{93027441-1886-48EF-8E3E-16649C533FE9}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraCalculos" key="{E9D0C642-9806-4835-964A-E175D2B2C5E7}" group="False" parallel="False" enabled="True" testMoniker="{D5563A2D-76DF-4882-AFD6-FFC6F318A992}CadastraCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2636,6 +2636,25 @@
 													<testItem name="ExcluirCalculos" key="{1F22113F-37BC-4E44-A628-4B90AC269835}" group="False" parallel="False" enabled="True" testMoniker="{D5563A2D-76DF-4882-AFD6-FFC6F318A992}ExcluirCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cálculos\Cálculos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="SEFIP - Outras Info" key="{D0B448CA-7D67-4527-BE08-97AEDECA5EB0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraSefipInfo" key="{E54E1ADA-4FD5-481B-B40E-739481433A6B}" group="False" parallel="False" enabled="True" testMoniker="{6414D98B-403A-4ADC-B366-12CD23541013}CadastraSefipInfo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\SEFIP - Outras inf\SEFIP - Outras inf.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirSefipInfo" key="{E540617A-5898-4D6A-979C-33B8DBE57D46}" group="False" parallel="False" enabled="True" testMoniker="{6414D98B-403A-4ADC-B366-12CD23541013}ExcluirSefipInfo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\SEFIP - Outras inf\SEFIP - Outras inf.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

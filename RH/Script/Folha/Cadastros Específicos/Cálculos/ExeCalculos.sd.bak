@@ -90,6 +90,9 @@ begin
 
   BtnExcluirCalculos.Click;
   
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+  Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim.ClickButton;
+  
 //  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCULO');
 //  
 //  Log.Checkpoint('fecha tela de erro');

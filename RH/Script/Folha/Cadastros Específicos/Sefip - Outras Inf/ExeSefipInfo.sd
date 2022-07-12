@@ -1,1 +1,110 @@
-﻿
+﻿uses
+  DataPoolSefipInfo, ObjSefIpinfo, CommonsAll, CommonsObj, VarConsts;
+
+procedure FiltraTelaInicialSefipInfo();
+begin
+FiltroSefipInfo();
+
+ListaConsultaSefipInfo.SetText('Por Local');
+FiltroLocalSefipInfo.SetText('(Ignorar)');
+btnOkSefipInfo.Click;        
+
+end;
+
+procedure PreencheSefipInfo();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadSefipInfoEBEstab,CadSefipInfoDPEstab);
+VerificaInsere(CadSefipInfoEBMes,CadSefipInfoDPMes);
+VerificaInsere(CadSefipInfoEBAno,CadSefipInfoDPAno);
+VerificaConsultaF3Insere(_ModuloFolha,CadSefipInfoEBIdLocal,CadSefipInfoDPIdLocal);
+VerificaInsere(CadSefipInfoEBPercIsFilant,CadSefipInfoDPPercIsFilant);
+VerificaInsere(CadSefipInfoEBVlrRetenc,CadSefipInfoDPVlrRetenc);
+VerificaInsere(CadSefipInfoEBVlrFateMit,CadSefipInfoDPVlrFateMit);
+VerificaInsere(CadSefipInfoEBVlrProdruralpf,CadSefipInfoDPVlrProdruralpf);
+VerificaInsere(CadSefipInfoEBVlrProdruralpj,CadSefipInfoDPVlrProdruralpj);
+VerificaInsere(CadSefipInfoEBOutProcesso,CadSefipInfoDPOutProcesso);
+VerificaInsere(CadSefipInfoEBOutProcAno,CadSefipInfoDPOutProcAno);
+VerificaInsere(CadSefipInfoEBOutVara,CadSefipInfoDPOutVara);
+PreencheDatas(CadSefipInfoEBOutPerIni,CadSefipInfoDPOutPerIni);
+PreencheDatas(CadSefipInfoEBOutPerFin,CadSefipInfoDPOutPerFin);
+VerificaInsere(CadSefipInfoEBVlrcomp,CadSefipInfoDPVlrcomp);
+PreencheDatas(CadSefipInfoEBCompDtIni,CadSefipInfoDPCompDtIni);
+PreencheDatas(CadSefipInfoEBCompDtFin,CadSefipInfoDPCompDtFin);
+VerificaInsere(CadSefipInfoEBVlrCoopTrab,CadSefipInfoDPVlrCoopTrab);
+VerificaInsere(CadSefipInfoEBVlrFaturamento,CadSefipInfoDPVlrFaturamento);
+VerificaInsere(CadSefipInfoEBVlrOutrasAtividades,CadSefipInfoDPVlrOutrasAtividades);
+end;
+
+
+procedure CadastraSefipInfo(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'SEFIP - Outras Inf.');
+
+FiltraTelaInicialSefipInfo();
+
+MapGridConsulta(_ModuloFolha);
+  
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadSefipInfo(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSEFIP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadSefipInfoDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadSefipInfo();
+  
+  PreencheSefipInfo();
+  
+  ActSalvar(FormPadraoSefipInfo);
+  ActFechar(FormPadraoSefipInfo);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirSefipInfo(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'SEFIP - Outras Inf.');
+
+FiltraTelaInicialSefipInfo();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadSefipInfo(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHSEFIP');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadSefipInfoDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadSefipInfo();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHSEFIP');
+  
+  ActFechar(FormPadraoSefipInfo);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

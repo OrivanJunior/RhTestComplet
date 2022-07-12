@@ -1,1 +1,45 @@
-﻿
+﻿var
+CadSefipInfoDPEstab,
+CadSefipInfoDPMes,
+CadSefipInfoDPAno,
+CadSefipInfoDPIdLocal,
+CadSefipInfoDPPercIsFilant,
+CadSefipInfoDPVlrRetenc,
+CadSefipInfoDPVlrFateMit,
+CadSefipInfoDPVlrProdruralpf,
+CadSefipInfoDPVlrProdruralpj,
+CadSefipInfoDPOutProcesso,
+CadSefipInfoDPOutProcAno,
+CadSefipInfoDPOutVara,
+CadSefipInfoDPOutPerIni,
+CadSefipInfoDPOutPerFin,
+CadSefipInfoDPVlrcomp,
+CadSefipInfoDPCompDtIni,
+CadSefipInfoDPCompDtFin,
+CadSefipInfoDPVlrCoopTrab,
+CadSefipInfoDPVlrFaturamento,
+CadSefipInfoDPVlrOutrasAtividades  : OleVariant; 
+
+procedure LeDataPoolCadSefipInfo(nomeDriver);
+begin
+CadSefipInfoDPEstab  					    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadSefipInfoDPMes  						    := DDT.DriverByName(nomeDriver).Value('MES');
+CadSefipInfoDPAno  					      := DDT.DriverByName(nomeDriver).Value('ANO');
+CadSefipInfoDPIdLocal  			    	:= DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+CadSefipInfoDPPercIsFilant  		  := DDT.DriverByName(nomeDriver).Value('PERCISFILANT');
+CadSefipInfoDPVlrRetenc  			    := DDT.DriverByName(nomeDriver).Value('VLRRETENC');
+CadSefipInfoDPVlrFateMit  			  := DDT.DriverByName(nomeDriver).Value('VLRFATEMIT');
+CadSefipInfoDPVlrProdruralpf  		:= DDT.DriverByName(nomeDriver).Value('VLRPRODRURALPF');
+CadSefipInfoDPVlrProdruralpj  		:= DDT.DriverByName(nomeDriver).Value('VLRPRODRURALPJ');
+CadSefipInfoDPOutProcesso  			  := DDT.DriverByName(nomeDriver).Value('OUTPROCESSO');
+CadSefipInfoDPOutProcAno  			  := DDT.DriverByName(nomeDriver).Value('OUTPROCANO');
+CadSefipInfoDPOutVara  				    := DDT.DriverByName(nomeDriver).Value('OUTVARA');
+CadSefipInfoDPOutPerIni  			    := DDT.DriverByName(nomeDriver).Value('OUTPERINI');
+CadSefipInfoDPOutPerFin  			    := DDT.DriverByName(nomeDriver).Value('OUTPERFIN');
+CadSefipInfoDPVlrcomp  				    := DDT.DriverByName(nomeDriver).Value('VLRCOMP');
+CadSefipInfoDPCompDtIni  			    := DDT.DriverByName(nomeDriver).Value('COMPDTINI');
+CadSefipInfoDPCompDtFin  			    := DDT.DriverByName(nomeDriver).Value('COMPDTFIN');
+CadSefipInfoDPVlrCoopTrab  			  := DDT.DriverByName(nomeDriver).Value('VLRCOOPTRAB');
+CadSefipInfoDPVlrFaturamento  		:= DDT.DriverByName(nomeDriver).Value('VLRFATURAMENTO');
+CadSefipInfoDPVlrOutrasAtividades := DDT.DriverByName(nomeDriver).Value('VLROUTRASATIVIDADES');
+end;

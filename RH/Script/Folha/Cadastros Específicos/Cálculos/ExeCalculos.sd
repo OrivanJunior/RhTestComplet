@@ -88,16 +88,11 @@ begin
   
   MapCadCalculos();
 
-  BtnExcluirCalculos.Click;
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCULO');
   
-  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
-  Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim.ClickButton;
-  
-//  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCULO');
-//  
-//  Log.Checkpoint('fecha tela de erro');
-//  if Aliases.Folha.FVsErrorDlg.Exists then
-//  Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.ClickButton;
+  Log.Checkpoint('fecha tela de erro');
+  if Aliases.Folha.FVsErrorDlg.Exists then
+  Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.ClickButton;
   
   ActFechar(FormPadraoCalculos);
   end;
