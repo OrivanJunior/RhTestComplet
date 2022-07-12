@@ -1,4 +1,20 @@
-﻿procedure PreencheRendimentos();
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolRendimentos, ObjRendimentos;
+
+
+procedure FiltraTelaInicialRendimentos();
+begin
+FiltroRendimentos();
+FiltroListaConsultasR.SetText('Rendimentos Por Ano e Código do Empregado');  
+FiltroEstabelecimentoR.Keys('Ignorar'); 
+FiltroAnoR.Keys('Ignorar');
+FiltroEmpregadoR.Keys('Ignorar');
+BtnOkR.ClickButton;
+end;
+
+
+
+
+procedure PreencheRendimentos();
 begin
 VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBEstab,CadRendimentosDPEstab);
 VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdEmpregado,CadRendimentosDPIdEmpregado);
@@ -25,35 +41,37 @@ VerificaInsere(CadRendimentosEBObservacoes,CadRendimentosDPObservacoes);
 end;
 
 
+
+
 procedure CadastraRendimentos(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rendimentos');
 
-FiltraTelaInicialGpsFaturamento();
+FiltraTelaInicialRendimentos();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadGpsFatura(DDTCadastrar.Name);
+LeDataPoolCadRendimentos(DDTCadastrar.Name);
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+    ValidaFormAberto(_ModuloFolha, 'FRhRendimentos');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRendimentosDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadGpsFatura();
+  MapCadRendimentos();
   
-  PreencheGpsFatura();
+  PreencheRendimentos();
   
-  ActSalvar(FormPadraoGpsFatura);
-  ActFechar(FormPadraoGpsFatura);
+  ActSalvar(FormPadraoRendimentos);
+  ActFechar(FormPadraoRendimentos);
   
   end;
   ActFechar(FormTelaConsultaForm);
@@ -64,33 +82,33 @@ procedure ExcluirRendimentos(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS sobre Faturamento');
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rendimentos');
 
-FiltraTelaInicialGpsFaturamento();
+FiltraTelaInicialRendimentos();
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadGpsFatura(DDTExcluir.Name);
+LeDataPoolCadRendimentos(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+    ValidaFormAberto(_ModuloFolha, 'FRhRendimentos');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRendimentosDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadGpsFatura();
+  MapCadRendimentos();
 
-  ActExcluir(_ModuloFolha, 'FRhGpsFaturamento');
+  ActExcluir(_ModuloFolha, 'FRhRendimentos');
   
-  ActFechar(FormPadraoGpsFatura);
+  ActFechar(FormPadraoRendimentos);
   end;
   DDTExcluir.Next;
 end;

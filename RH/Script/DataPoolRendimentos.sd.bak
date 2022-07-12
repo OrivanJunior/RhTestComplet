@@ -1,4 +1,28 @@
-﻿procedure LeDataPoolCadRendimentos(nomeDriver);
+﻿var
+CadRendimentosDPEstab,
+CadRendimentosDPIdEmpregado,
+CadRendimentosDPAno,
+CadRendimentosDPNatureza,
+CadRendimentosDPData,
+CadRendimentosDPIdPess,
+CadRendimentosDPC3L1,
+CadRendimentosDPC3L2,
+CadRendimentosDPC3L3,
+CadRendimentosDPC3L4,
+CadRendimentosDPC3L5,
+CadRendimentosDPC4L1,
+CadRendimentosDPC4L2,
+CadRendimentosDPC4L3,
+CadRendimentosDPC4L4,
+CadRendimentosDPC4L5,		
+CadRendimentosDPC4L6,
+CadRendimentosDPC4L7,
+CadRendimentosDPC5L1,
+CadRendimentosDPC5L2,
+CadRendimentosDPC7L1,
+CadRendimentosDPObservacoes : OleVariant;
+
+procedure LeDataPoolCadRendimentos(nomeDriver);
 begin
 CadRendimentosDPEstab  			:= DDT.DriverByName(nomeDriver).Value('ESTAB');
 CadRendimentosDPIdEmpregado := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO ');

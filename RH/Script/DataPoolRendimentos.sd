@@ -1,4 +1,15 @@
 ﻿var
+CadRendimentosDPSequencia,
+CadRendimentosDPNroProcesso,
+CadRendimentosDPQtdMeses,
+CadRendimentosDPNaturezaRend,
+CadRendimentosDPCampo6Linha1,
+CadRendimentosDPCampo6Linha2,
+CadRendimentosDPCampo6Linha3,
+CadRendimentosDPCampo6Linha4,
+CadRendimentosDPCampo6Linha5,
+CadRendimentosDPCampo6Linha6,
+
 CadRendimentosDPEstab,
 CadRendimentosDPIdEmpregado,
 CadRendimentosDPAno,
@@ -46,4 +57,21 @@ CadRendimentosDPC5L1  			:= DDT.DriverByName(nomeDriver).Value('C5L1');
 CadRendimentosDPC5L2  			:= DDT.DriverByName(nomeDriver).Value('C5L2');
 CadRendimentosDPC7L1  			:= DDT.DriverByName(nomeDriver).Value('C7L1');
 CadRendimentosDPObservacoes := DDT.DriverByName(nomeDriver).Value('OBSERVACOES');
+end;
+
+procedure LeDataPoolCadRendimentosGrid(nomeDriver);
+begin
+
+CadRendimentosDPSequencia		  := DDT.DriverByName(nomeDriver).Value('SEQUÊNCIA');
+CadRendimentosDPNroProcesso	  := DDT.DriverByName(nomeDriver).Value('NRO. PROCESSO');
+CadRendimentosDPQtdMeses	    := DDT.DriverByName(nomeDriver).Value('QTD. MESES');
+CadRendimentosDPNaturezaRend	:= DDT.DriverByName(nomeDriver).Value('NATUREZA REND.');
+CadRendimentosDPCampo6Linha1	:= DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 1');
+CadRendimentosDPCampo6Linha2	:= DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 2');
+CadRendimentosDPCampo6Linha3	:= DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 3');
+CadRendimentosDPCampo6Linha4	:= DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 4');
+CadRendimentosDPCampo6Linha5	:= DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 5');
+CadRendimentosDPCampo6Linha6  := DDT.DriverByName(nomeDriver).Value('CAMPO 6 LINHA 6');
+
+
 end;

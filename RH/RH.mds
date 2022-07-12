@@ -2340,10 +2340,10 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="GPS" key="{5CAA8DEB-1B82-4420-9DC4-467511DB8E17}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="GPS" key="{5CAA8DEB-1B82-4420-9DC4-467511DB8E17}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="GPS" key="{7BEF978E-BB19-4AD0-9FDF-9DC2FADBF03A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraGPS" key="{BAC54A1B-0D6D-4473-BDC6-6807AE510114}" group="False" parallel="False" enabled="True" testMoniker="{82FDAF1B-A07D-493B-83C9-7131A01403AA}CadastraGPS" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2579,6 +2579,25 @@
 													<testItem name="ExcluirDarfs" key="{FEF21AF7-9660-413C-8AFD-C99E0B066FD3}" group="False" parallel="False" enabled="True" testMoniker="{00FF90C5-735B-41CA-A9EA-F7E8751DEBE3}ExcluirDarfs" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Darf&apos;s\Darf&apos;s.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Rendimentos" key="{5EC0DA6F-8632-4BF6-9309-3F3922E4A8D9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraRendimentos" key="{493CC3BD-976C-405D-A2DF-9D4036CA776A}" group="False" parallel="False" enabled="True" testMoniker="{1693017E-6D23-4FD9-B8B9-4A875CA03365}CadastraRendimentos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Rendimentos\Rendimentos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirRendimentos" key="{08E8CBDB-05BE-4D4C-96DF-64BFAC0B6E8A}" group="False" parallel="False" enabled="True" testMoniker="{1693017E-6D23-4FD9-B8B9-4A875CA03365}ExcluirRendimentos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Rendimentos\Rendimentos.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
