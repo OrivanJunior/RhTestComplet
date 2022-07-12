@@ -853,10 +853,26 @@
 					<child name="DataPoolCalculos" key="{78C05F5B-332E-4A4D-9434-68E0EFD60F45}" path="Folha\Cadastros Específicos\Cálculos\DataPoolCalculos.sd" />
 				</folder>
 				<folder name="Portal">
-					<folder name="Comunicados" />
-					<folder name="Mensagens" />
-					<folder name="Políticas da Empresa" />
-					<folder name="Benefícios/Convênios" />
+					<folder name="Comunicados">
+						<child name="ExeComunicados" key="{5740034B-4559-4216-A233-292382FCF8E6}" path="Folha\Cadastros Específicos\Portal\Comunicados\ExeComunicados.sd" />
+						<child name="ObjComunicados" key="{93ED6F6A-EAE7-4CB3-B246-0A47152D3C50}" path="Folha\Cadastros Específicos\Portal\Comunicados\ObjComunicados.sd" />
+						<child name="DataPoolComunicados" key="{642563D0-1A09-41A3-AD9F-99583B499CF6}" path="Folha\Cadastros Específicos\Portal\Comunicados\DataPoolComunicados.sd" />
+					</folder>
+					<folder name="Mensagens">
+						<child name="ExeMensagens" key="{2337B859-387A-4F0D-9593-749B174AA346}" path="Folha\Cadastros Específicos\Portal\Mensagens\ExeMensagens.sd" />
+						<child name="ObjMensagens" key="{6CBC7728-574F-4E46-9D34-B4AB5264625F}" path="Folha\Cadastros Específicos\Portal\Mensagens\ObjMensagens.sd" />
+						<child name="DataPoolMensagens" key="{41DA7AA5-FA7B-44A4-9DD3-B1100DF4FACE}" path="Folha\Cadastros Específicos\Portal\Mensagens\DataPoolMensagens.sd" />
+					</folder>
+					<folder name="Políticas da Empresa">
+						<child name="ExePoliticasDaEmpresa" key="{2E157907-E47A-424D-9CD5-F744E2CAC86F}" path="Folha\Cadastros Específicos\Portal\Políticas da Empresa\ExePoliticasDaEmpresa.sd" />
+						<child name="ObjPoliticasDaEmpresa" key="{6D7A9CD6-9B41-4A70-866A-20FDACD207B6}" path="Folha\Cadastros Específicos\Portal\Políticas da Empresa\ObjPoliticasDaEmpresa.sd" />
+						<child name="DataPoolPoliticasDaEmpresa" key="{DF863A85-AB10-4315-847E-1346FA988799}" path="Folha\Cadastros Específicos\Portal\Políticas da Empresa\DataPoolPoliticasDaEmpresa.sd" />
+					</folder>
+					<folder name="Benefícios Convênios">
+						<child name="ExeBeneficiosConvenios" key="{E5B190B8-8728-4481-AF77-92DB2695854B}" path="Folha\Cadastros Específicos\Portal\Benefícios Convênios\ExeBeneficiosConvenios.sd" />
+						<child name="ObjBeneficiosConvenios" key="{44B9C2B7-CCCE-47D5-A9E0-D4C1AA44600D}" path="Folha\Cadastros Específicos\Portal\Benefícios Convênios\ObjBeneficiosConvenios.sd" />
+						<child name="DataPoolBeneficiosConvenios" key="{A9BA855B-A08C-41E9-A530-09F311756111}" path="Folha\Cadastros Específicos\Portal\Benefícios Convênios\DataPoolBeneficiosConvenios.sd" />
+					</folder>
 				</folder>
 			</folder>
 			<folder name="Relatórios">

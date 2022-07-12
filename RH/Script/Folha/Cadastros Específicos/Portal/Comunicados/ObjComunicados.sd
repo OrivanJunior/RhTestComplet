@@ -1,0 +1,15 @@
+﻿procedure Test1;
+begin
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.Click(190, 20);
+  
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEQUENCIAL.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TITULO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATAINI.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.TVsHora.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATAFIN.Keys('[Tab]');
+  
+
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MENSAGEM.Click(50, 9);
+  Aliases.Folha.FFormPadraoRHWCOMUNICADOS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_STATUS.Click(50, 8);
+end;
