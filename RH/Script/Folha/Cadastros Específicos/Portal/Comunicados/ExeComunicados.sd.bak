@@ -71,8 +71,6 @@ begin
   ActConsulta(FormTelaConsultaForm);
   
   MapCadComunicados();
-  
-  ActSalvar(FormPadraoComunicados);
 
   ActExcluir(_ModuloFolha, 'FFormPadraoRHWCOMUNICADOS');
 

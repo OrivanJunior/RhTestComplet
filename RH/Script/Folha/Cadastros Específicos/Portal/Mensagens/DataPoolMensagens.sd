@@ -1,1 +1,18 @@
-﻿
+﻿var
+CadMensagensDPEstab,
+CadMensagensDPIdEmpregado2,
+CadMensagensDPSequencial,
+CadMensagensDPData,
+CadMensagensDPAssunto,
+CadMensagensDPMsg : OleVariant;
+
+
+procedure LeDataPoolCadMensagens(nomeDriver);
+begin
+CadMensagensDPEstab  			      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadMensagensDPIdEmpregado2      := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO2');
+CadMensagensDPSequencial  	    := DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadMensagensDPData  		        := DDT.DriverByName(nomeDriver).Value('DATA');
+CadMensagensDPAssunto  	        := DDT.DriverByName(nomeDriver).Value('ASSUNTO');
+CadMensagensDPMsg  		          := DDT.DriverByName(nomeDriver).Value('MSG');
+end;

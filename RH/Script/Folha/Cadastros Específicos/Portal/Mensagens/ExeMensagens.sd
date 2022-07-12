@@ -1,1 +1,96 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolMensagens,ObjMensagens;
+
+procedure FiltraTelaInicialMensagens();
+begin
+FiltroMensagens();
+
+ListaConsultamensagens.SetText('1 - Padrão Empregados');
+FiltroEstab.Keys('(ignorar)');
+FiltroCodEmp.Keys('(ignorar)');
+FiltroData.Keys('(ignorar)');
+BtnOk.ClickButton;
+end;
+
+
+procedure PreencheMensagens();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadMensagensEBEstab,CadMensagensDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadMensagensEBIdEmpregado2,CadMensagensDPIdEmpregado2);
+VerificaInsere(CadMensagensEBSequencial,CadMensagensDPSequencial);
+PreencheDatas(CadMensagensEBData,CadMensagensDPData);
+VerificaInsere(CadMensagensEBAssunto,CadMensagensDPAssunto);
+VerificaInsere(CadMensagensEBMsg,CadMensagensDPMsg);
+end;			
+
+procedure CadastraMensagens(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Portal', 'Mensagens');
+
+FiltraTelaInicialMensagens();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadMensagens(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhwMensagemRh');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadMensagensDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadMensagens();
+  
+  PreencheMensagens();
+  
+  ActSalvar(FormPadraoMensagens);
+  ActFechar(FormPadraoMensagens);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirMensagens(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos',  'Portal', 'Mensagens');
+
+FiltraTelaInicialMensagens();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadMensagens(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhwMensagemRh');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadMensagensDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadMensagens();
+
+  ActExcluir(_ModuloFolha, 'FRhwMensagemRh');
+
+  ActFechar(FormPadraoMensagens);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

@@ -1,0 +1,44 @@
+﻿{Script para mapear o Cadastro de Portal - Mensagens
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 12/07/2022}
+var
+FormFiltroMensagens,
+ListaConsultamensagens,
+FiltroEstab,
+FiltroCodEmp,
+FiltroData,
+BtnOk,
+
+FormPadraoMensagens,
+                           
+CadMensagensEBEstab,
+CadMensagensEBIdEmpregado2,
+CadMensagensEBSequencial,
+CadMensagensEBData,
+CadMensagensEBAssunto,
+CadMensagensEBMsg : OleVariant;
+
+
+procedure FiltroMensagens();
+begin
+FormFiltroMensagens  	  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultamensagens  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEstab  			      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroCodEmp  			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroData  			      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+BtnOk					          := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK.ClickButton;
+end;
+
+procedure MapCadMensagens();
+begin
+FormPadraoMensagens  			  := Aliases.Folha.FRhwMensagemRh;
+
+CadMensagensEBEstab  			  := Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_ESTAB;
+CadMensagensEBIdEmpregado2  := Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_IDEMPREGADO2;
+CadMensagensEBSequencial  	:= Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_SEQUENCIAL;
+CadMensagensEBData  			  := Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_DATA;
+CadMensagensEBAssunto  			:= Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_ASSUNTO;
+CadMensagensEBMsg  				  := Aliases.Folha.FRhwMensagemRh.Page.TabNormal.ScrollBox1.EB_MSG;
+
+end;
