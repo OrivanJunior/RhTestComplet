@@ -11,9 +11,6 @@ FiltroEmpregadoR.Keys('Ignorar');
 BtnOkR.ClickButton;
 end;
 
-
-
-
 procedure PreencheRendimentos();
 begin
 VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBEstab,CadRendimentosDPEstab);
@@ -40,8 +37,47 @@ VerificaInsere(CadRendimentosEBC7L1,CadRendimentosDPC7L1);
 VerificaInsere(CadRendimentosEBObservacoes,CadRendimentosDPObservacoes);
 end;
 
+procedure PreencheRendimentosGrid(pathData);
+var 
+DDTRendimentosGrid : OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalRendimentos.ActivePageIndex:=0;
+
+MapCadRendimentos();
+
+DDTRendimentosGrid := CarregaDDT(pathData, 'RendimentosGrid');
+
+While not (DDTRendimentosGrid.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadRendimentosGrid(DDTRendimentosGrid.Name);
+
+ if (FormGridRendimentos.ActiveView.ViewData.RowCount < 1) then
+ BtnRendimentosInc.Click;
+
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Sequência', CadRendimentosDPSequencia);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Nro. Processo', CadRendimentosDPNroProcesso);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Qtd. Meses', CadRendimentosDPQtdMeses);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Natureza Rend.', CadRendimentosDPNaturezaRend);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 1', CadRendimentosDPCampo6Linha1);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 2', CadRendimentosDPCampo6Linha2);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 3', CadRendimentosDPCampo6Linha3);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 4', CadRendimentosDPCampo6Linha4);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 5', CadRendimentosDPCampo6Linha5);
+VerificaClickPreencheGrid(FormGridRendimentos, i, 'Campo 6 Linha 6', CadRendimentosDPCampo6Linha6);
 
 
+FormGridRendimentos.Keys('[Tab]');
+Inc(i);
+
+DDTRendimentosGrid.Next;
+end;
+DDT.CloseDriver(DDTRendimentosGrid.Name);
+end;
 
 procedure CadastraRendimentos(pathData);
 var
@@ -69,6 +105,7 @@ LeDataPoolCadRendimentos(DDTCadastrar.Name);
   MapCadRendimentos();
   
   PreencheRendimentos();
+  PreencheRendimentosGrid(pathData);
   
   ActSalvar(FormPadraoRendimentos);
   ActFechar(FormPadraoRendimentos);

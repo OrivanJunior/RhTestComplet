@@ -5,14 +5,11 @@ procedure FiltraTelaInicialRendimentos();
 begin
 FiltroRendimentos();
 FiltroListaConsultasR.SetText('Rendimentos Por Ano e Código do Empregado');  
-FiltroEstabelecimentoR.Keys('Ignorar'); 
-FiltroAnoR.Keys('Ignorar');
-FiltroEmpregadoR.Keys('Ignorar');
+FiltroEstabelecimentoR.Keys('(Ignorar)'); 
+FiltroAnoR.Keys('(Ignorar)');
+FiltroEmpregadoR.Keys('(Ignorar)');
 BtnOkR.ClickButton;
 end;
-
-
-
 
 procedure PreencheRendimentos();
 begin

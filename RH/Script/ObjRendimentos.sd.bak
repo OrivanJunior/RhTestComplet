@@ -35,7 +35,14 @@ BtnRendimentosInc,
 BtnRendimentosProc,
 BtnRendimentosConsul,
 BtnRendimentosDesf,
-BtnRendimentosExc  			: OleVariant;	
+BtnRendimentosExc,
+
+FormFiltroRendimentos,
+FiltroListaConsultasR,
+FiltroEstabelecimentoR,
+FiltroAnoR,
+FiltroEmpregadoR,
+BtnOkR                   			: OleVariant;	
 
 
 procedure MapCadRendimentos;
@@ -76,3 +83,12 @@ BtnRendimentosExc  								  := Aliases.Folha.FRhRendimentos.bExc;
 end;
 
 
+procedure FiltroRendimentos();
+begin
+FormFiltroRendimentos       := Aliases.Folha.FFiltroConsultaCDS; 
+FiltroListaConsultasR       := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEstabelecimentoR      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroAnoR                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroEmpregadoR            := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+BtnOkR                      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK.ClickButton;
+end;
