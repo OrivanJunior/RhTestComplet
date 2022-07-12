@@ -1,4 +1,20 @@
-﻿procedure PreencheRendimentos();
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolRendimentos, ObjRendimentos;
+
+
+procedure FiltraTelaInicialRendimentos();
+begin
+FiltroRendimentos();
+FiltroListaConsultasR.SetText('Rendimentos Por Ano e Código do Empregado');  
+FiltroEstabelecimentoR.Keys('Ignorar'); 
+FiltroAnoR.Keys('Ignorar');
+FiltroEmpregadoR.Keys('Ignorar');
+BtnOkR.ClickButton;
+end;
+
+
+
+
+procedure PreencheRendimentos();
 begin
 VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBEstab,CadRendimentosDPEstab);
 VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdEmpregado,CadRendimentosDPIdEmpregado);
@@ -22,4 +38,80 @@ VerificaInsere(CadRendimentosEBC5L1,CadRendimentosDPC5L1);
 VerificaInsere(CadRendimentosEBC5L2,CadRendimentosDPC5L2);  		
 VerificaInsere(CadRendimentosEBC7L1,CadRendimentosDPC7L1);  		
 VerificaInsere(CadRendimentosEBObservacoes,CadRendimentosDPObservacoes);
+end;
+
+
+
+
+procedure CadastraRendimentos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rendimentos');
+
+FiltraTelaInicialRendimentos();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRendimentos(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRendimentos');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRendimentosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRendimentos();
+  
+  PreencheRendimentos();
+  
+  ActSalvar(FormPadraoRendimentos);
+  ActFechar(FormPadraoRendimentos);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRendimentos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rendimentos');
+
+FiltraTelaInicialRendimentos();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRendimentos(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRendimentos');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRendimentosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRendimentos();
+
+  ActExcluir(_ModuloFolha, 'FRhRendimentos');
+  
+  ActFechar(FormPadraoRendimentos);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
 end;

@@ -1,1 +1,99 @@
-﻿
+﻿procedure PreencheRendimentos();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBEstab,CadRendimentosDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdEmpregado,CadRendimentosDPIdEmpregado);
+VerificaInsere(CadRendimentosEBAno,CadRendimentosDPAno);
+VerificaInsere(CadRendimentosEBNatureza,CadRendimentosDPNatureza);
+PreencheDatas(CadRendimentosEBData,CadRendimentosDPData);
+VerificaConsultaF3Insere(_ModuloFolha,CadRendimentosEBIdPess,CadRendimentosDPIdPess);
+VerificaInsere(CadRendimentosEBC3L1,CadRendimentosDPC3L1);  		
+VerificaInsere(CadRendimentosEBC3L2,CadRendimentosDPC3L2);  		
+VerificaInsere(CadRendimentosEBC3L3,CadRendimentosDPC3L3);  		
+VerificaInsere(CadRendimentosEBC3L4,CadRendimentosDPC3L4);  		
+VerificaInsere(CadRendimentosEBC3L5,CadRendimentosDPC3L5);  		
+VerificaInsere(CadRendimentosEBC4L1,CadRendimentosDPC4L1);  		
+VerificaInsere(CadRendimentosEBC4L2,CadRendimentosDPC4L2);  		
+VerificaInsere(CadRendimentosEBC4L3,CadRendimentosDPC4L3);  		
+VerificaInsere(CadRendimentosEBC4L4,CadRendimentosDPC4L4);  		
+VerificaInsere(CadRendimentosEBC4L5,CadRendimentosDPC4L5);  		
+VerificaInsere(CadRendimentosEBC4L6,CadRendimentosDPC4L6);  		
+VerificaInsere(CadRendimentosEBC4L7,CadRendimentosDPC4L7);  		
+VerificaInsere(CadRendimentosEBC5L1,CadRendimentosDPC5L1);  		
+VerificaInsere(CadRendimentosEBC5L2,CadRendimentosDPC5L2);  		
+VerificaInsere(CadRendimentosEBC7L1,CadRendimentosDPC7L1);  		
+VerificaInsere(CadRendimentosEBObservacoes,CadRendimentosDPObservacoes);
+end;
+
+
+procedure CadastraRendimentos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rendimentos');
+
+FiltraTelaInicialGpsFaturamento();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadGpsFatura(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadGpsFatura();
+  
+  PreencheGpsFatura();
+  
+  ActSalvar(FormPadraoGpsFatura);
+  ActFechar(FormPadraoGpsFatura);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRendimentos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'GPS', 'GPS sobre Faturamento');
+
+FiltraTelaInicialGpsFaturamento();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadGpsFatura(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadGpsFaturaDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadGpsFatura();
+
+  ActExcluir(_ModuloFolha, 'FRhGpsFaturamento');
+  
+  ActFechar(FormPadraoGpsFatura);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

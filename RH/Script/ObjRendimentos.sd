@@ -74,3 +74,14 @@ BtnRendimentosConsul  							:= Aliases.Folha.FRhRendimentos.bConsul;
 BtnRendimentosDesf  							  := Aliases.Folha.FRhRendimentos.bDesf;
 BtnRendimentosExc  								  := Aliases.Folha.FRhRendimentos.bExc;
 end;
+
+
+procedure FiltroRendimentos();
+begin
+FormFiltroRendimentos       := Aliases.Folha.FFiltroConsultaCDS; 
+FiltroListaConsultasR       := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEstabelecimentoR      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroAnoR                  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroEmpregadoR            := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+BtnOkR                      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK.ClickButton;
+end;
