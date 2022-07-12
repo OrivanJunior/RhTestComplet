@@ -1,1 +1,87 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts,DataPoolComunicados,ObjComunicados;
+
+
+procedure PreencheComunicados();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadComunicadosEBEstab,CadComunicadosDPEstab);			
+VerificaInsere(CadComunicadosEBSequencial,CadComunicadosDPSequencial);
+VerificaInsere(CadComunicadosEBTitulo,CadComunicadosDPTitulo);
+PreencheDatas(CadComunicadosEBDataIni,CadComunicadosDPDataIni);
+VerificaInsere(CadComunicadosEBTvsHora,CadComunicadosDPTvsHora);
+PreencheDatas(CadComunicadosEBDataFin,CadComunicadosDPDataFin);
+VerificaInsere(CadComunicadosEBTvsHora2,CadComunicadosDPTvsHora2);
+VerificaInsere(CadComunicadosEBMensagem	,CadComunicadosDPMensagem);
+VerificaInsere(CadComunicadosEBStatus,CadComunicadosDPStatus);
+end;
+
+procedure CadastraComunicados(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Portal', 'Comunicados');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadComunicados(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHWCOMUNICADOS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadComunicadosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadComunicados();
+  
+  PreencheComunicados();
+  
+  ActSalvar(FormPadraoComunicados);
+  ActFechar(FormPadraoComunicados);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirComunicados(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos',  'Portal', 'Comunicados');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadComunicados(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHWCOMUNICADOS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadComunicadosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadComunicados();
+  
+  ActSalvar(FormPadraoComunicados);
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHWCOMUNICADOS');
+
+  ActFechar(FormPadraoComunicados);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
+

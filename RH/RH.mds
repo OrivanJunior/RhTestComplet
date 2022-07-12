@@ -2642,7 +2642,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="SEFIP - Outras Info" key="{D0B448CA-7D67-4527-BE08-97AEDECA5EB0}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="SEFIP - Outras Info" key="{D0B448CA-7D67-4527-BE08-97AEDECA5EB0}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraSefipInfo" key="{E54E1ADA-4FD5-481B-B40E-739481433A6B}" group="False" parallel="False" enabled="True" testMoniker="{6414D98B-403A-4ADC-B366-12CD23541013}CadastraSefipInfo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2655,6 +2655,25 @@
 													<testItem name="ExcluirSefipInfo" key="{E540617A-5898-4D6A-979C-33B8DBE57D46}" group="False" parallel="False" enabled="True" testMoniker="{6414D98B-403A-4ADC-B366-12CD23541013}ExcluirSefipInfo" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\SEFIP - Outras inf\SEFIP - Outras inf.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Portal" key="{92444171-ABD2-4747-AB83-D784C2CA5BB4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraComunicados" key="{2E5B7510-7BCF-4410-B932-6499C908278F}" group="False" parallel="False" enabled="True" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}CadastraComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirComunicados" key="{79D49095-2B10-403A-B94C-0488AA3F06AF}" group="False" parallel="False" enabled="True" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}ExcluirComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
