@@ -1,1 +1,108 @@
-﻿
+﻿uses
+  DataPoolCalculos, ObjCalculos, CommonsAll, CommonsObj, VarConsts;
+
+procedure FiltraTelaInicialCalculos();
+begin
+FiltroCalculos();
+ListaConsultaCalculos.SetText('Cálculos');
+FiltroData.Keys('(Ignorar)');
+FiltroProcessamento.Keys('(Ignorar)');
+FiltroEmpregado.Keys('(Ignorar)');
+BtnOkCalculos.ClickButton;
+end;
+
+procedure PreencheCalculos();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadCalculosEBEstab,CadCalculosDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadCalculosEBIdProcesso,CadCalculosDPIdProcesso);
+PreencheDatas(CadCalculosEBData,CadCalculosDPData);
+VerificaConsultaF3Insere(_ModuloFolha,CadCalculosEBIdEmpregado,CadCalculosDPIdEmpregado);
+VerificaConsultaF3Insere(_ModuloFolha,CadCalculosEBIdEvento,CadCalculosDPIdEvento);
+VerificaInsere(CadCalculosEBReferencia,CadCalculosDPReferencia);
+VerificaInsere(CadCalculosEBRefValor,CadCalculosDPRefValor);
+VerificaInsere(CadCalculosEBValor,CadCalculosDPValor);
+VerificaInsere(CadCalculosEBIdCalcMedia,CadCalculosDPIdCalcMedia);
+end;
+
+
+procedure CadastraCalculos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cálculos');
+
+FiltraTelaInicialCalculos();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCalculos(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCULO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Referência',CadCalculosDPReferencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCalculos();
+  
+  PreencheCalculos();
+  
+  ActSalvar(FormPadraoCalculos);
+  ActFechar(FormPadraoCalculos);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCalculos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Cálculos');
+
+FiltraTelaInicialCalculos();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCalculos(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCALCULO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Referência', CadCalculosDPReferencia);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCalculos();
+
+  BtnExcluirCalculos.Click;
+  
+  if Aliases.Folha.dlgEventosBasesDeC_lculo.Exists then
+  Aliases.Folha.dlgEventosBasesDeC_lculo.btnSim.ClickButton;
+  
+//  ActExcluir(_ModuloFolha, 'FFormPadraoRHCALCULO');
+//  
+//  Log.Checkpoint('fecha tela de erro');
+//  if Aliases.Folha.FVsErrorDlg.Exists then
+//  Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn.ClickButton;
+  
+  ActFechar(FormPadraoCalculos);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

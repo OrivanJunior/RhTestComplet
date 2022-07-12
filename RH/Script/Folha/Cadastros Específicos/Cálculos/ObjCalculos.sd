@@ -4,6 +4,7 @@
  Data: 12/07/2022}
 var
 FormPadraoCalculos,
+BtnExcluirCalculos,
 CadCalculosEBEstab,
 CadCalculosEBIdProcesso,
 CadCalculosEBData,
@@ -29,11 +30,13 @@ FiltroData  			      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
 FiltroProcessamento  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
 FiltroEmpregado  		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
 BtnOkCalculos  			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+
 end;
 
 procedure MapCadCalculos();
 begin
 FormPadraoCalculos							:= Aliases.Folha.FFormPadraoRHCALCULO;
+BtnExcluirCalculos              := Aliases.Folha.FFormPadraoRHCALCULO.BExcluir;
 CadCalculosEBEstab							:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
 CadCalculosEBIdProcesso					:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSO;
 CadCalculosEBData							  := Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATA;
@@ -44,3 +47,4 @@ CadCalculosEBRefValor						:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_
 CadCalculosEBValor							:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR;
 CadCalculosEBIdCalcMedia				:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCALCMEDIA;
 end;
+

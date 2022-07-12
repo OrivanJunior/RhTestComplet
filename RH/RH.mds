@@ -2623,6 +2623,25 @@
 													</testItem>
 												</children>
 											</testItem>
+											<testItem name="Cálculos" key="{93027441-1886-48EF-8E3E-16649C533FE9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraCalculos" key="{E9D0C642-9806-4835-964A-E175D2B2C5E7}" group="False" parallel="False" enabled="True" testMoniker="{D5563A2D-76DF-4882-AFD6-FFC6F318A992}CadastraCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cálculos\Cálculos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirCalculos" key="{1F22113F-37BC-4E44-A628-4B90AC269835}" group="False" parallel="False" enabled="True" testMoniker="{D5563A2D-76DF-4882-AFD6-FFC6F318A992}ExcluirCalculos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Cálculos\Cálculos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
 										</children>
 									</testItem>
 									<testItem name="Relatórios" key="{7C3AD300-1563-45DF-84B0-BEEA0D94A301}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">

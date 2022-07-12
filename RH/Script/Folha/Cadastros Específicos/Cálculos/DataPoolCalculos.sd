@@ -1,1 +1,23 @@
-﻿
+﻿var
+CadCalculosDPEstab,
+CadCalculosDPIdProcesso,
+CadCalculosDPData,
+CadCalculosDPIdEmpregado,
+CadCalculosDPIdEvento,
+CadCalculosDPReferencia,
+CadCalculosDPRefValor,
+CadCalculosDPValor,
+CadCalculosDPIdCalcMedia : OleVariant;
+
+procedure LeDataPoolCadCalculos(nomeDriver);
+begin
+CadCalculosDPEstab			    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadCalculosDPIdProcesso     := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+CadCalculosDPData		        := DDT.DriverByName(nomeDriver).Value('DATA');
+CadCalculosDPIdEmpregado    := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadCalculosDPIdEvento	      := DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+CadCalculosDPReferencia     := DDT.DriverByName(nomeDriver).Value('REFERENCIA');
+CadCalculosDPRefValor	      := DDT.DriverByName(nomeDriver).Value('REFVALOR');
+CadCalculosDPValor		      := DDT.DriverByName(nomeDriver).Value('VALOR');
+CadCalculosDPIdCalcMedia    := DDT.DriverByName(nomeDriver).Value('IDCALCMEDIA');
+end;
