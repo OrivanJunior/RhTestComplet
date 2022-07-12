@@ -2,4 +2,45 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 12/07/2022}
- 
+var
+FormPadraoCalculos,
+CadCalculosEBEstab,
+CadCalculosEBIdProcesso,
+CadCalculosEBData,
+CadCalculosEBIdEmpregado,
+CadCalculosEBIdEvento,
+CadCalculosEBReferencia,
+CadCalculosEBRefValor,
+CadCalculosEBValor,
+CadCalculosEBIdCalcMedia,
+
+FormFiltroCalculos,
+ListaConsultaCalculos,
+FiltroData,
+FiltroProcessamento,
+FiltroEmpregado,
+BtnOkCalculos : OleVariant;
+
+procedure FiltroCalculos();
+begin
+FormFiltroCalculos  	  := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaCalculos  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroData  			      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroProcessamento  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+FiltroEmpregado  		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+BtnOkCalculos  			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+
+procedure MapCadCalculos();
+begin
+FormPadraoCalculos							:= Aliases.Folha.FFormPadraoRHCALCULO;
+CadCalculosEBEstab							:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadCalculosEBIdProcesso					:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSO;
+CadCalculosEBData							  := Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATA;
+CadCalculosEBIdEmpregado				:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEMPREGADO;
+CadCalculosEBIdEvento						:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEVENTO;
+CadCalculosEBReferencia					:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_REFERENCIA;
+CadCalculosEBRefValor						:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_REFVALOR;
+CadCalculosEBValor							:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR;
+CadCalculosEBIdCalcMedia				:= Aliases.Folha.FFormPadraoRHCALCULO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDCALCMEDIA;
+end;
