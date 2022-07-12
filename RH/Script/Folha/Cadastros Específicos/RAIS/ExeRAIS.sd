@@ -1,0 +1,158 @@
+﻿uses
+  DataPoolRAIS, ObjRAIS, CommonsAll, CommonsObj, VarConsts;
+
+  
+procedure FiltraTelaInicialRais();
+begin
+FiltroRais();
+ListaConsultaRais.SetText('Rais por Ano');
+FiltroAnoRais.Keys('(Ignorar)');
+BtnOkRais.ClickButton;
+end;
+  
+procedure PreencheRais();
+begin
+PageAbaPrincipal.ActivePageIndex := 0;
+{Padrão}
+VerificaInsere(CadRaisEBEstab,CadRaisDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadRaisEBIdEmpregado,CadRaisDPIdEmpregado);
+VerificaInsere(CadRaisEBAno,CadRaisDPAno);
+VerificaInsere(CadRaisEBSalario,CadRaisDPSalario);
+VerificaInsere(CadRaisEBTipoSal,CadRaisDPTipoSal);
+VerificaInsere(CadRaisEBJsemanal,CadRaisDPJsemanal);
+VerificaInsere(CadRaisEBVlrMulta,CadRaisDPVlrMulta);
+VerificaInsere(CadRaisEBVlrFerias,CadRaisDPVlrFerias);
+VerificaInsere(CadRaisEBUsoEmp,CadRaisDPUsoEmp);
+VerificaInsere(CadRaisEBVlrRempat,CadRaisDPVlrRempat);
+
+PageAbaPrincipal.ActivePageIndex := 1;
+{Remuneração}																	
+VerificaInsere(CadRaisEBRemJan,CadRaisDPRemJan);
+VerificaInsere(CadRaisEBRemFev,CadRaisDPRemFev);
+VerificaInsere(CadRaisEBRemMar,CadRaisDPRemMar);
+VerificaInsere(CadRaisEBRemAbr,CadRaisDPRemAbr);
+VerificaInsere(CadRaisEBRemMai,CadRaisDPRemMai);
+VerificaInsere(CadRaisEBRemJun,CadRaisDPRemJun);
+VerificaInsere(CadRaisEBRemJul,CadRaisDPRemJul);
+VerificaInsere(CadRaisEBRemAgo,CadRaisDPRemAgo);
+VerificaInsere(CadRaisEBRemSet,CadRaisDPRemSet);
+VerificaInsere(CadRaisEBRemOut,CadRaisDPRemOut);
+VerificaInsere(CadRaisEBRemNov,CadRaisDPRemNov);
+VerificaInsere(CadRaisEBRemDez,CadRaisDPRemDez);
+VerificaInsere(CadRaisEBRemAvPrev,CadRaisDPRemAvPrev);
+
+PageAbaPrincipal.ActivePageIndex := 2;
+{Hrs Trabalhadas}
+VerificaInsere(CadRaisEBHorJan,CadRaisDPHorJan);
+VerificaInsere(CadRaisEBHorFev,CadRaisDPHorFev);
+VerificaInsere(CadRaisEBHorMar,CadRaisDPHorMar);
+VerificaInsere(CadRaisEBHorAbr,CadRaisDPHorAbr);
+VerificaInsere(CadRaisEBHorMai,CadRaisDPHorMai);
+VerificaInsere(CadRaisEBHorJun,CadRaisDPHorJun);
+VerificaInsere(CadRaisEBHorJul,CadRaisDPHorJul);
+VerificaInsere(CadRaisEBHorAgo,CadRaisDPHorAgo);
+VerificaInsere(CadRaisEBHorSet,CadRaisDPHorSet);
+VerificaInsere(CadRaisEBHorOut,CadRaisDPHorOut);
+VerificaInsere(CadRaisEBHorNov,CadRaisDPHorNov);
+VerificaInsere(CadRaisEBHorDez,CadRaisDPHorDez);
+
+PageAbaPrincipal.ActivePageIndex := 3;	
+{Contribuições}																	
+VerificaInsere(CadRaisEBVlrContrib1,CadRaisDPVlrContrib1);
+VerificaInsere(CadRaisEBVlrContrib2,CadRaisDPVlrContrib2);
+VerificaInsere(CadRaisEBVlrContribSind,CadRaisDPVlrContribSind);
+VerificaInsere(CadRaisEBVlrContribAssist,CadRaisDPVlrContribAssist);
+VerificaInsere(CadRaisEBVlrContribConf,CadRaisDPVlrContribConf);
+VerificaInsere(CadRaisEBCnpjContrib1,CadRaisDPCnpjContrib1);
+VerificaInsere(CadRaisEBCnpjContrib2,CadRaisDPCnpjContrib2);
+VerificaInsere(CadRaisEBCnpjContribSind,CadRaisDPCnpjContribSind);
+VerificaInsere(CadRaisEBCnpjContribAssis,CadRaisDPCnpjContribAssis);
+VerificaInsere(CadRaisEBCnpjContribConf,CadRaisDPCnpjContribConf);
+	
+PageAbaPrincipal.ActivePageIndex := 4;		
+{Outros Valores}																
+VerificaInsere(CadRaisEBMesDec1,CadRaisDPMesDec1);
+VerificaInsere(CadRaisEBVlrDec1,CadRaisDPVlrDec1);
+VerificaInsere(CadRaisEBMesDec2,CadRaisDPMesDec2);
+VerificaInsere(CadRaisEBVlrDec2,CadRaisDPVlrDec2);
+VerificaInsere(CadRaisEBVlrHorasNP,CadRaisDPVlrHorasNP);
+VerificaInsere(CadRaisEBNMesesHoras,CadRaisDPNMesesHoras);
+VerificaInsere(CadRaisEBVlrDissidio,CadRaisDPVlrDissidio);
+VerificaInsere(CadRaisEBNMesesDissidio,CadRaisDPNMesesDissidio);
+VerificaInsere(CadRaisEBVlrGratnp,CadRaisDPVlrGratnp);
+VerificaInsere(CadRaisEBNMesesGrat,CadRaisDPNMesesGrat);
+end;
+
+
+procedure CadastraRais(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rais');
+
+FiltraTelaInicialRais();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRais(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRAIS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRaisDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRais();
+  
+  PreencheRais();
+  
+  ActSalvar(FormPadraoRais);
+  ActFechar(FormPadraoRais);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRais(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Rais');
+
+FiltraTelaInicialRais();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRais(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRAIS');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadRaisDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRais();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHRAIS');
+  
+  ActFechar(FormPadraoRais);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

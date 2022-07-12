@@ -1,0 +1,126 @@
+﻿var
+
+{Padrão}
+
+CadRaisDPEstab,
+CadRaisDPIdEmpregado,
+CadRaisDPAno,
+CadRaisDPSalario,
+CadRaisDPTipoSal,
+CadRaisDPJsemanal,
+CadRaisDPVlrMulta,
+CadRaisDPVlrFerias,
+CadRaisDPUsoEmp,
+CadRaisDPVlrRempat,
+{Remuneração}
+CadRaisDPRemJan,
+CadRaisDPRemFev,
+CadRaisDPRemMar,  			
+CadRaisDPRemAbr,  			
+CadRaisDPRemMai,  			
+CadRaisDPRemJun,  			
+CadRaisDPRemJul,  			
+CadRaisDPRemAgo,  			
+CadRaisDPRemSet,  			
+CadRaisDPRemOut,  			
+CadRaisDPRemNov,  			
+CadRaisDPRemDez,  			
+CadRaisDPRemAvPrev,
+{Hrs Trabalhadas}
+CadRaisDPHorJan,
+CadRaisDPHorFev,
+CadRaisDPHorMar,
+CadRaisDPHorAbr,
+CadRaisDPHorMai,
+CadRaisDPHorJun,
+CadRaisDPHorJul,
+CadRaisDPHorAgo,
+CadRaisDPHorSet,
+CadRaisDPHorOut,
+CadRaisDPHorNov,
+CadRaisDPHorDez,
+{Contribuições}				
+CadRaisDPVlrContrib1,
+CadRaisDPVlrContrib2,
+CadRaisDPVlrContribSind,
+CadRaisDPVlrContribAssist,
+CadRaisDPVlrContribConf,
+CadRaisDPCnpjContrib1,
+CadRaisDPCnpjContrib2,
+CadRaisDPCnpjContribSind,
+CadRaisDPCnpjContribAssis,
+CadRaisDPCnpjContribConf,
+{Outros Valores}			
+CadRaisDPMesDec1,
+CadRaisDPVlrDec1,
+CadRaisDPMesDec2,
+CadRaisDPVlrDec2,
+CadRaisDPVlrHorasNP,
+CadRaisDPNMesesHoras,
+CadRaisDPVlrDissidio,
+CadRaisDPNMesesDissidio,
+CadRaisDPVlrGratnp,
+CadRaisDPNMesesGrat : OleVariant;
+
+procedure LeDataPoolCadRais(nomeDriver);
+begin
+CadRaisDPEstab  							      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadRaisDPIdEmpregado  			        := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadRaisDPAno  					            := DDT.DriverByName(nomeDriver).Value('ANO');
+CadRaisDPSalario  				          := DDT.DriverByName(nomeDriver).Value('SALARIO');
+CadRaisDPTipoSal  				          := DDT.DriverByName(nomeDriver).Value('TIPOSAL');
+CadRaisDPJsemanal  				          := DDT.DriverByName(nomeDriver).Value('JSEMANAL');
+CadRaisDPVlrMulta  				          := DDT.DriverByName(nomeDriver).Value('VLRMULTA');
+CadRaisDPVlrFerias  			          := DDT.DriverByName(nomeDriver).Value('VLRFERIAS');
+CadRaisDPUsoEmp  				            := DDT.DriverByName(nomeDriver).Value('USOEMP');
+CadRaisDPVlrRempat  			          := DDT.DriverByName(nomeDriver).Value('VLRREMPAT');
+{Remuneração}           
+CadRaisDPRemJan  				            := DDT.DriverByName(nomeDriver).Value('REMJAN');
+CadRaisDPRemFev  				            := DDT.DriverByName(nomeDriver).Value('REMFEV');
+CadRaisDPRemMar  				            := DDT.DriverByName(nomeDriver).Value('REMMAR');
+CadRaisDPRemAbr  				            := DDT.DriverByName(nomeDriver).Value('REMABR');
+CadRaisDPRemMai  				            := DDT.DriverByName(nomeDriver).Value('REMMAI');
+CadRaisDPRemJun  				            := DDT.DriverByName(nomeDriver).Value('REMJUN');
+CadRaisDPRemJul  				            := DDT.DriverByName(nomeDriver).Value('REMJUL');
+CadRaisDPRemAgo  				            := DDT.DriverByName(nomeDriver).Value('REMAGO');
+CadRaisDPRemSet  				            := DDT.DriverByName(nomeDriver).Value('REMSET');
+CadRaisDPRemOut  				            := DDT.DriverByName(nomeDriver).Value('REMOUT');
+CadRaisDPRemNov  				            := DDT.DriverByName(nomeDriver).Value('REMNOV');
+CadRaisDPRemDez  				            := DDT.DriverByName(nomeDriver).Value('REMDEZ');
+CadRaisDPRemAvPrev  			          := DDT.DriverByName(nomeDriver).Value('REMAVPREV');
+{Hrs Trabalhadas}                           
+CadRaisDPHorJan  				            := DDT.DriverByName(nomeDriver).Value('HORJAN');
+CadRaisDPHorFev  				            := DDT.DriverByName(nomeDriver).Value('HORFEV');
+CadRaisDPHorMar  				            := DDT.DriverByName(nomeDriver).Value('HORMAR');
+CadRaisDPHorAbr  				            := DDT.DriverByName(nomeDriver).Value('HORABR');
+CadRaisDPHorMai  				            := DDT.DriverByName(nomeDriver).Value('HORMAI');
+CadRaisDPHorJun  				            := DDT.DriverByName(nomeDriver).Value('HORJUN');
+CadRaisDPHorJul  				            := DDT.DriverByName(nomeDriver).Value('HORJUL');
+CadRaisDPHorAgo  				            := DDT.DriverByName(nomeDriver).Value('HORAGO');
+CadRaisDPHorSet  				            := DDT.DriverByName(nomeDriver).Value('HORSET');
+CadRaisDPHorOut  				            := DDT.DriverByName(nomeDriver).Value('HOROUT');
+CadRaisDPHorNov  				            := DDT.DriverByName(nomeDriver).Value('HORNOV');
+CadRaisDPHorDez  				            := DDT.DriverByName(nomeDriver).Value('HORDEZ');
+{Contribuições}					            
+CadRaisDPVlrContrib1  			        := DDT.DriverByName(nomeDriver).Value('VLRCONTRIB1');
+CadRaisDPVlrContrib2  			        := DDT.DriverByName(nomeDriver).Value('VLRCONTRIB2');
+CadRaisDPVlrContribSind  		        := DDT.DriverByName(nomeDriver).Value('VLRCONTRIBSIND');
+CadRaisDPVlrContribAssist  		      := DDT.DriverByName(nomeDriver).Value('VLRCONTRIBASSIST');
+CadRaisDPVlrContribConf  		        := DDT.DriverByName(nomeDriver).Value('VLRCONTRIBCONF');
+CadRaisDPCnpjContrib1  			        := DDT.DriverByName(nomeDriver).Value('CNPJCONTRIB1');
+CadRaisDPCnpjContrib2  			        := DDT.DriverByName(nomeDriver).Value('CNPJCONTRIB2');
+CadRaisDPCnpjContribSind  		      := DDT.DriverByName(nomeDriver).Value('CNPJCONTRIBSIND');
+CadRaisDPCnpjContribAssis  		      := DDT.DriverByName(nomeDriver).Value('CNPJCONTRIBASSIS');
+CadRaisDPCnpjContribConf  		      := DDT.DriverByName(nomeDriver).Value('CNPJCONTRIBCONF');
+{Outros Valores}				         
+CadRaisDPMesDec1  				          := DDT.DriverByName(nomeDriver).Value('MESDEC1');
+CadRaisDPVlrDec1  				          := DDT.DriverByName(nomeDriver).Value('VLRDEC1');
+CadRaisDPMesDec2  				          := DDT.DriverByName(nomeDriver).Value('MESDEC2');
+CadRaisDPVlrDec2  				          := DDT.DriverByName(nomeDriver).Value('VLRDEC2');
+CadRaisDPVlrHorasNP  			          := DDT.DriverByName(nomeDriver).Value('VLRHORASNP');
+CadRaisDPNMesesHoras  			        := DDT.DriverByName(nomeDriver).Value('NMESESHORAS');
+CadRaisDPVlrDissidio  			        := DDT.DriverByName(nomeDriver).Value('VLRDISSIDIO');
+CadRaisDPNMesesDissidio  		        := DDT.DriverByName(nomeDriver).Value('NMESESDISSIDIO');
+CadRaisDPVlrGratnp  			          := DDT.DriverByName(nomeDriver).Value('VLRGRATNP');
+CadRaisDPNMesesGrat  			          := DDT.DriverByName(nomeDriver).Value('NMESESGRAT');
+end;

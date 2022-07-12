@@ -2585,7 +2585,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Rendimentos" key="{5EC0DA6F-8632-4BF6-9309-3F3922E4A8D9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Rendimentos" key="{5EC0DA6F-8632-4BF6-9309-3F3922E4A8D9}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraRendimentos" key="{493CC3BD-976C-405D-A2DF-9D4036CA776A}" group="False" parallel="False" enabled="True" testMoniker="{1693017E-6D23-4FD9-B8B9-4A875CA03365}CadastraRendimentos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2598,6 +2598,25 @@
 													<testItem name="ExcluirRendimentos" key="{08E8CBDB-05BE-4D4C-96DF-64BFAC0B6E8A}" group="False" parallel="False" enabled="True" testMoniker="{1693017E-6D23-4FD9-B8B9-4A875CA03365}ExcluirRendimentos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Rendimentos\Rendimentos.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="RAIS" key="{C2C0C3D4-51B8-4E1A-89C1-90BEBF12BA5B}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraRais" key="{367EBBC4-A6A3-4840-AD52-928D66BEC5BA}" group="False" parallel="False" enabled="True" testMoniker="{9F72EFFA-6877-4AE6-8A7C-82BA3695E21B}CadastraRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\RAIS\RAIS.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirRais" key="{8691828B-D402-413B-BA3A-36F5C7F37D8C}" group="False" parallel="False" enabled="True" testMoniker="{9F72EFFA-6877-4AE6-8A7C-82BA3695E21B}ExcluirRais" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\RAIS\RAIS.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

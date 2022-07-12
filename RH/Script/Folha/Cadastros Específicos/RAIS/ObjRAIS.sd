@@ -1,0 +1,147 @@
+﻿ {Script para mapear o Cadastro de RAIS
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 12/07/2022}
+ var
+FormFiltroRais,
+ListaConsultaRais,
+FiltroAnoRais,
+BtnOkRais,
+
+
+FormPadraoRais,
+{Padrão}
+PageAbaPrincipal,
+CadRaisEBEstab,
+CadRaisEBIdEmpregado,
+CadRaisEBAno,
+CadRaisEBSalario,
+CadRaisEBTipoSal,
+CadRaisEBJsemanal,
+CadRaisEBVlrMulta,
+CadRaisEBVlrFerias,
+CadRaisEBUsoEmp,
+CadRaisEBVlrRempat,
+{Remuneração}
+CadRaisEBRemJan,
+CadRaisEBRemFev,
+CadRaisEBRemMar,  			
+CadRaisEBRemAbr,  			
+CadRaisEBRemMai,  			
+CadRaisEBRemJun,  			
+CadRaisEBRemJul,  			
+CadRaisEBRemAgo,  			
+CadRaisEBRemSet,  			
+CadRaisEBRemOut,  			
+CadRaisEBRemNov,  			
+CadRaisEBRemDez,  			
+CadRaisEBRemAvPrev,
+{Hrs Trabalhadas}
+CadRaisEBHorJan,
+CadRaisEBHorFev,
+CadRaisEBHorMar,
+CadRaisEBHorAbr,
+CadRaisEBHorMai,
+CadRaisEBHorJun,
+CadRaisEBHorJul,
+CadRaisEBHorAgo,
+CadRaisEBHorSet,
+CadRaisEBHorOut,
+CadRaisEBHorNov,
+CadRaisEBHorDez,
+{Contribuições}				
+CadRaisEBVlrContrib1,
+CadRaisEBVlrContrib2,
+CadRaisEBVlrContribSind,
+CadRaisEBVlrContribAssist,
+CadRaisEBVlrContribConf,
+CadRaisEBCnpjContrib1,
+CadRaisEBCnpjContrib2,
+CadRaisEBCnpjContribSind,
+CadRaisEBCnpjContribAssis,
+CadRaisEBCnpjContribConf,
+{Outros Valores}			
+CadRaisEBMesDec1,
+CadRaisEBVlrDec1,
+CadRaisEBMesDec2,
+CadRaisEBVlrDec2,
+CadRaisEBVlrHorasNP,
+CadRaisEBNMesesHoras,
+CadRaisEBVlrDissidio,
+CadRaisEBNMesesDissidio,
+CadRaisEBVlrGratnp,
+CadRaisEBNMesesGrat : OleVariant;
+
+procedure FiltroRais();
+begin
+FormFiltroRais		:= Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaRais := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroAnoRais		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOkRais  			  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+
+procedure MapCadRais();
+begin
+FormPadraoRais							  := Aliases.Folha.FFormPadraoRHRAIS;
+{Padrão}
+PageAbaPrincipal  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc;
+CadRaisEBEstab  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadRaisEBIdEmpregado  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDEMPREGADO;
+CadRaisEBAno  							  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANO;
+CadRaisEBSalario  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SALARIO;
+CadRaisEBTipoSal  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOSAL;
+CadRaisEBJsemanal  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_JSEMANAL;
+CadRaisEBVlrMulta  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRMULTA;
+CadRaisEBVlrFerias  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRFERIAS;
+CadRaisEBUsoEmp  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_USOEMP;
+CadRaisEBVlrRempat  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VLRREMPAT;
+{Remuneração}
+CadRaisEBRemJan  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMJAN;
+CadRaisEBRemFev  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMFEV;
+CadRaisEBRemMar  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMMAR;
+CadRaisEBRemAbr  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMABR;
+CadRaisEBRemMai  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMMAI;
+CadRaisEBRemJun  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMJUN;
+CadRaisEBRemJul  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMJUL;
+CadRaisEBRemAgo  				  		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMAGO;
+CadRaisEBRemSet  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMSET;
+CadRaisEBRemOut  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMOUT;
+CadRaisEBRemNov  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMNOV;
+CadRaisEBRemDez  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMDEZ;
+CadRaisEBRemAvPrev  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts2.TScrollBox.EB_REMAVPREV;
+{Hrs Trabalhadas}
+CadRaisEBHorJan   						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORJAN;
+CadRaisEBHorFev  	  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORFEV;
+CadRaisEBHorMar  		  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORMAR;
+CadRaisEBHorAbr  			  			:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORABR;
+CadRaisEBHorMai  				  		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORMAI;
+CadRaisEBHorJun  	  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORJUN;
+CadRaisEBHorJul  		  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORJUL;
+CadRaisEBHorAgo  			  			:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORAGO;
+CadRaisEBHorSet  				  		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORSET;
+CadRaisEBHorOut  					  	:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HOROUT;
+CadRaisEBHorNov  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORNOV;
+CadRaisEBHorDez  						  := Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts3.TScrollBox.EB_HORDEZ;
+{Contribuições}								        
+CadRaisEBVlrContrib1  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_VLRCONTRIB1;
+CadRaisEBVlrContrib2  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_VLRCONTRIB2;
+CadRaisEBVlrContribSind  			:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_VLRCONTRIBSIND;
+CadRaisEBVlrContribAssist			:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_VLRCONTRIBASSIST;
+CadRaisEBVlrContribConf   		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_VLRCONTRIBCONF;
+CadRaisEBCnpjContrib1  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_CNPJCONTRIB1;
+CadRaisEBCnpjContrib2  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_CNPJCONTRIB2;
+CadRaisEBCnpjContribSind			:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_CNPJCONTRIBSIND;
+CadRaisEBCnpjContribAssis 		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_CNPJCONTRIBASSIS;
+CadRaisEBCnpjContribConf  		:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts4.TScrollBox.EB_CNPJCONTRIBCONF;
+{Outros Valores}							       
+CadRaisEBMesDec1  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_MESDEC1;
+CadRaisEBVlrDec1  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_VLRDEC1;
+CadRaisEBMesDec2  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_MESDEC2;
+CadRaisEBVlrDec2  						:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_VLRDEC2;
+CadRaisEBVlrHorasNP  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_VLRHORASNP;
+CadRaisEBNMesesHoras  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_NMESESHORAS;
+CadRaisEBVlrDissidio  				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_VLRDISSIDIO;
+CadRaisEBNMesesDissidio				:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_NMESESDISSIDIO;
+CadRaisEBVlrGratnp  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_VLRGRATNP;
+CadRaisEBNMesesGrat  					:= Aliases.Folha.FFormPadraoRHRAIS.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts5.TScrollBox.EB_NMESESGRAT;
+end;
