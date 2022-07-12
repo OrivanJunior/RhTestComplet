@@ -1,0 +1,28 @@
+﻿var
+CadRaisDPIdRais,
+CadRaisDPDescricao,
+CadRaisDPEvento,
+CadRaisDPIncidencia,
+CadRaisDPContribAssoc01,
+CadRaisDPContribAssoc02,
+CadRaisDPContribSind,
+CadRaisDPContribAssist,
+CadRaisDPContribConfed,
+CadRaisDPCompoeRemPAT : OleVariant;
+
+
+
+
+procedure LeDataPoolCadRais(nomeDriver);
+begin
+CadRaisDPIdRais				      :=DDT.DriverByName(nomeDriver).Value('IDRAIS');
+CadRaisDPDescricao      	  :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadRaisDPEvento				      :=DDT.DriverByName(nomeDriver).Value('EVENTO');
+CadRaisDPIncidencia	        :=DDT.DriverByName(nomeDriver).Value('INCIDENCIA');
+CadRaisDPContribAssoc01     :=DDT.DriverByName(nomeDriver).Value('CONTRIBASSOC01');
+CadRaisDPContribAssoc02     :=DDT.DriverByName(nomeDriver).Value('CONTRIBASSOC02');
+CadRaisDPContribSind	      :=DDT.DriverByName(nomeDriver).Value('CONTRIBSIND');
+CadRaisDPContribAssist	    :=DDT.DriverByName(nomeDriver).Value('CONTRIBASSIST');
+CadRaisDPContribConfed	    :=DDT.DriverByName(nomeDriver).Value('CONTRIBCONFED');
+CadRaisDPCompoeRemPAT       :=DDT.DriverByName(nomeDriver).Value('COMPOEREMPAT');
+end;

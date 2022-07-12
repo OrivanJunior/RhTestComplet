@@ -1,0 +1,124 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolRAISConf,
+  ObjRAISConf,
+  VarConsts;
+
+
+procedure PreencheRais();
+begin
+VerificaInsere(CadRaisEBIdRais,CadRaisDPIdRais);
+VerificaInsere(CadRaisEBDescricao,CadRaisDPDescricao);
+end;
+
+
+procedure PreencheGridRaisEve(pathData);
+var i;
+DDTRaisEve : Olevariant;
+begin
+i:=0;
+PageTabNormalRais.ActivePageIndex:=0;
+
+MapCadRais();
+
+DDTRaisEve := CarregaDDT(pathData, 'RaisEve');
+
+  while not (DDTRaisEve.EOF) do
+  begin
+
+  LeDataPoolCadRais(DDTRaisEve.Name);
+  
+  
+  BtnIncRaisEve.Click;
+  VerificaClickPreencheGrid(FormGridRais, i, 'Evento', CadRaisDPEvento);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Incidência', CadRaisDPIncidencia);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Contrib Assoc 01', CadRaisDPContribAssoc01);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Contrib Assoc 02', CadRaisDPContribAssoc02);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Contrib Sind', CadRaisDPContribSind);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Contrib Assist', CadRaisDPContribAssist);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Contrib Confed', CadRaisDPContribConfed);
+  VerificaClickPreencheGrid(FormGridRais, i, 'Compõe Rem. PAT?', CadRaisDPCompoeRemPAT);
+  FormGridRais.Click;
+  BtnSalvarRais.Click;
+  
+  DDTRaisEve.Next;
+  Inc(i);
+  end;
+DDT.CloseDriver(DDTRaisEve.Name)
+end;
+
+
+procedure CadastraRais(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Gerais', 'Configurações', 'Conf. RAIS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRais(DDTCadastrar.Name);
+
+While not DDTCadastrar.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRaisConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód Config.',CadRaisDPIdRais);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRais();
+  
+  PreencheRais();
+  PreencheGridRaisEve(pathData); 
+  
+  ActSalvar(FormPadraoRais);
+  ActFechar(FormPadraoRais);
+  end;
+  DDTCadastrar.Next;
+ end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRais(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha,'Cadastros Gerais', 'Configurações', 'Conf. RAIS');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRais(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhRaisConf');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Cód Config.',CadRaisDPIdRais);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRais();
+
+  ActExcluir(_ModuloFolha, 'FRhRaisConf');
+
+  ActFechar(FormPadraoRais);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
