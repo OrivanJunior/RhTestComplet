@@ -1,19 +1,18 @@
 ﻿var
-
-CadConfeSocialDPIdConfeSocial,
+CadConfeSocialDPIdConfesocial,
 CadConfeSocialDPDescricao,
-CadConfeSocialDPDtributacao,
-CadConfeSocialDPNdCooperativa,
-CadConfeSocialDPNdConstrutora,
-CadConfeSocialDPNdDesfolha,
-CadConfeSocialDPNdOpccp,
-CadConfeSocialDPNdOptregeletron,
-CadConfeSocialDPNdEnted,
-CadConfeSocialDPNdett,
-CadConfeSocialDPRregett,
-CadConfeSocialDPNdSitpj,
-CadConfeSocialDPNdSitpf,
-CadConfeSocialDPNdPorte,
+CadConfeSocialDPIDtributacao,
+CadConfeSocialDPINdCooperativa,
+CadConfeSocialDPINdConstrutora,
+CadConfeSocialDPINdDesfolha,
+CadConfeSocialDPINdOpccp,
+CadConfeSocialDPINdOptregeletron,
+CadConfeSocialDPINdEnted,
+CadConfeSocialDPINdett,
+CadConfeSocialDPIRregett,
+CadConfeSocialDPINdSitpj,
+CadConfeSocialDPINdSitpf,
+CadConfeSocialDPINdPorte,
 CadConfeSocialDPIdEminLei,
 CadConfeSocialDPNrCertif,
 CadConfeSocialDPDtEmiscertif,
@@ -25,23 +24,24 @@ CadConfeSocialDPPagDou : OleVariant;
 
 
 
+
+
 procedure LeDataPoolCadConfeSocial(nomeDriver);
 begin
-
+CadConfeSocialDPIdConfesocial  		:=DDT.DriverByName(nomeDriver).Value('IDCONFESOCIAL');
 CadConfeSocialDPDescricao  		    :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
-CadConfeSocialDPIdConfeSocial  		:=DDT.DriverByName(nomeDriver).Value('IDCONFESOCIAL');
-CadConfeSocialDPDtributacao  	    :=DDT.DriverByName(nomeDriver).Value('DTRIBUTACAO');
-CadConfeSocialDPNdCooperativa  	  :=DDT.DriverByName(nomeDriver).Value('NDCOOPERATIVA');
-CadConfeSocialDPNdConstrutora  	  :=DDT.DriverByName(nomeDriver).Value('NDCONSTRUTORA');
-CadConfeSocialDPNdDesfolha  	    :=DDT.DriverByName(nomeDriver).Value('NDDESFOLHA');
-CadConfeSocialDPNdOpccp  		      :=DDT.DriverByName(nomeDriver).Value('NDOPCCP');
-CadConfeSocialDPNdOptregeletron   :=DDT.DriverByName(nomeDriver).Value('NDOPTREGELETRON');
-CadConfeSocialDPNdEnted  		      :=DDT.DriverByName(nomeDriver).Value('NDENTED');
-CadConfeSocialDPNdett  			      :=DDT.DriverByName(nomeDriver).Value('NDETT');
-CadConfeSocialDPRregett  		      :=DDT.DriverByName(nomeDriver).Value('RREGETT');
-CadConfeSocialDPNdSitpj  		      :=DDT.DriverByName(nomeDriver).Value('NDSITPJ');
-CadConfeSocialDPNdSitpf  		      :=DDT.DriverByName(nomeDriver).Value('NDSITPF');
-CadConfeSocialDPNdPorte  		      :=DDT.DriverByName(nomeDriver).Value('NDPORTE');
+CadConfeSocialDPIDtributacao  	  :=DDT.DriverByName(nomeDriver).Value('IDTRIBUTACAO');
+CadConfeSocialDPINdCooperativa  	:=DDT.DriverByName(nomeDriver).Value('INDCOOPERATIVA');
+CadConfeSocialDPINdConstrutora  	:=DDT.DriverByName(nomeDriver).Value('INDCONSTRUTORA');
+CadConfeSocialDPINdDesfolha  	    :=DDT.DriverByName(nomeDriver).Value('INDDESFOLHA');
+CadConfeSocialDPINdOpccp  		    :=DDT.DriverByName(nomeDriver).Value('INDOPCCP');
+CadConfeSocialDPINdOptregeletron  :=DDT.DriverByName(nomeDriver).Value('INDOPTREGELETRON');
+CadConfeSocialDPINdEnted  		    :=DDT.DriverByName(nomeDriver).Value('INDENTED');
+CadConfeSocialDPINdett  			    :=DDT.DriverByName(nomeDriver).Value('INDETT');
+CadConfeSocialDPIRregett  		    :=DDT.DriverByName(nomeDriver).Value('IRREGETT');
+CadConfeSocialDPINdSitpj  		    :=DDT.DriverByName(nomeDriver).Value('INDSITPJ');
+CadConfeSocialDPINdSitpf  		    :=DDT.DriverByName(nomeDriver).Value('INDSITPF');
+CadConfeSocialDPINdPorte  		    :=DDT.DriverByName(nomeDriver).Value('INDPORTE');
 CadConfeSocialDPIdEminLei  		    :=DDT.DriverByName(nomeDriver).Value('IDEMINLEI');
 CadConfeSocialDPNrCertif  		    :=DDT.DriverByName(nomeDriver).Value('NRCERTIF');
 CadConfeSocialDPDtEmiscertif  	  :=DDT.DriverByName(nomeDriver).Value('DTEMISCERTIF');

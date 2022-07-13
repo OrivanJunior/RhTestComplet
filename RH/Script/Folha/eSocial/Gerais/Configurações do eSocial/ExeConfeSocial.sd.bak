@@ -5,27 +5,25 @@
   ObjConfeSocial,
   VarConsts;
 
-
 procedure PreencheConfeSocial();
 begin
-
-VerificaInsere(CadConfeSocialEBDescricao,CadConfeSocialDPDescricao);
 VerificaInsere(CadConfeSocialEBIdConfesocial,CadConfeSocialDPIdConfesocial);
-VerificaConsultaF3Insere(_ModuloFolha,CadConfeSocialEBDtributacao,CadConfeSocialDPDtributacao);
-VerificaInsere(CadConfeSocialEBNdCooperativa,CadConfeSocialDPNdCooperativa);
-VerificaInsere(CadConfeSocialEBNdConstrutora,CadConfeSocialDPNdConstrutora);
-VerificaInsere(CadConfeSocialEBNdDesfolha,CadConfeSocialDPNdDesfolha);
-VerificaInsere(CadConfeSocialEBNdOpccp,CadConfeSocialDPNdOpccp);
-VerificaInsere(CadConfeSocialEBNdOptregeletron,CadConfeSocialDPNdOptregeletron );
-VerificaInsere(CadConfeSocialEBNdEnted,CadConfeSocialDPNdEnted);
-VerificaInsere(CadConfeSocialEBNdett,CadConfeSocialDPNdett);
-VerificaInsere(CadConfeSocialEBRregett,CadConfeSocialDPRregett);
-VerificaInsere(CadConfeSocialEBNdSitpj,CadConfeSocialDPNdSitpj);
-VerificaInsere(CadConfeSocialEBNdSitpf,CadConfeSocialDPNdSitpf);
-VerificaInsere(CadConfeSocialEBNdPorte,CadConfeSocialDPNdPorte);
+VerificaInsere(CadConfeSocialEBDescricao,CadConfeSocialDPDescricao);
+VerificaConsultaF3Insere(_ModuloFolha,CadConfeSocialEBIDtributacao,CadConfeSocialDPIDtributacao);
+VerificaInsere(CadConfeSocialEBINdCooperativa,CadConfeSocialDPINdCooperativa);
+VerificaInsere(CadConfeSocialEBINdConstrutora,CadConfeSocialDPINdConstrutora);
+VerificaInsere(CadConfeSocialEBINdDesfolha,CadConfeSocialDPINdDesfolha);
+VerificaInsere(CadConfeSocialEBINdOpccp,CadConfeSocialDPINdOpccp);
+VerificaInsere(CadConfeSocialEBINdOptregeletron,CadConfeSocialDPINdOptregeletron);
+VerificaInsere(CadConfeSocialEBINdEnted,CadConfeSocialDPINdEnted);
+VerificaInsere(CadConfeSocialEBINdett,CadConfeSocialDPINdett);
+VerificaInsere(CadConfeSocialEBIRregett,CadConfeSocialDPIRregett);
+VerificaInsere(CadConfeSocialEBINdSitpj,CadConfeSocialDPINdSitpj);
+VerificaInsere(CadConfeSocialEBINdSitpf,CadConfeSocialDPINdSitpf);
+VerificaInsere(CadConfeSocialEBINdPorte,CadConfeSocialDPINdPorte);
 
 if (Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.Enabled = False) then
-Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.ClickButton;
+Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Click(13, 5);
 
 VerificaInsere(CadConfeSocialEBIdEminLei,CadConfeSocialDPIdEminLei);
 VerificaInsere(CadConfeSocialEBNrCertif,CadConfeSocialDPNrCertif);

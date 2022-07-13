@@ -2,24 +2,24 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 13/07/2022}
- 
-var
+ var
+
 FormPadraoConfeSocial,
 CheckDadosIsencao,
 CadConfeSocialEBIdConfesocial,
 CadConfeSocialEBDescricao,
-CadConfeSocialEBDtributacao,
-CadConfeSocialEBNdCooperativa,
-CadConfeSocialEBNdConstrutora,
-CadConfeSocialEBNdDesfolha,
-CadConfeSocialEBNdOpccp,
-CadConfeSocialEBNdOptregeletron,
-CadConfeSocialEBNdEnted,
-CadConfeSocialEBNdett,
-CadConfeSocialEBRregett,
-CadConfeSocialEBNdSitpj,
-CadConfeSocialEBNdSitpf,
-CadConfeSocialEBNdPorte,
+CadConfeSocialEBIDtributacao,
+CadConfeSocialEBINdCooperativa,
+CadConfeSocialEBINdConstrutora,
+CadConfeSocialEBINdDesfolha,
+CadConfeSocialEBINdOpccp,
+CadConfeSocialEBINdOptregeletron,
+CadConfeSocialEBINdEnted,
+CadConfeSocialEBINdett,
+CadConfeSocialEBIRregett,
+CadConfeSocialEBINdSitpj,
+CadConfeSocialEBINdSitpf,
+CadConfeSocialEBINdPorte,
 CadConfeSocialEBIdEminLei,
 CadConfeSocialEBNrCertif,
 CadConfeSocialEBDtEmiscertif,
@@ -27,36 +27,34 @@ CadConfeSocialEBDtVenccertif,
 CadConfeSocialEBNrProtrenov,
 CadConfeSocialEBDtProtrenov,
 CadConfeSocialEBDtDou,
-CadConfeSocialEBPagDou : OleVariant;
+CadConfeSocialEBPagDou :OleVariant;
 
 
 
 procedure MapCadConfeSocial();
 begin
+FormPadraoConfeSocial			        := Aliases.Folha.FRhConfeSocial;
+CadConfeSocialEBIdConfesocial  	  := Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_IDCONFESOCIAL;
+CadConfeSocialEBDescricao  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_DESCRICAO;
+CadConfeSocialEBIDtributacao  	  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_IDTRIBUTACAO;
+CadConfeSocialEBINdCooperativa    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCOOPERATIVA;
+CadConfeSocialEBINdConstrutora    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCONSTRUTORA;
+CadConfeSocialEBINdDesfolha  	    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDDESFOLHA;
+CadConfeSocialEBINdOpccp  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDOPCCP;
+CadConfeSocialEBINdOptregeletron  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDOPTREGELETRON;
+CadConfeSocialEBINdEnted  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDENTED;
+CadConfeSocialEBINdett  		      := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDETT;
+CadConfeSocialEBIRregett  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_NRREGETT;
+CadConfeSocialEBINdSitpj  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPJ;
+CadConfeSocialEBINdSitpf  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPF;
+CadConfeSocialEBINdPorte  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDPORTE;
+CadConfeSocialEBIdEminLei  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_IDEMINLEI;
+CadConfeSocialEBNrCertif  		    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_NRCERTIF;
+CadConfeSocialEBDtEmiscertif  	  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTEMISCERTIF;
+CadConfeSocialEBDtVenccertif  	  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTVENCCERTIF;
+CadConfeSocialEBDtProtrenov  	    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTPROTRENOV;
+CadConfeSocialEBDtDou  			      := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTDOU;
+CadConfeSocialEBPagDou  		      := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_PAGDOU;
+CheckDadosIsencao							    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao;
 
-FormPadraoConfeSocial						      := Aliases.Folha.FRhConfeSocial;
-CadConfeSocialEBIdConfesocial  				:= Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_IDCONFESOCIAL;
-CadConfeSocialEBDescricao  					  := Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_DESCRICAO;
-CadConfeSocialEBDtributacao  				  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_IDTRIBUTACAO;
-CadConfeSocialEBNdCooperativa  				:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCOOPERATIVA;
-CadConfeSocialEBNdConstrutora  				:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCONSTRUTORA;
-CadConfeSocialEBNdDesfolha  				  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDDESFOLHA;
-CadConfeSocialEBNdOpccp  		 			    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDOPCCP;
-CadConfeSocialEBNdOptregeletron 			:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDENTED;
-CadConfeSocialEBNdEnted  					    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDETT;
-CadConfeSocialEBNdett  						    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDETT;
-CadConfeSocialEBRregett  					    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_NRREGETT;
-CadConfeSocialEBNdSitpj  					    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPJ;
-CadConfeSocialEBNdSitpf  					    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPF;
-CadConfeSocialEBNdPorte  					    := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDPORTE;
-CadConfeSocialEBIdEminLei  					  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_IDEMINLEI;
-CadConfeSocialEBNrCertif  					  := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_NRCERTIF;
-CheckDadosIsencao							        := Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao;
-CadConfeSocialEBDtEmiscertif  		:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTEMISCERTIF;
-CadConfeSocialEBDtEmiscertif  		:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTEMISCERTIF;
-CadConfeSocialEBDtVenccertif  		:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTVENCCERTIF;
-CadConfeSocialEBNrProtrenov  			:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_NRPROTRENOV;
-CadConfeSocialEBDtProtrenov  			:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTPROTRENOV;
-CadConfeSocialEBDtDou  						:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTDOU;
-CadConfeSocialEBPagDou  					:= Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_PAGDOU;
 end;

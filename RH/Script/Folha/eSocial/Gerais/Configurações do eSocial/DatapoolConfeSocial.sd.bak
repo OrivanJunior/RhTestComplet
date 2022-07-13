@@ -27,8 +27,9 @@ CadConfeSocialDPPagDou : OleVariant;
 
 procedure LeDataPoolCadConfeSocial(nomeDriver);
 begin
-CadConfeSocialDPIdConfeSocial  		:=DDT.DriverByName(nomeDriver).Value('IDCONFESOCIAL');
+
 CadConfeSocialDPDescricao  		    :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadConfeSocialDPIdConfeSocial  		:=DDT.DriverByName(nomeDriver).Value('IDCONFESOCIAL');
 CadConfeSocialDPDtributacao  	    :=DDT.DriverByName(nomeDriver).Value('DTRIBUTACAO');
 CadConfeSocialDPNdCooperativa  	  :=DDT.DriverByName(nomeDriver).Value('NDCOOPERATIVA');
 CadConfeSocialDPNdConstrutora  	  :=DDT.DriverByName(nomeDriver).Value('NDCONSTRUTORA');
