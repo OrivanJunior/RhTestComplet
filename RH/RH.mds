@@ -2664,21 +2664,7 @@
 											<testItem name="Portal" key="{92444171-ABD2-4747-AB83-D784C2CA5BB4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="CadastraComunicados" key="{2E5B7510-7BCF-4410-B932-6499C908278F}" group="False" parallel="False" enabled="False" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}CadastraComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
-													</testItem>
-													<testItem name="ExcluirComunicados" key="{79D49095-2B10-403A-B94C-0488AA3F06AF}" group="False" parallel="False" enabled="False" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}ExcluirComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
-														<testParameters>
-															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
-														</testParameters>
-														<environments activeCloud="CBT" />
-														<children />
-													</testItem>
-													<testItem name="Mensagens" key="{15BF596E-7A05-4D27-9B1D-5E07D3C587B4}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Mensagens" key="{15BF596E-7A05-4D27-9B1D-5E07D3C587B4}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraMensagens" key="{47518DB7-7C4B-490E-8B30-990DAD7DA9B1}" group="False" parallel="False" enabled="True" testMoniker="{2337B859-387A-4F0D-9593-749B174AA346}CadastraMensagens" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2691,6 +2677,44 @@
 															<testItem name="ExcluirMensagens" key="{331AD9DC-9DA2-4361-9D38-83FF8F2741C4}" group="False" parallel="False" enabled="True" testMoniker="{2337B859-387A-4F0D-9593-749B174AA346}ExcluirMensagens" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Mensagens\Mensagens.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Políticas da Empresas" key="{88A41A3C-5233-4D40-BC2E-216211554453}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraPoliticas" key="{ABCE21C6-D4AA-4548-A52D-AD105BFA39A3}" group="False" parallel="False" enabled="True" testMoniker="{2E157907-E47A-424D-9CD5-F744E2CAC86F}CadastraPoliticas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Políticas da Empresa\Políticas da Empresa.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirPoliticas" key="{05E7239A-2A60-41C3-BCF3-88074CF1D721}" group="False" parallel="False" enabled="True" testMoniker="{2E157907-E47A-424D-9CD5-F744E2CAC86F}ExcluirPoliticas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Políticas da Empresa\Políticas da Empresa.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Comunicados" key="{CCA6626D-5CC6-4A94-A389-716E9F146119}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraComunicados" key="{F58CA59E-0678-4A0C-B871-8C938A4D30E5}" group="False" parallel="False" enabled="False" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}CadastraComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirComunicados" key="{CCEE9F95-B5B3-427D-B6B4-22EE54FE25C2}" group="False" parallel="False" enabled="False" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}ExcluirComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

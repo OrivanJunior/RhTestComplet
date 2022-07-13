@@ -1,1 +1,26 @@
-﻿
+﻿{Script para mapear o Cadastro de Portal - Políticas da Empresa
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 12/07/2022}
+ 
+
+var
+FormPadraoPoliticas,
+CadPoliticasEBEstab,
+CadPoliticasEBSequencial,
+CadPoliticasEBOrdem,
+CadPoliticasEBTitulo,
+CadPoliticasEBMemo : OleVariant;
+
+
+{Politicas}
+
+procedure MapCadPoliticasEmpresa();
+begin
+FormPadraoPoliticas  			:= Aliases.Folha.FRhWPolitEmp;
+CadPoliticasEBEstab  			:= Aliases.Folha.FRhWPolitEmp.Page.TabNormal.ScrollBox1.EB_ESTAB;
+CadPoliticasEBSequencial  := Aliases.Folha.FRhWPolitEmp.Page.TabNormal.ScrollBox1.EB_SEQUENCIAL;
+CadPoliticasEBOrdem  			:= Aliases.Folha.FRhWPolitEmp.Page.TabNormal.ScrollBox1.EB_ORDEM;
+CadPoliticasEBTitulo  		:= Aliases.Folha.FRhWPolitEmp.Page.TabNormal.ScrollBox1.EB_TITULO;
+CadPoliticasEBMemo  			:= Aliases.Folha.FRhWPolitEmp.Page.TabNormal.ScrollBox1.EB_MEMO;
+end;

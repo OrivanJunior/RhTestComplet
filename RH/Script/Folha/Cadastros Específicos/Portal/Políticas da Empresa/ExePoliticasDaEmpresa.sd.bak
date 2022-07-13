@@ -1,0 +1,10 @@
+﻿uses CommonsAll, CommonsObj, VarConsts ,DataPoolPoliticasDaEmpresa, ObjPoliticasDaEmpresa;
+
+procedure PreenchePoliticas();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadPoliticasEBEstab,CadPoliticasDPEstab);
+VerificaInsere(CadPoliticasEBSequencial,CadPoliticasDPSequencial);
+VerificaInsere(CadPoliticasEBOrdem,CadPoliticasDPOrdem);
+VerificaInsere(CadPoliticasEBTitulo,CadPoliticasDPTitulo);
+VerificaInsere(CadPoliticasEBMemo,CadPoliticasDPMemo);
+end;

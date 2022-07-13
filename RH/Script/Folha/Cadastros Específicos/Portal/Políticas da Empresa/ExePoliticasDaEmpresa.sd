@@ -1,1 +1,79 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts ,DataPoolPoliticasDaEmpresa, ObjPoliticasDaEmpresa;
+
+procedure PreenchePoliticas();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadPoliticasEBEstab,CadPoliticasDPEstab);
+VerificaInsere(CadPoliticasEBSequencial,CadPoliticasDPSequencial);
+VerificaInsere(CadPoliticasEBOrdem,CadPoliticasDPOrdem);
+VerificaInsere(CadPoliticasEBTitulo,CadPoliticasDPTitulo);
+VerificaInsere(CadPoliticasEBMemo,CadPoliticasDPMemo);
+end;
+
+procedure CadastraPoliticas(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos', 'Portal', 'Políticas da Empresa');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadPoliticas(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhWPolitEmp');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadPoliticasDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadPoliticasEmpresa();
+  
+  PreenchePoliticas();
+  
+  ActSalvar(FormPadraoPoliticas);
+  ActFechar(FormPadraoPoliticas);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirPoliticas(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'Cadastros Específicos',  'Portal', 'Políticas da Empresa');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadPoliticas(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhWPolitEmp');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadPoliticasDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadPoliticasEmpresa();
+
+  ActExcluir(_ModuloFolha, 'FRhWPolitEmp');
+
+  ActFechar(FormPadraoPoliticas);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

@@ -1,1 +1,18 @@
-﻿
+﻿var
+CadPoliticasDPEstab,
+CadPoliticasDPSequencial,
+CadPoliticasDPOrdem,
+CadPoliticasDPTitulo,
+CadPoliticasDPMemo : OleVariant;
+
+
+
+
+procedure LeDataPoolCadPoliticas(nomeDriver);
+begin
+CadPoliticasDPEstab  			    :=DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadPoliticasDPSequencial		  :=DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadPoliticasDPOrdem  	        :=DDT.DriverByName(nomeDriver).Value('ORDEM');
+CadPoliticasDPTitulo  	      :=DDT.DriverByName(nomeDriver).Value('TITULO');
+CadPoliticasDPMemo  	        :=DDT.DriverByName(nomeDriver).Value('MEMO');
+end;
