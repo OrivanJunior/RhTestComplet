@@ -1,0 +1,21 @@
+﻿var
+CadCertDigitalDPIdCertdigital,
+CadCertDigitalDPDescricao,
+CadCertDigitalDPCertificado,
+CadCertDigitalDPArquivoPfx,
+CadCertDigitalDPSenhaCertificado,
+CadCertDigitalDPDirXml,
+CadCertDigitalDPSslType : OleVariant;
+
+
+
+procedure LeDataPoolCadCertDigital(nomeDriver);
+begin
+CadCertDigitalDPIdCertdigital  			:=DDT.DriverByName(nomeDriver).Value('IDCERTDIGITAL');
+CadCertDigitalDPDescricao  		      :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadCertDigitalDPCertificado  	      :=DDT.DriverByName(nomeDriver).Value('CERTIFICADO');
+CadCertDigitalDPArquivoPfx  	      :=DDT.DriverByName(nomeDriver).Value('ARQUIVOPFX');
+CadCertDigitalDPSenhaCertificado    :=DDT.DriverByName(nomeDriver).Value('SENHACERTIFICADO');
+CadCertDigitalDPDirXml  		        :=DDT.DriverByName(nomeDriver).Value('DIRXML');
+CadCertDigitalDPSslType  		        :=DDT.DriverByName(nomeDriver).Value('SSLTYPE');
+end;

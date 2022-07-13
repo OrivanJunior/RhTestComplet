@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{069B75A6-0DA0-4FDC-870E-7E9917397B63}"/>
+				<Prp name="activity" type="S" value="{E9CED027-B405-4174-A945-1DB85B9546B8}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -976,7 +972,22 @@
 						<Prp name="top" type="I" value="0"/>
 					</Node>
 					<Node name="{069b75a6-0da0-4fdc-870e-7e9917397b63}">
-						<Prp name="bottom" type="I" value="109"/>
+						<Node name="0">
+							<Prp name="bottom" type="I" value="35"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="7"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="71"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="39"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="108"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="73"/>
+						</Node>
+						<Prp name="bottom" type="I" value="110"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -7131,6 +7142,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{648d777d-68ea-4b28-867a-cebe9d6a44dc}"/>
 					<Node name="{64da734a-79d9-43c0-8074-7c11d2a70f29}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="9"/>
@@ -16585,6 +16597,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{e9ced027-b405-4174-a945-1db85b9546b8}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="17"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="8"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="53"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="21"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="90"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="55"/>
+						</Node>
+						<Prp name="bottom" type="I" value="92"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{e9fd4c32-b32a-4ebd-81ba-36cc08c19f4f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="5"/>
@@ -17060,6 +17092,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{eff53622-8cb8-4279-95b5-ea9bd8bd3333}"/>
 					<Node name="{f06e5023-cd4a-49ac-b888-e1115af09dc3}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="5"/>
@@ -18411,6 +18444,7 @@
 								</Node>
 								<Node name="esocial">
 									<Node name="gerais">
+										<Node name="cadastro de certificado digital"/>
 										<Node name="configurações do esocial"/>
 									</Node>
 								</Node>

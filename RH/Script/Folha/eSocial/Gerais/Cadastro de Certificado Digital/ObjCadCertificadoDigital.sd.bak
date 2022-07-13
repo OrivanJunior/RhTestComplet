@@ -1,0 +1,32 @@
+﻿{Script para mapear o Cadastro eSocial - Cadastro de Certificado Digital
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 13/07/2022}
+ 
+
+var
+FormPadraoCertDigital,
+
+CadCertDigitalEBIdCertdigital,
+CadCertDigitalEBDescricao,
+CadCertDigitalEBCertificado,
+CadCertDigitalEBArquivoPfx,
+CadCertDigitalEBSenhaCertificado,
+CadCertDigitalEBDirXml,
+CadCertDigitalEBSslType : OleVariant;
+
+
+
+
+procedure MapCadCertDigital();
+begin
+FormPadraoCertDigital  					  := Aliases.Folha.FRhCertDigital;
+
+CadCertDigitalEBIdCertdigital  		:= Aliases.Folha.FRhCertDigital.ScrollBox1.EB_IDCERTDIGITAL;
+CadCertDigitalEBDescricao  				:= Aliases.Folha.FRhCertDigital.ScrollBox1.EB_DESCRICAO;
+CadCertDigitalEBCertificado  			:= Aliases.Folha.FRhCertDigital.ScrollBox1.EB_CERTIFICADO;
+CadCertDigitalEBArquivoPfx  			:= Aliases.Folha.FRhCertDigital.ScrollBox1.EB_ARQUIVOPFX;
+CadCertDigitalEBSenhaCertificado  := Aliases.Folha.FRhCertDigital.ScrollBox1.EB_SENHACERTIFICADO;
+CadCertDigitalEBDirXml  				  := Aliases.Folha.FRhCertDigital.ScrollBox1.EB_DIRXML;
+CadCertDigitalEBSslType  				  := Aliases.Folha.FRhCertDigital.ScrollBox1.EB_SSLTYPE;
+end;

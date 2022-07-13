@@ -1,0 +1,92 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolCadCertificadoDigital,
+  ObjCadCertificadoDigital,
+  VarConsts;
+
+
+procedure PreencheCertDigital();
+begin
+VerificaInsere(CadCertDigitalEBIdCertdigital,CadCertDigitalDPIdCertdigital);
+VerificaInsere(CadCertDigitalEBDescricao,CadCertDigitalDPDescricao);
+VerificaInsere(CadCertDigitalEBCertificado,CadCertDigitalDPCertificado);
+VerificaInsere(CadCertDigitalEBArquivoPfx,CadCertDigitalDPArquivoPfx);
+VerificaInsere(CadCertDigitalEBSenhaCertificado,CadCertDigitalDPSenhaCertificado);
+VerificaInsere(CadCertDigitalEBDirXml,CadCertDigitalDPDirXml);
+VerificaInsere(CadCertDigitalEBSslType,CadCertDigitalDPSslType);
+end;
+
+
+
+procedure CadastraCertDigital(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Cadastro de Certificado Digital');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCertDigital(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhCertDigital');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadCertDigitalDPIdCertdigital);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCertDigital();
+  
+  PreencheCertDigital(); 
+  
+  ActSalvar(FormPadraoCertDigital);
+  
+  ActFechar(FormPadraoCertDigital);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCertDigital(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Cadastro de Certificado Digital');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCertDigital(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhCertDigital');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadCertDigitalDPIdCertdigital);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCertDigital();
+
+  ActExcluir(_ModuloFolha, 'FRhCertDigital');
+  
+  ActFechar(FormPadraoCertDigital);
+  
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
