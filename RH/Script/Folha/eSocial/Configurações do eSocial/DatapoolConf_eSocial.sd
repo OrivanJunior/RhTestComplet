@@ -1,1 +1,52 @@
-﻿
+﻿var
+
+CadConfeSocialDPIdConfesocial,
+CadConfeSocialDPDescricao,
+CadConfeSocialDPDtributacao,
+CadConfeSocialDPNdCooperativa,
+CadConfeSocialDPNdConstrutora,
+CadConfeSocialDPNdDesfolha,
+CadConfeSocialDPNdOpccp,
+CadConfeSocialDPNdOptregeletron,
+CadConfeSocialDPNdEnted,
+CadConfeSocialDPNdett,
+CadConfeSocialDPRregett,
+CadConfeSocialDPNdSitpj,
+CadConfeSocialDPNdSitpf,
+CadConfeSocialDPNdPorte,
+CadConfeSocialDPIdEminLei,
+CadConfeSocialDPNrCertif,
+CadConfeSocialDPDtEmiscertif,
+CadConfeSocialDPDtVenccertif,
+CadConfeSocialDPNrProtrenov,
+CadConfeSocialDPDtProtrenov,
+CadConfeSocialDPDtDou,
+CadConfeSocialDPPagDou : OleVariant;
+
+
+
+procedure LeDataPoolCadConfeSocial(nomeDriver);
+begin
+CadConfeSocialDPIdConfesocial  		:=DDT.DriverByName(nomeDriver).Value('IDCONFESOCIAL');
+CadConfeSocialDPDescricao  		    :=DDT.DriverByName(nomeDriver).Value('DESCRICAO');
+CadConfeSocialDPDtributacao  	    :=DDT.DriverByName(nomeDriver).Value('DTRIBUTACAO');
+CadConfeSocialDPNdCooperativa  	  :=DDT.DriverByName(nomeDriver).Value('NDCOOPERATIVA');
+CadConfeSocialDPNdConstrutora  	  :=DDT.DriverByName(nomeDriver).Value('NDCONSTRUTORA');
+CadConfeSocialDPNdDesfolha  	    :=DDT.DriverByName(nomeDriver).Value('NDDESFOLHA');
+CadConfeSocialDPNdOpccp  		      :=DDT.DriverByName(nomeDriver).Value('NDOPCCP');
+CadConfeSocialDPNdOptregeletron   :=DDT.DriverByName(nomeDriver).Value('NDOPTREGELETRON');
+CadConfeSocialDPNdEnted  		      :=DDT.DriverByName(nomeDriver).Value('NDENTED');
+CadConfeSocialDPNdett  			      :=DDT.DriverByName(nomeDriver).Value('NDETT');
+CadConfeSocialDPRregett  		      :=DDT.DriverByName(nomeDriver).Value('RREGETT');
+CadConfeSocialDPNdSitpj  		      :=DDT.DriverByName(nomeDriver).Value('NDSITPJ');
+CadConfeSocialDPNdSitpf  		      :=DDT.DriverByName(nomeDriver).Value('NDSITPF');
+CadConfeSocialDPNdPorte  		      :=DDT.DriverByName(nomeDriver).Value('NDPORTE');
+CadConfeSocialDPIdEminLei  		    :=DDT.DriverByName(nomeDriver).Value('IDEMINLEI');
+CadConfeSocialDPNrCertif  		    :=DDT.DriverByName(nomeDriver).Value('NRCERTIF');
+CadConfeSocialDPDtEmiscertif  	  :=DDT.DriverByName(nomeDriver).Value('DTEMISCERTIF');
+CadConfeSocialDPDtVenccertif  	  :=DDT.DriverByName(nomeDriver).Value('DTVENCCERTIF');
+CadConfeSocialDPNrProtrenov  	    :=DDT.DriverByName(nomeDriver).Value('NRPROTRENOV');
+CadConfeSocialDPDtProtrenov  	    :=DDT.DriverByName(nomeDriver).Value('DTPROTRENOV');
+CadConfeSocialDPDtDou  			      :=DDT.DriverByName(nomeDriver).Value('DTDOU');
+CadConfeSocialDPPagDou  		      :=DDT.DriverByName(nomeDriver).Value('PAGDOU');
+end;
