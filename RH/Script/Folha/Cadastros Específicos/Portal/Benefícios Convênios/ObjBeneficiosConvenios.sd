@@ -2,16 +2,25 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 12/07/2022}
- 
- 
 
-procedure Test1;
+var
+FormPadraoBenefConv,
+CadBenefConvEBEstab,
+CadBenefConvEBSequencial,
+CadBenefConvEBTipo,
+CadBenefConvEBTitulo,
+CadBenefConvEBDesc,
+CadBenefConvEBDtInativo : OleVariant;
+
+
+{Benefícios}
+procedure MapCadBeneficiosConv;
 begin
-  Aliases.Folha.FRhwBenConv.Click(257, 13);
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_ESTAB.Keys('[Tab]');
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_SEQUENCIAL.Keys('[Tab]');
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_TIPO.Keys('[Tab]');
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_TITULO.Keys('[Tab]');
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_DESC.Keys('[Tab]');
-  Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_DTINATIVO.Keys('[Tab]');
+FormPadraoBenefConv  				:= Aliases.Folha.FRhwBenConv;
+CadBenefConvEBEstab  				:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_ESTAB;
+CadBenefConvEBSequencial  	:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_SEQUENCIAL;
+CadBenefConvEBTipo  				:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_TIPO;
+CadBenefConvEBTitulo  			:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_TITULO;
+CadBenefConvEBDesc  				:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_DESC;
+CadBenefConvEBDtInativo  		:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_DTINATIVO;
 end;

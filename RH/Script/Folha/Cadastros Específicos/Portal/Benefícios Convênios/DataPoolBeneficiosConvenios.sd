@@ -1,1 +1,19 @@
-﻿
+﻿var
+CadBenefConvDPEstab,
+CadBenefConvDPSequencial,
+CadBenefConvDPTipo,
+CadBenefConvDPTitulo,
+CadBenefConvDPDesc,
+CadBenefConvDPDtInativo : OleVariant;
+
+
+
+procedure LeDataPoolCadBenefConv(nomeDriver);
+begin
+CadBenefConvDPEstab  		    :=DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadBenefConvDPSequencial    :=DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadBenefConvDPTipo  	      :=DDT.DriverByName(nomeDriver).Value('TIPO');
+CadBenefConvDPTitulo  	    :=DDT.DriverByName(nomeDriver).Value('TITULO');
+CadBenefConvDPDesc  	      :=DDT.DriverByName(nomeDriver).Value('DESC');
+CadBenefConvDPDtInativo     :=DDT.DriverByName(nomeDriver).Value('DTINATIVO');
+end;
