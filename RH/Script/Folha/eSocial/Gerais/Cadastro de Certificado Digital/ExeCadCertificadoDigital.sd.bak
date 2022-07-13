@@ -8,6 +8,7 @@
 
 procedure PreencheCertDigital();
 begin
+CadCertDigitalEBIdCertdigital.Clear;
 VerificaInsere(CadCertDigitalEBIdCertdigital,CadCertDigitalDPIdCertdigital);
 VerificaInsere(CadCertDigitalEBDescricao,CadCertDigitalDPDescricao);
 VerificaInsere(CadCertDigitalEBCertificado,CadCertDigitalDPCertificado);

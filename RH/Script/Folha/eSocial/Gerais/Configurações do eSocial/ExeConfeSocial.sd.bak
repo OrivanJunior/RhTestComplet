@@ -99,6 +99,8 @@ begin
 
   ActExcluir(_ModuloFolha, 'FRhConfeSocial');
   
+  ActFechar(FormPadraoConfeSocial);
+  
   end;
   DDTExcluir.Next;
 end;
