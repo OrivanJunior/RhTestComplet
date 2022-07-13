@@ -1,0 +1,37 @@
+﻿{Script para mapear o Cadastro eSocial - Configuração do eSocial
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 13/07/2022}
+ 
+
+procedure Test1;
+begin
+  Aliases.Folha.FRhConfeSocial.Click(377, 15);
+
+  Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_IDCONFESOCIAL.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.VsGroupBox1.Panel3.EB_DESCRICAO.Keys('[Tab]');
+  
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_IDTRIBUTACAO.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCOOPERATIVA.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDCONSTRUTORA.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDDESFOLHA.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDOPCCP.Click(125, 7);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDENTED.Click(99, 8);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDETT.Click(130, 8);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_NRREGETT.Click(114, 7);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPJ.DblClick(104, 7);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDSITPF.Click(92, 11);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.EB_INDPORTE.Click(69, 8);
+  
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Click(17, 8);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_IDEMINLEI.Click(21, 7);
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_NRCERTIF.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTEMISCERTIF.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTVENCCERTIF.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_NRPROTRENOV.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTPROTRENOV.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_DTDOU.Keys('[Tab]');
+  Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.EB_PAGDOU.Keys('[Tab]');
+end;
+
+

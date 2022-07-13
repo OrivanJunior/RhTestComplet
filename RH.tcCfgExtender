@@ -21,13 +21,9 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
+				<Prp name="activity" type="S" value="{6A307893-F216-4538-8413-E8FB44BD139D}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
-				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
-					<Prp name="hash" type="I" value="1"/>
-				</Node>
-			</Node>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -5423,7 +5419,7 @@
 					<Node name="{4915f410-0658-43d6-bd21-67acd4c69393}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="38"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="12"/>
 						</Node>
 						<Node name="1">
@@ -7350,6 +7346,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{6a307893-f216-4538-8413-e8fb44bd139d}"/>
 					<Node name="{6a8ede76-e350-41d8-96bb-e2505a9b6a4d}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="14"/>
@@ -11638,7 +11635,7 @@
 					<Node name="{9ecda5c3-5a6e-4e59-9cf4-9f889331fe3d}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="0"/>
 						</Node>
 						<Node name="1">
@@ -12620,6 +12617,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{b45282b1-cc42-46fc-bab2-e7134af6e528}"/>
 					<Node name="{b489ec01-663c-4e70-996d-114cb028f97f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -16367,6 +16365,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{e6c8797b-d3fb-4ac7-bdb6-363f4b8cccf0}"/>
 					<Node name="{e70f55f3-ae48-497a-a3a0-6968cf726574}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -18367,12 +18366,9 @@
 						<Node name="script">
 							<Node name="commons"/>
 							<Node name="folha">
-								<Node name="cadastros específicos">
-									<Node name="agenda de tarefas"/>
-									<Node name="darfs"/>
-									<Node name="portal">
-										<Node name="benefícios convênios"/>
-										<Node name="políticas da empresa"/>
+								<Node name="esocial">
+									<Node name="gerais">
+										<Node name="configurações do esocial"/>
 									</Node>
 								</Node>
 							</Node>
