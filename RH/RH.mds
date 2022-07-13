@@ -2683,7 +2683,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Políticas da Empresas" key="{88A41A3C-5233-4D40-BC2E-216211554453}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Políticas da Empresas" key="{88A41A3C-5233-4D40-BC2E-216211554453}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraPoliticas" key="{ABCE21C6-D4AA-4548-A52D-AD105BFA39A3}" group="False" parallel="False" enabled="True" testMoniker="{2E157907-E47A-424D-9CD5-F744E2CAC86F}CadastraPoliticas" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -2715,6 +2715,25 @@
 															<testItem name="ExcluirComunicados" key="{CCEE9F95-B5B3-427D-B6B4-22EE54FE25C2}" group="False" parallel="False" enabled="False" testMoniker="{5740034B-4559-4216-A233-292382FCF8E6}ExcluirComunicados" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Comunicados\Comunicados.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="Benefícios/Convênios" key="{BB167CED-E0CD-4498-9944-11532970797A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraBenefConv" key="{CD954CC8-60B9-4037-8F14-E28C53821AE5}" group="False" parallel="False" enabled="True" testMoniker="{E5B190B8-8728-4481-AF77-92DB2695854B}CadastraBenefConv" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Benefícios - Convênios\Benefícios - Convênios.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirBenefConv" key="{982504E8-C27E-4085-8B8A-7EBC1568C4D7}" group="False" parallel="False" enabled="True" testMoniker="{E5B190B8-8728-4481-AF77-92DB2695854B}ExcluirBenefConv" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\Cadastros Específicos\Portal\Benefícios - Convênios\Benefícios - Convênios.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

@@ -14,7 +14,7 @@ CadBenefConvEBDtInativo : OleVariant;
 
 
 {Benefícios}
-procedure MapCadBeneficiosConv;
+procedure MapCadBenefConv();
 begin
 FormPadraoBenefConv  				:= Aliases.Folha.FRhwBenConv;
 CadBenefConvEBEstab  				:= Aliases.Folha.FRhwBenConv.Page.TabNormal.ScrollBox1.EB_ESTAB;

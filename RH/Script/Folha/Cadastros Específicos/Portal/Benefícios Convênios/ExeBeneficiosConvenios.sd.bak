@@ -1,1 +1,12 @@
-﻿
+﻿uses CommonsAll, CommonsObj, VarConsts, DataPoolBeneficiosConvenios, ObjBeneficiosConvenios;
+
+procedure PreencheBenefConv();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadBenefConvEBEstab,CadBenefConvDPEstab);
+VerificaInsere(CadBenefConvEBSequencial,CadBenefConvDPSequencial);
+VerificaInsere(CadBenefConvEBTipo,CadBenefConvDPTipo);
+VerificaInsere(CadBenefConvEBTitulo,CadBenefConvDPTitulo);
+VerificaInsere(CadBenefConvEBDesc,CadBenefConvDPDesc);
+PreencheDatas(CadBenefConvEBDtInativo,CadBenefConvDPDtInativo);
+end;
+
