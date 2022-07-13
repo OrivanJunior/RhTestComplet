@@ -1,0 +1,110 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DatapoolConfeSocial,
+  ObjConfeSocial,
+  VarConsts;
+
+
+procedure PreencheConfeSocial();
+begin
+
+VerificaInsere(CadConfeSocialEBDescricao,CadConfeSocialDPDescricao);
+VerificaInsere(CadConfeSocialEBIdConfesocial,CadConfeSocialDPIdConfesocial);
+VerificaConsultaF3Insere(_ModuloFolha,CadConfeSocialEBDtributacao,CadConfeSocialDPDtributacao);
+VerificaInsere(CadConfeSocialEBNdCooperativa,CadConfeSocialDPNdCooperativa);
+VerificaInsere(CadConfeSocialEBNdConstrutora,CadConfeSocialDPNdConstrutora);
+VerificaInsere(CadConfeSocialEBNdDesfolha,CadConfeSocialDPNdDesfolha);
+VerificaInsere(CadConfeSocialEBNdOpccp,CadConfeSocialDPNdOpccp);
+VerificaInsere(CadConfeSocialEBNdOptregeletron,CadConfeSocialDPNdOptregeletron );
+VerificaInsere(CadConfeSocialEBNdEnted,CadConfeSocialDPNdEnted);
+VerificaInsere(CadConfeSocialEBNdett,CadConfeSocialDPNdett);
+VerificaInsere(CadConfeSocialEBRregett,CadConfeSocialDPRregett);
+VerificaInsere(CadConfeSocialEBNdSitpj,CadConfeSocialDPNdSitpj);
+VerificaInsere(CadConfeSocialEBNdSitpf,CadConfeSocialDPNdSitpf);
+VerificaInsere(CadConfeSocialEBNdPorte,CadConfeSocialDPNdPorte);
+
+if (Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Panel2.Enabled = False) then
+Aliases.Folha.FRhConfeSocial.sbeSocial.gbS1000.Panel1.chGroupDadosIsencao.Click;
+
+VerificaInsere(CadConfeSocialEBIdEminLei,CadConfeSocialDPIdEminLei);
+VerificaInsere(CadConfeSocialEBNrCertif,CadConfeSocialDPNrCertif);
+PreencheDatas(CadConfeSocialEBDtEmiscertif,CadConfeSocialDPDtEmiscertif);
+PreencheDatas(CadConfeSocialEBDtVenccertif,CadConfeSocialDPDtVenccertif);
+VerificaInsere(CadConfeSocialEBNrProtrenov,CadConfeSocialDPNrProtrenov);
+PreencheDatas(CadConfeSocialEBDtProtrenov,CadConfeSocialDPDtProtrenov);
+PreencheDatas(CadConfeSocialEBDtDou,CadConfeSocialDPDtDou);
+VerificaInsere(CadConfeSocialEBPagDou,CadConfeSocialDPPagDou);
+end;
+
+
+
+procedure CadastraConfeSocial(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Configurações do eSocial');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadConfeSocial(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfeSocial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadConfeSocialDPIdConfeSocial);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadConfeSocial();
+  
+  PreencheConfeSocial(); 
+  
+  ActSalvar(FormPadraoConfeSocial);
+  
+  ActFechar(FormPadraoConfeSocial);
+  
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirConfeSocial(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Configurações do eSocial');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadConfeSocial(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhConfeSocial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadConfeSocialDPIdConfeSocial);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadConfeSocial();
+
+  ActExcluir(_ModuloFolha, 'FRhConfeSocial');
+  
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

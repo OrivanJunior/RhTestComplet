@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{E6C8797B-D3FB-4AC7-BDB6-363F4B8CCCF0}"/>
+				<Prp name="activity" type="S" value="{73911E56-0D69-48F5-8632-417D80E0FE2C}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -86,7 +86,7 @@
 					<Node name="11">
 						<Node name="editor">
 							<Node name="{93765269-c25d-4cd5-b6bf-5d7454869c93}">
-								<Prp name="key" type="S" value="{81AB21AD-9671-4AC0-8F32-E1CA8FBC5563}"/>
+								<Prp name="key" type="S" value="{EA0FABB7-1FEC-4A5C-AEC4-9C60D79DD9C9}"/>
 							</Node>
 							<Prp name="editor" type="S" value="{6BEF5639-8325-4422-9530-EB878286A6A4}"/>
 							<Prp name="focused" type="S" value="{81AB21AD-9671-4AC0-8F32-E1CA8FBC5563}"/>
@@ -426,6 +426,26 @@
 					<Prp name="executable" type="B" value="-1"/>
 					<Prp name="line" type="I" value="4"/>
 					<Prp name="owner" type="S" value="{917154DB-6DA3-4C64-8374-24BB11CAB3DA}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
+				<Node name="1">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="20"/>
+					<Prp name="owner" type="S" value="{069B75A6-0DA0-4FDC-870E-7E9917397B63}"/>
+					<Prp name="pass count" type="I" value="0"/>
+				</Node>
+				<Node name="2">
+					<Prp name="column" type="I" value="2147483647"/>
+					<Prp name="condition" type="S" value=""/>
+					<Prp name="description" type="S" value=""/>
+					<Prp name="enabled" type="B" value="-1"/>
+					<Prp name="executable" type="B" value="-1"/>
+					<Prp name="line" type="I" value="18"/>
+					<Prp name="owner" type="S" value="{069B75A6-0DA0-4FDC-870E-7E9917397B63}"/>
 					<Prp name="pass count" type="I" value="0"/>
 				</Node>
 			</Node>
@@ -968,6 +988,11 @@
 							<Prp name="top" type="I" value="8"/>
 						</Node>
 						<Prp name="bottom" type="I" value="12"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
+					<Node name="{069b75a6-0da0-4fdc-870e-7e9917397b63}">
+						<Prp name="bottom" type="I" value="109"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -3459,17 +3484,17 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="45"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="16"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="84"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="48"/>
 						</Node>
 						<Node name="3">
 							<Prp name="bottom" type="I" value="127"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="86"/>
 						</Node>
 						<Prp name="bottom" type="I" value="129"/>
@@ -5881,6 +5906,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{50fde264-77c0-4ca8-afd1-ab611d776225}"/>
 					<Node name="{51f78154-1bcd-40c0-ac7b-caa3bfbf10df}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -7842,6 +7868,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{73911e56-0d69-48f5-8632-417d80e0fe2c}"/>
 					<Node name="{73aa700c-1b31-4a28-b856-a6be37c34b0d}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -12617,7 +12644,16 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{b45282b1-cc42-46fc-bab2-e7134af6e528}"/>
+					<Node name="{b45282b1-cc42-46fc-bab2-e7134af6e528}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="51"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="27"/>
+						</Node>
+						<Prp name="bottom" type="I" value="51"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{b489ec01-663c-4e70-996d-114cb028f97f}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -16365,7 +16401,26 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{e6c8797b-d3fb-4ac7-bdb6-363f4b8cccf0}"/>
+					<Node name="{e6c8797b-d3fb-4ac7-bdb6-363f4b8cccf0}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="31"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="3"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="67"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="35"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="102"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="69"/>
+						</Node>
+						<Prp name="bottom" type="I" value="104"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{e70f55f3-ae48-497a-a3a0-6968cf726574}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -18366,6 +18421,10 @@
 						<Node name="script">
 							<Node name="commons"/>
 							<Node name="folha">
+								<Node name="cadastros específicos">
+									<Node name="anuênios"/>
+									<Node name="rendimentos"/>
+								</Node>
 								<Node name="esocial">
 									<Node name="gerais">
 										<Node name="configurações do esocial"/>
