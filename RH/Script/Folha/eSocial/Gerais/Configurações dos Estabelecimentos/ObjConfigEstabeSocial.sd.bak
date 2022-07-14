@@ -2,3 +2,40 @@
  Módulo: Folha
  Autor: Orivan lemes dos Santos Junior
  Data: 13/07/2022}
+
+var
+ 
+FormPadraoConfEstabeSocial,
+PageTabPadrao,
+BtnFiltro,
+BtnBuscar,
+CadCEstabeSocialEBEstab,
+CadCEstabeSocialEBDataHoraInicial,
+CadCEstabeSocialEBTVsHora,
+CadCEstabeSocialEBDataHoraFinal,
+CadCEstabeSocialEBTVsHora2,
+CadCEstabeSocialEBAmbiente,
+CadCEstabeSocialEBTipo,
+CadCEstabeSocialEBEventoEsocial : OleVariant;
+ 
+ 
+procedure MapCadConfigEstabeSocial();
+begin
+FormPadraoConfEstabeSocial  := Aliases.Folha.FRhProceSocialConfigEstab;
+
+PageTabPadrao  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao;
+  
+BtnFiltro					          := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.gbFiltros10;
+
+BtnBuscar					          := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+
+CadCEstabeSocialEBEstab  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+CadCEstabeSocialEBDataHoraInicial  		:= Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+CadCEstabeSocialEBTVsHora  				    := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.TVsHora;
+CadCEstabeSocialEBDataHoraFinal  		  := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+CadCEstabeSocialEBTVsHora2  			    := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.TVsHora2;
+CadCEstabeSocialEBAmbiente  			    := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+CadCEstabeSocialEBTipo  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+CadCEstabeSocialEBEventoEsocial  		  := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+
+end;

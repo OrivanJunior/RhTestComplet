@@ -45,5 +45,6 @@ begin
   
   DDTCadastrar.Next;
  end;
+  ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;

@@ -19,7 +19,7 @@ CadCEstabeSocialEBTipo,
 CadCEstabeSocialEBEventoEsocial : OleVariant;
  
  
-procedure MapCadCEstabeSocial();
+procedure MapCadConfigEstabeSocial();
 begin
 FormPadraoConfEstabeSocial  := Aliases.Folha.FRhProceSocialConfigEstab;
 
@@ -27,7 +27,7 @@ PageTabPadrao  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao;
   
 BtnFiltro					          := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.gbFiltros10;
 
-BtnBuscar					          := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.btBuscar.ClickButton;
+BtnBuscar					          := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.btBuscar;
 
 CadCEstabeSocialEBEstab  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
 CadCEstabeSocialEBDataHoraInicial  		:= Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
@@ -37,5 +37,6 @@ CadCEstabeSocialEBTVsHora2  			    := Aliases.Folha.FRhProceSocialConfigEstab.pg
 CadCEstabeSocialEBAmbiente  			    := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
 CadCEstabeSocialEBTipo  				      := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
 CadCEstabeSocialEBEventoEsocial  		  := Aliases.Folha.FRhProceSocialConfigEstab.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+
 
 end;

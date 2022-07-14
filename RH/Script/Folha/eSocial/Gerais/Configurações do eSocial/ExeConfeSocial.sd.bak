@@ -49,6 +49,9 @@ DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
 LeDataPoolCadConfeSocial(DDTCadastrar.Name);
 
+while not (DDTCadastrar.EOF) do
+begin
+
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
     ValidaFormAberto(_ModuloFolha, 'FRhConfeSocial');
   
@@ -65,8 +68,9 @@ LeDataPoolCadConfeSocial(DDTCadastrar.Name);
   ActSalvar(FormPadraoConfeSocial);
   
   ActFechar(FormPadraoConfeSocial);
-  
-  end;
+    end;
+  DDTCadastrar.Next;
+ end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
 end;
