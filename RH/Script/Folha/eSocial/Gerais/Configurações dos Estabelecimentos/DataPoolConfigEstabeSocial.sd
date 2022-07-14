@@ -1,1 +1,22 @@
-﻿
+﻿var
+CadCEstabeSocialDPEstab,
+CadCEstabeSocialDPDataHoraInicial,
+CadCEstabeSocialDPTVsHora,
+CadCEstabeSocialDPDataHoraFinal,
+CadCEstabeSocialDPTVsHora2,
+CadCEstabeSocialDPAmbiente,	
+CadCEstabeSocialDPTipo,
+CadCEstabeSocialDPEventoEsocial  :OleVariant; 
+
+procedure LeDataPoolCadCEstabeSocial();
+begin
+CadCEstabeSocialDPEstab  			      := DDT.DriverByName(nomeDriver).Value('ESTAB');	
+CadCEstabeSocialDPDataHoraInicial  	:= DDT.DriverByName(nomeDriver).Value('DATAHORAINICIAL');
+CadCEstabeSocialDPTVsHora  			    := DDT.DriverByName(nomeDriver).Value('TVSHORA');
+CadCEstabeSocialDPDataHoraFinal  	  := DDT.DriverByName(nomeDriver).Value('DATAHORAFINAL');
+CadCEstabeSocialDPTVsHora2  		    := DDT.DriverByName(nomeDriver).Value('TVSHORA2');
+CadCEstabeSocialDPAmbiente  		    := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+CadCEstabeSocialDPTipo  			      := DDT.DriverByName(nomeDriver).Value('TIPO');
+CadCEstabeSocialDPEventoEsocial     := DDT.DriverByName(nomeDriver).Value('EVENTOESOCIAL');
+end;
+
