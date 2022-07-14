@@ -3069,12 +3069,31 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Configurações dos Estabelecimentos" key="{E4A91EAC-397F-404A-BCC7-12E2FDB1A289}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Configurações dos Estabelecimentos" key="{E4A91EAC-397F-404A-BCC7-12E2FDB1A289}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraConfigEstabeSocial" key="{67BAF32E-62A7-4D08-AF72-852D2578342A}" group="False" parallel="False" enabled="True" testMoniker="{28FD5B6C-2BF4-4AF3-82A6-B3A31C6BE38D}CadastraConfigEstabeSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Gerais\Configurações dos Estabelecimento\Configurações dos Estabelecimento.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Produtor Rural - Adquirente" key="{03321A17-366A-4D8C-95B6-ECE04D0AE97A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraProdRural" key="{8AA3F089-275F-4471-854E-DE71D479F112}" group="False" parallel="False" enabled="True" testMoniker="{19121457-E1F2-4042-B75D-B0942AD94E0F}CadastraProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Gerais\Produtor Rural - Adquirente\Produtor Rural - Adquirente.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirProdRural" key="{70A77B63-3A38-4BB6-9F1A-B9640D7920C5}" group="False" parallel="False" enabled="True" testMoniker="{19121457-E1F2-4042-B75D-B0942AD94E0F}ExcluirProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Gerais\Produtor Rural - Adquirente\Produtor Rural - Adquirente.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

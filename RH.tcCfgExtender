@@ -21,9 +21,13 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{BCE8F908-6A29-405C-B3F8-354F9A828E57}"/>
+				<Prp name="activity" type="S" value="{9D7D2AFD-3949-440D-8D92-46BD815729E6}"/>
 			</Node>
-			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
+			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}">
+				<Node name="{bce8f908-6a29-405c-b3f8-354f9a828e57}">
+					<Prp name="hash" type="I" value="1"/>
+				</Node>
+			</Node>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
 				<Node name="workspace">
 					<Node name="0">
@@ -876,7 +880,7 @@
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="75"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="39"/>
 						</Node>
 						<Node name="2">
@@ -884,7 +888,7 @@
 							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="77"/>
 						</Node>
-						<Prp name="bottom" type="I" value="114"/>
+						<Prp name="bottom" type="I" value="113"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -2178,7 +2182,31 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{19121457-e1f2-4042-b75d-b0942ad94e0f}"/>
+					<Node name="{19121457-e1f2-4042-b75d-b0942ad94e0f}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="17"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="7"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="27"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="20"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="67"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="29"/>
+						</Node>
+						<Node name="3">
+							<Prp name="bottom" type="I" value="106"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="69"/>
+						</Node>
+						<Prp name="bottom" type="I" value="108"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{19b37d5e-3f18-4a88-b66c-443d66618f3c}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="5"/>
@@ -3349,6 +3377,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{31f9862f-532a-4962-82cb-80a3c8da8a1d}"/>
 					<Node name="{32020d9c-e1bf-410a-9910-f0d9d01a35c8}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="3"/>
@@ -3649,6 +3678,7 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
+					<Node name="{3598056e-aa2c-44b5-b5ee-2052a668171c}"/>
 					<Node name="{35d34cfd-c783-4cbb-9e90-a0b1d4233bba}">
 						<Prp name="bottom" type="I" value="66"/>
 						<Prp name="collapsed" type="B" value="0"/>
@@ -8606,7 +8636,7 @@
 						</Node>
 						<Node name="5">
 							<Prp name="bottom" type="I" value="68"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="58"/>
 						</Node>
 						<Node name="50">
@@ -8671,7 +8701,7 @@
 						</Node>
 						<Node name="9">
 							<Prp name="bottom" type="I" value="88"/>
-							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="collapsed" type="B" value="0"/>
 							<Prp name="top" type="I" value="85"/>
 						</Node>
 						<Prp name="bottom" type="I" value="872"/>
@@ -18368,7 +18398,11 @@
 							<Node name="folha">
 								<Node name="cadastros específicos"/>
 								<Node name="esocial">
-									<Node name="gerais"/>
+									<Node name="gerais">
+										<Node name="configurações do esocial"/>
+										<Node name="configurações dos estabelecimentos"/>
+										<Node name="produtor rural - adquirente"/>
+									</Node>
 								</Node>
 								<Node name="processamentos"/>
 								<Node name="relatórios">

@@ -1,0 +1,53 @@
+﻿{Script para mapear o eSocial - Cadastro de Produtor Rural - Adquirente
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 14/07/2022}
+
+var
+ 
+FormFiltroProdRural,
+ListaConsultaProdRural,
+FiltroCodigo,
+FiltroNome,
+BtnOk,
+
+FormPadraoProdRural,
+
+CadProdRuralEBIdProdRural,
+CadProdRuralEBNome,
+CadProdRuralEBCnpjF,
+CadProdRuralEBEndereco,
+CadProdRuralEBBairro,
+CadProdRuralEBCidade,
+CadProdRuralEBCep,
+CadProdRuralEBIndOpccp : OleVariant;
+
+ 
+
+procedure MapCadProdRural();
+begin
+
+FormPadraoProdRural  				:= Aliases.Folha.FFormPadraoRHPRODRURAL;
+
+CadProdRuralEBIdProdRural  	:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPRODRURAL;
+CadProdRuralEBNome  				:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME;
+CadProdRuralEBCnpjF  				:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CNPJF;
+CadProdRuralEBEndereco  		:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ENDERECO;
+CadProdRuralEBBairro  			:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_BAIRRO;
+CadProdRuralEBCidade  			:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
+CadProdRuralEBCep  					:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CEP;
+CadProdRuralEBIndOpccp  		:= Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDOPCCP;
+end;
+
+
+
+procedure FiltroProdRural();
+begin
+
+FormFiltroProdRural				:= Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaProdRural		:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroCodigo						  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroNome							  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+BtnOk								      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+  
+end;

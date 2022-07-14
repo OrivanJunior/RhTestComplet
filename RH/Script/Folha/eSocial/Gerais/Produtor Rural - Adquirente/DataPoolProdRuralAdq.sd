@@ -1,0 +1,22 @@
+﻿var
+CadProdRuralDPIdProdRural,
+CadProdRuralDPNome,
+CadProdRuralDPCnpjF,
+CadProdRuralDPEndereco,
+CadProdRuralDPBairro,
+CadProdRuralDPCidade,
+CadProdRuralDPCep,
+CadProdRuralDPIndOpccp : OleVariant;
+
+
+procedure LeDataPoolCadProdRural(nomeDriver);
+begin
+CadProdRuralDPIdProdRural  	:= DDT.DriverByName(nomeDriver).Value('IDPRODRURAL');
+CadProdRuralDPNome  		    := DDT.DriverByName(nomeDriver).Value('NOME');
+CadProdRuralDPCnpjF  		    := DDT.DriverByName(nomeDriver).Value('CNPJF');
+CadProdRuralDPEndereco  	  := DDT.DriverByName(nomeDriver).Value('ENDERECO');
+CadProdRuralDPBairro  		  := DDT.DriverByName(nomeDriver).Value('BAIRRO');
+CadProdRuralDPCidade  		  := DDT.DriverByName(nomeDriver).Value('CIDADE');
+CadProdRuralDPCep  			    := DDT.DriverByName(nomeDriver).Value('CEP');
+CadProdRuralDPIndOpccp  	  := DDT.DriverByName(nomeDriver).Value('INDOPCCP');
+end;

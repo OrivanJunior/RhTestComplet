@@ -1,1 +1,108 @@
-﻿
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProdRuralAdq,
+  ObjProdRuralAdq,
+  VarConsts;
+
+procedure PreencheProdRural();
+begin
+VerificaInsere(CadProdRuralEBIdProdRural,CadProdRuralDPIdProdRural);
+VerificaInsere(CadProdRuralEBNome,CadProdRuralDPNome);
+VerificaInsere(CadProdRuralEBCnpjF,CadProdRuralDPCnpjF);
+VerificaInsere(CadProdRuralEBEndereco,CadProdRuralDPEndereco);
+VerificaInsere(CadProdRuralEBBairro,CadProdRuralDPBairro);
+VerificaConsultaF3Insere(_ModuloFolha,CadProdRuralEBCidade,CadProdRuralDPCidade); 		
+EscolheMetodoDeInsercao(CadProdRuralEBCep,CadProdRuralDPCep);
+VerificaInsere(CadProdRuralEBIndOpccp,CadProdRuralDPIndOpccp);
+end;
+
+
+procedure FiltraTelaInicialProdRural();
+begin
+FiltroProdRural();
+ListaConsultaProdRural.SetText('Filtro de Produtores Rurais');
+FiltroCodigo.Keys('(Ignorar)');
+FiltroNome.Keys('(Ignorar)');
+BtnOk.Click;
+end;
+
+procedure CadastraProdRural(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Produtor Rural/Adquirente');
+
+FiltraTelaInicialProdRural();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadProdRural(DDTCadastrar.Name);
+
+while not (DDTCadastrar.EOF) do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPRODRURAL');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadProdRuralDPIdProdRural);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadProdRural();
+  
+  PreencheProdRural(); 
+  
+  ActSalvar(FormPadraoProdRural);
+  
+  ActFechar(FormPadraoProdRural);
+    end;
+  DDTCadastrar.Next;
+ end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirProdRural(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Gerais', 'Produtor Rural/Adquirente');
+
+FiltraTelaInicialProdRural();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadProdRural(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPRODRURAL');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código',CadProdRuralDPIdProdRural);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadProdRural();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHPRODRURAL');
+  
+  ActFechar(FormPadraoProdRural);
+  
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+

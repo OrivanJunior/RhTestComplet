@@ -1,0 +1,26 @@
+﻿{Script para mapear o eSocial - Cadastro de Produtor Rural - Adquirente
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 14/07/2022}
+ 
+ 
+
+procedure Test1;
+begin
+  Aliases.Folha.FFiltroConsultaCDS.Click(344, 20);
+  Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas.DblClick(285, 9);
+  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1.DblClick(70, 12);
+  Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2.DblClick(64, 9);
+  Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK.ClickButton;
+  
+  Aliases.Folha.FFormPadraoRHPRODRURAL.Click(288, 13);
+
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPRODRURAL.Click(54, 9);
+  
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NOME.Click(51, 4);
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ENDERECO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_BAIRRO.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CEP.Keys('[Tab]');
+  Aliases.Folha.FFormPadraoRHPRODRURAL.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDOPCCP.Keys('[Tab]');
+end;
