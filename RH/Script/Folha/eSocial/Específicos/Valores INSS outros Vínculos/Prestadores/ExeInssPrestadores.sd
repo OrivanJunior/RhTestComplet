@@ -24,4 +24,76 @@ VerificaInsere(CadPrestInssEBMesano, CadPrestInssDPMesano);
 VerificaInsere(CadPrestInssEBRemuneracao,CadPrestInssDPRemuneracao);
 VerificaInsere(CadPrestInssEBDesconto,CadPrestInssDPDesconto);
 VerificaInsere(CadPrestInssEBIndicativo,CadPrestInssDPIndicativo);
+
+BtnAddValor.Click;
+end;
+
+
+procedure CadastraPrestInss(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores INSS outros Vínculos', 'Prestadores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadPrestInss(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPrestInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadPrestInssDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadInssPrestadores();
+  
+  PreenchePrestInss();
+  VerificaValores();
+ 
+  ActSalvar(FormPadraoInssPrest);
+  ActFechar(FormPadraoInssPrest);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirPrestInss(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores INSS outros Vínculos', 'Prestadores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadPrestInss(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhPrestInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadPrestInssDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadInssPrestadores();
+
+  ActExcluir(_ModuloFolha, 'FRhPrestInss');
+
+  ActFechar(FormPadraoInssPrest);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
 end;
