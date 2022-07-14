@@ -1037,7 +1037,11 @@
 						<child name="DataPoolEstabObras" key="{62D0BF90-F479-452C-BE09-8F0EA3704D1D}" path="Folha\eSocial\Específicos\Estabelecimentos e Obras\DataPoolEstabObras.sd" />
 					</folder>
 					<folder name="Valores INSS outros Vínculos">
-						<folder name="Empregados" />
+						<folder name="Empregados">
+							<child name="ExeValoresInssEmpregados" key="{D55A26D3-0D18-4278-9BA2-BA4CBC50B9F3}" path="Folha\eSocial\Específicos\Valores INSS outros Vínculos\Empregados\ExeValoresInssEmpregados.sd" />
+							<child name="ObjValoresInssEmpregados" key="{BD2D7797-E9CE-47F2-972A-9D715589377B}" path="Folha\eSocial\Específicos\Valores INSS outros Vínculos\Empregados\ObjValoresInssEmpregados.sd" />
+							<child name="DataPoolValoresInssEmpregados" key="{8A6B5713-93A0-47CE-A71B-6A23D4890201}" path="Folha\eSocial\Específicos\Valores INSS outros Vínculos\Empregados\DataPoolValoresInssEmpregados.sd" />
+						</folder>
 						<folder name="Prestadores" />
 					</folder>
 					<folder name="Aquisição de Produção Rural" />

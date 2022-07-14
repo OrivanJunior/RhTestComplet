@@ -1,0 +1,97 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolValoresInssEmpregados,
+  ObjValoresInssEmpregados,
+  VarConsts;
+  
+procedure VerificaValores();
+begin
+PageTabNormalEmpInss.ActivePageIndex := 0;
+FormGridEmpInss.ExpandGroup(0, 0);
+FormGridEmpInss.CollapseGroup(0, 0);
+end;
+
+procedure PreencheValoresInssEmpregados();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadEmpInssEBEstab,CadEmpInssDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadEmpInssEBIdEmpregado,CadEmpInssDPIdEmpregado);
+VerificaInsere(CadEmpInssEBIdVinc,CadEmpInssDPIdVinc);
+VerificaInsere(CadEmpInssEBCnpjf,CadEmpInssDPCnpjf);
+VerificaInsere(CadEmpInssEBRazaoSoc,CadEmpInssDPRazaoSoc);
+VerificaInsere(CadEmpInssEBMesAno,CadEmpInssDPMesAno);
+VerificaInsere(CadEmpInssEBRemuneracao ,CadEmpInssDPRemuneracao);
+VerificaInsere(CadEmpInssEBDesconto,CadEmpInssDPDesconto);
+
+CadEmpInssEBAddValor.Click;
+end;	
+
+
+procedure CadastraEmpInss(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores INSS outros Vínculos', 'Empregados');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEmpInss(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEmpInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadEmpInssDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadEmpInss();
+  
+  PreencheValoresInssEmpregados();
+  VerificaValores();
+ 
+  ActSalvar(FormPadraoEmpEstab);
+  ActFechar(FormPadraoEmpEstab);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirEmpInss(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores INSS outros Vínculos', 'Empregados');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEmpInss(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEmpInss');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadEmpInssDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEmpInss();
+
+  ActExcluir(_ModuloFolha, 'FRhEmpInss');
+
+  ActFechar(FormPadraoEmpEstab);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

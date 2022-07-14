@@ -1,0 +1,24 @@
+﻿var
+
+CadEmpInssDPCnpjf,
+CadEmpInssDPEstab,
+CadEmpInssDPIdEmpregado,
+CadEmpInssDPIdVinc,
+CadEmpInssDPRazaoSoc,
+CadEmpInssDPMesAno,
+CadEmpInssDPRemuneracao, 
+CadEmpInssDPDesconto    : OleVariant;
+
+procedure LeDataPoolCadEmpInss(nomeDriver);
+begin
+CadEmpInssDPEstab  		    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadEmpInssDPIdEmpregado   := DDT.DriverByName(nomeDriver).Value('IDEMPREGADO');
+CadEmpInssDPIdVinc  	    := DDT.DriverByName(nomeDriver).Value('IDVINC');
+CadEmpInssDPCnpjf  		    := DDT.DriverByName(nomeDriver).Value('CNPJF');
+CadEmpInssDPRazaoSoc  	  := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+CadEmpInssDPMesAno  	    := DDT.DriverByName(nomeDriver).Value('MESANO');
+CadEmpInssDPRemuneracao   := DDT.DriverByName(nomeDriver).Value('REMUNERACAO');
+CadEmpInssDPDesconto      := DDT.DriverByName(nomeDriver).Value('DESCONTO');
+end;
+
+  

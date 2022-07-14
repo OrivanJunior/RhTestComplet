@@ -3105,7 +3105,7 @@
 									<testItem name="Específicos" key="{BACB30D6-08FC-4457-AEA7-7DCEBEC9CAB7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Estabelecimentos e Obras" key="{EC9DFBAB-19F3-4750-9D66-278A08F39DBC}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Estabelecimentos e Obras" key="{EC9DFBAB-19F3-4750-9D66-278A08F39DBC}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraEstabObras" key="{47FE5946-925E-406C-88D1-7BE4B24B6FD1}" group="False" parallel="False" enabled="True" testMoniker="{3E5F7323-A876-4F7A-969D-1EEB35A16933}CadastraEstabObras" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3121,6 +3121,30 @@
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Valores INSS outros Vínculos" key="{11089A6C-5AC6-47E1-89D6-B4D865951707}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Empregados" key="{C98FDFCF-AA94-4E8C-81BA-545275C377F7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraEmpInss" key="{BB5CD3E2-707B-49A7-972B-693B4C2A3FA1}" group="False" parallel="False" enabled="True" testMoniker="{D55A26D3-0D18-4278-9BA2-BA4CBC50B9F3}CadastraEmpInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Valores INSS outros Vínculos\Empregados\Empregados.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirEmpInss" key="{89203058-B5BA-4CD2-9748-657AB02B0AB2}" group="False" parallel="False" enabled="True" testMoniker="{D55A26D3-0D18-4278-9BA2-BA4CBC50B9F3}ExcluirEmpInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Valores INSS outros Vínculos\Empregados\Empregados.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>
