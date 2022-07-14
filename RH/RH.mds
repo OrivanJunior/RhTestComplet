@@ -3028,7 +3028,7 @@
 										<environments activeCloud="CBT" />
 										<children />
 									</testItem>
-									<testItem name="Gerais" key="{D513DD1C-F8B5-4584-A69F-85B2B27A2A87}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Gerais" key="{D513DD1C-F8B5-4584-A69F-85B2B27A2A87}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Configurações do eSocial" key="{FCE4B713-DF6D-48DC-9285-C7EA4CC8DE33}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3081,7 +3081,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Produtor Rural - Adquirente" key="{03321A17-366A-4D8C-95B6-ECE04D0AE97A}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Produtor Rural - Adquirente" key="{03321A17-366A-4D8C-95B6-ECE04D0AE97A}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraProdRural" key="{8AA3F089-275F-4471-854E-DE71D479F112}" group="False" parallel="False" enabled="True" testMoniker="{19121457-E1F2-4042-B75D-B0942AD94E0F}CadastraProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3094,6 +3094,30 @@
 													<testItem name="ExcluirProdRural" key="{70A77B63-3A38-4BB6-9F1A-B9640D7920C5}" group="False" parallel="False" enabled="True" testMoniker="{19121457-E1F2-4042-B75D-B0942AD94E0F}ExcluirProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Gerais\Produtor Rural - Adquirente\Produtor Rural - Adquirente.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Específicos" key="{BACB30D6-08FC-4457-AEA7-7DCEBEC9CAB7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="Estabelecimentos e Obras" key="{EC9DFBAB-19F3-4750-9D66-278A08F39DBC}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraEstabObras" key="{47FE5946-925E-406C-88D1-7BE4B24B6FD1}" group="False" parallel="False" enabled="True" testMoniker="{3E5F7323-A876-4F7A-969D-1EEB35A16933}CadastraEstabObras" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Estabelecimentos e Obras\Estabelecimentos e Obras.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirEstabObras" key="{5950F60B-7693-4179-B414-F11C05BF3DF6}" group="False" parallel="False" enabled="True" testMoniker="{3E5F7323-A876-4F7A-969D-1EEB35A16933}ExcluirEstabObras" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Estabelecimentos e Obras\Estabelecimentos e Obras.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

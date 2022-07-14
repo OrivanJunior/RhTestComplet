@@ -1,0 +1,39 @@
+﻿{Script para mapear o eSocial - Específicos - Estabelecimentos e Obras
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 14/07/2022}
+ 
+var
+FormPadraoEstabObras,
+                                     
+CadEstabObrasEBTpInscricao,
+CadEstabObrasEBIdLocal,
+CadEstabObrasEBTpCaepf,
+CadEstabObrasEBIndsubstpatrobra,
+CadEstabObrasEBRegpt,
+CadEstabObrasEBContApr,
+CadEstabObrasEBNrProcJudApr,
+CadEstabObrasEBCtAprendizEntEducativa,
+CadEstabObrasEBNrAprendizEntEducativa,
+CadEstabObrasEBConTpcd,
+CadEstabObrasEBNrProcJudPcd : OleVariant;
+
+ 
+
+procedure MapCadEstabObras();
+begin
+FormPadraoEstabObras							    := Aliases.Folha.FRHCONFESOCIAL1005;
+
+CadEstabObrasEBTpInscricao						:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox1.Panel1.EB_TPINSCRICAO;
+CadEstabObrasEBIdLocal							  := Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox1.Panel1.EB_IDLOCAL;
+CadEstabObrasEBTpCaepf							  := Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox2.Panel2.EB_TPCAEPF;
+CadEstabObrasEBIndsubstpatrobra				:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox3.Panel4.EB_INDSUBSTPATROBRA;
+CadEstabObrasEBRegpt							    := Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox4.Panel5.EB_REGPT;
+CadEstabObrasEBContApr							  := Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.gbS1005.Panel3.EB_CONTAPR;
+CadEstabObrasEBNrProcJudApr						:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.gbS1005.Panel3.EB_NRPROCJUDAPR;
+CadEstabObrasEBCtAprendizEntEducativa	:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.gbS1005.Panel3.EB_CTAPRENDIZENTEDUCATIVA;
+CadEstabObrasEBNrAprendizEntEducativa	:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.gbS1005.Panel3.EB_NRAPRENDIZENTEDUCATIVA;
+CadEstabObrasEBConTpcd							  := Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox5.Panel6.EB_CONTPCD;
+CadEstabObrasEBNrProcJudPcd						:= Aliases.Folha.FRHCONFESOCIAL1005.Page.tsTabNormal.ScrollBox1.VsGroupBox5.Panel6.EB_NRPROCJUDPCD;
+  
+end;

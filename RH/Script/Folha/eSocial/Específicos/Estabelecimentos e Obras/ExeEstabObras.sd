@@ -1,0 +1,90 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolEstabObras,
+  ObjEstabObras,
+  VarConsts;
+
+procedure PreencheEstabObras();
+begin
+VerificaInsere(CadEstabObrasEBTpInscricao,CadEstabObrasDPTpInscricao);	
+VerificaConsultaF3Insere(_ModuloFolha,CadEstabObrasEBIdLocal,CadEstabObrasDPIdLocal);		
+VerificaInsere(CadEstabObrasEBTpCaepf,CadEstabObrasDPTpCaepf);
+VerificaInsere(CadEstabObrasEBIndsubstpatrobra,CadEstabObrasDPIndsubstpatrobra);
+VerificaInsere(CadEstabObrasEBRegpt,CadEstabObrasDPRegpt);
+VerificaInsere(CadEstabObrasEBContApr,CadEstabObrasDPContApr);
+VerificaInsere(CadEstabObrasEBNrProcJudApr,CadEstabObrasDPNrProcJudApr);
+VerificaInsere(CadEstabObrasEBCtAprendizEntEducativa,CadEstabObrasDPCtAprendizEntEducativa);
+VerificaInsere(CadEstabObrasEBNrAprendizEntEducativa,CadEstabObrasDPNrAprendizEntEducativa);
+VerificaInsere(CadEstabObrasEBConTpcd,CadEstabObrasDPConTpcd);
+VerificaInsere(CadEstabObrasEBNrProcJudPcd,CadEstabObrasDPNrProcJudPcd);
+end;
+
+
+procedure CadastraEstabObras(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Estabelecimentos e Obras');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEstabObras(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRHCONFESOCIAL1005');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo Inscrição',CadEstabObrasEBTpInscricao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadEstabObras();
+  
+  PreencheEstabObras();
+ 
+  ActSalvar(FormPadraoEstabObras);
+  ActFechar(FormPadraoEstabObras);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirEstabObras(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Estabelecimentos e Obras');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEstabObras(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRHCONFESOCIAL1005');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Tipo Inscrição',CadEstabObrasDPTpInscricao);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEstabObras();
+
+  ActExcluir(_ModuloFolha, 'FRHCONFESOCIAL1005');
+
+  ActFechar(FormPadraoEstabObras);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

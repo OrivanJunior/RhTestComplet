@@ -1,0 +1,28 @@
+﻿var
+CadEstabObrasDPTpInscricao,
+CadEstabObrasDPIdLocal,
+CadEstabObrasDPTpCaepf,
+CadEstabObrasDPIndsubstpatrobra,
+CadEstabObrasDPRegpt,				
+CadEstabObrasDPContApr,				
+CadEstabObrasDPNrProcJudApr,
+CadEstabObrasDPCtAprendizEntEducativa,
+CadEstabObrasDPNrAprendizEntEducativa,
+CadEstabObrasDPConTpcd,
+CadEstabObrasDPNrProcJudPcd		: OleVariant;	
+
+procedure LeDataPoolCadEstabObras(nomeDriver);
+begin
+CadEstabObrasDPTpInscricao						:= DDT.DriverByName(nomeDriver).Value('TPINSCRICAO');
+CadEstabObrasDPIdLocal							  := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+CadEstabObrasDPTpCaepf							  := DDT.DriverByName(nomeDriver).Value('TPCAEPF');
+CadEstabObrasDPIndsubstpatrobra				:= DDT.DriverByName(nomeDriver).Value('INDSUBSTPATROBRA');
+CadEstabObrasDPRegpt							    := DDT.DriverByName(nomeDriver).Value('REGPT');
+CadEstabObrasDPContApr							  := DDT.DriverByName(nomeDriver).Value('CONTAPR');
+CadEstabObrasDPNrProcJudApr						:= DDT.DriverByName(nomeDriver).Value('NRPROCJUDAPR');
+CadEstabObrasDPCtAprendizEntEducativa	:= DDT.DriverByName(nomeDriver).Value('CTAPRENDIZENTEDUCATIVA');
+CadEstabObrasDPNrAprendizEntEducativa	:= DDT.DriverByName(nomeDriver).Value('NRAPRENDIZENTEDUCATIVA');
+CadEstabObrasDPConTpcd							  := DDT.DriverByName(nomeDriver).Value('CONTPCD');
+CadEstabObrasDPNrProcJudPcd		        := DDT.DriverByName(nomeDriver).Value('NRPROCJUDPCD');
+end;
+
