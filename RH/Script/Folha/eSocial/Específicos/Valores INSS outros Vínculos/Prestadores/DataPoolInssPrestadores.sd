@@ -1,0 +1,23 @@
+﻿var 
+CadPrestInssDPEstab,
+CadPrestInssDPIdPreserv,
+CadPrestInssDPIdVinc,
+CadPrestInssDPCnpjf,
+CadPrestInssDPRazaoSoc,
+CadPrestInssDPMesano,
+CadPrestInssDPRemuneracao,
+CadPrestInssDPDesconto,
+CadPrestInssDPIndicativo : OleVariant;
+
+procedure LeDataPoolCadPrestInss(nomeDriver);
+begin
+CadPrestInssDPEstab  			      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadPrestInssDPIdPreserv         := DDT.DriverByName(nomeDriver).Value('IDPRESERV');
+CadPrestInssDPIdVinc  		      := DDT.DriverByName(nomeDriver).Value('IDVINC');
+CadPrestInssDPCnpjf  			      := DDT.DriverByName(nomeDriver).Value('CNPJF');
+CadPrestInssDPRazaoSoc  	      := DDT.DriverByName(nomeDriver).Value('RAZAOSOC');
+CadPrestInssDPMesano  		      := DDT.DriverByName(nomeDriver).Value('MESANO');
+CadPrestInssDPRemuneracao       := DDT.DriverByName(nomeDriver).Value('REMUNERACAO');
+CadPrestInssDPDesconto  	      := DDT.DriverByName(nomeDriver).Value('DESCONTO');
+CadPrestInssDPIndicativo        := DDT.DriverByName(nomeDriver).Value('INDICATIVO');
+end;

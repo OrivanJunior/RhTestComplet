@@ -1,0 +1,27 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolInssPrestadores,
+  ObjInssPrestadores,
+  VarConsts;
+
+  
+procedure VerificaValores();
+begin
+PageTabNormalInssPrest.ActivePageIndex := 0;
+FormGridInssPrest.ExpandGroup(0, 0);
+FormGridInssPrest.CollapseGroup(0, 0);
+end;
+
+procedure PreenchePrestInss();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadPrestInssEBEstab, CadPrestInssDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadPrestInssEBIdPreserv, CadPrestInssDPIdPreserv);
+VerificaConsultaF3Insere(_ModuloFolha,CadPrestInssEBIdVinc,CadPrestInssDPIdVinc);
+VerificaInsere(CadPrestInssEBCnpjf, CadPrestInssDPCnpjf);
+VerificaInsere(CadPrestInssEBRazaoSoc, CadPrestInssDPRazaoSoc); 	
+VerificaInsere(CadPrestInssEBMesano, CadPrestInssDPMesano);
+VerificaInsere(CadPrestInssEBRemuneracao,CadPrestInssDPRemuneracao);
+VerificaInsere(CadPrestInssEBDesconto,CadPrestInssDPDesconto);
+VerificaInsere(CadPrestInssEBIndicativo,CadPrestInssDPIndicativo);
+end;

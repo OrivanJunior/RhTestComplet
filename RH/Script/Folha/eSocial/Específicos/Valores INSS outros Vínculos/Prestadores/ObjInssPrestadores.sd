@@ -1,0 +1,48 @@
+﻿{Script para mapear o eSocial - Específicos - ValoresInssEmpregados - Empregados
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 14/07/2022}
+var
+FormPadraoInssPrest,
+                        
+CadPrestInssEBEstab,
+CadPrestInssEBIdPreserv,
+CadPrestInssEBIdVinc,
+CadPrestInssEBCnpjf,
+CadPrestInssEBRazaoSoc,
+CadPrestInssEBMesano,
+CadPrestInssEBRemuneracao,
+CadPrestInssEBDesconto,
+CadPrestInssEBIndicativo,
+                        
+BtnAddValor,
+                        
+PageTabNormalInssPrest,
+                        
+FormGridInssPrest : OleVariant;
+ 
+
+procedure MapCadInssPrestadores();
+begin
+FormPadraoInssPrest					:= Aliases.Folha.FRhPrestInss;
+
+CadPrestInssEBEstab  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_ESTAB;
+CadPrestInssEBIdPreserv  		:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDPRESERV;
+CadPrestInssEBIdVinc  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDVINC;
+CadPrestInssEBCnpjf  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_CNPJF;
+CadPrestInssEBRazaoSoc  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_RAZAOSOC;
+CadPrestInssEBMesano  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_MESANO;
+CadPrestInssEBRemuneracao  	:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_REMUNERACAO;
+CadPrestInssEBDesconto  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_DESCONTO;
+CadPrestInssEBIndicativo     := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_INDICATIVO.Edit;
+  
+BtnAddValor  				        := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.bAddValor;
+  
+PageTabNormalInssPrest		  := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.pg;
+  
+FormGridInssPrest  			    := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.pg.TabSheet1.ScrollBox1.gRhEmpInss;
+
+end;
+
+
+ 
