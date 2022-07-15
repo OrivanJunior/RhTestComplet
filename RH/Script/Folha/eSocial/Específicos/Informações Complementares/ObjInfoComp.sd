@@ -1,0 +1,58 @@
+﻿{Script para mapear o eSocial - Específicos - Informações Complementares
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 15/07/2022}
+ 
+var
+FormPadraoInfoComp,
+			                          
+CadInfoCompEBEstab,
+CadInfoCompEBMes,
+CadInfoCompEBAno,
+			                          
+PageTabNormalInfoComp,
+                                
+CadInfoCompEBVlrFaturamento,
+CadInfoCompEBVlrOutrasAtividades,
+CadInfoCompEBVlrRazao,
+                                
+PageTabNormalGrid,
+FormGridInfoComp,
+                                
+BtnInc,
+BtnProc,
+BtnConsul,
+BtnDesf,
+BtnExc,
+                                
+                                
+CadInfoCompEBFatorMes,
+CadInfoCompEBFator13 :OleVariant;
+
+procedure MapCadInfoComp();
+begin
+FormPadraoInfoComp  				 		      := Aliases.Folha.FRhValFaturamento;
+			
+CadInfoCompEBEstab  					    	  := Aliases.Folha.FRhValFaturamento.Page.TabNormal.Panel1.EB_ESTAB;
+CadInfoCompEBMes  							      := Aliases.Folha.FRhValFaturamento.Page.TabNormal.Panel1.EB_MES;
+CadInfoCompEBAno  							      := Aliases.Folha.FRhValFaturamento.Page.TabNormal.Panel1.EB_ANO;
+			  
+PageTabNormalInfoComp  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat;
+  
+CadInfoCompEBVlrFaturamento  				  := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsDeson.pnCab.EB_VLRFATURAMENTO;
+CadInfoCompEBVlrOutrasAtividades  		:= Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsDeson.pnCab.EB_VLROUTRASATIVIDADES;
+CadInfoCompEBVlrRazao  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsDeson.pnCab.EB_VLRRAZAO;
+  
+PageTabNormalGrid  							      := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsDeson.pg;
+FormGridInfoComp							        := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsDeson.pg.tsRhRaisEve.sbRHExpDet.gValFaturamentoDet;
+
+BtnInc  									            := Aliases.Folha.FRhValFaturamento.bInc;
+BtnProc  									            := Aliases.Folha.FRhValFaturamento.bProc;
+BtnConsul  									          := Aliases.Folha.FRhValFaturamento.bConsul;
+BtnDesf  									            := Aliases.Folha.FRhValFaturamento.bDesf;
+BtnExc  									            := Aliases.Folha.FRhValFaturamento.bExc;
+
+
+CadInfoCompEBFatorMes  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsFatSimples.Panel2.EB_FATORMES;
+CadInfoCompEBFator13  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsFatSimples.Panel2.EB_FATOR13;
+end;
