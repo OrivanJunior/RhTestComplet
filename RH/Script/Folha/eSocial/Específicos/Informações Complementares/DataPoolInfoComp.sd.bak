@@ -30,6 +30,7 @@ CadInfoCompDPFator13                    := DDT.DriverByName(nomeDriver).Value('F
 end;
 
 
+
 procedure LeDataPoolCadDetalhes(nomeDriver);
 begin
 CadInfoCompDPVlrAtividade				        := DDT.DriverByName(nomeDriver).Value('VLRATIVIDADE');

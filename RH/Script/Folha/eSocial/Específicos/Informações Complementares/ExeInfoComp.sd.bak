@@ -1,1 +1,55 @@
-﻿
+﻿procedure PreencheDadosGerais();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadInfoCompEBEstab,CadInfoCompDPEstab);
+VerificaInsere(CadInfoCompEBMes,CadInfoCompDPMes);
+VerificaInsere(CadInfoCompEBAno,CadInfoCompDPAno);
+end;
+
+procedure PreencheDesoneracao(pathData);
+begin
+PageTabNormalInfoComp.ActivePageIndex :=0;
+VerificaInsere(CadInfoCompEBVlrFaturamento,CadInfoCompDPVlrFaturamento);
+VerificaInsere(CadInfoCompEBVlrOutrasAtividades,CadInfoCompDPVlrOutrasAtividades);
+VerificaInsere(CadInfoCompEBVlrRazao,CadInfoCompDPVlrRazao);
+end;
+
+procedure PreencheFatores(pathData);
+begin
+PageTabNormalInfoComp.ActivePageIndex :=1;
+
+VerificaInsere(CadInfoCompEBFatorMes,CadInfoCompDPFatorMes);
+VerificaInsere(CadInfoCompEBFator13,CadInfoCompDPFator13);
+end;
+
+procedure PreencheGridDetalhes();
+var 
+DDTDetalhes :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalComProdRural.ActivePageIndex:=0;
+
+MapCadInfoComp();
+
+DDTDetalhes := CarregaDDT(pathData, 'Detalhes');
+
+While not (DDTDetalhes.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCad(DDTDetalhes.Name);
+
+ if (FormGridInfoComp.ActiveView.ViewData.RowCount < 1) then
+ BtnbInc.Click;
+
+VerificaClickPreencheGrid(FormGridInfoComp, i,'Vlr. Atividade',CadInfoCompDPVlrAtividade);
+VerificaClickPreencheGrid(FormGridInfoComp, i,'Percentual',CadInfoCompDPPercentual);
+
+FormGridInfoComp.Keys('[Tab]');
+Inc(i);
+
+DDTDetalhes.Next;
+end;
+DDT.CloseDriver(DDTDetalhes.Name);
+end;

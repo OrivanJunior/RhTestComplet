@@ -23,9 +23,7 @@ BtnInc,
 BtnProc,
 BtnConsul,
 BtnDesf,
-BtnExc,
-                                
-                                
+BtnExc,                        
 CadInfoCompEBFatorMes,
 CadInfoCompEBFator13 :OleVariant;
 
@@ -52,7 +50,7 @@ BtnConsul  									          := Aliases.Folha.FRhValFaturamento.bConsul;
 BtnDesf  									            := Aliases.Folha.FRhValFaturamento.bDesf;
 BtnExc  									            := Aliases.Folha.FRhValFaturamento.bExc;
 
-
 CadInfoCompEBFatorMes  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsFatSimples.Panel2.EB_FATORMES;
 CadInfoCompEBFator13  						    := Aliases.Folha.FRhValFaturamento.Page.TabNormal.pgFat.tsFatSimples.Panel2.EB_FATOR13;
 end;
+
