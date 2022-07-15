@@ -1,0 +1,65 @@
+﻿{Script para mapear o eSocial - Específicos - Comercialização de Produção Rural
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 15/07/2022}
+
+ 
+ 
+var
+FormFiltrComProdRural,
+ListaConsultaComProdRural,
+FiltroCodProd,
+FiltroMes,
+FiltroAno,
+BtnOk,
+
+FormPadraoComProdRural,
+
+CadCompProdRuralEBEstab,
+CadCompProdRuralEBIdProdrural,
+CadCompProdRuralEBMes,
+CadCompProdRuralEBAno,
+CadCompProdRuralEBIndcomerc,
+CadCompProdRuralEBIdprocessoJud,
+CadCompProdRuralEBVlrCpSusp,
+CadCompProdRuralEBVlrRatSusp,
+CadCompProdRuralEBVlrSenarSusp,
+CadCompProdRuralEBTotVlrComerc,
+  
+PageTabNormalCompProdRural,
+FormGridCompProdRural,
+BtnbIncCompProdRural,
+BtnbDesfCompProdRural,
+BtnbExcCompProdRural  					: OleVariant;			
+
+procedure FiltroComProdRural();
+begin
+FormFiltrComProdRural		    := Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaComProdRural	  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroCodProd  				      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroMes  					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+FiltroAno			 	 	          := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+BtnOk						            := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+
+procedure MapCadComProdRural();
+begin
+FormPadraoComProdRural  						:= Aliases.Folha.FRhComProdRural;
+
+CadCompProdRuralEBEstab  						:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ESTAB;
+CadCompProdRuralEBIdProdrural  			:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
+CadCompProdRuralEBMes  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_MES;
+CadCompProdRuralEBAno  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ANO;
+CadCompProdRuralEBIndcomerc  			  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_INDCOMERC;
+CadCompProdRuralEBIdprocessoJud  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPROCESSOJUD;
+CadCompProdRuralEBVlrCpSusp  				:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRCPSUSP;
+CadCompProdRuralEBVlrRatSusp  			:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRRATSUSP;
+CadCompProdRuralEBVlrSenarSusp  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRSENARSUSP;
+CadCompProdRuralEBTotVlrComerc  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRCOMERC;
+  
+PageTabNormalCompProdRural  				:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pg;
+FormGridCompProdRural  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhComProdRural;
+BtnbIncCompProdRural  							:= Aliases.Folha.FRhComProdRural.bInc;
+BtnbDesfCompProdRural  							:= Aliases.Folha.FRhComProdRural.bDesf;
+BtnbExcCompProdRural  							:= Aliases.Folha.FRhComProdRural.bExc;
+end;

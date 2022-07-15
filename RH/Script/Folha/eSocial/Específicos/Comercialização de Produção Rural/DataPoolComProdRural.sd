@@ -1,0 +1,45 @@
+﻿var
+CadCompProdRuralDPEstab,
+CadCompProdRuralDPIdProdrural,
+CadCompProdRuralDPMes,
+CadCompProdRuralDPAno,
+CadCompProdRuralDPIndcomerc,
+CadCompProdRuralDPIdProcessoJud,
+CadCompProdRuralDPVlrCpSusp,
+CadCompProdRuralDPVlrRatSusp,
+CadCompProdRuralDPVlrSenarSusp,
+CadCompProdRuralDPTotVlrComerc,
+
+CadComProdRuralDPDtEmissao,
+CadComProdRuralDPNroNota,
+CadComProdRuralDPSerie,
+CadComProdRuralDPComerc,
+CadComProdRuralDPContPrev,
+CadComProdRuralDPApEspecial,
+CadComProdRuralDPVlrSENAR : OleVariant;
+
+procedure LeDataPoolCadComProdRural(nomeDriver);
+begin
+CadCompProdRuralDPEstab  						        := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPEstab');
+CadCompProdRuralDPIdProdrural  	            := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIdProdrural');
+CadCompProdRuralDPMes  			                := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPMes');
+CadCompProdRuralDPAno  			                := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPAno');
+CadCompProdRuralDPIndcomerc  	              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIndcomerc');
+CadCompProdRuralDPIdProcessoJud             := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIdProcessoJud');
+CadCompProdRuralDPVlrCpSusp  	              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrCpSusp');
+CadCompProdRuralDPVlrRatSusp  	            := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrRatSusp');
+CadCompProdRuralDPVlrSenarSusp              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrSenarSusp');
+CadCompProdRuralDPTotVlrComerc              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPTotVlrComerc');
+end; 
+
+
+procedure LeDataPoolCadNotasFiscGrid(nomeDriver);
+begin
+CadComProdRuralDPDtEmissao						:= DDT.DriverByName(nomeDriver).Value('DTEMISSAO');
+CadComProdRuralDPNroNota					  	:= DDT.DriverByName(nomeDriver).Value('NRONOTA');
+CadComProdRuralDPSerie					  		:= DDT.DriverByName(nomeDriver).Value('SERIE');
+CadComProdRuralDPComerc				  			:= DDT.DriverByName(nomeDriver).Value('COMERC');
+CadComProdRuralDPContPrev			 			  := DDT.DriverByName(nomeDriver).Value('CONTPREV');
+CadComProdRuralDPApEspecial						:= DDT.DriverByName(nomeDriver).Value('APESPECIAL');
+CadComProdRuralDPVlrSENAR						  := DDT.DriverByName(nomeDriver).Value('VLRSENAR');
+end;

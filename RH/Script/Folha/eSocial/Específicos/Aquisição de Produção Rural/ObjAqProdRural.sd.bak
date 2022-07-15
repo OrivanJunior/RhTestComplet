@@ -16,6 +16,7 @@ CadAqProdRuralEBIndAquisicao,
 CadAqProdRuralEBTotVlrBruto,
 CadAqProdRuralEBTotVrCpdescpr,
 CadAqProdRuralEBTotVrSenarDesc,
+CadAqProdRuralEBTotVrRatDescPr,
 PageTabNormalAqProdRural,
 FormGridAqProdRural,
 BtnIncAqProdRural,
@@ -40,13 +41,14 @@ begin
 FormPadraoAqProdRural				      := Aliases.Folha.FRhAqProdRural;
   
 CadAqProdRuralEBEstab			      := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_ESTAB;
-CadAqProdRuralEBIdprodrural		:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
-CadAqProdRuralEBMes				    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_MES;
-CadAqProdRuralEBAno				    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_ANO;
-CadAqProdRuralEBIndAquisicao	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_INDAQUISICAO;
-CadAqProdRuralEBTotVlrBruto		:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRBRUTO;
-CadAqProdRuralEBTotVrCpdescpr	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRCPDESCPR;
+CadAqProdRuralEBIdprodrural		  := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
+CadAqProdRuralEBMes				      := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_MES;
+CadAqProdRuralEBAno				      := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_ANO;
+CadAqProdRuralEBIndAquisicao	  := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_INDAQUISICAO;
+CadAqProdRuralEBTotVlrBruto		  := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRBRUTO;
+CadAqProdRuralEBTotVrCpdescpr	  := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRCPDESCPR;
 CadAqProdRuralEBTotVrSenarDesc	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRSENARDESC;
+CadAqProdRuralEBTotVrRatDescPr  := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRRATDESCPR;
 PageTabNormalAqProdRural		    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pg;
 FormGridAqProdRural			        := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhAqProdRuralDet;
 BtnIncAqProdRural				        := Aliases.Folha.FRhAqProdRural.bInc;
@@ -64,4 +66,3 @@ FiltroMes  					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
 FiltroAno  					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
 BtnOkFiltroAqProdRural  	  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
 end;
-
