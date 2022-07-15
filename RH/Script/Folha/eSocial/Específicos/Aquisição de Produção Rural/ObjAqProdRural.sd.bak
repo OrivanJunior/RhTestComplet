@@ -1,0 +1,67 @@
+﻿{Script para mapear o eSocial - Específicos - ValoresInss Empregados - Prestadores
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 15/07/2022}
+ 
+ 
+var
+
+FormPadraoAqProdRural,
+  
+CadAqProdRuralEBEstab,
+CadAqProdRuralEBIdprodrural,
+CadAqProdRuralEBMes,
+CadAqProdRuralEBAno,
+CadAqProdRuralEBIndAquisicao,
+CadAqProdRuralEBTotVlrBruto,
+CadAqProdRuralEBTotVrCpdescpr,
+CadAqProdRuralEBTotVrSenarDesc,
+PageTabNormalAqProdRural,
+FormGridAqProdRural,
+BtnIncAqProdRural,
+BtnDesfAqProdRural,
+BtnExcAqProdRural, 
+
+FormFiltroAqProdRural,
+                        
+ListaConsultaAqProdRural,
+FiltroCodProd,
+FiltroMes,
+FiltroAno,
+BtnOkFiltroAqProdRural  			: OleVariant;	
+
+
+
+
+
+
+procedure MapCadAqProdRural();
+begin
+FormPadraoAqProdRural				      := Aliases.Folha.FRhAqProdRural;
+  
+CadAqProdRuralEBEstab			      := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_ESTAB;
+CadAqProdRuralEBIdprodrural		:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
+CadAqProdRuralEBMes				    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_MES;
+CadAqProdRuralEBAno				    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_ANO;
+CadAqProdRuralEBIndAquisicao	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.EB_INDAQUISICAO;
+CadAqProdRuralEBTotVlrBruto		:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRBRUTO;
+CadAqProdRuralEBTotVrCpdescpr	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRCPDESCPR;
+CadAqProdRuralEBTotVrSenarDesc	:= Aliases.Folha.FRhAqProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVRSENARDESC;
+PageTabNormalAqProdRural		    := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pg;
+FormGridAqProdRural			        := Aliases.Folha.FRhAqProdRural.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhAqProdRuralDet;
+BtnIncAqProdRural				        := Aliases.Folha.FRhAqProdRural.bInc;
+BtnDesfAqProdRural				      := Aliases.Folha.FRhAqProdRural.bDesf;
+BtnExcAqProdRural				        := Aliases.Folha.FRhAqProdRural.bExc;
+end;
+
+procedure FiltroAqProdRural();
+begin
+FormFiltroAqProdRural  		  := Aliases.Folha.FFiltroConsultaCDS;
+  
+ListaConsultaAqProdRural  	:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroCodProd  				      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroMes  					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+FiltroAno  					        := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+BtnOkFiltroAqProdRural  	  := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+end;
+

@@ -3124,7 +3124,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Valores INSS outros Vínculos" key="{11089A6C-5AC6-47E1-89D6-B4D865951707}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Valores INSS outros Vínculos" key="{11089A6C-5AC6-47E1-89D6-B4D865951707}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Empregados" key="{C98FDFCF-AA94-4E8C-81BA-545275C377F7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3146,7 +3146,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Prestadores" key="{ABDD29AE-EE43-491A-98D5-D84BBD8EE880}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Prestadores" key="{ABDD29AE-EE43-491A-98D5-D84BBD8EE880}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraPrestInss" key="{0EF32BC9-1A2E-4B07-80BA-89B0C8060729}" group="False" parallel="False" enabled="True" testMoniker="{03E03B64-9183-49F7-9EB8-F285743BC932}CadastraPrestInss" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3164,6 +3164,25 @@
 																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Aquisição de Produção Rural" key="{01767F80-546C-49D1-96C3-BC92ED6280B6}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraAqProdRural" key="{9DD61F0C-9558-400E-8256-82BA54E79C65}" group="False" parallel="False" enabled="True" testMoniker="{07F2685F-C6E2-4FFC-A1CC-F3F6594A64FA}CadastraAqProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Aquisição de Produção Rural\Aquisição de Produção Rural.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirAqProdRural" key="{75C4B362-B421-4C05-ACCB-E4EA817D0B83}" group="False" parallel="False" enabled="True" testMoniker="{07F2685F-C6E2-4FFC-A1CC-F3F6594A64FA}ExcluirAqProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Aquisição de Produção Rural\Aquisição de Produção Rural.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

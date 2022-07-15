@@ -1,0 +1,43 @@
+﻿var
+
+CadAqProdRuralDPEstab,
+CadAqProdRuralDPIdprodrural,
+CadAqProdRuralDPMes,
+CadAqProdRuralDPAno,
+CadAqProdRuralDPIndAquisicao,
+CadAqProdRuralDPTotVlrBruto,
+CadAqProdRuralDPTotVrCpdescpr,
+CadAqProdRuralDPTotVrSenarDesc,
+CadAqProdRuralDPTotVrRatDescPr,
+
+CadAqProdRuralDPDtEmissao,
+CadAqProdRuralDPNroNota,
+CadAqProdRuralDPSerieVlr,
+CadAqProdRuralDPBrutoVlr,
+CadAqProdRuralDPContrPrevid,
+CadAqProdRuralDPValorRatDesc,
+CadAqProdRuralDPVlrSENAR	: OleVariant;	
+
+procedure LeDataPoolCadAqProdRural(nomeDriver);
+begin
+CadAqProdRuralDPEstab						            := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadAqProdRuralDPIdprodrural	                := DDT.DriverByName(nomeDriver).Value('IDPRODRURAL');
+CadAqProdRuralDPMes			                    := DDT.DriverByName(nomeDriver).Value('MES');
+CadAqProdRuralDPAno			                    := DDT.DriverByName(nomeDriver).Value('ANO');
+CadAqProdRuralDPIndAquisicao                := DDT.DriverByName(nomeDriver).Value('INDAQUISICAO');
+CadAqProdRuralDPTotVlrBruto	                := DDT.DriverByName(nomeDriver).Value('TOTVLRBRUTO');
+CadAqProdRuralDPTotVrCpdescpr               := DDT.DriverByName(nomeDriver).Value('TOTVRCPDESCPR');
+CadAqProdRuralDPTotVrSenarDesc              := DDT.DriverByName(nomeDriver).Value('TOTVRSENARDESC');
+CadAqProdRuralDPTotVrRatDescPr              := DDT.DriverByName(nomeDriver).Value('TOTVRRATDESCPR');
+end;
+
+procedure LeDataPoolCadNotasFiscGrid(nomeDriver);
+begin
+CadAqProdRuralDPDtEmissao	                := DDT.DriverByName(nomeDriver).Value('DTEMISSAO');            
+CadAqProdRuralDPNroNota		                := DDT.DriverByName(nomeDriver).Value('NRONOTA');
+CadAqProdRuralDPSerieVlr	                := DDT.DriverByName(nomeDriver).Value('SERIEVLR');      
+CadAqProdRuralDPBrutoVlr	                := DDT.DriverByName(nomeDriver).Value('BRUTOVLR');        
+CadAqProdRuralDPContrPrevid	              := DDT.DriverByName(nomeDriver).Value('CONTRPREVID');     
+CadAqProdRuralDPValorRatDesc              := DDT.DriverByName(nomeDriver).Value('VALORRATDESC');    
+CadAqProdRuralDPVlrSENAR	                := DDT.DriverByName(nomeDriver).Value('VLRSENAR');        
+end;

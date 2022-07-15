@@ -1,0 +1,140 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolAqProdRural, 
+  ObjAqProdRural;
+
+procedure PreencheAqProdRural();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadAqProdRuralEBEstab,CadAqProdRuralDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadAqProdRuralEBIdprodrural,CadAqProdRuralDPIdprodrural);	    
+VerificaInsere(CadAqProdRuralEBMes,CadAqProdRuralDPMes);
+VerificaInsere(CadAqProdRuralEBAno,CadAqProdRuralDPAno);
+VerificaInsere(CadAqProdRuralEBIndAquisicao,CadAqProdRuralDPIndAquisicao);
+VerificaInsere(CadAqProdRuralEBTotVlrBruto,CadAqProdRuralDPTotVlrBruto);
+VerificaInsere(CadAqProdRuralEBTotVrCpdescpr,CadAqProdRuralDPTotVrCpdescpr);
+VerificaInsere(CadAqProdRuralEBTotVrSenarDesc,CadAqProdRuralDPTotVrSenarDesc);
+VerificaInsere(CadAqProdRuralEBTotVrRatDescPr,CadAqProdRuralDPTotVrRatDescPr);
+end;
+
+procedure PreencheGridNotasFisc(pathData);
+var 
+DDTNotasFisc :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalAqProdRural.ActivePageIndex:=0;
+
+MapCadAqProdRural();
+
+DDTNotasFisc := CarregaDDT(pathData, 'NotasFisc');
+
+While not (DDTNotasFisc.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadNotasFiscGrid(DDTNotasFisc.Name);
+
+ if (FormGridAqProdRural.ActiveView.ViewData.RowCount < 1) then
+ BtnIncAqProdRural.Click;
+
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Dt. Emissão',CadAqProdRuralDPDtEmissao);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Nro. Nota',CadAqProdRuralDPNroNota);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Série',CadAqProdRuralDPSerieVlr);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Vlr. Bruto',CadAqProdRuralDPBrutoVlr);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Vlr. Contr. Previdenciária',CadAqProdRuralDPContrPrevid);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Valor Rat Desc',CadAqProdRuralDPValorRatDesc);
+VerificaClickPreencheGrid(FormGridAqProdRural, i,'Vlr. SENAR',CadAqProdRuralDPVlrSENAR);
+
+FormGridAqProdRural.Keys('[Tab]');
+Inc(i);
+
+DDTNotasFisc.Next;
+end;
+DDT.CloseDriver(DDTNotasFisc.Name);
+end;
+
+procedure FiltraTelaInicialAqProdRural();
+begin
+FiltroAqProdRural();
+
+ListaConsultaAqProdRural.SetText('Filtro Aquisição de Produção Rural');
+FiltroCodProd.Keys('(Ignorar)');
+FiltroMes.Keys('(Ignorar)');
+FiltroAno.Keys('(Ignorar)');
+BtnOkFiltroAqProdRural.Click;
+end;
+
+
+procedure CadastraAqProdRural(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Aquisição de Produção Rural');
+
+FiltraTelaInicialAqProdRural();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAqProdRural(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAqProdRural');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAqProdRuralDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAqProdRural();
+  
+  PreencheAqProdRural();
+  PreencheGridNotasFisc(pathData);
+ 
+  ActSalvar(FormPadraoAqProdRural);
+  ActFechar(FormPadraoAqProdRural);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAqProdRural(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Aquisição de Produção Rural');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAqProdRural(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhAqProdRural');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAqProdRuralDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAqProdRural();
+
+  ActExcluir(_ModuloFolha, 'FRhAqProdRural');
+
+  ActFechar(FormPadraoAqProdRural);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
