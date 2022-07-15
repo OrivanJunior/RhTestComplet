@@ -1,1 +1,48 @@
-﻿
+﻿VerificaConsultaF3Insere(_ModuloFolha,CadCompProdRuralEBEstab,CadCompProdRuralDPEstab);
+VerificaInsere(CadCompProdRuralEBIdProdrural,CadCompProdRuralDPIdProdrural);	 
+VerificaInsere(CadCompProdRuralEBMes,CadCompProdRuralDPMes);	 
+VerificaInsere(CadCompProdRuralEBAno,CadCompProdRuralDPAno);	 
+VerificaInsere(CadCompProdRuralEBIndcomerc,CadCompProdRuralDPIndcomerc);
+VerificaConsultaF3Insere(_ModuloFolha,CadCompProdRuralEBIdProcessoJud ,CadCompProdRuralDPIdProcessoJud);
+VerificaInsere(CadCompProdRuralEBVlrCpSusp,CadCompProdRuralDPVlrCpSusp);
+VerificaInsere(CadCompProdRuralEBVlrRatSusp,CadCompProdRuralDPVlrRatSusp);
+VerificaInsere(CadCompProdRuralEBVlrSenarSusp,CadCompProdRuralDPVlrSenarSusp);
+VerificaInsere(CadCompProdRuralEBTotVlrComerc,CadCompProdRuralDPTotVlrComerc);
+
+procedure PreencheGridNotasFisc();
+var 
+DDTNotasFisc :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalComProdRural.ActivePageIndex:=0;
+
+MapCadComProdRural();
+
+DDTNotasFisc := CarregaDDT(pathData, 'Notas Fiscais');
+
+While not (DDTNotasFisc.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadNotasFiscGrid(DDTNotasFisc.Name);
+
+ if (FormGridAqProdRural.ActiveView.ViewData.RowCount < 1) then
+ BtnbIncCompProdRural .Click;
+
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Dt. Emissão',CadComProdRuralDPDtEmissao);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Nro. Nota',CadComProdRuralDPNroNota);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Série',CadComProdRuralDPSerie);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Comercialização',CadComProdRuralDPComerc);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Contr. Previdenciária',CadComProdRuralDPContPrev);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Ap. Especial',CadComProdRuralDPApEspecial);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. SENAR',CadComProdRuralDPVlrSENAR);
+
+FormGridCompProdRural.Keys('[Tab]');
+Inc(i);
+
+DDTNotasFisc.Next;
+end;
+DDT.CloseDriver(DDTNotasFisc.Name);
+end;
