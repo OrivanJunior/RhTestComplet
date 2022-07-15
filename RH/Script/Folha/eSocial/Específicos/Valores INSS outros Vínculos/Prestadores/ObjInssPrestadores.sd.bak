@@ -5,14 +5,15 @@
 var
 FormPadraoInssPrest,
                         
-CadPrestInsEBEstab,
-CadPrestInsEBIdPreserv,
-CadPrestInsEBIdVinc,
-CadPrestInsEBCnpjf,
-CadPrestInsEBRazaoSoc,
-CadPrestInsEBMesano,
-CadPrestInsEBRemuneracao,
-CadPrestInsEBDesconto,
+CadPrestInssEBEstab,
+CadPrestInssEBIdPreserv,
+CadPrestInssEBIdVinc,
+CadPrestInssEBCnpjf,
+CadPrestInssEBRazaoSoc,
+CadPrestInssEBMesano,
+CadPrestInssEBRemuneracao,
+CadPrestInssEBDesconto,
+CadPrestInssEBIndicativo,
                         
 BtnAddValor,
                         
@@ -25,14 +26,15 @@ procedure MapCadInssPrestadores();
 begin
 FormPadraoInssPrest					:= Aliases.Folha.FRhPrestInss;
 
-CadPrestInsEBEstab  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_ESTAB;
-CadPrestInsEBIdPreserv  		:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDPRESERV;
-CadPrestInsEBIdVinc  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDVINC;
-CadPrestInsEBCnpjf  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_CNPJF;
-CadPrestInsEBRazaoSoc  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_RAZAOSOC;
-CadPrestInsEBMesano  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_MESANO;
-CadPrestInsEBRemuneracao  	:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_REMUNERACAO;
-CadPrestInsEBDesconto  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_DESCONTO;
+CadPrestInssEBEstab  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_ESTAB;
+CadPrestInssEBIdPreserv  		:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDPRESERV;
+CadPrestInssEBIdVinc  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_IDVINC;
+CadPrestInssEBCnpjf  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_CNPJF;
+CadPrestInssEBRazaoSoc  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.pnCab.EB_RAZAOSOC;
+CadPrestInssEBMesano  				:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_MESANO;
+CadPrestInssEBRemuneracao  	:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_REMUNERACAO;
+CadPrestInssEBDesconto  			:= Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_DESCONTO;
+CadPrestInssEBIndicativo     := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.EB_INDICATIVO.Edit;
   
 BtnAddValor  				        := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBox1.VsGroupBox2.bAddValor;
   
@@ -42,3 +44,5 @@ FormGridInssPrest  			    := Aliases.Folha.FRhPrestInss.Page.TabNormal.VsGroupBo
 
 end;
 
+
+ 
