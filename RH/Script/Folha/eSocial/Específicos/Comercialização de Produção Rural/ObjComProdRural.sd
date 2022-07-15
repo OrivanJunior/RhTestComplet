@@ -15,18 +15,18 @@ BtnOk,
 
 FormPadraoComProdRural,
 
-CadCompProdRuralEBEstab,
-CadCompProdRuralEBIdProdrural,
-CadCompProdRuralEBMes,
-CadCompProdRuralEBAno,
-CadCompProdRuralEBIndcomerc,
-CadCompProdRuralEBIdprocessoJud,
-CadCompProdRuralEBVlrCpSusp,
-CadCompProdRuralEBVlrRatSusp,
-CadCompProdRuralEBVlrSenarSusp,
-CadCompProdRuralEBTotVlrComerc,
+CadComProdRuralEBEstab,
+CadComProdRuralEBIdProdrural,
+CadComProdRuralEBMes,
+CadComProdRuralEBAno,
+CadComProdRuralEBIndcomerc,
+CadComProdRuralEBIdprocessoJud,
+CadComProdRuralEBVlrCpSusp,
+CadComProdRuralEBVlrRatSusp,
+CadComProdRuralEBVlrSenarSusp,
+CadComProdRuralEBTotVlrComerc,
   
-PageTabNormalCompProdRural,
+PageTabNormalComProdRural,
 FormGridCompProdRural,
 BtnbIncCompProdRural,
 BtnbDesfCompProdRural,
@@ -46,18 +46,18 @@ procedure MapCadComProdRural();
 begin
 FormPadraoComProdRural  						:= Aliases.Folha.FRhComProdRural;
 
-CadCompProdRuralEBEstab  						:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ESTAB;
-CadCompProdRuralEBIdProdrural  			:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
-CadCompProdRuralEBMes  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_MES;
-CadCompProdRuralEBAno  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ANO;
-CadCompProdRuralEBIndcomerc  			  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_INDCOMERC;
-CadCompProdRuralEBIdprocessoJud  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPROCESSOJUD;
-CadCompProdRuralEBVlrCpSusp  				:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRCPSUSP;
-CadCompProdRuralEBVlrRatSusp  			:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRRATSUSP;
-CadCompProdRuralEBVlrSenarSusp  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRSENARSUSP;
-CadCompProdRuralEBTotVlrComerc  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRCOMERC;
+CadComProdRuralEBEstab  						:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ESTAB;
+CadComProdRuralEBIdProdrural  			:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPRODRURAL;
+CadComProdRuralEBMes  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_MES;
+CadComProdRuralEBAno  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_ANO;
+CadComProdRuralEBIndcomerc  			  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_INDCOMERC;
+CadComProdRuralEBIdprocessoJud  		:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.EB_IDPROCESSOJUD;
+CadComProdRuralEBVlrCpSusp  				:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRCPSUSP;
+CadComProdRuralEBVlrRatSusp  			  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRRATSUSP;
+CadComProdRuralEBVlrSenarSusp  		  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_VLRSENARSUSP;
+CadComProdRuralEBTotVlrComerc  		  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pnCab.grp1.EB_TOTVLRCOMERC;
   
-PageTabNormalCompProdRural  				:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pg;
+PageTabNormalComProdRural  				  := Aliases.Folha.FRhComProdRural.Page.TabNormal.pg;
 FormGridCompProdRural  							:= Aliases.Folha.FRhComProdRural.Page.TabNormal.pg.TabSheet1.ScrollBox1.gRhComProdRural;
 BtnbIncCompProdRural  							:= Aliases.Folha.FRhComProdRural.bInc;
 BtnbDesfCompProdRural  							:= Aliases.Folha.FRhComProdRural.bDesf;

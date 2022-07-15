@@ -1,14 +1,14 @@
 ﻿var
-CadCompProdRuralDPEstab,
-CadCompProdRuralDPIdProdrural,
-CadCompProdRuralDPMes,
-CadCompProdRuralDPAno,
-CadCompProdRuralDPIndcomerc,
-CadCompProdRuralDPIdProcessoJud,
-CadCompProdRuralDPVlrCpSusp,
-CadCompProdRuralDPVlrRatSusp,
-CadCompProdRuralDPVlrSenarSusp,
-CadCompProdRuralDPTotVlrComerc,
+CadComProdRuralDPEstab,
+CadComProdRuralDPIdProdrural,
+CadComProdRuralDPMes,
+CadComProdRuralDPAno,
+CadComProdRuralDPIndcomerc,
+CadComProdRuralDPIdProcessoJud,
+CadComProdRuralDPVlrCpSusp,
+CadComProdRuralDPVlrRatSusp,
+CadComProdRuralDPVlrSenarSusp,
+CadComProdRuralDPTotVlrComerc,
 
 CadComProdRuralDPDtEmissao,
 CadComProdRuralDPNroNota,
@@ -20,26 +20,29 @@ CadComProdRuralDPVlrSENAR : OleVariant;
 
 procedure LeDataPoolCadComProdRural(nomeDriver);
 begin
-CadCompProdRuralDPEstab  						        := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPEstab');
-CadCompProdRuralDPIdProdrural  	            := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIdProdrural');
-CadCompProdRuralDPMes  			                := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPMes');
-CadCompProdRuralDPAno  			                := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPAno');
-CadCompProdRuralDPIndcomerc  	              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIndcomerc');
-CadCompProdRuralDPIdProcessoJud             := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPIdProcessoJud');
-CadCompProdRuralDPVlrCpSusp  	              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrCpSusp');
-CadCompProdRuralDPVlrRatSusp  	            := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrRatSusp');
-CadCompProdRuralDPVlrSenarSusp              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPVlrSenarSusp');
-CadCompProdRuralDPTotVlrComerc              := DDT.DriverByName(nomeDriver).Value('CadCompProdRuralDPTotVlrComerc');
+CadComProdRuralDPEstab  						        := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadComProdRuralDPIdProdrural  	            := DDT.DriverByName(nomeDriver).Value('IDPRODRURAL');
+CadComProdRuralDPMes  			                := DDT.DriverByName(nomeDriver).Value('MES');
+CadComProdRuralDPAno  			                := DDT.DriverByName(nomeDriver).Value('ANO');
+CadComProdRuralDPIndcomerc  	              := DDT.DriverByName(nomeDriver).Value('INDCOMERC');
+CadComProdRuralDPIdProcessoJud              := DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
+CadComProdRuralDPVlrCpSusp  	              := DDT.DriverByName(nomeDriver).Value('VLRCPSUSP');
+CadComProdRuralDPVlrRatSusp  	              := DDT.DriverByName(nomeDriver).Value('VLRRATSUSP');
+CadComProdRuralDPVlrSenarSusp               := DDT.DriverByName(nomeDriver).Value('VLRSENARSUSP');
+CadComProdRuralDPTotVlrComerc               := DDT.DriverByName(nomeDriver).Value('TOTVLRCOMERC');
 end; 
+
 
 
 procedure LeDataPoolCadNotasFiscGrid(nomeDriver);
 begin
-CadComProdRuralDPDtEmissao						:= DDT.DriverByName(nomeDriver).Value('DTEMISSAO');
-CadComProdRuralDPNroNota					  	:= DDT.DriverByName(nomeDriver).Value('NRONOTA');
-CadComProdRuralDPSerie					  		:= DDT.DriverByName(nomeDriver).Value('SERIE');
-CadComProdRuralDPComerc				  			:= DDT.DriverByName(nomeDriver).Value('COMERC');
-CadComProdRuralDPContPrev			 			  := DDT.DriverByName(nomeDriver).Value('CONTPREV');
-CadComProdRuralDPApEspecial						:= DDT.DriverByName(nomeDriver).Value('APESPECIAL');
-CadComProdRuralDPVlrSENAR						  := DDT.DriverByName(nomeDriver).Value('VLRSENAR');
+
+CadComProdRuralDPDtEmissao					:= DDT.DriverByName(nomeDriver).Value('DTEMISSAO');
+CadComProdRuralDPNroNota						:= DDT.DriverByName(nomeDriver).Value('NRONOTA');
+CadComProdRuralDPSerie							:= DDT.DriverByName(nomeDriver).Value('SERIE');
+CadComProdRuralDPComerc							:= DDT.DriverByName(nomeDriver).Value('VLRCOMERCIALIZACAO');
+CadComProdRuralDPContPrev						:= DDT.DriverByName(nomeDriver).Value('VLRCONTRPREVIDENCIARIA');
+CadComProdRuralDPApEspecial					:= DDT.DriverByName(nomeDriver).Value('VLRAPESPECIAL');
+CadComProdRuralDPVlrSENAR						:= DDT.DriverByName(nomeDriver).Value('VLRSENAR');
+
 end;

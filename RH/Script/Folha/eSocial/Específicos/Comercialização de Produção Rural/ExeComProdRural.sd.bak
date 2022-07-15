@@ -1,1 +1,148 @@
-﻿
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolComProdRural, 
+  ObjComProdRural;
+  
+  
+procedure FiltraTelaInicialComProdRural();
+begin
+FiltroComProdRural();
+
+ListaConsultaComProdRural.SetText('Filtro Comercialização de Produtores Rurais');	
+FiltroCodProd.Keys('(Ignorar)');
+FiltroMes.Keys('(Ignorar)');
+FiltroAno.Keys('(Ignorar)');
+BtnOk.Click;
+end;  
+
+				            
+
+  
+procedure PreencheComProdRural();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadCompProdRuralEBEstab,CadCompProdRuralDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadCompProdRuralEBIdProdrural,CadCompProdRuralDPIdProdrural);	 
+VerificaInsere(CadCompProdRuralEBMes,CadCompProdRuralDPMes);	 
+VerificaInsere(CadCompProdRuralEBAno,CadCompProdRuralDPAno);	 
+VerificaInsere(CadCompProdRuralEBIndcomerc,CadCompProdRuralDPIndcomerc);
+VerificaConsultaF3Insere(_ModuloFolha,CadCompProdRuralEBIdProcessoJud ,CadCompProdRuralDPIdProcessoJud);
+VerificaInsere(CadCompProdRuralEBVlrCpSusp,CadCompProdRuralDPVlrCpSusp);
+VerificaInsere(CadCompProdRuralEBVlrRatSusp,CadCompProdRuralDPVlrRatSusp);
+VerificaInsere(CadCompProdRuralEBVlrSenarSusp,CadCompProdRuralDPVlrSenarSusp);
+VerificaInsere(CadCompProdRuralEBTotVlrComerc,CadCompProdRuralDPTotVlrComerc);
+end;
+
+
+procedure PreencheGridNotasFisc(pathData);
+var 
+DDTNotasFisc :OleVariant;
+i : integer;
+begin
+i:= 0;
+
+PageTabNormalComProdRural.ActivePageIndex:=0;
+
+MapCadComProdRural();
+
+DDTNotasFisc := CarregaDDT(pathData, 'Notas Fiscais');
+
+While not (DDTNotasFisc.EOF) do
+begin
+MapGridConsulta(_ModuloFolha);
+
+LeDataPoolCadNotasFiscGrid(DDTNotasFisc.Name);
+
+ if (FormGridCompProdRural.ActiveView.ViewData.RowCount < 1) then
+ BtnbIncCompProdRural .Click;
+
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Dt. Emissão',CadComProdRuralDPDtEmissao);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Nro. Nota',CadComProdRuralDPNroNota);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Série',CadComProdRuralDPSerie);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Comercialização',CadComProdRuralDPComerc);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Contr. Previdenciária',CadComProdRuralDPContPrev);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. Ap. Especial',CadComProdRuralDPApEspecial);
+VerificaClickPreencheGrid(FormGridCompProdRural, i,'Vlr. SENAR',CadComProdRuralDPVlrSENAR);
+
+FormGridCompProdRural.Keys('[Tab]');
+Inc(i);
+
+DDTNotasFisc.Next;
+end;
+DDT.CloseDriver(DDTNotasFisc.Name);
+end;
+
+
+procedure CadastraComProdRural(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Comercialização de Produção Rural');
+
+FiltraTelaInicialComProdRural();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadComProdRural(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhComProdRural');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadComProdRuralDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadComProdRural();
+  
+  PreencheComProdRural();
+  PreencheGridNotasFisc(pathData);
+ 
+  ActSalvar(FormPadraoComProdRural);
+  ActFechar(FormPadraoComProdRural);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirComProdRural(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Comercialização de Produção Rural');
+
+FiltraTelaInicialComProdRural();
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadComProdRural(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhComProdRural');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadComProdRuralDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadComProdRural();
+
+  ActExcluir(_ModuloFolha, 'FRhComProdRural');
+
+  ActFechar(FormPadraoComProdRural);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

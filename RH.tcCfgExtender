@@ -21,7 +21,7 @@
 	<Node name="root">
 		<Node name="data">
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
-				<Prp name="activity" type="S" value="{356B6DA9-6EAB-4E10-AD2B-7F890F8C115E}"/>
+				<Prp name="activity" type="S" value="{35FCBB2F-31CB-4777-9468-53F18481980C}"/>
 			</Node>
 			<Node name="{2c786620-2489-4cbb-9c1e-1a94437a9245}"/>
 			<Node name="{415b5aa1-c6ac-4d4d-9a53-063a521a45ab}">
@@ -971,17 +971,17 @@
 					<Node name="{07f2685f-c6e2-4ffc-a1cc-f3f6594a64fa}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="18"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="7"/>
 						</Node>
 						<Node name="1">
 							<Prp name="bottom" type="I" value="56"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="20"/>
 						</Node>
 						<Node name="2">
 							<Prp name="bottom" type="I" value="67"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="58"/>
 						</Node>
 						<Node name="3">
@@ -990,11 +990,11 @@
 							<Prp name="top" type="I" value="70"/>
 						</Node>
 						<Node name="4">
-							<Prp name="bottom" type="I" value="139"/>
-							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="bottom" type="I" value="141"/>
+							<Prp name="collapsed" type="B" value="-1"/>
 							<Prp name="top" type="I" value="105"/>
 						</Node>
-						<Prp name="bottom" type="I" value="140"/>
+						<Prp name="bottom" type="I" value="142"/>
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
@@ -3758,7 +3758,36 @@
 						<Prp name="collapsed" type="B" value="0"/>
 						<Prp name="top" type="I" value="0"/>
 					</Node>
-					<Node name="{356b6da9-6eab-4e10-ad2b-7f890f8c115e}"/>
+					<Node name="{356b6da9-6eab-4e10-ad2b-7f890f8c115e}">
+						<Node name="0">
+							<Prp name="bottom" type="I" value="17"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="8"/>
+						</Node>
+						<Node name="1">
+							<Prp name="bottom" type="I" value="34"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="22"/>
+						</Node>
+						<Node name="2">
+							<Prp name="bottom" type="I" value="73"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="37"/>
+						</Node>
+						<Node name="3">
+							<Prp name="bottom" type="I" value="109"/>
+							<Prp name="collapsed" type="B" value="0"/>
+							<Prp name="top" type="I" value="76"/>
+						</Node>
+						<Node name="4">
+							<Prp name="bottom" type="I" value="147"/>
+							<Prp name="collapsed" type="B" value="-1"/>
+							<Prp name="top" type="I" value="111"/>
+						</Node>
+						<Prp name="bottom" type="I" value="148"/>
+						<Prp name="collapsed" type="B" value="0"/>
+						<Prp name="top" type="I" value="0"/>
+					</Node>
 					<Node name="{3598056e-aa2c-44b5-b5ee-2052a668171c}">
 						<Node name="0">
 							<Prp name="bottom" type="I" value="21"/>
@@ -18613,6 +18642,7 @@
 								<Node name="cadastros específicos"/>
 								<Node name="esocial">
 									<Node name="específicos">
+										<Node name="aquisição de produção rural"/>
 										<Node name="comercialização de produção rural"/>
 										<Node name="processos judiciais"/>
 										<Node name="valores inss outros vínculos"/>
