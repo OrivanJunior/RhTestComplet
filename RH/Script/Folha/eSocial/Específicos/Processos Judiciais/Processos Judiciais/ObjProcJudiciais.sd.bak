@@ -3,3 +3,41 @@
  Autor: Orivan lemes dos Santos Junior
  Data: 18/07/2022}
 
+var
+FormPadraoProcJud,
+  
+CadProcJudEBEstab,
+CadProcJudEBIdProcessoJud,
+CadProcJudEBTipoProcesso,
+CadProcJudEBNumpRocesso,
+CadProcJudEBDataIni,
+CadProcJudEBDataFin,
+CadProcJudEBIndDecisao,
+CadProcJudEBDataDecisao,
+CadProcJudEBIndDepMontante,
+CadProcJudEBCidade,
+CadProcJudEBCodIdVara,
+CadProcJudEBAutoracao,
+CadProcJudEBIndMatProc,
+CadProcJudEBCodSusp			: OleVariant;
+
+
+procedure MapCadProcJud();
+begin
+FormPadraoProcJud						  := Aliases.Folha.FFormPadraoRHPROCESSOJUD;
+  
+CadProcJudEBEstab						  := Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadProcJudEBIdProcessoJud			:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSOJUD;
+CadProcJudEBTipoProcesso			:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOPROCESSO;
+CadProcJudEBNumpRocesso				:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_NUMPROCESSO;
+CadProcJudEBDataIni						:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATAINI;
+CadProcJudEBDataFin						:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATAFIN;
+CadProcJudEBIndDecisao				:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDDECISAO;
+CadProcJudEBDataDecisao				:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_DATADECISAO;
+CadProcJudEBIndDepMontante  	:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDDEPMONTANTE;
+CadProcJudEBCidade						:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CIDADE;
+CadProcJudEBCodIdVara					:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODIDVARA;
+CadProcJudEBAutoracao					:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_AUTORACAO;
+CadProcJudEBIndMatProc				:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_INDMATPROC;
+CadProcJudEBCodSusp						:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CODSUSP;
+end;

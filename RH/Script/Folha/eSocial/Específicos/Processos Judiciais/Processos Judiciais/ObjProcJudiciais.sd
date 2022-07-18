@@ -25,7 +25,7 @@ CadProcJudEBCodSusp			: OleVariant;
 procedure MapCadProcJud();
 begin
 FormPadraoProcJud						  := Aliases.Folha.FFormPadraoRHPROCESSOJUD;
-  
+
 CadProcJudEBEstab						  := Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
 CadProcJudEBIdProcessoJud			:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSOJUD;
 CadProcJudEBTipoProcesso			:= Aliases.Folha.FFormPadraoRHPROCESSOJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPOPROCESSO;

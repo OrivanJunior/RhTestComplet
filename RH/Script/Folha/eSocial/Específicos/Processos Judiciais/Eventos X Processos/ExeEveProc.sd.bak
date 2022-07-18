@@ -1,0 +1,16 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolEveProc, 
+  ObjEveProc;
+
+procedure PreencheEveProc();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBEstab,CadEveProcDPEstab);	
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBIdEvento,CadEveProcDPIdEvento);
+VerificaInsere(CadEveProcEBSequencial,CadEveProcDPSequencial);
+VerificaInsere(CadEveProcEBTpProcesso,CadEveProcDPTpProcesso);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBIdProcessojud,CadEveProcDPIdProcessojud);	
+VerificaInsere(CadEveProcEBExtDecisao,CadEveProcDPExtDecisao);
+end;

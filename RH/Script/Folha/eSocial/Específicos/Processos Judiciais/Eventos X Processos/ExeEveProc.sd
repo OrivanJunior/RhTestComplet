@@ -1,0 +1,85 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolEveProc, 
+  ObjEveProc;
+
+procedure PreencheEveProc();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBEstab,CadEveProcDPEstab);	
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBIdEvento,CadEveProcDPIdEvento);
+VerificaInsere(CadEveProcEBSequencial,CadEveProcDPSequencial);
+VerificaInsere(CadEveProcEBTpProcesso,CadEveProcDPTpProcesso);
+VerificaConsultaF3Insere(_ModuloFolha,CadEveProcEBIdProcessojud,CadEveProcDPIdProcessojud);	
+VerificaInsere(CadEveProcEBExtDecisao,CadEveProcDPExtDecisao);
+end;
+
+
+procedure CadastraEveProc(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'Eventos X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadEveProc(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEveProc');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadEveProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadEveProc();
+  
+  PreencheEveProc();
+ 
+  ActSalvar(FormPadraoEveProc);
+  ActFechar(FormPadraoEveProc);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirEveProc(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'Eventos X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadEveProc(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhEveProc');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadEveProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadEveProc();
+
+  ActExcluir(_ModuloFolha, 'FRhEveProc');
+
+  ActFechar(FormPadraoEveProc);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

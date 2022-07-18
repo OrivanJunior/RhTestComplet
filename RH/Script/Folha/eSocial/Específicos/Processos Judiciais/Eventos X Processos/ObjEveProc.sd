@@ -1,0 +1,26 @@
+﻿{Script para mapear o eSocial - Específicos - Processos Judiciais - Eventos X Processos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+
+var
+FormPadraoEveProc,			
+  
+CadEveProcEBEstab,
+CadEveProcEBIdEvento,
+CadEveProcEBSequencial,
+CadEveProcEBTpProcesso,
+CadEveProcEBIdProcessojud,
+CadEveProcEBExtDecisao  : OleVariant;
+	
+procedure MapCadEveProc();
+begin
+FormPadraoEveProc							    := Aliases.Folha.FRhEveProc;
+  
+CadEveProcEBEstab  							  := Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_ESTAB;
+CadEveProcEBIdEvento  						:= Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_IDEVENTO;
+CadEveProcEBSequencial  					:= Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_SEQUENCIAL;
+CadEveProcEBTpProcesso  					:= Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_TPPROCESSO;
+CadEveProcEBIdProcessojud  				:= Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_IDPROCESSOJUD;
+CadEveProcEBExtDecisao  					:= Aliases.Folha.FRhEveProc.Page.TabNormal.pnCab.EB_EXTDECISAO;
+end;

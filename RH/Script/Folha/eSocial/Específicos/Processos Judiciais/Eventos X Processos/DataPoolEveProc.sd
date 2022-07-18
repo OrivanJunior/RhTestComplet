@@ -1,0 +1,18 @@
+﻿var
+CadEveProcDPEstab,
+CadEveProcDPIdEvento,
+CadEveProcDPSequencial,
+CadEveProcDPTpProcesso,
+CadEveProcDPIdProcessojud,
+CadEveProcDPExtDecisao  	: OleVariant;
+
+
+procedure LeDataPoolCadEveProc(nomeDriver);
+begin
+CadEveProcDPEstab  			  := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadEveProcDPIdEvento  		:= DDT.DriverByName(nomeDriver).Value('IDEVENTO');
+CadEveProcDPSequencial  	:= DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadEveProcDPTpProcesso  	:= DDT.DriverByName(nomeDriver).Value('TPPROCESSO');
+CadEveProcDPIdProcessojud := DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
+CadEveProcDPExtDecisao  	:= DDT.DriverByName(nomeDriver).Value('EXTDECISAO');
+end;
