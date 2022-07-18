@@ -1,0 +1,165 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolAlteracaoMassa, 
+  ObjAlteracaoMassa;
+ 
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormAltMassaEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormAltMassaEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormAltMassaEstabTodosEmp.ClickButton;
+    VerificaInsere(FormAltMassaEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormAltMassaEstabSelec.ClickButton;
+    VerificaInsere(FormAltMassaEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormAltMassaEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+
+procedure FiltraEmpregados();
+begin
+  if (FormAltMassaEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormAltMassaEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormAltMassaEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormAltMassaEmpreSelec.ClickButton;
+    VerificaInsere(FormAltMassaEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Empregados - Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormAltMassaEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Empregados - Todos');
+  end;
+end;
+
+procedure FiltraProcessos();
+begin
+  if (FormAltMassaProcTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcDARF.pg.tsSelecao.SB_Selecao.whProcessamento.whProcessamento10.Click();
+    
+  if (FiltroProcTipo = _Especifico) then
+  begin
+    FormAltMassaProcEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormAltMassaProcEspecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Específico, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Selecionados) then
+  begin
+    FormAltMassaProcSelec.ClickButton;
+    VerificaInsere(FormDARFWhProcSelecCampo, FiltroProcValor);
+    Log.Checkpoint('Selecionado Processamentos - Selecionados, com valor: ' + FiltroProcValor);
+  end
+  else if (FiltroProcTipo = _Todos) then
+  begin
+    FormAltMassaProcTodos.ClickButton;
+    Log.Checkpoint('Selecionado Processamentos - Todos');
+  end;
+end;
+
+procedure FiltraData();
+begin
+  if (FormAltMassaDataDtIni.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas10.Click();
+    
+  PreencheDatas(FormAltMassaDataDtIni, FiltroDataIni); 
+  PreencheDatas(FormAltMassaDataDtFin, FiltroDataFin);
+  Log.Checkpoint('Intervalo de Datas: ' + FiltroDataIni + ' à ' + FiltroDataFin);
+end;
+
+
+procedure DadosAdicionais();
+begin
+  if (FormAltMassaDados.VisibleOnScreen = false) then
+    Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.whDados10.Click();
+    
+  VerificaInsere(FormAltMassaOpcAlt, FiltroOpcAlt); 
+  PreencheDatas(FormAltMassaDataPagto, FiltroDataPagto);
+  
+  {Em caso de Substituir Informações existentes, descomente o cód abaixo...}
+  //FormAltMassaBtnCheck.ClickButton(cbChecked);
+end;
+
+
+procedure ExecutaAlteracaoMassa(pathData);
+var
+  DDTAltMassa: OleVariant;
+begin
+  
+  AcessaItem
+
+  MapDARF();
+
+  DDTDarf := CarregaDDT(pathData, 'Filtro');
+
+  LeDataPoolDARF(DDTDarf.Name);
+  
+  if (FiltroGerarSobre = 'E') then
+  begin
+    FiltraEstab();
+  
+    FiltraLocal();
+    
+    FiltraEmpregados();
+    
+    FiltraProcessamentos();
+  end
+  else
+  begin
+    FiltraEstab();
+  
+    FiltraLocal();
+    
+    FiltraProcessamentos();
+    
+    FiltraPrestadores();
+  end;
+
+  FiltraData();
+
+  FiltraProcessamentos();
+  
+  DadosAdicionais();
+
+  btnExecutar.Click();
+  
+  while MensagemInativa do
+  begin      
+    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 5000).Exists) then
+    begin
+      Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();     
+      
+      btnSalvar.Click();
+
+      FechaMensagemProcessoConcluido();
+      
+      ActFechar(FormDARF);
+    
+  end;  
+  DDT.CloseDriver(DDTDarf.Name);
+end;
