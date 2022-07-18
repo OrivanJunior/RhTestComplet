@@ -1,0 +1,61 @@
+﻿{Script para mapear o eSocial - Específicos - Valores de Avulsos Não Portuários
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+ 
+var
+
+FormFiltroAvulsos,
+			
+ListaConsultaAvulsos,
+FiltroLocal,
+FiltroMes,
+FiltroAno,
+FiltroEstab,
+BtnOK,
+			
+FormPadraoAvulsos,
+			
+CadAvulsosEBEstab,
+CadAvulsosEBIdlLocal,
+CadAvulsosEBMes,
+CadAvulsosEBAno,
+CadAvulsosEBVRBCCP00,
+CadAvulsosEBVRBCCP15,
+CadAvulsosEBVRBCCP20,
+CadAvulsosEBVRBCCP25,
+CadAvulsosEBVRBCCP13,
+CadAvulsosEBVRBCFGTS,
+CadAvulsosEBVRDESCCP		: oleVariant;
+
+procedure MapCadAvulsos();
+begin
+
+FormPadraoAvulsos  						  := Aliases.Folha.FFormPadraoRHTRABAVULSO.Click(254, 19);
+			
+CadAvulsosEBEstab  						  := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadAvulsosEBIdLocal  					  := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLOCAL;
+CadAvulsosEBMes  						    := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MES;
+CadAvulsosEBAno  						    := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANO;
+CadAvulsosEBVRBCCP00  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCCP00;
+CadAvulsosEBVRBCCP15  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCCP15;
+CadAvulsosEBVRBCCP20  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCCP20;
+CadAvulsosEBVRBCCP25  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCCP25;
+CadAvulsosEBVRBCCP13  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCCP13;
+CadAvulsosEBVRBCFGTS  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRBCFGTS;
+CadAvulsosEBVRDESCCP  					:= Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VRDESCCP;
+end;
+
+procedure FiltroAvulsos();
+begin
+
+FormFiltroAvulsos  						:= Aliases.Folha.FFiltroConsultaCDS;
+			
+ListaConsultaAvulsos					:= Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroLocal 							    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+FiltroMes  								    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroAno	 							      := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+FiltroEstab  							    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+BtnOK									        := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+			
+end;

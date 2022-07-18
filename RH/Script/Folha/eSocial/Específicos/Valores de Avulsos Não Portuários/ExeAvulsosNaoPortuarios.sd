@@ -1,0 +1,91 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolAvulsosNaoPortuarios, 
+  ObjAvulsosNaoPortuarios;
+
+procedure PreencheAvulsos();
+begin
+
+VerificaConsultaF3Insere(_ModuloFolha,CadAvulsosEBEstab,CadAvulsosDPEstab);  	
+VerificaConsultaF3Insere(_ModuloFolha,CadAvulsosEBIdLocal,CadAvulsosDPIdLocal);
+VerificaInsere(CadAvulsosEBMes,CadAvulsosDPMes);
+VerificaInsere(CadAvulsosEBAno,CadAvulsosDPAno);
+VerificaInsere(CadAvulsosEBVRBCCP00,CadAvulsosDPVRBCCP00);
+VerificaInsere(CadAvulsosEBVRBCCP15,CadAvulsosDPVRBCCP15);
+VerificaInsere(CadAvulsosEBVRBCCP20,CadAvulsosDPVRBCCP20);
+VerificaInsere(CadAvulsosEBVRBCCP25,CadAvulsosDPVRBCCP25);
+VerificaInsere(CadAvulsosEBVRBCCP13,CadAvulsosDPVRBCCP13);
+VerificaInsere(CadAvulsosEBVRBCFGTS,CadAvulsosDPVRBCFGTS);
+VerificaInsere(CadAvulsosEBVRDESCCP,CadAvulsosDPVRDESCCP);
+
+end;
+
+procedure CadastraAvulsos(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores de Avulsos Não Portuários');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadAvulsos(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTRABAVULSO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAvulsosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadAvulsos();
+  
+  PreencheAvulsos();
+ 
+  ActSalvar(FormPadraoAvulsos);
+  ActFechar(FormPadraoAvulsos);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirAvulsos(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores de Avulsos Não Portuários');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadAvulsos(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHTRABAVULSO');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadAvulsosDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadAvulsos();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHTRABAVULSO');
+
+  ActFechar(FormPadraoAvulsos);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

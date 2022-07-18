@@ -12,7 +12,7 @@ VerificaInsere(CadInfoCompEBMes,CadInfoCompDPMes);
 VerificaInsere(CadInfoCompEBAno,CadInfoCompDPAno);
 end;
 
-procedure PreencheDesoneracao(pathData);
+procedure PreencheDesoneracao();
 begin
 PageTabNormalInfoComp.ActivePageIndex :=0;
 VerificaInsere(CadInfoCompEBVlrFaturamento,CadInfoCompDPVlrFaturamento);
@@ -20,7 +20,7 @@ VerificaInsere(CadInfoCompEBVlrOutrasAtividades,CadInfoCompDPVlrOutrasAtividades
 VerificaInsere(CadInfoCompEBVlrRazao,CadInfoCompDPVlrRazao);
 end;
 
-procedure PreencheFatores(pathData);
+procedure PreencheFatores();
 begin
 PageTabNormalInfoComp.ActivePageIndex :=1;
 
@@ -28,12 +28,13 @@ VerificaInsere(CadInfoCompEBFatorMes,CadInfoCompDPFatorMes);
 VerificaInsere(CadInfoCompEBFator13,CadInfoCompDPFator13);
 end;
 
-procedure PreencheGridDetalhes();
+procedure PreencheGridDetalhes(pathData);
 var 
 DDTDetalhes :OleVariant;
 i : integer;
 begin
 i:= 0;
+PageTabNormalInfoComp.ActivePageIndex :=0;
 
 PageTabNormalGrid.ActivePageIndex:=0;
 
@@ -66,32 +67,32 @@ procedure CadastraInfoComp(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Comercialização de Produção Rural');
-
-FiltraTelaInicialComProdRural();
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Informações Complementares');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
 
-LeDataPoolCadComProdRural(DDTCadastrar.Name);
+LeDataPoolCadInfoComp(DDTCadastrar.Name);
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhComProdRural');
+    ValidaFormAberto(_ModuloFolha, 'FRhValFaturamento');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadComProdRuralDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadInfoCompDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
   begin
   
   ActIncluir(FormTelaConsultaForm);
   
-  MapCadComProdRural();
+  MapCadInfoComp();
   
-  PreencheComProdRural();
-  PreencheGridNotasFisc(pathData);
+  PreencheDadosGerais();
+  PreencheDesoneracao();
+  PreencheFatores();
+  PreencheGridDetalhes(pathData);
  
-  ActSalvar(FormPadraoComProdRural);
-  ActFechar(FormPadraoComProdRural);
+  ActSalvar(FormPadraoInfoComp);
+  ActFechar(FormPadraoInfoComp);
   end;
   ActFechar(FormTelaConsultaForm);
   DDT.CloseDriver(DDTCadastrar.Name);
@@ -101,33 +102,31 @@ procedure ExcluirInfoComp(PathData);
 var
 DDTExcluir : OleVariant;
 begin
-AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Comercialização de Produção Rural');
-
-FiltraTelaInicialComProdRural();
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Informações Complementares');
 
 MapGridConsulta(_ModuloFolha);
 
 DDTExcluir := CarregaDDT(PathData, _Excluir);
 
-LeDataPoolCadComProdRural(DDTExcluir.Name);
+LeDataPoolCadInfoComp(DDTExcluir.Name);
 
 While not DDTExcluir.EOF do
 begin
 
  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
-    ValidaFormAberto(_ModuloFolha, 'FRhComProdRural');
+    ValidaFormAberto(_ModuloFolha, 'FRhValFaturamento');
   
-  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadComProdRuralDPEstab);
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadInfoCompDPEstab);
   if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
   begin  
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadComProdRural();
+  MapCadInfoComp();
 
-  ActExcluir(_ModuloFolha, 'FRhComProdRural');
+  ActExcluir(_ModuloFolha, 'FRhValFaturamento');
 
-  ActFechar(FormPadraoComProdRural);
+  ActFechar(FormPadraoInfoComp);
   end;
   DDTExcluir.Next;
 end;

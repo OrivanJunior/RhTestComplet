@@ -3186,7 +3186,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Comercialização de Produção Rural" key="{7FBD52D7-4810-4772-993D-E9EA0C15D488}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Comercialização de Produção Rural" key="{7FBD52D7-4810-4772-993D-E9EA0C15D488}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraComProdRural" key="{E910B558-18D0-465F-88EA-7B3ADAB1D3AE}" group="False" parallel="False" enabled="True" testMoniker="{356B6DA9-6EAB-4E10-AD2B-7F890F8C115E}CadastraComProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3199,6 +3199,25 @@
 													<testItem name="ExcluirComProdRural" key="{7C9B979A-0A13-46DF-A2AF-E9EFF1970444}" group="False" parallel="False" enabled="True" testMoniker="{356B6DA9-6EAB-4E10-AD2B-7F890F8C115E}ExcluirComProdRural" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Comercialização de Produção Rural\Comercialização de Produção Rural.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Informações Complementares" key="{B39EC81D-157F-4292-9572-42CE3DF2967C}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraInfoComp" key="{4F5A5183-201A-46B8-969F-69E4E8288835}" group="False" parallel="False" enabled="True" testMoniker="{469AAA69-5CFF-4D4F-AA89-7FCBD0BD38EA}CadastraInfoComp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Informações Complementares\Informações Complementares.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirInfoComp" key="{5C0EA069-DDDE-4F3E-A7E5-468DF6D15089}" group="False" parallel="False" enabled="True" testMoniker="{469AAA69-5CFF-4D4F-AA89-7FCBD0BD38EA}ExcluirInfoComp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Informações Complementares\Informações Complementares.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

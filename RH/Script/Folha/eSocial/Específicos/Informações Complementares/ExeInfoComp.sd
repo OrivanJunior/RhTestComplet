@@ -12,7 +12,7 @@ VerificaInsere(CadInfoCompEBMes,CadInfoCompDPMes);
 VerificaInsere(CadInfoCompEBAno,CadInfoCompDPAno);
 end;
 
-procedure PreencheDesoneracao(pathData);
+procedure PreencheDesoneracao();
 begin
 PageTabNormalInfoComp.ActivePageIndex :=0;
 VerificaInsere(CadInfoCompEBVlrFaturamento,CadInfoCompDPVlrFaturamento);
@@ -20,7 +20,7 @@ VerificaInsere(CadInfoCompEBVlrOutrasAtividades,CadInfoCompDPVlrOutrasAtividades
 VerificaInsere(CadInfoCompEBVlrRazao,CadInfoCompDPVlrRazao);
 end;
 
-procedure PreencheFatores(pathData);
+procedure PreencheFatores();
 begin
 PageTabNormalInfoComp.ActivePageIndex :=1;
 
@@ -34,6 +34,7 @@ DDTDetalhes :OleVariant;
 i : integer;
 begin
 i:= 0;
+PageTabNormalInfoComp.ActivePageIndex :=0;
 
 PageTabNormalGrid.ActivePageIndex:=0;
 
@@ -48,7 +49,7 @@ MapGridConsulta(_ModuloFolha);
 LeDataPoolCadDetalhes(DDTDetalhes.Name);
 
  if (FormGridInfoComp.ActiveView.ViewData.RowCount < 1) then
- BtnbInc.Click;
+ BtnInc.Click;
 
 VerificaClickPreencheGrid(FormGridInfoComp, i,'Vlr. Atividade',CadInfoCompDPVlrAtividade);
 VerificaClickPreencheGrid(FormGridInfoComp, i,'Percentual',CadInfoCompDPPercentual);
@@ -86,9 +87,9 @@ LeDataPoolCadInfoComp(DDTCadastrar.Name);
   MapCadInfoComp();
   
   PreencheDadosGerais();
-  PreencheDesoneracao(pathData);
-  PreencheFatores(pathData);
-  PreencheGridDetalhes();
+  PreencheDesoneracao();
+  PreencheFatores();
+  PreencheGridDetalhes(pathData);
  
   ActSalvar(FormPadraoInfoComp);
   ActFechar(FormPadraoInfoComp);
@@ -121,7 +122,7 @@ begin
   
   ActConsulta(FormTelaConsultaForm);
   
-  MapCadComProdRural();
+  MapCadInfoComp();
 
   ActExcluir(_ModuloFolha, 'FRhValFaturamento');
 

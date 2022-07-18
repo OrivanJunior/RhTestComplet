@@ -1,0 +1,30 @@
+﻿var 
+
+CadAvulsosDPEstab,
+CadAvulsosDPIdLocal,
+CadAvulsosDPMes,
+CadAvulsosDPAno,
+CadAvulsosDPVRBCCP00,
+CadAvulsosDPVRBCCP15,  	
+CadAvulsosDPVRBCCP20,  	
+CadAvulsosDPVRBCCP25,  	
+CadAvulsosDPVRBCCP13,  	
+CadAvulsosDPVRBCFGTS,  	
+CadAvulsosDPVRDESCCP  	: OleVariant;
+
+
+
+procedure LeDataPoolCadAvulsos(nomeDriver);
+begin
+CadAvulsosDPEstab  			    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadAvulsosDPIdLocal  		    := DDT.DriverByName(nomeDriver).Value('IDLOCAL');
+CadAvulsosDPMes  		        := DDT.DriverByName(nomeDriver).Value('MES');
+CadAvulsosDPAno  		        := DDT.DriverByName(nomeDriver).Value('ANO');
+CadAvulsosDPVRBCCP00  	    := DDT.DriverByName(nomeDriver).Value('VRBCCP00');
+CadAvulsosDPVRBCCP15  	    := DDT.DriverByName(nomeDriver).Value('VRBCCP15');
+CadAvulsosDPVRBCCP20  	    := DDT.DriverByName(nomeDriver).Value('VRBCCP20');
+CadAvulsosDPVRBCCP25  	    := DDT.DriverByName(nomeDriver).Value('VRBCCP25');
+CadAvulsosDPVRBCCP13  	    := DDT.DriverByName(nomeDriver).Value('VRBCCP13');
+CadAvulsosDPVRBCFGTS  	    := DDT.DriverByName(nomeDriver).Value('VRBCFGTS');
+CadAvulsosDPVRDESCCP  	    := DDT.DriverByName(nomeDriver).Value('VRDESCCP');
+end;
