@@ -1,0 +1,35 @@
+﻿var
+  
+CadProcJudDPEstab,
+CadProcJudDPIdProcessoJud,
+CadProcJudDPTipoProcesso,
+CadProcJudDPNumpRocesso,
+CadProcJudDPDataIni,
+CadProcJudDPDataFin,
+CadProcJudDPIndDecisao,
+CadProcJudDPDataDecisao,
+CadProcJudDPIndDepMontante,
+CadProcJudDPCidade,
+CadProcJudDPCodIdVara,
+CadProcJudDPAutoracao,
+CadProcJudDPIndMatProc,
+CadProcJudDPCodSusp			: OleVariant;
+
+
+procedure LeDataPoolCadProcJud(nomeDriver);
+begin
+CadProcJudDPEstab				      := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadProcJudDPIdProcessoJud	    := DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
+CadProcJudDPTipoProcesso	    := DDT.DriverByName(nomeDriver).Value('TIPOPROCESSO');
+CadProcJudDPNumpRocesso		    := DDT.DriverByName(nomeDriver).Value('NUMPROCESSO');
+CadProcJudDPDataIni			      := DDT.DriverByName(nomeDriver).Value('DATAINI');
+CadProcJudDPDataFin			      := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+CadProcJudDPIndDecisao		    := DDT.DriverByName(nomeDriver).Value('INDDECISAO');
+CadProcJudDPDataDecisao		    := DDT.DriverByName(nomeDriver).Value('DATADECISAO');
+CadProcJudDPIndDepMontante	  := DDT.DriverByName(nomeDriver).Value('INDDEPMONTANTE');
+CadProcJudDPCidade			      := DDT.DriverByName(nomeDriver).Value('CIDADE');
+CadProcJudDPCodIdVara		      := DDT.DriverByName(nomeDriver).Value('CODIDVARA');
+CadProcJudDPAutoracao		      := DDT.DriverByName(nomeDriver).Value('AUTORACAO');
+CadProcJudDPIndMatProc		    := DDT.DriverByName(nomeDriver).Value('INDMATPROC');
+CadProcJudDPCodSusp			      := DDT.DriverByName(nomeDriver).Value('CODSUSP');
+end;

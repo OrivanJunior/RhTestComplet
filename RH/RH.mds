@@ -3262,7 +3262,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Contribuição Sindical Patronal" key="{776CC25D-E27C-41BC-89A2-F74D16A93124}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Contribuição Sindical Patronal" key="{776CC25D-E27C-41BC-89A2-F74D16A93124}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraSindPat" key="{DE74BC37-4378-47D9-9DE7-D112AAFCDF22}" group="False" parallel="False" enabled="True" testMoniker="{F75B2A7B-6ECA-4F92-898C-4B620F38CA75}CadastraSindPat" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3278,6 +3278,30 @@
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Processos Judiciais" key="{5C3C8D07-6FB6-49D6-971E-C83BB44AF08F}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="Processos Judiciais" key="{32254751-8624-4A8A-AF55-158B9620A3B1}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraProcJud" key="{4F69EFAB-D2D0-4BB1-83BA-431AC368649D}" group="False" parallel="False" enabled="True" testMoniker="{87771F46-39CF-45CD-B52D-AC5A72AAD0D2}CadastraProcJud" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Processos Judiciais\Processos Judiciais\Processos Judiciais.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirProcJud" key="{A9F7C8E1-8488-4785-A920-C2F347CB2C1F}" group="False" parallel="False" enabled="True" testMoniker="{87771F46-39CF-45CD-B52D-AC5A72AAD0D2}ExcluirProcJud" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Processos Judiciais\Processos Judiciais\Processos Judiciais.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
 													</testItem>
 												</children>
 											</testItem>

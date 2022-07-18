@@ -1,0 +1,95 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolProcJudiciais,
+  ObjProcJudiciais,
+  VarConsts;
+
+
+Procedure PreencheProcJud();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadProcJudEBEstab,CadProcJudDPEstab);
+VerificaInsere(CadProcJudEBIdProcessoJud,CadProcJudDPIdProcessoJud);
+VerificaInsere(CadProcJudEBTipoProcesso,CadProcJudDPTipoProcesso);
+VerificaInsere(CadProcJudEBNumpRocesso,CadProcJudDPNumpRocesso);	
+PreencheDatas(CadProcJudEBDataIni,CadProcJudDPDataIni);	
+PreencheDatas(CadProcJudEBDataFin,CadProcJudDPDataFin);	
+VerificaInsere(CadProcJudEBIndDecisao,CadProcJudDPIndDecisao);
+PreencheDatas(CadProcJudEBDataDecisao,CadProcJudDPDataDecisao);	
+VerificaInsere(CadProcJudEBIndDepMontante,CadProcJudDPIndDepMontante	);
+VerificaConsultaF3Insere(_ModuloFolha,CadProcJudEBCidade,CadProcJudDPCidade);
+VerificaInsere(CadProcJudEBCodIdVara,CadProcJudDPCodIdVara);
+VerificaInsere(CadProcJudEBAutoracao,CadProcJudDPAutoracao);
+VerificaInsere(CadProcJudEBIndMatProc,CadProcJudDPIndMatProc);
+VerificaInsere(CadProcJudEBCodSusp,CadProcJudDPCodSusp);	
+end;
+
+
+procedure CadastraProcJud(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'Processos Judiciais');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadProcJud(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPROCESSOJUD');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Processo',CadProcJudDPIdProcessoJud);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadProcJud();
+  
+  PreencheProcJud();
+ 
+  ActSalvar(FormPadraoProcJud);
+  ActFechar(FormPadraoProcJud);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirProcJud(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'Processos Judiciais');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadProcJud(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPROCESSOJUD');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Código Processo',CadProcJudDPIdProcessoJud);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadProcJud();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHPROCESSOJUD');
+
+  ActFechar(FormPadraoProcJud);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
