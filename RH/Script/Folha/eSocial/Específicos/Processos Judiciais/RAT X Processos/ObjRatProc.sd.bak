@@ -1,0 +1,17 @@
+﻿{Script para mapear o eSocial - Específicos - Processos Judiciais - RAT X Processos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+
+var
+FormPadaoRatProc,
+  
+CadRatProcEBEstab,
+CadRatProcEBIdProcessoJud : OleVariant;
+procedure Test1;
+begin
+FormPadaoRatProc							:= Aliases.Folha.FFormPadraoRHRATPROCJUD;
+  
+CadRatProcEBEstab							:= Aliases.Folha.FFormPadraoRHRATPROCJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadRatProcEBIdProcessoJud		  := Aliases.Folha.FFormPadraoRHRATPROCJUD.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSOJUD;
+end;

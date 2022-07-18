@@ -1,0 +1,9 @@
+﻿var
+CadRatProcDPEstab,
+CadRatProcDPIdProcessoJud		: OleVariant; 		
+
+procedure LeDataPoolCadRatProc(nomeDriver);
+begin
+CadRatProcDPEstab           := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadRatProcDPIdProcessoJud	  := DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');  
+end;	

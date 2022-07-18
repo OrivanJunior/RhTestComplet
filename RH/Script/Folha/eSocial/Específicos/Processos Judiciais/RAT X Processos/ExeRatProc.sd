@@ -1,0 +1,86 @@
+﻿uses
+  CommonsAll,
+  CommonsObj,
+  DataPoolRatProc,
+  ObjRatProc,
+  VarConsts;
+  
+  
+procedure PreencheRatProc();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadRatProcEBEstab,CadRatProcDPEstab);			
+VerificaConsultaF3Insere(_ModuloFolha,CadRatProcEBIdProcessoJud,CadRatProcDPIdProcessoJud);
+end;
+
+
+procedure CadastraRatProc(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'RAT X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadRatProc(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRATPROCJUD');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab',CadRatProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadRatProc();
+  
+  PreencheRatProc();
+ 
+  ActSalvar(FormPadraoRatProc);
+  ActFechar(FormPadraoRatProc);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirRatProc(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'RAT X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadRatProc(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHRATPROCJUD');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab',CadRatProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadRatProc();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHRATPROCJUD');
+
+  ActFechar(FormPadraoRatProc);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
+
+
+					
