@@ -1,0 +1,13 @@
+﻿var
+CadFpasProcDPEstab,
+CadFpasProcDPIdFpas,
+CadFpasProcDPEntidade,
+CadFpasProcDPIdProcessoJud :OleVariant;
+
+procedure LeDataPoolCadFpasProc(nomeDriver);
+begin
+CadFpasProcDPEstab				    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadFpasProcDPIdFpas		        := DDT.DriverByName(nomeDriver).Value('IDFPAS');
+CadFpasProcDPEntidade		      := DDT.DriverByName(nomeDriver).Value('ENTIDADE');
+CadFpasProcDPIdProcessoJud    := DDT.DriverByName(nomeDriver).Value('IDPROCESSOJUD');
+end;

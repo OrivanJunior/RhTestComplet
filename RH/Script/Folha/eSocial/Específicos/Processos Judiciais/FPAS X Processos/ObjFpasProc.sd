@@ -1,0 +1,25 @@
+﻿{Script para mapear o eSocial - Específicos - Processos Judiciais - FPAS X Processos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+ 
+
+var
+FormPadraoFpasProc,
+  
+CadFpasProcEBEstab,
+CadFpasProcEBIdFpas,
+CadFpasProcEBEntidade,
+CadFpasProcEBIdProcessoJud	: OleVariant;
+
+
+
+procedure MapCadFpasProc();
+begin
+FormPadraoFpasProc					:= Aliases.Folha.FFormPadraoRHFPASPROC;
+  
+CadFpasProcEBEstab					  := Aliases.Folha.FFormPadraoRHFPASPROC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadFpasProcEBIdFpas					  := Aliases.Folha.FFormPadraoRHFPASPROC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDFPAS;
+CadFpasProcEBEntidade					:= Aliases.Folha.FFormPadraoRHFPASPROC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ENTIDADE;
+CadFpasProcEBIdProcessoJud		:= Aliases.Folha.FFormPadraoRHFPASPROC.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSOJUD;
+end;

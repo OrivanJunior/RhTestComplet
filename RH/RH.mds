@@ -3303,7 +3303,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="Eventos X Processos" key="{71973AF9-D8E1-4A1C-B264-89D5E174CF89}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="Eventos X Processos" key="{71973AF9-D8E1-4A1C-B264-89D5E174CF89}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraEveProc" key="{D96C6CB0-764B-423C-818A-4D3FAA18037E}" group="False" parallel="False" enabled="True" testMoniker="{DCC81094-37D7-4297-82FC-89CD490F631A}CadastraEveProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3316,6 +3316,25 @@
 															<testItem name="ExcluirEveProc" key="{EE0BB63F-7CE0-4B13-A542-5DCFF5490539}" group="False" parallel="False" enabled="True" testMoniker="{DCC81094-37D7-4297-82FC-89CD490F631A}ExcluirEveProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 																<testParameters>
 																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Processos Judiciais\Eventos X Processos\Eventos X Processos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+														</children>
+													</testItem>
+													<testItem name="FPAS X Processos" key="{2BF3BCA9-A1AB-4A33-84BF-EC93515BBAF8}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters />
+														<children>
+															<testItem name="CadastraFpasProc" key="{8A450031-D935-40D5-82FC-37B63340B75A}" group="False" parallel="False" enabled="True" testMoniker="{AF84D01C-1A4D-4292-9296-0B8DB0765D87}CadastraFpasProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Processos Judiciais\FPAS X Processos\FPAS X Processos.xls" />
+																</testParameters>
+																<environments activeCloud="CBT" />
+																<children />
+															</testItem>
+															<testItem name="ExcluirFpasProc" key="{A62309A8-7952-40C5-8817-E84649273BDF}" group="False" parallel="False" enabled="True" testMoniker="{AF84D01C-1A4D-4292-9296-0B8DB0765D87}ExcluirFpasProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+																<testParameters>
+																	<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Processos Judiciais\FPAS X Processos\FPAS X Processos.xls" />
 																</testParameters>
 																<environments activeCloud="CBT" />
 																<children />

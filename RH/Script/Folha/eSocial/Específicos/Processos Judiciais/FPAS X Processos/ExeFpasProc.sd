@@ -1,0 +1,86 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolFpasProc, 
+  ObjFpasProc;
+
+
+
+procedure PreencheFpasProc();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadFpasProcEBEstab,CadFpasProcDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadFpasProcEBIdFpas,CadFpasProcDPIdFpas);
+VerificaInsere(CadFpasProcEBEntidade,CadFpasProcDPEntidade);	 
+VerificaConsultaF3Insere(_ModuloFolha,CadFpasProcEBIdProcessoJud,CadFpasProcDPIdProcessoJud);
+end;
+
+
+
+procedure CadastraFpasProc(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'FPAS X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadFpasProc(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPASPROC');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab',CadFpasProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadFpasProc();
+  
+  PreencheFpasProc();
+ 
+  ActSalvar(FormPadraoFpasProc);
+  ActFechar(FormPadraoFpasProc);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirFpasProc(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Processos Judiciais', 'FPAS X Processos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadFpasProc(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHFPASPROC');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab',CadFpasProcDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadFpasProc();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHFPASPROC');
+
+  ActFechar(FormPadraoFpasProc);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
