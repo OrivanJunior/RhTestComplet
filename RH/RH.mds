@@ -3205,7 +3205,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Informações Complementares" key="{B39EC81D-157F-4292-9572-42CE3DF2967C}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Informações Complementares" key="{B39EC81D-157F-4292-9572-42CE3DF2967C}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraInfoComp" key="{4F5A5183-201A-46B8-969F-69E4E8288835}" group="False" parallel="False" enabled="True" testMoniker="{469AAA69-5CFF-4D4F-AA89-7FCBD0BD38EA}CadastraInfoComp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3218,6 +3218,25 @@
 													<testItem name="ExcluirInfoComp" key="{5C0EA069-DDDE-4F3E-A7E5-468DF6D15089}" group="False" parallel="False" enabled="True" testMoniker="{469AAA69-5CFF-4D4F-AA89-7FCBD0BD38EA}ExcluirInfoComp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Informações Complementares\Informações Complementares.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Valores de Avulsos Não Portuários" key="{6C84A801-5C44-4098-93A5-9FCA999A04BB}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraAvulsos" key="{2BC6CB10-BB81-4B2A-934A-BAB8B4E50186}" group="False" parallel="False" enabled="True" testMoniker="{C4289B20-EDF2-414E-95BB-7532D290D16D}CadastraAvulsos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Valores de Avulsos Não Portuários\Valores de Avulsos Não Portuários.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirAvulsos" key="{B2193476-48F7-4E81-B523-0AF3C557A9A0}" group="False" parallel="False" enabled="True" testMoniker="{C4289B20-EDF2-414E-95BB-7532D290D16D}ExcluirAvulsos" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Valores de Avulsos Não Portuários\Valores de Avulsos Não Portuários.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

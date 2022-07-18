@@ -17,7 +17,7 @@ BtnOK,
 FormPadraoAvulsos,
 			
 CadAvulsosEBEstab,
-CadAvulsosEBIdlLocal,
+CadAvulsosEBIdLocal,
 CadAvulsosEBMes,
 CadAvulsosEBAno,
 CadAvulsosEBVRBCCP00,
@@ -31,7 +31,7 @@ CadAvulsosEBVRDESCCP		: oleVariant;
 procedure MapCadAvulsos();
 begin
 
-FormPadraoAvulsos  						  := Aliases.Folha.FFormPadraoRHTRABAVULSO.Click(254, 19);
+FormPadraoAvulsos  						  := Aliases.Folha.FFormPadraoRHTRABAVULSO;
 			
 CadAvulsosEBEstab  						  := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
 CadAvulsosEBIdLocal  					  := Aliases.Folha.FFormPadraoRHTRABAVULSO.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDLOCAL;

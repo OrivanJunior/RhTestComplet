@@ -22,11 +22,27 @@ VerificaInsere(CadAvulsosEBVRDESCCP,CadAvulsosDPVRDESCCP);
 
 end;
 
+procedure FiltraTelaInicialAvulsos();
+begin
+FiltroAvulsos();
+
+ListaConsultaAvulsos.SetText('Valores de Avulsos Não Portuários');
+FiltroLocal.Keys('(Ignorar)');
+FiltroMes.Keys('(Ignorar)');
+FiltroAno.Keys('(Ignorar)');
+FiltroEstab.Keys('(Ignorar)');
+BtnOK.Click;
+end;
+						
+
+
 procedure CadastraAvulsos(pathData);
 var
 DDTCadastrar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores de Avulsos Não Portuários');
+
+FiltraTelaInicialAvulsos();
 
 MapGridConsulta(_ModuloFolha);
 
@@ -59,6 +75,8 @@ var
 DDTExcluir : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Valores de Avulsos Não Portuários');
+
+FiltraTelaInicialAvulsos();
 
 MapGridConsulta(_ModuloFolha);
 
