@@ -1,0 +1,86 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolCompAnteriores, 
+  ObjCompAnteriores;
+
+
+procedure PreencheCompAnteriores();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadCompAntEBEstab,CadCompAntDPEstab);
+VerificaConsultaF3Insere(_ModuloFolha,CadCompAntEBIdProcesso,CadCompAntDPIdProcesso);
+VerificaInsere(CadCompAntEBMesPagto,CadCompAntDPMesPagto);
+VerificaInsere(CadCompAntEBAnoPagto,CadCompAntDPAnoPagto);
+VerificaInsere(CadCompAntEBMesRef,CadCompAntDPMesRef);
+VerificaInsere(CadCompAntEBAnoRef,CadCompAntDPAnoRef);
+end;
+
+
+procedure CadastraCompAnteriores(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Competências Anteriores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadCompAnteriores(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPGTOCOMPANT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estabelecimento',CadCompAntEBEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadCompAnteriores();
+  
+  PreencheCompAnteriores();
+ 
+  ActSalvar(FormPadraoCompAnt);
+  ActFechar(FormPadraoCompAnt);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirCompAnteriores(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Competências Anteriores');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadCompAnteriores(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHPGTOCOMPANT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estabelecimento',CadCompAntDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadCompAnteriores();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHPGTOCOMPANT');
+
+  ActFechar(FormPadraoCompAnt);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

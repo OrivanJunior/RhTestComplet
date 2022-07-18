@@ -1,0 +1,18 @@
+﻿var
+CadCompAntDPEstab,
+CadCompAntDPIdProcesso,
+CadCompAntDPMesPagto,
+CadCompAntDPAnoPagto,
+CadCompAntDPMesRef,
+CadCompAntDPAnoRef		:OleVariant;
+
+
+procedure LeDataPoolCadCompAnteriores(nomeDriver);
+begin
+CadCompAntDPEstab			    := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadCompAntDPIdProcesso	  := DDT.DriverByName(nomeDriver).Value('IDPROCESSO');
+CadCompAntDPAnoPagto	    := DDT.DriverByName(nomeDriver).Value('ANOPAGTO');
+CadCompAntDPMesPagto	    := DDT.DriverByName(nomeDriver).Value('MESPAGTO');
+CadCompAntDPMesRef		    := DDT.DriverByName(nomeDriver).Value('MESREF');
+CadCompAntDPAnoRef		    := DDT.DriverByName(nomeDriver).Value('ANOREF');
+end;

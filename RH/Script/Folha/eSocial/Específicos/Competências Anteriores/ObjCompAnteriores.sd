@@ -1,0 +1,26 @@
+﻿{Script para mapear o eSocial - Específicos - Competências Anteriores
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+ 
+
+var
+FormPadraoCompAnt,
+CadCompAntEBEstab,
+CadCompAntEBIdProcesso,
+CadCompAntEBMesPagto,
+CadCompAntEBAnoPagto,
+CadCompAntEBMesRef,
+CadCompAntEBAnoRef : OleVariant;
+
+
+procedure MapCadCompAnteriores();
+begin
+FormPadraoCompAnt  						:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT;
+CadCompAntEBEstab						  := Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadCompAntEBIdProcesso				:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDPROCESSO;
+CadCompAntEBMesPagto					:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MESPAGTO;
+CadCompAntEBAnoPagto					:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANOPAGTO;
+CadCompAntEBMesRef						:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MESREF;
+CadCompAntEBAnoRef						:= Aliases.Folha.FFormPadraoRHPGTOCOMPANT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANOREF;
+end;
