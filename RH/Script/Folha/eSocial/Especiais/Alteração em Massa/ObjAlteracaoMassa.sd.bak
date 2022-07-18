@@ -32,7 +32,11 @@ FormAltMassaDatas,
 FormAltMassaDados,
 FormAltMassaOpcAlt,
 FormAltMassaDataPagto, 
-FormAltMassaBtnCheck : OleVariant;
+FormAltMassaBtnCheck, 
+
+BtnExecutar,
+           
+BtnSalvar   : OleVariant;
 
 
 
@@ -66,15 +70,16 @@ FormAltMassaProcSelecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.ts
 FormAltMassaDatas 						    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas20;
 FormAltMassaDatas 						    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas30;
  
-FormAltMassaDados               := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados;
-FormAltMassaOpcAlt  						:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_OPCALT;
-FormAltMassaDataPagto  				  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_DATAPAGTO;
+FormAltMassaDados                 := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados;
+FormAltMassaOpcAlt  						  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_OPCALT;
+FormAltMassaDataPagto  				    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_DATAPAGTO;
   
-FormAltMassaBtnCheck            := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.cbSubDados;
+FormAltMassaBtnCheck              := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.cbSubDados;
+
+
+BtnExecutar                       := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.bExecutar;
+
+BtnSalvar                         := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.tbSalvar;
 end;
 
 
-procedure Test1;
-begin
-  Aliases.Folha.FRhProcAtuDataPgtoCalcBase.bExecutar.Click(14, 11);
-end;

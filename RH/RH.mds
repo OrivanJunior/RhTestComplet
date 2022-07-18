@@ -3102,7 +3102,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Específicos" key="{BACB30D6-08FC-4457-AEA7-7DCEBEC9CAB7}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Específicos" key="{BACB30D6-08FC-4457-AEA7-7DCEBEC9CAB7}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Estabelecimentos e Obras" key="{EC9DFBAB-19F3-4750-9D66-278A08F39DBC}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3281,7 +3281,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Processos Judiciais" key="{5C3C8D07-6FB6-49D6-971E-C83BB44AF08F}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Processos Judiciais" key="{5C3C8D07-6FB6-49D6-971E-C83BB44AF08F}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="Processos Judiciais" key="{32254751-8624-4A8A-AF55-158B9620A3B1}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3341,7 +3341,7 @@
 															</testItem>
 														</children>
 													</testItem>
-													<testItem name="RAT X Processos" key="{DA26E52D-FB65-43B7-9699-C8DFC8E08F66}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="RAT X Processos" key="{DA26E52D-FB65-43B7-9699-C8DFC8E08F66}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters />
 														<children>
 															<testItem name="CadastraRatProc" key="{2353A6E7-D627-4739-8D5A-731EE145AD1B}" group="False" parallel="False" enabled="True" testMoniker="{1B6AEEC6-B2FD-49F2-87BB-015A2E8EE88C}CadastraRatProc" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3359,6 +3359,23 @@
 																<children />
 															</testItem>
 														</children>
+													</testItem>
+												</children>
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Especiais" key="{A6DD4F2E-9D73-4F99-8F6A-A636F98D6470}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="Alteração em Massa" key="{D1E661C4-8CDE-444D-8B7E-C31FAA634E6D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="ExecutaAlteracaoMassa" key="{33E1B140-0CD4-4F41-8DFF-CE60C51B3BEF}" group="False" parallel="False" enabled="True" testMoniker="{99B5D1A2-CDCE-4AFB-8535-A201C784445C}ExecutaAlteracaoMassa" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Especiais\Alteração em Massa\Alteração em Massa.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
 													</testItem>
 												</children>
 											</testItem>

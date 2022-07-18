@@ -5,6 +5,7 @@
   DataPoolAlteracaoMassa, 
   ObjAlteracaoMassa;
  
+{Filtro Estab não minimiza}
 
 procedure FiltraEstab();
 begin
@@ -111,55 +112,34 @@ var
   DDTAltMassa: OleVariant;
 begin
   
-  AcessaItem
+  AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Alteração em Massa');
 
-  MapDARF();
+  MapCadAltMassa();
 
-  DDTDarf := CarregaDDT(pathData, 'Filtro');
+  DDTAltMassa := CarregaDDT(pathData, 'Filtro');
 
-  LeDataPoolDARF(DDTDarf.Name);
+  LeDataPoolAltMassa(DDTDarf.Name);
   
-  if (FiltroGerarSobre = 'E') then
-  begin
-    FiltraEstab();
+  FiltraEstab();
   
-    FiltraLocal();
+  FiltraEmpregados();
     
-    FiltraEmpregados();
-    
-    FiltraProcessamentos();
-  end
-  else
-  begin
-    FiltraEstab();
-  
-    FiltraLocal();
-    
-    FiltraProcessamentos();
-    
-    FiltraPrestadores();
-  end;
+  FiltraProcessos();
 
   FiltraData();
-
-  FiltraProcessamentos();
   
   DadosAdicionais();
 
-  btnExecutar.Click();
-  
-  while MensagemInativa do
-  begin      
+  BtnExecutar.Click();
+     
     if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 5000).Exists) then
     begin
       Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();     
       
       btnSalvar.Click();
-
-      FechaMensagemProcessoConcluido();
       
-      ActFechar(FormDARF);
+      ActFechar(FormPadraoAltMassa);
     
   end;  
-  DDT.CloseDriver(DDTDarf.Name);
+  DDT.CloseDriver(DDTAltMassa.Name);
 end;

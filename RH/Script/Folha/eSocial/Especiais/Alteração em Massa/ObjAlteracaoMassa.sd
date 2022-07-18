@@ -26,8 +26,8 @@ FormAltMassaProcEspecCampo,
 FormAltMassaProcSelec,
 FormAltMassaProcSelecCampo,
 
-FormAltMassaDatas,
-FormAltMassaDatas,
+FormAltMassaDataDtIni,	
+FormAltMassaDataDtFin, 
 
 FormAltMassaDados,
 FormAltMassaOpcAlt,
@@ -67,8 +67,8 @@ FormAltMassaProcEspecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.ts
 FormAltMassaProcSelec       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos40;
 FormAltMassaProcSelecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos80;
   
-FormAltMassaDatas 						    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas20;
-FormAltMassaDatas 						    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas30;
+FormAltMassaDataDtIni						  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas20;
+FormAltMassaDataDtFin 						:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas30;
  
 FormAltMassaDados                 := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados;
 FormAltMassaOpcAlt  						  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_OPCALT;
