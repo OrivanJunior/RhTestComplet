@@ -112,13 +112,13 @@ var
   DDTAltMassa: OleVariant;
 begin
   
-  AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Alteração em Massa');
+  AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Alterações em Massa');
 
   MapCadAltMassa();
 
   DDTAltMassa := CarregaDDT(pathData, 'Filtro');
 
-  LeDataPoolAltMassa(DDTDarf.Name);
+  LeDataPoolAltMassa(DDTAltMassa.Name);
   
   FiltraEstab();
   
@@ -131,15 +131,14 @@ begin
   DadosAdicionais();
 
   BtnExecutar.Click();
+  
+  btnSalvar.Click();
      
-    if (Aliases.Folha.WaitWindow('#32770', 'Processo Concluído ! ', 1, 5000).Exists) then
-    begin
-      Aliases.Folha.dlgProcessoConclu_do.btnOK.Click();     
-      
-      btnSalvar.Click();
+  
+  if Aliases.Folha.dlgAten_o.Exists then
+      Aliases.Folha.dlgAten_o.btnOK.ClickButton;   
       
       ActFechar(FormPadraoAltMassa);
-    
-  end;  
+       
   DDT.CloseDriver(DDTAltMassa.Name);
 end;
