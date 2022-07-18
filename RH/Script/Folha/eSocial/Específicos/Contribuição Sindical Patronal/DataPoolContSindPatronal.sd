@@ -1,0 +1,22 @@
+﻿var
+CadSindPatDPEstab,
+CadSindPatDPSequencial,
+CadSindPatDPTipo,
+CadSindPatDPMes,
+CadSindPatDPAno,
+CadSindPatDPIdSind,
+CadSindPatDPValor,
+CadSindPatDPCnpjContEmpSal : OleVariant;
+
+
+procedure LeDataPoolCadSindPat(nomeDriver);
+begin
+CadSindPatDPEstab  				  	:= DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadSindPatDPSequencial  			:= DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadSindPatDPTipo  					  := DDT.DriverByName(nomeDriver).Value('TIPO');
+CadSindPatDPMes  					    := DDT.DriverByName(nomeDriver).Value('MES');
+CadSindPatDPAno  					    := DDT.DriverByName(nomeDriver).Value('ANO');
+CadSindPatDPIdSind  				  := DDT.DriverByName(nomeDriver).Value('IDSIND');
+CadSindPatDPValor  					  := DDT.DriverByName(nomeDriver).Value('VALOR');
+CadSindPatDPCnpjContEmpSal		:= DDT.DriverByName(nomeDriver).Value('CNPJCONTEMPSAL');
+end;

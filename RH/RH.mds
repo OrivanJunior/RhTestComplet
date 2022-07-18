@@ -3243,7 +3243,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Competências Anteriores" key="{E6F78AB9-15E8-446E-983B-DFE34CD32AD9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Competências Anteriores" key="{E6F78AB9-15E8-446E-983B-DFE34CD32AD9}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="CadastraCompAnteriores" key="{43058F81-A53E-4376-9781-206039F886D4}" group="False" parallel="False" enabled="True" testMoniker="{B368AD27-FBA8-47B2-9391-59F1CCBDC216}CadastraCompAnteriores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3256,6 +3256,25 @@
 													<testItem name="ExcluirCompAnteriores" key="{E3999656-7357-40B7-9F4F-17C964998E58}" group="False" parallel="False" enabled="True" testMoniker="{B368AD27-FBA8-47B2-9391-59F1CCBDC216}ExcluirCompAnteriores" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Competências Anteriores\Competências Anteriores.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Contribuição Sindical Patronal" key="{776CC25D-E27C-41BC-89A2-F74D16A93124}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="CadastraSindPat" key="{DE74BC37-4378-47D9-9DE7-D112AAFCDF22}" group="False" parallel="False" enabled="True" testMoniker="{F75B2A7B-6ECA-4F92-898C-4B620F38CA75}CadastraSindPat" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Contribuição Sindical Patronal\Contribuição Sindical Patronal.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+													<testItem name="ExcluirSindPat" key="{9D8726E0-B962-4F4C-B80F-B1F0F7E909AF}" group="False" parallel="False" enabled="True" testMoniker="{F75B2A7B-6ECA-4F92-898C-4B620F38CA75}ExcluirSindPat" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Específicos\Contribuição Sindical Patronal\Contribuição Sindical Patronal.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

@@ -1,0 +1,86 @@
+﻿  uses 
+  CommonsAll, 
+  CommonsObj,
+  VarConsts, 
+  DataPoolContSindPatronal, 
+  ObjContSindPatronal;
+
+procedure PreencheSindPat();
+begin
+VerificaConsultaF3Insere(_ModuloFolha,CadSindPatEBEstab,CadSindPatDPEstab);	
+VerificaInsere(CadSindPatEBSequencial,CadSindPatDPSequencial);
+VerificaInsere(CadSindPatEBTipo,CadSindPatDPTipo);
+VerificaInsere(CadSindPatEBMes,CadSindPatDPMes);
+VerificaInsere(CadSindPatEBAno,CadSindPatDPAno);
+VerificaConsultaF3Insere(_ModuloFolha,CadSindPatEBIdSind,CadSindPatDPIdSind);
+VerificaInsere(CadSindPatEBValor,CadSindPatDPValor);	
+VerificaInsere(CadSindPatEBCnpjContEmpSal,CadSindPatDPCnpjContEmpSal);
+end;
+
+procedure CadastraSindPat(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Contribuição Sindical Patronal');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadSindPat(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONTSINDPAT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estabelecimento',CadSindPatDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadSindPat();
+  
+  PreencheSindPat();
+ 
+  ActSalvar(FormPadraoSindPat);
+  ActFechar(FormPadraoSindPat);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirSindPat(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Específicos', 'Contribuição Sindical Patronal');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadSindPat(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FFormPadraoRHCONTSINDPAT');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estabelecimento',CadSindPatDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadSindPat();
+
+  ActExcluir(_ModuloFolha, 'FFormPadraoRHCONTSINDPAT');
+
+  ActFechar(FormPadraoSindPat);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;

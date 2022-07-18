@@ -1,0 +1,46 @@
+﻿{Script para mapear o eSocial - Específicos - Contribuição Sindical Patronal
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+ 
+var
+FormFiltroSindPat,
+ListaConsultaSindPat,
+FiltroSindicato,
+BtnOk,
+
+FormPadraoSindPat,
+CadSindPatEBEstab,
+CadSindPatEBSequencial,
+CadSindPatEBTipo,
+CadSindPatEBMes,
+CadSindPatEBAno,
+CadSindPatEBIdSind,
+CadSindPatEBValor,
+CadSindPatEBCnpjContEmpSal :OleVariant;
+
+
+
+procedure FiltroSindPat();
+begin
+
+FormFiltroSindPat  		:= Aliases.Folha.FFiltroConsultaCDS;
+ListaConsultaSindPat  := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroSindicato  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb1;
+BtnOk		  			      := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+
+end; 
+
+procedure MapCadSindPat();
+begin
+
+FormPadraoSindPat  							:= Aliases.Folha.FFormPadraoRHCONTSINDPAT;
+CadSindPatEBEstab  							:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ESTAB;
+CadSindPatEBSequencial  				:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_SEQUENCIAL;
+CadSindPatEBTipo  							:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_TIPO;
+CadSindPatEBMes  							  := Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_MES;
+CadSindPatEBAno  							  := Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_ANO;
+CadSindPatEBIdSind  						:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_IDSIND;
+CadSindPatEBValor  							:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_VALOR;
+CadSindPatEBCnpjContEmpSal  		:= Aliases.Folha.FFormPadraoRHCONTSINDPAT.FFormPadraoCds_abPrinc.FFormPadraoCds_abPrinc_ts1.TScrollBox.EB_CNPJCONTEMPSAL;
+end;
