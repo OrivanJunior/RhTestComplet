@@ -1,0 +1,108 @@
+﻿{Script para mapear o eSocial - Envio e Protocolos
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+ 
+
+var
+FormPadraoProteSocial,
+
+CadProteSocialEBEstab,
+CadProteSocialEBSequencial,
+CadProteSocialEBEvento,
+CadProteSocialEBCodigo,
+CadProteSocialEBMes,
+CadProteSocialEBAno,
+CadProteSocialEBPrestador,
+CadProteSocialEBIndApuracao,
+CadProteSocialEBTipo,
+CadProteSocialEBAmbiente,
+CadProteSocialEBCdResposta,
+CadProteSocialEBIdxml,
+CadProteSocialEBProtocoloEnv,
+CadProteSocialEBProtocoloCons,
+CadProteSocialEBEventoRet,
+CadProteSocialEBProtocoloRet,
+CadProteSocialEBChave,
+CadProteSocialEBDataHoraEnv,
+CadProteSocialEBHora,
+CadProteSocialEBIniValid,
+CadProteSocialEBDataIniafast,
+CadProteSocialEBDataFinAfast,
+CadProteSocialEBTipoEnvAfast,
+CadProteSocialEBDtAlteracao,
+ 
+FormFiltroEnvProt,
+ListaConsultaProteSocial,
+FiltroEstab,
+FiltroEvento,
+FiltroCod,
+FiltroAno,
+FiltroMes,
+FiltroData,
+FiltroPrestador,
+FiltroTipo,
+FiltroAmbiente,
+FiltroIndicativo,
+FiltroCodResposta,
+FiltroChave,
+
+BtnOK,
+BtnAbrirVazio,
+BtnCancelar			: OleVariant;
+
+
+procedure FiltroProteSocial();
+begin
+FormFiltroProteSocial  	:= Aliases.Folha.FFiltroConsultaCDS;
+
+ListaConsultaProteSocial := Aliases.Folha.FFiltroConsultaCDS.grpConsulta.cbListaConsultas;
+FiltroEstab  		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb8;
+FiltroEvento  		  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb2;
+FiltroCod  			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb11;
+FiltroAno  			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb10;
+FiltroMes  			    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb9;
+FiltroData  		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb7;
+FiltroPrestador  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb13;
+FiltroTipo  		    := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb3;
+FiltroAmbiente  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb4;
+FiltroIndicativo  	:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb12;
+FiltroCodResposta  	:= Aliases.Folha.FFiltroConsultaCDS.PanComp.cb5;
+FiltroChave		  	  := Aliases.Folha.FFiltroConsultaCDS.PanComp.cb6;
+
+BtnOK				        := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bOK;
+BtnAbrirVazio		    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bAbrirVazio;
+BtnCancelar			    := Aliases.Folha.FFiltroConsultaCDS.pnlBotao.bCancelar;
+end;
+
+
+procedure MapCadProteSocial();
+begin
+FormPadraoProteSocial  						:= Aliases.Folha.FRhProteSocial;
+
+CadProteSocialEBEstab						  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_ESTAB;
+CadProteSocialEBSequencial				:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_SEQUENCIAL;
+CadProteSocialEBEvento						:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_EVENTO;
+CadProteSocialEBCodigo						:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_CODIGO;
+CadProteSocialEBMes							  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_MES;
+CadProteSocialEBAno							  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_ANO;
+CadProteSocialEBPrestador					:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_PRESTADOR;
+CadProteSocialEBIndApuracao				:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_INDAPURACAO;
+CadProteSocialEBTipo						  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_TIPO;
+CadProteSocialEBAmbiente					:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_AMBIENTE;
+CadProteSocialEBCdResposta				:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_CDRESPOSTA;
+CadProteSocialEBIdxml						  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_IDXML;
+CadProteSocialEBProtocoloEnv			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_PROTOCOLOENV;
+CadProteSocialEBProtocoloCons			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_PROTOCOLOCONS;
+CadProteSocialEBEventoRet					:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_EVENTORET;
+CadProteSocialEBProtocoloRet			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_PROTOCOLORET;
+CadProteSocialEBChave						  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_CHAVE;
+CadProteSocialEBDataHoraEnv				:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_DATAHORAENV;
+CadProteSocialEBHora						  := Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.TVsHora;
+CadProteSocialEBIniValid			  	:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_INIVALID;
+CadProteSocialEBDataIniafast			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_DATAINIAFAST;
+CadProteSocialEBDataFinAfast			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_DATAFINAFAST;
+CadProteSocialEBTipoEnvAfast			:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_TIPOENVAFAST;
+CadProteSocialEBDtAlteracao				:= Aliases.Folha.FRhProteSocial.Page.TabNormal.ScrollBox1.EB_DTALTERACAO;
+
+end;

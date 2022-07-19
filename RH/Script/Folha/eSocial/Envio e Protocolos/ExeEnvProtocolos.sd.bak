@@ -1,0 +1,105 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolEnvProtocolos, 
+  ObjEnvProtocolos;
+
+procedure PreencheProteSocial();
+begin
+
+VerificaConsultaF3Insere(_ModuloFolha,CadProteSocialEBEstab,CadProteSocialDPEstab);			
+VerificaInsere(CadProteSocialEBSequencial,CadProteSocialDPSequencial);
+VerificaInsere(CadProteSocialEBEvento,CadProteSocialDPEvento);
+VerificaInsere(CadProteSocialEBCodigo,CadProteSocialDPCodigo);
+VerificaInsere(CadProteSocialEBMes,CadProteSocialDPMes);
+VerificaInsere(CadProteSocialEBAno,CadProteSocialDPAno);
+VerificaInsere(CadProteSocialEBPrestador,CadProteSocialDPPrestador);
+VerificaInsere(CadProteSocialEBIndApuracao,CadProteSocialDPIndApuracao);
+VerificaInsere(CadProteSocialEBTipo,CadProteSocialDPTipo);
+VerificaInsere(CadProteSocialEBAmbiente,CadProteSocialDPAmbiente);
+VerificaInsere(CadProteSocialEBCdResposta,CadProteSocialDPCdResposta);
+VerificaInsere(CadProteSocialEBIdxml,CadProteSocialDPIdxml);
+VerificaInsere(CadProteSocialEBProtocoloEnv	,CadProteSocialDPProtocoloEnv);
+VerificaInsere(CadProteSocialEBProtocoloCons,CadProteSocialDPProtocoloCons);
+VerificaInsere(CadProteSocialEBEventoRet,CadProteSocialDPEventoRet);
+VerificaInsere(CadProteSocialEBProtocoloRet,CadProteSocialDPProtocoloRet);
+VerificaInsere(CadProteSocialEBChave,CadProteSocialDPChave);
+PreencheDatas(CadProteSocialEBDataHoraEnv,CadProteSocialDPDataHoraEnv);
+VerificaInsere(CadProteSocialEBHora,CadProteSocialDPHora);
+VerificaInsere(CadProteSocialEBIniValid,CadProteSocialDPIniValid);
+PreencheDatas(CadProteSocialEBDataIniafast,CadProteSocialDPDataIniafast);
+PreencheDatas(CadProteSocialEBDataFinAfast,CadProteSocialDPDataFinAfast);
+VerificaInsere(CadProteSocialEBTipoEnvAfast,CadProteSocialDPTipoEnvAfast);
+PreencheDatas(CadProteSocialEBDtAlteracao,CadProteSocialDPDtAlteracao);
+end;
+
+procedure CadastraProteSocial(pathData);
+var
+DDTCadastrar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Envio e Protocolos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTCadastrar := CarregaDDT(pathData, _Cadastrar);
+
+LeDataPoolCadProteSocial(DDTCadastrar.Name);
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhProteSocial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.',CadProteSocialDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount < 1) then
+  begin
+  
+  ActIncluir(FormTelaConsultaForm);
+  
+  MapCadProteSocial();
+  
+  PreencheProteSocial();
+  
+  ActSalvar(FormPadraoProteSocial);
+  ActFechar(FormPadraoProteSocial);
+  end;
+  ActFechar(FormTelaConsultaForm);
+  DDT.CloseDriver(DDTCadastrar.Name);
+end;
+
+procedure ExcluirProteSocial(PathData);
+var
+DDTExcluir : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Envio e Protocolos');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTExcluir := CarregaDDT(PathData, _Excluir);
+
+LeDataPoolCadProteSocial(DDTExcluir.Name);
+
+While not DDTExcluir.EOF do
+begin
+
+ if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+    ValidaFormAberto(_ModuloFolha, 'FRhProteSocial');
+  
+  FiltraGrid(_ModuloFolha, 'FBRowseCds', 'BGrid', 'Estab.', CadProteSocialDPEstab);
+  if (FormTelaConsultaGrid.ActiveView.ViewData.RowCount = 1) then
+  begin  
+  
+  ActConsulta(FormTelaConsultaForm);
+  
+  MapCadProteSocial();
+
+  ActExcluir(_ModuloFolha, 'FRhProteSocial');
+
+  ActFechar(FormPadraoProteSocial);
+  end;
+  DDTExcluir.Next;
+end;
+ActFechar(FormTelaConsultaForm);
+DDT.CloseDriver(DDTExcluir.Name);
+end;
+
+

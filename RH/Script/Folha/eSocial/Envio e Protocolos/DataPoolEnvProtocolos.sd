@@ -1,0 +1,54 @@
+﻿var
+CadProteSocialDPEstab,
+CadProteSocialDPSequencial,
+CadProteSocialDPEvento,
+CadProteSocialDPCodigo,
+CadProteSocialDPMes,
+CadProteSocialDPAno,
+CadProteSocialDPPrestador,
+CadProteSocialDPIndApuracao,
+CadProteSocialDPTipo,
+CadProteSocialDPAmbiente,
+CadProteSocialDPCdResposta,
+CadProteSocialDPIdxml,
+CadProteSocialDPProtocoloEnv,
+CadProteSocialDPProtocoloCons,
+CadProteSocialDPEventoRet,
+CadProteSocialDPProtocoloRet,
+CadProteSocialDPChave,
+CadProteSocialDPDataHoraEnv,
+CadProteSocialDPHora,
+CadProteSocialDPIniValid,
+CadProteSocialDPDataIniafast,
+CadProteSocialDPDataFinAfast,
+CadProteSocialDPTipoEnvAfast,
+CadProteSocialDPDtAlteracao :OleVariant;
+
+procedure LeDataPoolCadProteSocial(nomeDriver);
+begin
+
+CadProteSocialDPEstab				        := DDT.DriverByName(nomeDriver).Value('ESTAB');
+CadProteSocialDPSequencial          := DDT.DriverByName(nomeDriver).Value('SEQUENCIAL');
+CadProteSocialDPEvento              := DDT.DriverByName(nomeDriver).Value('EVENTO');
+CadProteSocialDPCodigo              := DDT.DriverByName(nomeDriver).Value('CODIGO');
+CadProteSocialDPMes                 := DDT.DriverByName(nomeDriver).Value('MES');
+CadProteSocialDPAno                 := DDT.DriverByName(nomeDriver).Value('ANO');
+CadProteSocialDPPrestador           := DDT.DriverByName(nomeDriver).Value('PRESTADOR');
+CadProteSocialDPIndApuracao         := DDT.DriverByName(nomeDriver).Value('INDAPURACAO');
+CadProteSocialDPTipo                := DDT.DriverByName(nomeDriver).Value('TIPO');
+CadProteSocialDPAmbiente            := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+CadProteSocialDPCdResposta          := DDT.DriverByName(nomeDriver).Value('CDRESPOSTA');
+CadProteSocialDPIdxml               := DDT.DriverByName(nomeDriver).Value('IDXML');
+CadProteSocialDPProtocoloEnv        := DDT.DriverByName(nomeDriver).Value('PROTOCOLOENV');
+CadProteSocialDPProtocoloCons       := DDT.DriverByName(nomeDriver).Value('PROTOCOLOCONS');
+CadProteSocialDPEventoRet           := DDT.DriverByName(nomeDriver).Value('EVENTORET');
+CadProteSocialDPProtocoloRet        := DDT.DriverByName(nomeDriver).Value('PROTOCOLORET');
+CadProteSocialDPChave               := DDT.DriverByName(nomeDriver).Value('CHAVE');
+CadProteSocialDPDataHoraEnv         := DDT.DriverByName(nomeDriver).Value('DATAHORAENV');
+CadProteSocialDPHora                := DDT.DriverByName(nomeDriver).Value('HORA');
+CadProteSocialDPIniValid            := DDT.DriverByName(nomeDriver).Value('INIVALID');
+CadProteSocialDPDataIniafast        := DDT.DriverByName(nomeDriver).Value('DATAINIAFAST');
+CadProteSocialDPDataFinAfast        := DDT.DriverByName(nomeDriver).Value('DATAFINAFAST');
+CadProteSocialDPTipoEnvAfast        := DDT.DriverByName(nomeDriver).Value('TIPOENVAFAST');
+CadProteSocialDPDtAlteracao         := DDT.DriverByName(nomeDriver).Value('DTALTERACAO');
+end;

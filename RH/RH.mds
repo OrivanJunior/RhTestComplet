@@ -3405,7 +3405,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Relatórios" key="{15A04990-3388-49FB-9A1F-0675D4D75B3D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Relatórios" key="{15A04990-3388-49FB-9A1F-0675D4D75B3D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Contribuições Sociais" key="{CD3871F7-E794-4A3D-9F99-C9917EC62A40}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3432,7 +3432,7 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="IRRF" key="{5FB17FF3-452E-4837-BFB0-1D1CCAD0E7AF}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="IRRF" key="{5FB17FF3-452E-4837-BFB0-1D1CCAD0E7AF}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="ExecutaIRRF" key="{4722E225-F622-4164-AD90-0DF5B8BC5381}" group="False" parallel="False" enabled="True" testMoniker="{6A189D02-9600-4465-B072-74F156D0FE09}ExecutaIRRF" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3443,6 +3443,25 @@
 														<children />
 													</testItem>
 												</children>
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Envio e Protocolos" key="{42161E43-2422-413A-BF6C-4E18260B37B9}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="CadastraProteSocial" key="{D08AA723-F5FE-4A45-8150-08D8E8961016}" group="False" parallel="False" enabled="True" testMoniker="{5C850385-C799-467E-B2B5-928BAA5EEC68}CadastraProteSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters>
+													<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Envio e Protocolos\Envio e Protocolos.xls" />
+												</testParameters>
+												<environments activeCloud="CBT" />
+												<children />
+											</testItem>
+											<testItem name="ExcluirProteSocial" key="{AC14DC35-7A22-445B-BECC-C9C1B88BD556}" group="False" parallel="False" enabled="True" testMoniker="{5C850385-C799-467E-B2B5-928BAA5EEC68}ExcluirProteSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters>
+													<param0 name="PathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Envio e Protocolos\Envio e Protocolos.xls" />
+												</testParameters>
+												<environments activeCloud="CBT" />
+												<children />
 											</testItem>
 										</children>
 									</testItem>
