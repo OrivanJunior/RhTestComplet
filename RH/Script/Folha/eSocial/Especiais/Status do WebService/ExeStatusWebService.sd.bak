@@ -1,0 +1,16 @@
+﻿{Script para mapear o eSocial - Especiais - Status do WebService
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts;
+ 
+procedure ConsultaWebService();
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Status do WebService' );
+
+ActFechar(Aliases.Folha.FRhProceSocialStatusWebService);
+
+end;

@@ -3379,12 +3379,24 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Registros Iniciais Não Enviados" key="{47E5AE7A-4C42-4B4F-A6BB-6A0825B04C00}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Registros Iniciais Não Enviados" key="{47E5AE7A-4C42-4B4F-A6BB-6A0825B04C00}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
 													<testItem name="ConsultaRegNaoEnv" key="{E5ACFDD5-D08E-4908-8DBC-7D867D3D6043}" group="False" parallel="False" enabled="True" testMoniker="{094B00A2-B925-4E44-96AF-9ADF03DC899D}ConsultaRegNaoEnv" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Especiais\Registros Iniciais Não Enviados\Registros Iniciais Não Enviados.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Status do WebService" key="{1774FC73-0918-4203-BE1C-037F49C925CE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="ConsultaWebService" key="{60845E53-0830-4575-941C-8325E4D6C210}" group="False" parallel="False" enabled="True" testMoniker="{6B9B6F38-77BA-449E-BF2C-B0EB432BAEF4}ConsultaWebService" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="11" value="True" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />
