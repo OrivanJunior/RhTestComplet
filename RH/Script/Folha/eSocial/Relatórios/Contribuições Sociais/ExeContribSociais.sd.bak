@@ -124,12 +124,12 @@ begin
   Aliases.Folha.ppPrintPreview.Close; 
   end; 
   
-  if (Aliases.Folha.FVsErrorDlg.Exists) then
-  begin
-  Log.Warning('Não há registros');
-  BtnOK := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
-  BtnOK.ClickButton;
-  end;
+//  if Aliases.Folha.FVsErrorDlg.Exists then
+//  begin
+//  Log.Warning('Não há registros');
+//  BtnOK := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+//  BtnOK.ClickButton;
+//  end;
  
 
   ActFechar(FormPadraoContribSoc);

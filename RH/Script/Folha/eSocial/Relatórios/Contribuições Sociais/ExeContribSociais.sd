@@ -33,8 +33,6 @@ begin
     Log.Checkpoint('Selecionado Estabelecimentos - Todos');
   end;
 end;
-
- 
  
 procedure FiltraPessoas();
 begin
@@ -59,7 +57,6 @@ begin
     Log.Checkpoint('Selecionado Pessoas - Todos');
   end;
 end;
-
 
 procedure FiltraPrestadores();
 begin
@@ -91,8 +88,6 @@ VerificaInsere(FormDadosTipo,FiltroDadosTipo);
 VerificaInsere(FormDadosOrdem,FiltroDadosOrdem);
 VerificaInsere(FormDadosMesAno,FiltroDadosMesAno);
 end;
-
-
 
 procedure ExecutaContribSocial(pathData);
 var

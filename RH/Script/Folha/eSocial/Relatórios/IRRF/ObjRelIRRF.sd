@@ -1,0 +1,71 @@
+﻿{Script para mapear o eSocial - Relatórios - IRRF
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+ 
+
+var
+
+FormPadraoRelIrrf,
+
+FormRelIrrfEstabEspec,
+FormRelIrrfEstabEspecCampo,
+FormRelIrrfEstabTodosEmp,
+FormRelIrrfEstabTodosEmpCampo,
+FormRelIrrfEstabTodos,
+FormRelIrrfEstabSelec,
+FormRelIrrfEstabSelecCampo,
+
+FormRelIrrfEmpreTodos,
+FormRelIrrfEmpreEspec,
+FormRelIrrfEmpreEspecCampo,
+FormRelIrrfEmpreSelec,
+FormRelIrrfEmpreSelecCampo,
+
+FormRelIrrfPrestTodos,
+FormRelIrrfPrestEspec,
+FormRelIrrfPrestEspecCampo,
+FormRelIrrfPrestSelec,
+FormRelIrrfPrestSelecCampo,
+
+FormDadosTipo,
+FormDadosMesAno,
+FormDadosOrdem,
+  
+BtnPesquisar : OleVariant;
+
+
+procedure MapCadRelIrrf();
+begin
+FormPadraoRelIrrf 					    := Aliases.Folha.FRhRelContribIRRFeSocial;
+
+FormRelIrrfEstabEspec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs40;
+FormRelIrrfEstabEspecCampo 			:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs80;
+FormRelIrrfEstabTodosEmp  			:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs50;
+FormRelIrrfEstabTodosEmpCampo		:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs100;
+FormRelIrrfEstabTodos  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs120;
+FormRelIrrfEstabSelec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs70;
+FormRelIrrfEstabSelecCampo  		:= Aliases.Folha.FRhRelContribIRRFeSocial.whEstabs.whEstabs60;
+
+FormRelIrrfEmpreTodos  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas30;
+FormRelIrrfEmpreEspec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas20;
+FormRelIrrfEmpreEspecCampo  		:= Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas50;
+FormRelIrrfEmpreSelec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas40;
+FormRelIrrfEmpreSelecCampo  		:= Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas80;
+
+FormRelIrrfPrestTodos  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador30;
+FormRelIrrfPrestEspec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador20;
+FormRelIrrfPrestEspecCampo  		:= Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador50;
+FormRelIrrfPrestSelec  					:= Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador40;
+FormRelIrrfPrestSelecCampo  		:= Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador80;
+                 
+FormDadosTipo  						      := Aliases.Folha.FRhRelContribIRRFeSocial.GroupBox1.EB_TIPO;
+FormDadosMesAno  						    := Aliases.Folha.FRhRelContribIRRFeSocial.GroupBox1.EB_MESANO;
+FormDadosOrdem  						    := Aliases.Folha.FRhRelContribIRRFeSocial.GroupBox1.EB_ORDEM;
+  
+BtnPesquisar							      := Aliases.Folha.FRhRelContribIRRFeSocial.BPreview;
+  
+end;
+
+
+

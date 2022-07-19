@@ -1,0 +1,36 @@
+﻿var
+FiltroEstabTipo,
+FiltroEstabValor,
+               
+FiltroEmpreTipo,
+FiltroEmpreValor,               
+
+FiltroPrestTipo, 
+FiltroPrestValor,               
+
+FiltroDadosTipo,
+FiltroDadosMesAno,
+FiltroDadosOrdem  : OleVariant;
+
+
+procedure LeDataPoolCadRelIrrf(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+  { Filtro Dados Prestadores }
+  
+  FiltroPrestTipo := DDT.DriverByName(nomeDriver).Value('TIPOPRESTADOR');
+  FiltroPrestValor:= DDT.DriverByName(nomeDriver).Value('PRESTADORVALOR');
+  
+  { Filtro Dados Adicionais }
+  FiltroDadosTipo  := DDT.DriverByName(nomeDriver).Value('TIPO');
+  FiltroDadosMesAno:= DDT.DriverByName(nomeDriver).Value('MESANO');
+  FiltroDadosOrdem := DDT.DriverByName(nomeDriver).Value('ORDEM');
+
+end;

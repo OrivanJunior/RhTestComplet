@@ -1,0 +1,121 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolRelIRRF, 
+  ObjRelIRRF;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormRelIrrfEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRelIrrfEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormRelIrrfEstabTodosEmp.ClickButton;
+    VerificaInsere(FormRelIrrfEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormRelIrrfEstabSelec.ClickButton;
+    VerificaInsere(FormRelIrrfEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormRelIrrfEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+ 
+procedure FiltraPessoas();
+begin
+  if (FormRelIrrfEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelContribIRRFeSocial.whPessoas.whPessoas10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormRelIrrfEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRelIrrfEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Pessoas - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormRelIrrfEmpreSelec.ClickButton;
+    VerificaInsere(FormRelIrrfEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Pessoas- Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormRelIrrfEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Pessoas - Todos');
+  end;
+end;
+
+procedure FiltraPrestadores();
+begin
+  if (FormRelIrrfPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelContribIRRFeSocial.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormRelIrrfPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormRelIrrfPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormRelIrrfPrestSelec.ClickButton;
+    VerificaInsere(FormRelIrrfPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormRelIrrfPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure FiltraDadosAdicionais();
+begin
+VerificaInsere(FormDadosTipo,FiltroDadosTipo);
+VerificaInsere(FormDadosMesAno,FiltroDadosMesAno);
+VerificaInsere(FormDadosOrdem,FiltroDadosOrdem);
+end;
+
+
+
+procedure ExecutaIRRF(pathData);
+var
+  DDTRelIrrf: OleVariant;
+begin
+  
+  AcessaItem(_ModuloFolha, 'eSocial', 'Relatórios', 'IRRF');
+
+  MapCadContribSocCons();
+
+  DDTRelIrrf := CarregaDDT(pathData, 'Filtro');
+
+  LeDataPoolCadRelIrrf(DDTRelIrrf.Name);
+  
+  FiltraEstab();
+  
+  FiltraDadosAdicionais();
+
+  BtnPesquisar.Click();
+  
+  
+  if (Aliases.Folha.ppPrintPreview.Exists) then
+  begin 
+  Delay(200);
+  Aliases.Folha.ppPrintPreview.Close;
+  end;
+  
+  ActFechar(FormPadraoRelIrrf);
+       
+  DDT.CloseDriver(DDTRelIrrf.Name);
+end;
