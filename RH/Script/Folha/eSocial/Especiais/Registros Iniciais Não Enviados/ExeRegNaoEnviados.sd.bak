@@ -49,7 +49,7 @@ MapGridConsulta(_ModuloFolha);
 
 DDTConsultar := CarregaDDT(pathData, _Consultar);
 
-LeDataPoolCadRegNaoEnv(DDTCadastrar.Name);
+LeDataPoolCadRegNaoEnv(DDTConsultar.Name);
   
 MapCadRegNaoEnviados();
 

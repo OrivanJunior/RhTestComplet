@@ -45,8 +45,6 @@ DDTConsultar : OleVariant;
 begin
 AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Registros Iniciais Não Enviados');
 
-MapGridConsulta(_ModuloFolha);
-
 DDTConsultar := CarregaDDT(pathData, _Consultar);
 
 LeDataPoolCadRegNaoEnv(DDTConsultar.Name);
