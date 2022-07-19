@@ -1,0 +1,30 @@
+﻿{Script para mapear o eSocial - Especiais - Registros Iniciais Não Enviados
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+ 
+
+procedure MapCadRegNaoEnviados();
+begin
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.Click(149, 9);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.Click(77, 10);
+  
+FiltroRegistro  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.gbFiltro10.Click(6, 4);
+  
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.EB_ESTAB_REGNAOENV.Click(64, 5);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.EB_EVENTOESOCIAL_REGNAOENV.Click(68, 10);
+  
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.btBuscarNaoEnv.ClickButton;
+  
+
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.gbFiltros10.Click(5, 7);
+  
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB.Click(72, 8);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL.Click(57, 12);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL.Click(56, 7);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE.DblClick(49, 11);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_TIPO.DblClick(43, 12);
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL.Click(35, 11);
+  
+  Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.btBuscar.ClickButton;
+end;

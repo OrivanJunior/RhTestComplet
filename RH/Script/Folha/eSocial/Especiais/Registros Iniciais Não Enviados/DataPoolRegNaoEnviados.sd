@@ -1,0 +1,21 @@
+﻿var
+CadRegNaoEnvDPEstabReg,
+CadRegNaoEnvDPEventoReg,
+CadRegNaoEnvDPEstabCons,
+CadRegNaoEnvDPDataHoraInicial,
+CadRegNaoEnvDPDataHoraFinal,
+CadRegNaoEnvDPAmbiente,
+CadRegNaoEnvDPTipo,
+CadRegNaoEnvDPEventoeSocial  : OleVariant;
+
+procedure LeDataPoolCadRegNaoEnv(nomeDriver);
+begin
+CadRegNaoEnvDPEstabReg			    := DDT.DriverByName(nomeDriver).Value('ESTABREG');
+CadRegNaoEnvDPEventoReg         := DDT.DriverByName(nomeDriver).Value('EVENTOREG');
+CadRegNaoEnvDPEstabCons			    := DDT.DriverByName(nomeDriver).Value('ESTABCONS');
+CadRegNaoEnvDPDataHoraInicial  	:= DDT.DriverByName(nomeDriver).Value('DATAHORAINICIAL');
+CadRegNaoEnvDPDataHoraFinal  	  := DDT.DriverByName(nomeDriver).Value('DATAHORAFINAL');
+CadRegNaoEnvDPAmbiente  		    := DDT.DriverByName(nomeDriver).Value('AMBIENTE');
+CadRegNaoEnvDPTipo  			      := DDT.DriverByName(nomeDriver).Value('TIPO');
+CadRegNaoEnvDPEventoeSocial  	  := DDT.DriverByName(nomeDriver).Value('EVENTOESOCIAL');
+end;

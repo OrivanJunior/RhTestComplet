@@ -1,0 +1,53 @@
+﻿{Script para mapear o eSocial - Especiais - Registros Iniciais Não Enviados
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+var
+
+FormPadraoRegNaoEnv,
+PageTabNormal,
+  
+FiltroRegistro,
+  
+CadRegNaoEnvEBEstabReg,
+CadRegNaoEnvEBEventoReg,
+
+BtnBuscarNaoEnv,
+  
+
+FiltroConsulta,
+  
+CadRegNaoEnvEBEstabCons,
+CadRegNaoEnvEBDataHoraInicial,
+CadRegNaoEnvEBDataHoraFinal,
+CadRegNaoEnvEBAmbiente,
+CadRegNaoEnvEBTipo,
+CadRegNaoEnvEBEventoeSocial,
+  
+BtnBuscarConsulta :OleVariant;
+
+procedure MapCadRegNaoEnviados();
+begin
+FormPadraoRegNaoEnv  				  := Aliases.Folha.FRhProceSocialRegIniNaoEnv;
+PageTabNormal  						    := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao;
+  
+FiltroRegistro  					    := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.gbFiltro10;
+  
+CadRegNaoEnvEBEstabReg				:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.EB_ESTAB_REGNAOENV;
+CadRegNaoEnvEBEventoReg 			:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.EB_EVENTOESOCIAL_REGNAOENV;
+
+BtnBuscarNaoEnv						    := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsPrincipal.gbFiltro.btBuscarNaoEnv;
+  
+
+FiltroConsulta  					    := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.gbFiltros10;
+  
+CadRegNaoEnvEBEstabCons				:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_ESTAB;
+CadRegNaoEnvEBDataHoraInicial := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAINICIAL;
+CadRegNaoEnvEBDataHoraFinal  	:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_DATAHORAFINAL;
+CadRegNaoEnvEBAmbiente  			:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_AMBIENTE;
+CadRegNaoEnvEBTipo  				  := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_TIPO;
+CadRegNaoEnvEBEventoeSocial  	:= Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.EB_EVENTOESOCIAL;
+  
+BtnBuscarConsulta					    := Aliases.Folha.FRhProceSocialRegIniNaoEnv.pgPadrao.tsConsulta.gbFiltros.btBuscar;
+
+end;

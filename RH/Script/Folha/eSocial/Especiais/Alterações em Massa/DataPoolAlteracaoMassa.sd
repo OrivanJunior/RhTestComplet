@@ -1,0 +1,39 @@
+﻿var
+FiltroEstabTipo,
+FiltroEstabValor,
+               
+FiltroEmpreTipo,
+FiltroEmpreValor,               
+
+FiltroProcTipo, 
+FiltroProcValor,               
+
+FiltroDataIni,  
+FiltroDataFin,               
+
+FiltroOpcAlt,   
+FiltroDataPagto : OleVariant;
+
+procedure LeDataPoolAltMassa(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo  := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+    
+  { Filtro Empregados }
+  FiltroEmpreTipo  := DDT.DriverByName(nomeDriver).Value('TIPOEMPREGADO');
+  FiltroEmpreValor := DDT.DriverByName(nomeDriver).Value('EMPREGADOVALOR');
+    
+  { Filtro Processamentos }
+  FiltroProcTipo   := DDT.DriverByName(nomeDriver).Value('TIPOPROC');
+  FiltroProcValor  := DDT.DriverByName(nomeDriver).Value('PROCVALOR');
+    
+  { Filtro Datas }
+  FiltroDataIni    := DDT.DriverByName(nomeDriver).Value('DATAINI');
+  FiltroDataFin    := DDT.DriverByName(nomeDriver).Value('DATAFIN');
+    
+  { Filtro Dados Adicionais }
+  FiltroOpcAlt     := DDT.DriverByName(nomeDriver).Value('OPCALT');
+  FiltroDataPagto  := DDT.DriverByName(nomeDriver).Value('DATAPAGTO');
+
+end;

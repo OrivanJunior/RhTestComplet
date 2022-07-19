@@ -1,0 +1,62 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolRegNaoEnviados, 
+  ObjRegNaoEnviados;
+  
+  
+procedure PreencheRegistro();
+begin
+
+PageTabNormal.ActivePageIndex :=0;
+
+if (FiltroRegistro.Minimizado = True) then
+FiltroRegistro.Click;
+
+VerificaConsultaF3Insere(_ModuloFolha,CadRegNaoEnvEBEstabReg,CadRegNaoEnvDPEstabReg);
+VerificaInsere(CadRegNaoEnvEBEventoReg,CadRegNaoEnvDPEventoReg);
+
+BtnBuscarNaoEnv.ClickButton;
+end;
+  
+procedure PreencheConsultaEve();
+begin
+
+PageTabNormal.ActivePageIndex :=1;
+
+if (FiltroConsulta.Minimizado = True) then
+FiltroConsulta.Click;
+
+VerificaConsultaF3Insere(_ModuloFolha,CadRegNaoEnvEBEstabCons,CadRegNaoEnvDPEstabCons);
+PreencheDatas(CadRegNaoEnvEBDataHoraInicial,CadRegNaoEnvDPDataHoraInicial);
+PreencheDatas(CadRegNaoEnvEBDataHoraFinal,CadRegNaoEnvDPDataHoraFinal);
+VerificaInsere(CadRegNaoEnvEBAmbiente,CadRegNaoEnvDPAmbiente);
+VerificaInsere(CadRegNaoEnvEBTipo,CadRegNaoEnvDPTipo);
+VerificaInsere(CadRegNaoEnvEBEventoeSocial,CadRegNaoEnvDPEventoeSocial);
+
+BtnBuscarConsulta.ClickButton;
+end;
+
+
+procedure ConsultaRegNaoEnv(pathData);
+var
+DDTConsultar : OleVariant;
+begin
+AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Registros Iniciais Não Enviados');
+
+MapGridConsulta(_ModuloFolha);
+
+DDTConsultar := CarregaDDT(pathData, _Consultar);
+
+LeDataPoolCadRegNaoEnv(DDTConsultar.Name);
+  
+MapCadRegNaoEnviados();
+
+PreencheRegistro();
+PreencheConsultaEve();
+
+ActFechar(FormPadraoRegNaoEnv);
+
+DDT.CloseDriver(DDTConsultar.Name);
+end;

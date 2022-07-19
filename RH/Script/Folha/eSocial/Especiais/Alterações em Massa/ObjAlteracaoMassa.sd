@@ -1,0 +1,85 @@
+﻿{Script para mapear o eSocial - Especiais - Alteração em Massa
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 18/07/2022}
+
+var
+FormPadraoAltMassa,
+
+FormAltMassaEstabEspec,
+FormAltMassaEstabEspecCampo,
+FormAltMassaEstabTodosEmp,
+FormAltMassaEstabTodosEmpCampo,
+FormAltMassaEstabTodos,   
+FormAltMassaEstabSelec,   
+FormAltMassaEstabSelecCampo,
+
+FormAltMassaEmpreTodos,
+FormAltMassaEmpreEspec,
+FormAltMassaEmpreEspecCampo,
+FormAltMassaEmpreSelec,
+FormAltMassaEmpreSelecCampo,
+
+FormAltMassaProcTodos,
+FormAltMassaProcEspec,
+FormAltMassaProcEspecCampo,
+FormAltMassaProcSelec,
+FormAltMassaProcSelecCampo,
+
+FormAltMassaDataDtIni,	
+FormAltMassaDataDtFin, 
+
+FormAltMassaDados,
+FormAltMassaOpcAlt,
+FormAltMassaDataPagto, 
+FormAltMassaBtnCheck, 
+
+BtnExecutar,
+           
+BtnSalvar   : OleVariant;
+
+
+
+
+
+
+procedure MapCadAltMassa();
+begin
+FormPadraoAltMassa  				      := Aliases.Folha.FRhProcAtuDataPgtoCalcBase;
+  
+FormAltMassaEstabEspec          	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab40;
+FormAltMassaEstabEspecCampo     	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab80;
+FormAltMassaEstabTodosEmp       	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab50;
+FormAltMassaEstabTodosEmpCampo  	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab100;
+FormAltMassaEstabTodos          	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab120;
+FormAltMassaEstabSelec          	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab60;
+FormAltMassaEstabSelecCampo     	:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEstab.whEstab70;
+  
+FormAltMassaEmpreTodos       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado30;
+FormAltMassaEmpreEspec       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado20;
+FormAltMassaEmpreEspecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado50;
+FormAltMassaEmpreSelec       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado40;
+FormAltMassaEmpreSelecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEmpregado.whEmpregado80;
+  
+FormAltMassaProcTodos       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos30;
+FormAltMassaProcEspec       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos20;
+FormAltMassaProcEspecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos50;
+FormAltMassaProcSelec       			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos40;
+FormAltMassaProcSelecCampo  			:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whProcessos.whProcessos80;
+  
+FormAltMassaDataDtIni						  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas20;
+FormAltMassaDataDtFin 						:= Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whEntreDatas.whEntreDatas30;
+ 
+FormAltMassaDados                 := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados;
+FormAltMassaOpcAlt  						  := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_OPCALT;
+FormAltMassaDataPagto  				    := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.EB_DATAPAGTO;
+  
+FormAltMassaBtnCheck              := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.pg.tsSelecao.SB_Selecao.whDados.cbSubDados;
+
+
+BtnExecutar                       := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.bExecutar;
+
+BtnSalvar                         := Aliases.Folha.FRhProcAtuDataPgtoCalcBase.tbSalvar;
+end;
+
+
