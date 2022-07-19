@@ -3364,7 +3364,7 @@
 											</testItem>
 										</children>
 									</testItem>
-									<testItem name="Especiais" key="{A6DD4F2E-9D73-4F99-8F6A-A636F98D6470}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+									<testItem name="Especiais" key="{A6DD4F2E-9D73-4F99-8F6A-A636F98D6470}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
 											<testItem name="Alterações em Massa" key="{D1E661C4-8CDE-444D-8B7E-C31FAA634E6D}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
@@ -3391,12 +3391,29 @@
 													</testItem>
 												</children>
 											</testItem>
-											<testItem name="Status do WebService" key="{1774FC73-0918-4203-BE1C-037F49C925CE}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Status do WebService" key="{1774FC73-0918-4203-BE1C-037F49C925CE}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="ConsultaWebService" key="{60845E53-0830-4575-941C-8325E4D6C210}" group="False" parallel="False" enabled="True" testMoniker="{6B9B6F38-77BA-449E-BF2C-B0EB432BAEF4}ConsultaWebService" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="ConsultaWebService" key="{60845E53-0830-4575-941C-8325E4D6C210}" group="False" parallel="False" enabled="False" testMoniker="{6B9B6F38-77BA-449E-BF2C-B0EB432BAEF4}ConsultaWebService" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="11" value="True" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+										</children>
+									</testItem>
+									<testItem name="Relatórios" key="{15A04990-3388-49FB-9A1F-0675D4D75B3D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children>
+											<testItem name="Contribuições Sociais" key="{CD3871F7-E794-4A3D-9F99-C9917EC62A40}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="ExecutaContribSocial" key="{D591BE0B-F97E-433F-BC7A-C931552169FB}" group="False" parallel="False" enabled="True" testMoniker="{15D275A4-B4D0-49D7-85D0-D1CBD3C1E084}ExecutaContribSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Relatórios\Contribuições Sociais\Contribuições Sociais.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

@@ -1,0 +1,72 @@
+﻿{Script para mapear o eSocial - Relatórios - Contribuições Sociais
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+var 
+FormPadraoAltMassa,
+                                 
+FormContribSocEstabEspec,
+FormContribSocEstabEspecCampo,
+FormContribSocEstabTodosEmp,
+FormContribSocEstabTodosEmpCampo,
+FormContribSocEstabTodos,
+FormContribSocEstabSelec,
+FormContribSocEstabSelecCampo,
+
+FormContribSocEmpreTodos,
+FormContribSocEmpreEspec,
+FormContribSocEmpreEspecCampo,
+FormContribSocEmpreSelec,
+FormContribSocEmpreSelecCampo,
+
+
+FormContribSocPrestTodos,
+FormContribSocPrestEspec,
+FormContribSocPrestEspecCampo,
+FormContribSocPrestSelec,
+FormContribSocPrestSelecCampo,
+                               
+FormDadosTipo,
+FormDadosMesAno,
+FormDadosOrdem,
+                               
+FormPesquisar :OleVariant;
+  
+
+procedure MapCadContribSoc();
+begin
+ 
+FormPadraoAltMassa  					      := Aliases.Folha.FRhRelContribeSocial;
+
+FormContribSocEstabEspec        		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs40;
+FormContribSocEstabEspecCampo    		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs80;
+FormContribSocEstabTodosEmp     		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs50;
+FormContribSocEstabTodosEmpCampo 		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs100;
+FormContribSocEstabTodos         		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs120;
+FormContribSocEstabSelec         		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs60;
+FormContribSocEstabSelecCampo    		:= Aliases.Folha.FRhRelContribeSocial.whEstabs.whEstabs70;
+  
+//  Aliases.Folha.FRhRelContribeSocial.whPessoas;
+//  Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas10;
+  
+FormContribSocEmpreTodos       			:= Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas30;
+FormContribSocEmpreEspec       			:= Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas20;
+FormContribSocEmpreEspecCampo  			:= Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas50;
+FormContribSocEmpreSelec       			:= Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas40;
+FormContribSocEmpreSelecCampo  			:= Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas80;
+  
+//  Aliases.Folha.FRhRelContribeSocial.whPrestador;
+//  Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador10;
+  
+FormContribSocPrestTodos        		:= Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador30;
+FormContribSocPrestEspec        		:= Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador20;
+FormContribSocPrestEspecCampo   		:= Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador50;
+FormContribSocPrestSelec        		:= Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador40;
+FormContribSocPrestSelecCampo   		:= Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador80;
+  
+FormDadosTipo  					  := Aliases.Folha.FRhRelContribeSocial.GroupBox1.EB_TIPO;
+FormDadosMesAno  					:= Aliases.Folha.FRhRelContribeSocial.GroupBox1.EB_MESANO;
+FormDadosOrdem  					:= Aliases.Folha.FRhRelContribeSocial.GroupBox1.EB_ORDEM;
+
+FormPesquisar                       := Aliases.Folha.FRhRelContribeSocial.BPreview;
+end;

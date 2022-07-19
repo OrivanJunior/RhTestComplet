@@ -1,0 +1,138 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolContribSociais, 
+  ObjContribSociais;
+
+
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormContribSocEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormContribSocEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormContribSocEstabTodosEmp.ClickButton;
+    VerificaInsere(FormContribSocEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormContribSocEstabSelec.ClickButton;
+    VerificaInsere(FormContribSocEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormContribSocEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+ 
+ 
+procedure FiltraPessoas();
+begin
+  if (FormContribSocEmpreTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelContribeSocial.whPessoas.whPessoas10.Click();
+    
+  if (FiltroEmpreTipo = _Especifico) then
+  begin
+    FormContribSocEmpreEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormContribSocEmpreEspecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Pessoas - Específico, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Selecionados) then
+  begin
+    FormContribSocEmpreSelec.ClickButton;
+    VerificaInsere(FormContribSocEmpreSelecCampo, FiltroEmpreValor);
+    Log.Checkpoint('Selecionado Pessoas- Selecionados, com valor: ' + FiltroEmpreValor);
+  end
+  else if (FiltroEmpreTipo = _Todos) then
+  begin
+    FormContribSocEmpreTodos.ClickButton;
+    Log.Checkpoint('Selecionado Pessoas - Todos');
+  end;
+end;
+
+
+procedure FiltraPrestadores();
+begin
+  if (FormContribSocPrestTodos.VisibleOnScreen = false) then
+    Aliases.Folha.FRhRelContribeSocial.whPrestador.whPrestador10.Click();
+    
+  if (FiltroPrestTipo = _Especifico) then
+  begin
+    FormContribSocPrestEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormContribSocPrestEspecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Específico, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Selecionados) then
+  begin
+    FormContribSocPrestSelec.ClickButton;
+    VerificaInsere(FormContribSocPrestSelecCampo, FiltroPrestValor);
+    Log.Checkpoint('Selecionado Prestador - Selecionados, com valor: ' + FiltroPrestValor);
+  end
+  else if (FiltroPrestTipo = _Todos) then
+  begin
+    FormContribSocPrestTodos.ClickButton;
+    Log.Checkpoint('Selecionado Prestador - Todos');
+  end;
+end;
+
+procedure PreencheDadosAdicionais();
+begin
+VerificaInsere(FormDadosTipo,FiltroDadosTipo);
+VerificaInsere(FormDadosOrdem,FiltroDadosOrdem);
+VerificaInsere(FormDadosMesAno,FiltroDadosMesAno);
+end;
+
+
+
+procedure ExecutaContribSocial(pathData);
+var
+  BtnOK;
+  DDTContribSocial: OleVariant;
+begin
+  
+  AcessaItem(_ModuloFolha, 'eSocial', 'Relatórios', 'Contribuições Sociais');
+
+  MapCadContribSoc();
+
+  DDTContribSocial := CarregaDDT(pathData, 'Filtro');
+
+  LeDataPoolCadContribSocial(DDTContribSocial.Name);
+  
+  FiltraEstab();
+  
+  FiltraPessoas();
+  
+  FiltraPrestadores();
+  
+  PreencheDadosAdicionais();
+
+  BtnPesquisar.Click();
+  
+    if (Aliases.Folha.ppPrintPreview.Exists) then
+  begin
+  Delay(200);
+  Aliases.Folha.ppPrintPreview.Close; 
+  end; 
+  
+  if (Aliases.Folha.FVsErrorDlg.Exists) then
+  begin
+  Log.Warning('Não há registros');
+  BtnOK := Aliases.Folha.FVsErrorDlg.ButtonPanel.OKBtn;
+  BtnOK.ClickButton;
+  end;
+ 
+
+  ActFechar(FormPadraoContribSoc);
+       
+  DDT.CloseDriver(DDTContribSocial.Name);
+end;
