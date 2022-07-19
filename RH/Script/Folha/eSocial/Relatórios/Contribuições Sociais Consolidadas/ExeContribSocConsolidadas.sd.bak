@@ -1,0 +1,73 @@
+﻿uses
+  CommonsAll, 
+  CommonsObj, 
+  VarConsts,
+  DataPoolContribSocConsolidadas, 
+  ObjContribSocConsolidadas;
+
+procedure FiltraEstab();
+begin
+  if (FiltroEstabTipo = _Especifico) then
+  begin
+    FormContribSocConsEstabEspec.ClickButton;
+    VerificaConsultaF3Insere(_ModuloFolha, FormContribSocConsEstabEspecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Específico, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _TodosEmpresa) then
+  begin
+    FormContribSocConsEstabTodosEmp.ClickButton;
+    VerificaInsere(FormContribSocConsEstabTodosEmpCampo, FiltroEstabValor);  
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos da Empresa: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Selecionados) then
+  begin
+    FormContribSocConsEstabSelec.ClickButton;
+    VerificaInsere(FormContribSocConsEstabSelecCampo, FiltroEstabValor);
+    Log.Checkpoint('Selecionado Estabelecimentos - Selecionados, com valor: ' + FiltroEstabValor);
+  end
+  else if (FiltroEstabTipo = _Todos) then
+  begin
+    FormContribSocConsEstabTodos.ClickButton;
+    Log.Checkpoint('Selecionado Estabelecimentos - Todos');
+  end;
+end;
+
+procedure FiltraDadosAdicionais();
+begin
+
+if (FormContribSocConsMesAno.VisibleOnSreen = False) then
+Aliases.Folha.FRhRelContribeSocialCons.whDados.whDados10.Click;
+
+VerificaInsere(FormContribSocConsMesAno,FiltroContribSocConsMesAno)
+end;
+
+
+procedure ExecutaAlteracaoMassa(pathData);
+var
+  DDTAltMassa: OleVariant;
+begin
+  
+  AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Alterações em Massa');
+
+  MapCadAltMassa();
+
+  DDTAltMassa := CarregaDDT(pathData, 'Filtro');
+
+  LeDataPoolAltMassa(DDTAltMassa.Name);
+  
+  FiltraEstab();
+  
+  DadosAdicionais();
+
+  BtnExecutar.Click();
+  
+  btnSalvar.Click();
+     
+  
+  if Aliases.Folha.dlgAten_o.Exists then
+      Aliases.Folha.dlgAten_o.btnOK.ClickButton;   
+      
+      ActFechar(FormPadraoAltMassa);
+       
+  DDT.CloseDriver(DDTAltMassa.Name);
+end;

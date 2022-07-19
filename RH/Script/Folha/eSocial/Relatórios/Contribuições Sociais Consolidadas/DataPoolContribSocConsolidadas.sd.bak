@@ -1,0 +1,14 @@
+﻿var
+FiltroEstabTipo,
+FiltroEstabValor,
+                          
+FiltroContribSocConsMesAno : OleVariant;
+procedure LeDataPoolAltMassa(nomeDriver);
+begin
+  { Filtro Estab }
+  FiltroEstabTipo             := DDT.DriverByName(nomeDriver).Value('TIPOESTAB');
+  FiltroEstabValor            := DDT.DriverByName(nomeDriver).Value('ESTABVALOR');
+
+  FiltroContribSocConsMesAno  := DDT.DriverByName(nomeDriver).Value('MESANO');
+end;
+

@@ -1,0 +1,34 @@
+﻿{Script para mapear o eSocial - Relatórios - Contribuições Sociais Consolidadas
+ Módulo: Folha
+ Autor: Orivan lemes dos Santos Junior
+ Data: 19/07/2022}
+var
+FormPadraoContribSocCons,
+                                    
+FormContribSocConsEstabEspec,
+FormContribSocConsEstabEspecCampo,
+FormContribSocConsEstabTodosEmp,
+FormContribSocConsEstabTodosEmpCampo,
+FormContribSocConsEstabTodos,
+FormContribSocConsEstabSelec,
+FormContribSocConsEstabSelecCampo, 
+FormContribSocConsMesAno : OleVariant;
+ 
+
+procedure MapCadContribSocCons();
+begin
+FormPadraoContribSocCons 				      := Aliases.Folha.FRhRelContribeSocialCons;
+  
+FormContribSocConsEstabEspec  			  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs40;
+FormContribSocConsEstabEspecCampo  	  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs80;
+FormContribSocConsEstabTodosEmp  		  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs50;
+FormContribSocConsEstabTodosEmpCampo  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs100;
+FormContribSocConsEstabTodos  			  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs120;
+FormContribSocConsEstabSelec  			  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs60;
+FormContribSocConsEstabSelecCampo  	  := Aliases.Folha.FRhRelContribeSocialCons.whEstabs.whEstabs70;
+
+  
+//  Aliases.Folha.FRhRelContribeSocialCons.whDados.whDados10;
+
+FormContribSocConsMesAno  				    := Aliases.Folha.FRhRelContribeSocialCons.whDados.EB_MESANO;
+end;
