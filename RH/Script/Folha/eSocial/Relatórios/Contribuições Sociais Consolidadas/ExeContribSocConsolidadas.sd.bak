@@ -35,39 +35,39 @@ end;
 procedure FiltraDadosAdicionais();
 begin
 
-if (FormContribSocConsMesAno.VisibleOnSreen = False) then
-Aliases.Folha.FRhRelContribeSocialCons.whDados.whDados10.Click;
+if (BtnFiltroDados.Minimizado = True) then
+BtnFiltroDados.Click;
 
 VerificaInsere(FormContribSocConsMesAno,FiltroContribSocConsMesAno)
 end;
 
 
-procedure ExecutaAlteracaoMassa(pathData);
+procedure ExecutaContribSocCons(pathData);
 var
-  DDTAltMassa: OleVariant;
+  DDTContribSocCons: OleVariant;
 begin
   
-  AcessaItem(_ModuloFolha, 'eSocial', 'Especiais', 'Alterações em Massa');
+  AcessaItem(_ModuloFolha, 'eSocial', 'Relatórios', 'Contribuições Sociais Consolidadas');
 
-  MapCadAltMassa();
+  MapCadContribSocCons();
 
-  DDTAltMassa := CarregaDDT(pathData, 'Filtro');
+  DDTContribSocCons := CarregaDDT(pathData, 'Filtro');
 
-  LeDataPoolAltMassa(DDTAltMassa.Name);
+  LeDataPoolContriSocCons(DDTContribSocCons.Name);
   
   FiltraEstab();
   
-  DadosAdicionais();
+  FiltraDadosAdicionais();
 
-  BtnExecutar.Click();
+  BtnPesquisar.Click();
   
-  btnSalvar.Click();
-     
   
-  if Aliases.Folha.dlgAten_o.Exists then
-      Aliases.Folha.dlgAten_o.btnOK.ClickButton;   
-      
-      ActFechar(FormPadraoAltMassa);
+  if (Aliases.Folha.ppPrintPreview.Exists) then
+  begin Delay(200);
+  Aliases.Folha.ppPrintPreview.Close;
+  end;
+  
+  ActFechar(FormPadraoContribSocCons);
        
-  DDT.CloseDriver(DDTAltMassa.Name);
+  DDT.CloseDriver(DDTContribSocCons.Name);
 end;

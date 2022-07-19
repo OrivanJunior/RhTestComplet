@@ -3408,12 +3408,24 @@
 									<testItem name="Relatórios" key="{15A04990-3388-49FB-9A1F-0675D4D75B3D}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 										<testParameters />
 										<children>
-											<testItem name="Contribuições Sociais" key="{CD3871F7-E794-4A3D-9F99-C9917EC62A40}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+											<testItem name="Contribuições Sociais" key="{CD3871F7-E794-4A3D-9F99-C9917EC62A40}" group="True" parallel="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 												<testParameters />
 												<children>
-													<testItem name="ExecutaContribSocial" key="{D591BE0B-F97E-433F-BC7A-C931552169FB}" group="False" parallel="False" enabled="True" testMoniker="{15D275A4-B4D0-49D7-85D0-D1CBD3C1E084}ExecutaContribSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+													<testItem name="ExecutaContribSocial" key="{D591BE0B-F97E-433F-BC7A-C931552169FB}" group="False" parallel="False" enabled="False" testMoniker="{15D275A4-B4D0-49D7-85D0-D1CBD3C1E084}ExecutaContribSocial" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 														<testParameters>
 															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Relatórios\Contribuições Sociais\Contribuições Sociais.xls" />
+														</testParameters>
+														<environments activeCloud="CBT" />
+														<children />
+													</testItem>
+												</children>
+											</testItem>
+											<testItem name="Contribuições Sociais Consolidadas" key="{BD93161D-FF9B-4335-A031-99C4FF2B5A93}" group="True" parallel="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+												<testParameters />
+												<children>
+													<testItem name="ExecutaContribSocCons" key="{75613911-A9AE-4E70-96C7-2613081A297F}" group="False" parallel="False" enabled="True" testMoniker="{43953FB5-7094-4181-BECB-6F7D11F43411}ExecutaContribSocCons" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+														<testParameters>
+															<param0 name="pathData" type="3" localVarName="" varType="8" value="D:\TestComplete\RhTestComplet\DataPool\Folha\eSocial\Relatórios\Contribuições Sociais Consolidadas\Contribuições Sociais Consolidadas.xls" />
 														</testParameters>
 														<environments activeCloud="CBT" />
 														<children />

@@ -12,7 +12,9 @@ FormContribSocConsEstabTodosEmpCampo,
 FormContribSocConsEstabTodos,
 FormContribSocConsEstabSelec,
 FormContribSocConsEstabSelecCampo, 
-FormContribSocConsMesAno : OleVariant;
+FormContribSocConsMesAno, 
+
+BtnPesquisar : OleVariant;
  
 
 procedure MapCadContribSocCons();
@@ -31,4 +33,8 @@ FormContribSocConsEstabSelecCampo  	  := Aliases.Folha.FRhRelContribeSocialCons.
 //  Aliases.Folha.FRhRelContribeSocialCons.whDados.whDados10;
 
 FormContribSocConsMesAno  				    := Aliases.Folha.FRhRelContribeSocialCons.whDados.EB_MESANO;
+
+BtnPesquisar                          := Aliases.Folha.FRhRelContribeSocialCons.BPreview;
 end;
+
+
